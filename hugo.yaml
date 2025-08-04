@@ -1,6 +1,6 @@
 baseURL: https://aerocool.ua/
 # Основной URL вашего сайта. В Hugo нужен для генерации абсолютных ссылок.
-languageCode: en-us
+languageCode: uk-UA
 # Язык сайта в формате кодов языков (en-us — английский, США).
 title: Aerocool
 # Заголовок сайта, обычно выводится в <title> и в логотипе.
@@ -32,74 +32,47 @@ params:
   logo: /images/logo.svg
 # Путь к логотипу
   label:
-    icon: images/logo.svg
+    icon: /images/logo.svg
 # Путь к логотипу
     iconHeight: 50
 # Высота логотипа
     text: " "
 # Скрывает текст рядом с логотипом
+  favicon: "/images/favicon.ico"
+  canonicalURL: "https://aerocool.ua"
+  images: ["/images/logo.svg"]
+
+permalinks:
+  chairs: /chairs/:slug/
+  articles: /articles/:slug/
+  news: /news/:slug/
 
 # Устанавливает язык по умолчанию (используется, если язык не указан явно)
-defaultContentLanguage: en
+defaultContentLanguage: uk
 
 # Включает добавление к URL подкаталога для языка по умолчанию (например, /en/)
 # Это важно для SEO и симметрии всех URL между языками
 defaultContentLanguageInSubdir: true
 
+
 # Определение доступных языков на сайте
-languages:
-  en:
-    languageName: English
-  uk:
-    languageName: Українська
-  ru:
-    languageName: Русский
-
-# ==== Английская версия сайта ====
-  en:
-    languageName: English            # Название языка, отображается в переключателе языков
-    weight: 1                        # Чем меньше число, тем выше в списке языков
-    menu:
-      main:                          # Главное меню (будет отображаться в шапке или навигации)
-        - identifier: chairs         # Уникальный ID пункта меню, нужен Hugo для сопоставления с другими языками
-          name: Gaming Chairs        # Название пункта меню, отображаемое в интерфейсе
-          url: /chairs/              # Относительный URL. Hugo сам добавит /en/ или /uk/ в зависимости от языка
-          weight: 10                 # Вес — чем меньше, тем выше в списке меню
-        - identifier: about
-          name: About Aerocool
-          url: /about/
-          weight: 20
-        - identifier: articles
-          name: Articles
-          url: /articles/
-          weight: 30
-        - identifier: news
-          name: News
-          url: /news/
-          weight: 40
-        - identifier: howto
-          name: How To
-          url: /howto/
-          weight: 50
-        - identifier: faq
-          name: FAQ
-          url: /faq/
-          weight: 60
-        - identifier: contact
-          name: Contact
-          url: /contact/
-          weight: 70
-
 # ==== Украинская версия сайта ====
+languages:
   uk:
     languageName: Українська              # Название языка для отображения в переключателе
-    weight: 2                             # Порядок отображения языков (второй после английского)
+    languageCode: uk-UA
+    weight: 1                             # Чем меньше число, тем выше в списке языков
+    params:
+      description: "Офіційний сайт Aerocool в Україні"
+      title: "Aerocool Україна"
+      keywords: [ "ігрові крісла", "Aerocool", "крісло для геймерів" ]
+    contentDir: content/uk
     menu:
-      main:
-        - identifier: chairs              # Тот же identifier, что и в английской версии — это важно
-          name: Ігрові крісла             # Переведённое название пункта меню
-          url: /chairs/                   # URL тот же — Hugo сам поставит /uk/ в начале
-          weight: 10
+      main:                               # Главное меню (будет отображаться в шапке или навигации)
+        - identifier: chairs              # Уникальный ID пункта меню, нужен Hugo для сопоставления с другими языками
+          name: Ігрові крісла             # Название пункта меню, отображаемое в интерфейсе
+          url: /chairs/                   # Относительный URL. Hugo сам добавит /en/ или /uk/ в зависимости от языка
+          weight: 10                      # Вес — чем меньше, тем выше в списке меню
         - identifier: about
           name: Про Aerocool
           url: /about/
@@ -128,7 +101,13 @@ languages:
 # ==== Русская версия сайта ====
   ru:
     languageName: Русский                 # Название языка для отображения в переключателе
-    weight: 3                             # Порядок отображения языков (второй после английского)
+    languageCode: ru-RU
+    weight: 2                             # Порядок отображения языков (второй после английского)
+    params:
+      description: "Официальный сайт Aerocool в Украине"
+      title: "Aerocool Украина"
+      keywords: [ "игровые кресла", "Aerocool", "кресло для геймеров" ]
+    contentDir: content/ru
     menu:
       main:
         - identifier: chairs              # Тот же identifier, что и в английской версии — это важно
