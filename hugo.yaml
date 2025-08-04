@@ -4,10 +4,9 @@ languageCode: uk-UA
 # Язык сайта в формате кодов языков (en-us — английский, США).
 title: Aerocool
 # Заголовок сайта, обычно выводится в <title> и в логотипе.
-
-# Переключение между темами, у меня установлены PaperMod, Eclectic
 theme: PaperMod
 #theme: Eclectic
+# Переключение между темами, у меня установлены PaperMod, Eclectic
 
 params:
   env: development
@@ -38,14 +37,32 @@ params:
 # Высота логотипа
     text: " "
 # Скрывает текст рядом с логотипом
-  favicon: "/images/favicon.ico"
-  canonicalURL: "https://aerocool.ua"
-  images: ["/images/logo.svg"]
-  mainSections: ["posts"]
 
+# путь к фавиконке (иконка сайта на вкладке браузера)
+favicon: "/images/favicon.ico"
+
+# канонический URL сайта — указывает поисковикам основной адрес сайта
+canonicalURL: "https://aerocool.ua"
+
+# изображение по умолчанию для Open Graph / Twitter Cards (например, логотип)
+images: ["/images/logo.svg"]
+
+# указываем Hugo, какие разделы контента считать главными (используется на главной, в RSS и sitemap)
+mainSections: ["posts"]
+
+# настройка структуры URL (человекочитаемые адреса) для разных типов контента
 permalinks:
+  # для контента из папки content/chairs/
+  # пример: content/chairs/alpha.md с параметром slug: alpha
+  # будет доступен по адресу: https://aerocool.ua/chairs/alpha/
   chairs: /chairs/:slug/
+
+  # аналогично для статей
+  # пример: content/articles/ergonomics.md → https://aerocool.ua/articles/ergonomics/
   articles: /articles/:slug/
+
+  # и для новостей
+  # пример: content/news/sale.md → https://aerocool.ua/news/sale/
   news: /news/:slug/
 
 # Устанавливает язык по умолчанию (используется, если язык не указан явно)
@@ -54,7 +71,6 @@ defaultContentLanguage: uk
 # Включает добавление к URL подкаталога для языка по умолчанию (например, /en/)
 # Это важно для SEO и симметрии всех URL между языками
 defaultContentLanguageInSubdir: true
-
 
 # Определение доступных языков на сайте
 # ==== Украинская версия сайта ====
