@@ -4,7 +4,6 @@ description: "Краткое описание сайта для поискови
 keywords: ["Aerocool", "игровые кресла", "комфорт", "эргономика"]
 image: "/images/seo-cover.jpg" # Open Graph / Twitter
 aliases: ["/home", "/main"]
-type: "page"
 ---
 
 # Aerocool — лучшие игровые кресла 2025 года
