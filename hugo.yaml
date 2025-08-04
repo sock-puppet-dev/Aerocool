@@ -41,6 +41,7 @@ params:
   favicon: "/images/favicon.ico"
   canonicalURL: "https://aerocool.ua"
   images: ["/images/logo.svg"]
+  mainSections: ["posts"]
 
 permalinks:
   chairs: /chairs/:slug/
