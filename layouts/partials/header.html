@@ -43,8 +43,11 @@
                         <!-- Меняем размер логотипа, если это растр -->
                     {{- end }}
 
-                    <img src="{{ $img.Permalink }}" alt="" aria-label="logo"
-                        height="{{- site.Params.label.iconHeight | default "30" -}}">
+                    <img src="{{ $img.Permalink }}"
+                            alt="Aerocool Logo"
+                            aria-label="logo"
+                            width="{{ site.Params.label.iconWidth | default "150" }}"
+                            height="{{ site.Params.label.iconHeight | default "30" }}">
                     <!-- Вставляем логотип как <img> -->
 
                 {{- else }}
