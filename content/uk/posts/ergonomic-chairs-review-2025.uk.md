@@ -36,11 +36,6 @@ markup:
     creator: "@AerocoolOfficial"
     image: "/images/posts/ergonomic-chairs-cover.jpg"
 
-# JSON-LD (structured data)
-outputs:
-  - html
-  - json
-
 # PaperMod настройки
 ShowToc: true
 TocOpen: true

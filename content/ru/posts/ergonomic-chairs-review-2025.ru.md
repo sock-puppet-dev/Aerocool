@@ -36,11 +36,6 @@ markup:
     creator: "@AerocoolOfficial"
     image: "/images/posts/ergonomic-chairs-cover.jpg"
 
-# JSON-LD (структурированные данные)
-outputs:
-  - html
-  - json
-
 # SEO-усиление для PaperMod
 ShowToc: true
 TocOpen: true
