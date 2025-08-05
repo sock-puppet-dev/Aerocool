@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Офлайн</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 2rem; }
+  </style>
+</head>
+<body>
+  <h1 id="heading"></h1>
+  <p id="message"></p>
+
+  <script>
+    const lang = navigator.language || navigator.userLanguage;
+    const isUk = lang.startsWith('uk');
+    const isRu = lang.startsWith('ru');
+
+    if (isUk) {
+      document.documentElement.lang = 'uk';
+      document.getElementById('heading').textContent = 'Ви офлайн';
+      document.getElementById('message').textContent = 'Будь ласка, перевірте зʼєднання з інтернетом.';
+    } else if (isRu) {
+      document.documentElement.lang = 'ru';
+      document.getElementById('heading').textContent = 'Вы офлайн';
+      document.getElementById('message').textContent = 'Пожалуйста, проверьте подключение к интернету.';
+    } else {
+      document.documentElement.lang = 'uk';
+      document.getElementById('heading').textContent = 'Ви офлайн';
+      document.getElementById('message').textContent = 'Будь ласка, перевірте зʼєднання з інтернетом.';
+    }
+  </script>
+</body>
+</html>
