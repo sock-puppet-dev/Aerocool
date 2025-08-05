@@ -7,7 +7,8 @@ title: Aerocool
 theme: PaperMod
 #theme: Eclectic
 # Переключение между темами, у меня установлены PaperMod, Eclectic
-paginate: 5
+pagination:
+  pagerSize: 5
 # Количество элементов (постов, страниц) на одной странице пагинации
 enableRobotsTXT: true
 # Флаг включения автоматической генерации файла robots.txt
