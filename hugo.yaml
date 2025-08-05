@@ -38,8 +38,21 @@ params:
     text: " "
 # Скрывает текст рядом с логотипом
 
-# путь к фавиконке (иконка сайта на вкладке браузера)
-favicon: "/images/favicon.ico"
+  assets:
+    favicon: "/images/favicon.ico"
+    # путь к фавиконке (иконка сайта на вкладке браузера)
+    # основной favicon для браузеров (обычно .ico).
+    favicon16x16: "/images/favicon-16x16.png"
+    favicon32x32: "/images/favicon-32x32.png"
+    # PNG-иконки для поддержки различных разрешений
+    apple_touch_icon: "/images/apple-touch-icon.png"
+    # Иконка для iOS-устройств.
+    safari_pinned_tab: "/images/safari-pinned-tab.svg"
+    # SVG-иконка для закрепленных вкладок в Safari (поддержка темного режима).
+    disableFingerprinting: false
+    # Включает добавление хэшей к именам файлов для кэширования.
+
+
 # канонический URL сайта — указывает поисковикам основной адрес сайта
 canonicalURL: "https://aerocool.ua"
 # изображение по умолчанию для Open Graph / Twitter Cards (например, логотип)
