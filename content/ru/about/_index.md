@@ -26,12 +26,9 @@ layout: "page"
 url: "/ru/about/"
 # Явно задаём путь URL, особенно важно при мультиязычии.
 
-lang: "ru"
-# Язык этой страницы (для hreflang и генерации атрибутов <html lang="ru">).
-
 menu:
   main:
-    identifier: about
+    identifier: about-ru
     name: "О компании"
     url: /ru/about/
     weight: 20

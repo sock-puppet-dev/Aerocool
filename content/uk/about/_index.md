@@ -26,12 +26,9 @@ layout: "page"
 url: "/uk/about/"
 # Чітко задаємо адресу URL (особливо важливо при мультимовності).
 
-lang: "uk"
-# Мова сторінки — впливає на hreflang, HTML <html lang="uk">, локалізацію.
-
 menu:
   main:
-    identifier: about
+    identifier: about-uk
     name: "Про компанію"
     url: /uk/about/
     weight: 20
