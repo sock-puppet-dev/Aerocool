@@ -100,7 +100,7 @@ params:
       - series               # Серии публикаций — поиск по тематическим или хронологическим сериям статей.
 # fuseOpts — параметры поиска Fuse.js
   profileMode:
-    enabled: false
+    enabled: true
 # включает homeInfoParams на главной странице
   homeInfoParams:
   Title: "Добро пожаловать на Aerocool — эксперты по эргономичным креслам 2025"
