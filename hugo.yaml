@@ -40,13 +40,10 @@ params:
 
 # путь к фавиконке (иконка сайта на вкладке браузера)
 favicon: "/images/favicon.ico"
-
 # канонический URL сайта — указывает поисковикам основной адрес сайта
 canonicalURL: "https://aerocool.ua"
-
 # изображение по умолчанию для Open Graph / Twitter Cards (например, логотип)
 images: ["/images/logo.svg"]
-
 # указываем Hugo, какие разделы контента считать главными (используется на главной, в RSS и sitemap)
 mainSections: ["posts"]
 
@@ -56,11 +53,9 @@ permalinks:
   # пример: content/chairs/alpha.md с параметром slug: alpha
   # будет доступен по адресу: https://aerocool.ua/chairs/alpha/
   chairs: /chairs/:slug/
-
   # аналогично для статей
   # пример: content/articles/ergonomics.md → https://aerocool.ua/articles/ergonomics/
   articles: /articles/:slug/
-
   # и для новостей
   # пример: content/news/sale.md → https://aerocool.ua/news/sale/
   news: /news/:slug/
@@ -77,13 +72,16 @@ defaultContentLanguageInSubdir: true
 languages:
   uk:
     languageName: Українська              # Название языка для отображения в переключателе
-    languageCode: uk-UA
+    languageCode: uk-UA                   # Полный код языка и региона (используется в <html lang="uk-UA"> для SEO)
     weight: 1                             # Чем меньше число, тем выше в списке языков
     params:
       description: "Офіційний сайт Aerocool в Україні"
+      # Мета-описание для SEO, можно использовать в <meta name="description">
       title: "Aerocool Україна"
+      # Заголовок сайта на украинском языке
       keywords: [ "ігрові крісла", "Aerocool", "крісло для геймерів" ]
-    contentDir: content/uk
+      # Ключевые слова для SEO (можно использовать в <meta name="keywords">)
+    contentDir: content/uk                # Папка с контентом для этого языка (все страницы для украинской версии)
     menu:
       main:                               # Главное меню (будет отображаться в шапке или навигации)
         - identifier: chairs              # Уникальный ID пункта меню, нужен Hugo для сопоставления с другими языками
@@ -155,5 +153,3 @@ languages:
           name: Контакты
           url: /contact/
           weight: 70
-
-
