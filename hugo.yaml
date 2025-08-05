@@ -72,7 +72,7 @@ params:
 # Автор
   ShowWordCount: true
 # Включает отображение количества слов в постах блога
-  disableSpecial1stPost: false
+  disableSpecial1stPost: true
 # Управляет особым оформлением первого поста на главной странице (или в списке постов).
 
 
