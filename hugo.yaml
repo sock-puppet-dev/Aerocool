@@ -7,12 +7,16 @@ title: Aerocool
 theme: PaperMod
 #theme: Eclectic
 # Переключение между темами, у меня установлены PaperMod, Eclectic
+security:
+  enableInlineShortcodes: false
+# защита от XSS и непреднамеренного выполнения вредоносного кода, особенно если контент редактируют другие
+hasCJKLanguage: false
+# включения поддержки языков с иероглифическим письмом
 pagination:
   pagerSize: 5
 # Количество элементов (постов, страниц) на одной странице пагинации
 enableRobotsTXT: true
 # Флаг включения автоматической генерации файла robots.txt
-
 
 params:
   env: development
@@ -99,6 +103,14 @@ params:
       - series               # Серии публикаций — поиск по тематическим или хронологическим сериям статей.
 # fuseOpts — параметры поиска Fuse.js
 
+#services:
+#  googleAnalytics:
+#    ID: G-XXXXXXXXXX  # ← вставь свой GA4 ID здесь
+
+sitemap:
+  changefreq: monthly
+  filename: sitemap.xml
+  priority: 0.5
 
 
 #  profileMode:
@@ -159,7 +171,6 @@ permalinks:
 
 # Устанавливает язык по умолчанию (используется, если язык не указан явно)
 defaultContentLanguage: uk
-
 # Включает добавление к URL подкаталога для языка по умолчанию (например, /en/)
 # Это важно для SEO и симметрии всех URL между языками
 defaultContentLanguageInSubdir: true
