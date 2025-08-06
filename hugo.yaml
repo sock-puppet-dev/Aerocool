@@ -17,16 +17,23 @@ pagination:
 # Количество элементов (постов, страниц) на одной странице пагинации
 enableRobotsTXT: true
 # Флаг включения автоматической генерации файла robots.txt
-buildStats:
-  enable: false
-  disableClasses: false
-  disableIDs: false
-  disableTags: false
+build:
+  buildStats:
+    enable: false
+    disableClasses: false
+    disableIDs: false
+    disableTags: false
+  cacheBusters:
+    - source: assets/watching/hugo_stats\.json
+      target: styles\.css
+    - source: (postcss|tailwind)\.config\.js
+      target: css
+    - source: assets/.*\.(js|ts|jsx|tsx)
+      target: js
+    - source: assets/.*\.(.*)$
+      target: $1
 # Отключает сбор статистики по ID, классам и тегам, которые Hugo встречает в контенте и шаблонах
 # Это полезно, если ты хочешь автоматически очищать CSS от неиспользуемого кода
-cacheBusters:
-  - source: (postcss|tailwind)\.config\.js
-    target: (css|styles|scss|sass)
 # Позволяет Hugo автоматически обновлять кэш браузера, когда изменяются определённые файлы.
 useResourceCacheWhen: always
 # always — всегда использовать кэш, если файл с таким хэшем уже есть.
