@@ -1,6 +1,4 @@
-baseURL: "/"
-# Значение по умолчанию (для локалки и preview)
-#baseURL: https://aerocool.ua/
+baseURL: https://aerocool.ua/
 # Основной URL вашего сайта. В Hugo нужен для генерации абсолютных ссылок.
 languageCode: uk-UA
 # Язык сайта в формате кодов языков (en-us — английский, США).
