@@ -24,21 +24,23 @@ build:
     disableClasses: false
     disableIDs: false
     disableTags: false
-cacheBusters:
-  - source: (postcss|tailwind)\.config\.js
-    target: css
-  - source: assets/.*\.(js|ts|jsx|tsx)
-    target: js
-  - source: assets/.*\.(css|scss|sass)
-    target: css
-  - source: assets/.*\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)
-    target: images
-  - source: assets/.*\.(.*)$
-    target: $1
+  cachebusters:
+    - source: 'assets/watching/hugo_stats\.json'
+      target: 'styles\.css'
+    - source: '(postcss|tailwind)\.config\.js'
+      target: 'css'
+    - source: 'assets/.*\.(js|ts|jsx|tsx)'
+      target: 'js'
+    - source: 'assets/.*\.(css|scss|sass)'
+      target: 'css'
+    - source: 'assets/.*\.(png|jpg|jpeg|gif|svg|webp|woff|woff2|ttf|eot)'
+      target: 'images'
+    - source: 'assets/.*\.(.*)$'
+      target: '$1'
 # Отключает сбор статистики по ID, классам и тегам, которые Hugo встречает в контенте и шаблонах
 # Это полезно, если ты хочешь автоматически очищать CSS от неиспользуемого кода
 # Позволяет Hugo автоматически обновлять кэш браузера, когда изменяются определённые файлы.
-useResourceCacheWhen: always
+  useResourceCacheWhen: always
 # always — всегда использовать кэш, если файл с таким хэшем уже есть.
 mediaTypes:
   image/jpeg:
@@ -157,6 +159,8 @@ params:
       - keywords             # Ключевые слова из front matter — дополнительный набор поисковых терминов.
       - series               # Серии публикаций — поиск по тематическим или хронологическим сериям статей.
 # fuseOpts — параметры поиска Fuse.js
+  canonicalURL: "https://aerocool.ua"
+# канонический URL сайта — указывает поисковикам основной адрес сайта
 sitemap:
   changefreq: monthly
   filename: sitemap.xml
@@ -193,8 +197,6 @@ sitemap:
     # Включает добавление хэшей к именам файлов для кэширования.
 
 
-# канонический URL сайта — указывает поисковикам основной адрес сайта
-canonicalURL: "https://aerocool.ua"
 # изображение по умолчанию для Open Graph / Twitter Cards (например, логотип)
 images: ["/images/logo.svg"]
 # указываем Hugo, какие разделы контента считать главными (используется на главной, в RSS и sitemap)
