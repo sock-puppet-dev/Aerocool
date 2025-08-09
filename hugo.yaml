@@ -159,7 +159,7 @@ params:
       - keywords             # Ключевые слова из front matter — дополнительный набор поисковых терминов.
       - series               # Серии публикаций — поиск по тематическим или хронологическим сериям статей.
 # fuseOpts — параметры поиска Fuse.js
-  canonicalURL: "https://aerocool.ua"
+  canonicalURL: "https://aerocool.ua/"
 # канонический URL сайта — указывает поисковикам основной адрес сайта
 sitemap:
   changefreq: monthly
