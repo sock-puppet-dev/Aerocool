@@ -41,31 +41,31 @@ cacheBusters:
 useResourceCacheWhen: always
 # always — всегда использовать кэш, если файл с таким хэшем уже есть.
 mediaTypes:
-  jpeg:
+  image/jpeg:
     suffixes:
       - jpg
       - jpeg
-    mediaType: images/jpeg
+    mediaType: image/jpeg
 
-  png:
+  image/png:
     suffixes:
       - png
-    mediaType: images/png
+    mediaType: image/png
 
-  gif:
+  image/gif:
     suffixes:
       - gif
-    mediaType: images/gif
+    mediaType: image/gif
 
-  svg:
+  image/svg+xml:
     suffixes:
       - svg
-    mediaType: images/svg+xml
+    mediaType: image/svg+xml
 
-  webp:
+  image/webp:
     suffixes:
       - webp
-    mediaType: images/webp
+    mediaType: image/webp
 # Оптимизация изображений, используйте возможности Hugo для обработки изображений,
 # чтобы обеспечить их оптимальный размер и качество. Это улучшит время загрузки страниц и SEO.
 
