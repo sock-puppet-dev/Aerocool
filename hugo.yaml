@@ -24,20 +24,33 @@ build:
     disableClasses: false
     disableIDs: false
     disableTags: false
-  cacheBusters:
-    - source: assets/watching/hugo_stats\.json
-      target: styles\.css
-    - source: (postcss|tailwind)\.config\.js
-      target: css
-    - source: assets/.*\.(js|ts|jsx|tsx)
-      target: js
-    - source: assets/.*\.(.*)$
-      target: $1
+cacheBusters:
+  - source: (postcss|tailwind)\.config\.js
+    target: css
+  - source: assets/.*\.(js|ts|jsx|tsx)
+    target: js
+  - source: assets/.*\.(css|scss|sass)
+    target: css
+  - source: assets/.*\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)
+    target: images
+  - source: assets/.*\.(.*)$
+    target: $1
 # Отключает сбор статистики по ID, классам и тегам, которые Hugo встречает в контенте и шаблонах
 # Это полезно, если ты хочешь автоматически очищать CSS от неиспользуемого кода
 # Позволяет Hugo автоматически обновлять кэш браузера, когда изменяются определённые файлы.
 useResourceCacheWhen: always
 # always — всегда использовать кэш, если файл с таким хэшем уже есть.
+mediaTypes:
+  image:
+    suffixes:
+      - jpg
+      - jpeg
+      - png
+      - gif
+      - svg
+      - webp
+# Оптимизация изображений, используйте возможности Hugo для обработки изображений,
+# чтобы обеспечить их оптимальный размер и качество. Это улучшит время загрузки страниц и SEO.
 
 params:
   env: development
@@ -70,8 +83,12 @@ params:
 # Ширина логотипа
     text: " "
 # Скрывает текст рядом с логотипом
-  description: "Лучшие эргономичные кресла 2025 года — подробные обзоры, сравнения, рейтинги и советы по выбору 
-  офисных и домашних кресел. Купить удобное кресло для здоровья и продуктивности — актуальные цены и отзывы экспертов."
+  structuredData: true
+# Включение поддержки структурированных данных (JSON-LD):
+# Это поможет поисковым системам лучше понимать содержание вашего сайта.
+  description: > 
+    Лучшие эргономичные кресла 2025 года — подробные обзоры, сравнения, рейтинги и советы по выбору 
+    офисных и домашних кресел. Купить удобное кресло для здоровья и продуктивности — актуальные цены и отзывы экспертов.
 # Для максимально SEO-оптимизированного описания (description) нужно использовать ключевые фразы,
 # релевантные теме сайта, которые чаще всего ищут пользователи,
 # а также сохранить естественность текста.
@@ -174,7 +191,7 @@ permalinks:
   chairs: /chairs/:slug/
   # аналогично для статей
   # пример: content/articles/ergonomics.md → https://aerocool.ua/articles/ergonomics/
-  about: /about/:slug
+  about: /about/:slug/
   # аналогично
   articles: /articles/:slug/
   # и для новостей
