@@ -45,27 +45,27 @@ mediaTypes:
     suffixes:
       - jpg
       - jpeg
-    mediaType: image/jpeg
+    mediaType: images/jpeg
 
   png:
     suffixes:
       - png
-    mediaType: image/png
+    mediaType: images/png
 
   gif:
     suffixes:
       - gif
-    mediaType: image/gif
+    mediaType: images/gif
 
   svg:
     suffixes:
       - svg
-    mediaType: image/svg+xml
+    mediaType: images/svg+xml
 
   webp:
     suffixes:
       - webp
-    mediaType: image/webp
+    mediaType: images/webp
 # Оптимизация изображений, используйте возможности Hugo для обработки изображений,
 # чтобы обеспечить их оптимальный размер и качество. Это улучшит время загрузки страниц и SEO.
 
