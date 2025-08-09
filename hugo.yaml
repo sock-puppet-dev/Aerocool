@@ -1,7 +1,8 @@
-baseURL: https://aerocool.ua/
 # Основной URL вашего сайта. В Hugo нужен для генерации абсолютных ссылок.
-languageCode: uk-UA
+baseURL: https://aerocool.ua/
 # Язык сайта в формате кодов языков (en-us — английский, США).
+languageCode: uk-UA
+
 title: Aerocool
 # Заголовок сайта, обычно выводится в <title> и в логотипе.
 theme: PaperMod
