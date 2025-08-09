@@ -18,14 +18,6 @@ layout: "page"
 url: "/ru/about/"
 # Явно задаём путь URL, особенно важно при мультиязычии.
 
-menu:
-  main:
-    identifier: about-ru
-    name: "О компании"
-    url: /ru/about/
-    weight: 20
-    # Позиция в меню: меньше — выше. Совпадает с укр. вариантом для синхронности.
-
 # SEO JSON-LD (для Google Knowledge Panel и расширенного сниппета)
 schema:
   type: "Organization"

@@ -18,14 +18,6 @@ layout: "page"
 url: "/uk/about/"
 # Чітко задаємо адресу URL (особливо важливо при мультимовності).
 
-menu:
-  main:
-    identifier: about-uk
-    name: "Про компанію"
-    url: /uk/about/
-    weight: 20
-    # Порядок у меню. Спільний ваговий параметр з іншими мовами для однакової структури.
-
 # Структуровані дані schema.org — допомагає Google формувати Knowledge Graph
 schema:
   type: "Organization"

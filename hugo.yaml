@@ -11,12 +11,13 @@ security:
   enableInlineShortcodes: false
 # защита от XSS и непреднамеренного выполнения вредоносного кода, особенно если контент редактируют другие
 hasCJKLanguage: false
-# включения поддержки языков с иероглифическим письмом
+# выключения поддержки языков с иероглифическим письмом
 pagination:
   pagerSize: 5
 # Количество элементов (постов, страниц) на одной странице пагинации
 enableRobotsTXT: true
 # Флаг включения автоматической генерации файла robots.txt
+
 build:
   buildStats:
     enable: false
@@ -37,7 +38,6 @@ build:
 # Позволяет Hugo автоматически обновлять кэш браузера, когда изменяются определённые файлы.
 useResourceCacheWhen: always
 # always — всегда использовать кэш, если файл с таким хэшем уже есть.
-
 
 params:
   env: development
@@ -123,16 +123,14 @@ params:
       - keywords             # Ключевые слова из front matter — дополнительный набор поисковых терминов.
       - series               # Серии публикаций — поиск по тематическим или хронологическим сериям статей.
 # fuseOpts — параметры поиска Fuse.js
-
-#services:
-#  googleAnalytics:
-#    ID: G-XXXXXXXXXX  # ← вставь свой GA4 ID здесь
-
 sitemap:
   changefreq: monthly
   filename: sitemap.xml
   priority: 0.5
 
+#services:
+#  googleAnalytics:
+#    ID: G-XXXXXXXXXX  # ← вставь свой GA4 ID здесь
 
 #  profileMode:
 #    enabled: true
