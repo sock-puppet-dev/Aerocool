@@ -2,7 +2,7 @@
 title: "Статьи и новости"
 description: "Читайте актуальные статьи, обзоры и советы по выбору игровых кресел Aerocool в Украине. Всё о комфорте, эргономике и новых моделях 2025 года."
 keywords: ["игровые кресла", "Aerocool", "обзоры", "новости", "эргономика", "как выбрать кресло"]
-image: "/images/articles-cover.jpg"  # для Open Graph / Twitter
+image: "/images/articles-cover.jpg"
 type: "section"
 layout: "section"
 aliases: ["/blog", "/articles", "/ru/blog", "/ru/articles"]
@@ -10,6 +10,12 @@ robots: "index, follow"
 canonical: "https://aerocool.ua/ru/articles/"
 date: 2025-08-04T12:00:00+03:00
 lastmod: 2025-08-04T12:00:00+03:00
+comments: true
+ShowToc: true
+TocOpen: false
+ShowReadingTime: true
+ShowWordCount: true
+ShowShareButtons: true
 ---
 
 # Последние статьи о креслах Aerocool
@@ -27,6 +33,8 @@ lastmod: 2025-08-04T12:00:00+03:00
 
 ## 📰 Новые статьи
 
+{{< recent-articles count="5" >}}
+
 ---
 
 ## 📥 Подпишитесь на обновления
@@ -36,6 +44,8 @@ lastmod: 2025-08-04T12:00:00+03:00
 ---
 
 ## 🏷 Популярные теги
+
+{{< popular-tags count="10" >}}
 
 ---
 

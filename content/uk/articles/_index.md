@@ -10,6 +10,12 @@ robots: "index, follow"
 canonical: "https://aerocool.ua/uk/articles/"
 date: 2025-08-04T12:00:00+03:00
 lastmod: 2025-08-04T12:00:00+03:00
+comments: true
+ShowToc: true
+TocOpen: false
+ShowReadingTime: true
+ShowWordCount: true
+ShowShareButtons: true
 ---
 
 # Останні статті про ігрові крісла Aerocool
@@ -27,6 +33,8 @@ lastmod: 2025-08-04T12:00:00+03:00
 
 ## 📰 Останні дописи
 
+{{< recent-articles count="5" >}}
+
 ---
 
 ## 📥 Підписка на новини
@@ -36,6 +44,8 @@ lastmod: 2025-08-04T12:00:00+03:00
 ---
 
 ## 📚 Популярні теги
+
+{{< popular-tags count="10" >}}
 
 ---
 
