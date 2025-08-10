@@ -78,4 +78,3 @@ canonicalURL: "https://aerocool.ua/uk/news/aerocool-crown-2025-launch/"
 ---
 
 <!-- SEO: структуровані дані JSON-LD для новини -->  
-{{< seo-jsonld-news title="Запуск нової моделі крісел Aerocool Crown 2025" date="2025-08-01T09:00:00+03:00" description="Передові технології та стиль у новій моделі Aerocool Crown 2025. Спеціальна знижка у серпні 2025!" image="/images/news/aerocool-crown-2025-launch.jpg" >}}
