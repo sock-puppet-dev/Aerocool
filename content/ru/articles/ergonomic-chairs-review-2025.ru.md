@@ -11,14 +11,14 @@ keywords: ["эргономичное кресло", "кресло для офи�
 robots: "index, follow"
 
 # Canonical URL
-canonicalURL: "https://aerocool-site.com/posts/ergonomic-chairs-review-2025/"
+canonicalURL: "https://aerocool-site.com/articles/ergonomic-chairs-review-2025/"
 
 # Языковые параметры (для hreflang)
-translationKey: "ergonomic-chairs-review-2025"
+translationKey: "ergonomic-products-review-2025"
 
 # Изображение для превью (Open Graph, Twitter Cards)
 images:
-  - "/images/posts/ergonomic-chairs-cover.jpg"
+  - "/images/articles/ergonomic-products-cover.jpg"
 
 # Author & Taxonomy
 authors: ["Dmytro Stadnyk"]
@@ -29,12 +29,12 @@ tags: ["эргономика", "кресла", "офис", "обзор", "2025"]
 markup:
   og:
     type: "article"
-    image: "/images/posts/ergonomic-chairs-cover.jpg"
+    image: "/images/articles/ergonomic-products-cover.jpg"
     description: "10 лучших эргономичных кресел 2025 года: сравнение моделей, плюсы и минусы, советы по выбору."
   twitter:
     card: "summary_large_image"
     creator: "@AerocoolOfficial"
-    image: "/images/posts/ergonomic-chairs-cover.jpg"
+    image: "/images/articles/ergonomic-products-cover.jpg"
 
 # SEO-усиление для PaperMod
 ShowToc: true

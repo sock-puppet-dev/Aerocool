@@ -15,7 +15,7 @@ footnoteReturnLinkContents = "^"
 # Specifically if series are present and a page has series
 # The related pages under the page come from the same series
 # With the right ordering (one before two after). If that series
-# Does not have enough posts, the related pages from Hugo are used.
+# Does not have enough articles, the related pages from Hugo are used.
 [taxonomies]
 category = "categories"
 tag = "tags"

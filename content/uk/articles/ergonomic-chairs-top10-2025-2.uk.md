@@ -13,11 +13,11 @@ draft: false
 canonicalURL: "https://aerocool.example.com/uk/krisla-top10-2025/"
 robots: "index, follow"
 images:
-  - "/images/posts/ergonomic-chairs-2025-cover.webp"
+  - "/images/articles/ergonomic-products-2025-cover.webp"
 
 # SEO — Open Graph / Twitter Cards
 titleTemplate: "%s | Aerocool"
-socialImage: "/images/posts/ergonomic-chairs-2025-cover.webp"
+socialImage: "/images/articles/ergonomic-products-2025-cover.webp"
 ogType: "article"
 twitterCard: "summary_large_image"
 
@@ -29,7 +29,7 @@ markup:
   publisher:
     name: "Aerocool"
     logo: "/images/logo.svg"
-  image: "/images/posts/ergonomic-chairs-2025-cover.webp"
+  image: "/images/articles/ergonomic-products-2025-cover.webp"
   datePublished: "2025-07-31T12:00:00+03:00"
   dateModified: "2025-07-31T12:00:00+03:00"
   headline: "Топ-10 ергономічних крісел 2025 року: гід по вибору"

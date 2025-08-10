@@ -198,13 +198,13 @@ sitemap:
 images: ["/images/logo.svg"]
 # !!! МАКСИМАЛЬНО УТОЧНИТЬ,
 # указываем Hugo, какие разделы контента считать главными (используется на главной, в RSS и sitemap)
-mainSections: ["posts"]
+mainSections: ["articles"]
 # настройка структуры URL (человекочитаемые адреса) для разных типов контента
 permalinks:
-  # для контента из папки content/chairs/
-  # пример: content/chairs/alpha.md с параметром slug: alpha
+  # для контента из папки content/products/
+  # пример: content/products/alpha.md с параметром slug: alpha
   # будет доступен по адресу: https://aerocool.ua/chairs/alpha/
-  chairs: /chairs/:slug/
+  products: /products/:slug/
   # аналогично для статей
   # пример: content/articles/ergonomics.md → https://aerocool.ua/articles/ergonomics/
   about: /about/:slug/
@@ -213,8 +213,6 @@ permalinks:
   # и для новостей
   # пример: content/news/sale.md → https://aerocool.ua/news/sale/
   news: /news/:slug/
-  # аналогично
-  howto: /howto/:slug/
   # аналогично
   faq: /faq/:slug/
   # аналогично
@@ -265,9 +263,9 @@ languages:
     contentDir: content/uk                # Папка с контентом для этого языка (все страницы для украинской версии)
     menu:
       main:                               # Главное меню (будет отображаться в шапке или навигации)
-        - identifier: chairs              # Уникальный ID пункта меню, нужен Hugo для сопоставления с другими языками
+        - identifier: products              # Уникальный ID пункта меню, нужен Hugo для сопоставления с другими языками
           name: Ігрові крісла             # Название пункта меню, отображаемое в интерфейсе
-          url: /chairs/                   # Относительный URL. Hugo сам добавит /en/ или /uk/ в зависимости от языка
+          url: /products/                   # Относительный URL. Hugo сам добавит /en/ или /uk/ в зависимости от языка
           weight: 10                      # Вес — чем меньше, тем выше в списке меню
         - identifier: about
           name: Про Aerocool
@@ -281,18 +279,14 @@ languages:
           name: Новини
           url: /news/
           weight: 40
-        - identifier: howto
-          name: Інструкції
-          url: /howto/
-          weight: 50
         - identifier: faq
           name: FAQ
           url: /faq/
-          weight: 60
+          weight: 50
         - identifier: contact
           name: Контакти
           url: /contact/
-          weight: 70
+          weight: 60
 
 # ==== Русская версия сайта ====
   ru:
@@ -327,9 +321,9 @@ languages:
     contentDir: content/ru
     menu:
       main:
-        - identifier: chairs              # Тот же identifier, что и в английской версии — это важно
+        - identifier: products              # Тот же identifier, что и в английской версии — это важно
           name: Игровые кресла            # Переведённое название пункта меню
-          url: /chairs/                   # URL тот же — Hugo сам поставит /ru/ в начале
+          url: /products/                   # URL тот же — Hugo сам поставит /ru/ в начале
           weight: 10
         - identifier: about
           name: Про Aerocool
@@ -343,15 +337,11 @@ languages:
           name: Новости
           url: /news/
           weight: 40
-        - identifier: howto
-          name: Инструкции
-          url: /howto/
-          weight: 50
         - identifier: faq
           name: FAQ
           url: /faq/
-          weight: 60
+          weight: 50
         - identifier: contact
           name: Контакты
           url: /contact/
-          weight: 70
+          weight: 60

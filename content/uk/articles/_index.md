@@ -5,9 +5,9 @@ keywords: ["ігрові крісла", "Aerocool", "огляди крісел",
 image: "/images/articles-cover.jpg"
 type: "section"
 layout: "section"
-aliases: ["/blog", "/posts", "/uk/blog", "/uk/articles"]
+aliases: ["/blog", "/articles", "/uk/blog", "/uk/articles"]
 robots: "index, follow"
-canonical: "https://aerocool.ua/uk/posts/"
+canonical: "https://aerocool.ua/uk/articles/"
 date: 2025-08-04T12:00:00+03:00
 lastmod: 2025-08-04T12:00:00+03:00
 ---
