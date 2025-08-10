@@ -31,21 +31,9 @@ ShowShareButtons: true
 
 ---
 
-## 📰 Останні дописи
-
-{{< recent-articles count="5" >}}
-
----
-
 ## 📥 Підписка на новини
 
 Не пропускайте важливих новин — [підпишіться на нашу розсилку](/uk/subscribe/) або слідкуйте за нами в [Instagram](https://instagram.com/aerocool_ua).
-
----
-
-## 📚 Популярні теги
-
-{{< popular-tags count="10" >}}
 
 ---
 
