@@ -2,8 +2,8 @@
 title: "Aerocool проводить масштабний розпродаж у вересні 2025"
 date: 2025-09-01T09:00:00+03:00
 draft: false
-tags: ["акція", "розпродаж", "новини", "ігрові крісла", "знижки"]
-categories: ["Новини", "Акції"]
+tags: ["новини", "продукт", "акція", "новинка", "ігрові крісла", "ергономіка", "комфорт"]
+categories: ["Новини"]
 description: "Великий розпродаж Aerocool у вересні 2025 — найкращі знижки на популярні моделі ігрових та офісних крісел."
 image: "/images/news/aerocool-sale-2025.jpg"
 canonicalURL: "https://aerocool.ua/uk/news/aerocool-sale-september-2025/"
