@@ -130,19 +130,19 @@ params:
   author: "Aerocool Advanced Technologies Corp. "
 # Включает отображение количества слов в постах блога
   ShowWordCount: true
-
-  disableSpecial1stPost: true
 # Управляет особым оформлением первого поста на главной странице (или в списке постов).
-  disableScrollToTop: false
+  disableSpecial1stPost: true
 # false — Кнопка “Scroll to Top” включена и отображается на странице.
-  comments: false
+  disableScrollToTop: false
 # false — комментарии отключены. Пользователи не увидят блок с комментариями под постами.
-  hidemeta: false
+  comments: false
 # false — если хочешь, чтобы посетители видели данные о публикации, авторе и категориях,
 # что хорошо для SEO и понимания контекста.
-  hideSummary: false
+  hidemeta: false
 # false — если хочешь показывать краткие анонсы статей на главной странице или в разделах,
 # чтобы читатели сразу видели суть поста.
+  hideSummary: false
+# fuseOpts — параметры поиска Fuse.js
   fuseOpts:
     threshold: 0.3           # Порог совпадения поиска (от 0 до 1). Чем меньше значение, тем более точный поиск
     limit: 10                # Максимальное количество результатов, которые вернёт Fuse.js при поиске.
@@ -157,9 +157,9 @@ params:
       - description          # SEO описание — помогает найти статьи по SEO-описаниям.
       - keywords             # Ключевые слова из front matter — дополнительный набор поисковых терминов.
       - series               # Серии публикаций — поиск по тематическим или хронологическим сериям статей.
-# fuseOpts — параметры поиска Fuse.js
-  canonicalURL: "https://aerocool.ua/"
 # канонический URL сайта — указывает поисковикам основной адрес сайта
+  canonicalURL: "https://aerocool.ua/"
+
 sitemap:
   changefreq: monthly
   filename: sitemap.xml
@@ -198,7 +198,7 @@ sitemap:
 
 # изображение по умолчанию для Open Graph / Twitter Cards (например, логотип)
 images: ["/images/logo.svg"]
-# указываем Hugo, какие разделы контента считать главными (используется на главной, в RSS и sitemap)
+# !!! МАКСИМАЛЬНО УТОЧНИТЬ, указываем Hugo, какие разделы контента считать главными (используется на главной, в RSS и sitemap)
 mainSections: ["posts"]
 
 # настройка структуры URL (человекочитаемые адреса) для разных типов контента
