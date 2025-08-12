@@ -188,9 +188,7 @@ languages:
           - детальні огляди моделей;
           - інструкції з вибору крісла;
           - поради щодо правильної посадки та здоров'я спини.
-          
           Підписуйтесь на оновлення та отримуйте нові статті щотижня.
-
         Buttons:
           - name: "Усі статті"
             url: '{{ "/articles/" | relLangURL }}'
@@ -198,14 +196,12 @@ languages:
             url: '{{ "/products/" | relLangURL }}'
           - name: "Контакти"
             url: '{{ "/contact/" | relLangURL }}'
-
         ImageUrl: "/images/logo-aerocool.svg"
         ImageWidth: 120
         ImageHeight: 120
         ImageTitle: "Логотип Aerocool"
         ImageAlt: "Логотип Aerocool"
         TextAlign: "left"
-
   ru:
     languageName: "Русский"
     weight: 2
@@ -218,9 +214,7 @@ languages:
           - подробные обзоры моделей;
           - инструкции по выбору кресла;
           - советы по правильной посадке и здоровью спины.
-          
           Подписывайтесь на обновления и получайте новые статьи каждую неделю.
-
         Buttons:
           - name: "Все статьи"
             url: '{{ "/articles/" | relLangURL }}'
@@ -228,14 +222,12 @@ languages:
             url: '{{ "/products/" | relLangURL }}'
           - name: "Контакты"
             url: '{{ "/contact/" | relLangURL }}'
-
         ImageUrl: "/images/logo-aerocool.svg"
         ImageWidth: 120
         ImageHeight: 120
         ImageTitle: "Логотип Aerocool"
         ImageAlt: "Логотип Aerocool"
         TextAlign: "left"
-
   ru:
     languageName: "Русский"
     weight: 2
@@ -248,9 +240,7 @@ languages:
           - подробные обзоры моделей;
           - инструкции по выбору кресла;
           - советы по правильной посадке и здоровью спины.
-          
           Подписывайтесь на обновления и получайте новые статьи каждую неделю.
-
         Buttons:
           - name: "Все статьи"
             url: "{{ "/articles/" | relLangURL }}"
@@ -258,14 +248,12 @@ languages:
             url: "{{ "/products/" | relLangURL }}"
           - name: "Контакты"
             url: "{{ "/contact/" | relLangURL }}"
-
         ImageUrl: "/images/logo-aerocool.svg"
         ImageWidth: 120
         ImageHeight: 120
         ImageTitle: "Логотип Aerocool"
         ImageAlt: "Логотип Aerocool"
         TextAlign: "left"
-
 sitemap:
   changefreq: monthly
   filename: sitemap.xml
