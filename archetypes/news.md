@@ -26,13 +26,13 @@ hidemeta: false
 # Комментарии выключены
 comments: false
 # Показ времени чтения
-ShowReadingTime: true
+showReadingTime: true
 # Хлебные крошки включены
-ShowBreadCrumbs: true
+showBreadCrumbs: true
 # Навигация между новостями
-ShowPostNavLinks: true
+showPostNavLinks: true
 # Количество слов
-ShowWordCount: true
+showWordCount: true
 # Обложка новости
 cover:
   image: "/images/news/{{ .Name }}/cover.webp"
@@ -58,7 +58,7 @@ pwa:
   backgroundColor: "#FFFFFF"
 # Кнопка редактирования
 editPost:
-  URL: "https://github.com/<user>/<repo>/content"
-  Text: "Запропонувати зміни"
+  url: "https://github.com/<user>/<repo>/content"
+  text: "Запропонувати зміни"
   appendFilePath: true
 ---

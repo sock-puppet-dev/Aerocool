@@ -26,13 +26,13 @@ hidemeta: false
 # Комментарии выключены
 comments: false
 # Показ времени чтения — обычно выключен
-ShowReadingTime: false
+showReadingTime: false
 # Хлебные крошки включены для навигации
-ShowBreadCrumbs: true
+showBreadCrumbs: true
 # Навигация между товарами (следующий/предыдущий)
-ShowPostNavLinks: true
+showPostNavLinks: true
 # Счётчик слов отключён (не нужно для товаров)
-ShowWordCount: false
+showWordCount: false
 # Параметры обложки товара
 cover:
   # Путь к картинке товара (обычно images/products/имя-файла)
@@ -71,7 +71,7 @@ pwa:
   backgroundColor: "#FFFFFF"
 # Кнопка редактирования
 editPost:
-  URL: "https://github.com/<user>/<repo>/content"
-  Text: "Запропонувати зміни"
+  url: "https://github.com/<user>/<repo>/content"
+  text: "Запропонувати зміни"
   appendFilePath: true
 ---

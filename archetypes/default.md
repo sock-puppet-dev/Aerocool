@@ -26,9 +26,9 @@ hidemeta: false
 # Комментарии выключены
 comments: false
 # Показывать хлебные крошки
-ShowBreadCrumbs: true
+showBreadCrumbs: true
 # Показывать навигационные ссылки
-ShowPostNavLinks: true
+showPostNavLinks: true
 # Обложка — дефолтная
 cover:
   image: "/images/default-cover.webp"
@@ -43,7 +43,7 @@ pwa:
   backgroundColor: "#FFFFFF"
 # Кнопка редактирования
 editPost:
-  URL: "https://github.com/<user>/<repo>/content"
-  Text: "Запропонувати зміни"
+  url: "https://github.com/<user>/<repo>/content"
+  text: "Запропонувати зміни"
   appendFilePath: true
 ---

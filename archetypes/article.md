@@ -4,7 +4,7 @@ title: "{{ replace .Name "-" " " | title }}"
 # Дата создания статьи (ставится автоматически)
 date: "{{ .Date }}"
 # Дата последнего изменения (изначально совпадает с датой создания)
-lastmod: "{{ .Date }}""
+lastmod: "{{ .Date }}"
 # Черновик? false — статья опубликована, true — скрыта
 draft: false
 # Язык страницы, Hugo подставит "uk" или "ru" в зависимости от папки
@@ -25,21 +25,21 @@ canonicalURL: ""
 # Показывать оглавление (Table of Contents)
 showToc: true
 # Оглавление открыто по умолчанию
-TocOpen: true
+tocOpen: true
 # Показывать метаинформацию (автор, дата)
 hidemeta: false
 # Показывать комментарии под статьёй
 comments: false
 # Показывать примерное время чтения
-ShowReadingTime: true
+showReadingTime: true
 # Показывать хлебные крошки (навигацию)
-ShowBreadCrumbs: true
+showBreadCrumbs: true
 # Показывать ссылки на соседние статьи (вперед/назад)
-ShowPostNavLinks: true
+showPostNavLinks: true
 # Показывать количество слов в статье
-ShowWordCount: true
+showWordCount: true
 # Использовать автоматическое оглавление Hugo
-UseHugoToc: true
+useHugoToc: true
 # Параметры обложки (главного изображения)
 cover:
   # Путь к изображению (обычно в папке images/articles/имя-статьи)
@@ -75,9 +75,9 @@ pwa:
 # Параметры кнопки "Редактировать пост"
 editPost:
   # Ссылка на репозиторий с контентом
-  URL: "https://github.com/<user>/<repo>/content"
+  url: "https://github.com/<user>/<repo>/content"
   # Текст кнопки (локализация)
-  Text: "Запропонувати зміни"
+  text: "Запропонувати зміни"
   # true — автоматически добавлять путь к файлу к ссылке
   appendFilePath: true
 ---
