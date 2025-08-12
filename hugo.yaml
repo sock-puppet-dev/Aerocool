@@ -193,11 +193,41 @@ languages:
 
         Buttons:
           - name: "Усі статті"
-            url: "{{ "/articles/" | relLangURL }}"
+            url: '{{ "/articles/" | relLangURL }}'
           - name: "Товари"
-            url: "{{ "/products/" | relLangURL }}"
+            url: '{{ "/products/" | relLangURL }}'
           - name: "Контакти"
-            url: "{{ "/contact/" | relLangURL }}"
+            url: '{{ "/contact/" | relLangURL }}'
+
+        ImageUrl: "/images/logo-aerocool.svg"
+        ImageWidth: 120
+        ImageHeight: 120
+        ImageTitle: "Логотип Aerocool"
+        ImageAlt: "Логотип Aerocool"
+        TextAlign: "left"
+
+  ru:
+    languageName: "Русский"
+    weight: 2
+    params:
+      homeInfoParams:
+        Title: "Добро пожаловать в Aerocool! 👋"
+        Content: |
+          Это блог **Aerocool** — новости, обзоры и советы по эргономике и офисным креслам.
+          Мы публикуем:
+          - подробные обзоры моделей;
+          - инструкции по выбору кресла;
+          - советы по правильной посадке и здоровью спины.
+          
+          Подписывайтесь на обновления и получайте новые статьи каждую неделю.
+
+        Buttons:
+          - name: "Все статьи"
+            url: '{{ "/articles/" | relLangURL }}'
+          - name: "Товары"
+            url: '{{ "/products/" | relLangURL }}'
+          - name: "Контакты"
+            url: '{{ "/contact/" | relLangURL }}'
 
         ImageUrl: "/images/logo-aerocool.svg"
         ImageWidth: 120
