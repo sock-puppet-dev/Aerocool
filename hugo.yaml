@@ -175,9 +175,13 @@ params:
   canonicalURL: "https://aerocool.ua/"
 
 sitemap:
-  changefreq: monthly
+  # Частота обновления страниц для поисковиков (рекомендуется указывать для статичных страниц)
+  changefreq: weekly
+  # Имя файла карты сайта
   filename: sitemap.xml
+  # Приоритет страниц (от 0.0 до 1.0)
   priority: 0.5
+
 
 # services:
 #  googleAnalytics:
