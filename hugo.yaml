@@ -173,6 +173,20 @@ params:
       - series               # Серии публикаций — поиск по тематическим или хронологическим сериям статей.
 # Канонический URL сайта — указывает поисковикам основной адрес сайта
   canonicalURL: "https://aerocool.ua/"
+# Настройка блока картинок для фавиконов
+  assets:
+    # путь к фавиконке (иконка сайта на вкладке браузера), основной favicon для браузеров (обычно .ico).
+    favicon: "/images/favicon.ico"
+    # PNG-иконки для поддержки различных разрешений
+    favicon16x16: "/images/favicon-16x16.png"
+    favicon32x32: "/images/favicon-32x32.png"
+    # Иконка для iOS-устройств.
+    apple_touch_icon: "/images/apple-touch-icon.png"
+    # SVG-иконка для закрепленных вкладок в Safari (поддержка темного режима).
+    safari_pinned_tab: "/images/safari-pinned-tab.svg"
+    # Включает добавление хэшей к именам файлов для кэширования.
+    disableFingerprinting: false
+
 # Настроки блока sitemap
 sitemap:
   # Частота обновления страниц для поисковиков (рекомендуется указывать для статичных страниц)
@@ -182,24 +196,24 @@ sitemap:
   # Приоритет страниц (от 0.0 до 1.0)
   priority: 0.5
 
+# Настройка блока socialIcons
+socialIcons:
+  - name: youtube
+    url: "https://www.youtube.com/user/Aerocooladmin"
+  - name: instagram
+    url: "https://www.instagram.com/aerocool_global"
+  - name: facebook
+    url: "https://www.facebook.com/AeroCoolGlobal/"
+  - name: x
+    url: "https://x.com/AerocoolGlobal"
+  - name: tiktok
+    url: "https://www.tiktok.com/@aerocool_global"
+
 
 # services:
 #  googleAnalytics:
 #    ID: G-XXXXXXXXXX  # ← вставь свой GA4 ID здесь
 
-  assets:
-    favicon: "/images/favicon.ico"
-# путь к фавиконке (иконка сайта на вкладке браузера)
-# основной favicon для браузеров (обычно .ico).
-    favicon16x16: "/images/favicon-16x16.png"
-    favicon32x32: "/images/favicon-32x32.png"
-# PNG-иконки для поддержки различных разрешений
-    apple_touch_icon: "/images/apple-touch-icon.png"
-# Иконка для iOS-устройств.
-    safari_pinned_tab: "/images/safari-pinned-tab.svg"
-# SVG-иконка для закрепленных вкладок в Safari (поддержка темного режима).
-    disableFingerprinting: false
-# Включает добавление хэшей к именам файлов для кэширования.
 
 # изображение по умолчанию для Open Graph / Twitter Cards (например, логотип)
 images: ["/images/logo.svg"]
