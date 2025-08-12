@@ -2,9 +2,9 @@
 # Заголовок, формируется из имени файла
 title: "{{ replace .Name "-" " " | title }}"
 # Дата создания
-date: {{ .Date }}
+date: "{{ .Date }}"
 # Дата изменения
-lastmod: {{ .Date }}
+lastmod: "{{ .Date }}"
 # Черновик?
 draft: false
 # Язык страницы (автоматически)

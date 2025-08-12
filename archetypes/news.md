@@ -2,9 +2,9 @@
 # Заголовок новости (из имени файла)
 title: "{{ replace .Name "-" " " | title }}"
 # Дата публикации
-date: {{ .Date }}
+date: "{{ .Date }}"
 # Дата изменения
-lastmod: {{ .Date }}
+lastmod: "{{ .Date }}"
 # Черновик?
 draft: false
 # Язык страницы
@@ -44,8 +44,8 @@ cover:
 schema:
   type: NewsArticle
   headline: "{{ replace .Name "-" " " | title }}"
-  datePublished: {{ .Date }}
-  dateModified: {{ .Date }}
+  datePublished: "{{ .Date }}"
+  dateModified: "{{ .Date }}"
   author: "Aerocool"
   publisher: "Aerocool"
   image: "/images/news/{{ .Name }}/cover.webp"
