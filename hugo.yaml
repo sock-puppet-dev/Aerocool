@@ -177,12 +177,12 @@ params:
 # Модификация внешнего вида homeInfoParams на двух языках: украинский (основной) и русский
 languages:
   uk:
-    languageName: "Українська"                  # Отображаемое имя языка в переключателе
-    weight: 1                                   # Приоритет языка (меньше — выше в списке)
+    languageName: "Українська"
+    weight: 1
     params:
-      homeInfoParams:                           # Приветственный блок для главной страницы
-        Title: "Вітаємо в Aerocool! 👋"         # Большой заголовок блока
-        Content: |                              # Многострочный текст приветствия
+      homeInfoParams:
+        Title: "Вітаємо в Aerocool! 👋"
+        Content: |
           Це блог **Aerocool** — новини, огляди та поради з ергономіки та офісних крісел.
           Ми публікуємо:
           - детальні огляди моделей;
@@ -191,22 +191,19 @@ languages:
           
           Підписуйтесь на оновлення та отримуйте нові статті щотижня.
 
-        Buttons:                                # Кнопки под приветственным текстом
-          - name: "Усі статті"                  # Надпись на кнопке
-            url: "/uk/articles/"                # Ссылка, куда ведёт кнопка
+        Buttons:
+          - name: "Усі статті"
+            url: "{{ "/articles/" | relLangURL }}"
           - name: "Товари"
-            url: "/uk/products/"
+            url: "{{ "/products/" | relLangURL }}"
           - name: "Контакти"
-            url: "/uk/contact/"
+            url: "{{ "/contact/" | relLangURL }}"
 
-        # Настройки картинки в приветственном блоке
-        ImageUrl: "/images/logo-aerocool.svg"  # Путь до картинки (static/images/)
-        ImageWidth: 120                        # Ширина картинки в пикселях
-        ImageHeight: 120                       # Высота картинки
-        ImageTitle: "Логотип Aerocool"         # Атрибут title (всплывающая подсказка)
-        ImageAlt: "Логотип Aerocool"           # Атрибут alt (SEO и доступность)
-
-        # Выравнивание текста в блоке (left, center, right)
+        ImageUrl: "/images/logo-aerocool.svg"
+        ImageWidth: 120
+        ImageHeight: 120
+        ImageTitle: "Логотип Aerocool"
+        ImageAlt: "Логотип Aerocool"
         TextAlign: "left"
 
   ru:
@@ -226,11 +223,11 @@ languages:
 
         Buttons:
           - name: "Все статьи"
-            url: "/ru/articles/"
+            url: "{{ "/articles/" | relLangURL }}"
           - name: "Товары"
-            url: "/ru/products/"
+            url: "{{ "/products/" | relLangURL }}"
           - name: "Контакты"
-            url: "/ru/contact/"
+            url: "{{ "/contact/" | relLangURL }}"
 
         ImageUrl: "/images/logo-aerocool.svg"
         ImageWidth: 120
@@ -238,7 +235,6 @@ languages:
         ImageTitle: "Логотип Aerocool"
         ImageAlt: "Логотип Aerocool"
         TextAlign: "left"
-
 
 sitemap:
   changefreq: monthly
