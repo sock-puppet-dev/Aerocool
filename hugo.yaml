@@ -186,6 +186,13 @@ params:
     safari_pinned_tab: "/images/safari-pinned-tab.svg"
     # Включает добавление хэшей к именам файлов для кэширования.
     disableFingerprinting: false
+  # Тег верификации Google Search Console
+  # googleSiteVerification: "XYZabc"
+
+#services:
+  # Твой Google Analytics 4 ID
+  #googleAnalytics:
+    #ID: "G-XXXXXXXXXX"
 
 # Настроки блока sitemap
 sitemap:
@@ -210,9 +217,6 @@ socialIcons:
     url: "https://www.tiktok.com/@aerocool_global"
 
 
-# services:
-#  googleAnalytics:
-#    ID: G-XXXXXXXXXX  # ← вставь свой GA4 ID здесь
 
 
 # изображение по умолчанию для Open Graph / Twitter Cards (например, логотип)
