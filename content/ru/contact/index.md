@@ -30,7 +30,13 @@ schema:
       areaServed: "UA"
       availableLanguage: ["Russian", "Ukrainian"]
   description: "Свяжитесь с Aerocool — украинским брендом игровых и офисных кресел, чтобы получить консультацию или поддержку."
-
+  address:
+    "@type": "PostalAddress"
+    streetAddress: "ул. Примерная, 12"
+    addressLocality: "Киев"
+    postalCode: "01001"
+    addressCountry: "UA"
+  
 # Twitter Cards
 twitterCard:
   card: "summary_large_image"

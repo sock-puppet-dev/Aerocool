@@ -7,15 +7,26 @@ type: "section"
 layout: "section"
 aliases: ["/blog", "/articles", "/ru/blog", "/ru/articles"]
 robots: "index, follow"
-canonical: "https://aerocool.ua/ru/articles/"
+canonicalURL: "https://aerocool.ua/ru/articles/"
 date: 2025-08-04T12:00:00+03:00
 lastmod: 2025-08-04T12:00:00+03:00
 comments: true
-ShowToc: true
-TocOpen: false
-ShowReadingTime: true
-ShowWordCount: true
-ShowShareButtons: true
+showToc: true
+tocOpen: false
+showReadingTime: true
+showWordCount: true
+showShareButtons: true
+schema:
+  "@context": "https://schema.org"
+  "@type": "CollectionPage"
+  name: "Статьи"
+  description: "Читайте актуальные статьи, обзоры и советы по выбору игровых кресел Aerocool в Украине. Всё о комфорте, эргономике и новых моделях 2025 года."
+  url: "https://aerocool.ua/ru/articles/"
+  image: "https://aerocool.ua/images/articles-cover.jpg"
+  mainEntity:
+    "@type": "ItemList"
+    name: "Список статей Aerocool"
+    itemListElement: []
 ---
 
 # Последние статьи о креслах Aerocool

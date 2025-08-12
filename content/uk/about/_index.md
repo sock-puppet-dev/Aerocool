@@ -28,7 +28,8 @@ schema:
     - "https://www.instagram.com/aerocool.ua/"
     - "https://www.youtube.com/@AerocoolUA"
   description: "Aerocool — український бренд ігрових та офісних крісел з акцентом на ергономіку, стиль та комфорт."
-
+  mainEntityOfPage: "https://aerocool.ua/uk/about/"
+  
 # Twitter Cards
 twitterCard:
   card: "summary_large_image"

@@ -11,24 +11,25 @@ url: "/ru/about/"
 date: 2025-08-05T10:00:00+03:00
 lastmod: 2025-08-05T10:00:00+03:00
 comments: false
-ShowToc: false
-ShowReadingTime: false
-ShowWordCount: false
-ShowShareButtons: false
+showToc: false
+showReadingTime: false
+showWordCount: false
+showShareButtons: false
 
 # SEO JSON-LD для расширенного сниппета
 schema:
   "@context": "https://schema.org"
   "@type": "Organization"
   name: "Aerocool"
-  url: "https://aerocool.ua/"
+  url: "https://aerocool.ua/ru/about/"
   logo: "https://aerocool.ua/images/logo.svg"
   sameAs:
     - "https://www.facebook.com/AerocoolUkraine"
     - "https://www.instagram.com/aerocool.ua/"
     - "https://www.youtube.com/@AerocoolUA"
   description: "Aerocool — украинский бренд игровых и офисных кресел с упором на эргономику, стиль и комфорт."
-
+  mainEntityOfPage: "https://aerocool.ua/ru/about/"
+  
 # Twitter Cards
 twitterCard:
   card: "summary_large_image"

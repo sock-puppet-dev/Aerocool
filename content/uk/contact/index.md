@@ -1,6 +1,6 @@
 ---
 title: "Контакти Aerocool"
-description: "Зв'яжіться з Aerocool — лідером у виробництві ергономічних ігрових та офісних крісел в Україні. Адреси, телефони та форма зворотного зв’язку."
+description: "Зв’яжіться з Aerocool — лідером з виробництва ергономічних ігрових та офісних крісел в Україні. Адреси, телефони та форма зворотного зв’язку."
 keywords: ["контакти", "Aerocool", "ігрові крісла", "офісні крісла", "підтримка", "зворотній зв’язок"]
 image: "/images/contact-cover.jpg"
 canonicalURL: "https://aerocool.ua/uk/contact/"
@@ -11,10 +11,10 @@ url: "/uk/contact/"
 date: 2025-08-05T10:00:00+03:00
 lastmod: 2025-08-05T10:00:00+03:00
 comments: false
-ShowToc: false
-ShowReadingTime: false
-ShowWordCount: false
-ShowShareButtons: false
+showToc: false
+showReadingTime: false
+showWordCount: false
+showShareButtons: false
 
 # SEO JSON-LD для сторінки контактів
 schema:
@@ -28,8 +28,14 @@ schema:
       telephone: "+380 44 123 45 67"
       contactType: "customer service"
       areaServed: "UA"
-      availableLanguage: ["Ukrainian", "Russian"]
-  description: "Зв'яжіться з Aerocool — українським брендом ігрових та офісних крісел для консультацій та підтримки."
+      availableLanguage: ["Russian", "Ukrainian"]
+  description: "Зв’яжіться з Aerocool — українським брендом ігрових та офісних крісел, щоб отримати консультацію або підтримку."
+  address:
+    "@type": "PostalAddress"
+    streetAddress: "вул. Прикладна, 12"
+    addressLocality: "Київ"
+    postalCode: "01001"
+    addressCountry: "UA"
 
 # Twitter Cards
 twitterCard:
@@ -44,7 +50,7 @@ twitterCard:
 openGraph:
   type: "article"
   title: "Контакти Aerocool"
-  description: "Зв'яжіться з Aerocool — дізнайтеся, як придбати найкращі ігрові та офісні крісла."
+  description: "Зв’яжіться з Aerocool — дізнайтеся, як купити найкращі ігрові та офісні крісла."
   url: "https://aerocool.ua/uk/contact/"
   image: "https://aerocool.ua/images/contact-cover.jpg"
   locale: "uk_UA"
@@ -77,7 +83,7 @@ openGraph:
 
 ## 📧 Форма зворотного зв’язку
 
-В РАЗРОБОТКЕ 
+В РОЗРОБЦІ
 
 ---
 
@@ -92,4 +98,4 @@ openGraph:
 
 <!-- Тут можна вставити iframe карти Google Maps або Яндекс.Карт -->
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2539.603524060087!2d30.521376615728544!3d50.44508367947756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce44f88d4b1f%3A0x60d69e9a02e0caeb!2z0JHQtdC70LjRhtGPINCc0L7RgNC-0LzQsNC90L7Qs9C-LCDQkdC-0YHRgtC-0LXRgiwgMTIsINCU0L7Qu9Cw0YDQtdCyLCAxMDAwMA!5e0!3m2!1suk!2sua!4v1691712000000" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2539.603524060087!2d30.521376615728544!3d50.44508367947756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce44f88d4b1f%3A0x60d69e9a02e0caeb!2z0JHQtdC70LjRhtGPINCc0L7RgNC-0LzQsNC90L7Qs9C-LCDQkdC-0YHRgtC-0LXRgiwgMTIsINCU0L7Qu9Cw0YDQtdCyLCAxMDAwMA!5e0!3m2!1sru!2sua!4v1691712000000" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>

@@ -22,6 +22,27 @@ schema:
   "@type": "CollectionPage"
   name: "Новости Aerocool"
   description: "Последние новости и обновления от Aerocool — новинки игровых кресел, акции и события."
+  url: "https://aerocool.ua/ru/news/"
+  image: "https://aerocool.ua/images/news-cover.jpg"
+  mainEntity:
+    "@type": "ItemList"
+    name: "Список новостей Aerocool"
+    itemListElement:
+      - "@type": "ListItem"
+        position: 1
+        url: "https://aerocool.ua/ru/news/novaya-model-kresla-2025"
+        name: "Новая модель кресла Aerocool 2025"
+        datePublished: "2025-07-30T10:00:00+03:00"
+      - "@type": "ListItem"
+        position: 2
+        url: "https://aerocool.ua/ru/news/aktsiya-na-igrovye-kresla"
+        name: "Акция на игровые кресла Aerocool"
+        datePublished: "2025-07-15T12:00:00+03:00"
+      - "@type": "ListItem"
+        position: 3
+        url: "https://aerocool.ua/ru/news/uchastie-v-vystavke-2025"
+        name: "Участие Aerocool в выставке 2025"
+        datePublished: "2025-06-20T09:00:00+03:00"
 ---
 
 # Новости Aerocool
