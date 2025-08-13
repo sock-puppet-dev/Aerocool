@@ -93,9 +93,3 @@ openGraph:
 [Facebook](https://www.facebook.com/AerocoolUkraine) | [Instagram](https://instagram.com/aerocool_ua) | [YouTube](https://www.youtube.com/@AerocoolUA)
 
 ---
-
-## 🗺️ Карта проезда
-
-<!-- Здесь можно вставить iframe карты Google Maps или Яндекс.Карт -->
-
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2539.603524060087!2d30.521376615728544!3d50.44508367947756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce44f88d4b1f%3A0x60d69e9a02e0caeb!2z0JHQtdC70LjRhtGPINCc0L7RgNC-0LzQsNC90L7Qs9C-LCDQkdC-0YHRgtC-0LXRgiwgMTIsINCU0L7Qu9Cw0YDQtdCyLCAxMDAwMA!5e0!3m2!1sru!2sua!4v1691712000000" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
