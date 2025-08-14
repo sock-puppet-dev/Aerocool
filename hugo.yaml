@@ -240,7 +240,7 @@ cover:
 images: ["/images/logo.svg"]
 # !!! МАКСИМАЛЬНО УТОЧНИТЬ,
 # указываем Hugo, какие разделы контента считать главными (используется на главной, в RSS и sitemap)
-mainSections: ["articles"]
+mainSections: ["articles", "products", "news"]
 # настройка структуры URL (человекочитаемые адреса) для разных типов контента
 permalinks:
   # для контента из папки content/products/
