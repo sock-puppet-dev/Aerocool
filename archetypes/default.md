@@ -8,7 +8,7 @@ lastmod: "{{ .Date }}"
 # Черновик?
 draft: false
 # Язык страницы (автоматически)
-lang: "{{ .Lang }}"
+lang: "{{ .Page.Language.Lang }}"
 # Ключ перевода
 translationKey: "{{ .Name }}"
 # Мета описание

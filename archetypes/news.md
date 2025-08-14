@@ -8,7 +8,7 @@ lastmod: "{{ .Date }}"
 # Черновик?
 draft: false
 # Язык страницы
-lang: "{{ .Lang }}"
+lang: "{{ .Page.Language.Lang }}"
 # Ключ перевода
 translationKey: "{{ .Name }}"
 # Краткое описание новости для SEO

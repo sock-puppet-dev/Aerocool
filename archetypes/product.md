@@ -8,7 +8,7 @@ lastmod: "{{ .Date }}"
 # Черновик (false — опубликовано)
 draft: false
 # Язык страницы (uk/ru)
-lang: "{{ .Lang }}"
+lang: "{{ .Page.Language.Lang }}"
 # Ключ перевода для мультиязычности
 translationKey: "{{ .Name }}"
 # Краткое описание товара (для SEO)
