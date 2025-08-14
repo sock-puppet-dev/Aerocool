@@ -33,12 +33,12 @@ build:
     disableIDs: false
     disableTags: false
   cachebusters:
-    - source: 'assets/.*\.(css|scss|sass)'
-      target: 'css'
-    - source: 'assets/.*\.(js|ts|jsx|tsx)'
-      target: 'js'
-    - source: 'assets/.*\.(png|jpg|jpeg|gif|svg|webp|woff|woff2|ttf|eot)'
-      target: 'images'
+    - source: "assets/.*\\.(css|scss|sass)"
+      target: "css"
+    - source: "assets/.*\\.(js|ts|jsx|tsx)"
+      target: "js"
+    - source: "assets/.*\\.(png|jpg|jpeg|gif|svg|webp|woff|woff2|ttf|eot)"
+      target: "images"
 # always — всегда использовать кэш, если файл с таким хэшем уже есть.
   useResourceCacheWhen: always
 # Оптимизация изображений, используйте возможности Hugo для обработки изображений,
@@ -81,7 +81,7 @@ params:
   disableThemeToggle: true
 # images: ["https://aerocool.ua/images/og-image.jpg"]
 # Формат даты для вывода на страницах
-  DateFormat: "January 2, 2006"
+  DateFormat: "02 January 2006"
 # Показывать время чтения в статьях
   ShowReadingTime: true
 # Кнопки социальных сетей (если используются)
@@ -156,7 +156,7 @@ fuseOpts:
   findAllMatches: false       # Искать все совпадения, а не только первое в каждой строке
   minMatchCharLength: 2       # Минимальная длина подстроки для поиска, исключает шум от 1 символа
   location: 0                 # Смещение в строке, с которого начинается поиск (0 — сначала)
-  threshold: 0.3              # Чувствительность поиска: 0 — точный матч, 1 — любой матч (0.3 — умеренный)
+  threshold: 0.4              # Чувствительность поиска: 0 — точный матч, 1 — любой матч (0.3 — умеренный)
   distance: 100               # Максимальное расстояние между совпадающими символами (меньше — строже)
   useExtendedSearch: false    # Использовать расширенный синтаксис поиска Fuse.js
   ignoreLocation: false       # Игнорировать параметр location при поиске (искать по всему тексту)
