@@ -12,9 +12,6 @@ theme: PaperMod
 minify:
   disableXML: true
   minifyOutput: true
-# защита от XSS и непреднамеренного выполнения вредоносного кода, особенно если контент редактируют другие
-security:
-  enableInlineShortcodes: false
 # выключения поддержки языков с иероглифическим письмом
 hasCJKLanguage: false
 # Количество элементов (постов, страниц) на одной странице пагинации
@@ -32,18 +29,12 @@ build:
     disableIDs: false
     disableTags: false
   cachebusters:
-    - source: 'assets/watching/hugo_stats\.json'
-      target: 'styles\.css'
-    - source: '(postcss|tailwind)\.config\.js'
+    - source: 'assets/.*\.(css|scss|sass)'
       target: 'css'
     - source: 'assets/.*\.(js|ts|jsx|tsx)'
       target: 'js'
-    - source: 'assets/.*\.(css|scss|sass)'
-      target: 'css'
     - source: 'assets/.*\.(png|jpg|jpeg|gif|svg|webp|woff|woff2|ttf|eot)'
       target: 'images'
-    - source: 'assets/.*\.(.*)$'
-      target: '$1'
 # always — всегда использовать кэш, если файл с таким хэшем уже есть.
   useResourceCacheWhen: always
 # Оптимизация изображений, используйте возможности Hugo для обработки изображений,
