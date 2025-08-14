@@ -14,7 +14,7 @@ uglyURLs: false
 # Управляет включением автоматической минификации (сжатия) сгенерированного HTML, CSS, JavaScript
 # и других текстовых файлов при сборке сайта.
 minify:
-  disableXML: true
+  disableXML: false
   minifyOutput: true
 # выключения поддержки языков с иероглифическим письмом
 hasCJKLanguage: false
