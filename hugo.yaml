@@ -33,11 +33,11 @@ build:
     disableIDs: false
     disableTags: false
   cachebusters:
-    - source: "assets/.*\\.(css|scss|sass)"
+    - source: "assets/.*\\.(css|scss|sass)"                                  # кэшировать CSS/SCSS/SASS
       target: "css"
-    - source: "assets/.*\\.(js|ts|jsx|tsx)"
+    - source: "assets/.*\\.(js|ts|jsx|tsx)"                                  # кэшировать JS/TS
       target: "js"
-    - source: "assets/.*\\.(png|jpg|jpeg|gif|svg|webp|woff|woff2|ttf|eot)"
+    - source: "assets/.*\\.(png|jpg|jpeg|gif|svg|webp|woff|woff2|ttf|eot)"   # кэшировать картинки и шрифты
       target: "images"
 # always — всегда использовать кэш, если файл с таким хэшем уже есть.
   useResourceCacheWhen: always
@@ -107,6 +107,8 @@ params:
 # Включение поддержки структурированных данных (JSON-LD):
 # Это поможет поисковым системам лучше понимать содержание вашего сайта.
   structuredData: true
+# Полная поддержка JSON-LD в PaperMod.
+  enableJSONLD: true
 # Для максимально SEO-оптимизированного описания (description) нужно использовать ключевые фразы,
 # релевантные теме сайта, которые чаще всего ищут пользователи,
 # а также сохранить естественность текста.
@@ -202,7 +204,7 @@ sitemap:
   # Имя файла карты сайта
   filename: sitemap.xml
   # Приоритет страниц (от 0.0 до 1.0)
-  priority: 0.5
+  priority: 0.7
 
 # Настройка блока socialIcons
 socialIcons:
