@@ -53,27 +53,22 @@ mediaTypes:
     suffixes:
       - jpg
       - jpeg
-    mediaType: image/jpeg
 
   image/png:
     suffixes:
       - png
-    mediaType: image/png
 
   image/gif:
     suffixes:
       - gif
-    mediaType: image/gif
 
   image/svg+xml:
     suffixes:
       - svg
-    mediaType: image/svg+xml
 
   image/webp:
     suffixes:
       - webp
-    mediaType: image/webp
 
 params:
 # настраиваемый параметр, используемый внутри темы или шаблонов
@@ -170,7 +165,6 @@ fuseOpts:
   distance: 100               # Максимальное расстояние между совпадающими символами (меньше — строже)
   useExtendedSearch: false    # Использовать расширенный синтаксис поиска Fuse.js
   ignoreLocation: false       # Игнорировать параметр location при поиске (искать по всему тексту)
-  findAllMatches: false       # Возвращать все совпадения для каждой строки
   verbose: false              # Выводить отладочную информацию (для разработчиков)
   # Максимальное количество результатов, которые вернёт поиск
   limit: 15
