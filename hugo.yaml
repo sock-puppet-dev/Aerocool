@@ -6,6 +6,10 @@ languageCode: uk-UA
 title: Aerocool
 # Переключение между темами, у меня установлены PaperMod, Eclectic
 theme: PaperMod
+# Определяет, будет ли Hugo автоматически приводить все части URL к нижнему регистру.
+disablePathToLower: false
+# Определяет формат конечных URL, false — Hugo создаёт чистые URL без .html на конце.
+uglyURLs: false
 # Hugo использует встроенный минификатор для HTML, CSS, JS и JSON.
 # Управляет включением автоматической минификации (сжатия) сгенерированного HTML, CSS, JavaScript
 # и других текстовых файлов при сборке сайта.
