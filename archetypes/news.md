@@ -16,7 +16,7 @@ description: ""
 # Ключевые слова
 keywords: []
 # ЧПУ URL
-slug: "{{ .Name }}"
+slug: "{{ .Name | lower }}"
 # Канонический URL
 canonicalURL: ""
 # Отображать оглавление (нет)

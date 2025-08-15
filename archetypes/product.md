@@ -16,7 +16,7 @@ description: ""
 # Ключевые слова (список)
 keywords: []
 # Слаг (часть URL)
-slug: "{{ .Name }}"
+slug: "{{ .Name | lower }}"
 # Канонический URL для SEO
 canonicalURL: ""
 # Показывать оглавление — обычно нет для товаров
