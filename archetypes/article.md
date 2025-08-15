@@ -65,6 +65,7 @@ schema:
   # добавить дату публикации и модификации для полного Schema:
   datePublished: "{{ .Date }}"
   dateModified: "{{ .Date }}"
+  mainEntityOfPage: "{{ .Permalink }}"
 # Настройки PWA (прогрессивного веб-приложения)
 pwa:
   # Путь к манифесту приложения
@@ -78,7 +79,7 @@ pwa:
 # Параметры кнопки "Редактировать пост"
 editPost:
   # Ссылка на репозиторий с контентом
-  url: "https://github.com/<user>/<repo>/content"
+  url: "https://github.com/Dmytro-Stadnyk/Aerocool"
   # Текст кнопки (локализация)
   text: "Запропонувати зміни"
   # true — автоматически добавлять путь к файлу к ссылке

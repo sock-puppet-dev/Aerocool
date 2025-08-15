@@ -36,8 +36,8 @@ showWordCount: true
 # Обложка новости
 cover:
   image: "/images/news/{{ .Name }}/cover.webp"
-  alt: ""
-  caption: ""
+  alt: "Изображение новости {{ .Name }} для SEO и доступности"
+  caption: "Подпись к новости {{ .Name }}"
   relative: true
   hidden: false
 # JSON-LD для NewsArticle (Google News)
@@ -49,7 +49,7 @@ schema:
   author: "Aerocool"
   publisher: "Aerocool"
   image: "/images/news/{{ .Name }}/cover.webp"
-  mainEntityOfPage: ""
+  mainEntityOfPage: "{{ .Permalink }}"
 # PWA
 pwa:
   manifest: "/manifest.webmanifest"
@@ -58,7 +58,7 @@ pwa:
   backgroundColor: "#FFFFFF"
 # Кнопка редактирования
 editPost:
-  url: "https://github.com/<user>/<repo>/content"
+  url: "https://github.com/Dmytro-Stadnyk/Aerocool"
   text: "Запропонувати зміни"
   appendFilePath: true
 ---

@@ -37,8 +37,8 @@ showWordCount: false
 cover:
   # Путь к картинке товара (обычно images/products/имя-файла)
   image: "/images/products/{{ .Name }}/cover.webp"
-  alt: ""
-  caption: ""
+  alt: "Изображение товара {{ .Name }} для SEO и доступности"
+  caption: "Подпись к товару {{ .Name }}"
   relative: true
   hidden: false
 # JSON-LD Schema.org для товара
@@ -57,12 +57,14 @@ schema:
   sku: ""
   # Номер производителя (MPN)
   mpn: ""
+  # параметр mainEntityOfPage указывает, что именно эта страница является основной страницей для данного продукта.
+  mainEntityOfPage: "{{ .Permalink }}"   # <-- добавляем сюда
   # Предложения / цены товара
   offers:
-    priceCurrency: "UAH"   # Валюта — гривна
-    price: ""              # Цена — заполняй вручную
+    priceCurrency: "UAH"        # Валюта — гривна
+    price: ""                   # Цена — заполняй вручную
     availability: "https://schema.org/InStock"  # Наличие товара
-    url: ""                # URL товара на сайте
+    url: "{{ .Permalink }}"     # URL товара на сайте
 # PWA настройки — такие же, как у статьи
 pwa:
   manifest: "/manifest.webmanifest"
@@ -71,7 +73,7 @@ pwa:
   backgroundColor: "#FFFFFF"
 # Кнопка редактирования
 editPost:
-  url: "https://github.com/<user>/<repo>/content"
+  url: "https://github.com/Dmytro-Stadnyk/Aerocool"
   text: "Запропонувати зміни"
   appendFilePath: true
 ---
