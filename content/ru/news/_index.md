@@ -11,11 +11,11 @@ url: "/ru/news/"
 date: 2025-08-06T10:00:00+03:00
 lastmod: 2025-08-06T10:00:00+03:00
 comments: true
-ShowToc: true
-TocOpen: false
-ShowReadingTime: true
-ShowWordCount: true
-ShowShareButtons: true
+showToc: true
+tocOpen: false
+showReadingTime: true
+showWordCount: true
+showShareButtons: true
 
 schema:
   "@context": "https://schema.org"

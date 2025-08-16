@@ -25,7 +25,7 @@ schema:
   logo: "https://aerocool.ua/images/logo.svg"
   sameAs:
     - "https://www.facebook.com/AerocoolUkraine"
-    - "https://www.instagram.com/aerocool.ua/"
+    - "https://www.instagram.com/aerocool.ua"
     - "https://www.youtube.com/@AerocoolUA"
   description: "Aerocool — украинский бренд игровых и офисных кресел с упором на эргономику, стиль и комфорт."
   mainEntityOfPage: "https://aerocool.ua/ru/about/"
@@ -41,7 +41,7 @@ twitterCard:
 
 # OpenGraph
 openGraph:
-  type: "article"
+  type: "website"
   title: "О компании Aerocool"
   description: "Больше о бренде Aerocool — инновационные кресла для геймеров и офисных работников."
   url: "https://aerocool.ua/ru/about/"

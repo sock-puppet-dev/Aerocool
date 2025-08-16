@@ -11,11 +11,11 @@ url: "/ru/faq/"
 date: 2025-08-06T10:00:00+03:00
 lastmod: 2025-08-06T10:00:00+03:00
 comments: true
-ShowToc: true
-TocOpen: true
-ShowReadingTime: false
-ShowWordCount: false
-ShowShareButtons: true
+showToc: true
+tocOpen: true
+showReadingTime: false
+showWordCount: false
+showShareButtons: true
 
 # SEO JSON-LD для FAQ страницы
 schema:

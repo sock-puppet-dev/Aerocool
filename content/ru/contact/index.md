@@ -11,10 +11,10 @@ url: "/ru/contact/"
 date: 2025-08-05T10:00:00+03:00
 lastmod: 2025-08-05T10:00:00+03:00
 comments: false
-ShowToc: false
-ShowReadingTime: false
-ShowWordCount: false
-ShowShareButtons: false
+showToc: false
+showReadingTime: false
+showWordCount: false
+showShareButtons: false
 
 # SEO JSON-LD для страницы контактов
 schema:
@@ -48,7 +48,7 @@ twitterCard:
 
 # OpenGraph
 openGraph:
-  type: "article"
+  type: "website"
   title: "Контакты Aerocool"
   description: "Свяжитесь с Aerocool — узнайте, как купить лучшие игровые и офисные кресла."
   url: "https://aerocool.ua/ru/contact/"
