@@ -10,12 +10,16 @@ theme: PaperMod
 disablePathToLower: false
 # Определяет формат конечных URL, false — Hugo создаёт чистые URL без .html на конце.
 uglyURLs: false
+# Hugo Pipes и минификация
 # Hugo использует встроенный минификатор для HTML, CSS, JS и JSON.
 # Управляет включением автоматической минификации (сжатия) сгенерированного HTML, CSS, JavaScript
 # и других текстовых файлов при сборке сайта.
 minify:
-  disableXML: false
-  minifyOutput: true
+  minifyOutput: true     # включить глобальную минификацию HTML/CSS/JS
+  disableCSS: false      # минификация CSS
+  disableJS: false       # минификация JS
+  disableHTML: false     # минификация HTML
+  disableXML: false      # минификация XML (опционально)
 # выключения поддержки языков с иероглифическим письмом
 hasCJKLanguage: false
 # Количество элементов (постов, страниц) на одной странице пагинации
