@@ -54,17 +54,18 @@ build:
     disableIDs: false
     disableTags: false
   cachebusters:
-    - source: "assets/.*\\.(css|scss|sass)"
-      target: "css"
-    - source: "assets/.*\\.(js|ts|jsx|tsx)"
-      target: "js"
-    - source: "assets/.*\\.(png|jpg|jpeg|gif|svg|webp|woff|woff2|ttf|eot)"
-      target: "images"
-    - source: "assets/notwatching/hugo_stats\.json"
-      target: "css"
-    - source: "(postcss|tailwind)\.config\.js"
-      target: "css"
+    - source: assets/.*\.(css|scss|sass)
+      target: css
+    - source: assets/.*\.(js|ts|jsx|tsx)
+      target: js
+    - source: assets/.*\.(png|jpg|jpeg|gif|svg|webp|woff|woff2|ttf|eot)
+      target: images
+    - source: assets/notwatching/hugo_stats\.json
+      target: css
+    - source: (postcss|tailwind)\.config\.js
+      target: css
   useResourceCacheWhen: always
+
 module:
   mounts:
     - source: assets
@@ -72,6 +73,7 @@ module:
     - disableWatch: true
       source: hugo_stats.json
       target: assets/notwatching/hugo_stats.json
+
 #--------------------------------------------------------
 # Оптимизация изображений, используйте возможности Hugo для обработки изображений,
 # чтобы обеспечить их оптимальный размер и качество. Это улучшит время загрузки страниц и SEO.
