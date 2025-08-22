@@ -1,2 +1,7 @@
 @import "tailwindcss";
 @source "hugo_stats.json";
+
+:root {
+    --nav-width: 1024px;
+    --main-width: 1024px;
+}
