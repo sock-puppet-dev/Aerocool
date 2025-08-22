@@ -30,22 +30,6 @@ enableRobotsTXT: true
 # Отключает сбор статистики по ID, классам и тегам, которые Hugo встречает в контенте и шаблонах
 # Это полезно, если ты хочешь автоматически очищать CSS от неиспользуемого кода
 # Позволяет Hugo автоматически обновлять кэш браузера, когда изменяются определённые файлы.
-#build:
-#  buildStats:
-#    enable: false
-#    disableClasses: false
-#    disableIDs: false
-#    disableTags: false
-#  cachebusters:
-#    - source: "assets/.*\\.(css|scss|sass)"                                  # кэшировать CSS/SCSS/SASS
-#      target: "css"
-#    - source: "assets/.*\\.(js|ts|jsx|tsx)"                                  # кэшировать JS/TS
-#      target: "js"
-#    - source: "assets/.*\\.(png|jpg|jpeg|gif|svg|webp|woff|woff2|ttf|eot)"   # кэшировать картинки и шрифты
-#      target: "images"
-## always — всегда использовать кэш, если файл с таким хэшем уже есть.
-#  useResourceCacheWhen: always
-#--------------------------------------------------------
 # BUILD & MODULE BLOCKS
 build:
   buildStats:
@@ -187,29 +171,6 @@ params:
 # false — если хочешь показывать краткие анонсы статей на главной странице или в разделах,
 # чтобы читатели сразу видели суть поста.
   hideSummary: false
-# !!! МАКСИМАЛЬНО УТОЧНИТЬ,
-# fuseOpts — параметры поиска Fuse.js
-fuseOpts:
-  isCaseSensitive: false      # Игнорировать регистр при поиске (true — учитывать регистр)
-  includeScore: false         # Включать в результат оценку релевантности (если нужно для UI)
-  shouldSort: true            # Сортировать результаты по релевантности (лучшие выше)
-  includeMatches: false       # Включать в результат подробности совпадений (позиции в строке)
-  findAllMatches: false       # Искать все совпадения, а не только первое в каждой строке
-  minMatchCharLength: 2       # Минимальная длина подстроки для поиска, исключает шум от 1 символа
-  location: 0                 # Смещение в строке, с которого начинается поиск (0 — сначала)
-  threshold: 0.4              # Чувствительность поиска: 0 — точный матч, 1 — любой матч (0.3 — умеренный)
-  distance: 100               # Максимальное расстояние между совпадающими символами (меньше — строже)
-  useExtendedSearch: false    # Использовать расширенный синтаксис поиска Fuse.js
-  ignoreLocation: false       # Игнорировать параметр location при поиске (искать по всему тексту)
-  verbose: false              # Выводить отладочную информацию (для разработчиков)
-  # Максимальное количество результатов, которые вернёт поиск
-  limit: 15
-  # Массив ключей (полей в данных), в которых будет производиться поиск
-  keys:
-    - "title"       # Заголовок статьи или страницы — самый важный ключ
-    - "permalink"   # Постоянная ссылка (URL) — полезна для поиска по URL-частям
-    - "summary"     # Краткое описание, аннотация — помогает быстрее находить релевантные материалы
-    - "content"     # Полный текст статьи, для глубокого поиска по содержимому
 
 # Канонический URL сайта — указывает поисковикам основной адрес сайта
   canonicalURL: "https://aerocool.ua/"
@@ -226,15 +187,6 @@ fuseOpts:
     safari_pinned_tab: "/images/safari-pinned-tab.svg"
     # Включает добавление хэшей к именам файлов для кэширования.
     disableFingerprinting: false
-# !!! МАКСИМАЛЬНО УТОЧНИТЬ,
-  # Тег верификации Google Search Console
-  # googleSiteVerification: "XYZabc"
-
-# !!! МАКСИМАЛЬНО УТОЧНИТЬ,
-#services:
-  # Твой Google Analytics 4 ID
-  #googleAnalytics:
-    #ID: "G-XXXXXXXXXX"
 
 # Настроки блока sitemap
 sitemap:
