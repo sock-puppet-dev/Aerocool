@@ -5,3 +5,11 @@
     --nav-width: 1024px;
     --main-width: 1024px;
 }
+
+/* assets/css/extended/patch.css (или в tailwind.css через @layer base) */
+.site-title img,
+.logo img {
+    display: inline-block;
+    height: 55px;      /* совпадает с label.iconHeight */
+    width: auto;
+}
