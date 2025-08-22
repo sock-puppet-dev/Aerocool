@@ -98,3 +98,5 @@ schema:
             ratingValue: "4.8"
             reviewCount: "210"
 ---
+
+PRODUCT PAGE ua

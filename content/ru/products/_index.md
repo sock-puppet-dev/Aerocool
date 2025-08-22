@@ -99,4 +99,4 @@ schema:
             reviewCount: "210"
 ---
 
-СТРАНИЦА ТОВАРОВ
+PRODUCT PAGE ru
