@@ -5,8 +5,6 @@ keywords: ["FAQ", "часто задаваемые вопросы", "Aerocool", 
 image: "/images/faq-cover.jpg"
 canonicalURL: "https://aerocool.ua/ru/faq/"
 aliases: ["/ru/faq", "/faq", "/ru/questions"]
-type: "page"
-layout: "page"
 url: "/ru/faq/"
 date: 2025-08-06T10:00:00+03:00
 lastmod: 2025-08-06T10:00:00+03:00

@@ -5,8 +5,6 @@ keywords: ["Aerocool новости", "новинки кресел", "акции
 image: "/images/news-cover.jpg"
 canonicalURL: "https://aerocool.ua/ru/news/"
 aliases: ["/ru/новости", "/ru/news", "/news"]
-type: "section"
-layout: "section"
 url: "/ru/news/"
 date: 2025-08-06T10:00:00+03:00
 lastmod: 2025-08-06T10:00:00+03:00

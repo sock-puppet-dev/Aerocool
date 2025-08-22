@@ -5,8 +5,6 @@ keywords: ["игровые кресла", "офисные кресла", "Aeroco
 image: "/images/products-cover.jpg"
 canonicalURL: "https://aerocool.ua/ru/products/"
 aliases: ["/ru/catalog", "/catalog", "/ru/products", "/products"]
-# type: "section"
-# layout: "section"
 url: "/ru/products/"
 date: 2025-08-07T10:00:00+03:00
 lastmod: 2025-08-07T10:00:00+03:00

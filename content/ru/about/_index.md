@@ -5,8 +5,6 @@ keywords: ["Aerocool", "о компании", "игровые кресла", "о
 image: "/images/about-cover.jpg"
 canonicalURL: "https://aerocool.ua/ru/about/"
 aliases: ["/ru/about-us", "/ru/about-aerocool", "/about-ru", "/company"]
-type: "page"
-layout: "page"
 url: "/ru/about/"
 date: 2025-08-05T10:00:00+03:00
 lastmod: 2025-08-05T10:00:00+03:00

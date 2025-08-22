@@ -3,8 +3,6 @@ title: "Статті та новини"
 description: "Читайте актуальні статті, огляди та поради щодо вибору ігрових крісел Aerocool в Україні. Все про комфорт, ергономіку та нові моделі 2025 року."
 keywords: ["ігрові крісла", "Aerocool", "огляди", "новини", "ергономіка", "як вибрати крісло"]
 image: "/images/articles-cover.jpg"
-type: "section"
-layout: "section"
 aliases: ["/blog", "/articles", "/uk/blog", "/uk/articles"]
 robots: "index, follow"
 canonicalURL: "https://aerocool.ua/uk/articles/"

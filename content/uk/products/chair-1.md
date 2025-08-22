@@ -12,7 +12,6 @@ images:
   - "/images/products/ac120-back.jpg"
 canonicalURL: "https://aerocool.ua/uk/products/ac120/"
 robots: "index, follow"
-layout: "single"
 
 schema:
   "@context": "https://schema.org"
