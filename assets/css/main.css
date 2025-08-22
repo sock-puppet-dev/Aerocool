@@ -10,6 +10,7 @@
 .site-title img,
 .logo img {
     display: inline-block;
-    height: 55px;      /* совпадает с label.iconHeight */
-    width: auto;
+    /* совпадает с label.iconHeight */
+    height: 50px;
+    width: 120px;
 }
