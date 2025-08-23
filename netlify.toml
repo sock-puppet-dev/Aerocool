@@ -12,6 +12,10 @@
   # 3) Собираем сайт Hugo с очисткой кэша и минификацией
   command = "git submodule update --init --recursive && npm run build && hugo --gc --minify"
 
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+  inputs = { urls = ["https://aerocool.ua/uk/"] }
+
 [build.environment]
   # Версия Hugo
   HUGO_VERSION = "0.148.2"
