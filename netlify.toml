@@ -14,7 +14,7 @@
 
 [[plugins]]
   package = "@netlify/plugin-lighthouse"
-  inputs = { urls = ["https://aerocool.ua/uk/"] }
+  inputs = { audit_url = "https://aerocool.ua/uk/", output_path = "lighthouse-reports", settings = { onlyCategories = ["performance","accessibility","seo","best-practices","pwa"] } }
 
 [build.environment]
   # Версия Hugo
