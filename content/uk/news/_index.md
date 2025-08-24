@@ -18,6 +18,7 @@ ShowShareButtons: true
 schema:
   "@context": "https://schema.org"
   "@type": "CollectionPage"
+  inLanguage: "uk"
   name: "Новини Aerocool"
   description: "Останні новини та оновлення від Aerocool — новинки ігрових крісел, акції та події."
   url: "https://aerocool.ua/uk/news/"

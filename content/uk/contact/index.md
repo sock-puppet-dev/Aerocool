@@ -20,6 +20,7 @@ schema:
   "@type": "Organization"
   name: "Aerocool"
   url: "https://aerocool.ua/"
+  inLanguage: "uk"
   logo: "https://aerocool.ua/images/logo.svg"
   contactPoint:
     - "@type": "ContactPoint"

@@ -10,6 +10,7 @@ schema:
     "@type": "WebSite"
     name: "Aerocool"
     url: "https://aerocool.ua/ru/"
+    inLanguage: "ru"
     potentialAction:
       "@type": "SearchAction"
       target: "https://aerocool.ua/ru/search?q={search_term_string}"
@@ -18,7 +19,8 @@ schema:
   - "@context": "https://schema.org"
     "@type": "Organization"
     name: "Aerocool"
-    url: "https://aerocool.ua/"
+    url: "https://aerocool.ua/ru/"
+    inLanguage: "ru"
     logo: "https://aerocool.ua/images/logo.svg"
     sameAs:
       - "https://www.facebook.com/AerocoolUkraine"

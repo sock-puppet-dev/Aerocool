@@ -18,6 +18,7 @@ showShareButtons: true
 schema:
   "@context": "https://schema.org"
   "@type": "CollectionPage"
+  inLanguage: "ru"
   name: "Каталог товаров Aerocool"
   description: "Полный каталог игровых и офисных кресел Aerocool с описаниями, ценами и характеристиками."
   url: "https://aerocool.ua/ru/products/"

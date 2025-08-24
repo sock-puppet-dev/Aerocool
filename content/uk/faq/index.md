@@ -19,6 +19,7 @@ ShowShareButtons: true
 schema:
   "@context": "https://schema.org"
   "@type": "FAQPage"
+  inLanguage: "uk"
   mainEntity:
     - "@type": "Question"
       name: "Яка гарантія на крісла Aerocool?"

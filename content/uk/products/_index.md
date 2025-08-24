@@ -18,6 +18,7 @@ showShareButtons: true
 schema:
   "@context": "https://schema.org"
   "@type": "CollectionPage"
+  inLanguage: "uk"
   name: "Каталог товарів Aerocool"
   description: "Повний каталог ігрових та офісних крісел Aerocool з описами, цінами та характеристиками."
   url: "https://aerocool.ua/uk/products/"

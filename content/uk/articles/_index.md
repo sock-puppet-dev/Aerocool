@@ -21,6 +21,7 @@ schema:
   description: "Читайте актуальні статті, огляди та поради щодо вибору ігрових крісел Aerocool в Україні. Все про комфорт, ергономіку та нові моделі 2025 року."
   url: "https://aerocool.ua/uk/articles/"
   image: "https://aerocool.ua/images/articles-cover.jpg"
+  inLanguage: "uk"
   mainEntity:
     "@type": "ItemList"
     name: "Список статей Aerocool"
