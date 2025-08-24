@@ -9,7 +9,7 @@ lastmod: "{{ .Date }}"
 # Черновик? false — страница опубликована, true — скрыта
 draft: false
 # Язык страницы (для отображения и локализации)
-lang: "{{ .Page.Language.Lang }}"
+lang: "{{ .Site.Language.Lang }}"
 # Язык контента для Schema.org (чтобы поисковики понимали язык товара)
 inLanguage: "{{ .Site.Language.Lang }}"
 # Ключ для связи мультиязычных версий одной страницы/товара
@@ -39,6 +39,7 @@ showWordCount: false
 # Категория / секция для Schema.org и внутренней навигации
 # Полезно для фильтров и JSON-LD
 articleSection: '{{ if eq .Site.Language.Lang "uk" }}Товари{{ else if eq .Site.Language.Lang "ru" }}Товары{{ end }}'
+canonicalURL: "/{{ .Site.Language.Lang }}/products/{{ .Name | urlize }}/"
 
 # Параметры обложки товара
 cover:
@@ -72,7 +73,7 @@ schema:
   # Номер производителя (MPN) — заполняется при необходимости
   mpn: ""
   # mainEntityOfPage указывает, что эта страница является основной для данного продукта
-  mainEntityOfPage: "{{ .Permalink }}"
+  mainEntityOfPage: "/{{ .Site.Language.Lang }}/products/{{ .Name | urlize }}/"
   # Предложения и цены товара
   offers:
     # Валюта (UAH — гривна)
@@ -82,8 +83,8 @@ schema:
     # Наличие товара
     availability: "https://schema.org/InStock"
     # URL товара на сайте
-    url: "{{ .Permalink }}"
-
+    url: "/{{ .Site.Language.Lang }}/products/{{ .Name | urlize }}/"
+    
 # Настройки PWA (Progressive Web App)
 pwa:
   # Путь к манифесту приложения

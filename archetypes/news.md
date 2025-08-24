@@ -50,9 +50,10 @@ schema:
   author: "Aerocool"
   publisher: "Aerocool"
   image: "/images/news/{{ .Name }}/cover.webp"
-  mainEntityOfPage: "{{ .Permalink }}"
+  mainEntityOfPage: "/{{ .Site.Language.Lang }}/{{ .Type }}/{{ .Name | urlize }}/"
   articleSection: '{{ if eq .Site.Language.Lang "uk" }}Новини{{ else if eq .Site.Language.Lang "ru" }}Новости{{ end }}'
   inLanguage: "{{ .Site.Language.Lang }}"
+  url: "/{{ .Site.Language.Lang }}/{{ .Type }}/{{ .Name | urlize }}/"
 
 # PWA (Progressive Web App)
 pwa:

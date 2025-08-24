@@ -14,7 +14,6 @@ image: ""
 # Article section для Schema.org и категорий (мультиязычное)
 articleSection: '{{ if eq .Site.Language.Lang "uk" }}Статті{{ else if eq .Site.Language.Lang "ru" }}Статьи{{ end }}'
 # Язык статьи
-inLanguage: "{{ .Site.Language.Lang }}"
 lang: "{{ .Site.Language.Lang }}"
 # Используем .Site.Language.Lang вместо .Page.Language.Lang
 # Ключ для связи мультиязычных версий
@@ -48,12 +47,16 @@ cover:
 # JSON-LD (Schema.org) для поисковых систем
 schema:
   type: BlogPosting
-  author: "Aerocool"
-  publisher: "Aerocool"
+  author:
+    type: Organization
+    name: "Aerocool"
+  publisher:
+    type: Organization
+    name: "Aerocool"
   image: "/images/articles/{{ .Name }}/cover.webp"
   datePublished: "{{ .Date }}"
   dateModified: "{{ .Date }}"
-  mainEntityOfPage: "{{ .Permalink }}"
+  mainEntityOfPage: "/{{ .Site.Language.Lang }}/articles/{{ .Name | urlize }}/"
   headline: "{{ replace .Name "-" " " | title }}"      # краткий заголовок ≤110 символов
   articleSection: '{{ if eq .Site.Language.Lang "uk" }}Статті{{ else if eq .Site.Language.Lang "ru" }}Статьи{{ end }}'
   inLanguage: "{{ .Site.Language.Lang }}"

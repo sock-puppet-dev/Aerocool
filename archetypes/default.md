@@ -37,9 +37,9 @@ schema:
   type: WebPage
   name: "{{ replace .Name "-" " " | title }}"
   description: "Краткое описание страницы {{ .Name }} для поисковых систем"
-  mainEntityOfPage: "{{ .Permalink }}"
+  mainEntityOfPage: "/{{ .Site.Language.Lang }}/{{ .Type }}/{{ .Name | urlize }}/"
   inLanguage: "{{ .Site.Language.Lang }}"   # добавлено для мультиязычности
-
+  url: "/{{ .Site.Language.Lang }}/{{ .Name | urlize }}/"
 # PWA (Progressive Web App)
 pwa:
   manifest: "/manifest.webmanifest"
