@@ -1,87 +1,73 @@
 ---
-# Заголовок статьи. Формируется из имени файла: дефисы заменяются на пробелы, слова — с заглавной буквы
+# Заголовок статьи (формируется из имени файла, дефисы → пробелы, с заглавной буквы)
 title: "{{ replace .Name "-" " " | title }}"
-# Дата создания статьи (ставится автоматически)
+# Дата создания и последнего изменения
 date: "{{ .Date }}"
-# Дата последнего изменения (изначально совпадает с датой создания)
 lastmod: "{{ .Date }}"
-# Черновик? false — статья опубликована, true — скрыта
+# Черновик? false — статья опубликована
 draft: false
-# Язык страницы, Hugo подставит "uk" или "ru" в зависимости от папки
-lang: "{{ .Page.Language.Lang }}"
-# Ключ перевода для связи мультиязычных версий одной статьи
+# Теги и категории (можно заполнить вручную)
+tags: []
+categories: []
+# Главное изображение для статьи
+image: ""
+# Article section для Schema.org и категорий (мультиязычное)
+articleSection: '{{ if eq .Site.Language.Lang "uk" }}Статті{{ else if eq .Site.Language.Lang "ru" }}Статьи{{ end }}'
+# Язык статьи
+inLanguage: "{{ .Site.Language.Lang }}"
+lang: "{{ .Site.Language.Lang }}"
+# Используем .Site.Language.Lang вместо .Page.Language.Lang
+# Ключ для связи мультиязычных версий
 translationKey: "{{ .Name }}"
-# Мета описание (короткое, для поисковиков)
-# !!! Нужно заполнять вручную в каждой статье. Это нормально и хорошо.
+# Мета-описание (SEO) — заполняется вручную
 description: ""
-# Ключевые слова для SEO (список)
-# !!! Нужно заполнять вручную в каждой статье. Это нормально и хорошо.
-keywords: []
-# ЧПУ (slug) — часть URL, обычно имя файла
-slug: "{{ .Name | lower }}"
-# Канонический URL, чтобы избежать дублирования
-# !!! Нужно заполнять вручную в каждой статье. Это нормально и хорошо.
+# ЧПУ (slug) — часть URL, автоматически urlize
+slug: "{{ .Name | urlize }}"
+# Канонический URL (SEO) — заполняется вручную
 canonicalURL: ""
-# Показывать оглавление (Table of Contents)
+
+# Настройки отображения
 showToc: true
-# Оглавление открыто по умолчанию
 tocOpen: true
-# Показывать метаинформацию (автор, дата)
 hidemeta: false
-# Показывать комментарии под статьёй
 comments: false
-# Показывать примерное время чтения
 showReadingTime: true
-# Показывать хлебные крошки (навигацию)
 showBreadCrumbs: true
-# Показывать ссылки на соседние статьи (вперед/назад)
 showPostNavLinks: true
-# Показывать количество слов в статье
 showWordCount: true
-# Использовать автоматическое оглавление Hugo
 useHugoToc: true
-# Параметры обложки (главного изображения)
+
+# Параметры обложки
 cover:
-  # Путь к изображению (обычно в папке images/articles/имя-статьи)
   image: "/images/articles/{{ .Name }}/cover.webp"
-  # Альтернативный текст для SEO и доступности (редактируем при создании статьи)
   alt: "Описание изображения статьи {{ .Name }} для SEO и доступности"
-  # Подпись под картинкой (видимая для читателя)
   caption: "Подпись к изображению статьи {{ .Name }}"
-  # true — путь к картинке относительный
   relative: true
-  # false — картинка видна (true — скрыта)
   hidden: false
-# JSON-LD (Schema.org) для поисковых систем (расширенный сниппет)
+
+# JSON-LD (Schema.org) для поисковых систем
 schema:
-  # Тип контента — блог-пост
   type: BlogPosting
-  # Автор статьи
   author: "Aerocool"
-  # Издатель (бренд сайта)
   publisher: "Aerocool"
-  # Изображение для сниппета
   image: "/images/articles/{{ .Name }}/cover.webp"
-  # добавить дату публикации и модификации для полного Schema:
   datePublished: "{{ .Date }}"
   dateModified: "{{ .Date }}"
   mainEntityOfPage: "{{ .Permalink }}"
-# Настройки PWA (прогрессивного веб-приложения)
+  headline: "{{ replace .Name "-" " " | title }}"      # краткий заголовок ≤110 символов
+  articleSection: '{{ if eq .Site.Language.Lang "uk" }}Статті{{ else if eq .Site.Language.Lang "ru" }}Статьи{{ end }}'
+  inLanguage: "{{ .Site.Language.Lang }}"
+
+# PWA (прогрессивное веб-приложение)
 pwa:
-  # Путь к манифесту приложения
   manifest: "/manifest.webmanifest"
-  # Страница офлайн-режима
   offline: "/offline.html"
-  # Цвет темы браузера
   themeColor: "#0A0A0A"
-  # Цвет фона splash screen
   backgroundColor: "#FFFFFF"
-# Параметры кнопки "Редактировать пост"
+
+# Кнопка "Редактировать пост"
 editPost:
-  # Ссылка на репозиторий с контентом
-  url: "https://github.com/Dmytro-Stadnyk/Aerocool"
-  # Текст кнопки (локализация)
+  url: "https://github.com/Dmytro-Stadnyk/Aerocool/content"
   text: "Запропонувати зміни"
-  # true — автоматически добавлять путь к файлу к ссылке
   appendFilePath: true
 ---

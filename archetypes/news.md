@@ -1,46 +1,47 @@
 ---
-# Заголовок новости (из имени файла)
+# Заголовок новости (из имени файла, дефисы → пробелы, слова с заглавной буквы)
 title: "{{ replace .Name "-" " " | title }}"
-# Дата публикации
+# Дата публикации и последнего изменения
 date: "{{ .Date }}"
-# Дата изменения
 lastmod: "{{ .Date }}"
-# Черновик?
+# Черновик? false — публикация
 draft: false
-# Язык страницы
-lang: "{{ .Page.Language.Lang }}"
-# Ключ перевода
+# Теги и категории
+tags: []
+categories: []
+# Главное изображение (можно оставить пустым для ручного заполнения)
+image: ""
+# Раздел/категория для Schema.org и внутренней навигации
+articleSection: '{{ if eq .Site.Language.Lang "uk" }}Новини{{ else if eq .Site.Language.Lang "ru" }}Новости{{ end }}'
+# Язык и мультиязычность
+inLanguage: "{{ .Site.Language.Lang }}"
+lang: "{{ .Site.Language.Lang }}"
 translationKey: "{{ .Name }}"
 # Краткое описание новости для SEO
 description: ""
-# Ключевые слова
-keywords: []
-# ЧПУ URL
-slug: "{{ .Name | lower }}"
+# ЧПУ URL (slug)
+slug: "{{ .Name | urlize }}"
 # Канонический URL
 canonicalURL: ""
-# Отображать оглавление (нет)
+
+# Настройки отображения
 showToc: false
-# Показывать метаинформацию
 hidemeta: false
-# Комментарии выключены
 comments: false
-# Показ времени чтения
 showReadingTime: true
-# Хлебные крошки включены
 showBreadCrumbs: true
-# Навигация между новостями
 showPostNavLinks: true
-# Количество слов
 showWordCount: true
-# Обложка новости
+
+# Параметры обложки новости
 cover:
   image: "/images/news/{{ .Name }}/cover.webp"
   alt: "Изображение новости {{ .Name }} для SEO и доступности"
   caption: "Подпись к новости {{ .Name }}"
   relative: true
   hidden: false
-# JSON-LD для NewsArticle (Google News)
+
+# JSON-LD Schema.org для новостей (Google News)
 schema:
   type: NewsArticle
   headline: "{{ replace .Name "-" " " | title }}"
@@ -50,15 +51,19 @@ schema:
   publisher: "Aerocool"
   image: "/images/news/{{ .Name }}/cover.webp"
   mainEntityOfPage: "{{ .Permalink }}"
-# PWA
+  articleSection: '{{ if eq .Site.Language.Lang "uk" }}Новини{{ else if eq .Site.Language.Lang "ru" }}Новости{{ end }}'
+  inLanguage: "{{ .Site.Language.Lang }}"
+
+# PWA (Progressive Web App)
 pwa:
   manifest: "/manifest.webmanifest"
   offline: "/offline.html"
   themeColor: "#0A0A0A"
   backgroundColor: "#FFFFFF"
-# Кнопка редактирования
+
+# Кнопка редактирования поста
 editPost:
-  url: "https://github.com/Dmytro-Stadnyk/Aerocool"
+  url: "https://github.com/Dmytro-Stadnyk/Aerocool/content"
   text: "Запропонувати зміни"
   appendFilePath: true
 ---
