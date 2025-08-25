@@ -21,6 +21,18 @@
   # Флаг npm для предотвращения конфликтов зависимостей
   NPM_FLAGS = "--legacy-peer-deps"
 
+# For preview deployments (branch deploys)
+[context.deploy-preview]
+  command = "hugo --gc --minify --config config.preview.yaml"
+
+# For branch deployments
+[context.branch-deploy]
+  command = "hugo --gc --minify --config config.preview.yaml"
+
+# For production deployments
+[context.production]
+  command = "hugo --gc --minify"
+
 # ==========================
 # Redirects
 # ==========================
@@ -39,6 +51,18 @@
   status = 301
   force = true
   conditions = { Host = "aerocool.ua" }
+
+# Redirects for language handling
+[[redirects]]
+  from = "/"
+  to = "/uk/"
+  status = 301
+  conditions = {Language = ["uk"]}
+
+[[redirects]]
+  from = "/ru/"
+  to = "/ru/"
+  status = 200
 
 # Кастомная страница ошибки 404 (для превью и всего остального)
 [[redirects]]
