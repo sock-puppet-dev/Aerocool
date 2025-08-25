@@ -9,6 +9,46 @@
   # 1) Обновляем git-подмодули 2) Собираем Tailwind CSS  3) Собираем сайт Hugo с очисткой кэша и минификацией
   command = "git submodule update --init --recursive && npm run build && hugo --gc --minify"
 
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+  # Общие пороговые значения (по умолчанию)
+  [plugins.inputs.thresholds]
+    performance = 0.9
+    accessibility = 0.9
+    best_practices = 0.9
+    seo = 0.9
+
+  # ==========================
+  # Аудит украинской версии
+  # ==========================
+  [[plugins.inputs.audits]]
+    url = "https://aerocool.ua/uk/"
+    output_path = "reports/uk/index.html"
+    [plugins.inputs.audits.thresholds]
+      performance = 0.9
+
+  [[plugins.inputs.audits]]
+    url = "https://aerocool.ua/uk/product/duke/"
+    output_path = "reports/uk/duke.html"
+    [plugins.inputs.audits.thresholds]
+      performance = 0.9
+
+  # ==========================
+  # Аудит русской версии
+  # ==========================
+  [[plugins.inputs.audits]]
+    url = "https://aerocool.ua/ru/"
+    output_path = "reports/ru/index.html"
+    [plugins.inputs.audits.thresholds]
+      performance = 0.9
+
+  [[plugins.inputs.audits]]
+    url = "https://aerocool.ua/ru/product/duke/"
+    output_path = "reports/ru/duke.html"
+    [plugins.inputs.audits.thresholds]
+      performance = 0.9
+
 [build.environment]
   # Версия Hugo
   HUGO_VERSION = "0.148.2"
