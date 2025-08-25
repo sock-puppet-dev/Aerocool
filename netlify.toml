@@ -23,7 +23,7 @@
 
 # Lighthouse — запускать ТОЛЬКО на продакшене и проверять ваш реальный домен
 [[context.production.plugins]]
-  package = "@netlify/plugin-lighthouse@6"
+  package = "@netlify/plugin-lighthouse"
   # можно добавить несколько страниц
   [[context.production.plugins.inputs.audits]]
     url = "https://aerocool.ua/uk/"
