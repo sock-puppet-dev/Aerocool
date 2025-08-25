@@ -9,6 +9,12 @@
   # 1) Обновляем git-подмодули 2) Собираем Tailwind CSS  3) Собираем сайт Hugo с очисткой кэша и минификацией
   command = "git submodule update --init --recursive && npm run build && hugo --gc --minify"
 
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+[[plugins.inputs.audits]]
+  url = "https://aerocool.ua/uk/"
+
 [build.environment]
   # Версия Hugo
   HUGO_VERSION = "0.148.2"
