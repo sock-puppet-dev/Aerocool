@@ -1,6 +1,0 @@
-# Preview configuration for Netlify
-# This will be used for preview deployments
-baseURL: https://hugo-aerocool.netlify.app/
-
-# Disable language subdirectory for previews to avoid redirect issues
-defaultContentLanguageInSubdir: false
