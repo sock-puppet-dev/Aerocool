@@ -21,13 +21,6 @@
   # Флаг npm для предотвращения конфликтов зависимостей
   NPM_FLAGS = "--legacy-peer-deps"
 
-# Lighthouse — запускать ТОЛЬКО на продакшене и проверять ваш реальный домен
-[[context.production.plugins]]
-  package = "@netlify/plugin-lighthouse"
-  # можно добавить несколько страниц
-  [[context.production.plugins.inputs.audits]]
-    url = "https://aerocool.ua/uk/"
-
 # ==========================
 # Redirects
 # ==========================
@@ -52,6 +45,7 @@
   from = "/*"
   to = "/404.html"
   status = 404
+
 # ==========================
 # Headers для безопасности и SEO
 # ==========================
