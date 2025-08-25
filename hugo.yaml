@@ -156,7 +156,7 @@ params:
     - кресла с регулируемой высотой
     - дизайн и комфорт кресел
 # Автор
-  author: "Aerocool Advanced Technologies Corp. "
+  author: "Aerocool Advanced Technologies Corp."
 # Включает отображение количества слов в постах блога
   ShowWordCount: true
 # Управляет особым оформлением первого поста на главной странице (или в списке постов).
@@ -225,7 +225,6 @@ cover:
   # false — показывать обложку.
   # true — скрывать обложку на одиночных страницах.
   hiddenInSingle: false
-
 
 # изображение по умолчанию для Open Graph / Twitter Cards (например, логотип)
 images: ["/images/logo.svg"]
