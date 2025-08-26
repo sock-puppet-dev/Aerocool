@@ -17,7 +17,6 @@ description: "{{ .Summary }}"
 keywords: []
 slug: "{{ .Name | urlize }}"
 canonicalURL: "https://aerocool.ua/{{ .Site.Language.Lang }}/articles/{{ .Name | urlize }}/"
-
 hreflang:
   - lang: "ru"
     url: "https://aerocool.ua/ru/articles/{{ .Name | urlize }}/"
