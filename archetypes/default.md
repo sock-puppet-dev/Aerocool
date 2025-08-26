@@ -1,56 +1,77 @@
 ---
-# Заголовок страницы (формируется из имени файла: дефисы → пробелы, с заглавной буквы)
 title: "{{ replace .Name "-" " " | title }}"
-# Дата создания и последнего изменения
 date: "{{ .Date }}"
 lastmod: "{{ .Date }}"
-# Черновик? false — страница публикуется
 draft: false
-# Язык страницы (uk/ru)
-lang: "{{ .Site.Language.Lang }}"  # используем .Site.Language.Lang для единообразия
-# Ключ перевода для мультиязычности
+lang: "{{ .Site.Language.Lang }}"
 translationKey: "{{ .Name }}"
-# Мета-описание для SEO — заполняется вручную
-description: "Краткое описание страницы {{ .Name }} для поисковых систем"
-# ЧПУ (slug) — часть URL страницы
+description: "{{ .Summary }}"
 slug: "{{ .Name | urlize }}"
-# Канонический URL для SEO — заполняется вручную
-canonicalURL: ""
+canonicalURL: "https://aerocool.ua/{{ .Site.Language.Lang }}/{{ .Type | default "pages" }}/{{ .Name | urlize }}/"
+robots: '{{ if .Draft }}noindex, nofollow{{ else }}index, follow{{ end }}'
 
-# Настройки отображения
-showToc: false
+hreflang:
+  - lang: "ru"
+    url: "https://aerocool.ua/ru/{{ .Type | default "pages" }}/{{ .Name | urlize }}/"
+  - lang: "uk"
+    url: "https://aerocool.ua/uk/{{ .Type | default "pages" }}/{{ .Name | urlize }}/"
+
+showToc: true
+tocOpen: true
 hidemeta: false
 comments: false
+showReadingTime: true
 showBreadCrumbs: true
 showPostNavLinks: true
+showWordCount: true
+useHugoToc: true
 
-# Параметры обложки страницы
 cover:
   image: "/images/default-cover.webp"
-  alt: "Обложка страницы {{ .Name }}"
-  caption: "Подпись к странице {{ .Name }}"
-  relative: true
-  hidden: false
+  alt: "{{ .Summary }}"
+  caption: "Подпись к изображению статьи {{ .Name }}"
+  image_width: ""
+  image_height: ""
+  loading: "lazy"
 
-# JSON-LD Schema.org для поисковых систем
-schema:
-  type: WebPage
-  name: "{{ replace .Name "-" " " | title }}"
-  description: "Краткое описание страницы {{ .Name }} для поисковых систем"
-  mainEntityOfPage: "/{{ .Site.Language.Lang }}/{{ .Type }}/{{ .Name | urlize }}/"
-  inLanguage: "{{ .Site.Language.Lang }}"   # добавлено для мультиязычности
-  url: "/{{ .Site.Language.Lang }}/{{ .Name | urlize }}/"
-# PWA (Progressive Web App)
+markup:
+  "@type": "WebPage"
+  author:
+    "@type": "Organization"
+    name: "Aerocool Advanced Technologies Corp."
+  publisher:
+    "@type": "Organization"
+    name: "Aerocool Advanced Technologies Corp."
+    logo: "https://aerocool.ua/images/logo.svg"
+  image: "/images/articles/{{ .Name }}/cover.webp"
+  datePublished: "{{ .Date }}"
+  dateModified: "{{ .Date }}"
+  headline: "{{ replace .Name "-" " " | title }}" 
+  mainEntityOfPage: "https://aerocool.ua/{{ .Site.Language.Lang }}/{{ .Type | default "pages" }}/{{ .Name | urlize }}/"
+  articleSection: '{{ if eq .Site.Language.Lang "uk" }}Статті{{ else if eq .Site.Language.Lang "ru" }}Статьи{{ end }}'
+  inLanguage: "{{ .Site.Language.Lang }}"
+  keywords: []
+  url: "https://aerocool.ua/{{ .Site.Language.Lang }}/{{ .Type | default "pages" }}/{{ .Name | urlize }}/"
+
 pwa:
   manifest: "/manifest.webmanifest"
   offline: "/offline.html"
   themeColor: "#0A0A0A"
   backgroundColor: "#FFFFFF"
+  short_name: "Aerocool"
+  icons:
+    - src: "/images/icons/icon-192.png"
+      sizes: "192x192"
+      type: "image/png"
+      purpose: "any maskable"
+    - src: "/images/icons/icon-512.png"
+      sizes: "512x512"
+      type: "image/png"
+      purpose: "any maskable"
 
-# Кнопка "Редактировать пост"
 editPost:
-  url: "https://github.com/Dmytro-Stadnyk/Aerocool/content"
-  text: "Запропонувати зміни"
+  url: "https://github.com/Dmytro-Stadnyk/Aerocool/content/archetypes/default.md"
+  text: '{{ if eq .Site.Language.Lang "uk" }}Запропонувати зміни{{ else if eq .Site.Language.Lang "ru" }}Предложить изменения{{ end }}'
   appendFilePath: true
 ---
 
