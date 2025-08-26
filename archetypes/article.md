@@ -1,31 +1,29 @@
 ---
-# Заголовок статьи (формируется из имени файла, дефисы → пробелы, с заглавной буквы)
 title: "{{ replace .Name "-" " " | title }}"
-# Дата создания и последнего изменения
 date: "{{ .Date }}"
 lastmod: "{{ .Date }}"
-# Черновик? false — статья опубликована
 draft: false
-# Теги и категории (можно заполнить вручную)
+author: "Aerocool Advanced Technologies Corp."
+url: "/{{ .Site.Language.Lang }}/articles/{{ .Name | urlize }}/"
 tags: []
 categories: []
-# Главное изображение для статьи
+robots: '{{ if .Draft }}noindex, nofollow{{ else }}index, follow{{ end }}'
+summary: ""
 image: ""
-# Article section для Schema.org и категорий (мультиязычное)
 articleSection: '{{ if eq .Site.Language.Lang "uk" }}Статті{{ else if eq .Site.Language.Lang "ru" }}Статьи{{ end }}'
-# Язык статьи
 lang: "{{ .Site.Language.Lang }}"
-# Используем .Site.Language.Lang вместо .Page.Language.Lang
-# Ключ для связи мультиязычных версий
 translationKey: "{{ .Name }}"
-# Мета-описание (SEO) — заполняется вручную
-description: ""
-# ЧПУ (slug) — часть URL, автоматически urlize
+description: "{{ .Summary }}"
+keywords: []
 slug: "{{ .Name | urlize }}"
-# Канонический URL (SEO) — заполняется вручную
-canonicalURL: ""
+canonicalURL: "https://aerocool.ua/{{ .Site.Language.Lang }}/articles/{{ .Name | urlize }}/"
 
-# Настройки отображения
+hreflang:
+  - lang: "ru"
+    url: "https://aerocool.ua/ru/articles/{{ .Name | urlize }}/"
+  - lang: "uk"
+    url: "https://aerocool.ua/uk/articles/{{ .Name | urlize }}/"
+
 showToc: true
 tocOpen: true
 hidemeta: false
@@ -36,41 +34,61 @@ showPostNavLinks: true
 showWordCount: true
 useHugoToc: true
 
-# Параметры обложки
 cover:
   image: "/images/articles/{{ .Name }}/cover.webp"
-  alt: "Описание изображения статьи {{ .Name }} для SEO и доступности"
+  alt: "{{ .Summary }}"
   caption: "Подпись к изображению статьи {{ .Name }}"
-  relative: true
-  hidden: false
+  image_width: ""
+  image_height: ""
+  loading: "lazy"
 
-# JSON-LD (Schema.org) для поисковых систем
-schema:
-  type: BlogPosting
+markup:
+  "@type": "Article"
   author:
-    type: Organization
-    name: "Aerocool"
+    "@type": "Organization"
+    name: "Aerocool Advanced Technologies Corp."
   publisher:
-    type: Organization
-    name: "Aerocool"
+    "@type": "Organization"
+    name: "Aerocool Advanced Technologies Corp."
+    logo: "https://aerocool.ua/images/logo.svg"
   image: "/images/articles/{{ .Name }}/cover.webp"
   datePublished: "{{ .Date }}"
   dateModified: "{{ .Date }}"
-  mainEntityOfPage: "/{{ .Site.Language.Lang }}/articles/{{ .Name | urlize }}/"
-  headline: "{{ replace .Name "-" " " | title }}"      # краткий заголовок ≤110 символов
+  headline: "{{ replace .Name "-" " " | title }}" 
+  mainEntityOfPage: "https://aerocool.ua/{{ .Site.Language.Lang }}/articles/{{ .Name | urlize }}/"
   articleSection: '{{ if eq .Site.Language.Lang "uk" }}Статті{{ else if eq .Site.Language.Lang "ru" }}Статьи{{ end }}'
   inLanguage: "{{ .Site.Language.Lang }}"
+  keywords: []
+  mainEntity:
+    - "@type": "Question"
+      name: ""
+      acceptedAnswer:
+        "@type": "Answer"
+        text: ""
+    - "@type": "Question"
+      name: ""
+      acceptedAnswer:
+        "@type": "Answer"
+        text: ""
 
-# PWA (прогрессивное веб-приложение)
 pwa:
   manifest: "/manifest.webmanifest"
   offline: "/offline.html"
   themeColor: "#0A0A0A"
   backgroundColor: "#FFFFFF"
+  short_name: "Aerocool"
+  icons:
+    - src: "/images/icons/icon-192.png"
+      sizes: "192x192"
+      type: "image/png"
+      purpose: "any maskable"
+    - src: "/images/icons/icon-512.png"
+      sizes: "512x512"
+      type: "image/png"
+      purpose: "any maskable"
 
-# Кнопка "Редактировать пост"
 editPost:
-  url: "https://github.com/Dmytro-Stadnyk/Aerocool/content"
-  text: "Запропонувати зміни"
+  url: "https://github.com/Dmytro-Stadnyk/Aerocool/content/{{ .Site.Language.Lang }}/articles/{{ .Name }}.md"
+  text: '{{ if eq .Site.Language.Lang "uk" }}Запропонувати зміни{{ else if eq .Site.Language.Lang "ru" }}Предложить изменения{{ end }}'
   appendFilePath: true
 ---
