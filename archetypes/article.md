@@ -41,8 +41,9 @@ cover:
   image_height: ""
   loading: "lazy"
 
-markup:
+schema:
   "@type": "Article"
+  "@id": "https://aerocool.ua/{{ .Site.Language.Lang }}/articles/{{ .Name | urlize }}/#article"
   author:
     "@type": "Organization"
     name: "Aerocool Advanced Technologies Corp."
