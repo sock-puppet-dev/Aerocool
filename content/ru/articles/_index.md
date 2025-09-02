@@ -14,6 +14,7 @@ tocOpen: false
 showReadingTime: true
 showWordCount: true
 showShareButtons: true
+
 schema:
   "@context": "https://schema.org"
   "@type": "CollectionPage"
