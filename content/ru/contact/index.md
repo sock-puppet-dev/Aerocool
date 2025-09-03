@@ -14,28 +14,80 @@ showReadingTime: false
 showWordCount: false
 showShareButtons: false
 
-# SEO JSON-LD для страницы контактов
 schema:
   "@context": "https://schema.org"
-  "@type": "Organization"
-  name: "Aerocool"
-  url: "https://aerocool.ua/"
-  inLanguage: "ru"
-  logo: "https://aerocool.ua/images/logo.svg"
-  contactPoint:
-    - "@type": "ContactPoint"
-      telephone: "+380 44 123 45 67"
-      contactType: "customer service"
-      areaServed: "UA"
-      availableLanguage: ["Russian", "Ukrainian"]
+  "@type": "ContactPage"
+  "@id": "https://aerocool.ua/ru/contact/#contactpage"
+  name: "Контакты — Aerocool"
   description: "Свяжитесь с Aerocool — украинским брендом игровых и офисных кресел, чтобы получить консультацию или поддержку."
-  address:
-    "@type": "PostalAddress"
-    streetAddress: "ул. Примерная, 12"
-    addressLocality: "Киев"
-    postalCode: "01001"
-    addressCountry: "UA"
-  
+  url: "https://aerocool.ua/ru/contact/"
+  mainEntityOfPage: "https://aerocool.ua/ru/contact/"
+  inLanguage: "ru"
+  canonical: "https://aerocool.ua/ru/contact/"
+  dateModified: "2025-09-03T10:00:00+03:00"
+  keywords: ["игровые кресла", "офисные кресла", "контакты", "Aerocool", "поддержка", "консультация"]
+  image:
+    - "@type": "ImageObject"
+      url: "https://aerocool.ua/images/logo.svg"
+      caption: "Aerocool — логотип"
+    - "@type": "ImageObject"
+      url: "https://aerocool.ua/images/office-kyiv.jpg"
+      caption: "Офис Aerocool в Киеве"
+  breadcrumb:
+    "@type": "BreadcrumbList"
+    itemListElement:
+      - "@type": "ListItem"
+        position: 1
+        name: "Главная"
+        item: "https://aerocool.ua/"
+      - "@type": "ListItem"
+        position: 2
+        name: "Контакты"
+        item: "https://aerocool.ua/ru/contact/"
+  mainEntity:
+    "@type": "Organization"
+    "@id": "https://aerocool.ua/#organization"
+    name: "Aerocool"
+    url: "https://aerocool.ua/"
+    description: "Украинский бренд игровых и офисных кресел Aerocool — комфорт, эргономика и поддержка клиентов."
+    logo:
+      "@type": "ImageObject"
+      url: "https://aerocool.ua/images/logo.svg"
+      width: 150
+      height: 50
+    contactPoint:
+      - "@type": "ContactPoint"
+        telephone: "+380441234567"
+        contactType: "customer service"
+        areaServed: "UA"
+        availableLanguage: ["ru-RU", "uk-UA"]
+    address:
+      "@type": "PostalAddress"
+      streetAddress: "ул. Примерная, 12"
+      addressLocality: "Киев"
+      postalCode: "01001"
+      addressCountry: "UA"
+    openingHoursSpecification:
+      - "@type": "OpeningHoursSpecification"
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+        opens: "09:00"
+        closes: "18:00"
+      - "@type": "OpeningHoursSpecification"
+        dayOfWeek: ["Saturday", "Sunday"]
+        opens: "09:00"
+        closes: "18:00"
+    sameAs:
+      - "https://www.facebook.com/AeroCoolGlobal/"
+      - "https://www.instagram.com/aerocool_global"
+      - "https://www.youtube.com/user/Aerocooladmin"
+  potentialAction:
+    - "@type": "CallAction"
+      target: "tel:+380441234567"
+      name: "Позвонить в Aerocool"
+    - "@type": "SendAction"
+      target: "mailto:support@aerocool.ua"
+      name: "Отправить email в Aerocool"
+
 # Twitter Cards
 twitterCard:
   card: "summary_large_image"
@@ -62,7 +114,7 @@ openGraph:
 
 ---
 
-## 📞 Телефоны и адреса
+## Телефоны и адреса
 
 - **Киев (шоурум):** ул. Большая Васильковская, 12  
 - **Львов (шоурум):** ул. Франка, 45  
@@ -72,7 +124,7 @@ openGraph:
 
 ---
 
-## 🕒 Время работы
+## Время работы
 
 - Понедельник — Пятница: 09:00 — 18:00  
 - Суббота: 10:00 — 16:00  
@@ -80,13 +132,13 @@ openGraph:
 
 ---
 
-## 📧 Форма обратной связи
+## Форма обратной связи
 
 В РАЗРОБОТКЕ 
 
 ---
 
-## 🌐 Социальные сети
+## Социальные сети
 
 Следите за нами в соцсетях для новостей и акций:  
 [Facebook](https://www.facebook.com/AerocoolUkraine) | [Instagram](https://instagram.com/aerocool_ua) | [YouTube](https://www.youtube.com/@AerocoolUA)
