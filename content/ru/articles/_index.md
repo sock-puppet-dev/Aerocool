@@ -18,17 +18,48 @@ showShareButtons: true
 schema:
   "@context": "https://schema.org"
   "@type": "CollectionPage"
-  name: "Статьи"
-  description: "Читайте актуальные статьи, обзоры и советы по выбору игровых кресел Aerocool в Украине. Всё о комфорте, эргономике и новых моделях 2025 года."
+  "@id": "https://aerocool.ua/ru/articles/#collection"
   url: "https://aerocool.ua/ru/articles/"
-  mainEntityOfPage: "https://aerocool.ua/ru/articles/"
-  dateModified: "2025-09-03T10:00:00+03:00"
-  keywords: ["игровые кресла", "офисные кресла", "обзоры", "эргономика", "Aerocool", "Украина"]
+  inLanguage: "ru"
+  name: "Статьи Aerocool"
+  headline: "Статьи Aerocool — обзоры, советы и новинки 2025"
+  description: "Читайте актуальные статьи, обзоры и советы по выбору игровых кресел Aerocool в Украине. Всё о комфорте, эргономике и новых моделях 2025 года."
+  mainEntityOfPage:
+    "@type": "WebPage"
+    "@id": "https://aerocool.ua/ru/articles/"
+  primaryImageOfPage:
+    "@id": "https://aerocool.ua/images/articles-cover.jpg"
   image:
     "@type": "ImageObject"
+    "@id": "https://aerocool.ua/images/articles-cover.jpg"
     url: "https://aerocool.ua/images/articles-cover.jpg"
-    caption: "Статьи о игровых и офисных креслах Aerocool"
-  inLanguage: "ru"
+    width: 1200
+    height: 628
+  dateModified: "2025-09-03T10:00:00+03:00"
+  lastReviewed: "2025-09-03T10:00:00+03:00"
+  keywords: ["игровые кресла", "офисные кресла", "обзоры", "эргономика", "Aerocool", "Украина"]
+  about:
+    - "@type": "Thing"
+      name: "Игровые кресла"
+    - "@type": "Thing"
+      name: "Офисные кресла"
+    - "@type": "Thing"
+      name: "Эргономичные кресла"
+  publisher:
+    "@type": "Organization"
+    "@id": "https://aerocool.ua/#organization"
+    name: "Aerocool"
+    url: "https://aerocool.ua/"
+    logo:
+      "@type": "ImageObject"
+      "@id": "https://aerocool.ua/images/logo.svg"
+      url: "https://aerocool.ua/images/logo.svg"
+      width: 150
+      height: 50
+    sameAs:
+      - "https://www.facebook.com/AeroCoolGlobal/"
+      - "https://www.instagram.com/aerocool_global"
+      - "https://www.youtube.com/user/Aerocooladmin"
   isPartOf:
     "@type": "WebSite"
     name: "Aerocool Украина"
@@ -44,56 +75,6 @@ schema:
         position: 2
         name: "Статьи"
         item: "https://aerocool.ua/ru/articles/"
-  mainEntity:
-    "@type": "ItemList"
-    name: "Список статей Aerocool"
-    numberOfItems: 2
-    itemListOrder: "Ascending"
-    itemListElement:
-      - "@type": "ListItem"
-        position: 1
-        url: "https://aerocool.ua/ru/articles/ergonomic-gaming-chair-review/"
-        name: "Обзор эргономичного игрового кресла Aerocool ErgoLine 2025"
-        headline: "Обзор эргономичного игрового кресла Aerocool ErgoLine 2025"
-        description: "Полный обзор новой модели игрового кресла Aerocool ErgoLine 2025: комфорт, регулировки и материалы."
-        image:
-          "@type": "ImageObject"
-          url: "https://aerocool.ua/images/articles/1.webp"
-          caption: "Aerocool ErgoLine 2025 — обзор игрового кресла"
-        datePublished: "2025-08-15T10:00:00+03:00"
-        mainEntityOfPage: "https://aerocool.ua/ru/articles/ergonomic-gaming-chair-review/"
-      - "@type": "ListItem"
-        position: 2
-        url: "https://aerocool.ua/ru/articles/office-chair-comfort-tips/"
-        name: "Как выбрать удобное офисное кресло Aerocool"
-        headline: "Как выбрать удобное офисное кресло Aerocool"
-        description: "Советы по выбору офисного кресла: эргономика, материалы, регулировки для максимального комфорта."
-        image:
-          "@type": "ImageObject"
-          url: "https://aerocool.ua/images/articles/2.webp"
-          caption: "Выбор удобного офисного кресла Aerocool"
-        datePublished: "2025-08-20T10:00:00+03:00"
-        mainEntityOfPage: "https://aerocool.ua/ru/articles/office-chair-comfort-tips/"
-  hasPart:
-    - "@type": "Article"
-      url: "https://aerocool.ua/ru/articles/ergonomic-gaming-chair-review/"
-      headline: "Обзор эргономичного игрового кресла Aerocool ErgoLine 2025"
-    - "@type": "Article"
-      url: "https://aerocool.ua/ru/articles/office-chair-comfort-tips/"
-      headline: "Как выбрать удобное офисное кресло Aerocool"
-  publisher:
-    "@type": "Organization"
-    name: "Aerocool Advanced Technologies Corp."
-    url: "https://aerocool.ua/ru/about/"
-    logo:
-      "@type": "ImageObject"
-      url: "https://aerocool.ua/images/logo.svg"
-      width: 150
-      height: 50
-    sameAs:
-      - "https://www.facebook.com/AeroCoolGlobal/"
-      - "https://www.instagram.com/aerocool_global"
-      - "https://www.youtube.com/user/Aerocooladmin"
   potentialAction:
     - "@type": "ViewAction"
       target: "https://aerocool.ua/ru/articles/"
@@ -104,6 +85,58 @@ schema:
     - "@type": "ViewAction"
       target: "https://aerocool.ua/ua/articles/"
       name: "Українська версія"
+  mainEntity:
+    "@type": "ItemList"
+    "@id": "https://aerocool.ua/ru/articles/#list"
+    name: "Список статей Aerocool"
+    description: "Все актуальные статьи Aerocool: обзоры кресел, советы по выбору и новинки 2025 года."
+    itemListOrder: "Ascending"
+    numberOfItems: 2
+    itemListElement:
+      - "@type": "ListItem"
+        "@id": "https://aerocool.ua/ru/articles/ergonomic-gaming-chair-review/#listitem"
+        position: 1
+        url: "https://aerocool.ua/ru/articles/ergonomic-gaming-chair-review/"
+        name: "Обзор эргономичного игрового кресла Aerocool ErgoLine 2025"
+        headline: "Обзор эргономичного игрового кресла Aerocool ErgoLine 2025"
+        description: "Полный обзор новой модели игрового кресла Aerocool ErgoLine 2025: комфорт, регулировки и материалы."
+        datePublished: "2025-08-15T10:00:00+03:00"
+        dateModified: "2025-08-15T12:00:00+03:00"
+        isPartOf:
+          "@id": "https://aerocool.ua/ru/articles/#collection"
+        image:
+          "@type": "ImageObject"
+          url: "https://aerocool.ua/images/articles/1.webp"
+          width: 1200
+          height: 628
+          caption: "Aerocool ErgoLine 2025 — обзор игрового кресла"
+        author:
+          "@type": "Organization"
+          name: "Aerocool"
+          url: "https://aerocool.ua/"
+        mainEntityOfPage: "https://aerocool.ua/ru/articles/ergonomic-gaming-chair-review/"
+      - "@type": "ListItem"
+        "@id": "https://aerocool.ua/ru/articles/office-chair-comfort-tips/#listitem"
+        position: 2
+        url: "https://aerocool.ua/ru/articles/office-chair-comfort-tips/"
+        name: "Как выбрать удобное офисное кресло Aerocool"
+        headline: "Как выбрать удобное офисное кресло Aerocool"
+        description: "Советы по выбору офисного кресла: эргономика, материалы, регулировки для максимального комфорта."
+        datePublished: "2025-08-20T10:00:00+03:00"
+        dateModified: "2025-08-20T12:00:00+03:00"
+        isPartOf:
+          "@id": "https://aerocool.ua/ru/articles/#collection"
+        image:
+          "@type": "ImageObject"
+          url: "https://aerocool.ua/images/articles/2.webp"
+          width: 1200
+          height: 628
+          caption: "Выбор удобного офисного кресла Aerocool"
+        author:
+          "@type": "Organization"
+          name: "Aerocool"
+          url: "https://aerocool.ua/"
+        mainEntityOfPage: "https://aerocool.ua/ru/articles/office-chair-comfort-tips/"
 ---
 
 # Последние статьи о креслах Aerocool
