@@ -18,19 +18,64 @@ showShareButtons: true
 schema:
   "@context": "https://schema.org"
   "@type": "CollectionPage"
+  "@id": "https://aerocool.ua/ua/products/#collection"
+  url: "https://aerocool.ua/ua/products/"
   inLanguage: "uk"
   name: "Каталог товарів Aerocool"
-  description: "Повний каталог ігрових та офісних крісел Aerocool з описами, цінами та характеристиками."
-  url: "https://aerocool.ua/uk/products/"
-  image: "https://aerocool.ua/images/products-cover.jpg"
+  headline: "Каталог ігрових та офісних крісел Aerocool — моделі 2025"
+  description: "Повний каталог ігрових та офісних крісел Aerocool з описами, цінами, характеристиками та відгуками покупців."
+  mainEntityOfPage:
+    "@type": "WebPage"
+    "@id": "https://aerocool.ua/ua/products/"
+    url: "https://aerocool.ua/ua/products/"
+  primaryImageOfPage:
+    "@id": "https://aerocool.ua/images/products-cover.jpg"
+  image:
+    "@type": "ImageObject"
+    "@id": "https://aerocool.ua/images/products-cover.jpg"
+    url: "https://aerocool.ua/images/products-cover.jpg"
+    width: 1200
+    height: 628
+  dateModified: "2025-09-05T10:00:00+03:00"
+  lastReviewed: "2025-09-05T10:00:00+03:00"
+  publisher:
+    "@type": "Organization"
+    "@id": "https://aerocool.ua/#organization"
+    name: "Aerocool"
+    url: "https://aerocool.ua/"
+    sameAs:
+      - "https://www.facebook.com/AeroCoolGlobal/"
+      - "https://www.instagram.com/aerocool_global"
+      - "https://www.youtube.com/user/Aerocooladmin"
+    logo:
+      "@type": "ImageObject"
+      "@id": "https://aerocool.ua/images/logo.png"
+      url: "https://aerocool.ua/images/logo.png"
+      width: 200
+      height: 60
+  breadcrumb:
+    "@type": "BreadcrumbList"
+    itemListElement:
+      - "@type": "ListItem"
+        position: 1
+        name: "Головна"
+        item: "https://aerocool.ua/ua/"
+      - "@type": "ListItem"
+        position: 2
+        name: "Каталог товарів"
+        item: "https://aerocool.ua/ua/products/"
   mainEntity:
     "@type": "ItemList"
     name: "Список товарів Aerocool"
+    description: "Всі ігрові та офісні крісла Aerocool з цінами, характеристиками та відгуками."
+    itemListOrder: "Ascending"
+    numberOfItems: 3
     itemListElement:
       - "@type": "ListItem"
         position: 1
         item:
           "@type": "Product"
+          "@id": "https://aerocool.ua/ua/products/thunder-x3#product"
           name: "Aerocool Thunder X3"
           image: "https://aerocool.ua/images/products/thunder-x3.jpg"
           description: "Ігрове крісло Aerocool Thunder X3 з підтримкою ергономіки та налаштуваннями під користувача."
@@ -40,7 +85,7 @@ schema:
             name: "Aerocool"
           offers:
             "@type": "Offer"
-            url: "https://aerocool.ua/uk/products/thunder-x3"
+            url: "https://aerocool.ua/ua/products/thunder-x3"
             priceCurrency: "UAH"
             price: "4999.00"
             availability: "https://schema.org/InStock"
@@ -54,6 +99,7 @@ schema:
         position: 2
         item:
           "@type": "Product"
+          "@id": "https://aerocool.ua/ua/products/eclipse-v2#product"
           name: "Aerocool Eclipse V2"
           image: "https://aerocool.ua/images/products/eclipse-v2.jpg"
           description: "Офісне крісло Aerocool Eclipse V2 з високою спинкою та м’якою оббивкою."
@@ -63,7 +109,7 @@ schema:
             name: "Aerocool"
           offers:
             "@type": "Offer"
-            url: "https://aerocool.ua/uk/products/eclipse-v2"
+            url: "https://aerocool.ua/ua/products/eclipse-v2"
             priceCurrency: "UAH"
             price: "3999.00"
             availability: "https://schema.org/LimitedAvailability"
@@ -77,6 +123,7 @@ schema:
         position: 3
         item:
           "@type": "Product"
+          "@id": "https://aerocool.ua/ua/products/nova-r#product"
           name: "Aerocool Nova R"
           image: "https://aerocool.ua/images/products/nova-r.jpg"
           description: "Ергономічне крісло Aerocool Nova R з регульованою поперековою підтримкою та підголівником."
@@ -86,7 +133,7 @@ schema:
             name: "Aerocool"
           offers:
             "@type": "Offer"
-            url: "https://aerocool.ua/uk/products/nova-r"
+            url: "https://aerocool.ua/ua/products/nova-r"
             priceCurrency: "UAH"
             price: "5499.00"
             availability: "https://schema.org/OutOfStock"

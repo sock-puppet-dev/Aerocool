@@ -18,19 +18,64 @@ showShareButtons: true
 schema:
   "@context": "https://schema.org"
   "@type": "CollectionPage"
+  "@id": "https://aerocool.ua/ru/products/#collection"
+  url: "https://aerocool.ua/ru/products/"
   inLanguage: "ru"
   name: "Каталог товаров Aerocool"
-  description: "Полный каталог игровых и офисных кресел Aerocool с описаниями, ценами и характеристиками."
-  url: "https://aerocool.ua/ru/products/"
-  image: "https://aerocool.ua/images/products-cover.jpg"
+  headline: "Каталог игровых и офисных кресел Aerocool — модели 2025"
+  description: "Полный каталог игровых и офисных кресел Aerocool с описаниями, ценами, характеристиками и отзывами покупателей."
+  mainEntityOfPage:
+    "@type": "WebPage"
+    "@id": "https://aerocool.ua/ru/products/"
+    url: "https://aerocool.ua/ru/products/"
+  primaryImageOfPage:
+    "@id": "https://aerocool.ua/images/products-cover.jpg"
+  image:
+    "@type": "ImageObject"
+    "@id": "https://aerocool.ua/images/products-cover.jpg"
+    url: "https://aerocool.ua/images/products-cover.jpg"
+    width: 1200
+    height: 628
+  dateModified: "2025-09-05T10:00:00+03:00"
+  lastReviewed: "2025-09-05T10:00:00+03:00"
+  publisher:
+    "@type": "Organization"
+    "@id": "https://aerocool.ua/#organization"
+    name: "Aerocool"
+    url: "https://aerocool.ua/"
+    sameAs:
+      - "https://www.facebook.com/AeroCoolGlobal/"
+      - "https://www.instagram.com/aerocool_global"
+      - "https://www.youtube.com/user/Aerocooladmin"
+    logo:
+      "@type": "ImageObject"
+      "@id": "https://aerocool.ua/images/logo.png"
+      url: "https://aerocool.ua/images/logo.png"
+      width: 200
+      height: 60
+  breadcrumb:
+    "@type": "BreadcrumbList"
+    itemListElement:
+      - "@type": "ListItem"
+        position: 1
+        name: "Главная"
+        item: "https://aerocool.ua/ru/"
+      - "@type": "ListItem"
+        position: 2
+        name: "Каталог товаров"
+        item: "https://aerocool.ua/ru/products/"
   mainEntity:
     "@type": "ItemList"
     name: "Список товаров Aerocool"
+    description: "Все игровые и офисные кресла Aerocool с ценами, характеристиками и отзывами."
+    itemListOrder: "Ascending"
+    numberOfItems: 3
     itemListElement:
       - "@type": "ListItem"
         position: 1
         item:
           "@type": "Product"
+          "@id": "https://aerocool.ua/ru/products/thunder-x3#product"
           name: "Aerocool Thunder X3"
           image: "https://aerocool.ua/images/products/thunder-x3.jpg"
           description: "Игровое кресло Aerocool Thunder X3 с поддержкой эргономики и настройками под пользователя."
@@ -54,6 +99,7 @@ schema:
         position: 2
         item:
           "@type": "Product"
+          "@id": "https://aerocool.ua/ru/products/eclipse-v2#product"
           name: "Aerocool Eclipse V2"
           image: "https://aerocool.ua/images/products/eclipse-v2.jpg"
           description: "Офисное кресло Aerocool Eclipse V2 с высокой спинкой и мягкой обивкой."
@@ -77,6 +123,7 @@ schema:
         position: 3
         item:
           "@type": "Product"
+          "@id": "https://aerocool.ua/ru/products/nova-r#product"
           name: "Aerocool Nova R"
           image: "https://aerocool.ua/images/products/nova-r.jpg"
           description: "Эргономичное кресло Aerocool Nova R с регулируемой поясничной поддержкой и подголовником."
