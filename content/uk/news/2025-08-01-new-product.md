@@ -5,7 +5,7 @@ draft: false
 tags: ["новини", "продукт", "акція", "новинка", "ігрові крісла", "ергономіка", "комфорт"]
 categories: ["Новини"]
 description: "Відкрийте для себе нову модель Aerocool Crown 2025 — передові технології, ергономіка та стиль у кожній деталі. Спеціальна знижка та бонуси лише в серпні!"
-image: "/images/news/aerocool-crown-2025-launch.jpg"
+image: "/images/news/aerocool-aerocool-crown-2025-launch.jpg"
 canonicalURL: "https://aerocool.ua/uk/news/aerocool-crown-2025-launch/"
 ---
 
