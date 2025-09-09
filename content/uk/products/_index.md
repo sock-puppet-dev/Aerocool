@@ -207,5 +207,3 @@ schema:
               bestRating: "5"
             reviewBody: "Відмінне ергономічне крісло, підтримка спини на високому рівні."
 ---
-
-PRODUCT PAGE ua

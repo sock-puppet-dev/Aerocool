@@ -207,5 +207,3 @@ schema:
               bestRating: "5"
             reviewBody: "Отличное эргономичное кресло, поддержка спины на высоте."
 ---
-
-PRODUCT PAGE ru

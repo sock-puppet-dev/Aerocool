@@ -14,7 +14,7 @@ cover:
   image_width: 1200
   image_height: 630
   loading: "lazy"
-  
+
 images:
   - "/images/products/aerocool-baron/1-front.webp"
   - "/images/products/aerocool-baron/2-side.webp"
