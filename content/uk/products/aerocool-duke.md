@@ -7,11 +7,12 @@ url: "/uk/products/duke/"
 categories: ["products", "gaming-chairs"]
 tags: ["aerocool", "duke", "ігрове крісло", "ергономіка", "комфорт"]
 images:
-  - "/images/products/aerocool-duke/1.webp"
-  - "/images/products/aerocool-duke/2.webp"
-  - "/images/products/aerocool-duke/3.webp"
+  - "/images/products/aerocool-duke/1-front.webp"
+  - "/images/products/aerocool-duke/2-side.webp"
+  - "/images/products/aerocool-duke/3-back.webp"
 canonicalURL: "https://aerocool.ua/uk/products/duke/"
 robots: "index, follow"
+
 schema:
   "@context": "https://schema.org"
   "@type": "Product"
@@ -19,9 +20,9 @@ schema:
   name: "Aerocool Duke"
   inLanguage: "uk"
   image:
-    - "https://aerocool.ua/images/products/aerocool-duke/1.webp"
-    - "https://aerocool.ua/images/products/aerocool-duke/2.webp"
-    - "https://aerocool.ua/images/products/aerocool-duke/3.webp"
+    - "https://aerocool.ua/images/products/aerocool-duke/1-front.webp"
+    - "https://aerocool.ua/images/products/aerocool-duke/2-side.webp"
+    - "https://aerocool.ua/images/products/aerocool-duke/3-back.webp"
   description: "Ігрове крісло Aerocool Duke з ергономічною спинкою, вентиляційними матеріалами та підвищеною підтримкою попереку."
   sku: "DUKE"
   mpn: "DUKE-UA"
