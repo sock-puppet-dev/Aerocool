@@ -6,10 +6,20 @@ slug: duke
 url: "/uk/products/duke/"
 categories: ["products", "gaming-chairs"]
 tags: ["aerocool", "duke", "ігрове крісло", "ергономіка", "комфорт"]
+
+cover:
+  image: "https://aerocool.ua/images/products/aerocool-duke/1-front.webp"
+  alt: "Ігрове крісло Aerocool Duke — головний оглядовий знімок"
+  caption: "Aerocool Duke: стильне і ергономічне ігрове крісло з підтримкою спини"
+  image_width: 1200
+  image_height: 630
+  loading: "lazy"
+
 images:
   - "/images/products/aerocool-duke/1-front.webp"
   - "/images/products/aerocool-duke/2-side.webp"
   - "/images/products/aerocool-duke/3-back.webp"
+  
 canonicalURL: "https://aerocool.ua/uk/products/duke/"
 robots: "index, follow"
 

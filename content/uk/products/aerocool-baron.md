@@ -6,10 +6,20 @@ slug: baron
 url: "/uk/products/baron/"
 categories: ["products", "gaming-chairs"]
 tags: ["aerocool", "baron", "ігрове крісло", "ергономіка", "комфорт"]
+
+cover:
+  image: "https://aerocool.ua/images/products/aerocool-baron/1-front.webp"
+  alt: "Ігрове крісло Aerocool Baron — головний оглядовий знімок"
+  caption: "Aerocool Baron: ергономічне крісло з покриттям AeroSuede"
+  image_width: 1200
+  image_height: 630
+  loading: "lazy"
+  
 images:
   - "/images/products/aerocool-baron/1-front.webp"
   - "/images/products/aerocool-baron/2-side.webp"
   - "/images/products/aerocool-baron/3-back.webp"
+  
 canonicalURL: "https://aerocool.ua/uk/products/baron/"
 robots: "index, follow"
 
