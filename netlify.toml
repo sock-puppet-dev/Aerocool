@@ -1,6 +1,6 @@
 # ====================================
 # Netlify build configuration
-# Hugo v0.149.0 + Tailwind CSS 4.1
+# Hugo v0.150.0 + Tailwind CSS 4.1
 # ====================================
 
 [build]

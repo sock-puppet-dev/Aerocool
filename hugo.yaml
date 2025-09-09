@@ -101,7 +101,6 @@ params:
 # Отключает кнопку переключения темы (светлая/темная) на сайте
 # Если true — пользователи не смогут менять тему вручную
   disableThemeToggle: true
-# images: ["https://aerocool.ua/images/og-image.jpg"]
 # Формат даты для вывода на страницах
   DateFormat: "02 January 2006"
 # Показывать время чтения в статьях
@@ -170,7 +169,6 @@ params:
 # false — если хочешь показывать краткие анонсы статей на главной странице или в разделах,
 # чтобы читатели сразу видели суть поста.
   hideSummary: false
-
 # Канонический URL сайта — указывает поисковикам основной адрес сайта
   canonicalURL: "https://aerocool.ua/"
 # Настройка блока картинок для фавиконов
@@ -186,7 +184,6 @@ params:
     safari_pinned_tab: "/images/safari-pinned-tab.svg"
     # Включает добавление хэшей к именам файлов для кэширования.
     disableFingerprinting: false
-
 # Настроки блока sitemap
 sitemap:
   # Частота обновления страниц для поисковиков (рекомендуется указывать для статичных страниц)
@@ -195,7 +192,6 @@ sitemap:
   filename: sitemap.xml
   # Приоритет страниц (от 0.0 до 1.0)
   priority: 0.7
-
 # Настройка блока socialIcons
 socialIcons:
   - name: youtube
@@ -208,7 +204,6 @@ socialIcons:
     url: "https://x.com/AerocoolGlobal"
   - name: tiktok
     url: "https://www.tiktok.com/@aerocool_global"
-
 # Блок управления обложками
 cover:
   # Показывать обложку (cover image) вообще или полностью скрыть.
@@ -224,7 +219,6 @@ cover:
   # false — показывать обложку.
   # true — скрывать обложку на одиночных страницах.
   hiddenInSingle: false
-
 # изображение по умолчанию для Open Graph / Twitter Cards (например, логотип)
 images: ["/images/logo.svg"]
 
@@ -291,7 +285,6 @@ languages:
         - найкращі крісла для геймерів 2025
         - крісла з регульованою висотою
         - дизайн і комфорт крісел
-
     contentDir: content/uk                # Папка с контентом для этого языка (все страницы для украинской версии)
     menu:
       main:                               # Главное меню (будет отображаться в шапке или навигации)
@@ -319,7 +312,6 @@ languages:
           name: Контакти
           url: /contact/
           weight: 60
-
 # ==== Русская версия сайта ====
   ru:
     languageName: Русский                 # Название языка для отображения в переключателе
@@ -349,7 +341,6 @@ languages:
         - лучшие кресла для геймеров 2025
         - кресла с регулируемой высотой
         - дизайн и комфорт кресел
-
     contentDir: content/ru
     menu:
       main:
