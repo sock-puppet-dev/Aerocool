@@ -11,7 +11,7 @@
 
 [build.environment]
   # Версия Hugo
-  HUGO_VERSION = "0.150.0"
+  HUGO_VERSION = "0.150.1"
   # Режим сборки Hugo (для production можно менять на "production")
   HUGO_ENV = "development"
   # Часовой пояс
