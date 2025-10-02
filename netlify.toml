@@ -1,6 +1,6 @@
 # ====================================
 # Netlify build configuration
-# Hugo v0.150.0 + Tailwind CSS 4.1
+# Hugo v0.151.0 + Tailwind CSS 4.1
 # ====================================
 
 [build]
@@ -11,7 +11,7 @@
 
 [build.environment]
   # Версия Hugo
-  HUGO_VERSION = "0.150.1"
+  HUGO_VERSION = "0.151.0"
   # Режим сборки Hugo (для production можно менять на "production")
   HUGO_ENV = "development"
   # Часовой пояс
@@ -20,7 +20,6 @@
   NODE_VERSION = "22"
   # Флаг npm для предотвращения конфликтов зависимостей
   NPM_FLAGS = "--legacy-peer-deps"
-
 
 # ==========================
 # Redirects
