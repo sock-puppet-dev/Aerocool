@@ -1,8 +1,8 @@
 ---
 title: "О компании Aerocool"
-description: "Узнайте больше о бренде Aerocool — лидере по производству эргономичных игровых и офисных кресел в Украине. Качество, комфорт и гарантия."
+description: "Узнайте больше про бренд Aerocool — лидера по производству эргономичных игровых и офисных кресел в Украине. Качество, комфорт и гарантия."
 keywords: ["Aerocool", "о компании", "игровые кресла", "офисные кресла", "качество", "гарантия"]
-image: "/images/about-cover.jpg"
+image: "/images/about-cover.webp"
 canonicalURL: "https://aerocool.ua/ru/about/"
 aliases: ["/ru/about-us", "/ru/about-aerocool", "/about-ru", "/company"]
 url: "/ru/about/"
@@ -14,105 +14,242 @@ showReadingTime: false
 showWordCount: false
 showShareButtons: false
 
-# проверил весь блок schema и утвердил этот вариант на 03.09.2025 год
-
 schema:
   "@context": "https://schema.org"
-  "@type": "AboutPage"
-  "@id": "https://aerocool.ua/ru/about/#aboutpage"
-  name: "О компании Aerocool"
-  description: "Официальная информация о компании Aerocool Advanced Technologies Corp. — производителе игровых и офисных кресел с акцентом на эргономику, стиль и комфорт."
-  url: "https://aerocool.ua/ru/about/"
-  mainEntity:
-    "@type": "Organization"
-    "@id": "https://aerocool.ua/#organization"
-    name: "Aerocool Advanced Technologies Corp."
-    legalName: "Aerocool Advanced Technologies Corp."
-    url: "https://aerocool.ua/ru/about/"
-    logo:
-      "@type": "ImageObject"
-      url: "https://aerocool.ua/images/logo.svg"
-      width: 150
-      height: 50
-    image:
-      "@type": "ImageObject"
-      url: "https://aerocool.ua/images/logo.svg"
-      caption: "Офис Aerocool"
-    slogan: "Be Cool. Get AeroCool."
-    description: "Aerocool — бренд игровых и офисных кресел с упором на эргономику, стиль и комфорт."
-    alternateName: "Aerocool"
-    foundingLocation:
-      "@type": "Place"
-      name: "Тайвань"
-    knowsLanguage: ["ru", "uk"]
-    address:
-      "@type": "PostalAddress"
-      streetAddress: "ул. Примерная, 10"
-      addressLocality: "Киев"
-      addressRegion: "Киевская область"
-      postalCode: "01001"
-      addressCountry: "UA"
-    email: "support@aerocool.ua"
-    telephone: "+380123456789"
-    openingHoursSpecification:
-      - "@type": "OpeningHoursSpecification"
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-        opens: "09:00"
-        closes: "18:00"
-      - "@type": "OpeningHoursSpecification"
-        dayOfWeek: ["Saturday", "Sunday"]
-        opens: "09:00"
-        closes: "18:00"
-    areaServed:
-      "@type": "Country"
-      name: "Ukraine"
-    brand:
-      - "@type": "Brand"
-        name: "Aerocool"
-        url: "https://aerocool.ua/ru/products/"
-    sameAs:
-      - "https://www.facebook.com/AeroCoolGlobal/"
-      - "https://www.instagram.com/aerocool_global"
-      - "https://www.youtube.com/user/Aerocooladmin"
-    hasPart:
-      - "@type": "CollectionPage"
-        name: "Продукты"
-        url: "https://aerocool.ua/ru/products/"
-      - "@type": "ContactPage"
-        name: "Контакты"
-        url: "https://aerocool.ua/ru/contact/"
-      - "@type": "CollectionPage"
-        name: "Новости"
-        url: "https://aerocool.ua/ru/news/"
-      - "@type": "CollectionPage"
-        name: "Статьи"
-        url: "https://aerocool.ua/ru/articles/"
-    contactPoint:
-      - "@type": "ContactPoint"
-        telephone: "+380123456789"
-        email: "support@aerocool.ua"
-        contactType: "customer support"
-        availableLanguage: ["Russian", "Ukrainian"]
-    foundingDate: "2015"
-  mainEntityOfPage: "https://aerocool.ua/ru/about/"
-  inLanguage: "ru"
+  "@graph":
+    - "@type": "Organization"
+      "@id": "https://aerocool.ua/#organization"
+      name: "Aerocool Advanced Technologies Corp."
+      legalName: "Aerocool Advanced Technologies Corp."
+      alternateName: "Aerocool"
+      url: "https://aerocool.ua/"
+      logo:
+        "@type": "ImageObject"
+        "@id": "https://aerocool.ua/#logo"
+        url: "https://aerocool.ua/images/logo.svg"
+        width: 300
+        height: 112
+      image:
+        "@type": "ImageObject"
+        "@id": "https://aerocool.ua/#about-image"
+        url: "https://aerocool.ua/images/about-cover.webp"
+        caption: "Офис Aerocool Украина"
+      description: "Aerocool — производитель игровых и офисных кресел, который сочетает эргономику, стиль и комфорт."
+      slogan: "Be Cool. Get Aerocool."
+      foundingDate: "2015"
+      foundingLocation:
+        "@type": "Place"
+        name: "Офис Aerocool Украина"
+        address:
+          "@type": "PostalAddress"
+          streetAddress: "ул. Степана Рудницкого, 19/14"
+          addressLocality: "Киев"
+          addressRegion: "Киевская область"
+          postalCode: "03189"
+          addressCountry: "UA"
+      address:
+        "@type": "PostalAddress"
+        streetAddress: "ул. Степана Рудницкого, 19/14"
+        addressLocality: "Киев"
+        addressRegion: "Киевская область"
+        postalCode: "03189"
+        addressCountry: "UA"
+      email: "support@aerocool.ua"
+      telephone: "+380665020441"
+      areaServed:
+        - "@type": "Country"
+          name: "Украина"
+        - "@type": "AdministrativeArea"
+          name: "Киев"
+        - "@type": "AdministrativeArea"
+          name: "Львов"
+        - "@type": "AdministrativeArea"
+          name: "Харьков"
+        - "@type": "AdministrativeArea"
+          name: "Днепр"
+        - "@type": "AdministrativeArea"
+          name: "Одесса"
+        - "@type": "AdministrativeArea"
+          name: "Запорожье"
+        - "@type": "AdministrativeArea"
+          name: "Винница"
+        - "@type": "AdministrativeArea"
+          name: "Черкассы"
+        - "@type": "AdministrativeArea"
+          name: "Полтава"
+        - "@type": "AdministrativeArea"
+          name: "Чернигов"
+        - "@type": "AdministrativeArea"
+          name: "Житомир"
+        - "@type": "AdministrativeArea"
+          name: "Сумы"
+        - "@type": "AdministrativeArea"
+          name: "Хмельницкий"
+        - "@type": "AdministrativeArea"
+          name: "Ровно"
+        - "@type": "AdministrativeArea"
+          name: "Тернополь"
+        - "@type": "AdministrativeArea"
+          name: "Ивано-Франковск"
+        - "@type": "AdministrativeArea"
+          name: "Черновцы"
+        - "@type": "AdministrativeArea"
+          name: "Ужгород"
+        - "@type": "AdministrativeArea"
+          name: "Луцк"
+        - "@type": "AdministrativeArea"
+          name: "Кропивницкий"
+        - "@type": "AdministrativeArea"
+          name: "Николаев"
+        - "@type": "AdministrativeArea"
+          name: "Херсон"
+      contactPoint:
+        - "@type": "ContactPoint"
+          telephone: "+380665020441"
+          email: "support@aerocool.ua"
+          contactType: "customer support"
+          availableLanguage: ["Russian","Ukrainian"]
+          areaServed:
+            "@type": "Country"
+            name: "Ukraine"
+      sameAs:
+        - "https://www.facebook.com/AeroCoolGlobal/"
+        - "https://www.instagram.com/aerocool_global"
+        - "https://www.youtube.com/user/Aerocooladmin"
+        - "https://www.aerocool.io/"
+      brand:
+        "@id": "https://aerocool.ua/#brand"
 
-# !!! Нужно очень глубоко изучить openGraph и twitterCard
+    - "@type": "Brand"
+      "@id": "https://aerocool.ua/#brand"
+      name: "Aerocool"
+      url: "https://aerocool.ua/ru/products/"
+      logo:
+        "@id": "https://aerocool.ua/#logo"
+
+    - "@type": "LocalBusiness"
+      "@id": "https://aerocool.ua/#office"
+      name: "Офис Aerocool Украина"
+      parentOrganization:
+        "@id": "https://aerocool.ua/#organization"
+      address:
+        "@type": "PostalAddress"
+        streetAddress: "ул. Степана Рудницкого, 19/14"
+        addressLocality: "Киев"
+        addressRegion: "Киевская область"
+        postalCode: "03189"
+        addressCountry: "UA"
+      telephone: "+380665020441"
+      openingHoursSpecification:
+        - "@type": "OpeningHoursSpecification"
+          dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"]
+          opens: "09:00"
+          closes: "18:00"
+        - "@type": "OpeningHoursSpecification"
+          dayOfWeek: ["Saturday","Sunday"]
+          opens: "09:00"
+          closes: "18:00"
+
+    - "@type": "AboutPage"
+      "@id": "https://aerocool.ua/ru/about/#aboutpage"
+      name: "О компании Aerocool"
+      description: "Официальная информация о компании Aerocool Advanced Technologies Corp. — производителе игровых и офисных кресел с акцентом на эргономику, стиль и комфорт."
+      url: "https://aerocool.ua/ru/about/"
+      inLanguage: "ru"
+      isPartOf:
+        "@id": "https://aerocool.ua/#website"
+      mainEntity:
+        "@id": "https://aerocool.ua/#organization"
+      mainEntityOfPage:
+        "@id": "https://aerocool.ua/ru/about/"
+
+    - "@type": "ContactPage"
+      "@id": "https://aerocool.ua/ru/contact/#contactpage"
+      name: "Контакты Aerocool"
+      description: "Свяжитесь с Aerocool Украина: адрес, телефон, email службы поддержки."
+      url: "https://aerocool.ua/ru/contact/"
+      inLanguage: "ru"
+      isPartOf:
+        "@id": "https://aerocool.ua/#website"
+      mainEntity:
+        "@id": "https://aerocool.ua/#organization"
+      mainEntityOfPage:
+        "@id": "https://aerocool.ua/ru/contact/"
+
+    - "@type": "WebSite"
+      "@id": "https://aerocool.ua/#website"
+      url: "https://aerocool.ua/"
+      name: "Aerocool Украина"
+      publisher:
+        "@id": "https://aerocool.ua/#organization"
+      inLanguage: "ru"
+
+    # ================= WebPages меню =================
+    - "@type": "WebPage"
+      "@id": "https://aerocool.ua/ru/products/#page"
+      name: "Игровые кресла"
+      url: "https://aerocool.ua/ru/products/"
+      isPartOf:
+        "@id": "https://aerocool.ua/#website"
+      inLanguage: "ru"
+
+    - "@type": "WebPage"
+      "@id": "https://aerocool.ua/ru/about/#page"
+      name: "О компании"
+      url: "https://aerocool.ua/ru/about/"
+      isPartOf:
+        "@id": "https://aerocool.ua/#website"
+      inLanguage: "ru"
+
+    - "@type": "WebPage"
+      "@id": "https://aerocool.ua/ru/articles/#page"
+      name: "Статьи"
+      url: "https://aerocool.ua/ru/articles/"
+      isPartOf:
+        "@id": "https://aerocool.ua/#website"
+      inLanguage: "ru"
+
+    - "@type": "WebPage"
+      "@id": "https://aerocool.ua/ru/news/#page"
+      name: "Новости"
+      url: "https://aerocool.ua/ru/news/"
+      isPartOf:
+        "@id": "https://aerocool.ua/#website"
+      inLanguage: "ru"
+
+    - "@type": "WebPage"
+      "@id": "https://aerocool.ua/ru/faq/#page"
+      name: "FAQ"
+      url: "https://aerocool.ua/ru/faq/"
+      isPartOf:
+        "@id": "https://aerocool.ua/#website"
+      inLanguage: "ru"
+
+    - "@type": "WebPage"
+      "@id": "https://aerocool.ua/ru/contact/#page"
+      name: "Контакты"
+      url: "https://aerocool.ua/ru/contact/"
+      isPartOf:
+        "@id": "https://aerocool.ua/#website"
+      inLanguage: "ru"
 
 twitterCard:
   card: "summary_large_image"
   site: "@aerocool_ua"
   creator: "@aerocool_ua"
   title: "О компании Aerocool"
-  description: "Лидер по производству эргономичных кресел в Украине"
+  description: "Aerocool — лидер по производству эргономичных кресел в Украине"
   image: "https://aerocool.ua/images/about-cover.jpg"
+  image_alt: "Игровые и офисные кресла Aerocool — комфорт и эргономика"
 
 openGraph:
   type: "website"
   title: "О компании Aerocool"
-  description: "Больше о бренде Aerocool — инновационные кресла для геймеров и офисных работников."
+  description: "Больше про бренд Aerocool — инновационные кресла для геймеров и офисных работников."
   url: "https://aerocool.ua/ru/about/"
   image: "https://aerocool.ua/images/about-cover.jpg"
+  image_width: 1200
+  image_height: 630
   locale: "ru_RU"
   site_name: "Aerocool Украина"
 ---
