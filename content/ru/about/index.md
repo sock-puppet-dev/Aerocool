@@ -149,7 +149,9 @@ schema:
           dayOfWeek: ["Saturday","Sunday"]
           opens: "09:00"
           closes: "18:00"
-
+      priceRange: "₴₴"
+      image: "https://aerocool.ua/images/about-cover.webp"
+      
     - "@type": "AboutPage"
       "@id": "https://aerocool.ua/ru/about/#aboutpage"
       name: "О компании Aerocool"
