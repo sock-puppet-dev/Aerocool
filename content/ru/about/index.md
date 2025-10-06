@@ -66,9 +66,9 @@ schema:
           contactType: "customer support"
           availableLanguage:
             - "@type": "Language"
-              name: "Russian"
+              name: "uk"
             - "@type": "Language"
-              name: "Ukrainian"
+              name: "ru"
       sameAs:
         - "https://www.facebook.com/AeroCoolGlobal/"
         - "https://www.instagram.com/aerocool_global"
