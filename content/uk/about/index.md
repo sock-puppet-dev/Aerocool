@@ -225,7 +225,7 @@ openGraph:
   type: "website"
   title: "Про компанію Aerocool"
   description: "Дізнайтесь більше про бренд Aerocool — інноваційні крісла для геймерів та офісних працівників."
-  url: "https://aerocool.ua/about/"
+  url: "https://aerocool.ua/uk/about/"
   image: "https://aerocool.ua/images/about-cover.jpg"
   image_width: 1200
   image_height: 630
