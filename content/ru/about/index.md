@@ -229,7 +229,11 @@ openGraph:
   image: "https://aerocool.ua/images/about-cover.jpg"
   image_width: 1200
   image_height: 630
+  image_alt: "Игровые и офисные кресла Aerocool — комфорт и эргономика"
   locale: "ru_RU"
+  locale_alternate:
+    - "uk_UA"
+  updated_time: "2025-08-05T10:00:00+03:00"
   site_name: "Aerocool Украина"
 ---
 

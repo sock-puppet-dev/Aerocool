@@ -216,20 +216,24 @@ twitterCard:
   card: "summary_large_image"
   site: "@aerocool_ua"
   creator: "@aerocool_ua"
-  title: "Про Aerocool"
+  title: "Про компанію Aerocool"
   description: "Aerocool — лідер з виробництва ергономічних крісел в Україні"
   image: "https://aerocool.ua/images/about-cover.jpg"
-  image_alt: "Ігрові та офісні крісла Aerocool — комфорт та ергономіка"
+  image_alt: "Ігрові та офісні крісла Aerocool — комфорт і ергономіка"
 
 openGraph:
   type: "website"
-  title: "Про Aerocool"
-  description: "Більше про бренд Aerocool — інноваційні крісла для геймерів та офісних працівників."
-  url: "https://aerocool.ua/uk/about/"
+  title: "Про компанію Aerocool"
+  description: "Дізнайтесь більше про бренд Aerocool — інноваційні крісла для геймерів та офісних працівників."
+  url: "https://aerocool.ua/about/"
   image: "https://aerocool.ua/images/about-cover.jpg"
   image_width: 1200
   image_height: 630
+  image_alt: "Ігрові та офісні крісла Aerocool — комфорт і ергономіка"
   locale: "uk_UA"
+  locale_alternate:
+    - "ru_RU"
+  updated_time: "2025-08-05T10:00:00+03:00"
   site_name: "Aerocool Україна"
 ---
 
