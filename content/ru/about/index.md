@@ -141,6 +141,17 @@ schema:
         "@id": "https://aerocool.ua/#organization"
       mainEntityOfPage:
         "@id": "https://aerocool.ua/ru/about/"
+      breadcrumb:
+        "@type": "BreadcrumbList"
+        "itemListElement":
+          - "@type": "ListItem"
+            position: 1
+            name: "Главная"
+            item: "https://aerocool.ua/"
+          - "@type": "ListItem"
+            position: 2
+            name: "Про Aerocool"
+            item: "https://aerocool.ua/ru/about/"
 
     - "@type": "WebPage"
       "@id": "https://aerocool.ua/ru/about/#page"
