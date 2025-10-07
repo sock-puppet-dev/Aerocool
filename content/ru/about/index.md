@@ -142,72 +142,10 @@ schema:
       mainEntityOfPage:
         "@id": "https://aerocool.ua/ru/about/"
 
-    - "@type": "ContactPage"
-      "@id": "https://aerocool.ua/ru/contact/#contactpage"
-      name: "Контакты Aerocool"
-      description: "Свяжитесь с Aerocool Украина: адрес, телефон, email службы поддержки."
-      url: "https://aerocool.ua/ru/contact/"
-      inLanguage: "ru"
-      isPartOf:
-        "@id": "https://aerocool.ua/#website"
-      mainEntity:
-        "@id": "https://aerocool.ua/#organization"
-      mainEntityOfPage:
-        "@id": "https://aerocool.ua/ru/contact/"
-
-    - "@type": "WebSite"
-      "@id": "https://aerocool.ua/#website"
-      url: "https://aerocool.ua/"
-      name: "Aerocool Украина"
-      publisher:
-        "@id": "https://aerocool.ua/#organization"
-      inLanguage: "ru"
-
-    # ================= WebPages меню =================
-    - "@type": "WebPage"
-      "@id": "https://aerocool.ua/ru/products/#page"
-      name: "Игровые кресла"
-      url: "https://aerocool.ua/ru/products/"
-      isPartOf:
-        "@id": "https://aerocool.ua/#website"
-      inLanguage: "ru"
-
     - "@type": "WebPage"
       "@id": "https://aerocool.ua/ru/about/#page"
-      name: "О компании"
+      name: "Про Aerocool"
       url: "https://aerocool.ua/ru/about/"
-      isPartOf:
-        "@id": "https://aerocool.ua/#website"
-      inLanguage: "ru"
-
-    - "@type": "WebPage"
-      "@id": "https://aerocool.ua/ru/articles/#page"
-      name: "Статьи"
-      url: "https://aerocool.ua/ru/articles/"
-      isPartOf:
-        "@id": "https://aerocool.ua/#website"
-      inLanguage: "ru"
-
-    - "@type": "WebPage"
-      "@id": "https://aerocool.ua/ru/news/#page"
-      name: "Новости"
-      url: "https://aerocool.ua/ru/news/"
-      isPartOf:
-        "@id": "https://aerocool.ua/#website"
-      inLanguage: "ru"
-
-    - "@type": "WebPage"
-      "@id": "https://aerocool.ua/ru/faq/#page"
-      name: "FAQ"
-      url: "https://aerocool.ua/ru/faq/"
-      isPartOf:
-        "@id": "https://aerocool.ua/#website"
-      inLanguage: "ru"
-
-    - "@type": "WebPage"
-      "@id": "https://aerocool.ua/ru/contact/#page"
-      name: "Контакты"
-      url: "https://aerocool.ua/ru/contact/"
       isPartOf:
         "@id": "https://aerocool.ua/#website"
       inLanguage: "ru"
