@@ -21,6 +21,13 @@ tags:
   - столы
   - советы
   - 2025
+aliases:
+  - "/ru/vybor-ofisnogo-stola-2025/"
+  - "/ru/top-stoly-2025/"
+hreflang:
+  - href: "https://aerocool-site.com/en/articles/how-to-choose-office-desk-2025/"
+    lang: "en"
+
 markup:
   type: "article"
   author:
@@ -37,13 +44,6 @@ markup:
     - мебель
     - эргономика
     - 2025
-aliases:
-  - "/ru/vybor-ofisnogo-stola-2025/"
-  - "/ru/top-stoly-2025/"
-hreflang:
-  - href: "https://aerocool-site.com/en/articles/how-to-choose-office-desk-2025/"
-    lang: "en"
-markup:
   og:
     type: "article"
     image: "/images/articles/office-desk-cover.jpg"
@@ -52,6 +52,7 @@ markup:
     card: "summary_large_image"
     image: "/images/articles/office-desk-cover.jpg"
     creator: "@AerocoolOfficial"
+
 ShowToc: true
 TocOpen: true
 ShowReadingTime: true

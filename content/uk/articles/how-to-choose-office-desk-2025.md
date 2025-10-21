@@ -1,10 +1,10 @@
 ---
-title: "Як вибрати ідеальний офісний стіл у 2025 році: поради, тренди та топ-моделі"
+title: "Як обрати ідеальний офісний стіл у 2025 році: поради, тренди та топ-моделі"
 date: 2025-07-31T10:00:00+03:00
 lastmod: 2025-08-01T12:30:00+03:00
 draft: false
-summary: "Детальний гід з вибору офісного столу у 2025 році: ергономіка, матеріали, розміри, тренди та топ-рекомендації."
-description: "Огляд ключових критеріїв вибору офісного столу, актуальні тренди 2025 року, поради експертів та приклади вдалих моделей."
+summary: "Детальний гід з вибору офісного столу у 2025 році: ергономіка, матеріали, розміри, тренди та рекомендації експертів."
+description: "Огляд ключових критеріїв вибору офісного столу, актуальні тренди 2025 року, поради спеціалістів та приклади найкращих моделей."
 keywords: ["офісний стіл", "ергономіка офісу", "стіл для роботи", "меблі 2025", "здоровий офіс"]
 robots: "index, follow"
 canonicalURL: "https://aerocool-site.com/uk/articles/how-to-choose-office-desk-2025/"
@@ -21,6 +21,13 @@ tags:
   - столи
   - поради
   - 2025
+aliases:
+  - "/uk/vybir-ofisnogo-stolu-2025/"
+  - "/uk/top-stoly-2025/"
+hreflang:
+  - href: "https://aerocool-site.com/en/articles/how-to-choose-office-desk-2025/"
+    lang: "en"
+
 markup:
   type: "article"
   author:
@@ -31,27 +38,21 @@ markup:
   image: "/images/articles/office-desk-cover.jpg"
   datePublished: "2025-07-31T10:00:00+03:00"
   dateModified: "2025-08-01T12:30:00+03:00"
-  headline: "Як вибрати ідеальний офісний стіл у 2025 році: поради, тренди та топ-моделі"
+  headline: "Як обрати ідеальний офісний стіл у 2025 році: поради, тренди та топ-моделі"
   keywords:
     - офісний стіл
     - меблі
     - ергономіка
     - 2025
-aliases:
-  - "/uk/vybir-ofisnogo-stolu-2025/"
-  - "/uk/top-stoli-2025/"
-hreflang:
-  - href: "https://aerocool-site.com/en/articles/how-to-choose-office-desk-2025/"
-    lang: "en"
-markup:
   og:
     type: "article"
     image: "/images/articles/office-desk-cover.jpg"
-    description: "Як вибрати ідеальний офісний стіл у 2025 році. Огляд, тренди, поради."
+    description: "Як обрати ідеальний офісний стіл у 2025 році. Огляд, тренди, поради."
   twitter:
     card: "summary_large_image"
     image: "/images/articles/office-desk-cover.jpg"
     creator: "@AerocoolOfficial"
+
 ShowToc: true
 TocOpen: true
 ShowReadingTime: true
