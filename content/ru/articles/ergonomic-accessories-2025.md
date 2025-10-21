@@ -21,6 +21,8 @@ tags:
   - офис
   - 2025
   - комфорт
+
+# ✅ Один общий блок markup
 markup:
   type: "article"
   author:
@@ -38,13 +40,6 @@ markup:
     - офис
     - здоровье
     - 2025
-aliases:
-  - "/ru/ergonomichnye-aksessuary-2025/"
-  - "/ru/top-ergonomic-accessories/"
-hreflang:
-  - href: "https://aerocool-site.com/en/articles/ergonomic-accessories-2025/"
-    lang: "en"
-markup:
   og:
     type: "article"
     image: "/images/articles/ergonomic-accessories-cover.jpg"
@@ -53,6 +48,15 @@ markup:
     card: "summary_large_image"
     image: "/images/articles/ergonomic-accessories-cover.jpg"
     creator: "@AerocoolOfficial"
+
+aliases:
+  - "/ru/ergonomichnye-aksessuary-2025/"
+  - "/ru/top-ergonomic-accessories/"
+
+hreflang:
+  - href: "https://aerocool-site.com/en/articles/ergonomic-accessories-2025/"
+    lang: "en"
+
 ShowToc: true
 TocOpen: true
 ShowReadingTime: true

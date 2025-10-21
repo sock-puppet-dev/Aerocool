@@ -3,7 +3,7 @@ title: "Ергономічні аксесуари для робочого міс
 date: 2025-08-02T10:00:00+03:00
 lastmod: 2025-08-03T12:30:00+03:00
 draft: false
-summary: "Головні аксесуари для підвищення комфорту та продуктивності на робочому місці у 2025 році."
+summary: "Найкращі аксесуари для підвищення комфорту та продуктивності на робочому місці у 2025 році."
 description: "Огляд найкращих ергономічних аксесуарів 2025 року: підставки, лампи, килимки, органайзери та інші рішення для здорового офісу."
 keywords: ["ергономічні аксесуари", "робоче місце", "офіс", "здоров’я на роботі", "2025"]
 robots: "index, follow"
@@ -19,8 +19,9 @@ tags:
   - ергономіка
   - аксесуари
   - офіс
-  - 2025
   - комфорт
+  - 2025
+
 markup:
   type: "article"
   author:
@@ -38,21 +39,23 @@ markup:
     - офіс
     - здоров’я
     - 2025
-aliases:
-  - "/uk/ergonomichni-aksesuari-2025/"
-  - "/uk/top-ergonomic-accessories/"
-hreflang:
-  - href: "https://aerocool-site.com/en/articles/ergonomic-accessories-2025/"
-    lang: "en"
-markup:
   og:
     type: "article"
     image: "/images/articles/ergonomic-accessories-cover.jpg"
-    description: "Повний гід з ергономічних аксесуарів 2025 року: комфорт і здоров’я на роботі."
+    description: "Повний гід з ергономічних аксесуарів 2025 року: комфорт та здоров’я на роботі."
   twitter:
     card: "summary_large_image"
     image: "/images/articles/ergonomic-accessories-cover.jpg"
     creator: "@AerocoolOfficial"
+
+aliases:
+  - "/uk/ergonomichni-aksesuary-2025/"
+  - "/uk/top-ergonomic-accessories/"
+
+hreflang:
+  - href: "https://aerocool-site.com/en/articles/ergonomic-accessories-2025/"
+    lang: "en"
+
 ShowToc: true
 TocOpen: true
 ShowReadingTime: true
