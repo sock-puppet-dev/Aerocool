@@ -21,6 +21,7 @@ tags:
   - крісла
   - рейтинг
   - 2025
+
 markup:
   type: "article"
   author:
@@ -37,14 +38,6 @@ markup:
     - офісні меблі
     - комфорт
     - 2025
-aliases:
-  - "/uk/ergonomichni-krisla-2025/"
-  - "/uk/top-krisla-2025/"
-hreflang:
-  - href: "https://aerocool-site.com/en/articles/ergonomic-chairs-top10-2025/"
-    lang: "en"
-# Open Graph & Twitter Cards
-markup:
   og:
     type: "article"
     image: "/images/articles/ergonomic-products-cover.jpg"
@@ -53,6 +46,14 @@ markup:
     card: "summary_large_image"
     image: "/images/articles/ergonomic-products-cover.jpg"
     creator: "@AerocoolOfficial"
+
+aliases:
+  - "/uk/ergonomichni-krisla-2025/"
+  - "/uk/top-krisla-2025/"
+hreflang:
+  - href: "https://aerocool-site.com/en/articles/ergonomic-chairs-top10-2025/"
+    lang: "en"
+
 ShowToc: true
 TocOpen: true
 ShowReadingTime: true

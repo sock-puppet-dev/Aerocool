@@ -4,7 +4,7 @@ date: 2025-07-31T09:00:00+03:00
 lastmod: 2025-08-01T12:00:00+03:00
 draft: false
 summary: "Полный обзор и рейтинг топ-10 эргономичных кресел 2025 года: характеристики, преимущества, цены и советы экспертов."
-description: "Детальный гид по эргономичным креслам 2025 года. Обзор лучших моделей, сравнительная таблица, рекомендации по выбору."
+description: "Подробный гид по эргономичным креслам 2025 года. Обзор лучших моделей, сравнительная таблица, рекомендации по выбору."
 keywords: ["эргономичное кресло", "офисная мебель", "топ кресел 2025", "комфортный офис", "здоровье спины"]
 robots: "index, follow"
 canonicalURL: "https://aerocool-site.com/ru/articles/ergonomic-chairs-top10-2025/"
@@ -21,6 +21,7 @@ tags:
   - кресла
   - рейтинг
   - 2025
+
 markup:
   type: "article"
   author:
@@ -37,13 +38,6 @@ markup:
     - офисная мебель
     - комфорт
     - 2025
-aliases:
-  - "/ru/ergonomichnye-kresla-2025/"
-  - "/ru/top-kresel-2025/"
-hreflang:
-  - href: "https://aerocool-site.com/en/articles/ergonomic-chairs-top10-2025/"
-    lang: "en"
-markup:
   og:
     type: "article"
     image: "/images/articles/ergonomic-products-cover.jpg"
@@ -52,6 +46,16 @@ markup:
     card: "summary_large_image"
     image: "/images/articles/ergonomic-products-cover.jpg"
     creator: "@AerocoolOfficial"
+
+aliases:
+  - "/ru/ergonomichnye-kresla-2025/"
+  - "/ru/top-kresla-2025/"
+hreflang:
+  - href: "https://aerocool-site.com/uk/articles/ergonomic-chairs-top10-2025/"
+    lang: "uk"
+  - href: "https://aerocool-site.com/en/articles/ergonomic-chairs-top10-2025/"
+    lang: "en"
+
 ShowToc: true
 TocOpen: true
 ShowReadingTime: true
