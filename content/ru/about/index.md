@@ -19,8 +19,8 @@ schema:
   "@graph":
     - "@type": "Organization"
       "@id": "https://aerocool.ua/#organization"
-      name: "Aerocool Advanced Technologies Corp."
-      legalName: "Aerocool Advanced Technologies Corp."
+      name: "Aerocool Украина"
+      legalName: "Aerocool Украина"
       alternateName: "Aerocool"
       url: "https://aerocool.ua/"
       logo:
@@ -34,9 +34,12 @@ schema:
         "@id": "https://aerocool.ua/#about-image"
         url: "https://aerocool.ua/images/about-cover.webp"
         caption: "Офис Aerocool Украина"
-      description: "Aerocool — производитель игровых и офисных кресел, который сочетает эргономику, стиль и комфорт."
+      description: "Официальный украинский бренд и представитель Aerocool, специализирующийся на производстве и продаже эргономичных игровых и офисных кресел."
       slogan: "Be Cool. Get Aerocool."
       foundingDate: "2015"
+      founder:
+        "@type": "Organization"
+        name: "Aerocool Advanced Technologies Corp."
       foundingLocation:
         "@type": "Place"
         name: "Офис Aerocool Украина"
@@ -76,6 +79,17 @@ schema:
         - "https://www.aerocool.io/"
       brand:
         "@id": "https://aerocool.ua/#brand"
+      knowsAbout:
+        - "Эргономичные кресла"
+        - "Игровые кресла"
+        - "Офисные кресла"
+        - "Ортопедическая посадка"
+        - "Рабочие места для геймеров"
+      hasOfferCatalog:
+        "@type": "OfferCatalog"
+        "@id": "https://aerocool.ua/#offer-catalog"
+        name: "Каталог кресел Aerocool"
+        url: "https://aerocool.ua/ru/products/"
 
     - "@type": "Brand"
       "@id": "https://aerocool.ua/#brand"
@@ -83,6 +97,11 @@ schema:
       url: "https://aerocool.ua/ru/products/"
       logo:
         "@id": "https://aerocool.ua/#logo"
+      sameAs:
+        - "https://www.facebook.com/AeroCoolGlobal/"
+        - "https://www.instagram.com/aerocool_global"
+        - "https://www.youtube.com/user/Aerocooladmin"
+        - "https://www.aerocool.io/"
 
     - "@type": "LocalBusiness"
       "@id": "https://aerocool.ua/#office"
@@ -128,11 +147,11 @@ schema:
           closes: "18:00"
       priceRange: "₴₴"
       image: "https://aerocool.ua/images/about-cover.webp"
-      
+
     - "@type": "AboutPage"
       "@id": "https://aerocool.ua/ru/about/#aboutpage"
       name: "О компании Aerocool"
-      description: "Официальная информация о компании Aerocool Advanced Technologies Corp. — производителе игровых и офисных кресел с акцентом на эргономику, стиль и комфорт."
+      description: "Официальная информация об украинском бренде Aerocool и его деятельности на территории Украины."
       url: "https://aerocool.ua/ru/about/"
       inLanguage: "ru"
       isPartOf:
@@ -187,7 +206,7 @@ openGraph:
 ---
 
 # О компании Aerocool — инновации, комфорт, надежность
-**Aerocool** — национальный бренд, специализирующийся с 2016 года на разработке и производстве эргономичных кресел для геймеров, офисных работников и дизайнеров.
+**Aerocool** — национальный бренд, специализирующийся с 2015 года на разработке и производстве эргономичных кресел для геймеров, офисных работников и дизайнеров.
 Мы объединяем **дизайн, здоровье и функциональность**, чтобы создать идеальное рабочее и игровое место.
 
 ---

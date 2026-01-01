@@ -1,10 +1,10 @@
 ---
-title: "Про Aerocool"
-description: "Дізнайтеся більше про бренд Aerocool — лідера з виробництва ергономічних ігрових та офісних крісел в Україні. Якість, комфорт та гарантія."
+title: "Про компанію Aerocool"
+description: "Дізнайтеся більше про бренд Aerocool — лідера з виробництва ергономічних ігрових та офісних крісел в Україні. Якість, комфорт і гарантія."
 keywords: ["Aerocool", "про компанію", "ігрові крісла", "офісні крісла", "якість", "гарантія"]
 image: "/images/about-cover.webp"
 canonicalURL: "https://aerocool.ua/uk/about/"
-aliases: ["/uk/about-us", "/uk/about-aerocool", "/about-uk", "/company"]
+aliases: ["/uk/about-us", "/uk/about-aerocool", "/about-uk", "/company-uk"]
 url: "/uk/about/"
 date: 2025-08-05T10:00:00+03:00
 lastmod: 2025-08-05T10:00:00+03:00
@@ -19,8 +19,8 @@ schema:
   "@graph":
     - "@type": "Organization"
       "@id": "https://aerocool.ua/#organization"
-      name: "Aerocool Advanced Technologies Corp."
-      legalName: "Aerocool Advanced Technologies Corp."
+      name: "Aerocool Україна"
+      legalName: "Aerocool Україна"
       alternateName: "Aerocool"
       url: "https://aerocool.ua/"
       logo:
@@ -34,9 +34,12 @@ schema:
         "@id": "https://aerocool.ua/#about-image"
         url: "https://aerocool.ua/images/about-cover.webp"
         caption: "Офіс Aerocool Україна"
-      description: "Aerocool — виробник ігрових та офісних крісел, який поєднує ергономіку, стиль та комфорт."
+      description: "Офіційний український бренд і представник Aerocool, що спеціалізується на виробництві та продажу ергономічних ігрових і офісних крісел."
       slogan: "Be Cool. Get Aerocool."
       foundingDate: "2015"
+      founder:
+        "@type": "Organization"
+        name: "Aerocool Advanced Technologies Corp."
       foundingLocation:
         "@type": "Place"
         name: "Офіс Aerocool Україна"
@@ -66,9 +69,9 @@ schema:
           contactType: "customer support"
           availableLanguage:
             - "@type": "Language"
-              name: "ru"
-            - "@type": "Language"
               name: "uk"
+            - "@type": "Language"
+              name: "ru"
       sameAs:
         - "https://www.facebook.com/AeroCoolGlobal/"
         - "https://www.instagram.com/aerocool_global"
@@ -76,6 +79,17 @@ schema:
         - "https://www.aerocool.io/"
       brand:
         "@id": "https://aerocool.ua/#brand"
+      knowsAbout:
+        - "Ергономічні крісла"
+        - "Ігрові крісла"
+        - "Офісні крісла"
+        - "Ортопедична посадка"
+        - "Робочі місця для геймерів"
+      hasOfferCatalog:
+        "@type": "OfferCatalog"
+        "@id": "https://aerocool.ua/#offer-catalog"
+        name: "Каталог крісел Aerocool"
+        url: "https://aerocool.ua/uk/products/"
 
     - "@type": "Brand"
       "@id": "https://aerocool.ua/#brand"
@@ -83,6 +97,11 @@ schema:
       url: "https://aerocool.ua/uk/products/"
       logo:
         "@id": "https://aerocool.ua/#logo"
+      sameAs:
+        - "https://www.facebook.com/AeroCoolGlobal/"
+        - "https://www.instagram.com/aerocool_global"
+        - "https://www.youtube.com/user/Aerocooladmin"
+        - "https://www.aerocool.io/"
 
     - "@type": "LocalBusiness"
       "@id": "https://aerocool.ua/#office"
@@ -128,11 +147,11 @@ schema:
           closes: "18:00"
       priceRange: "₴₴"
       image: "https://aerocool.ua/images/about-cover.webp"
-      
+
     - "@type": "AboutPage"
       "@id": "https://aerocool.ua/uk/about/#aboutpage"
-      name: "Про Aerocool"
-      description: "Офіційна інформація про компанію Aerocool Advanced Technologies Corp. — виробника ігрових та офісних крісел з акцентом на ергономіку, стиль та комфорт."
+      name: "Про компанію Aerocool"
+      description: "Офіційна інформація про український бренд Aerocool та його діяльність на території України."
       url: "https://aerocool.ua/uk/about/"
       inLanguage: "uk"
       isPartOf:
@@ -147,7 +166,7 @@ schema:
           - "@type": "ListItem"
             position: 1
             name: "Головна"
-            item: "https://aerocool.ua/uk/"
+            item: "https://aerocool.ua/"
           - "@type": "ListItem"
             position: 2
             name: "Про Aerocool"
@@ -173,7 +192,7 @@ twitterCard:
 openGraph:
   type: "website"
   title: "Про компанію Aerocool"
-  description: "Дізнайтесь більше про бренд Aerocool — інноваційні крісла для геймерів та офісних працівників."
+  description: "Більше про бренд Aerocool — інноваційні крісла для геймерів та офісних працівників."
   url: "https://aerocool.ua/uk/about/"
   image: "https://aerocool.ua/images/about-cover.webp"
   image_width: 1200
