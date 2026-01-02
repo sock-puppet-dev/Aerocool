@@ -1,167 +1,137 @@
 ---
-title: "Главная"
-description: "Краткое описание сайта для поисковиков (160 символов)"
-keywords: ["Aerocool", "игровые кресла", "комфорт", "эргономика"]
+title: "Aerocool — игровые и офисные кресла в Украине | Официальный сайт"
+description: "Aerocool — официальный бренд эргономичных игровых и офисных кресел в Украине. Каталог кресел Aerocool, актуальные цены, доставка по Украине и гарантия."
+keywords:
+  - Aerocool
+  - игровые кресла Aerocool
+  - офисные кресла Aerocool
+  - эргономичное кресло
+  - купить игровое кресло
+  - купить офисное кресло
+  - кресла для геймеров
+  - кресла для работы за компьютером
 image: "/images/seo-cover.jpg"
+canonicalURL: "https://aerocool.ua/ru/"
 aliases: ["/home", "/main"]
+comments: false
+showToc: false
+showReadingTime: false
+showWordCount: false
+showShareButtons: false
 
 schema:
-  # 1. Сайт
-  - "@context": "https://schema.org"
-    "@type": "WebSite"
-    "@id": "https://aerocool.ua/ru/#website"
-    name: "Aerocool"
-    alternateName: "Aerocool Ukraine"
-    url: "https://aerocool.ua/ru/"
-    inLanguage: "ru"
-    alternateUrl: "https://aerocool.ua/uk/"
-    description: "Aerocool — официальный сайт с каталогом игровых и офисных кресел в Украине: цены, характеристики и отзывы."
-    sameAs:
-      - "https://www.facebook.com/AerocoolUkraine"
-      - "https://www.instagram.com/aerocool.ua/"
-      - "https://www.youtube.com/@AerocoolUA"
-    potentialAction:
-      - "@type": "SearchAction"
-        target: "https://aerocool.ua/ru/search?q={search_term_string}"
-        "query-input": "required name=search_term_string"
-      - "@type": "SubscribeAction"
-        target: "https://aerocool.ua/ru/news"
-        description: "Подпишитесь на новости Aerocool"
-    hasPart:
-      - "@type": "WebPage"
-        "@id": "https://aerocool.ua/ru/catalog"
-        name: "Каталог кресел"
-      - "@type": "WebPage"
-        "@id": "https://aerocool.ua/ru/news"
-        name: "Новости"
-      - "@type": "WebPage"
-        "@id": "https://aerocool.ua/ru/contact"
-        name: "Контакты"
-    publisher:
-      "@id": "https://aerocool.ua/ru/#organization"
+  "@context": "https://schema.org"
+  "@graph":
+    - "@type": "WebSite"
+      "@id": "https://aerocool.ua/#website"
+      name: "Aerocool Украина"
+      alternateName: "Aerocool Ukraine"
+      url: "https://aerocool.ua/"
+      inLanguage: "ru"
+      description: "Официальный сайт Aerocool в Украине — каталог эргономичных игровых и офисных кресел."
+      sameAs:
+        - "https://www.facebook.com/AeroCoolGlobal/"
+        - "https://www.instagram.com/aerocool_global"
+        - "https://www.youtube.com/user/Aerocooladmin"
+        - "https://www.aerocool.io/"
+      publisher:
+        "@id": "https://aerocool.ua/#organization"
+      potentialAction:
+        - "@type": "SearchAction"
+          target: "https://aerocool.ua/ru/search?q={search_term_string}"
+          query-input: "required name=search_term_string"
 
-  # 2. Организация
-  - "@context": "https://schema.org"
-    "@type": "Organization"
-    "@id": "https://aerocool.ua/ru/#organization"
-    name: "Aerocool"
-    legalName: "Aerocool Advanced Technologies Corp."
-    alternateName: "Aerocool Ukraine"
-    slogan: "Игровые и офисные кресла Aerocool — комфорт без компромиссов"
-    url: "https://aerocool.ua/ru/"
-    inLanguage: "ru"
-    alternateUrl: "https://aerocool.ua/uk/"
-    logo:
-      "@type": "ImageObject"
-      url: "https://aerocool.ua/images/logo.svg"
-      width: 200
-      height: 60
-    sameAs:
-      - "https://www.facebook.com/AerocoolUkraine"
-      - "https://www.instagram.com/aerocool.ua/"
-      - "https://www.youtube.com/@AerocoolUA"
-    contactPoint:
-      - "@type": "ContactPoint"
-        telephone: "+380XXXXXXXXX"
-        contactType: "customer support"
-        areaServed: "UA"
-        availableLanguage: ["Russian", "Ukrainian"]
-      - "@type": "ContactPoint"
-        telephone: "+380YYYYYYYYY"
-        contactType: "sales"
-        areaServed: "UA"
-        availableLanguage: ["Russian", "Ukrainian"]
-    address:
-      "@type": "PostalAddress"
-      addressCountry: "UA"
-    foundingDate: "2001"
-    foundingLocation:
-      "@type": "Place"
-      name: "Тайвань"
-    knowsLanguage: ["ru", "uk"]
-    brand: "Aerocool"
-    award: "Red Dot Design Award 2024"
-    hasOfferCatalog:
-      "@type": "OfferCatalog"
-      name: "Каталог кресел Aerocool"
-      url: "https://aerocool.ua/ru/catalog"
-    aggregateRating:
-      "@type": "AggregateRating"
-      ratingValue: "4.8"
-      reviewCount: "120"
-    review:
-      - "@type": "Review"
-        author:
-          "@type": "Person"
-          name: "Иван Петров"
-        datePublished: "2025-08-15"
-        reviewBody: "Очень удобное кресло, подходит как для работы, так и для игр. Отличное качество за свои деньги."
-        name: "Обзор кресла Aerocool ErgoLine 2025"
-        reviewRating:
-          "@type": "Rating"
-          ratingValue: "5"
-          bestRating: "5"
-          worstRating: "1"
+    - "@type": "WebPage"
+      "@id": "https://aerocool.ua/ru/#homepage"
+      name: "Aerocool — игровые и офисные кресла в Украине"
+      url: "https://aerocool.ua/ru/"
+      inLanguage: "ru"
+      isPartOf:
+        "@id": "https://aerocool.ua/#website"
+      mainEntityOfPage:
+        "@id": "https://aerocool.ua/#organization"
+      primaryImageOfPage:
+        "@type": "ImageObject"
+        url: "https://aerocool.ua/images/seo-cover.jpg"
+        width: 1200
+        height: 630
+        caption: "Игровые и офисные кресла Aerocool в Украине"
+      breadcrumb:
+        "@type": "BreadcrumbList"
+        itemListElement:
+          - "@type": "ListItem"
+            position: 1
+            name: "Главная"
+            item: "https://aerocool.ua/ru/"
+      hasPart:
+        - "@type": "WebPage"
+          "@id": "https://aerocool.ua/ru/products/"
+          name: "Каталог кресел Aerocool"
+        - "@type": "WebPage"
+          "@id": "https://aerocool.ua/ru/about/"
+          name: "О компании Aerocool"
+        - "@type": "WebPage"
+          "@id": "https://aerocool.ua/ru/articles/"
+          name: "Статьи"
+        - "@type": "WebPage"
+          "@id": "https://aerocool.ua/ru/faq/"
+          name: "FAQ"
+        - "@type": "WebPage"
+          "@id": "https://aerocool.ua/ru/contact/"
+          name: "Контакты"
+      potentialAction:
+        - "@type": "ViewAction"
+          target: "https://aerocool.ua/ru/products/"
+          name: "Смотреть каталог кресел Aerocool"
+        - "@type": "BuyAction"
+          target: "https://aerocool.ua/ru/products/"
+          name: "Купить кресло Aerocool"
 
-  # 3. Главная страница
-  - "@context": "https://schema.org"
-    "@type": "WebPage"
-    "@id": "https://aerocool.ua/ru/#webpage"
-    url: "https://aerocool.ua/ru/"
-    inLanguage: "ru"
-    alternateUrl: "https://aerocool.ua/uk/"
-    name: "Aerocool — игровые и офисные кресла в Украине"
-    description: "Официальный сайт Aerocool: каталог игровых и офисных кресел, цены, характеристики, отзывы и акции 2025."
-    about:
-      "@id": "https://aerocool.ua/ru/#organization"
-    reviewedBy:
-      "@id": "https://aerocool.ua/ru/#organization"
-    datePublished: "2025-07-01T00:00:00+03:00"
-    dateModified: "2025-09-05T10:00:00+03:00"
-    isPartOf:
-      "@id": "https://aerocool.ua/ru/#website"
-    primaryImageOfPage:
-      "@type": "ImageObject"
-      url: "https://aerocool.ua/images/hero-chair.webp"
-      width: 1200
-      height: 628
-      caption: "Эргономичное игровое кресло Aerocool ErgoLine 2025"
-    breadcrumb:
-      "@type": "BreadcrumbList"
-      itemListElement:
-        - "@type": "ListItem"
-          position: 1
-          name: "Главная"
-          item: "https://aerocool.ua/ru/"
-    publisher:
-      "@id": "https://aerocool.ua/ru/#organization"
-    mainEntityOfPage:
-      "@id": "https://aerocool.ua/ru/#organization"
-    mainEntity:
-      "@type": "ProductCollection"
-      name: "Игровые и офисные кресла Aerocool"
-      url: "https://aerocool.ua/ru/catalog"
-    potentialAction:
-      - "@type": "ViewAction"
-        target: "https://aerocool.ua/ru/catalog"
-        name: "Смотреть каталог кресел"
-      - "@type": "BuyAction"
-        target: "https://aerocool.ua/ru/catalog"
-        name: "Купить кресло Aerocool"
-    speakable:
-      "@type": "SpeakableSpecification"
-      xpath: ["/html/head/title", "/html/head/meta[@name='description']/@content"]
-    specialAnnouncement:
-      "@type": "SpecialAnnouncement"
-      name: "Скидки 20% на новые кресла ErgoLine 2025"
-      url: "https://aerocool.ua/ru/news/ergoline-2025-sale"
-      startDate: "2025-09-10"
-      endDate: "2025-09-30"
+twitterCard:
+  card: "summary_large_image"
+  site: "@aerocool_ua"
+  creator: "@aerocool_ua"
+  title: "Aerocool — игровые и офисные кресла в Украине"
+  description: "Официальный сайт Aerocool: игровые и офисные кресла, каталог, доставка по Украине и гарантия."
+  image: "https://aerocool.ua/images/seo-cover.jpg"
+  image_alt: "Игровые и офисные кресла Aerocool в Украине"
+
+openGraph:
+  type: "website"
+  title: "Aerocool — игровые и офисные кресла в Украине"
+  description: "Aerocool — официальный бренд эргономичных игровых и офисных кресел в Украине. Каталог, цены и доставка."
+  url: "https://aerocool.ua/ru/"
+  image: "https://aerocool.ua/images/seo-cover.jpg"
+  image_width: 1200
+  image_height: 630
+  image_alt: "Игровые и офисные кресла Aerocool в Украине"
+  locale: "ru_RU"
+  locale_alternate:
+    - "uk_UA"
+  site_name: "Aerocool Украина"
 ---
-# Aerocool — лучшие игровые кресла 2025 года
+# Aerocool — игровые и офисные кресла в Украине
 
-**Aerocool** предлагает инновационные кресла для геймеров, дизайнеров и офисных работников. В нашем каталоге — топовые модели с эргономичной поддержкой спины, дышащими материалами и стильным дизайном.
+**Aerocool** — официальный бренд эргономичных игровых и офисных кресел в Украине. Мы разрабатываем и поставляем современные кресла для геймеров, офисных сотрудников, дизайнеров и всех, кто проводит много времени за компьютером.
 
-Покупайте напрямую от производителя. Гарантия, доставка по Украине и индивидуальный подбор.
+Наши кресла Aerocool созданы для ежедневного использования: работы, обучения и длительных игровых сессий. Продуманная эргономика, надежная конструкция и качественные материалы обеспечивают комфорт, поддержку спины и правильную посадку.
 
-[Смотреть каталог](/products/)
+## Почему стоит выбрать кресла Aerocool
+
+Игровые и офисные кресла Aerocool — это сочетание функциональности, дизайна и эргономики. Каждая модель разработана с учетом анатомии человека и требований к современному рабочему месту.
+
+Покупая кресла Aerocool на официальном сайте, вы получаете:
+- оригинальную продукцию бренда Aerocool;
+- гарантию и сервисную поддержку в Украине;
+- доставку по всей территории Украины;
+- помощь в подборе кресла под рост, вес и задачи.
+
+Aerocool — выбор пользователей, которые хотят купить эргономичное кресло для работы за компьютером, офиса или гейминга без компромиссов по качеству.
+
+## Каталог игровых и офисных кресел Aerocool
+
+В нашем каталоге представлены игровые кресла Aerocool и офисные кресла Aerocool с различными механизмами регулировки, типами обивки и дизайном.
+
+Мы предлагаем купить игровые и офисные кресла Aerocool напрямую на официальном сайте — без посредников, с гарантией и доставкой по всей Украине.
+
+[Смотреть каталог кресел Aerocool](/products/)
