@@ -59,19 +59,15 @@ schema:
         addressCountry: "UA"
       email: "support@aerocool.ua"
       telephone: "+380665020441"
-      areaServed:
-        - "@type": "Country"
-          name: "Україна"
+      areaServed: "UA"
       contactPoint:
         - "@type": "ContactPoint"
           telephone: "+380665020441"
           email: "support@aerocool.ua"
           contactType: "customer support"
           availableLanguage:
-            - "@type": "Language"
-              name: "uk"
-            - "@type": "Language"
-              name: "ru"
+            - "uk"
+            - "ru"
       sameAs:
         - "https://www.facebook.com/AeroCoolGlobal/"
         - "https://www.instagram.com/aerocool_global"
@@ -118,31 +114,12 @@ schema:
       telephone: "+380665020441"
       openingHoursSpecification:
         - "@type": "OpeningHoursSpecification"
-          dayOfWeek: "Monday"
-          opens: "09:00"
-          closes: "18:00"
-        - "@type": "OpeningHoursSpecification"
-          dayOfWeek: "Tuesday"
-          opens: "09:00"
-          closes: "18:00"
-        - "@type": "OpeningHoursSpecification"
-          dayOfWeek: "Wednesday"
-          opens: "09:00"
-          closes: "18:00"
-        - "@type": "OpeningHoursSpecification"
-          dayOfWeek: "Thursday"
-          opens: "09:00"
-          closes: "18:00"
-        - "@type": "OpeningHoursSpecification"
-          dayOfWeek: "Friday"
-          opens: "09:00"
-          closes: "18:00"
-        - "@type": "OpeningHoursSpecification"
-          dayOfWeek: "Saturday"
-          opens: "09:00"
-          closes: "18:00"
-        - "@type": "OpeningHoursSpecification"
-          dayOfWeek: "Sunday"
+          dayOfWeek:
+            - "Monday"
+            - "Tuesday"
+            - "Wednesday"
+            - "Thursday"
+            - "Friday"
           opens: "09:00"
           closes: "18:00"
       priceRange: "₴₴"
@@ -158,8 +135,7 @@ schema:
         "@id": "https://aerocool.ua/#website"
       mainEntity:
         "@id": "https://aerocool.ua/#organization"
-      mainEntityOfPage:
-        "@id": "https://aerocool.ua/uk/about/#page"
+      mainEntityOfPage: "https://aerocool.ua/uk/about/"
       breadcrumb:
         "@type": "BreadcrumbList"
         "itemListElement":
@@ -171,14 +147,6 @@ schema:
             position: 2
             name: "Про Aerocool"
             item: "https://aerocool.ua/uk/about/"
-
-    - "@type": "WebPage"
-      "@id": "https://aerocool.ua/uk/about/#page"
-      name: "Про Aerocool"
-      url: "https://aerocool.ua/uk/about/"
-      isPartOf:
-        "@id": "https://aerocool.ua/#website"
-      inLanguage: "uk"
 
 twitterCard:
   card: "summary_large_image"
