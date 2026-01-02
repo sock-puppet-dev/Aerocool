@@ -1,10 +1,15 @@
 ---
-title: "Контакти Aerocool"
-description: "Зв’яжіться з Aerocool — лідером з виробництва ергономічних ігрових та офісних крісел в Україні. Адреси, телефони та форма зворотного зв’язку."
-keywords: ["контакти", "Aerocool", "ігрові крісла", "офісні крісла", "підтримка", "зворотній зв’язок"]
+title: "Контакти Aerocool — офіційний сайт в Україні"
+description: "Контакти Aerocool в Україні. Офіційний бренд ергономічних ігрових та офісних крісел: адреса офісу, телефон, email і підтримка клієнтів."
+keywords:
+  - контакти Aerocool
+  - Aerocool Україна
+  - підтримка Aerocool
+  - купити крісло Aerocool
+  - ігрові крісла Україна
 image: "/images/contact-cover.jpg"
 canonicalURL: "https://aerocool.ua/uk/contact/"
-aliases: ["/uk/contact-us", "/contact-uk", "/contacts"]
+aliases: ["/uk/contact-us", "/contact-uk"]
 url: "/uk/contact/"
 date: 2025-08-05T10:00:00+03:00
 lastmod: 2025-08-05T10:00:00+03:00
@@ -16,131 +21,135 @@ showShareButtons: false
 
 schema:
   "@context": "https://schema.org"
-  "@type": "ContactPage"
-  "@id": "https://aerocool.ua/uk/contact/#contactpage"
-  name: "Контакти — Aerocool"
-  description: "Зв’яжіться з Aerocool — українським брендом ігрових та офісних крісел, щоб отримати консультацію або підтримку."
-  url: "https://aerocool.ua/uk/contact/"
-  mainEntityOfPage: "https://aerocool.ua/uk/contact/"
-  inLanguage: "uk"
-  canonical: "https://aerocool.ua/uk/contact/"
-  dateModified: "2025-09-03T10:00:00+03:00"
-  keywords: ["ігрові крісла", "офісні крісла", "контакти", "Aerocool", "підтримка", "консультація"]
-  image:
-    - "@type": "ImageObject"
-      url: "https://aerocool.ua/images/logo.svg"
-      caption: "Aerocool — логотип"
-    - "@type": "ImageObject"
-      url: "https://aerocool.ua/images/office-kyiv.jpg"
-      caption: "Офіс Aerocool у Києві"
-  breadcrumb:
-    "@type": "BreadcrumbList"
-    itemListElement:
-      - "@type": "ListItem"
-        position: 1
-        name: "Головна"
-        item: "https://aerocool.ua/"
-      - "@type": "ListItem"
-        position: 2
-        name: "Контакти"
-        item: "https://aerocool.ua/uk/contact/"
-  mainEntity:
-    "@type": "Organization"
-    "@id": "https://aerocool.ua/#organization"
-    name: "Aerocool"
-    url: "https://aerocool.ua/"
-    description: "Український бренд ігрових та офісних крісел Aerocool — комфорт, ергономіка та підтримка клієнтів."
-    logo:
-      "@type": "ImageObject"
-      url: "https://aerocool.ua/images/logo.svg"
-      width: 150
-      height: 50
-    contactPoint:
-      - "@type": "ContactPoint"
-        telephone: "+380441234567"
-        contactType: "customer service"
-        areaServed: "UA"
-        availableLanguage: ["ru-RU", "uk-UA"]
-    address:
-      "@type": "PostalAddress"
-      streetAddress: "вул. Прикладна, 12"
-      addressLocality: "Київ"
-      postalCode: "01001"
-      addressCountry: "UA"
-    openingHoursSpecification:
-      - "@type": "OpeningHoursSpecification"
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-        opens: "09:00"
-        closes: "18:00"
-      - "@type": "OpeningHoursSpecification"
-        dayOfWeek: ["Saturday", "Sunday"]
-        opens: "09:00"
-        closes: "18:00"
-    sameAs:
-      - "https://www.facebook.com/AeroCoolGlobal/"
-      - "https://www.instagram.com/aerocool_global"
-      - "https://www.youtube.com/user/Aerocooladmin"
-  potentialAction:
-    - "@type": "CallAction"
-      target: "tel:+380441234567"
-      name: "Зателефонувати в Aerocool"
-    - "@type": "SendAction"
-      target: "mailto:support@aerocool.ua"
-      name: "Відправити email в Aerocool"
+  "@graph":
+    - "@type": "ContactPage"
+      "@id": "https://aerocool.ua/uk/contact/#contactpage"
+      name: "Контакти Aerocool"
+      description: "Контактна інформація офіційного бренду Aerocool в Україні."
+      url: "https://aerocool.ua/uk/contact/"
+      inLanguage: "uk"
+      isPartOf:
+        "@id": "https://aerocool.ua/#website"
+      mainEntity:
+        "@id": "https://aerocool.ua/#organization"
+      breadcrumb:
+        "@type": "BreadcrumbList"
+        itemListElement:
+          - "@type": "ListItem"
+            position: 1
+            name: "Головна"
+            item: "https://aerocool.ua/uk/"
+          - "@type": "ListItem"
+            position: 2
+            name: "Контакти"
+            item: "https://aerocool.ua/uk/contact/"
 
-# Twitter Cards
-twitterCard:
-  card: "summary_large_image"
-  site: "@aerocool_ua"
-  creator: "@aerocool_ua"
-  title: "Контакти Aerocool"
-  description: "Адреси, телефони та форма зворотного зв’язку з Aerocool — лідером ринку ігрових крісел в Україні."
-  image: "https://aerocool.ua/images/contact-cover.jpg"
+    - "@type": "Organization"
+      "@id": "https://aerocool.ua/#organization"
+      name: "Aerocool Україна"
+      alternateName: "Aerocool"
+      url: "https://aerocool.ua/"
+      logo:
+        "@type": "ImageObject"
+        url: "https://aerocool.ua/images/logo.svg"
+        width: 300
+        height: 112
+      description: "Офіційний український бренд і представник Aerocool, що спеціалізується на ергономічних ігрових та офісних кріслах."
+      address:
+        "@type": "PostalAddress"
+        streetAddress: "вул. Степана Рудницького, 19/14"
+        addressLocality: "Київ"
+        addressRegion: "Київська область"
+        postalCode: "03189"
+        addressCountry: "UA"
+      email: "support@aerocool.ua"
+      telephone: "+380665020441"
+      areaServed: "UA"
+      contactPoint:
+        - "@type": "ContactPoint"
+          telephone: "+380665020441"
+          email: "support@aerocool.ua"
+          contactType: "customer support"
+          areaServed: "UA"
+          availableLanguage:
+            - "uk"
+            - "ru"
 
-# OpenGraph
-openGraph:
-  type: "article"
-  title: "Контакти Aerocool"
-  description: "Зв’яжіться з Aerocool — дізнайтеся, як купити найкращі ігрові та офісні крісла."
-  url: "https://aerocool.ua/uk/contact/"
-  image: "https://aerocool.ua/images/contact-cover.jpg"
-  locale: "uk_UA"
-  site_name: "Aerocool Україна"
+        - "@type": "ContactPoint"
+          telephone: "+380665020441"
+          email: "sales@aerocool.ua"
+          contactType: "sales"
+          areaServed: "UA"
+          availableLanguage:
+            - "uk"
+            - "ru"
+
+      openingHoursSpecification:
+        - "@type": "OpeningHoursSpecification"
+          dayOfWeek:
+            - "Monday"
+            - "Tuesday"
+            - "Wednesday"
+            - "Thursday"
+            - "Friday"
+          opens: "09:00"
+          closes: "18:00"
+      sameAs:
+        - "https://www.facebook.com/AeroCoolGlobal/"
+        - "https://www.instagram.com/aerocool_global"
+        - "https://www.youtube.com/user/Aerocooladmin"
+        - "https://www.aerocool.io/"
 ---
+# Контакти Aerocool
 
-# Зв’яжіться з нами
-
-Ми завжди раді допомогти! Зв’яжіться з нами будь-яким зручним способом:
+Зв’яжіться з **Aerocool Україна** — офіційним брендом ергономічних ігрових та офісних крісел.  
+Ми надаємо консультації щодо вибору крісел, умов покупки, доставки, гарантії та сервісного обслуговування на території України.
 
 ---
 
-## Телефони та адреси
+## Контактна інформація
 
-- **Київ (шоурум):** вул. Велика Васильківська, 12  
-- **Львів (шоурум):** вул. Франка, 45  
-- **Харків (шоурум):** вул. Сумська, 22  
-- **Телефон:** +38 (044) 123-45-67  
-- **Email:** [support@aerocool.ua](mailto:support@aerocool.ua)
+**Адреса офісу:**  
+м. Київ, вул. Степана Рудницького, 19/14
+
+**Телефон служби підтримки:**  
+[+38 (066) 502-04-41](tel:+380665020441)
+
+**Email підтримки:**  
+[support@aerocool.ua](mailto:support@aerocool.ua)
+
+**Email з питань продажів та співпраці:**  
+[sales@aerocool.ua](mailto:sales@aerocool.ua)
 
 ---
 
 ## Години роботи
 
-- Понеділок — П’ятниця: 09:00 — 18:00  
-- Субота: 10:00 — 16:00  
-- Неділя: вихідний
+- **Понеділок — П’ятниця:** 09:00 — 18:00  
+- **Субота, Неділя:** вихідні
 
 ---
 
-## Форма зворотного зв’язку
+## Підтримка та консультації
 
-В РОЗРОБЦІ
+Фахівці Aerocool допоможуть вам:
+
+- підібрати ігрове або офісне крісло Aerocool під зріст, вагу та задачі;
+- отримати детальну інформацію про характеристики та ергономіку;
+- оформити замовлення й доставку по Україні;
+- вирішити питання гарантії та сервісного обслуговування;
+- проконсультуватися щодо оптових і корпоративних закупівель.
+
+Ми орієнтовані на довгострокову підтримку клієнтів і високий рівень сервісу.
 
 ---
 
 ## Соціальні мережі
 
-Слідкуйте за нами у соцмережах для новин та акцій:  
-[Facebook](https://www.facebook.com/AerocoolUkraine) | [Instagram](https://instagram.com/aerocool_ua) | [YouTube](https://www.youtube.com/@AerocoolUA)
+Слідкуйте за новинами бренду, новими моделями та акціями Aerocool:
+
+- [Facebook](https://www.facebook.com/AeroCoolGlobal/)
+- [Instagram](https://www.instagram.com/aerocool_global)
+- [YouTube](https://www.youtube.com/user/Aerocooladmin)
 
 ---
