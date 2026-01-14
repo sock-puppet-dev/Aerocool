@@ -1,6 +1,6 @@
 # ====================================
 # Netlify build configuration
-# Hugo v0.154.3 + Tailwind CSS 4.1
+# Hugo v0.154.5 + Tailwind CSS 4.1
 # ====================================
 
 [build]
@@ -11,7 +11,7 @@
 
 [build.environment]
   # Версия Hugo
-  HUGO_VERSION = "0.154.3"
+  HUGO_VERSION = "0.154.5"
   # Режим сборки Hugo (для production можно менять на "production")
   HUGO_ENV = "development"
   # Часовой пояс
