@@ -1,0 +1,33 @@
+{{/* layouts/partials/seo/jsonld.html */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {{- /* Список глобальных сущностей */ -}}
+    {{ $globals := slice "website" "organization" "brand" "searchaction" }}
+    {{ range $i, $p := $globals }}
+      {{ partial (printf "schema/%s.html" $p) . }}{{ if lt (add $i 1) (len $globals) }},{{ end }}
+    {{ end }}
+
+    {{- /* Страница статьи */}}
+    {{ if .IsPage }}
+      ,{{ partial "schema/article.html" . }}
+    {{ end }}
+
+    {{- /* Страница товара */}}
+    {{ if .Params.product }}
+      ,{{ partial "schema/product.html" . }}
+    {{ end }}
+
+    {{- /* FAQ */}}
+    {{ if .Params.faq }}
+      ,{{ partial "schema/faq.html" . }}
+    {{ end }}
+
+    {{- /* Breadcrumbs */}}
+    {{ if .Params.breadcrumbs }}
+      ,{{ partial "schema/breadcrumbs.html" . }}
+    {{ end }}
+  ]
+}
+</script>
