@@ -1,33 +1,113 @@
-{{/* layouts/partials/seo/jsonld.html */}}
+{{/*
+  layouts/partials/seo/jsonld.html
+
+  Главный сборщик JSON-LD Schema.org для всего сайта.
+  Здесь мы формируем единый @graph, состоящий из отдельных сущностей,
+  каждая из которых описана в своём partial в папке /schema/.
+*/}}
+
+{{- /*
+  Инициализируем пустой slice.
+  Он будет содержать JSON-фрагменты (строки), которые позже
+  будут объединены в @graph без ручного контроля запятых.
+*/ -}}
+{{- $graph := slice -}}
+
+{{/* =========================================================
+     ГЛОБАЛЬНЫЕ СУЩНОСТИ (присутствуют на КАЖДОЙ странице)
+     Это фундамент SEO и E-E-A-T
+   ========================================================= */}}
+
+{{- /* WebSite:
+      Описывает сайт как сущность.
+      Используется Google для sitelinks и SearchAction.
+*/ -}}
+{{- $graph = $graph | append (partial "schema/website.html" .) -}}
+
+{{- /* Organization:
+      Юридический владелец сайта.
+      Ключевая сущность для доверия (E-E-A-T).
+*/ -}}
+{{- $graph = $graph | append (partial "schema/organization.html" .) -}}
+
+{{- /* Brand:
+      Отдельная сущность бренда.
+      Важно для Product, Merchant listings и knowledge graph.
+*/ -}}
+{{- $graph = $graph | append (partial "schema/brand.html" .) -}}
+
+{{- /* SearchAction:
+      Описывает поиск по сайту.
+      Подключается к WebSite и даёт Google search box в выдаче.
+*/ -}}
+{{- $graph = $graph | append (partial "schema/searchaction.html" .) -}}
+
+{{/* =========================================================
+     КОНТЕНТНЫЕ СУЩНОСТИ (зависят от типа страницы)
+   ========================================================= */}}
+
+{{- /*
+  Если страница находится в разделе "news",
+  используем NewsArticle (строже, чем Article).
+  Google требует применять его ТОЛЬКО к новостям.
+*/ -}}
+{{- if eq .Section "news" -}}
+  {{- $graph = $graph | append (partial "schema/news.html" .) -}}
+
+{{- /*
+  Иначе, если это обычная контентная страница,
+  используем стандартный Article:
+  блог, обзор, гайд, SEO-статья и т.д.
+*/ -}}
+{{- else if .IsPage -}}
+  {{- $graph = $graph | append (partial "schema/article.html" .) -}}
+{{- end -}}
+
+{{/* =========================================================
+     КОММЕРЧЕСКИЕ И RICH-RESULT СУЩНОСТИ
+   ========================================================= */}}
+
+{{- /*
+  Product добавляется ТОЛЬКО если в front matter есть Params.product.
+  Это защищает от schema-спама и ошибок в Google Rich Results.
+*/ -}}
+{{- if .Params.product -}}
+  {{- $graph = $graph | append (partial "schema/product.html" .) -}}
+{{- end -}}
+
+{{- /*
+  FAQPage добавляется только при реальном наличии FAQ-блока.
+  Это критично для соответствия Google FAQ guidelines.
+*/ -}}
+{{- if .Params.faq -}}
+  {{- $graph = $graph | append (partial "schema/faq.html" .) -}}
+{{- end -}}
+
+{{- /*
+  BreadcrumbList добавляется, если страница участвует в иерархии.
+  Помогает Google понять структуру сайта и улучшает сниппеты.
+*/ -}}
+{{- if .Params.breadcrumbs -}}
+  {{- $graph = $graph | append (partial "schema/breadcrumbs.html" .) -}}
+{{- end -}}
+
+{{/* =========================================================
+     ФИНАЛЬНЫЙ ВЫВОД JSON-LD
+   ========================================================= */}}
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+
+  {{/*
+    @graph собирается автоматически:
+    - delimit расставляет запятые
+    - исключает синтаксические ошибки
+    - гарантирует валидный JSON
+  */}}
   "@graph": [
-    {{- /* Список глобальных сущностей */ -}}
-    {{ $globals := slice "website" "organization" "brand" "searchaction" }}
-    {{ range $i, $p := $globals }}
-      {{ partial (printf "schema/%s.html" $p) . }}{{ if lt (add $i 1) (len $globals) }},{{ end }}
-    {{ end }}
-
-    {{- /* Страница статьи */}}
-    {{ if .IsPage }}
-      ,{{ partial "schema/article.html" . }}
-    {{ end }}
-
-    {{- /* Страница товара */}}
-    {{ if .Params.product }}
-      ,{{ partial "schema/product.html" . }}
-    {{ end }}
-
-    {{- /* FAQ */}}
-    {{ if .Params.faq }}
-      ,{{ partial "schema/faq.html" . }}
-    {{ end }}
-
-    {{- /* Breadcrumbs */}}
-    {{ if .Params.breadcrumbs }}
-      ,{{ partial "schema/breadcrumbs.html" . }}
-    {{ end }}
+    {{- delimit $graph "," -}}
   ]
 }
 </script>
+
