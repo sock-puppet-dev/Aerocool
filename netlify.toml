@@ -17,7 +17,7 @@
   # Часовой пояс
   TZ = "Europe/Kyiv"
   # Версия Node.js для сборки Tailwind
-  NODE_VERSION = "22"
+  NODE_VERSION = "24"
   # Флаг npm для предотвращения конфликтов зависимостей
   NPM_FLAGS = "--legacy-peer-deps"
 
