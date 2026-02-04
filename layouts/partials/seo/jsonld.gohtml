@@ -22,25 +22,25 @@
       Описывает сайт как сущность.
       Используется Google для sitelinks и SearchAction.
 */ -}}
-{{- $graph = $graph | append (partial "schema/website.html" .) -}}
+{{- $graph = $graph | append (partial "schema/website.gohtml" .) -}}
 
 {{- /* Organization:
       Юридический владелец сайта.
       Ключевая сущность для доверия (E-E-A-T).
 */ -}}
-{{- $graph = $graph | append (partial "schema/organization.html" .) -}}
+{{- $graph = $graph | append (partial "schema/organization.gohtml" .) -}}
 
 {{- /* Brand:
       Отдельная сущность бренда.
       Важно для Product, Merchant listings и knowledge graph.
 */ -}}
-{{- $graph = $graph | append (partial "schema/brand.html" .) -}}
+{{- $graph = $graph | append (partial "schema/brand.gohtml" .) -}}
 
 {{- /* SearchAction:
       Описывает поиск по сайту.
       Подключается к WebSite и даёт Google search box в выдаче.
 */ -}}
-{{- $graph = $graph | append (partial "schema/searchaction.html" .) -}}
+{{- $graph = $graph | append (partial "schema/searchaction.gohtml" .) -}}
 
 {{/* =========================================================
      КОНТЕНТНЫЕ СУЩНОСТИ (зависят от типа страницы)
@@ -52,7 +52,7 @@
   Google требует применять его ТОЛЬКО к новостям.
 */ -}}
 {{- if eq .Section "news" -}}
-  {{- $graph = $graph | append (partial "schema/news.html" .) -}}
+  {{- $graph = $graph | append (partial "schema/news.gohtml" .) -}}
 
 {{- /*
   Иначе, если это обычная контентная страница,
@@ -60,7 +60,7 @@
   блог, обзор, гайд, SEO-статья и т.д.
 */ -}}
 {{- else if .IsPage -}}
-  {{- $graph = $graph | append (partial "schema/article.html" .) -}}
+  {{- $graph = $graph | append (partial "schema/article.gohtml" .) -}}
 {{- end -}}
 
 {{/* =========================================================
@@ -72,7 +72,7 @@
   Это защищает от schema-спама и ошибок в Google Rich Results.
 */ -}}
 {{- if .Params.product -}}
-  {{- $graph = $graph | append (partial "schema/product.html" .) -}}
+  {{- $graph = $graph | append (partial "schema/product.gohtml" .) -}}
 {{- end -}}
 
 {{- /*
@@ -80,7 +80,7 @@
   Это критично для соответствия Google FAQ guidelines.
 */ -}}
 {{- if .Params.faq -}}
-  {{- $graph = $graph | append (partial "schema/faq.html" .) -}}
+  {{- $graph = $graph | append (partial "schema/faq.gohtml" .) -}}
 {{- end -}}
 
 {{- /*
@@ -88,7 +88,7 @@
   Помогает Google понять структуру сайта и улучшает сниппеты.
 */ -}}
 {{- if .Params.breadcrumbs -}}
-  {{- $graph = $graph | append (partial "schema/breadcrumbs.html" .) -}}
+  {{- $graph = $graph | append (partial "schema/breadcrumbs.gohtml" .) -}}
 {{- end -}}
 
 {{/* =========================================================

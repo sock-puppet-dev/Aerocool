@@ -6,10 +6,10 @@
 <html lang="{{ site.Language }}" dir="{{ .Language.LanguageDirection | default "auto" }}">
 
 <head>
-    {{- partial "head.html" . }}
+    {{- partial "head.gohtml" . }}
     <!-- TAILWIND -->
     {{ with (templates.Defer (dict "key" "global")) }}
-        {{ partial "css.html" . }}
+        {{ partial "css.gohtml" . }}
     {{ end }}
 </head>
 
@@ -21,11 +21,11 @@
 {{- print " dark" }}
 {{- end -}}
 " id="top">
-{{- partialCached "header.html" . .Page -}}
+{{- partialCached "header.gohtml" . .Page -}}
 <main class="main">
     {{- block "main" . }}{{ end }}
 </main>
-{{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
+{{ partialCached "footer.gohtml" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
 </body>
 
 </html>

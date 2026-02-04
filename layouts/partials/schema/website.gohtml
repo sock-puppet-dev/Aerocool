@@ -1,0 +1,85 @@
+{{/*
+Schema.org: WebSite
+────────────────────────────────────────────
+Глобальная сущность сайта.
+Используется Google для:
+- понимания сайта как целого
+- sitelinks
+- search box (SearchAction)
+
+Подключается ОДИН раз:
+обычно в <head>, вместе с Organization
+*/}}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+
+      {{/* Уникальный ID сущности WebSite */}}
+      "@id": "{{ .Site.BaseURL }}#website",
+
+      {{/* Канонический URL сайта */}}
+      "url": "{{ .Site.BaseURL }}",
+
+      {{/* Название сайта (brand / project name) */}}
+      "name": {{ .Site.Title | jsonify }},
+
+      {{/* Альтернативное имя (необязательно, но полезно для брендов) */}}
+      {{ with .Site.Params.alternateName }}
+      "alternateName": {{ . | jsonify }},
+      {{ end }}
+
+      {{/* Общее описание сайта */}}
+      {{ with .Site.Params.description }}
+      "description": {{ . | jsonify }},
+      {{ end }}
+
+      {{/* Основной язык сайта */}}
+      "inLanguage": "{{ .Site.Language.Lang }}",
+
+      {{/* Безопасный контент (важно для trust-сигналов) */}}
+      "isFamilyFriendly": true,
+
+      {{/* Издатель сайта — Organization */}}
+      "publisher": {
+        "@id": "{{ .Site.BaseURL }}#organization"
+      },
+
+      {{/* Социальные профили (повышают E-E-A-T) */}}
+      {{ with .Site.Params.sameAs }}
+      "sameAs": [
+        {{- range $index, $item := . -}}
+          {{- if $index }},{{ end }}
+          {{ $item | jsonify }}
+        {{- end -}}
+      ],
+      {{ end }}
+
+      {{/* SearchAction — включает sitelinks search box в Google */}}
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+
+            {{/*
+            urlTemplate:
+            Обязательно должен быть реальный URL поиска
+            */}}
+            "urlTemplate": "{{ .Site.BaseURL }}{{ .Site.LanguagePrefix }}search?q={search_term_string}"
+          },
+
+          {{/*
+          query-input — ОБЯЗАТЕЛЬНО
+          Без него Google игнорирует SearchAction
+          */}}
+          "query-input": "required name=search_term_string"
+        }
+      ]
+    }
+  ]
+}
+</script>
