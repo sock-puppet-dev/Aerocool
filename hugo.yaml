@@ -10,6 +10,8 @@ theme: PaperMod
 disablePathToLower: false
 # Определяет формат конечных URL, false — Hugo создаёт чистые URL без .html на конце.
 uglyURLs: false
+# Делает все относительные ссылки абсолютными на основе baseURL (для каноничных URL).
+canonifyURLs: true
 # Hugo Pipes и минификация
 # Hugo использует встроенный минификатор для HTML, CSS, JS и JSON.
 # Управляет включением автоматической минификации (сжатия) сгенерированного HTML, CSS, JavaScript
@@ -169,8 +171,6 @@ params:
 # false — если хочешь показывать краткие анонсы статей на главной странице или в разделах,
 # чтобы читатели сразу видели суть поста.
   hideSummary: false
-# Канонический URL сайта — указывает поисковикам основной адрес сайта
-  canonicalURL: "https://aerocool.ua/"
 # Настройка блока картинок для фавиконов
   assets:
     # путь к фавиконке (иконка сайта на вкладке браузера), основной favicon для браузеров (обычно .ico).
@@ -184,6 +184,35 @@ params:
     safari_pinned_tab: "/images/safari-pinned-tab.svg"
     # Включает добавление хэшей к именам файлов для кэширования.
     disableFingerprinting: false
+  # Настройка блока socialIcons
+  socialIcons:
+    - name: youtube
+      url: "https://www.youtube.com/user/Aerocooladmin"
+    - name: instagram
+      url: "https://www.instagram.com/aerocool_global"
+    - name: facebook
+      url: "https://www.facebook.com/AeroCoolGlobal/"
+    - name: x
+      url: "https://x.com/AerocoolGlobal"
+    - name: tiktok
+      url: "https://www.tiktok.com/@aerocool_global"
+  # Блок управления обложками
+  cover:
+    # Показывать обложку (cover image) вообще или полностью скрыть.
+    # false — обложка показывается.
+    # true — обложка скрыта во всех местах, кроме структурированных данных SEO.
+    hidden: false
+    # Показывать ли обложку на страницах со списком контента.
+    # Например, на главной странице, странице категории, теге, архиве.
+    # false — показывать обложку.
+    # true — скрывать обложку на списках.
+    hiddenInList: false
+    # Показывать ли обложку на одиночной странице контента — например, на странице конкретной статьи или продукта.
+    # false — показывать обложку.
+    # true — скрывать обложку на одиночных страницах.
+    hiddenInSingle: false
+  # изображение по умолчанию для Open Graph / Twitter Cards (например, логотип)
+  images: ["/images/logo.svg"]
 # Настроки блока sitemap
 sitemap:
   # Частота обновления страниц для поисковиков (рекомендуется указывать для статичных страниц)
@@ -192,35 +221,6 @@ sitemap:
   filename: sitemap.xml
   # Приоритет страниц (от 0.0 до 1.0)
   priority: 0.7
-# Настройка блока socialIcons
-socialIcons:
-  - name: youtube
-    url: "https://www.youtube.com/user/Aerocooladmin"
-  - name: instagram
-    url: "https://www.instagram.com/aerocool_global"
-  - name: facebook
-    url: "https://www.facebook.com/AeroCoolGlobal/"
-  - name: x
-    url: "https://x.com/AerocoolGlobal"
-  - name: tiktok
-    url: "https://www.tiktok.com/@aerocool_global"
-# Блок управления обложками
-cover:
-  # Показывать обложку (cover image) вообще или полностью скрыть.
-  # false — обложка показывается.
-  # true — обложка скрыта во всех местах, кроме структурированных данных SEO.
-  hidden: false
-  # Показывать ли обложку на страницах со списком контента.
-  # Например, на главной странице, странице категории, теге, архиве.
-  # false — показывать обложку.
-  # true — скрывать обложку на списках.
-  hiddenInList: false
-  # Показывать ли обложку на одиночной странице контента — например, на странице конкретной статьи или продукта.
-  # false — показывать обложку.
-  # true — скрывать обложку на одиночных страницах.
-  hiddenInSingle: false
-# изображение по умолчанию для Open Graph / Twitter Cards (например, логотип)
-images: ["/images/logo.svg"]
 
 # !!! МАКСИМАЛЬНО УТОЧНИТЬ,
 # указываем Hugo, какие разделы контента считать главными (используется на главной, в RSS и sitemap)
