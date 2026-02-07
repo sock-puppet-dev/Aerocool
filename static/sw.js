@@ -54,11 +54,16 @@ if (workbox) {
 
   // 🌐 Кэш webmanifest
   workbox.routing.registerRoute(
-    /\/site\.webmanifest$/,
+    /\/manifest\.webmanifest$/,
     new workbox.strategies.StaleWhileRevalidate({
       cacheName: 'manifest-cache',
     })
   );
+
+  // 📦 Прекаш оффлайн-страницы
+  workbox.precaching.precacheAndRoute([
+    { url: '/offline.html', revision: null },
+  ]);
 
   // 📄 Оффлайн fallback
   workbox.routing.setCatchHandler(async ({ event }) => {
