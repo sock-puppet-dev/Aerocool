@@ -174,14 +174,14 @@ params:
 # Настройка блока картинок для фавиконов
   assets:
     # путь к фавиконке (иконка сайта на вкладке браузера), основной favicon для браузеров (обычно .ico).
-    favicon: "/images/favicon.ico"
+    favicon: "/favicon.ico"
     # PNG-иконки для поддержки различных разрешений
-    favicon16x16: "/images/favicon-16x16.png"
-    favicon32x32: "/images/favicon-32x32.png"
+    favicon16x16: "/favicon-16x16.png"
+    favicon32x32: "/favicon-32x32.png"
     # Иконка для iOS-устройств.
-    apple_touch_icon: "/images/apple-touch-icon.png"
+    apple_touch_icon: "/apple-touch-icon.png"
     # SVG-иконка для закрепленных вкладок в Safari (поддержка темного режима).
-    safari_pinned_tab: "/images/safari-pinned-tab.svg"
+    safari_pinned_tab: "/safari-pinned-tab.svg"
     # Включает добавление хэшей к именам файлов для кэширования.
     disableFingerprinting: false
   # Настройка блока socialIcons
