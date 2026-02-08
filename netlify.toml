@@ -39,7 +39,8 @@
   to = "https://aerocool.ua/:splat"
   status = 301
   force = true
-  conditions = { Host = "aerocool.ua" }
+  # Отрабатывает только на превью/Netlify-доменах, чтобы канонизировать трафик на aerocool.ua
+  conditions = { Host = "hugo-aerocool.netlify.app" }
 
 # Кастомная страница ошибки 404 (для превью и всего остального)
 [[redirects]]
