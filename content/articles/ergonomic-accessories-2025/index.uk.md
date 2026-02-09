@@ -10,7 +10,7 @@ robots: "index, follow"
 canonicalURL: "https://aerocool-site.com/uk/articles/ergonomic-accessories-2025/"
 translationKey: "ergonomic-accessories-2025"
 images:
-  - "/images/articles/ergonomic-accessories-cover.jpg"
+  - "1-front.webp"
 author: "Дмитро Стадник"
 categories:
   - Огляди
@@ -29,7 +29,7 @@ markup:
   publisher:
     name: "Aerocool"
     logo: "/images/logo.svg"
-  image: "/images/articles/ergonomic-accessories-cover.jpg"
+  image: "1-front.webp"
   datePublished: "2025-08-02T10:00:00+03:00"
   dateModified: "2025-08-03T12:30:00+03:00"
   headline: "Ергономічні аксесуари для робочого місця у 2025 році: повний гід"
@@ -41,11 +41,11 @@ markup:
     - 2025
   og:
     type: "article"
-    image: "/images/articles/ergonomic-accessories-cover.jpg"
+    image: "1-front.webp"
     description: "Повний гід з ергономічних аксесуарів 2025 року: комфорт та здоров’я на роботі."
   twitter:
     card: "summary_large_image"
-    image: "/images/articles/ergonomic-accessories-cover.jpg"
+    image: "1-front.webp"
     creator: "@AerocoolOfficial"
 
 aliases:

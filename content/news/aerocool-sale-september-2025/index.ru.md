@@ -5,7 +5,7 @@ draft: false
 tags: ["новости", "продукт", "акция", "новинка", "игровые кресла", "эргономика", "комфорт"]
 categories: ["Новости"]
 description: "Большая распродажа Aerocool в сентябре 2025 — лучшие скидки на популярные модели игровых и офисных кресел."
-image: "/images/news/aerocool-sale-2025.jpg"
+image: "1-front.webp"
 canonicalURL: "https://aerocool.ua/ru/news/aerocool-sale-september-2025/"
 ---
 

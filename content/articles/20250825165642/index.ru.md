@@ -14,7 +14,7 @@ summary: |
   Полный обзор игрового кресла Aerocool DUKE 2025: эргономика, регулируемый подголовник, 3D подлокотники, Tilt-механизм и советы по выбору.
 
 cover:
-  image: "https://aerocool.ua/images/articles/20250825165642/1.webp"
+  image: "1-front.webp"
   alt: "Обзор игрового кресла Aerocool Duke — комфорт и эргономика"
   caption: "Игровое кресло Aerocool DUKE 2025: комфорт, эргономика и регулируемые подлокотники"
   image_width: 1200
@@ -204,7 +204,7 @@ openGraph:
   type: "article"
   title: "Обзор Aerocool DUKE — эргономичное игровое кресло для максимального комфорта 2025"
   description: "Полный обзор игрового кресла Aerocool DUKE 2025: эргономика, 3D подлокотники, Tilt-механизм..."
-  image: "https://aerocool.ua/images/articles/20250825165642/1.webp"
+  image: "1-front.webp"
   url: "https://aerocool.ua/ru/articles/obzor-aerocool-duke-2025/"
 
 twitter:
@@ -212,7 +212,7 @@ twitter:
   site: "@Aerocool"
   title: "Обзор Aerocool DUKE — игровое кресло 2025"
   description: "Эргономика, 3D подлокотники, Tilt-механизм и комфорт."
-  image: "https://aerocool.ua/images/articles/20250825165642/1.webp"
+  image: "1-front.webp"
 ---
 
 # Aerocool DUKE — обзор игрового кресла 2025 года
@@ -253,7 +253,7 @@ twitter:
 Aerocool DUKE обладает выразительным, динамичным дизайном, который гармонично вписывается как в игровое пространство, так и в офисную среду. Сочетание черных и ярких цветовых акцентов делает кресло универсальным: оно не выглядит слишком «игровым» для офиса, но при этом сохраняет характерные геймерские элементы.
 
 {{< figure 
-    src="/images/articles/20250825165642/1.webp"
+    src="1-front.webp"
     alt="Эргономичное игровое и офисное кресло Aerocool ErgoLine 2025 — обзор, характеристики и цена"
     title="Aerocool ErgoLine 2025 — лучшее эргономичное кресло для офиса и игр"
     caption="Кресло Aerocool ErgoLine 2025 сочетает эргономику, премиальный комфорт и стильный дизайн. Идеально подходит для длительной работы и киберспорта."
@@ -266,7 +266,7 @@ Aerocool DUKE обладает выразительным, динамичным 
     width="1200"
     height="630"
     itemprop="image"
-    content="/images/articles/20250825165642/1.webp"
+    content="1-front.webp"
 >}}
 
 Основные дизайнерские решения:

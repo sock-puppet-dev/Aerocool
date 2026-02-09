@@ -5,7 +5,7 @@ draft: false
 tags: ["новости", "продукт", "акция", "новинка", "игровые кресла", "эргономика", "комфорт"]
 categories: ["Новости"]
 description: "Современная серия офисных кресел ErgoLine 2025 от Aerocool — комфорт, поддержка здоровья и стиль для каждого офисного сотрудника."
-image: "/images/news/aerocool-ergoline-2025.jpg"
+image: "1-front.webp"
 canonicalURL: "https://aerocool.ua/ru/news/aerocool-ergoline-2025-launch/"
 slug: "aerocool-ergoline-2025-launch"
 url: "/ru/news/aerocool-ergoline-2025-launch/"

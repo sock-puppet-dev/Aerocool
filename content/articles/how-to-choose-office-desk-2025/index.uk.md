@@ -10,7 +10,7 @@ robots: "index, follow"
 canonicalURL: "https://aerocool-site.com/uk/articles/how-to-choose-office-desk-2025/"
 translationKey: "how-to-choose-office-desk-2025"
 images:
-  - "/images/articles/office-desk-cover.jpg"
+  - "1-front.webp"
 author: "Дмитро Стадник"
 categories:
   - Огляди
@@ -35,7 +35,7 @@ markup:
   publisher:
     name: "Aerocool"
     logo: "/images/logo.svg"
-  image: "/images/articles/office-desk-cover.jpg"
+  image: "1-front.webp"
   datePublished: "2025-07-31T10:00:00+03:00"
   dateModified: "2025-08-01T12:30:00+03:00"
   headline: "Як обрати ідеальний офісний стіл у 2025 році: поради, тренди та топ-моделі"
@@ -46,11 +46,11 @@ markup:
     - 2025
   og:
     type: "article"
-    image: "/images/articles/office-desk-cover.jpg"
+    image: "1-front.webp"
     description: "Як обрати ідеальний офісний стіл у 2025 році. Огляд, тренди, поради."
   twitter:
     card: "summary_large_image"
-    image: "/images/articles/office-desk-cover.jpg"
+    image: "1-front.webp"
     creator: "@AerocoolOfficial"
 
 ShowToc: true

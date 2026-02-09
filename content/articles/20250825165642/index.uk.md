@@ -14,7 +14,7 @@ summary: |
   Повний огляд ігрового крісла Aerocool DUKE 2025: ергономіка, регульований підголівник, 3D підлокітники, Tilt-механізм та поради щодо вибору.
 
 cover:
-  image: "https://aerocool.ua/images/articles/20250825165642/1.webp"
+  image: "1-front.webp"
   alt: "Огляд ігрового крісла Aerocool Duke — комфорт та ергономіка"
   caption: "Ігрове крісло Aerocool DUKE 2025: комфорт, ергономіка та регульовані підлокітники"
   image_width: 1200
@@ -140,7 +140,7 @@ schema:
     "@type": "WebSite"
     name: "Aerocool"
     url: "https://aerocool.ua"
-  image: "https://aerocool.ua/images/articles/20250825165642/1.webp"
+  image: "1-front.webp"
   datePublished: "2025-08-25T10:00:00+03:00"
   dateModified: "2025-08-25T10:00:00+03:00"
   dateCreated: "2025-08-20T12:00:00+03:00"
@@ -208,7 +208,7 @@ openGraph:
   type: "article"
   title: "Огляд Aerocool DUKE — ергономічне ігрове крісло для максимального комфорту 2025"
   description: "Повний огляд ігрового крісла Aerocool DUKE 2025: ергономіка, 3D підлокітники, Tilt-механізм..."
-  image: "https://aerocool.ua/images/articles/20250825165642/1.webp"
+  image: "1-front.webp"
   url: "https://aerocool.ua/uk/articles/oglyad-aerocool-duke-2025/"
 
 twitter:
@@ -216,7 +216,7 @@ twitter:
   site: "@Aerocool"
   title: "Огляд Aerocool DUKE — ігрове крісло 2025"
   description: "Ергономіка, 3D підлокітники, Tilt-механізм і комфорт."
-  image: "https://aerocool.ua/images/articles/20250825165642/1.webp"
+  image: "1-front.webp"
 ---
 
 # Aerocool DUKE — обзор игрового кресла 2025 года
@@ -257,7 +257,7 @@ twitter:
 Aerocool DUKE обладает выразительным, динамичным дизайном, который гармонично вписывается как в игровое пространство, так и в офисную среду. Сочетание черных и ярких цветовых акцентов делает кресло универсальным: оно не выглядит слишком «игровым» для офиса, но при этом сохраняет характерные геймерские элементы.
 
 {{< figure 
-    src="/images/articles/20250825165642/1.webp"
+    src="1-front.webp"
     alt="Ергономічне ігрове та офісне крісло Aerocool ErgoLine 2025 — огляд, характеристики та ціна"
     title="Aerocool ErgoLine 2025 — найкраще ергономічне крісло для офісу та ігор"
     caption="Крісло Aerocool ErgoLine 2025 поєднує ергономіку, преміальний комфорт і стильний дизайн. Ідеально підходить для тривалої роботи та кіберспорту."
@@ -270,7 +270,7 @@ Aerocool DUKE обладает выразительным, динамичным 
     width="1200"
     height="630"
     itemprop="image"
-    content="/images/articles/20250825165642/1.webp"
+    content="1-front.webp"
 >}}
 
 Основные дизайнерские решения:

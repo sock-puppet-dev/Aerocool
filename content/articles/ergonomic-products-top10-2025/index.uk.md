@@ -10,7 +10,7 @@ robots: "index, follow"
 canonicalURL: "https://aerocool-site.com/uk/articles/ergonomic-chairs-top10-2025/"
 translationKey: "ergonomic-products-top10-2025"
 images:
-  - "/images/articles/ergonomic-products-cover.jpg"
+  - "1-front.webp"
 author: "Дмитро Стадник"
 categories:
   - Огляди
@@ -29,7 +29,7 @@ markup:
   publisher:
     name: "Aerocool"
     logo: "/images/logo.svg"
-  image: "/images/articles/ergonomic-products-cover.jpg"
+  image: "1-front.webp"
   datePublished: "2025-07-31T09:00:00+03:00"
   dateModified: "2025-08-01T12:00:00+03:00"
   headline: "Топ-10 ергономічних крісел 2025 року: повний гід, рейтинг та огляди"
@@ -40,11 +40,11 @@ markup:
     - 2025
   og:
     type: "article"
-    image: "/images/articles/ergonomic-products-cover.jpg"
+    image: "1-front.webp"
     description: "Рейтинг топ-10 ергономічних крісел 2025 року. Порівняння, огляди, переваги."
   twitter:
     card: "summary_large_image"
-    image: "/images/articles/ergonomic-products-cover.jpg"
+    image: "1-front.webp"
     creator: "@AerocoolOfficial"
 
 aliases:
