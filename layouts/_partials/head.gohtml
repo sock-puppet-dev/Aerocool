@@ -28,9 +28,9 @@
 <link rel="canonical" href="{{ if .Params.canonicalURL -}} {{ trim .Params.canonicalURL " " }} {{- else -}} {{ .Permalink }} {{- end }}">
 
 <!-- SEO Partials: JSON-LD, Open Graph, Twitter Cards -->
-{{ partial "seo/jsonld.html" . }}
-{{ partial "seo/opengraph.html" . }}
-{{ partial "seo/twitter_cards.html" . }}
+{{ partial "_seo/jsonld.html" . }}
+{{ partial "_seo/opengraph.html" . }}
+{{ partial "_seo/twitter_cards.html" . }}
 
 <!-- Additional meta -->
 <meta name="author" content="{{ partial "author.html" . }}">
