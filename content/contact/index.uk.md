@@ -9,7 +9,6 @@ keywords:
   - ігрові крісла Україна
 image: "/images/contact-cover.jpg"
 canonicalURL: "https://aerocool.ua/uk/contact/"
-aliases: ["/uk/contact-us", "/contact-uk"]
 url: "/uk/contact/"
 date: 2025-08-05T10:00:00+03:00
 lastmod: 2025-08-05T10:00:00+03:00

@@ -47,9 +47,6 @@ markup:
     image: "1-front.webp"
     creator: "@AerocoolOfficial"
 
-aliases:
-  - "/uk/ergonomichni-krisla-2025/"
-  - "/uk/top-krisla-2025/"
 hreflang:
   - href: "https://aerocool-site.com/en/articles/ergonomic-chairs-top10-2025/"
     lang: "en"

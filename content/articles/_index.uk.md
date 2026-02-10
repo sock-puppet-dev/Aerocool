@@ -12,8 +12,6 @@ keywords:
   - найкращі ігрові крісла
 image: "/images/articles-cover.jpg"
 canonicalURL: "https://aerocool.ua/uk/articles/"
-aliases:
-  - "/uk/blog"
 comments: false
 showToc: false
 showReadingTime: true

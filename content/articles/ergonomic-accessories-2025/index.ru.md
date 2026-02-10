@@ -49,10 +49,6 @@ markup:
     image: "1-front.webp"
     creator: "@AerocoolOfficial"
 
-aliases:
-  - "/ru/ergonomichnye-aksessuary-2025/"
-  - "/ru/top-ergonomic-accessories/"
-
 hreflang:
   - href: "https://aerocool-site.com/en/articles/ergonomic-accessories-2025/"
     lang: "en"

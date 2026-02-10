@@ -47,9 +47,6 @@ markup:
     image: "1-front.webp"
     creator: "@AerocoolOfficial"
 
-aliases:
-  - "/ru/ergonomichnye-kresla-2025/"
-  - "/ru/top-kresla-2025/"
 hreflang:
   - href: "https://aerocool-site.com/uk/articles/ergonomic-chairs-top10-2025/"
     lang: "uk"

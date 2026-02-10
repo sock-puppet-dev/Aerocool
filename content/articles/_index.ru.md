@@ -12,9 +12,6 @@ keywords:
   - лучшие игровые кресла
 image: "/images/articles-cover.jpg"
 canonicalURL: "https://aerocool.ua/ru/articles/"
-aliases:
-  - "/blog"
-  - "/ru/blog"
 comments: false
 showToc: false
 showReadingTime: true

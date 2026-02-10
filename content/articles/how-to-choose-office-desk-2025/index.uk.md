@@ -21,9 +21,7 @@ tags:
   - столи
   - поради
   - 2025
-aliases:
-  - "/uk/vybir-ofisnogo-stolu-2025/"
-  - "/uk/top-stoly-2025/"
+
 hreflang:
   - href: "https://aerocool-site.com/en/articles/how-to-choose-office-desk-2025/"
     lang: "en"

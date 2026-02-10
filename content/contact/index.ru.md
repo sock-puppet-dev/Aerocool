@@ -9,7 +9,6 @@ keywords:
   - игровые кресла Украина
 image: "/images/contact-cover.jpg"
 canonicalURL: "https://aerocool.ua/ru/contact/"
-aliases: ["/ru/contact-us", "/contact-ru", "/contacts"]
 url: "/ru/contact/"
 date: 2025-08-05T10:00:00+03:00
 lastmod: 2025-08-05T10:00:00+03:00

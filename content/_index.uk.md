@@ -12,7 +12,6 @@ keywords:
   - крісла для роботи за компʼютером
 image: "/images/seo-cover.jpg"
 canonicalURL: "https://aerocool.ua/uk/"
-aliases: ["/home", "/main"]
 comments: false
 showToc: false
 showReadingTime: false
