@@ -3,8 +3,8 @@ title: "Aerocool Duke — огляд ігрового крісла"
 description: "Детальний огляд крісла Aerocool Duke — ергономіка, характеристики, матеріали, відгуки та порівняння."
 date: 2025-08-10T10:00:00+03:00
 slug: duke
-url: "/uk/products/duke/"
-categories: ["products", "gaming-chairs"]
+url: "/uk/_products/duke/"
+categories: ["_products", "gaming-chairs"]
 tags: ["aerocool", "duke", "ігрове крісло", "ергономіка", "комфорт"]
 
 cover:

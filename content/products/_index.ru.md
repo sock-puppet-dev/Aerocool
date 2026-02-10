@@ -2,10 +2,10 @@
 title: "Каталог товаров Aerocool — игровые и офисные кресла"
 description: "Полный каталог игровых и офисных кресел Aerocool с описаниями, ценами и характеристиками. Выберите комфортное кресло с гарантией и доставкой по Украине."
 keywords: ["игровые кресла", "офисные кресла", "Aerocool", "каталог товаров", "цены", "эргономика", "комфорт"]
-image: "/images/products-cover.jpg"
+image: "/images/_products-cover.jpg"
 canonicalURL: "https://aerocool.ua/ru/products/"
-aliases: ["/ru/catalog", "/catalog", "/ru/products", "/products"]
-url: "/ru/products/"
+aliases: ["/ru/catalog", "/catalog", "/ru/_products", "/_products"]
+url: "/ru/_products/"
 date: 2025-08-07T10:00:00+03:00
 lastmod: 2025-08-07T10:00:00+03:00
 comments: true

@@ -3,8 +3,8 @@ title: "Aerocool Baron — огляд ігрового крісла"
 description: "Повний огляд крісла Aerocool Baron — ергономіка, характеристики, матеріали, відгуки та порівняння."
 date: 2025-09-08T10:00:00+03:00
 slug: baron
-url: "/uk/products/baron/"
-categories: ["products", "gaming-chairs"]
+url: "/uk/_products/baron/"
+categories: ["_products", "gaming-chairs"]
 tags: ["aerocool", "baron", "ігрове крісло", "ергономіка", "комфорт"]
 
 cover:

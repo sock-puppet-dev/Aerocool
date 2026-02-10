@@ -8,7 +8,7 @@ description: "Подробный гид по эргономичным кресл
 keywords: ["эргономичное кресло", "офисная мебель", "топ кресел 2025", "комфортный офис", "здоровье спины"]
 robots: "index, follow"
 canonicalURL: "https://aerocool-site.com/ru/articles/ergonomic-chairs-top10-2025/"
-translationKey: "ergonomic-products-top10-2025"
+translationKey: "ergonomic-_products-top10-2025"
 images:
   - "1-front.webp"
 author: "Дмитрий Стадник"
