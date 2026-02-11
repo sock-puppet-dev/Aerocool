@@ -70,9 +70,10 @@ url: "/ru/articles/how-to-choose-office-desk-2025/"
     fetchpriority="high"
     preload="true"
     sizes="(max-width: 768px) 100vw, 1200px"
->}}
+/>}}
+
 **Игровое кресло Aerocool DUKE 2025** — детальный разбор эргономики, регулируемых подлокотников 3D, Tilt-механизма и материалов высокого качества для геймеров и офисной работы.
-{{< /seo-image >}}
+
 
 ## Введение
 
