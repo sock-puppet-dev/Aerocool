@@ -1,3 +1,9 @@
+{{/*
+Этот partial подключает CSS к твоему сайту, обрабатывая Tailwind, минификацию и SRI.
+В dev — читаемый CSS, в проде — минифицированный и безопасный.
+Это современный и правильный способ работы с Tailwind в Hugo 2025+.
+*/}}
+
 {{ with resources.Get "css/main.css" }}
     {{ $opts := dict "minify" (not hugo.IsDevelopment) }}
     {{ with . | css.TailwindCSS $opts }}
