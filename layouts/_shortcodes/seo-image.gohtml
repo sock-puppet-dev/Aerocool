@@ -1,0 +1,197 @@
+{{- /*
+  =====================================================================
+  ULTIMATE SEO IMAGE SHORTCODE
+  Hugo v0.155.3+
+  PaperMod 8
+  Enterprise SEO / Core Web Vitals / Google Discover ready
+  =====================================================================
+
+  Что решает:
+  - CLS → фиксируется width/height + aspect-ratio
+  - LCP → preload + AVIF/WebP
+  - Mobile performance → responsive srcset
+  - SEO → Schema.org ImageObject
+  - Discover → крупные оптимизированные изображения
+  - Multilingual → работает через Page Bundles (.Page.Resources)
+
+  Использовать ТОЛЬКО внутри leaf bundle:
+  content/articles/post/
+      index.uk.md
+      index.ru.md
+      image.webp
+
+*/ -}}
+
+{{/* ================================================================
+   1. Получаем параметры из shortcode
+   ================================================================ */}}
+
+{{- $src := .Get "src" -}}                  {{/* Имя файла внутри Page Bundle */}}
+{{- $alt := .Get "alt" | default "" -}}     {{/* ALT обязателен для SEO и accessibility */}}
+{{- $title := .Get "title" | default "" -}} {{/* Title — вспомогательный tooltip */}}
+{{- $class := .Get "class" | default "" -}} {{/* Tailwind / кастомные классы */}}
+
+{{/* Атрибуты производительности */}}
+{{- $loading := .Get "loading" | default "lazy" -}}
+{{/* lazy = для всех ниже первого экрана
+   eager = для hero (LCP image)
+*/}}
+
+{{- $decoding := .Get "decoding" | default "async" -}}
+{{/* async ускоряет парсинг HTML */}}
+
+{{- $fetchpriority := .Get "fetchpriority" | default "auto" -}}
+{{/* high — для LCP изображения
+   low — для второстепенных
+*/}}
+
+{{- $sizes := .Get "sizes" | default "(max-width: 768px) 100vw, 1200px" -}}
+{{/* sizes сообщает браузеру,
+   сколько реального места займет изображение
+   → уменьшает ненужную загрузку больших файлов
+*/}}
+
+{{- $preload := .Get "preload" | default false -}}
+{{/* preload = true → используется ТОЛЬКО для hero image */}}
+
+
+{{/* ================================================================
+   2. Получаем изображение из Page Resources
+   ================================================================ */}}
+
+{{- $img := .Page.Resources.Get $src -}}
+
+{{- if not $img }}
+  {{- errorf "Image '%s' not found in Page Resources (%s)" $src .Page.File.Path -}}
+{{- end -}}
+
+{{/* ================================================================
+   3. Если SVG — не ресайзим
+   (SVG уже векторный, Resize превращает его в растр)
+   ================================================================ */}}
+
+{{- if eq $img.MediaType.SubType "svg" }}
+
+  <img
+    src="{{ $img.RelPermalink }}"
+    alt="{{ $alt }}"
+    class="{{ $class }}"
+  >
+
+{{- else }}
+
+{{/* ================================================================
+   4. Генерация производных форматов
+   AVIF → лучший compression
+   WebP → fallback
+   ================================================================ */}}
+
+{{- $avif_sm := $img.Resize "480x avif" -}}
+{{- $avif_md := $img.Resize "768x avif" -}}
+{{- $avif_lg := $img.Resize "1200x avif" -}}
+
+{{- $webp_sm := $img.Resize "480x webp" -}}
+{{- $webp_md := $img.Resize "768x webp" -}}
+{{- $webp_lg := $img.Resize "1200x webp" -}}
+
+{{/* ================================================================
+   5. Фиксированные размеры (борьба с CLS)
+   ================================================================ */}}
+
+{{- $width := $webp_lg.Width -}}
+{{- $height := $webp_lg.Height -}}
+
+
+{{/* ================================================================
+   6. Preload для LCP (hero image)
+   ВАЖНО: использовать только для 1 изображения на странице
+   ================================================================ */}}
+
+{{- if $preload }}
+
+<link
+  rel="preload"
+  as="image"
+  href="{{ $webp_lg.RelPermalink }}"
+  imagesrcset="
+    {{ $webp_sm.RelPermalink }} 480w,
+    {{ $webp_md.RelPermalink }} 768w,
+    {{ $webp_lg.RelPermalink }} 1200w
+  "
+  imagesizes="{{ $sizes }}"
+>
+
+{{- end }}
+
+
+{{/* ================================================================
+   7. Основная разметка
+   Schema.org ImageObject улучшает SEO и Discover eligibility
+   ================================================================ */}}
+
+<figure
+  class="figure {{ $class }}"
+  itemscope
+  itemtype="https://schema.org/ImageObject"
+>
+
+<picture>
+
+  {{/* ===== AVIF (приоритет) ===== */}}
+  <source
+    type="image/avif"
+    srcset="
+      {{ $avif_sm.RelPermalink }} 480w,
+      {{ $avif_md.RelPermalink }} 768w,
+      {{ $avif_lg.RelPermalink }} 1200w
+    "
+    sizes="{{ $sizes }}"
+  >
+
+  {{/* ===== WebP fallback ===== */}}
+  <source
+    type="image/webp"
+    srcset="
+      {{ $webp_sm.RelPermalink }} 480w,
+      {{ $webp_md.RelPermalink }} 768w,
+      {{ $webp_lg.RelPermalink }} 1200w
+    "
+    sizes="{{ $sizes }}"
+  >
+
+  {{/* ===== Основной IMG ===== */}}
+  <img
+    src="{{ $webp_lg.RelPermalink }}"
+    width="{{ $width }}"
+    height="{{ $height }}"
+    alt="{{ $alt }}"
+    {{ with $title }}title="{{ . }}"{{ end }}
+    loading="{{ $loading }}"
+    decoding="{{ $decoding }}"
+    fetchpriority="{{ $fetchpriority }}"
+    itemprop="contentUrl"
+    style="aspect-ratio: {{ $width }} / {{ $height }};"
+  >
+
+</picture>
+
+{{/* Метаданные для Schema */}}
+<meta itemprop="width" content="{{ $width }}">
+<meta itemprop="height" content="{{ $height }}">
+
+{{/* ================================================================
+   8. Caption (если передан через .Inner)
+   ================================================================ */}}
+
+{{ with .Inner }}
+  <figcaption
+    class="mt-2 text-sm text-center text-muted"
+    itemprop="caption"
+  >
+    {{ . | markdownify }}
+  </figcaption>
+{{ end }}
+
+</figure>
+
+{{- end }}
