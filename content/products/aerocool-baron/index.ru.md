@@ -7,14 +7,6 @@ url: "/ru/_products/baron/"
 categories: ["_products", "gaming-chairs"]
 tags: ["aerocool", "baron", "игровое кресло", "эргономика", "комфорт"]
 
-cover:
-  image: "1-front.webp"
-  alt: "Игровое кресло Aerocool Baron — главный обзорный снимок"
-  caption: "Aerocool Baron: эргономичное кресло с покрытием AeroSuede"
-  image_width: 1200
-  image_height: 630
-  loading: "lazy"
-
 images:
   - "1-front.webp"
   - "2-side.webp"
@@ -104,6 +96,19 @@ schema:
         "@type": "Organization"
         name: "Aerocool Ukraine"
 ---
+
+{{< seo-image
+    src="1-front.webp"
+    alt="Обзор игрового кресла Aerocool Duke — комфорт и эргономика"
+    title="Aerocool Duke 2025 — официальный обзор"
+    class="w-full rounded-2xl shadow-xl my-6"
+    loading="eager"
+    fetchpriority="high"
+    preload="true"
+    sizes="(max-width: 768px) 100vw, 1200px"
+/>}}
+
+**Игровое кресло Aerocool DUKE 2025** — детальный разбор эргономики...
 
 ## Aerocool Baron — комфорт и стиль для геймеров
 
