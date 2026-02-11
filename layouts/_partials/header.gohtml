@@ -52,8 +52,14 @@
 
                 {{- else }}
                     <!-- Если файл не найден как ресурс — вставляем как URL -->
-                    <img src="{{- site.Params.label.icon | absURL -}}" alt="" aria-label="logo"
-                        height="{{- site.Params.label.iconHeight | default "30" -}}">
+                    <img src="{{- site.Params.label.icon | absURL -}}"
+                            alt="Aerocool Logo"
+                            aria-label="logo"
+                            width="{{- site.Params.label.iconWidth | default "150" -}}"
+                            height="{{- site.Params.label.iconHeight | default "50" -}}"
+                            loading="eager"
+                            decoding="async"
+                    >
                 {{- end -}}
 
                 {{- else if hasPrefix site.Params.label.iconSVG "<svg" }}
