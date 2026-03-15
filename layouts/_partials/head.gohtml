@@ -12,11 +12,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- Robots -->
-{{- if hugo.IsProduction | or (eq site.Params.env "production") | and (ne .Params.robotsNoIndex true) }}
-<meta name="robots" content="index, follow">
-{{- else }}
-<meta name="robots" content="noindex, nofollow">
-{{- end }}
+{{ if and (or hugo.IsProduction (eq site.Params.env "production")) (ne .Params.robotsNoIndex true) }}
+<meta name="robots" content="index,follow">
+{{ else }}
+<meta name="robots" content="noindex,nofollow">
+{{ end }}
 
 <!-- Title & description -->
 <title>{{ if .IsHome }}{{ else }}{{ if .Title }}{{ .Title }} | {{ end }}{{ end }}{{ site.Title }}</title>
