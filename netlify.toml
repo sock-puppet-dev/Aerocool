@@ -25,7 +25,7 @@
 # Redirects
 # ==========================
 
-# Редирект с корня домена на украинскую версию (основной язык)
+# Редирект с корня только на основной домен
 [[redirects]]
   from = "/"
   to = "/uk/"
@@ -33,20 +33,19 @@
   force = true
   conditions = { Host = "aerocool.ua" }
 
-# Универсальный редирект для всех остальных путей (только на основном домене)
-[[redirects]]
-  from = "/*"
-  to = "https://aerocool.ua/:splat"
-  status = 301
-  force = true
-  # Отрабатывает только на превью/Netlify-доменах, чтобы канонизировать трафик на aerocool.ua
-  conditions = { Host = "hugo-aerocool.netlify.app" }
-
-# Кастомная страница ошибки 404 (для превью и всего остального)
+# Кастомная страница ошибки 404
 [[redirects]]
   from = "/*"
   to = "/404.html"
   status = 404
+
+# Убираем редирект preview → production для тестов Lighthouse
+# [[redirects]]
+#   from = "/*"
+#   to = "https://aerocool.ua/:splat"
+#   status = 301
+#   force = true
+#   conditions = { Host = "hugo-aerocool.netlify.app" }
 
 # ====================================
 # Headers для безопасности и SEO
