@@ -21,7 +21,7 @@ sitemap:
 
 ## Последние новости
 
-{{< recent-news limit="5" lang="ru" >}}
+ABC
 
 ---
 
