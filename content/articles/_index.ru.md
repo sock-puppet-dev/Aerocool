@@ -1,50 +1,12 @@
 ---
 title: "Статьи и обзоры Aerocool — игровые и офисные кресла"
+slug: "articles"
 description: "Экспертные статьи Aerocool: обзоры игровых и офисных кресел, советы по эргономике, выбору кресла для работы и гейминга, актуальные модели 2025 года."
-keywords:
-  - статьи Aerocool
-  - обзоры игровых кресел
-  - офисные кресла Aerocool
-  - эргономика рабочего места
-  - как выбрать кресло
-  - игровые кресла Украина
-  - купить игровое кресло
-  - лучшие игровые кресла
-image: "/images/articles-cover.jpg"
-canonicalURL: "https://aerocool.ua/ru/articles/"
-comments: false
-showToc: false
-showReadingTime: true
-showWordCount: false
-showShareButtons: true
-
-schema:
-  "@context": "https://schema.org"
-  "@graph":
-    - "@type": "CollectionPage"
-      "@id": "https://aerocool.ua/ru/articles/#collection"
-      name: "Статьи и обзоры Aerocool"
-      description: "Экспертные статьи Aerocool о выборе игровых и офисных кресел, эргономике рабочего места и комфорте при длительной работе за компьютером."
-      url: "https://aerocool.ua/ru/articles/"
-      inLanguage: "ru"
-      isPartOf:
-        "@id": "https://aerocool.ua/#website"
-      mainEntity:
-        "@type": "ItemList"
-        "@id": "https://aerocool.ua/ru/articles/#list"
-        itemListOrder: "Descending"
-
-    - "@type": "BreadcrumbList"
-      "@id": "https://aerocool.ua/ru/articles/#breadcrumb"
-      itemListElement:
-        - "@type": "ListItem"
-          position: 1
-          name: "Главная"
-          item: "https://aerocool.ua/ru/"
-        - "@type": "ListItem"
-          position: 2
-          name: "Статьи"
-          item: "https://aerocool.ua/ru/articles/"
+summary: "Экспертные статьи Aerocool о игровых и офисных креслах, эргономике рабочего места и выборе кресла."
+lastmod: 2025-08-01
+sitemap:
+  priority: 0.8
+  changefreq: weekly
 ---
 # Статьи и обзоры кресел Aerocool
 

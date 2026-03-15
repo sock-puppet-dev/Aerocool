@@ -1,106 +1,18 @@
 ---
-title: "Aerocool Baron — обзор игрового кресла"
-description: "Полный обзор кресла Aerocool Baron — эргономика, характеристики, материалы, отзывы и сравнение."
-date: 2025-09-08T10:00:00+03:00
-slug: baron
-url: "/ru/_products/baron/"
-categories: ["_products", "gaming-chairs"]
-tags: ["aerocool", "baron", "игровое кресло", "эргономика", "комфорт"]
-
-images:
-  - "1-front.webp"
-  - "2-side.webp"
-  - "3-back.webp"
-
-canonicalURL: "https://aerocool.ua/ru/products/baron/"
-robots: "index, follow"
-
-schema:
-  "@context": "https://schema.org"
-  "@type": "Product"
-  "@id": "https://aerocool.ua/ru/products/baron/#product"
-  name: "Aerocool Baron"
-  inLanguage: "ru"
-  image:
-    - "1-front.webp"
-    - "2-side.webp"
-    - "3-back.webp"
-  description: "Игровое кресло Aerocool Baron с покрытием AeroSuede, эргономичным дизайном и высокой прочностью."
-  sku: "BARON"
-  mpn: "BARON-UA"
-  category: "GamingChair"
-  brand:
-    "@type": "Brand"
-    name: "Aerocool"
-  mainEntityOfPage:
-    "@type": "WebPage"
-    "@id": "https://aerocool.ua/ru/products/baron/"
-  additionalProperty:
-    - "@type": "PropertyValue"
-      name: "Максимальная нагрузка"
-      value: "150 кг"
-    - "@type": "PropertyValue"
-      name: "Материал обивки"
-      value: "AeroSuede + искусственная кожа с тиснением под карбон"
-    - "@type": "PropertyValue"
-      name: "Механизм качания"
-      value: "Тип «бабочка» с возможностью фиксации"
-    - "@type": "PropertyValue"
-      name: "Высота сиденья"
-      value: "47–57 см"
-  offers:
-    "@type": "Offer"
-    url: "https://aerocool.ua/ru/products/baron/"
-    priceCurrency: "UAH"
-    price: "6499"
-    priceValidUntil: "2025-12-31"
-    availability: "https://schema.org/InStock"
-    itemCondition: "https://schema.org/NewCondition"
-    seller:
-      "@type": "Organization"
-      name: "Aerocool Ukraine"
-      url: "https://aerocool.ua/ru/"
-  aggregateRating:
-    "@type": "AggregateRating"
-    ratingValue: "4.7"
-    reviewCount: "35"
-  review:
-    - "@type": "Review"
-      author:
-        "@type": "Person"
-        name: "Дмитрий"
-      datePublished: "2025-09-01"
-      reviewBody: "Отличное кресло за свои деньги. Комфортное и стильное."
-      name: "Обзор Aerocool Baron"
-      reviewRating:
-        "@type": "Rating"
-        ratingValue: "5"
-        bestRating: "5"
-        worstRating: "1"
-      publisher:
-        "@type": "Organization"
-        name: "Aerocool Ukraine"
-    - "@type": "Review"
-      author:
-        "@type": "Person"
-        name: "Елена"
-      datePublished: "2025-09-03"
-      reviewBody: "Удобное кресло для длительных сессий. Рекомендую."
-      name: "Впечатления от Baron"
-      reviewRating:
-        "@type": "Rating"
-        ratingValue: "4"
-        bestRating: "5"
-        worstRating: "1"
-      publisher:
-        "@type": "Organization"
-        name: "Aerocool Ukraine"
+title: "Aerocool Baron Pro 2026 — эргономичное игровое кресло"
+description: "Игровое кресло Aerocool Baron Pro 2026 с усиленной поддержкой спины, металлической рамой и гарантией 3 года."
+date: 2026-02-14T09:00:00+03:00
+lastmod: 2026-02-14T09:00:00+03:00
+slug: "aerocool-baron-pro-2026"
+sitemap:
+  priority: 1.0
+  changefreq: weekly
 ---
 
 {{< seo-image
-    src="1-front.webp"
-    alt="Обзор игрового кресла Aerocool Duke — комфорт и эргономика"
-    title="Aerocool Duke 2025 — официальный обзор"
+    src="baron-pro-2026-front.webp"
+    alt="Игровое кресло Aerocool Baron Pro 2026 — комфорт и эргономика"
+    title="Aerocool Baron Pro 2026 — официальный обзор"
     class="w-full rounded-2xl shadow-xl my-6"
     loading="eager"
     fetchpriority="high"
@@ -108,35 +20,40 @@ schema:
     sizes="(max-width: 768px) 100vw, 1200px"
 />}}
 
-**Игровое кресло Aerocool DUKE 2025** — детальный разбор эргономики...
+**Игровое кресло Aerocool Baron Pro 2026** — новый уровень комфорта для геймеров и профессионалов, сочетание премиальных материалов, эргономики и надежной конструкции.
 
-## Aerocool Baron — комфорт и стиль для геймеров
+## Aerocool Baron Pro 2026 — комфорт и стиль
 
-Кресло Aerocool Baron сочетает эргономичный дизайн, премиальные материалы и прочную конструкцию, обеспечивая максимальный комфорт во время игр или работы.
+Кресло Baron Pro 2026 сочетает эргономичный дизайн, RGB-подсветку, металлическую раму и улучшенные механизмы регулировки, обеспечивая максимальное удобство во время игр и работы.
 
-### Особенности кресла
+### Основные особенности
 
-- Покрытие **AeroSuede** с высокой воздухопроницаемостью  
-- Механизм качания типа «бабочка» с фиксацией  
-- Регулируемые подлокотники 2D  
-- Подушки для поясницы и шеи  
+- Усиленная металлическая рама для долговечности  
 - Газлифт 4-го класса, выдерживает до 150 кг  
+- Регулируемые подлокотники 4D  
+- Механизм наклона спинки с фиксацией  
+- Подушки для поясницы и шеи  
+- RGB-подсветка с настраиваемыми режимами  
 
 ### Технические характеристики
 
-| Параметр               | Значение                      |
-|------------------------|-------------------------------|
-| Максимальная нагрузка  | 150 кг                        |
+| Параметр               | Значение                               |
+|------------------------|----------------------------------------|
+| Максимальная нагрузка  | 150 кг                                 |
 | Материал обивки        | AeroSuede + искусственная кожа с тиснением под карбон |
-| Механизм качания       | Тип «бабочка» с возможностью фиксации |
-| Высота сиденья         | 47–57 см                      |
-| Размер сиденья         | 56 × 56 см                    |
-| Угол наклона спинки    | 90–180°                       |
-| Подлокотники           | Регулируемые 2D               |
-| Газлифт                | 4-го класса                   |
+| Механизм наклона       | Регулируемый с фиксацией                |
+| Подлокотники           | Регулируемые 4D                         |
+| Высота сиденья         | 47–57 см                                |
+| Размер сиденья         | 56 × 56 см                              |
+| Угол наклона спинки    | 90–180°                                 |
+| Газлифт                | 4-го класса                             |
 
 ### Отзывы покупателей
 
-> "Отличное кресло за свои деньги. Комфортное и стильное." — Дмитрий  
+> "Baron Pro 2026 превзошёл все мои ожидания — комфорт и дизайн на высшем уровне!" — Игорь  
 
-> "Удобное кресло для длительных сессий. Рекомендую." — Елена
+> "Регулировка подлокотников и спинки сделала мои игровые сессии невероятно комфортными." — Мария
+
+---
+
+📞 Для консультаций и заказа — [связаться с нами](/ru/contact/)

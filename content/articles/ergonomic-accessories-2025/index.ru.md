@@ -2,67 +2,10 @@
 title: "Эргономичные аксессуары для рабочего места в 2025 году: полный гид"
 date: 2025-08-02T10:00:00+03:00
 lastmod: 2025-08-03T12:30:00+03:00
-draft: false
-summary: "Главные аксессуары для повышения комфорта и продуктивности на рабочем месте в 2025 году."
+slug: "ergonomichnye-aksessuary-2025"
 description: "Обзор лучших эргономичных аксессуаров 2025 года: подставки, лампы, коврики, органайзеры и другие решения для здорового офиса."
-keywords: ["эргономичные аксессуары", "рабочее место", "офис", "здоровье на работе", "2025"]
-robots: "index, follow"
-canonicalURL: "https://aerocool-site.com/ru/articles/ergonomic-accessories-2025/"
-translationKey: "ergonomic-accessories-2025"
-images:
-  - "1-front.webp"
-author: "Дмитрий Стадник"
-categories:
-  - Обзоры
-  - Советы
-tags:
-  - эргономика
-  - аксессуары
-  - офис
-  - 2025
-  - комфорт
-
-# ✅ Один общий блок markup
-markup:
-  type: "article"
-  author:
-    name: "Дмитрий Стадник"
-  publisher:
-    name: "Aerocool"
-    logo: "/images/logo.svg"
-  image: "1-front.webp"
-  datePublished: "2025-08-02T10:00:00+03:00"
-  dateModified: "2025-08-03T12:30:00+03:00"
-  headline: "Эргономичные аксессуары для рабочего места в 2025 году: полный гид"
-  keywords:
-    - эргономика
-    - аксессуары
-    - офис
-    - здоровье
-    - 2025
-  og:
-    type: "article"
-    image: "1-front.webp"
-    description: "Полный гид по эргономичным аксессуарам 2025 года: комфорт и здоровье на работе."
-  twitter:
-    card: "summary_large_image"
-    image: "1-front.webp"
-    creator: "@AerocoolOfficial"
-
-hreflang:
-  - href: "https://aerocool-site.com/en/articles/ergonomic-accessories-2025/"
-    lang: "en"
-
-ShowToc: true
-TocOpen: true
-ShowReadingTime: true
-ShowWordCount: true
-ShowShareButtons: true
-comments: true
-slug: "ergonomic-accessories-2025"
-url: "/ru/articles/ergonomic-accessories-2025/"
+summary: "Полный гид по эргономичным аксессуарам 2025 года: комфорт и продуктивность на рабочем месте."
 ---
-
 {{< seo-image
     src="1-front.webp"
     alt="Обзор игрового кресла Aerocool Duke — комфорт и эргономика"
@@ -75,7 +18,6 @@ url: "/ru/articles/ergonomic-accessories-2025/"
 />}}
 
 **Игровое кресло Aerocool DUKE 2025** — детальный разбор эргономики, регулируемых подлокотников 3D, Tilt-механизма и материалов высокого качества для геймеров и офисной работы.
-
 
 ## Введение
 

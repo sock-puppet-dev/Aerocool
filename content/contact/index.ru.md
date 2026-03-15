@@ -1,103 +1,12 @@
 ---
-title: "Контакты Aerocool — официальный сайт в Украине"
-description: "Контакты Aerocool в Украине. Официальный бренд эргономичных игровых и офисных кресел: адрес офиса, телефон, email и поддержка клиентов."
-keywords:
-  - контакты Aerocool
-  - Aerocool Украина
-  - поддержка Aerocool
-  - купить кресло Aerocool
-  - игровые кресла Украина
-image: "/images/contact-cover.jpg"
-canonicalURL: "https://aerocool.ua/ru/contact/"
-url: "/ru/contact/"
-date: 2025-08-05T10:00:00+03:00
+title: "Контакты Aerocool Украина"
+slug: "contact"
+description: "Свяжитесь с официальным представителем Aerocool в Украине. Контактная информация, поддержка и консультации по игровым и офисным креслам."
+summary: "Контакты Aerocool Украина: адрес офиса, телефон, email поддержки и консультации по выбору кресел."
 lastmod: 2025-08-05T10:00:00+03:00
-comments: false
-showToc: false
-showReadingTime: false
-showWordCount: false
-showShareButtons: false
-
-schema:
-  "@context": "https://schema.org"
-  "@graph":
-    - "@type": "ContactPage"
-      "@id": "https://aerocool.ua/ru/contact/#contactpage"
-      name: "Контакты Aerocool"
-      description: "Контактная информация официального бренда Aerocool в Украине."
-      url: "https://aerocool.ua/ru/contact/"
-      inLanguage: "ru"
-      isPartOf:
-        "@id": "https://aerocool.ua/#website"
-      mainEntity:
-        "@id": "https://aerocool.ua/#organization"
-      breadcrumb:
-        "@type": "BreadcrumbList"
-        itemListElement:
-          - "@type": "ListItem"
-            position: 1
-            name: "Главная"
-            item: "https://aerocool.ua/ru/"
-          - "@type": "ListItem"
-            position: 2
-            name: "Контакты"
-            item: "https://aerocool.ua/ru/contact/"
-
-    - "@type": "Organization"
-      "@id": "https://aerocool.ua/#organization"
-      name: "Aerocool Украина"
-      alternateName: "Aerocool"
-      url: "https://aerocool.ua/"
-      logo:
-        "@type": "ImageObject"
-        url: "https://aerocool.ua/images/logo.svg"
-        width: 300
-        height: 112
-      description: "Официальный украинский бренд и представитель Aerocool, специализирующийся на эргономичных игровых и офисных креслах."
-      address:
-        "@type": "PostalAddress"
-        streetAddress: "ул. Степана Рудницкого, 19/14"
-        addressLocality: "Киев"
-        addressRegion: "Киевская область"
-        postalCode: "03189"
-        addressCountry: "UA"
-      email: "support@aerocool.ua"
-      telephone: "+380665020441"
-      areaServed: "UA"
-      contactPoint:
-        - "@type": "ContactPoint"
-          telephone: "+380665020441"
-          email: "support@aerocool.ua"
-          contactType: "customer support"
-          areaServed: "UA"
-          availableLanguage:
-            - "ru"
-            - "uk"
-
-        - "@type": "ContactPoint"
-          telephone: "+380665020441"
-          email: "sales@aerocool.ua"
-          contactType: "sales"
-          areaServed: "UA"
-          availableLanguage:
-            - "ru"
-            - "uk"
-
-      openingHoursSpecification:
-        - "@type": "OpeningHoursSpecification"
-          dayOfWeek:
-            - "Monday"
-            - "Tuesday"
-            - "Wednesday"
-            - "Thursday"
-            - "Friday"
-          opens: "09:00"
-          closes: "18:00"
-      sameAs:
-        - "https://www.facebook.com/AeroCoolGlobal/"
-        - "https://www.instagram.com/aerocool_global"
-        - "https://www.youtube.com/user/Aerocooladmin"
-        - "https://www.aerocool.io/"
+sitemap:
+  priority: 0.7
+  changefreq: monthly
 ---
 # Контакты Aerocool
 
@@ -143,6 +52,12 @@ schema:
 
 ---
 
+## Каталог кресел Aerocool
+
+👉 Перейдите в [каталог кресел Aerocool](/ru/products/) для подробного выбора моделей.
+
+---
+
 ## Социальные сети
 
 Следите за новостями бренда, новыми моделями и акциями Aerocool:
@@ -152,3 +67,5 @@ schema:
 - [YouTube](https://www.youtube.com/user/Aerocooladmin)
 
 ---
+
+*Мы всегда рады помочь вам выбрать удобное и эргономичное кресло Aerocool.*

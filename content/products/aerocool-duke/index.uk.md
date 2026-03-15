@@ -1,106 +1,18 @@
 ---
-title: "Aerocool Duke — огляд ігрового крісла"
-description: "Детальний огляд крісла Aerocool Duke — ергономіка, характеристики, матеріали, відгуки та порівняння."
+title: "Aerocool Duke — ергономічне ігрове крісло"
+description: "Ігрове крісло Aerocool Duke 2025 з підтримкою спини, дихаючими матеріалами та регульованими підлокітниками. Повний огляд та технічні характеристики."
 date: 2025-08-10T10:00:00+03:00
-slug: duke
-url: "/uk/_products/duke/"
-categories: ["_products", "gaming-chairs"]
-tags: ["aerocool", "duke", "ігрове крісло", "ергономіка", "комфорт"]
-
-images:
-  - "1-front.webp"
-  - "2-side.webp"
-  - "3-back.webp"
-  
-canonicalURL: "https://aerocool.ua/uk/products/duke/"
-robots: "index, follow"
-
-schema:
-  "@context": "https://schema.org"
-  "@type": "Product"
-  "@id": "https://aerocool.ua/uk/products/duke/#product"
-  name: "Aerocool Duke"
-  inLanguage: "uk"
-  image:
-    - "1-front.webp"
-    - "2-side.webp"
-    - "3-back.webp"
-  description: "Ігрове крісло Aerocool Duke з ергономічною спинкою, вентиляційними матеріалами та підвищеною підтримкою попереку."
-  sku: "DUKE"
-  mpn: "DUKE-UA"
-  category: "GamingChair"
-  brand:
-    "@type": "Brand"
-    name: "Aerocool"
-  mainEntityOfPage:
-    "@type": "WebPage"
-    "@id": "https://aerocool.ua/uk/products/duke/"
-  additionalProperty:
-    - "@type": "PropertyValue"
-      name: "Максимальне навантаження"
-      value: "150 кг"
-    - "@type": "PropertyValue"
-      name: "Матеріал оббивки"
-      value: "Екошкіра + дихаюча тканина"
-    - "@type": "PropertyValue"
-      name: "Механізм гойдання"
-      value: "Є"
-    - "@type": "PropertyValue"
-      name: "Висота сидіння"
-      value: "45–55 см"
-  offers:
-    "@type": "Offer"
-    url: "https://aerocool.ua/uk/products/duke/"
-    priceCurrency: "UAH"
-    price: "8999"
-    priceValidUntil: "2025-12-31"
-    availability: "https://schema.org/InStock"
-    itemCondition: "https://schema.org/NewCondition"
-    seller:
-      "@type": "Organization"
-      name: "Aerocool Ukraine"
-      url: "https://aerocool.ua/uk/"
-  aggregateRating:
-    "@type": "AggregateRating"
-    ratingValue: "4.8"
-    reviewCount: "42"
-  review:
-    - "@type": "Review"
-      author:
-        "@type": "Person"
-        name: "Олександр"
-      datePublished: "2025-08-12"
-      reviewBody: "Крісло дуже зручне, особливо сподобалась підтримка спини. Рекомендую геймерам та для роботи вдома."
-      name: "Відгук про Aerocool Duke"
-      reviewRating:
-        "@type": "Rating"
-        ratingValue: "5"
-        bestRating: "5"
-        worstRating: "1"
-      publisher:
-        "@type": "Organization"
-        name: "Aerocool Ukraine"
-    - "@type": "Review"
-      author:
-        "@type": "Person"
-        name: "Наталія"
-      datePublished: "2025-08-14"
-      reviewBody: "Збирається швидко, виглядає стильно, матеріали якісні. Хороший вибір для тривалої роботи."
-      name: "Огляд Duke"
-      reviewRating:
-        "@type": "Rating"
-        ratingValue: "5"
-        bestRating: "5"
-        worstRating: "1"
-      publisher:
-        "@type": "Organization"
-        name: "Aerocool Ukraine"
+lastmod: 2025-08-10T10:00:00+03:00
+slug: "aerocool-duke"
+sitemap:
+  priority: 1.0
+  changefreq: weekly
 ---
 
 {{< seo-image
     src="1-front.webp"
-    alt="Обзор игрового кресла Aerocool Duke — комфорт и эргономика"
-    title="Aerocool Duke 2025 — официальный обзор"
+    alt="Ігрове крісло Aerocool Duke — комфорт та ергономіка"
+    title="Aerocool Duke 2025 — офіційний огляд"
     class="w-full rounded-2xl shadow-xl my-6"
     loading="eager"
     fetchpriority="high"
@@ -108,30 +20,34 @@ schema:
     sizes="(max-width: 768px) 100vw, 1200px"
 />}}
 
-**Игровое кресло Aerocool DUKE 2025** — детальный разбор эргономики...
+**Ігрове крісло Aerocool DUKE 2025** — детальний розбір ергономіки та дизайну для геймерів і офісних співробітників.
 
-## Aerocool Duke — ідеальний вибір для геймерів та офісу
+## Aerocool Duke — комфорт та стиль
 
-Міцна сталева рама, преміальна оббивка та продумана ергономіка забезпечують максимальний комфорт під час тривалих ігор або роботи.
+Міцна сталева рама, преміальна оббивка та продумані механізми регулювання забезпечують зручність та підтримку спини під час тривалих ігрових сесій або роботи.
 
-### Особливості крісла
+### Основні особливості
 
 - Ергономічна форма спинки  
 - Регулювання висоти та нахилу  
-- Дихаючі матеріали (екошкіра + тканина)  
+- Дихаючі матеріали (еко-шкіра + тканина)  
 - Зручні підлокітники з регулюванням  
 
 ### Технічні характеристики
 
-| Параметр               | Значення                |
-|------------------------|-------------------------|
+| Параметр             | Значення                  |
+|----------------------|---------------------------|
 | Максимальне навантаження | 150 кг                  |
-| Матеріал оббивки        | Екошкіра + дихаюча тканина |
-| Механізм гойдання       | Є                       |
-| Висота сидіння          | 45–55 см                |
+| Матеріал оббивки      | Еко-шкіра + дихаюча тканина |
+| Механізм гойдaння     | Є                        |
+| Висота сидіння        | 45–55 см                  |
 
-### Відгуки покупців
+### Відгуки користувачів
 
 > "Крісло дуже зручне, підтримка спини на висоті. Рекомендую!" — Олександр  
 
-> "Стильне, якісне та комфортне. Чудово підходить для роботи." — Наталія
+> "Стильне, якісне та комфортне. Відмінний варіант для роботи." — Наталія
+
+---
+
+📞 Для консультацій та замовлення — [зв’язатися з нами](/uk/contact/)
