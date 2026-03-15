@@ -10,7 +10,7 @@ sitemap:
 ---
 
 {{< seo-image
-    src="baron-pro-2026-front.webp"
+    src="1-front.webp"
     alt="Ігрове крісло Aerocool Baron Pro 2026 — комфорт та ергономіка"
     title="Aerocool Baron Pro 2026 — офіційний огляд"
     class="w-full rounded-2xl shadow-xl my-6"
