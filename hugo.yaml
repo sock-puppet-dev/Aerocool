@@ -106,6 +106,7 @@ params:
 # Формат даты для вывода на страницах
   DateFormat: "02 January 2006"
 # Показывать время чтения в статьях
+  disableLanguagesRedirect: true
   ShowReadingTime: true
 # Кнопки социальных сетей (если используются)
   ShowShareButtons: true
