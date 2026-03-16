@@ -1,5 +1,5 @@
 <!-- PWA Manifest & iOS/Android support -->
-<link rel="manifest" href="{{ site.Params.assets.manifest | default "manifest.webmanifest" | absURL }}">
+<link rel="manifest" href="{{ "manifest.webmanifest" | relURL }}">
 <meta name="theme-color" content="{{ site.Params.assets.theme_color | default "#2e2e33" }}">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-capable" content="yes">
