@@ -25,14 +25,6 @@
 # Redirects
 # ==========================
 
-# Редирект с корня только на основной домен
-[[redirects]]
-  from = "/"
-  to = "/uk/"
-  status = 301
-  force = true
-  conditions = { Host = "aerocool.ua" }
-
 # Кастомная страница ошибки 404
 [[redirects]]
   from = "/*"

@@ -11,7 +11,7 @@ disablePathToLower: false
 # Определяет формат конечных URL, false — Hugo создаёт чистые URL без .html на конце.
 uglyURLs: false
 # Делает все относительные ссылки абсолютными на основе baseURL (для каноничных URL).
-canonifyURLs: true
+canonifyURLs: false
 # Hugo Pipes и минификация
 # Hugo использует встроенный минификатор для HTML, CSS, JS и JSON.
 # Управляет включением автоматической минификации (сжатия) сгенерированного HTML, CSS, JavaScript
@@ -227,29 +227,18 @@ sitemap:
 mainSections: ["articles", "products", "news"]
 # настройка структуры URL (человекочитаемые адреса) для разных типов контента
 permalinks:
-  # для контента из папки content/products/
-  # пример: content/products/alpha.md с параметром slug: alpha
-  # будет доступен по адресу: https://aerocool.ua/chairs/alpha/
+  # продукты
   products: /products/:slug/
-  # аналогично для статей
-  # пример: content/articles/ergonomics.md → https://aerocool.ua/articles/ergonomics/
-  about: /about/:slug/
-  # аналогично
+  # статьи
   articles: /articles/:slug/
-  # и для новостей
-  # пример: content/news/sale.md → https://aerocool.ua/news/sale/
+  # новости
   news: /news/:slug/
-  # аналогично
-  faq: /faq/:slug/
-  # аналогично
-  contact: /contact/:slug/
-  # аналогично
 
 # Устанавливает язык по умолчанию (используется, если язык не указан явно)
 defaultContentLanguage: uk
 # Включает добавление к URL подкаталога для языка по умолчанию (например, /en/)
 # Это важно для SEO и симметрии всех URL между языками
-defaultContentLanguageInSubdir: true
+defaultContentLanguageInSubdir: false
 
 # Определение доступных языков на сайте
 # ==== Украинская версия сайта ====
