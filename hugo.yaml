@@ -63,31 +63,31 @@ module:
 # Оптимизация изображений, используйте возможности Hugo для обработки изображений,
 # чтобы обеспечить их оптимальный размер и качество. Это улучшит время загрузки страниц и SEO.
 # Поддержка современных форматов изображений для SEO и скорости
-mediaTypes:
-  image/jpeg:
-    suffixes: ["jpg", "jpeg"]
-  image/png:
-    suffixes: ["png"]
-  image/gif:
-    suffixes: ["gif"]
-  image/svg+xml:
-    suffixes: ["svg"]
-  image/webp:
-    suffixes: ["webp"]
-  image/avif:
-    suffixes: ["avif"]
+# mediaTypes:
+#   image/jpeg:
+#     suffixes: ["jpg", "jpeg"]
+#   image/png:
+#     suffixes: ["png"]
+#   image/gif:
+#     suffixes: ["gif"]
+#   image/svg+xml:
+#     suffixes: ["svg"]
+#   image/webp:
+#     suffixes: ["webp"]
+#   image/avif:
+#     suffixes: ["avif"]
 
-outputFormats:
-  WebP:
-    mediaType: image/webp
-    isPlainText: false
-    isHTML: false
-    permalinkable: true
-  AVIF:
-    mediaType: image/avif
-    isPlainText: false
-    isHTML: false
-    permalinkable: true
+# outputFormats:
+#   WebP:
+#     mediaType: image/webp
+#     isPlainText: false
+#     isHTML: false
+#     permalinkable: true
+#   AVIF:
+#     mediaType: image/avif
+#     isPlainText: false
+#     isHTML: false
+#     permalinkable: true
 
 params:
 # настраиваемый параметр, используемый внутри темы или шаблонов
