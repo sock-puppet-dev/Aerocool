@@ -1,5 +1,7 @@
 @import "tailwindcss";
-@source "../../hugo_stats.json";
+/* Подключаем hugo_stats.json как источник для Tailwind. 
+   Hugo автоматически записывает сюда все найденные в шаблонах CSS-классы. */
+@source "hugo_stats.json";
 
 /* assets/css/extended/patch.css (или в tailwind.css через @layer base) */
 .site-title img,

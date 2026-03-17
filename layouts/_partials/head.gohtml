@@ -89,6 +89,12 @@
     <link crossorigin="anonymous" href="{{ $stylesheet.RelPermalink }}" rel="preload stylesheet" as="style">
 {{- end }}
 
+{{- /* templates.Defer откладывает генерацию CSS до момента, когда все шаблоны будут обработаны.
+       Это гарантирует, что Tailwind увидит ВСЕ классы, использованные на сайте. */ -}}
+{{- with (templates.Defer (dict "key" "global")) }}
+    {{ partial "css.gohtml" . }}
+{{- end }}
+
 <!-- Search page JS -->
 {{- if eq .Layout "search" -}}
 <link crossorigin="anonymous" rel="preload" as="fetch" href="../index.json">
