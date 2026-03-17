@@ -3,6 +3,17 @@
    Hugo автоматически записывает сюда все найденные в шаблонах CSS-классы. */
 @source "hugo_stats.json";
 
+/* Исправление отображения списков (булитов) в контенте */
+.post-content ul li {
+    list-style: disc;
+    margin-left: 1rem;
+}
+
+.post-content ol li {
+    list-style: decimal;
+    margin-left: 1rem;
+}
+
 /* assets/css/extended/patch.css (или в tailwind.css через @layer base) */
 .site-title img,
 .logo img {
