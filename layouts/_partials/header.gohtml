@@ -82,33 +82,29 @@
                 {{- $separator := or $label_text (not site.Params.disableThemeToggle) }}
                 <!-- Показывать ли разделитель между логотипом и переключателем языка -->
 
-                {{- $translations := .AllTranslations }}
-                {{- with $translations }}
-                <!-- Проверка, есть ли переводы на другие языки -->
+                {{- $all_translations := .AllTranslations }}
+                {{- with $all_translations }}
+                <!-- Проверка, есть ли переводы -->
                 <ul class="lang-switch">
 
                     {{- if $separator }}<li>|</li>{{ end }}
-                    <!-- Вертикальная черта-разделитель -->
+                    <!-- Вертикальная черта-разделитель между лого и языками -->
 
-                    {{- range . -}}
-                    {{- if ne $lang .Lang }}
-                    <!-- Показываем только другие языки, не текущий -->
-                    <li>
-                        <a href="{{- .Permalink -}}"
-                           title="{{ .Language.Params.languageAltTitle | default (.Language.LanguageName | emojify) | default (.Lang | title) }}"
-                           aria-label="{{ .Language.LanguageName | default (.Lang | title) }}">
-                            <!-- Тег <a> для переключения языка -->
-
-                            {{- if (and site.Params.displayFullLangName (.Language.LanguageName)) }}
-                                <!-- Показываем полное название языка -->
-                                {{- .Language.LanguageName | emojify -}}
-                            {{- else }}
-                                {{- .Lang | title -}}
-                                <!-- Показываем короткий код языка -->
-                            {{- end -}}
-                        </a>
-                    </li>
-                    {{- end }}
+                    {{- range $i, $trans := . -}}
+                        {{- $display_name := $trans.Lang | upper }}
+                        {{- if eq $trans.Lang "uk" }}{{ $display_name = "UA" }}{{ end }}
+                        <li>
+                            <a href="{{- $trans.Permalink -}}"
+                               class="{{ if eq $lang $trans.Lang }}active{{ end }}"
+                               {{ if eq $lang $trans.Lang }}style="font-weight: 700;"{{ end }}
+                               title="{{ $trans.Language.LanguageName }}"
+                               aria-label="{{ $trans.Language.LanguageName }}">
+                                {{- $display_name -}}
+                            </a>
+                        </li>
+                        {{- if lt $i (sub (len $all_translations) 1) }}
+                            <li>|</li>
+                        {{- end }}
                     {{- end }}
                 </ul>
                 {{- end }}
