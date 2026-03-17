@@ -11,10 +11,10 @@
 
 [build.environment]
   # Версия Hugo
-  HUGO_VERSION = "0.153.0"
+  HUGO_VERSION = "0.157.0"
   # Режим сборки Hugo ("development, production")
-  # HUGO_ENV = "development"
-  HUGO_ENV = "production"
+  # HUGO_ENV = "production"
+  HUGO_ENV = "development"
   # Часовой пояс
   TZ = "Europe/Kyiv"
   # Версия Node.js для сборки Tailwind
