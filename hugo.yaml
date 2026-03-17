@@ -83,6 +83,15 @@ module:
 #     isPlainText: false
 #     isHTML: false
 #     permalinkable: true
+
+# Настройки обработки Markdown (Goldmark)
+# Позволяет использовать сырой HTML внутри .md файлов, что необходимо для Tailwind.
+markup:
+  goldmark:
+    renderer:
+      # Включает рендеринг сырого HTML в Markdown-файлах.
+      # Необходимо для использования HTML-блоков с классами Tailwind.
+      unsafe: true
 #   AVIF:
 #     mediaType: image/avif
 #     isPlainText: false
