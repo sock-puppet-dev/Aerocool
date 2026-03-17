@@ -87,7 +87,6 @@
                 <!-- Проверка, есть ли переводы -->
                 <ul class="lang-switch">
 
-                    
                     {{- range $i, $trans := . -}}
                         {{- $display_name := $trans.Lang | upper }}
                         {{- if eq $trans.Lang "uk" }}{{ $display_name = "UA" }}{{ end }}
