@@ -7,10 +7,6 @@
 
 <head>
     {{- partial "head.gohtml" . }}
-    <!-- TAILWIND -->
-    {{ with (templates.Defer (dict "key" "global")) }}
-        {{ partial "css.gohtml" . }}
-    {{ end }}
 </head>
 
 <body class="
