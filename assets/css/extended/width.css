@@ -1,0 +1,9 @@
+:root {
+    --nav-width: 1000px;
+    --main-width: 1000px;
+}
+
+/* Принудительно выравниваем ширину всех основных контейнеров */
+.nav, .main, .footer {
+    max-width: calc(1000px + var(--gap) * 2) !important;
+}

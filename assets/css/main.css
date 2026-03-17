@@ -1,10 +1,5 @@
 @import "tailwindcss";
-@source "hugo_stats.json";
-
-:root {
-    --nav-width: 1024px;
-    --main-width: 1024px;
-}
+@source "../../hugo_stats.json";
 
 /* assets/css/extended/patch.css (или в tailwind.css через @layer base) */
 .site-title img,
