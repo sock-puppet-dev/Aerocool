@@ -86,9 +86,11 @@
    WebP → fallback
    ================================================================ */}}
 
+{{- /*
 {{- $avif_sm := $img.Resize "480x avif" -}}
 {{- $avif_md := $img.Resize "768x avif" -}}
 {{- $avif_lg := $img.Resize "1200x avif" -}}
+*/ -}}
 
 {{- $webp_sm := $img.Resize "480x webp" -}}
 {{- $webp_md := $img.Resize "768x webp" -}}
@@ -138,6 +140,7 @@
 <picture>
 
   {{/* ===== AVIF (приоритет) ===== */}}
+  {{- /*
   <source
     type="image/avif"
     srcset="
@@ -147,6 +150,7 @@
     "
     sizes="{{ $sizes }}"
   >
+  */ -}}
 
   {{/* ===== WebP fallback ===== */}}
   <source
