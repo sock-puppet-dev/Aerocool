@@ -82,7 +82,8 @@
                 {{- $separator := or $label_text (not site.Params.disableThemeToggle) }}
                 <!-- Показывать ли разделитель между логотипом и переключателем языка -->
 
-                {{- with site.Home.Translations }}
+                {{- $translations := .AllTranslations }}
+                {{- with $translations }}
                 <!-- Проверка, есть ли переводы на другие языки -->
                 <ul class="lang-switch">
 
