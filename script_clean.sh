@@ -18,6 +18,9 @@ rm -rf resources
 rm -rf .hugo_build.lock
 # ↑ Удаляет lock-файл Hugo, иногда он "зависает" и блокирует сборку проекта
 
+rm -rf hugo_stats.json
+# ↑ Удаляет файл hugo_stats.json
+
 # ⚡ Очистка Node / Tailwind
 
 rm -rf node_modules

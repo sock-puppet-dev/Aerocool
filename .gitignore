@@ -1,10 +1,7 @@
-# Hugo build outputs
-
-public/
-resources/_gen/
-.idea/
-node_modules/
-
-hugo_stats.json
-.hugo_build.lock
-.DS_Store
+public/              # собранный сайт — не хранится в git
+resources/_gen/      # кеш Hugo (оптимизированные изображения, fingerprint CSS/JS)
+.idea/               # IDE (PhpStorm/WebStorm)
+node_modules/        # все npm пакеты
+hugo_stats.json      # ненужный файл статистики Hugo
+.hugo_build.lock     # lock-файл Hugo
+.DS_Store            # системный мусор macOS
