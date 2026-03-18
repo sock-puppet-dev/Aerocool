@@ -10,7 +10,7 @@ sitemap:
 ---
 
 {{< seo-image
-    src="1-front.webp"
+    src="1-front.jpg"
     alt="Игровое кресло Aerocool Duke — комфорт и эргономика"
     title="Aerocool Duke 2025 — официальный обзор"
     class="w-full rounded-2xl shadow-xl my-6"

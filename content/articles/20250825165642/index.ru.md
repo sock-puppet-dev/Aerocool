@@ -7,7 +7,7 @@ description: "Обзор Aerocool DUKE 2025: эргономика, 3D подло
 summary: "Полный обзор Aerocool DUKE 2025: эргономика, Tilt-механизм и комфорт."
 ---
 {{< seo-image
-    src="1-front.webp"
+    src="1-front.jpg"
     alt="Обзор игрового кресла Aerocool Duke — комфорт и эргономика"
     title="Aerocool Duke 2025 — официальный обзор"
     class="w-full rounded-2xl shadow-xl my-6"
@@ -57,7 +57,7 @@ summary: "Полный обзор Aerocool DUKE 2025: эргономика, Tilt
 Aerocool DUKE обладает выразительным, динамичным дизайном, который гармонично вписывается как в игровое пространство, так и в офисную среду. Сочетание черных и ярких цветовых акцентов делает кресло универсальным: оно не выглядит слишком «игровым» для офиса, но при этом сохраняет характерные геймерские элементы.
 
 {{< seo-image
-    src="1-front.webp"
+    src="1-front.jpg"
     alt="Эргономичное игровое и офисное кресло Aerocool ErgoLine 2025 — обзор, характеристики и цена"
     title="Aerocool ErgoLine 2025 — лучшее эргономичное кресло для офиса и игр"
     class="w-full max-w-4xl mx-auto rounded-lg shadow-md"
