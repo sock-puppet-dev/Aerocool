@@ -1,9 +1,9 @@
 ---
-title: "Игровые и офисные кресла Aerocool"
-description: "Каталог игровых и офисных кресел Aerocool с официальной гарантией."
-sitemap:
-  priority: 1.0
-  changefreq: daily
+title: "Все игровые и офисные кресла Aerocool в Украине"
+description: "Обзор всех моделей игровых и офисных кресел Aerocool: Royal, Crown, Lite, Classic, Air, Aero, P7 и другие."
+date: 2026-03-19
+lastmod: 2026-03-19
+summary: "Купите игровые и офисные кресла Aerocool в Украине. Подборка всех моделей и серий."
 ---
 
 # Каталог кресел Aerocool

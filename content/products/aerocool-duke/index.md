@@ -4,9 +4,6 @@ description: "Ігрове крісло Aerocool Duke 2025 з підтримко
 date: 2025-08-10T10:00:00+03:00
 lastmod: 2025-08-10T10:00:00+03:00
 slug: "aerocool-duke"
-sitemap:
-  priority: 1.0
-  changefreq: weekly
 ---
 
 {{< seo-image

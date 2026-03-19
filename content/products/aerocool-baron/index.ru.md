@@ -4,9 +4,6 @@ description: "Игровое кресло Aerocool Baron Pro 2026 с усиле�
 date: 2026-02-14T09:00:00+03:00
 lastmod: 2026-02-14T09:00:00+03:00
 slug: "aerocool-baron-pro-2026"
-sitemap:
-  priority: 1.0
-  changefreq: weekly
 ---
 
 {{< seo-image

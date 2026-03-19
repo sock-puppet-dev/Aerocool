@@ -1,119 +1,116 @@
-1️⃣ Главная (content/\_index.ru.md)\_
+1️⃣ Главная страница (_index.md)
 ---
-title: "Aerocool — официальный бренд эргономичных кресел в Украине"
-description: "Официальный сайт Aerocool в Украине. Игровые и офисные эргономичные кресла с гарантией, доставкой и поддержкой."
-sitemap:
-  priority: 1.0
-  changefreq: "daily"
----
-
-2️⃣ About (content/about/index.ru.md)
----
-title: "О компании Aerocool Украина"
-description: "Официальный дистрибьютор Aerocool в Украине. История бренда, миссия, гарантия качества."
-sitemap:
-  priority: 0.8
-  changefreq: "monthly"
+title: ""          		# Название сайта/главной страницы, с ключевыми словами
+description: ""    		# Короткое описание сайта, включая ключевые слова
+date: 2026-03-19   		# Дата публикации (можно текущую)
+lastmod: 2026-03-19 	# Дата последнего изменения
 ---
 
-3️⃣ Articles List (content/articles/\_index.ru.md)
+2️⃣ About / Контакты / FAQ (страницы категории/информации)
 ---
-title: "Статьи об эргономике и креслах"
-description: "Полезные статьи о выборе игровых и офисных кресел, эргономике и здоровье спины."
-sitemap:
-  priority: 0.9
-  changefreq: "weekly"
----
-
-4️⃣ Article (content/articles/my\_new\_article.ru.md)
----
-title: "Как выбрать эргономичное игровое кресло в 2026 году"
-description: "Подробный гайд по выбору игрового кресла: материалы, механизм, поддержка спины, рекомендации экспертов."
-summary: "Полный гайд по выбору игрового кресла в 2026 году."
-date: 2026-02-14
-lastmod: 2026-02-14
-slug: "kak-vybrat-igrovoe-kreslo"
-sitemap:
-  priority: 0.9
-  changefreq: "monthly"
+title: ""          		# Заголовок страницы
+description: ""    		# Описание страницы
+date: 2026-03-19   		# Дата создания
+lastmod: 2026-03-19 	# Дата последнего обновления
 ---
 
-5️⃣ Contact (content/contact/index.ru.md)
+3️⃣ Articles List / News List / Products List
 ---
-title: "Контакты Aerocool Украина"
-description: "Свяжитесь с официальным представителем Aerocool в Украине. Контактная информация и поддержка."
-sitemap:
-  priority: 0.7
-  changefreq: "monthly"
+title: ""          		# Заголовок списка (например, "Статьи о креслах")
+description: ""    		# Краткое описание списка
+date: 2026-03-19		# Дата создания
+lastmod: 2026-03-19		# Дата последнего обновления
+summary: ""        		# Краткая версия для анонса (статьи или новости)
 ---
 
-6️⃣ FAQ (content/faq/index.ru.md)
+4️⃣ Article / News Item / Product (single page)
 ---
-title: "Часто задаваемые вопросы (FAQ)"
-description: "Ответы на популярные вопросы о креслах Aerocool, гарантии и доставке."
-sitemap:
-  priority: 0.8
-  changefreq: "monthly"
----  
-  
- 7️⃣ News List (content/news/\_index.ru.md)
+title: ""          		# Название статьи/новости/товара
+description: ""    		# Подробное описание, включающее ключевые слова
+summary: ""        		# Краткая версия для анонса (статьи или новости)
+date: 2026-03-19   		# Дата публикации
+lastmod: 2026-03-19 	# Дата последнего обновления
+slug: ""           		# Контролируемый URL, короткий и понятный
+categories: [""]   		# Категории (например, "royal", "releases")
+tags: [""]         		# Теги для фильтрации и навигации
 ---
-title: "Новости Aerocool"
-description: "Последние новости и обновления бренда Aerocool в Украине."
-sitemap:
-  priority: 0.8
-  changefreq: "weekly"
----  
 
- 8️⃣ News Item (content/news/my\_news.ru.md)
----
-title: "Aerocool представляет новую модель Baron Pro 2026"
-description: "Официальный релиз новой модели игрового кресла Aerocool Baron Pro 2026."
-date: 2026-02-14
-lastmod: 2026-02-14
-slug: "baron-pro-2026"
-tags:
-  - новинка
-  - aerocool
-  - baron pro
-categories:
-  - релизы
-sitemap:
-  priority: 0.8
-  changefreq: "monthly"
----  
-
-9️⃣ Products List (content/products/\_index.ru.md)
----
-title: "Игровые и офисные кресла Aerocool"
-description: "Каталог игровых и офисных кресел Aerocool с официальной гарантией."
-sitemap:
-  priority: 1.0
-  changefreq: "daily"
----  
-
-🔟 Product (content/products/my\_new\_product.ru.md)
----
-title: "Aerocool Baron Pro 2026 — эргономичное игровое кресло"
-description: "Игровое кресло Aerocool Baron Pro 2026 с усиленной поддержкой спины, металлической рамой и гарантией 2 года."
-date: 2026-02-14
-lastmod: 2026-02-14
-slug: "aerocool-baron-pro-2026"
-sitemap:
-  priority: 1.0
-  changefreq: "weekly"
----  
-
-Уточнения:  
-1) slug — что это и где использовать, когда обязательный: на страницах продуктов, статей, новостей, где нужно контролировать точный URL.
+Примечание по SEO 2026:
+1) keywords — не использовать, Google их игнорирует.
+2) sitemap.priority и sitemap.changefreq — не использовать, Google их игнорирует.
+3) slug — что это и где использовать, когда обязательный: на страницах продуктов, статей, новостей, где нужно контролировать точный URL.
 На главной, категориях и FAQ slug обычно не указывают, Hugo сам формирует путь.
-2) На 2026 год Google полностью игнорирует \<meta name="keywords"\> при ранжировании. Это значит:
-	Для современного SEO не нужно добавлять поле keywords в front matter или в \<head\>. Основной фокус должен быть на:
-	1.	Title и Description — включай главные ключевые слова естественно.
-	2.	URL/Slug — короткий, понятный, с ключевыми словами.
-	3.	Контент страницы — ключевые слова распределены естественно в тексте.
-	4.	Alt-теги изображений — особенно для продуктов и статей.
-	5.	JSON-LD / Schema.org / Open Graph / Twitter Cards — для структурированных данных и расширенных сниппетов.
-То есть, keywords больше не влияет на SEO, это лишь «для справки» или старых поисковиков.
-3) JSON-LD создается шаблонами отдельно
-4) Задача попасть в топ 1 в Search Engine Results Page
+4) Для современного SEO не нужно добавлять поле keywords в front matter или в \<head\>. Основной фокус должен быть на:
+   1.	Title и Description — включай главные ключевые слова естественно.
+   2.	URL/Slug — короткий, понятный, с ключевыми словами.
+   3.	Контент страницы — ключевые слова распределены естественно в тексте.
+   4.	Alt-теги изображений — особенно для продуктов и статей.
+   5.	JSON-LD / Schema.org / Open Graph / Twitter Cards — для структурированных данных и расширенных сниппетов.
+5) JSON-LD создается шаблонами отдельно
+6) Задача попасть в топ 1 в Search Engine Results Page
+
+
+Структура контента:
+
+content/
+└── products/
+    ├── _index.md                
+    ├── royal/
+    │   ├── _index.md
+    │   ├── royal-leatherette.md
+    │   ├── royal-aeroweave.md
+    │   └── royal-aerosuede.md
+    │
+    ├── crown-plus/
+    │   ├── _index.md
+    │   ├── crown-plus-aeroweave.md
+    │   ├── crown-plus-leatherette.md
+    │   └── crown-plus-aerosuede.md
+    │
+    ├── crown/
+    │   ├── _index.md
+    │   ├── crown-aeroweave.md
+    │   ├── crown-leatherette.md
+    │   └── crown-aerosuede.md
+    │
+    ├── other/
+    │   ├── _index.md
+    │   ├── admiral.md
+    │   └── guardian.md
+    │
+    ├── lite/
+    │   ├── _index.md
+    │   ├── knight-lite.md
+    │   ├── duke-lite.md
+    │   └── baron-lite.md
+    │
+    ├── classic/
+    │   ├── _index.md
+    │   ├── knight.md
+    │   ├── earl.md
+    │   ├── duke.md
+    │   ├── count.md
+    │   └── baron.md
+    │
+    ├── air/
+    │   ├── _index.md
+    │   ├── ac50c-air.md
+    │   ├── ac110-air.md
+    │   ├── ac100-air.md
+    │   ├── ac40c-air.md
+    │   ├── ac80c-air.md
+    │   ├── ac120-air.md
+    │   ├── ac220-air.md
+    │   ├── ac120-air-rgb.md
+    │   ├── ac220-air-rgb.md
+    │   └── ac60c-air.md
+    │
+    ├── aero/
+    │   ├── _index.md
+    │   ├── aero-2-alpha.md
+    │   └── aero-1-alpha.md
+    │
+    └── p7/
+        ├── _index.md
+        ├── p7-gc1-air.md
+        └── p7-gc1-air-rgb.md

@@ -10,9 +10,6 @@ tags:
   - ergoline
 categories:
   - релізи
-sitemap:
-  priority: 0.8
-  changefreq: monthly
 ---
 
 # Новий рівень комфорту: серія офісних крісел Aerocool ErgoLine 2025

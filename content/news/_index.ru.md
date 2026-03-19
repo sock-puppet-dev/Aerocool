@@ -1,9 +1,6 @@
 ---
 title: "Новости Aerocool"
 description: "Последние новости и обновления бренда Aerocool в Украине."
-sitemap:
-  priority: 0.8
-  changefreq: weekly
 ---
 
 # Новости Aerocool

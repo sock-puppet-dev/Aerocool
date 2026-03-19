@@ -10,9 +10,6 @@ tags:
   - baron pro
 categories:
   - релізи
-sitemap:
-  priority: 0.8
-  changefreq: monthly
 ---
 
 # Aerocool Baron Pro 2026 — новий рівень комфорту та стилю

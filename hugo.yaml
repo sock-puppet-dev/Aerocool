@@ -238,7 +238,7 @@ mainSections: ["articles", "products", "news"]
 # настройка структуры URL (человекочитаемые адреса) для разных типов контента
 permalinks:
   # продукты
-  products: /products/:slug/
+  products: /products/:sections/:slug/
   # статьи
   articles: /articles/:slug/
   # новости
