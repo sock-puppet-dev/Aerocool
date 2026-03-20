@@ -23,7 +23,6 @@
     width: 120px;
 }
 
-/* rules from assets/css/extended/width (merged into main.css) */
 :root {
     --nav-width: 1000px;
     --main-width: 1000px;
