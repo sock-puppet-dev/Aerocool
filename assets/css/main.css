@@ -1,34 +1,49 @@
+/* Tailwind & Hugo CSS Setup */
+/* Подключение Tailwind CSS */
 @import "tailwindcss";
-/* Подключаем hugo_stats.json как источник для Tailwind. 
-   Hugo автоматически записывает сюда все найденные в шаблонах CSS-классы. */
+/* Подключаем hugo_stats.json как источник для JIT. Hugo записывает сюда все найденные в шаблонах CSS-классы. */
 @source "hugo_stats.json";
 
-/* Исправление отображения списков (булитов) в контенте */
+/* Списки в контенте */
+/* Буллеты для ul (ненумерованные списки) */
 .post-content ul li {
     list-style: disc;
     margin-left: 1rem;
 }
 
+/* Нумерованные списки ol */
 .post-content ol li {
     list-style: decimal;
     margin-left: 1rem;
 }
 
-/* assets/css/extended/patch.css (или в tailwind.css через @layer base) */
+/* Логотипы и заголовки */
+/* Подгоняем размеры логотипов */
 .site-title img,
 .logo img {
     display: inline-block;
-    /* совпадает с label.iconHeight */
     height: 50px;
     width: 120px;
 }
 
+/* Основные контейнеры */
+/* Определяем ширину навигации и основного контента */
 :root {
     --nav-width: 1000px;
     --main-width: 1000px;
 }
 
-/* Принудительно выравниваем ширину всех основных контейнеров */
+/* Принудительно ограничиваем ширину всех основных контейнеров */
 .nav, .main, .footer {
     max-width: calc(1000px + var(--gap) * 2) !important;
+}
+
+/* View Transitions API — плавные SPA-подобные переходы */
+/* Этот блок делает переходы между страницами плавными,
+   используя стандартную анимацию Tailwind (duration + easing) */
+@layer components {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    @apply duration-300 ease-in-out; /* 300ms плавность + ease-in-out */
+  }
 }

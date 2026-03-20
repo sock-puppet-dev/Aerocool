@@ -118,6 +118,11 @@
 <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
 {{ end }}
 
+<!-- Prefetch важных страниц меню -->
+{{ range .Site.Menus.main }}
+<link rel="prefetch" href="{{ .URL }}">
+{{ end }}
+
 <!-- Extend Head -->
 {{ partial "extend_head.html" . }}
 
