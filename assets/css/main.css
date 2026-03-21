@@ -52,3 +52,7 @@ html.is-animating #swup {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
+
+#swup {
+  transition: opacity 0.3s ease; /* плавное появление после анимации */
+}
