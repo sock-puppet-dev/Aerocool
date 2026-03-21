@@ -1,9 +1,13 @@
-<!-- 1. Сначала библиотеки Swup -->
+ШАГ 1. Подключить Swup (fallback)
+
+📍 Файл: layouts/partials/extend_footer.html 👉 Вставь ПЕРЕД </body>:
+
 <script src="https://unpkg.com/swup@4"></script>
 <script src="https://unpkg.com/@swup/head-plugin@2"></script>
 <script src="https://unpkg.com/@swup/scripts-plugin@2"></script>
 
-<!-- 2. Потом основной скрипт View Transitions API + Swup -->
+⚙️ ШАГ 2. Вставить основной гибридный скрипт в extend_footer.html, сразу после Swup:
+
 <script>
 (function () {
 
@@ -57,3 +61,27 @@
 
 })();
 </script>
+
+🎨 ШАГ 3. Добавить CSS для анимаций в assets/css/main.css
+
+/* View Transitions (Chrome) */
+
+@layer components {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    @apply duration-300 ease-in-out;
+  }
+}
+
+/* Swup fallback (Safari/Firefox) */
+
+html.is-animating #swup {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+ШАГ 4. вставить id="swup" в layouts/baseof.gohtml 
+
+<main id="swup" class="main">
+  {{ block "main" . }}{{ end }}
+</main>

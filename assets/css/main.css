@@ -47,3 +47,8 @@
     @apply duration-300 ease-in-out; /* 300ms плавность + ease-in-out */
   }
 }
+/* Swup fallback (Safari/Firefox) */
+html.is-animating #swup {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}

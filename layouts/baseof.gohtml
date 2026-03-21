@@ -18,9 +18,11 @@
 {{- end -}}
 " id="top">
 {{- partialCached "header.gohtml" . .Page -}}
-<main class="main">
-    {{- block "main" . }}{{ end }}
+
+<main id="swup" class="main">
+  {{ block "main" . }}{{ end }}
 </main>
+
 {{ partialCached "footer.gohtml" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
 </body>
 
