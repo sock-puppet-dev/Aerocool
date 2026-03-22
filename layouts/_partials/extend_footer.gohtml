@@ -10,9 +10,12 @@
 <script>
 (function () {
 
-  const supportsViewTransitions = !!document.startViewTransition;
+  const supportsViewTransitions =
+    typeof document.startViewTransition === "function" &&
+    typeof navigation !== "undefined" &&
+    typeof navigation.navigate === "function";
 
-  // 1. Chrome → View Transitions
+  // 1. Только Chrome → View Transitions
   if (supportsViewTransitions) {
 
     document.addEventListener("click", (e) => {
@@ -40,14 +43,14 @@
       e.preventDefault();
 
       document.startViewTransition(() => {
-        window.location.href = url.href;
+        window.location.assign(url.href);
       });
     });
 
     return; // ❗ НЕ запускаем Swup
   }
 
-  // 2. Остальные → Swup
+  // 2. ВСЕ остальные (включая Safari) → Swup
   if (typeof Swup !== "undefined") {
     new Swup({
       containers: ['#swup'],
