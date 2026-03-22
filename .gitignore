@@ -1,7 +1,14 @@
-public/              # собранный сайт — не хранится в git
-resources/_gen/      # кеш Hugo (оптимизированные изображения, fingerprint CSS/JS)
-.idea/               # IDE (PhpStorm/WebStorm)
-node_modules/        # все npm пакеты
-hugo_stats.json      # ненужный файл статистики Hugo
-.hugo_build.lock     # lock-файл Hugo
-.DS_Store            # системный мусор macOS
+# собранный сайт — не хранится в git
+public/
+# кеш Hugo (оптимизированные изображения, fingerprint CSS/JS)
+resources/_gen/
+# IDE (PyCharm)
+.idea/
+# все npm пакеты
+node_modules/
+# ненужный файл статистики Hugo
+hugo_stats.json
+# lock-файл Hugo
+.hugo_build.lock
+# системный мусор macOS
+.DS_Store
