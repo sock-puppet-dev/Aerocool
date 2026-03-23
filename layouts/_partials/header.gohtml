@@ -116,13 +116,16 @@
             <!-- Проходим по всем пунктам главного меню -->
 
             {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
-            <!-- Формируем URL с завершающим / и делаем абсолютным -->
-
+            <!-- URL пункта меню -->
             {{- $page_url := $currentPage.Permalink | absLangURL }}
-            <!-- Получаем URL текущей страницы -->
-
+            <!-- URL текущей страницы -->
+            {{- $is_exact_active := eq $menu_item_url $page_url }}
+            <!-- Активно при точном совпадении (например, /news/) -->
+            {{- $is_section_active := and (hasPrefix $page_url $menu_item_url) (ne $menu_item_url (site.Home.Permalink | absLangURL)) }}
+            <!-- Активно для дочерних страниц раздела (например, /news/some-post/) -->
+            {{- $is_active := or $is_exact_active $is_section_active }}
+            <!-- Итоговое условие подсветки пункта меню -->
             {{- $is_search := eq (site.GetPage .KeyName).Layout `search` }}
-            <!-- Это страница поиска? -->
 
             <li>
                 <a href="{{ .URL | absLangURL }}"
@@ -130,7 +133,7 @@
                    {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }}>
                     <!-- Ссылка на пункт меню, с accesskey если поиск -->
 
-                    <span {{- if eq $menu_item_url $page_url }} class="active" {{- end }}>
+                    <span {{- if $is_active }} class="active" {{- end }}>
                         <!-- Подсветка активной страницы -->
                         {{- .Pre }}
                         {{- .Name -}}
