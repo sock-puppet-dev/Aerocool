@@ -2,20 +2,22 @@
 Для главного изображения страницы указываем loading="eager", остальные изображения — lazy.
 
 {{\< seo-image 
-	src="hero-chair.jpg" 
+	src="hero-chair.png" 
 	alt="Главное изображение кресла Aerocool" 
-	title="Главное изображение кресла Aerocool" 
-	width="1920" 
-	height="1080" 
+	title="Главное изображение кресла Aerocool"
 	loading="eager"
 	preload=true
 	fetchpriority=high
 /\>}}
 
+Убрал атрибуты width="1920" и height="1080" в шорткоде при использовании hero,
+чтобы не было рассинхронизации с реальными размерами $avif_lg. 
+Шорткод сам подтянет правильный размер.
+
 Пример использования изображения в контенте:
 
 {{\< seo-image 
-	src="product-chair.jpg" 
+	src="product-chair.png" 
 	alt="Эргономичное игровое кресло Aerocool" 
 	title="Игровое кресло Aerocool Baron" 
 	width="1200" 
@@ -28,7 +30,7 @@
 Пример использования изображения в карточке товара:
 
 {{\< seo-image 
-	src="product-chair-side.jpg" 
+	src="product-chair-side.png" 
 	alt="Боковой вид кресла Aerocool" 
 	title="Боковой вид кресла Aerocool" 
 	width="800" 
@@ -50,9 +52,3 @@ loading  	lazy / eager 				Оптимизация загрузки для LCP
 Hero / LCP = 				1920x1080
 Основное фото = 			1200x800
 Боковой / второстепенный = 	800x600
-
-Уточнить, детально разобрать, что означают вот эти атрибуты:
-
-sizes="100vw"
-sizes="(max-width: 768px) 100vw, 1200px"
-class="w-full rounded-2xl shadow-xl"
