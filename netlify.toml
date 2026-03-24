@@ -3,7 +3,7 @@
 [build]
   publish = "public"
   # Папка с результатом сборки Hugo
-  command = "git submodule update --init --recursive && npm run build && hugo --gc --minify -D"
+  command = "git submodule update --init --recursive && npm run build && hugo --gc --minify"
   # 1) Обновляем git-подмодули 2) Собираем Tailwind CSS  3) Собираем сайт Hugo с очисткой кэша и минификацией
 
 [build.environment]
