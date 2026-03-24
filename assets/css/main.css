@@ -33,6 +33,10 @@
     --main-width: 1000px;
 }
 
+body {
+  background-color: #ffffff !important;
+}
+
 /* Принудительно ограничиваем ширину всех основных контейнеров */
 .nav, .main, .footer {
     max-width: calc(1000px + var(--gap) * 2) !important;
