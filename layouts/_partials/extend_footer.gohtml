@@ -5,7 +5,7 @@
   document.addEventListener("click", e => {
     if (e.defaultPrevented || e.button !== 0) return;
 
-    const link = e.target.closest("a");
+    const link = e.target.closest("a[href]");
     if (!link) return;
 
     const url = new URL(link.href, location.href);
@@ -14,17 +14,21 @@
       link.target === "_blank" ||
       url.origin !== location.origin ||
       link.hasAttribute('download') ||
-      url.protocol.startsWith('mailto') ||
-      url.protocol.startsWith('tel') ||
+      url.protocol === 'mailto:' ||
+      url.protocol === 'tel:' ||
       (url.pathname === location.pathname && url.hash) ||
       e.metaKey || e.ctrlKey || e.shiftKey || e.altKey
     ) return;
 
     e.preventDefault();
 
-    document.startViewTransition(() => {
-      window.location.href = url.href;
-    });
+    try {
+      document.startViewTransition(() => {
+        location.assign(url.href);
+      });
+    } catch (_) {
+      location.assign(url.href);
+    }
   });
 })();
 </script>
