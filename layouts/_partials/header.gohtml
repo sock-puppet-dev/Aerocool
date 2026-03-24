@@ -1,159 +1,215 @@
 <header class="header">
-    <nav class="nav">
+  <!-- Главный контейнер навигации:
+       flex → горизонтальный layout
+       justify-between → левая и правая части разъезжаются -->
+  <nav class="nav flex items-center justify-between pt-0 pb-5 lg:pt-0 lg:pb-6">
 
-        <!-- Логотип и переключатели -->
-        <div class="logo">
+    <!-- ===== LEFT: логотип + языки ===== -->
+    <div class="logo flex items-center gap-4">
+      <!-- gap-4 → расстояние между логотипом и языками -->
 
-            {{- $label_text := (site.Params.label.text | default site.Title) }}
-            <!-- Название сайта или кастомный текст из параметра label.text -->
+      {{- $label_text := (site.Params.label.text | default site.Title) }}
+      <!-- Текст логотипа: либо кастомный, либо Title сайта -->
 
-            {{- if site.Title }}
-            <!-- Проверка, что site.Title задан -->
-            <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">
-                <!-- Ссылка на главную с accesskey -->
+      {{- if site.Title }}
+      <!-- Если сайт имеет название → показываем логотип -->
 
-                {{- if site.Params.label.icon }}
-                <!-- Если указан путь к иконке логотипа -->
+      <a href="{{ "" | absLangURL }}"
+         accesskey="h"
+         title="{{ $label_text }} (Alt + H)">
+        <!-- Ссылка на главную -->
 
-                {{- $img := resources.Get site.Params.label.icon }}
-                <!-- Загружаем иконку как ресурс -->
+        {{- if site.Params.label.icon }}
+        <!-- Если задан логотип -->
 
-                {{- if $img }}
-                    <!-- Если файл найден -->
+          {{- $img := resources.Get site.Params.label.icon }}
+          <!-- Пытаемся получить файл как Hugo resource (для обработки) -->
 
-                    {{- $processableFormats := (slice "jpg" "jpeg" "png" "tif" "bmp" "gif") -}}
-                    <!-- Поддерживаемые форматы изображений -->
+          {{- if $img }}
+          <!-- Если файл найден -->
 
-                    {{- if hugo.IsExtended -}}
-                        {{- $processableFormats = $processableFormats | append "webp" -}}
-                        <!-- Добавляем webp, если Hugo Extended -->
-                    {{- end -}}
+            {{- $processableFormats := (slice "jpg" "jpeg" "png" "gif") -}}
+            <!-- Форматы, которые можно ресайзить -->
 
-                    {{- $prod := (hugo.IsProduction | or (eq site.Params.env "production")) }}
-                    <!-- Проверка, продакшн ли это билд -->
+            {{- if hugo.IsExtended }}
+              {{- $processableFormats = $processableFormats | append "webp" -}}
+            {{- end -}}
 
-                    {{- if and (in $processableFormats $img.MediaType.SubType) (eq $prod true)}}
-                        <!-- Если картинка в подходящем формате и это продакшн -->
+            {{- $prod := (hugo.IsProduction | or (eq site.Params.env "production")) }}
+            <!-- Проверяем production режим -->
 
-                        {{- if site.Params.label.iconHeight }}
-                            {{- $img = $img.Resize (printf "x%d" site.Params.label.iconHeight) }}
-                        {{ else }}
-                            {{- $img = $img.Resize "x30" }}
-                        {{- end }}
-                        <!-- Меняем размер логотипа, если это растр -->
-                    {{- end }}
-
-                    <img src="{{ $img.Permalink }}"
-                            alt="Aerocool Logo"
-                            aria-label="logo"
-                            width="{{ site.Params.label.iconWidth | default "150" }}"
-                            height="{{ site.Params.label.iconHeight | default "50" }}">
-                    <!-- Вставляем логотип как <img> -->
-
-                {{- else }}
-                    <!-- Если файл не найден как ресурс — вставляем как URL -->
-                    <img src="{{- site.Params.label.icon | absURL -}}"
-                            alt="Aerocool Logo"
-                            aria-label="logo"
-                            width="{{- site.Params.label.iconWidth | default "150" -}}"
-                            height="{{- site.Params.label.iconHeight | default "50" -}}"
-                            loading="eager"
-                            decoding="async"
-                    >
-                {{- end -}}
-
-                {{- else if hasPrefix site.Params.label.iconSVG "<svg" }}
-                    <!-- Если задан инлайн SVG логотип -->
-                    {{ site.Params.label.iconSVG | safeHTML }}
-                {{- end -}}
-
-                {{- $label_text -}}
-                <!-- Выводим название рядом с логотипом -->
-
-            </a>
+            {{- if and (in $processableFormats $img.MediaType.SubType) (eq $prod true) }}
+              <!-- В проде уменьшаем изображение (оптимизация) -->
+              {{- $img = $img.Resize "x30" }}
             {{- end }}
 
-            <!-- Переключатель языков -->
-            <div class="logo-switches">
+            <img src="{{ $img.Permalink }}"
+                 alt="logo"
+                 class="h-8 w-auto">
+            <!-- h-8 → фиксированная высота логотипа -->
 
-                {{- $lang := .Lang }}
-                <!-- Текущий язык страницы -->
+          {{- else }}
+            <!-- fallback: если нет ресурса → просто вставляем URL -->
+            <img src="{{- site.Params.label.icon | absURL -}}"
+                 alt="logo"
+                 class="h-8 w-auto">
+          {{- end -}}
 
-                {{- $separator := or $label_text (not site.Params.disableThemeToggle) }}
-                <!-- Показывать ли разделитель между логотипом и переключателем языка -->
+        {{- end }}
 
-                {{- $all_translations := .AllTranslations }}
-                {{- with $all_translations }}
-                <!-- Проверка, есть ли переводы -->
-                <ul class="lang-switch">
+        {{- $label_text -}}
+        <!-- Текст рядом с логотипом -->
 
-                    {{- range $i, $trans := . -}}
-                        {{- $display_name := $trans.Lang | upper }}
-                        {{- if eq $trans.Lang "uk" }}{{ $display_name = "UA" }}{{ end }}
-                        <li>
-                            <a href="{{- $trans.Permalink -}}"
-                               class="{{ if eq $lang $trans.Lang }}active{{ end }}"
-                               {{ if eq $lang $trans.Lang }}style="font-weight: 700;"{{ end }}
-                               title="{{ $trans.Language.LanguageName }}"
-                               aria-label="{{ $trans.Language.LanguageName }}">
-                                {{- $display_name -}}
-                            </a>
-                        </li>
-                        {{- if lt $i (sub (len $all_translations) 1) }}
-                            <li>|</li>
-                        {{- end }}
-                    {{- end }}
-                </ul>
-                {{- end }}
+      </a>
+      {{- end }}
 
-            </div>
-        </div>
+      <!-- ===== LANGUAGE SWITCH ===== -->
+      <div class="logo-switches flex items-center">
 
-        <!-- Главное меню -->
-        {{- $currentPage := . }}
-        <ul id="menu">
-            {{- range site.Menus.main }}
-            <!-- Проходим по всем пунктам главного меню -->
+        {{- $lang := .Lang }}
+        <!-- Текущий язык страницы -->
 
-            {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
-            <!-- URL пункта меню -->
-            {{- $page_url := $currentPage.Permalink | absLangURL }}
-            <!-- URL текущей страницы -->
-            {{- $is_exact_active := eq $menu_item_url $page_url }}
-            <!-- Активно при точном совпадении (например, /news/) -->
-            {{- $is_section_active := and (hasPrefix $page_url $menu_item_url) (ne $menu_item_url (site.Home.Permalink | absLangURL)) }}
-            <!-- Активно для дочерних страниц раздела (например, /news/some-post/) -->
-            {{- $is_active := or $is_exact_active $is_section_active }}
-            <!-- Итоговое условие подсветки пункта меню -->
-            {{- $is_search := eq (site.GetPage .KeyName).Layout `search` }}
+        {{- with .AllTranslations }}
+        <!-- Если есть переводы -->
+
+        <ul class="lang-switch hidden items-center gap-x-2 lg:flex">
+          <!-- hidden → скрыто на мобилке
+               lg:flex → показываем только на десктопе -->
+
+          {{- $translations := . }}
+
+          {{- range $i, $trans := $translations }}
+            <!-- Проходим по языкам -->
+
+            {{- $display_name := $trans.Lang | upper }}
+            {{- if eq $trans.Lang "uk" }}{{ $display_name = "UA" }}{{ end }}
+            <!-- Форматируем отображение языка -->
 
             <li>
-                <a href="{{ .URL | absLangURL }}"
-                   title="{{ .Title | default .Name }} {{- cond $is_search (" (Alt + /)" | safeHTMLAttr) ("" | safeHTMLAttr ) }}"
-                   {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }}>
-                    <!-- Ссылка на пункт меню, с accesskey если поиск -->
-
-                    <span {{- if $is_active }} class="active" {{- end }}>
-                        <!-- Подсветка активной страницы -->
-                        {{- .Pre }}
-                        {{- .Name -}}
-                        {{ .Post -}}
-                    </span>
-
-                    {{- if (findRE "://" .URL) }}&nbsp;
-                    <!-- Если внешняя ссылка — добавляем иконку -->
-
-                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor"
-                         stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                         viewBox="0 0 24 24" height="12" width="12">
-                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
-                        <path d="M15 3h6v6"></path>
-                        <path d="M10 14L21 3"></path>
-                    </svg>
-                    {{- end }}
-                </a>
+              <a href="{{ $trans.Permalink }}"
+                 class="{{ if eq $lang $trans.Lang }}font-bold{{ end }}">
+                <!-- Активный язык выделяем -->
+                {{ $display_name }}
+              </a>
             </li>
+
+            {{- if lt $i (sub (len $translations) 1) }}
+              <!-- Разделитель | между языками -->
+              <li>|</li>
             {{- end }}
+
+          {{- end }}
+
         </ul>
-    </nav>
+        {{- end }}
+
+      </div>
+    </div>
+
+    <!-- ===== RIGHT: меню ===== -->
+    {{- $currentPage := . }}
+
+    <!-- ===== MOBILE TOGGLE ===== -->
+    <input id="nav-toggle" type="checkbox" class="peer hidden lg:hidden">
+    <!-- Checkbox хранит состояние меню (open/close)
+         peer → позволяет управлять другими элементами через CSS -->
+
+    <div class="flex items-center pr-2 lg:hidden">
+      <!-- Кнопка бургер (только на мобилке) -->
+
+      <label for="nav-toggle" class="p-3 text-gray-700">
+        <!-- Клик по label → переключает checkbox -->
+
+        <svg viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="1.5"
+             class="h-8 w-8">
+          <!-- Иконка бургер-меню -->
+          <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+
+      </label>
+    </div>
+
+    <!-- ===== DESKTOP MENU ===== -->
+    <div class="hidden lg:block">
+      <!-- Скрыто на мобилке, видно на десктопе -->
+
+      <ul id="menu" class="flex items-center gap-x-3 lg:gap-x-5">
+        <!-- flex → горизонтальное меню
+             gap-x → расстояние между пунктами -->
+
+        {{- range site.Menus.main }}
+        <!-- Берём пункты из config -->
+
+          {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL)) | absLangURL }}
+          {{- $page_url := $currentPage.Permalink | absLangURL }}
+
+          {{- $is_active := or
+                (eq $menu_item_url $page_url)
+                (and (hasPrefix $page_url $menu_item_url)
+                     (ne $menu_item_url (site.Home.Permalink | absLangURL))) }}
+          <!-- Логика активного пункта -->
+
+          <li class="whitespace-nowrap">
+            <!-- nowrap → текст не переносится -->
+
+            <a href="{{ .URL | absLangURL }}"
+               class="text-sm font-medium text-gray-600 {{ if $is_active }}text-black{{ end }}">
+              <!-- Активный пункт темнее -->
+
+              {{ .Name }}
+
+              {{- if (findRE "://" .URL) }}
+              <!-- Если внешняя ссылка → иконка -->
+              <svg width="12" height="12">
+                <path d="M10 14L21 3"></path>
+              </svg>
+              {{- end }}
+
+            </a>
+          </li>
+
+        {{- end }}
+
+      </ul>
+    </div>
+
+    <!-- ===== MOBILE MENU ===== -->
+    <div class="peer-checked:block hidden lg:hidden fixed inset-0 z-50">
+      <!-- Показывается, когда checkbox активен -->
+
+      <!-- затемнение фона -->
+      <label for="nav-toggle" class="absolute inset-0 bg-black/20"></label>
+
+      <!-- боковая панель -->
+      <div class="absolute inset-y-0 right-0 w-full sm:max-w-sm bg-white p-6 overflow-y-auto">
+
+        <!-- header панели -->
+        <div class="flex items-center justify-between">
+          <a href="{{ "" | absLangURL }}">
+            <img src="{{ site.Params.label.icon | absURL }}"
+                 class="h-8 w-auto">
+          </a>
+          <label for="nav-toggle" class="p-2">✕</label>
+        </div>
+
+        <!-- пункты меню -->
+        <div class="mt-6 space-y-4">
+          {{- range site.Menus.main }}
+          <a href="{{ .URL | absLangURL }}"
+             onclick="document.getElementById('nav-toggle').checked=false"
+             class="block px-3 py-2 text-lg font-semibold hover:bg-gray-50">
+            {{ .Name }}
+          </a>
+          {{- end }}
+        </div>
+
+        
+
+      </div>
+    </div>
+
+  </nav>
 </header>
