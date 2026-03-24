@@ -1,48 +1,33 @@
 1️⃣ Основной скрипт View Transitions, в Hugo лучше вставлять в layouts/_partials/extend_footer.gohtml
 
-
 <script>
 (function() {
   if (typeof document.startViewTransition !== "function") return;
 
-  const cache = new Map();
-  const container = document.querySelector('main.main');
-
-  const navigate = url => {
-    const cachedHTML = cache.get(url);
-    document.startViewTransition(() => {
-      if (cachedHTML && container) {
-        const doc = new DOMParser().parseFromString(cachedHTML, 'text/html');
-        const newContent = doc.querySelector('main.main');
-        if (newContent) container.replaceChildren(...newContent.childNodes);
-        else window.location.href = url;
-      } else {
-        window.location.href = url;
-      }
-    });
-  };
-
   document.addEventListener("click", e => {
+    if (e.defaultPrevented || e.button !== 0) return;
+
     const link = e.target.closest("a");
-    if (!link || link.target === "_blank" || link.origin !== location.origin) return;
+    if (!link) return;
+
+    const url = new URL(link.href, location.href);
+
+    if (
+      link.target === "_blank" ||
+      url.origin !== location.origin ||
+      link.hasAttribute('download') ||
+      url.protocol.startsWith('mailto') ||
+      url.protocol.startsWith('tel') ||
+      (url.pathname === location.pathname && url.hash) ||
+      e.metaKey || e.ctrlKey || e.shiftKey || e.altKey
+    ) return;
+
     e.preventDefault();
-    navigate(link.href);
-  });
 
-  ['mouseover','touchstart','focus'].forEach(evt => {
-    document.addEventListener(evt, e => {
-      const link = e.target.closest("a");
-      if (!link || link.origin !== location.origin) return;
-      const url = link.href;
-      if (cache.has(url)) return;
-      fetch(url, { credentials:'include' })
-        .then(res => res.text())
-        .then(html => cache.set(url, html))
-        .catch(()=>{});
-    }, {passive:true});
+    document.startViewTransition(() => {
+      window.location.href = url.href;
+    });
   });
-
-  window.addEventListener('popstate', ()=> window.location.reload());
 })();
 </script>
 
