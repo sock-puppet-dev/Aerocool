@@ -60,3 +60,10 @@
     animation-fill-mode: both;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}

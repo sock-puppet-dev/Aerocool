@@ -1,54 +1,79 @@
-Пример Hero/LCP (Largest Contentful Paint) главное изображение, обложка
-Для главного изображения страницы указываем loading="eager", остальные изображения — lazy.
+1️⃣ Hero / LCP изображение, указываем loading="eager", остальные изображения — "lazy".
 
-{{\< seo-image 
-	src="hero-chair.png" 
-	alt="Главное изображение кресла Aerocool" 
-	title="Главное изображение кресла Aerocool"
-	loading="eager"
-	preload=true
-	fetchpriority=high
-/\>}}
+{{< seo-image 
+  src="hero.png"
+  width="1920"
+  height="1080"
+  alt="Игровое кресло Aerocool Baron — эргономичная модель для офиса и гейминга"
+  title="Игровое кресло Aerocool Baron"
+  loading="eager"
+  preload=true
+  fetchpriority=high
+  class="w-full rounded-2xl shadow-xl"
+  sizes="100vw"
+  jsonld=true
+/>}}
 
-Убрал атрибуты width="1920" и height="1080" в шорткоде при использовании hero,
-чтобы не было рассинхронизации с реальными размерами $avif_lg. 
-Шорткод сам подтянет правильный размер.
+	•	PNG 1920×1080 → идеальный source для LCP, идеальный source (lossless)
+	•	loading="eager" + preload=true + fetchpriority=high → Hero загружается первым
+	•	width/height + aspect-ratio → устраняет, фиксирует CLS,  
+	•	JSON-LD → SEO для Google Rich Snippets, улучшает SEO (Google Images + Rich Results)
+	•	sizes="100vw" → адаптивность под любые экраны
 
-Пример использования изображения в контенте:
+2️⃣ Основное изображение товара
 
-{{\< seo-image 
-	src="product-chair.png" 
-	alt="Эргономичное игровое кресло Aerocool" 
-	title="Игровое кресло Aerocool Baron" 
-	width="1200" 
-	height="800" 
-	loading="lazy" 
-	preload=false
-	fetchpriority=auto
-/\>}}
+{{< seo-image 
+  src="product.png"
+  width="1200"
+  height="800"
+  alt="Эргономичное игровое кресло Aerocool Baron"
+  title="Игровое кресло Aerocool Baron"
+  loading="lazy"
+  preload=false
+  fetchpriority=auto
+  class="w-full rounded-2xl shadow-lg"
+  sizes="(max-width: 768px) 100vw, 1200px"
+/>}}
 
-Пример использования изображения в карточке товара:
+	•	PNG 1200×800 → оптимальный source для контента
+	•	loading="lazy" → экономия трафика
+	•	sizes → адаптивная подгрузка разных размеров (srcset), браузер выбирает правильный размер
+	•	srcset (из shortcode) → адаптивная загрузка уменьшает: трафик, TTFB не трогает, но ↓ download time, улучшает INP и LCP косвенно
 
-{{\< seo-image 
-	src="product-chair-side.png" 
-	alt="Боковой вид кресла Aerocool" 
-	title="Боковой вид кресла Aerocool" 
-	width="800" 
-	height="600" 
-	loading="lazy"
-	preload=false
-	fetchpriority=auto
-/\>}}
+3️⃣ Второстепенное / боковое изображение
 
-Параметр: 	Значение:					Для чего:
-src 		Путь к изображению  		Основной файл изображения
-alt  		Текстовое описание 			SEO + доступность
-title 	 	Заголовок изображения 	 	SEO, всплывающая подсказка
-width 		Ширина 						CLS (Layout Shift)
-height 		Высота 						CLS (Layout Shift)
-loading  	lazy / eager 				Оптимизация загрузки для LCP
+{{< seo-image 
+  src="product-side.png"
+  width="800"
+  height="600"
+  alt="Боковой вид кресла Aerocool Baron"
+  title="Боковой вид кресла Aerocool Baron"
+  loading="lazy"
+  preload=false
+  fetchpriority=auto
+  class="w-full rounded-xl"
+  sizes="(max-width: 768px) 100vw, 800px"
+/>}}
+
+	•	PNG 800×600 → идеальный source для галереи/карточек
+	•	loading="lazy" + адаптивные размеры через sizes → быстрый рендер и экономия LCP
+	•	маленький вес → быстрее загрузка страницы
+	•	визуальная иерархия (меньше тень/радиус)
+
+Параметр		Значение		Для чего
+src 			путь к PNG 		исходник (source)
+alt 			описание 		SEO + accessibility
+title 			заголовок 		UX + доп. SEO
+width 			ширина 			убирает CLS
+height 			высота 			убирает CLS
+loading 		eager / lazy 	управление загрузкой
+preload 		true / false 	ускоряет LCP
+fetchpriority 	high / auto 	приоритет загрузки
+sizes 			media query 	адаптивность
+class 			Tailwind 		UI / UX
+jsonld 			true / false 	structured data
 
 Рекомендуемые размеры:
-Hero / LCP = 				1920x1080
-Основное фото = 			1200x800
-Боковой / второстепенный = 	800x600
+Hero / LCP = 					1920x1080
+Основное изображение = 			1200x800
+Второстепенное изображение = 	800x600
