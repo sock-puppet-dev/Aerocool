@@ -2,8 +2,10 @@
 (function() {
   if (typeof document.startViewTransition !== "function") return;
 
+  let navigating = false;
+
   document.addEventListener("click", e => {
-    if (e.defaultPrevented || e.button !== 0) return;
+    if (e.defaultPrevented || e.button !== 0 || navigating) return;
 
     const link = e.target.closest("a[href]");
     if (!link) return;
@@ -14,20 +16,21 @@
       link.target === "_blank" ||
       url.origin !== location.origin ||
       link.hasAttribute('download') ||
-      url.protocol === 'mailto:' ||
-      url.protocol === 'tel:' ||
+      url.protocol.startsWith('mailto') ||
+      url.protocol.startsWith('tel') ||
       (url.pathname === location.pathname && url.hash) ||
       e.metaKey || e.ctrlKey || e.shiftKey || e.altKey
     ) return;
 
     e.preventDefault();
+    navigating = true;
 
     try {
       document.startViewTransition(() => {
-        location.assign(url.href);
+        location.href = url.href;
       });
     } catch (_) {
-      location.assign(url.href);
+      location.href = url.href;
     }
   });
 })();

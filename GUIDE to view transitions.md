@@ -4,10 +4,12 @@
 (function() {
   if (typeof document.startViewTransition !== "function") return;
 
-  document.addEventListener("click", e => {
-    if (e.defaultPrevented || e.button !== 0) return;
+  let navigating = false;
 
-    const link = e.target.closest("a");
+  document.addEventListener("click", e => {
+    if (e.defaultPrevented || e.button !== 0 || navigating) return;
+
+    const link = e.target.closest("a[href]");
     if (!link) return;
 
     const url = new URL(link.href, location.href);
@@ -23,10 +25,15 @@
     ) return;
 
     e.preventDefault();
+    navigating = true;
 
-    document.startViewTransition(() => {
-      window.location.href = url.href;
-    });
+    try {
+      document.startViewTransition(() => {
+        location.href = url.href;
+      });
+    } catch (_) {
+      location.href = url.href;
+    }
   });
 })();
 </script>
@@ -48,6 +55,8 @@
 @layer components {
   ::view-transition-old(root),
   ::view-transition-new(root) {
-    @apply duration-300 ease-in-out;
+    animation-duration: 300ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
   }
 }
