@@ -4,7 +4,7 @@ description: "Aerocool Duke Steel Blue — классическое эргоно
 summary: "Duke сочетает комфорт, здоровье и классический дизайн для геймеров и офисных пользователей."
 date: 2026-03-19
 lastmod: 2026-03-19
-slug: "duke"
+slug: "duke-steel-blue"
 categories: ["classic"]
 tags: ["aerocool", "игровое кресло", "duke"]
 ---

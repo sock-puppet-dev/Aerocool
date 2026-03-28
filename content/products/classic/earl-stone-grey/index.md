@@ -4,7 +4,7 @@ description: "Aerocool Earl Stone Grey — класичне крісло з ер
 summary: "Earl забезпечує здоров’я спини, комфорт і стиль для тривалих ігрових та офісних сесій."
 date: 2026-03-19
 lastmod: 2026-03-19
-slug: "earl"
+slug: "earl-stone-grey"
 categories: ["classic"]
 tags: ["aerocool", "ігрове крісло", "earl"]
 ---
