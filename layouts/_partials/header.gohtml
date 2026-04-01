@@ -1,59 +1,69 @@
 <header class="header relative z-50">
   <!-- Главный контейнер навигации:
-       flex → горизонтальный layout
-       justify-between → левая и правая части разъезжаются -->
+       flex → горизонтальное расположение
+       justify-between → левая и правая части расходятся по краям -->
   <nav class="nav flex items-center justify-between pt-0 pb-5 lg:pt-0 lg:pb-6">
-
     <!-- ===== LEFT: логотип + языки ===== -->
     <div class="logo flex items-center gap-4">
-      <!-- gap-4 → расстояние между логотипом и языками -->
+      <!-- gap-4 → расстояние между логотипом и блоком языков -->
 
       {{- $label_text := (site.Params.label.text | default site.Title) }}
-      <!-- Текст логотипа: либо кастомный, либо Title сайта -->
+      <!-- Текст логотипа:
+           если в params.label.text задан кастомный текст → берем его,
+           иначе используем site.Title -->
 
       {{- if site.Title }}
-      <!-- Если сайт имеет название → показываем логотип -->
+      <!-- Если у сайта есть Title → показываем логотип/название -->
 
-      <a href="{{ "" | absLangURL }}"
-         accesskey="h"
-         title="{{ $label_text }} (Alt + H)">
-        <!-- Ссылка на главную -->
+      <a
+        href="{{ "" | absLangURL }}"
+        accesskey="h"
+        title="{{ $label_text }} (Alt + H)"
+      >
+        <!-- Ссылка на главную страницу -->
 
         {{- if site.Params.label.icon }}
-        <!-- Если задан логотип -->
+        <!-- Если задан путь к иконке логотипа -->
 
-          {{- $img := resources.Get site.Params.label.icon }}
-          <!-- Пытаемся получить файл как Hugo resource (для обработки) -->
+        {{- $img := resources.Get site.Params.label.icon }}
+        <!-- Пытаемся получить файл как Hugo resource,
+             чтобы при необходимости обработать его -->
 
-          {{- if $img }}
-          <!-- Если файл найден -->
+        {{- if $img }}
+        <!-- Если ресурс найден внутри Hugo pipeline -->
 
-            {{- $processableFormats := (slice "jpg" "jpeg" "png" "gif") -}}
-            <!-- Форматы, которые можно ресайзить -->
+        {{- $processableFormats := (slice "jpg" "jpeg" "png" "gif") -}}
+        <!-- Форматы, которые Hugo может обработать -->
 
-            {{- if hugo.IsExtended }}
-              {{- $processableFormats = $processableFormats | append "webp" -}}
-            {{- end -}}
+        {{- if hugo.IsExtended }}
+        {{- $processableFormats = $processableFormats | append "webp" -}}
+        {{- end -}}
+        <!-- В Hugo Extended можно также обрабатывать webp -->
 
-            {{- $prod := (hugo.IsProduction | or (eq site.Params.env "production")) }}
-            <!-- Проверяем production режим -->
+        {{- $prod := (hugo.IsProduction | or (eq site.Params.env "production")) }}
+        <!-- Проверяем, запущен ли сайт в production режиме -->
 
-            {{- if and (in $processableFormats $img.MediaType.SubType) (eq $prod true) }}
-              <!-- В проде уменьшаем изображение (оптимизация) -->
-              {{- $img = $img.Resize "x30" }}
-            {{- end }}
+        {{- if and (in $processableFormats $img.MediaType.SubType) (eq $prod true) }}
+        <!-- В production уменьшаем картинку для оптимизации -->
+        {{- $img = $img.Resize "x30" }}
+        {{- end }}
 
-            <img src="{{ $img.Permalink }}"
-                 alt="logo"
-                 class="h-8 w-auto">
-            <!-- h-8 → фиксированная высота логотипа -->
+        <img
+          src="{{ $img.Permalink }}"
+          alt="logo"
+          class="h-8 w-auto"
+        >
+        <!-- h-8 → фиксированная высота логотипа -->
 
-          {{- else }}
-            <!-- fallback: если нет ресурса → просто вставляем URL -->
-            <img src="{{- site.Params.label.icon | absURL -}}"
-                 alt="logo"
-                 class="h-8 w-auto">
-          {{- end -}}
+        {{- else }}
+        <!-- Fallback:
+             если Hugo resource не найден, вставляем URL как есть -->
+        <img
+          src="{{- site.Params.label.icon | absURL -}}"
+          alt="logo"
+          class="h-8 w-auto"
+        >
+        {{- end -}}
 
         {{- end }}
 
@@ -65,26 +75,57 @@
 
       <!-- ===== LANGUAGE SWITCH ===== -->
       <div class="logo-switches flex items-center">
-
         {{- $lang := .Lang }}
         <!-- Текущий язык страницы -->
 
         {{- with .AllTranslations }}
+        <!-- Если у страницы есть переводы → показываем переключатель языков -->
+
         {{- $current_display := $lang | upper }}
-        {{- if eq $lang "uk" }}{{ $current_display = "UA" }}{{ end }}
+        <!-- По умолчанию язык отображается как uppercase -->
+
+        {{- if eq $lang "uk" }}
+        {{ $current_display = "UA" }}
+        {{ end }}
+        <!-- Для uk меняем отображение на UA -->
+
         <details class="relative inline-block z-50">
+          <!-- details/summary → нативный dropdown без JS -->
+
           <summary class="inline-flex cursor-pointer list-none items-center gap-x-1.5 bg-white px-2 py-2 !text-sm/6 !font-semibold text-gray-900 hover:bg-gray-50 [&::-webkit-details-marker]:hidden">
             {{- $current_display -}}
-            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="-mr-1 size-5 text-gray-400">
-              <path d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
+
+            <svg
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+              class="-mr-1 size-5 text-gray-400"
+            >
+              <!-- Иконка стрелки вниз -->
+              <path
+                d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                clip-rule="evenodd"
+                fill-rule="evenodd"
+              />
             </svg>
           </summary>
+
           <div class="absolute left-0 mt-2 w-max origin-top-left rounded-md bg-white shadow-lg z-50 pointer-events-auto ring-1 ring-black/5">
+            <!-- Выпадающее меню языков -->
+
             <div class="py-1">
               {{- range . }}
+              <!-- Перебираем все доступные переводы -->
+
               {{- $display_name := .Lang | upper }}
-              {{- if eq .Lang "uk" }}{{ $display_name = "UA" }}{{ end }}
-              <a href="{{ .RelPermalink }}" class="block whitespace-nowrap px-4 py-2 !text-sm/6 !font-normal text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+              {{- if eq .Lang "uk" }}
+              {{ $display_name = "UA" }}
+              {{ end }}
+
+              <a
+                href="{{ .RelPermalink }}"
+                class="block whitespace-nowrap px-4 py-2 !text-sm/6 !font-normal text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+              >
                 {{- $display_name -}}
               </a>
               {{- end }}
@@ -92,114 +133,136 @@
           </div>
         </details>
         {{- end }}
-
       </div>
     </div>
 
     <!-- ===== RIGHT: меню ===== -->
     {{- $currentPage := . }}
+    <!-- Сохраняем текущую страницу, чтобы определить активный пункт меню -->
 
     <!-- ===== MOBILE TOGGLE ===== -->
-    <input id="nav-toggle" type="checkbox" class="peer hidden lg:hidden">
-    <!-- Checkbox хранит состояние меню (open/close)
-         peer → позволяет управлять другими элементами через CSS -->
+    <input
+      id="nav-toggle"
+      type="checkbox"
+      class="peer hidden lg:hidden"
+    >
+    <!-- Checkbox хранит состояние мобильного меню:
+         checked → меню открыто
+         peer → позволяет управлять соседними элементами через CSS -->
 
     <div class="flex items-center pr-2 lg:hidden">
-      <!-- Кнопка бургер (только на мобилке) -->
+      <!-- Кнопка бургер-меню.
+           Видна только на мобильных экранах -->
 
       <label for="nav-toggle" class="p-3 text-gray-700">
-        <!-- Клик по label → переключает checkbox -->
+        <!-- Клик по label переключает checkbox -->
 
-        <svg viewBox="0 0 24 24"
-             fill="none"
-             stroke="currentColor"
-             stroke-width="1.5"
-             class="h-8 w-8">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          class="h-8 w-8"
+        >
           <!-- Иконка бургер-меню -->
           <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
-
       </label>
     </div>
 
     <!-- ===== DESKTOP MENU ===== -->
     <div class="hidden lg:block">
-      <!-- Скрыто на мобилке, видно на десктопе -->
+      <!-- Меню скрыто на мобильных и видно только на десктопе -->
 
       <ul id="menu" class="flex items-center gap-x-3 lg:gap-x-5">
-        <!-- flex → горизонтальное меню
-             gap-x → расстояние между пунктами -->
+        <!-- Горизонтальный список меню -->
 
         {{- range site.Menus.main }}
-        <!-- Берём пункты из config -->
+        <!-- Берем все пункты меню из config -->
 
-          {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL)) | absLangURL }}
-          {{- $page_url := $currentPage.Permalink | absLangURL }}
+        {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL)) | absLangURL }}
+        <!-- Нормализуем URL пункта меню:
+             если нет "/" в конце, добавляем его -->
 
-          {{- $is_active := or
-                (eq $menu_item_url $page_url)
-                (and (hasPrefix $page_url $menu_item_url)
-                     (ne $menu_item_url (site.Home.Permalink | absLangURL))) }}
-          <!-- Логика активного пункта -->
+        {{- $page_url := $currentPage.Permalink | absLangURL }}
+        <!-- URL текущей страницы -->
 
-          <li class="whitespace-nowrap">
-            <!-- nowrap → текст не переносится -->
+        {{- $is_active := or
+        (eq $menu_item_url $page_url)
+        (and (hasPrefix $page_url $menu_item_url)
+        (ne $menu_item_url (site.Home.Permalink | absLangURL))) }}
+        <!-- Пункт считается активным, если:
+             1) URL совпадает полностью
+             2) или текущая страница вложена в этот раздел,
+                но при этом это не главная страница -->
 
-            <a href="{{ .URL | absLangURL }}"
-               class="text-sm font-medium text-gray-600 {{ if $is_active }}text-black{{ end }}">
-              <!-- Активный пункт темнее -->
+        <li class="whitespace-nowrap">
+          <!-- whitespace-nowrap → текст не переносится -->
 
-              {{ .Name }}
+          <a
+            href="{{ .URL | absLangURL }}"
+            class="text-sm font-medium text-gray-600 {{ if $is_active }}text-black{{ end }}"
+          >
+            <!-- Активный пункт делаем темнее -->
 
-              {{- if (findRE "://" .URL) }}
-              <!-- Если внешняя ссылка → иконка -->
-              <svg width="12" height="12">
-                <path d="M10 14L21 3"></path>
-              </svg>
-              {{- end }}
+            {{ .Name }}
 
-            </a>
-          </li>
+            {{- if (findRE "://" .URL) }}
+            <!-- Если ссылка внешняя → показываем иконку -->
+            <svg width="12" height="12">
+              <path d="M10 14L21 3"></path>
+            </svg>
+            {{- end }}
+          </a>
+        </li>
 
         {{- end }}
-
       </ul>
     </div>
 
     <!-- ===== MOBILE MENU ===== -->
     <div class="peer-checked:block hidden lg:hidden fixed inset-0 z-50">
-      <!-- Показывается, когда checkbox активен -->
+      <!-- Мобильное меню появляется,
+           когда checkbox #nav-toggle находится в состоянии checked -->
 
-      <!-- затемнение фона -->
+      <!-- Затемнение фона -->
       <label for="nav-toggle" class="absolute inset-0 bg-black/20"></label>
+      <!-- Клик по затемнению закрывает меню -->
 
-      <!-- боковая панель -->
-      <div class="absolute inset-y-0 right-0 w-full sm:max-w-sm bg-white p-6 overflow-y-auto">
+      <!-- Боковая панель -->
+      <div class="absolute inset-y-0 right-0 w-full overflow-y-auto bg-white p-6 sm:max-w-sm">
+        <!-- Правая выезжающая панель меню -->
 
-        <!-- header панели -->
+        <!-- Header панели -->
         <div class="flex items-center justify-between">
           <a href="{{ "" | absLangURL }}">
-            <img src="{{ site.Params.label.icon | absURL }}"
-                 class="h-8 w-auto">
+            <img
+              src="{{ site.Params.label.icon | absURL }}"
+              class="h-8 w-auto"
+              alt="logo"
+            >
           </a>
-          <label for="nav-toggle" class="p-2">✕</label>
+
+          <label for="nav-toggle" class="p-2">
+            <!-- Кнопка закрытия -->
+            ✕
+          </label>
         </div>
 
-        <!-- пункты меню -->
+        <!-- Пункты мобильного меню -->
         <div class="mt-6 space-y-4">
           {{- range site.Menus.main }}
-          <a href="{{ .URL | absLangURL }}"
-             onclick="document.getElementById('nav-toggle').checked=false"
-             class="block px-3 py-2 text-lg font-semibold hover:bg-gray-50">
+          <a
+            href="{{ .URL | absLangURL }}"
+            onclick="document.getElementById('nav-toggle').checked=false"
+            class="block px-3 py-2 text-lg font-semibold hover:bg-gray-50"
+          >
+            <!-- При клике закрываем меню -->
             {{ .Name }}
           </a>
           {{- end }}
         </div>
-
-        
-
       </div>
     </div>
-
   </nav>
 </header>
