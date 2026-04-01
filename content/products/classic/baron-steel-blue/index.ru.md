@@ -7,6 +7,14 @@ lastmod: 2026-03-19
 slug: "baron-steel-blue"
 categories: ["classic"]
 tags: ["aerocool", "игровое кресло", "baron", "baron steel blue"]
+image: "baron-steel-blue.png"  
+price: 10000                        
+sku: "BARON-SB-001"              
+availability: InStock              
+priceValidUntil: 2027-12-31        
+rating:                           
+  value: 4.8                        
+  count: 124  
 ---
 
 {{< seo-image 

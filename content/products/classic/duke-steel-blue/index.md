@@ -7,6 +7,14 @@ lastmod: 2026-03-19
 slug: "duke-steel-blue"
 categories: ["classic"]
 tags: ["aerocool", "ігрове крісло", "duke"]
+image: "duke-steel-blue.png"  
+price: 10000                        
+sku: "DUKE-SB-001"              
+availability: InStock              
+priceValidUntil: 2027-12-31        
+rating:                           
+  value: 4.8                        
+  count: 124  
 ---
 
 {{< seo-image 

@@ -7,6 +7,14 @@ lastmod: 2026-03-19
 slug: "count-burgundy-red"
 categories: ["classic"]
 tags: ["aerocool", "ігрове крісло", "count"]
+image: "count-burgundy-red.png"  
+price: 10000                        
+sku: "COUNT-BR-001"              
+availability: InStock              
+priceValidUntil: 2027-12-31        
+rating:                           
+  value: 4.8                        
+  count: 124  
 ---
 
 {{< seo-image 

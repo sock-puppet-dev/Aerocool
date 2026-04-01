@@ -7,6 +7,14 @@ lastmod: 2026-03-19
 slug: "count-stone-grey"
 categories: ["classic"]
 tags: ["aerocool", "ігрове крісло", "count"]
+image: "count-stone-grey.png"  
+price: 10000                        
+sku: "COUNT-SG-001"              
+availability: InStock              
+priceValidUntil: 2027-12-31        
+rating:                           
+  value: 4.8                        
+  count: 124  
 ---
 
 {{< seo-image 

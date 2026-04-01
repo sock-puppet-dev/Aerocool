@@ -7,6 +7,14 @@ lastmod: 2026-03-19
 slug: "count-teal-green"
 categories: ["classic"]
 tags: ["aerocool", "игровое кресло", "count"]
+image: "count-teal-green.png"  
+price: 10000                        
+sku: "COUNT-TG-001"              
+availability: InStock              
+priceValidUntil: 2027-12-31        
+rating:                           
+  value: 4.8                        
+  count: 124  
 ---
 
 {{< seo-image 

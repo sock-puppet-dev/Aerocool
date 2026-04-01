@@ -7,6 +7,14 @@ lastmod: 2026-03-19
 slug: "duke-punch-red"
 categories: ["classic"]
 tags: ["aerocool", "игровое кресло", "duke"]
+image: "duke-punch-red.png"  
+price: 10000                        
+sku: "DUKE-PR-001"              
+availability: InStock              
+priceValidUntil: 2027-12-31        
+rating:                           
+  value: 4.8                        
+  count: 124  
 ---
 
 {{< seo-image 
