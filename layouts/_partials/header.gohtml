@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header relative z-50">
   <!-- Главный контейнер навигации:
        flex → горизонтальный layout
        justify-between → левая и правая части разъезжаются -->
@@ -70,37 +70,27 @@
         <!-- Текущий язык страницы -->
 
         {{- with .AllTranslations }}
-        <!-- Если есть переводы -->
-
-        <ul class="lang-switch hidden items-center gap-x-2 lg:flex">
-          <!-- hidden → скрыто на мобилке
-               lg:flex → показываем только на десктопе -->
-
-          {{- $translations := . }}
-
-          {{- range $i, $trans := $translations }}
-            <!-- Проходим по языкам -->
-
-            {{- $display_name := $trans.Lang | upper }}
-            {{- if eq $trans.Lang "uk" }}{{ $display_name = "UA" }}{{ end }}
-            <!-- Форматируем отображение языка -->
-
-            <li>
-              <a href="{{ $trans.Permalink }}"
-                 class="{{ if eq $lang $trans.Lang }}font-bold{{ end }}">
-                <!-- Активный язык выделяем -->
-                {{ $display_name }}
+        {{- $current_display := $lang | upper }}
+        {{- if eq $lang "uk" }}{{ $current_display = "UA" }}{{ end }}
+        <details class="relative inline-block z-50">
+          <summary class="inline-flex cursor-pointer list-none items-center gap-x-1.5 bg-white px-2 py-2 !text-sm/6 !font-semibold text-gray-900 hover:bg-gray-50 [&::-webkit-details-marker]:hidden">
+            {{- $current_display -}}
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="-mr-1 size-5 text-gray-400">
+              <path d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
+            </svg>
+          </summary>
+          <div class="absolute left-0 mt-2 w-max origin-top-left rounded-md bg-white shadow-lg z-50 pointer-events-auto ring-1 ring-black/5">
+            <div class="py-1">
+              {{- range . }}
+              {{- $display_name := .Lang | upper }}
+              {{- if eq .Lang "uk" }}{{ $display_name = "UA" }}{{ end }}
+              <a href="{{ .RelPermalink }}" class="block whitespace-nowrap px-4 py-2 !text-sm/6 !font-normal text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+                {{- $display_name -}}
               </a>
-            </li>
-
-            {{- if lt $i (sub (len $translations) 1) }}
-              <!-- Разделитель | между языками -->
-              <li>|</li>
-            {{- end }}
-
-          {{- end }}
-
-        </ul>
+              {{- end }}
+            </div>
+          </div>
+        </details>
         {{- end }}
 
       </div>
