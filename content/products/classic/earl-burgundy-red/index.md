@@ -4,6 +4,7 @@ description: "Aerocool Earl Burgundy Red — класичне крісло з е
 summary: "Earl забезпечує здоров’я спини, комфорт і стиль для тривалих ігрових та офісних сесій."
 date: 2026-03-19
 lastmod: 2026-03-19
+type: "products"
 slug: "earl-burgundy-red"
 categories: ["classic"]
 tags: ["aerocool", "ігрове крісло", "earl"]
