@@ -11,3 +11,6 @@ type: "news"            # Тип страницы, необходим чтобы
 ---
 
 Обязательно указывать type: "news"  
+
+Разобрать зачем !
+featured_image: "images/news/2026-models.jpg"

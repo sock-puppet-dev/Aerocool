@@ -19,6 +19,22 @@ rating:                             # Рейтинг товара
   count: 124                        # Количество отзывов
 ---
 
+
+Разобрать зачем !
+
+currency: "UAH"
+featured_image: "images/products/hero-chair.jpg"
+resources:
+  - "images/products/hero-chair-1.jpg"
+  - "images/products/hero-chair-2.jpg"
+
+
+
+
+
+
+
+
 ---
 title: "Aerocool Baron Burgundy Red" 
 # Название товара (обязательно для SEO и H1 на странице)

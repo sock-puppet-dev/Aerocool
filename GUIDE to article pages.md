@@ -11,3 +11,7 @@ type: "article"         # Тип страницы, необходим чтобы
 ---
 
 Обязательно указывать type: "article"  
+
+Разобрать зачем !
+featured_image: "images/articles/kreslo-hero.jpg"
+
