@@ -4,7 +4,7 @@ description: "Aerocool Knight Steel Blue — классическое эргон
 summary: "Knight сочетает стиль, классический дизайн и комфорт для геймеров и офисных пользователей."
 date: 2026-03-19
 lastmod: 2026-03-19
-type: "products"
+type: ["product", "organization", "breadcrumbs"]
 slug: "knight-steel-blue"
 categories: ["classic"]
 tags: ["aerocool", "игровое кресло", "knight"]

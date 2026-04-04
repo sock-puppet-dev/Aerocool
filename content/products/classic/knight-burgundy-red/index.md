@@ -4,7 +4,7 @@ description: "Aerocool Knight Burgundy Red — класичне ергономі
 summary: "Knight поєднує стиль, класичний дизайн і комфорт для геймерів та офісних користувачів."
 date: 2026-03-19
 lastmod: 2026-03-19
-type: "products"
+type: ["product", "organization", "breadcrumbs"]
 slug: "knight-burgundy-red"
 categories: ["classic"]
 tags: ["aerocool", "ігрове крісло", "knight"]

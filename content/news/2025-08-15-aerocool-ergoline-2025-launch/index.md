@@ -4,12 +4,7 @@ description: "Офіційний реліз сучасної серії офіс
 date: 2025-08-15T10:00:00+03:00
 lastmod: 2025-08-15T10:00:00+03:00
 slug: "ergoline-2025"
-tags:
-  - новинка
-  - aerocool
-  - ergoline
-categories:
-  - релізи
+type: ["news", "organization", "breadcrumbs"]
 ---
 
 # Новий рівень комфорту: серія офісних крісел Aerocool ErgoLine 2025

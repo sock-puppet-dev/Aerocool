@@ -1,32 +1,27 @@
-Product (single page), так должен выглядеть front matter Product (single page) + подключенный JSON-LD
 ---
-title: ""          		            # Название товара
-description: ""    		            # Подробное описание, включающее ключевые слова
-summary: ""        		            # Краткая версия для анонса
-date: 2026-03-19   		            # Дата публикации
-lastmod: 2026-03-19 	            # Дата последнего обновления
-type: "products"                    # Тип товар чтобы сработал скрипт product.gohtml
-slug: ""           		            # Контролируемый URL, короткий и понятный
-categories: [""]   		            # Категории (например, "royal", "releases")
-tags: [""]         		            # Теги для фильтрации и навигации
-image: "baron-burgundy-red.png"     # Основное изображение товара
-price: 6999                         # Цена товара
-sku: "BARON-BR-001"                 # SKU (артикул)
-availability: InStock               # Наличие товара
-priceValidUntil: 2026-12-31         # Срок действия цены
-rating:                             # Рейтинг товара
-  value: 4.8                        # Средняя оценка (например, 4.8 из 5)
-  count: 124                        # Количество отзывов
+title: ""          		                            # Название товара
+description: ""    		                            # Подробное описание, включающее ключевые слова
+summary: ""        		                            # Краткая версия для анонса
+date: 2026-03-19   		                            # Дата публикации
+lastmod: 2026-03-19 	                            # Дата последнего обновления
+type: "products"                                    # Тип товар чтобы сработал скрипт product.gohtml
+slug: ""           		                            # Контролируемый URL, короткий и понятный
+categories: [""]   		                            # Категории (например, "royal", "releases")
+tags: [""]         		                            # Теги для фильтрации и навигации
+type: ["product", "organization", "breadcrumbs"]    # Тип для поюключения JSON-LD partials
+image: "baron-burgundy-red.png"                     # Основное изображение товара
+price: 6999                                         # Цена товара
+sku: "BARON-BR-001"                                 # SKU (артикул)
+availability: InStock                               # Наличие товара
+priceValidUntil: 2026-12-31                         # Срок действия цены
+rating:                                             # Рейтинг товара
+  value: 4.8                                        # Средняя оценка (например, 4.8 из 5)
+  count: 124                                        # Количество отзывов
 ---
-
 
 Разобрать зачем !
-
 currency: "UAH"
-featured_image: "images/products/hero-chair.jpg"
-resources:
-  - "images/products/hero-chair-1.jpg"
-  - "images/products/hero-chair-2.jpg"
+
 
 
 

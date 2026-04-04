@@ -4,12 +4,7 @@ description: "Официальный релиз новой модели игро
 date: 2026-02-14T09:00:00+03:00
 lastmod: 2026-02-14T09:00:00+03:00
 slug: "baron-pro-2026"
-tags:
-  - новинка
-  - aerocool
-  - baron pro
-categories:
-  - релизы
+type: ["news", "organization", "breadcrumbs"]
 ---
 
 # Aerocool Baron Pro 2026 — новый уровень комфорта и стиля

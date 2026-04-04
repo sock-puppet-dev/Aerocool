@@ -4,7 +4,7 @@ description: "Aerocool Earl Hunter Green — класичне крісло з е
 summary: "Earl забезпечує здоров’я спини, комфорт і стиль для тривалих ігрових та офісних сесій."
 date: 2026-03-19
 lastmod: 2026-03-19
-type: "products"
+type: ["product", "organization", "breadcrumbs"]
 slug: "earl-hunter-green"
 categories: ["classic"]
 tags: ["aerocool", "ігрове крісло", "earl"]
