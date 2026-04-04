@@ -24,12 +24,6 @@ currency: "UAH"
 
 
 
-
-
-
-
-
-
 ---
 title: "Aerocool Baron Burgundy Red" 
 # Название товара (обязательно для SEO и H1 на странице)

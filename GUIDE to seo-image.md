@@ -1,4 +1,4 @@
-1️⃣ Hero / LCP изображение, указываем loading="eager", остальные изображения — "lazy".
+1) Hero / LCP изображение, указываем loading="eager", остальные изображения — "lazy".
 
 {{< seo-image 
   src="hero.png"
@@ -20,7 +20,7 @@
 	•	JSON-LD → SEO для Google Rich Snippets, улучшает SEO (Google Images + Rich Results)
 	•	sizes="100vw" → адаптивность под любые экраны
 
-2️⃣ Основное изображение товара
+2) Основное изображение товара
 
 {{< seo-image 
   src="product.png"
@@ -41,7 +41,7 @@
 	•	srcset (из shortcode) → адаптивная загрузка уменьшает: трафик, TTFB не трогает, 
         но ↓ download time, улучшает INP и LCP косвенно
 
-3️⃣ Второстепенное / боковое изображение
+3) Второстепенное / боковое изображение
 
 {{< seo-image 
   src="product-side.png"

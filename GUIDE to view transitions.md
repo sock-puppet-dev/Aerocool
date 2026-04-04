@@ -1,4 +1,4 @@
-1️⃣ Основной скрипт View Transitions, в Hugo лучше вставлять в layouts/_partials/extend_footer.gohtml
+1) Основной скрипт View Transitions, в Hugo лучше вставлять в layouts/_partials/extend_footer.gohtml
 
 <script>
 (function() {
@@ -38,19 +38,19 @@
 })();
 </script>
 
-2️⃣ Основной контейнер страницы, в layouts/_default/baseof.gohtml
+2) Основной контейнер страницы, в layouts/_default/baseof.gohtml
 
 <main class="main">
   {{ block "main" . }}{{ end }}
 </main>
 
-3️⃣ Prefetch страниц, в layouts/_partials/head.gohtml
+3) Prefetch страниц, в layouts/_partials/head.gohtml
 
 {{ range .Site.Menus.main }}
 <link rel="prefetch" href="{{ .URL }}">
 {{ end }}
 
-4️⃣ Tailwind-анимации для плавности View Transitions
+4) Tailwind-анимации для плавности View Transitions
 
 @layer components {
   ::view-transition-old(root),

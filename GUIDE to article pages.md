@@ -7,7 +7,7 @@ lastmod: 2026-03-19 	                            # Дата последнего
 slug: ""           		                            # Контролируемый URL, короткий и понятный
 categories: [""]   		                            # Категории (например, "royal", "releases")
 tags: [""]         		                            # Теги для фильтрации и навигации
-type: ["article", "organization", "breadcrumbs"]    # Тип страницы, необходим чтобы срабатывал скрипт article.gohtml
+type: ["article", "organization", "breadcrumbs"]    # Тип, необходим чтобы срабатывал скрипт JSON-LD
 ---
 
 

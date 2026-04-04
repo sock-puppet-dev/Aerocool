@@ -1,5 +1,5 @@
 Главная (content/_index.md)
-type: ["website", "organization", "brand", "searchaction", "breadcrumbs"]
+type: ["website", "organization", "brand", "breadcrumbs"]
 
 Товар (content/products/*)
 type: ["product", "organization", "breadcrumbs"]
@@ -19,4 +19,14 @@ type: ["article", "organization", "brand", "breadcrumbs"]
 Contact (content/contact/index.md)
 type: ["organization", "breadcrumbs"]
 
-!!! а для страниц категорий какие type: нужны ?
+!!! уточнить а для страниц категорий какие type: нужны ?
+
+🧠 Рекомендуемый type для категорий
+🔹 Товары (каталог / категории)
+type: ["collection", "organization", "breadcrumbs"]
+
+🔹 Новости (листинг)
+type: ["collection", "organization", "breadcrumbs"]
+
+🔹 Статьи (блог)
+type: ["collection", "organization", "breadcrumbs"]
