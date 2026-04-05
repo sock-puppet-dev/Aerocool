@@ -11,19 +11,25 @@
   <img src="{{ $img.RelPermalink }}" alt="{{ $alt }}" class="{{ $class }}">
 {{- else }}
 
-{{/* ОДИН resize → максимально стабильно */}}
 {{- $resized := $img.Resize "1200x jpg" -}}
 
-<img
-  src="{{ $resized.RelPermalink }}"
-  width="{{ $resized.Width }}"
-  height="{{ $resized.Height }}"
-  alt="{{ $alt }}"
-  loading="eager"
-  decoding="async"
-  fetchpriority="high"
-  class="{{ $class }}"
-  style="aspect-ratio: {{ $resized.Width }} / {{ $resized.Height }};"
->
+<figure class="{{ $class }}">
+  <img
+    src="{{ $resized.RelPermalink }}"
+    width="{{ $resized.Width }}"
+    height="{{ $resized.Height }}"
+    alt="{{ $alt }}"
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+    style="aspect-ratio: {{ $resized.Width }} / {{ $resized.Height }};"
+  >
+
+  {{ with .Inner }}
+  <figcaption class="text-sm text-center">
+    {{ . | markdownify }}
+  </figcaption>
+  {{ end }}
+</figure>
 
 {{- end }}
