@@ -1,138 +1,29 @@
-{{- /*
-  =====================================================================
-  ULTIMATE SEO IMAGE SHORTCODE – HERO OPTIMIZED
-  Hugo v0.155.3+, PaperMod 8
-  Master source: PNG → AVIF / WebP / JPEG
-  LCP и CLS максимально оптимизированы
-  =====================================================================
-*/ -}}
-
 {{- $src := .Get "src" -}}
 {{- $alt := .Get "alt" | default "" -}}
-{{- $title := .Get "title" | default "" -}}
 {{- $class := .Get "class" | default "" -}}
-
-{{- $loading := .Get "loading" | default "eager" -}}             {{/* hero → eager */}}
-{{- $decoding := .Get "decoding" | default "async" -}}
-{{- $fetchpriority := .Get "fetchpriority" | default "high" -}}  {{/* hero → high */}}
-{{- $sizes := .Get "sizes" | default "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1200px" -}}
-{{- $preload := .Get "preload" | default true -}}                {{/* hero → true */}}
 
 {{- $img := .Page.Resources.GetMatch $src -}}
 {{- if not $img }}
-  {{- errorf "Image '%s' not found in Page Resources (%s)" $src .Page.File.Path -}}
+  {{- errorf "Image '%s' not found (%s)" $src .Page.File.Path -}}
 {{- end -}}
 
 {{- if eq $img.MediaType.SubType "svg" }}
   <img src="{{ $img.RelPermalink }}" alt="{{ $alt }}" class="{{ $class }}">
 {{- else }}
 
-{{/* 1. Конвертация PNG → AVIF / WebP / JPEG */}}
-{{- $avif_sm := $img.Resize "480x avif" -}}
-{{- $avif_md := $img.Resize "768x avif" -}}
-{{- $avif_lg := $img.Resize "1200x avif" -}}
+{{/* ОДИН resize → максимально стабильно */}}
+{{- $resized := $img.Resize "1200x jpg" -}}
 
-{{- $webp_sm := $img.Resize "480x webp" -}}
-{{- $webp_md := $img.Resize "768x webp" -}}
-{{- $webp_lg := $img.Resize "1200x webp" -}}
-
-{{- $jpeg_sm := $img.Resize "480x jpg" -}}
-{{- $jpeg_md := $img.Resize "768x jpg" -}}
-{{- $jpeg_lg := $img.Resize "1200x jpg" -}}
-
-{{/* 2. Primary image для CLS и preload → AVIF */}}
-{{- $primary := $avif_lg -}}
-{{- $width := $primary.Width -}}
-{{- $height := $primary.Height -}}
-
-{{/* 3. Preload hero (AVIF + WebP) */}}
-{{- if $preload }}
-<link
-  rel="preload"
-  as="image"
-  type="image/avif"
-  href="{{ $avif_lg.RelPermalink }}"
-  imagesrcset="
-    {{ $avif_sm.RelPermalink }} 480w,
-    {{ $avif_md.RelPermalink }} 768w,
-    {{ $avif_lg.RelPermalink }} 1200w
-  "
-  imagesizes="{{ $sizes }}"
+<img
+  src="{{ $resized.RelPermalink }}"
+  width="{{ $resized.Width }}"
+  height="{{ $resized.Height }}"
+  alt="{{ $alt }}"
+  loading="eager"
+  decoding="async"
+  fetchpriority="high"
+  class="{{ $class }}"
+  style="aspect-ratio: {{ $resized.Width }} / {{ $resized.Height }};"
 >
-<link
-  rel="preload"
-  as="image"
-  type="image/webp"
-  href="{{ $webp_lg.RelPermalink }}"
-  imagesrcset="
-    {{ $webp_sm.RelPermalink }} 480w,
-    {{ $webp_md.RelPermalink }} 768w,
-    {{ $webp_lg.RelPermalink }} 1200w
-  "
-  imagesizes="{{ $sizes }}"
->
-{{- end }}
 
-<figure class="figure {{ $class }}" itemscope itemtype="https://schema.org/ImageObject">
-<picture>
-
-  {{/* AVIF приоритет */}}
-  <source
-    type="image/avif"
-    srcset="
-      {{ $avif_sm.RelPermalink }} 480w,
-      {{ $avif_md.RelPermalink }} 768w,
-      {{ $avif_lg.RelPermalink }} 1200w
-    "
-    sizes="{{ $sizes }}"
-  >
-
-  {{/* WebP fallback для современных браузеров */}}
-  <source
-    type="image/webp"
-    srcset="
-      {{ $webp_sm.RelPermalink }} 480w,
-      {{ $webp_md.RelPermalink }} 768w,
-      {{ $webp_lg.RelPermalink }} 1200w
-    "
-    sizes="{{ $sizes }}"
-  >
-
-  {{/* JPEG fallback для старых браузеров */}}
-  <source
-    type="image/jpeg"
-    srcset="
-      {{ $jpeg_sm.RelPermalink }} 480w,
-      {{ $jpeg_md.RelPermalink }} 768w,
-      {{ $jpeg_lg.RelPermalink }} 1200w
-    "
-    sizes="{{ $sizes }}"
-  >
-
-  {{/* Основной IMG для CLS и LCP */}}
-  <img
-    src="{{ $primary.RelPermalink }}"
-    width="{{ $width }}"
-    height="{{ $height }}"
-    alt="{{ $alt }}"
-    {{ with $title }}title="{{ . }}"{{ end }}
-    loading="{{ $loading }}"
-    decoding="{{ $decoding }}"
-    fetchpriority="{{ $fetchpriority }}"
-    itemprop="contentUrl"
-    style="aspect-ratio: {{ $width }} / {{ $height }};"
-  >
-
-</picture>
-
-<meta itemprop="width" content="{{ $width }}">
-<meta itemprop="height" content="{{ $height }}">
-
-{{ with .Inner }}
-<figcaption class="mt-2 text-sm text-center text-muted" itemprop="caption">
-  {{ . | markdownify }}
-</figcaption>
-{{ end }}
-
-</figure>
 {{- end }}
