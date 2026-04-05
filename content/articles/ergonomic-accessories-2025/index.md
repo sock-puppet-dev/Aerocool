@@ -8,7 +8,7 @@ summary: "Повний гід по ергономічним аксесуарам
 type: ["article", "organization", "breadcrumbs"]
 ---
 {{< seo-image
-    src="1-front.jpg"
+    src="1-front.png"
     alt="Огляд ергономічних аксесуарів для робочого місця 2025 — комфорт та продуктивність"
     title="Ергономічні аксесуари 2025 — офіційний гід"
     class="w-full rounded-2xl shadow-xl my-6"

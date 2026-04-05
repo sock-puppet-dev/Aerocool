@@ -1,3 +1,15 @@
+article.gohtml+
+brand.gohtml+
+breadcrumbs.gohtml+
+collection.gohtml+
+faq.gohtml+
+news.gohtml+
+organization.gohtml+
+product.gohtml+
+webpage.gohtml+
+website.gohtml+
+jsonld.gohtml+
+
 Главная (content/_index.md)
 type: ["website", "organization", "brand", "breadcrumbs"]
 
@@ -19,14 +31,11 @@ type: ["article", "organization", "brand", "breadcrumbs"]
 Contact (content/contact/index.md)
 type: ["organization", "breadcrumbs"]
 
-!!! уточнить а для страниц категорий какие type: нужны ?
-
-🧠 Рекомендуемый type для категорий
-🔹 Товары (каталог / категории)
+Товары (каталог / категории)
 type: ["collection", "organization", "breadcrumbs"]
 
-🔹 Новости (листинг)
+Новости (листинг)
 type: ["collection", "organization", "breadcrumbs"]
 
-🔹 Статьи (блог)
+Статьи (блог)
 type: ["collection", "organization", "breadcrumbs"]

@@ -8,7 +8,7 @@ type: ["product", "organization", "breadcrumbs"]
 ---
 
 {{< seo-image
-    src="1-front.jpg"
+    src="1-front.png"
     alt="Игровое кресло Aerocool Duke — комфорт и эргономика"
     title="Aerocool Duke 2025 — официальный обзор"
     class="w-full rounded-2xl shadow-xl my-6"

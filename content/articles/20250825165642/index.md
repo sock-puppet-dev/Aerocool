@@ -8,7 +8,7 @@ summary: "Повний огляд Aerocool DUKE 2025: ергономіка, Tilt
 type: ["article", "organization", "breadcrumbs"]
 ---
 {{< seo-image
-    src="1-front.jpg"
+    src="1-front.png"
     alt="Огляд ігрового крісла Aerocool DUKE — комфорт та ергономіка"
     title="Aerocool DUKE 2025 — офіційний огляд"
     class="w-full rounded-2xl shadow-xl my-6"

@@ -8,7 +8,7 @@ type: ["product", "organization", "breadcrumbs"]
 ---
 
 {{< seo-image
-    src="1-front.jpg"
+    src="1-front.png"
     alt="Ігрове крісло Aerocool Baron Pro 2026 — комфорт та ергономіка"
     title="Aerocool Baron Pro 2026 — офіційний огляд"
     class="w-full rounded-2xl shadow-xl my-6"
