@@ -7,7 +7,7 @@
   # 1) Обновляем git-подмодули 2) Собираем Tailwind CSS  3) Собираем сайт Hugo с очисткой кэша и минификацией
 
 [build.environment]
-  HUGO_VERSION = "0.157.0"
+  HUGO_VERSION = "0.160.0"
   # Версия Hugo
   HUGO_ENV = "development"
   # Режим сборки Hugo ("development, production")
