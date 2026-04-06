@@ -1,7 +1,7 @@
 ---
 title: "Новости Aerocool"
 description: "Последние новости и обновления бренда Aerocool в Украине."
-type: ["collection", "organization", "breadcrumbs"]
+schema_types: ["collection", "organization", "breadcrumbs"]
 ---
 
 # Новости Aerocool

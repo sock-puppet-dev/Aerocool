@@ -4,7 +4,7 @@ slug: "contact"
 description: "Свяжитесь с официальным представителем Aerocool в Украине. Контактная информация, поддержка и консультации по игровым и офисным креслам."
 summary: "Контакты Aerocool Украина: адрес офиса, телефон, email поддержки и консультации по выбору кресел."
 lastmod: 2025-08-05T10:00:00+03:00
-type: ["organization", "breadcrumbs"]
+schema_types: ["organization", "breadcrumbs"]
 ---
 # Контакты Aerocool
 

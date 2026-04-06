@@ -1,0 +1,75 @@
+{{ $schemaTypes := .Params.schema_types | default (slice) }}
+{{ $hasBreadcrumbs := or (in $schemaTypes "breadcrumbs") (.Params.breadcrumbs) .IsHome (eq .Kind "section") (eq .Kind "taxonomy") (eq .Kind "term") }}
+{
+  "@type": "WebPage",
+  "@id": "{{ .Permalink | absURL }}#webpage",
+
+  "url": "{{ .Permalink | absURL }}",
+  "name": {{ .Title | jsonify }},
+
+  {{ with .Params.description }}
+  "description": {{ . | plainify | jsonify }},
+  {{ end }}
+
+  "isPartOf": {
+    "@id": "{{ .Site.BaseURL | absURL }}#website"
+  },
+
+  "about": {
+    "@id": "{{ .Site.BaseURL | absURL }}#organization"
+  },
+
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "{{ with (.Resources.GetMatch "*feature*") }}{{ .Permalink }}{{ else }}{{ "images/logo.svg" | absURL }}{{ end }}"
+  },
+
+  "inLanguage": "{{ .Site.Language.Lang }}",
+
+  {{ if $hasBreadcrumbs }}
+  "breadcrumb": {
+    "@id": "{{ .Permalink | absURL }}#breadcrumbs"
+  },
+  {{ end }}
+
+  {{/* ======================== TYPE-SPECIFIC LOGIC ======================== */}}
+
+  {{/* PRODUCT PAGE */}}
+  {{ if and .IsPage (in $schemaTypes "product") }}
+  "mainEntity": {
+    "@id": "{{ .Permalink | absURL }}#product"
+  },
+  {{ end }}
+
+  {{/* ARTICLE PAGE */}}
+  {{ if and .IsPage (in $schemaTypes "article") }}
+  "mainEntity": {
+    "@id": "{{ .Permalink | absURL }}#article"
+  },
+  {{ end }}
+
+  {{/* NEWS PAGE */}}
+  {{ if and .IsPage (in $schemaTypes "news") }}
+  "mainEntity": {
+    "@id": "{{ .Permalink | absURL }}#news"
+  },
+  {{ end }}
+
+  {{/* FAQ PAGE */}}
+  {{ if .Params.faq }}
+  "mainEntity": {
+    "@id": "{{ .Permalink | absURL }}#faq"
+  },
+  {{ end }}
+
+  {{/* COLLECTION PAGE */}}
+  {{ if or (in $schemaTypes "collection") (eq .Kind "section") (eq .Kind "taxonomy") }}
+  "mainEntity": {
+    "@id": "{{ .Permalink | absURL }}#collection"
+  },
+  {{ end }}
+
+  "publisher": {
+    "@id": "{{ .Site.BaseURL | absURL }}#organization"
+  }
+}

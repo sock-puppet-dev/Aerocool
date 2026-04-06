@@ -5,7 +5,7 @@ lastmod: 2025-08-25
 slug: "ohliad-aerocool-duke-2025"
 description: "Огляд Aerocool DUKE 2025: ергономіка, 3D підлокітники, Tilt‑механізм, підтримка спини та комфорт для ігор і офісу."
 summary: "Повний огляд Aerocool DUKE 2025: ергономіка, Tilt‑механізм та комфорт."
-type: ["article", "organization", "breadcrumbs"]
+schema_types: ["article", "organization", "breadcrumbs"]
 ---
 {{< seo-image
     src="1-front.png"

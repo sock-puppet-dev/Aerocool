@@ -1,0 +1,40 @@
+{
+  "@type": "CollectionPage",
+  "@id": "{{ .Permalink | absURL }}#collection",
+  "url": "{{ .Permalink | absURL }}",
+  "name": {{ .Title | jsonify }},
+  "description": {{ .Params.description | default .Summary | plainify | jsonify }},
+
+  "isPartOf": {
+    "@id": "{{ .Site.BaseURL | absURL }}#website"
+  },
+
+  "about": {
+    "@type": "Thing",
+    "name": {{ .Title | jsonify }}
+  },
+
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {{- $pages := .Pages -}}
+      {{- range $index, $p := $pages -}}
+      {
+        "@type": "ListItem",
+        "position": {{ add $index 1 }},
+        "url": "{{ $p.Permalink }}"
+      }{{ if ne (add $index 1) (len $pages) }},{{ end }}
+      {{- end -}}
+    ]
+  },
+
+  "breadcrumb": {
+    "@id": "{{ .Permalink | absURL }}#breadcrumbs"
+  },
+
+  "publisher": {
+    "@id": "{{ .Site.BaseURL | absURL }}#organization"
+  },
+
+  "inLanguage": "{{ .Site.Language.Lang }}"
+}

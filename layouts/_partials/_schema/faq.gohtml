@@ -1,0 +1,35 @@
+{{ if .Params.faq }}
+  {{ $faq := .Params.faq }}
+{
+  "@type": "FAQPage",
+  "@id": "{{ .Permalink | absURL }}#faq",
+
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ .Permalink | absURL }}"
+  },
+
+  "isPartOf": {
+    "@id": "{{ .Site.BaseURL | absURL }}#website"
+  },
+
+  "publisher": {
+    "@id": "{{ .Site.BaseURL | absURL }}#organization"
+  },
+
+  "inLanguage": "{{ .Site.Language.Lang }}",
+
+  "mainEntity": [
+    {{ range $index, $qa := $faq }}
+    {
+      "@type": "Question",
+      "name": {{ $qa.question | jsonify }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ $qa.answer | plainify | jsonify }}
+      }
+    }{{ if ne (add $index 1) (len $faq) }},{{ end }}
+    {{ end }}
+  ]
+}
+{{ end }}

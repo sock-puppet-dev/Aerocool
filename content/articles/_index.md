@@ -4,7 +4,7 @@ slug: "articles"
 description: "Експертні статті Aerocool: огляди ігрових та офісних крісел, поради з ергономіки, вибору крісла для роботи та геймінгу, актуальні моделі 2025 року."
 summary: "Експертні статті Aerocool про ігрові та офісні крісла, ергономіку робочого місця та правильний вибір крісла."
 lastmod: 2025-08-01
-type: ["collection", "organization", "breadcrumbs"]
+schema_types: ["collection", "organization", "breadcrumbs"]
 ---
 # Статті та огляди крісел Aerocool
 

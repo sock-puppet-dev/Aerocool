@@ -7,6 +7,6 @@ lastmod: 2026-03-19
 slug: "royal-leatherette"
 categories: ["royal"]
 tags: ["aerocool", "ігрове крісло", "leatherette"]
-type: ["product", "organization", "breadcrumbs"]
+schema_types: ["product", "organization", "breadcrumbs"]
 ---
 Aerocool Royal Leatherette — ергономічне крісло з підтримкою спини для тривалих ігрових та офісних сесій. Якісна шкірозамінна оббивка робить сидіння приємним на дотик та легко чиститься. Міцна рама та регульовані підлокітники забезпечують оптимальний комфорт. Дизайн крісла стильний та сучасний, підходить до будь-якого інтер’єру. Royal Leatherette — ідеальне рішення для тих, хто цінує здоров’я спини та функціональність.

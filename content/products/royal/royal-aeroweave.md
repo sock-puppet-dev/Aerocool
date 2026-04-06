@@ -7,6 +7,6 @@ lastmod: 2026-03-19
 slug: "royal-aeroweave"
 categories: ["royal"]
 tags: ["aerocool", "ігрове крісло", "aeroweave"]
-type: ["product", "organization", "breadcrumbs"]
+schema_types: ["product", "organization", "breadcrumbs"]
 ---
 Aerocool Royal Aeroweave — крісло для тривалих ігрових та робочих сесій з ергономічною спинкою і дихаючою оббивкою. Регульовані підлокітники та міцна конструкція забезпечують зручність. Легке та стильне, крісло вписується в сучасний інтер’єр. Aeroweave підтримує правильну поставу та запобігає перевантаженню спини, роблячи його оптимальним для геймерів та офісних користувачів.

@@ -4,7 +4,7 @@ description: "Aerocool Knight Iron Black — класичне ергономіч
 summary: "Knight поєднує стиль, класичний дизайн і комфорт для геймерів та офісних користувачів."
 date: 2026-03-19
 lastmod: 2026-03-19
-type: ["product", "organization", "breadcrumbs"]
+schema_types: ["product", "organization", "breadcrumbs"]
 slug: "knight-iron-black"
 categories: ["classic"]
 tags: ["aerocool", "ігрове крісло", "knight"]

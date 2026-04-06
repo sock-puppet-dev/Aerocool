@@ -1,113 +1,57 @@
-{{/*
-  layouts/_partials/_seo/jsonld.html
-
-  Главный сборщик JSON-LD Schema.org для всего сайта.
-  Здесь мы формируем единый @graph, состоящий из отдельных сущностей,
-  каждая из которых описана в своём partial в папке /_schema/.
-*/}}
-
-{{- /*
-  Инициализируем пустой slice.
-  Он будет содержать JSON-фрагменты (строки), которые позже
-  будут объединены в @graph без ручного контроля запятых.
-*/ -}}
 {{- $graph := slice -}}
 
-{{/* =========================================================
-     ГЛОБАЛЬНЫЕ СУЩНОСТИ (присутствуют на КАЖДОЙ странице)
-     Это фундамент SEO и E-E-A-T
-   ========================================================= */}}
-
-{{- /* WebSite:
-      Описывает сайт как сущность.
-      Используется Google для sitelinks и SearchAction.
-*/ -}}
+{{/* ======================== ГЛОБАЛЬНЫЕ СУЩНОСТИ ======================== */}}
 {{- $graph = $graph | append (partial "_schema/website.gohtml" .) -}}
-
-{{- /* Organization:
-      Юридический владелец сайта.
-      Ключевая сущность для доверия (E-E-A-T).
-*/ -}}
 {{- $graph = $graph | append (partial "_schema/organization.gohtml" .) -}}
-
-{{- /* Brand:
-      Отдельная сущность бренда.
-      Важно для Product, Merchant listings и knowledge graph.
-*/ -}}
 {{- $graph = $graph | append (partial "_schema/brand.gohtml" .) -}}
 
-{{- /* SearchAction:
-      Описывает поиск по сайту.
-      Подключается к WebSite и даёт Google search box в выдаче.
-*/ -}}
-{{- $graph = $graph | append (partial "_schema/searchaction.gohtml" .) -}}
+{{/* ======================== TYPES ======================== */}}
+{{- $schemaTypes := .Params.schema_types | default (slice) -}}
+{{- $hasBreadcrumbs := or (in $schemaTypes "breadcrumbs") (.Params.breadcrumbs) .IsHome (eq .Kind "section") (eq .Kind "taxonomy") (eq .Kind "term") -}}
 
-{{/* =========================================================
-     КОНТЕНТНЫЕ СУЩНОСТИ (зависят от типа страницы)
-   ========================================================= */}}
+{{/* ======================== КОНТЕНТНЫЕ СУЩНОСТИ ======================== */}}
 
-{{- /*
-  Если страница находится в разделе "news",
-  используем NewsArticle (строже, чем Article).
-  Google требует применять его ТОЛЬКО к новостям.
-*/ -}}
-{{- if eq .Section "news" -}}
+{{/* NEWS */}}
+{{- if and .IsPage (in $schemaTypes "news") -}}
   {{- $graph = $graph | append (partial "_schema/news.gohtml" .) -}}
+{{- end -}}
 
-{{- /*
-  Иначе, если это обычная контентная страница,
-  используем стандартный Article:
-  блог, обзор, гайд, SEO-статья и т.д.
-*/ -}}
-{{- else if .IsPage -}}
+{{/* ARTICLE */}}
+{{- if and .IsPage (in $schemaTypes "article") -}}
   {{- $graph = $graph | append (partial "_schema/article.gohtml" .) -}}
 {{- end -}}
 
-{{/* =========================================================
-     КОММЕРЧЕСКИЕ И RICH-RESULT СУЩНОСТИ
-   ========================================================= */}}
-
-{{- /*
-  Product добавляется ТОЛЬКО если в front matter есть Params.product.
-  Это защищает от _schema-спама и ошибок в Google Rich Results.
-*/ -}}
-{{- if .Params.product -}}
+{{/* PRODUCT */}}
+{{- if and .IsPage (in $schemaTypes "product") -}}
   {{- $graph = $graph | append (partial "_schema/product.gohtml" .) -}}
 {{- end -}}
 
-{{- /*
-  FAQPage добавляется только при реальном наличии FAQ-блока.
-  Это критично для соответствия Google FAQ guidelines.
-*/ -}}
-{{- if .Params.faq -}}
+{{/* ======================== СПЕЦИАЛЬНЫЕ СУЩНОСТИ ======================== */}}
+
+{{/* FAQ */}}
+{{- if or (in $schemaTypes "faq") (.Params.faq) -}}
   {{- $graph = $graph | append (partial "_schema/faq.gohtml" .) -}}
 {{- end -}}
 
-{{- /*
-  BreadcrumbList добавляется, если страница участвует в иерархии.
-  Помогает Google понять структуру сайта и улучшает сниппеты.
-*/ -}}
-{{- if .Params.breadcrumbs -}}
+{{/* BREADCRUMBS */}}
+{{- if $hasBreadcrumbs -}}
   {{- $graph = $graph | append (partial "_schema/breadcrumbs.gohtml" .) -}}
 {{- end -}}
 
-{{/* =========================================================
-     ФИНАЛЬНЫЙ ВЫВОД JSON-LD
-   ========================================================= */}}
+{{/* COLLECTION (категории / списки) */}}
+{{- if or (in $schemaTypes "collection") (eq .Kind "section") (eq .Kind "taxonomy") -}}
+  {{- $graph = $graph | append (partial "_schema/collection.gohtml" .) -}}
+{{- end -}}
 
-<script type="application/ld+json">
-{
+{{/* WEBPAGE */}}
+{{- $graph = $graph | append (partial "_schema/webpage.gohtml" .) -}}
+
+{{/* ======================== ФИНАЛЬНЫЙ ВЫВОД ======================== */}}
+
+{{- $graphJSON := delimit $graph "," -}}
+{{- $jsonld := printf `{
   "@context": "https://schema.org",
+  "@graph": [%s]
+}` $graphJSON -}}
 
-  {{/*
-    @graph собирается автоматически:
-    - delimit расставляет запятые
-    - исключает синтаксические ошибки
-    - гарантирует валидный JSON
-  */}}
-  "@graph": [
-    {{- delimit $graph "," -}}
-  ]
-}
-</script>
-
+{{- printf `<script type="application/ld+json">%s</script>` $jsonld | safeHTML -}}

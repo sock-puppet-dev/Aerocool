@@ -1,85 +1,38 @@
-{{/*
-Schema.org: WebSite
-────────────────────────────────────────────
-Глобальная сущность сайта.
-Используется Google для:
-- понимания сайта как целого
-- sitelinks
-- search box (SearchAction)
-
-Подключается ОДИН раз:
-обычно в <head>, вместе с Organization
-*/}}
-
-<script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
+  "@type": "WebSite",
+  "@id": "{{ .Site.BaseURL | absURL }}#website",
+  "url": "{{ .Site.BaseURL | absURL }}",
+  "name": {{ .Site.Title | jsonify }},
 
-      {{/* Уникальный ID сущности WebSite */}}
-      "@id": "{{ .Site.BaseURL }}#website",
+  {{ with .Site.Params.alternateName }}
+  "alternateName": {{ . | jsonify }},
+  {{ end }}
 
-      {{/* Канонический URL сайта */}}
-      "url": "{{ .Site.BaseURL }}",
+  {{ with .Site.Params.description }}
+  "description": {{ . | jsonify }},
+  {{ end }}
 
-      {{/* Название сайта (brand / project name) */}}
-      "name": {{ .Site.Title | jsonify }},
+  "inLanguage": "{{ .Site.Language.Lang }}",
+  "isFamilyFriendly": true,
 
-      {{/* Альтернативное имя (необязательно, но полезно для брендов) */}}
-      {{ with .Site.Params.alternateName }}
-      "alternateName": {{ . | jsonify }},
-      {{ end }}
+  "image": {
+    "@type": "ImageObject",
+    "@id": "{{ .Site.BaseURL | absURL }}#logo",
+    "url": "{{ "images/logo.svg" | absURL }}"
+  },
 
-      {{/* Общее описание сайта */}}
-      {{ with .Site.Params.description }}
-      "description": {{ . | jsonify }},
-      {{ end }}
+  "publisher": {
+    "@type": "Organization",
+    "@id": "{{ .Site.BaseURL | absURL }}#organization"
+  },
 
-      {{/* Основной язык сайта */}}
-      "inLanguage": "{{ .Site.Language.Lang }}",
-
-      {{/* Безопасный контент (важно для trust-сигналов) */}}
-      "isFamilyFriendly": true,
-
-      {{/* Издатель сайта — Organization */}}
-      "publisher": {
-        "@id": "{{ .Site.BaseURL }}#organization"
-      },
-
-      {{/* Социальные профили (повышают E-E-A-T) */}}
-      {{ with .Site.Params.sameAs }}
-      "sameAs": [
-        {{- range $index, $item := . -}}
-          {{- if $index }},{{ end }}
-          {{ $item | jsonify }}
-        {{- end -}}
-      ],
-      {{ end }}
-
-      {{/* SearchAction — включает sitelinks search box в Google */}}
-      "potentialAction": [
-        {
-          "@type": "SearchAction",
-          "target": {
-            "@type": "EntryPoint",
-
-            {{/*
-            urlTemplate:
-            Обязательно должен быть реальный URL поиска
-            */}}
-            "urlTemplate": "{{ .Site.BaseURL }}{{ .Site.LanguagePrefix }}search?q={search_term_string}"
-          },
-
-          {{/*
-          query-input — ОБЯЗАТЕЛЬНО
-          Без него Google игнорирует SearchAction
-          */}}
-          "query-input": "required name=search_term_string"
-        }
-      ]
-    }
-  ]
+  "potentialAction": {
+    "@type": "SearchAction",
+    "@id": "{{ .Site.BaseURL | absURL }}#search",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "{{ "search" | absLangURL }}?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
 }
-</script>

@@ -1,0 +1,51 @@
+{{ $schemaTypes := .Params.schema_types | default (slice) }}
+{{ if and .IsPage (in $schemaTypes "news") }}
+
+{
+  "@type": "NewsArticle",
+  "@id": "{{ .Permalink | absURL }}#news",
+  "mainEntityOfPage": "{{ .Permalink | absURL }}",
+
+  "headline": {{ .Title | jsonify }},
+  "description": {{ .Params.description | default .Summary | plainify | jsonify }},
+
+  {{ $images := .Resources.Match "*.{png,jpg,jpeg}" }}
+  "image": [
+    {{ if gt (len $images) 0 }}
+      {{ range $index, $img := $images }}
+        "{{ $img.Permalink }}"{{ if ne (add $index 1) (len $images) }},{{ end }}
+      {{ end }}
+    {{ else }}
+      "{{ "images/default-news.png" | absURL }}"
+    {{ end }}
+  ],
+
+  "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+  "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+
+  "author": {
+    "@type": "Organization",
+    "@id": "{{ .Site.BaseURL | absURL }}#organization"
+  },
+
+  "publisher": {
+    "@type": "Organization",
+    "@id": "{{ .Site.BaseURL | absURL }}#organization",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ "images/logo.svg" | absURL }}"
+    }
+  },
+
+  "inLanguage": "{{ .Site.Language.Lang }}",
+  "isAccessibleForFree": true,
+  "articleSection": "{{ .Section }}",
+
+  {{ with .Params.tags }}
+  "keywords": {{ . | jsonify }},
+  {{ end }}
+
+  "wordCount": "{{ .WordCount }}",
+  "timeRequired": "PT{{ .ReadingTime }}M"
+}
+{{ end }}

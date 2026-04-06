@@ -1,7 +1,7 @@
 ---
 title: "О компании Aerocool"
 description: "Узнайте больше про бренд Aerocool — официальный бренд в Украине, специализирующийся на эргономичных игровых и офисных креслах. Комфорт, качество и гарантия."
-type: ["article", "organization", "brand", "breadcrumbs"]
+schema_types: ["organization", "brand", "breadcrumbs"]
 ---
 
 ## О бренде Aerocool

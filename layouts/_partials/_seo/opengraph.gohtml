@@ -1,0 +1,33 @@
+{{ $title := .Title | default .Site.Title }}
+{{ $description := .Params.description | default .Summary | plainify }}
+{{ $url := .Permalink | absURL }}
+{{ $schemaTypes := .Params.schema_types | default (slice) }}
+{{ $ogType := "website" }}
+{{ $image := "images/logo.svg" | absURL }}
+
+{{ with .Params.image }}
+  {{ $src := . }}
+  {{ with $.Resources.GetMatch $src }}
+    {{ $image = .Permalink }}
+  {{ else }}
+    {{ if or (hasPrefix $src "http://") (hasPrefix $src "https://") }}
+      {{ $image = $src }}
+    {{ else }}
+      {{ $image = $src | absURL }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ if and .IsPage (in $schemaTypes "product") }}
+  {{ $ogType = "product" }}
+{{ else if and .IsPage (or (in $schemaTypes "article") (in $schemaTypes "news")) }}
+  {{ $ogType = "article" }}
+{{ end }}
+
+<meta property="og:type" content="{{ $ogType }}" />
+<meta property="og:title" content="{{ $title }}" />
+<meta property="og:description" content="{{ $description }}" />
+<meta property="og:image" content="{{ $image }}" />
+<meta property="og:url" content="{{ $url }}" />
+<meta property="og:site_name" content="{{ .Site.Title }}" />
+<meta property="og:locale" content="{{ .Site.Language.Lang }}" />

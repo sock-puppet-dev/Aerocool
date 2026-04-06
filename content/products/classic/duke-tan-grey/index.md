@@ -4,7 +4,7 @@ description: "Aerocool Duke Tan Grey — класичне ергономічне
 summary: "Duke поєднує комфорт, здоров’я та класичний дизайн для геймерів і офісних користувачів."
 date: 2026-03-19
 lastmod: 2026-03-19
-type: ["product", "organization", "breadcrumbs"]
+schema_types: ["product", "organization", "breadcrumbs"]
 slug: "duke-tan-grey"
 categories: ["classic"]
 tags: ["aerocool", "ігрове крісло", "duke"]

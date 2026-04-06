@@ -1,0 +1,24 @@
+{{ $title := .Title | default .Site.Title }}
+{{ $description := .Params.description | default .Summary | plainify }}
+{{ $url := .Permalink | absURL }}
+{{ $image := "images/logo.svg" | absURL }}
+
+{{ with .Params.image }}
+  {{ $src := . }}
+  {{ with $.Resources.GetMatch $src }}
+    {{ $image = .Permalink }}
+  {{ else }}
+    {{ if or (hasPrefix $src "http://") (hasPrefix $src "https://") }}
+      {{ $image = $src }}
+    {{ else }}
+      {{ $image = $src | absURL }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ $title }}" />
+<meta name="twitter:description" content="{{ $description }}" />
+<meta name="twitter:image" content="{{ $image }}" />
+<meta name="twitter:url" content="{{ $url }}" />
+<meta name="twitter:site" content="@AerocoolGlobal" />

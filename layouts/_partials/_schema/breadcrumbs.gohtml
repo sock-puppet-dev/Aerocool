@@ -1,0 +1,62 @@
+{{ $homeName := cond (eq .Site.Language.Lang "ru") "Главная" "Головна" }}
+{
+  "@type": "BreadcrumbList",
+  "@id": "{{ .Permalink | absURL }}#breadcrumbs",
+
+  "name": "Breadcrumbs",
+
+  "mainEntityOfPage": {
+    "@id": "{{ .Permalink | absURL }}"
+  },
+
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": {{ $homeName | jsonify }},
+      "item": {
+        "@id": "{{ .Site.BaseURL | absURL }}"
+      }
+    }
+
+    {{ $position := 2 }}
+
+    {{/* Собираем цепочку секций */}}
+    {{ $sections := slice }}
+    {{ with .CurrentSection }}
+      {{ $s := . }}
+      {{ range $s.Ancestors.Reverse }}
+        {{ if not .IsHome }}
+          {{ $sections = $sections | append . }}
+        {{ end }}
+      {{ end }}
+      {{ if not $s.IsHome }}
+        {{ $sections = $sections | append $s }}
+      {{ end }}
+    {{ end }}
+
+    {{ range $sections }}
+    ,{
+      "@type": "ListItem",
+      "position": {{ $position }},
+      "name": {{ .Title | jsonify }},
+      "item": {
+        "@id": "{{ .Permalink | absURL }}"
+      }
+    }
+    {{ $position = add $position 1 }}
+    {{ end }}
+
+    {{/* Текущая страница */}}
+    {{ if and (not .IsHome) (or (not .CurrentSection) (ne .CurrentSection.Permalink .Permalink)) }}
+    ,{
+      "@type": "ListItem",
+      "position": {{ $position }},
+      "name": {{ .Title | jsonify }},
+      "item": {
+        "@id": "{{ .Permalink | absURL }}"
+      }
+    }
+    {{ end }}
+  ]
+}

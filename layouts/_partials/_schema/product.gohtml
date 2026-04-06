@@ -1,0 +1,53 @@
+{{ $schemaTypes := .Params.schema_types | default (slice) }}
+{{ if and .IsPage (in $schemaTypes "product") }}
+{
+  "@type": "Product",
+  "@id": "{{ .Permalink | absURL }}#product",
+  "name": {{ .Title | jsonify }},
+
+  {{ $images := .Resources.Match "*.{png,jpg,jpeg}" }}
+  "image": [
+    {{ if gt (len $images) 0 }}
+      {{ range $index, $img := $images }}
+        "{{ $img.Permalink }}"{{ if ne (add $index 1) (len $images) }},{{ end }}
+      {{ end }}
+    {{ else }}
+      "{{ "images/default-product.png" | absURL }}"
+    {{ end }}
+  ],
+
+  "description": {{ .Params.description | plainify | jsonify }},
+
+  "sku": {{ .Params.sku | default "" | jsonify }},
+
+  "brand": {
+    "@id": "https://aerocool.io/#brand"
+  },
+
+  "offers": {
+    "@type": "Offer",
+    "url": "{{ .Permalink | absURL }}",
+    "priceCurrency": "UAH",
+    "price": {{ .Params.price | default 0 }},
+    "availability": "https://schema.org/{{ .Params.availability | default "InStock" }}",
+    "itemCondition": "https://schema.org/NewCondition",
+
+    "seller": {
+      "@type": "Organization",
+      "@id": "{{ .Site.BaseURL | absURL }}#organization"
+    },
+
+    {{ $today := now }}
+    {{ $nextYear := add ($today.Year) 1 }}
+    "priceValidUntil": "{{ .Params.priceValidUntil | default (printf "%d-12-31" $nextYear) }}"
+  }
+
+  {{ with .Params.rating }},
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "{{ .value }}",
+    "reviewCount": "{{ .count }}"
+  }
+  {{ end }}
+}
+{{ end }}
