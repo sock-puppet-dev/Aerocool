@@ -1,5 +1,6 @@
 # собранный сайт — не хранится в git
 public/
+public-dev/
 # кеш Hugo (оптимизированные изображения, fingerprint CSS/JS)
 resources/_gen/
 # IDE (PyCharm)
