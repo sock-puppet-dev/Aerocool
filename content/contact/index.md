@@ -52,7 +52,7 @@ schema_types: ["organization", "breadcrumbs"]
 
 ## Каталог крісел Aerocool
 
-👉 Перейдіть до [каталогу крісел Aerocool](/uk/products/) для детального вибору моделей.
+👉 Перейдіть до [каталогу крісел Aerocool](/products/) для детального вибору моделей.
 
 ---
 

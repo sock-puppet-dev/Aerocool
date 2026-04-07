@@ -3,20 +3,7 @@
 {{ $url := .Permalink | absURL }}
 {{ $schemaTypes := .Params.schema_types | default (slice) }}
 {{ $ogType := "website" }}
-{{ $image := "images/logo.svg" | absURL }}
-
-{{ with .Params.image }}
-  {{ $src := . }}
-  {{ with $.Resources.GetMatch $src }}
-    {{ $image = .Permalink }}
-  {{ else }}
-    {{ if or (hasPrefix $src "http://") (hasPrefix $src "https://") }}
-      {{ $image = $src }}
-    {{ else }}
-      {{ $image = $src | absURL }}
-    {{ end }}
-  {{ end }}
-{{ end }}
+{{ $image := partial "_helpers/page-image.gohtml" . }}
 
 {{ if and .IsPage (in $schemaTypes "product") }}
   {{ $ogType = "product" }}

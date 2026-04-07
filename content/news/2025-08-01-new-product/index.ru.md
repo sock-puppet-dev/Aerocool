@@ -47,7 +47,7 @@ schema_types: ["news", "organization", "breadcrumbs"]
 
 Перейдите по ссылке, чтобы узнать детали, сравнить комплектации и оформить заказ:
 
-➡️ [Aerocool Baron Pro 2026 — подробности и покупка](/ru/products/baron-pro-2026/)
+➡️ [Перейти в каталог кресел Aerocool](/ru/products/)
 
 ---
 

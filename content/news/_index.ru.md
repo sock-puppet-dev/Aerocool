@@ -25,7 +25,7 @@ ABC
 
 ## Подписка на новости
 
-Не пропустите важное — [оформите подписку](/ru/subscribe/) или следите за нами в [Instagram](https://www.instagram.com/aerocool_global/).
+Не пропустите важное — следите за нами в [Instagram](https://www.instagram.com/aerocool_global/) или [свяжитесь с нами](/ru/contact/).
 
 ---
 

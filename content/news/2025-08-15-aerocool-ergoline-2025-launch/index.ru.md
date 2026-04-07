@@ -30,7 +30,7 @@ Aerocool представляет обновленную серию **ErgoLine 2
 
 ---
 
-[Подробнее и заказать →](/ru/products/aerocool-ergoline-2025/)
+[Перейти в каталог кресел →](/ru/products/)
 
 ---
 
