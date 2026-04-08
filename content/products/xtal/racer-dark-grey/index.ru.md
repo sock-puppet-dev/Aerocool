@@ -19,7 +19,7 @@ rating:
 ---
 
 {{< seo-image 
-  src="xtal-racer-dark-grey.png"
+  src="racer-dark-grey.png"
   width="1920"
   height="1080"
   alt="Игровое кресло Aerocool XTAL Racer Dark Grey — эргономичное кресло с синхронным механизмом, 3D подлокотниками и премиальными материалами"
