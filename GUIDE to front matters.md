@@ -60,30 +60,6 @@ content/
     │   ├── royal-leatherette.md
     │   ├── royal-aeroweave.md
     │   └── royal-aerosuede.md
-    │
-    ├── crown-plus/
-    │   ├── _index.md
-    │   ├── crown-plus-aeroweave.md
-    │   ├── crown-plus-leatherette.md
-    │   └── crown-plus-aerosuede.md
-    │
-    ├── crown/
-    │   ├── _index.md
-    │   ├── crown-aeroweave.md
-    │   ├── crown-leatherette.md
-    │   └── crown-aerosuede.md
-    │
-    ├── other/
-    │   ├── _index.md
-    │   ├── admiral.md
-    │   └── guardian.md
-    │
-    ├── lite/
-    │   ├── _index.md
-    │   ├── knight-lite.md
-    │   ├── duke-lite.md
-    │   └── baron-lite.md
-    │
     ├── classic/
     │   ├── _index.md
     │   ├── knight.md
@@ -91,26 +67,3 @@ content/
     │   ├── duke.md
     │   ├── count.md
     │   └── baron.md
-    │
-    ├── air/
-    │   ├── _index.md
-    │   ├── ac50c-air.md
-    │   ├── ac110-air.md
-    │   ├── ac100-air.md
-    │   ├── ac40c-air.md
-    │   ├── ac80c-air.md
-    │   ├── ac120-air.md
-    │   ├── ac220-air.md
-    │   ├── ac120-air-rgb.md
-    │   ├── ac220-air-rgb.md
-    │   └── ac60c-air.md
-    │
-    ├── aero/
-    │   ├── _index.md
-    │   ├── aero-2-alpha.md
-    │   └── aero-1-alpha.md
-    │
-    └── p7/
-        ├── _index.md
-        ├── p7-gc1-air.md
-        └── p7-gc1-air-rgb.md

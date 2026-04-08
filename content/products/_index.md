@@ -1,6 +1,6 @@
 ---
 title: "Всі ігрові та офісні крісла Aerocool в Україні"
-description: "Огляд всіх моделей ігрових та офісних крісел Aerocool: Royal, Crown, Lite, Classic, Air, Aero, P7 та інші."
+description: "Огляд всіх моделей ігрових та офісних крісел Aerocool: WING, XTAL, SKY та інші."
 date: 2026-03-19
 lastmod: 2026-03-19
 summary: "Купуйте ігрові та офісні крісла Aerocool в Україні. Підбірка всіх моделей та серій."

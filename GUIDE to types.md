@@ -11,31 +11,31 @@ website.gohtml+
 jsonld.gohtml+
 
 Главная (content/_index.md)
-type: ["website", "organization", "brand", "breadcrumbs"]
+schema_type: ["website", "organization", "brand", "breadcrumbs"]
 
 Товар (content/products/*)
-type: ["product", "organization", "breadcrumbs"]
+schema_type: ["product", "organization", "breadcrumbs"]
 
 Новости (content/news/*)
-type: ["news", "organization", "breadcrumbs"]
+schema_type: ["news", "organization", "breadcrumbs"]
 
 Статьяи (content/articles/*)
-type: ["article", "organization", "breadcrumbs"]
+schema_type: ["article", "organization", "breadcrumbs"]
 
 FAQ (content/faq/*)
-type: ["faq", "organization", "breadcrumbs"]
+schema_type: ["faq", "organization", "breadcrumbs"]
 
-About / История (content/about/index.md)
-type: ["article", "organization", "brand", "breadcrumbs"]
+About (content/about/index.md)
+schema_type: [, "organization", "brand", "breadcrumbs"]
 
 Contact (content/contact/index.md)
-type: ["organization", "breadcrumbs"]
+schema_type: ["organization", "breadcrumbs"]
 
 Товары (каталог / категории)
-type: ["collection", "organization", "breadcrumbs"]
+schema_type: ["collection", "organization", "breadcrumbs"]
 
 Новости (листинг)
-type: ["collection", "organization", "breadcrumbs"]
+schema_type: ["collection", "organization", "breadcrumbs"]
 
 Статьи (блог)
-type: ["collection", "organization", "breadcrumbs"]
+schema_type: ["collection", "organization", "breadcrumbs"]
