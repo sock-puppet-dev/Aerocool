@@ -5,6 +5,7 @@ date: 2026-03-19
 lastmod: 2026-03-19
 summary: "Обзор всех моделей Aerocool XTAL: характеристики, отличия и цвета."
 slug: "xtal"
+schema_types: ["collection", "organization", "breadcrumbs"]
 ---
 
 # Aerocool XTAL — инновационная серия игровых кресел

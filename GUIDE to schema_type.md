@@ -1,14 +1,14 @@
-article.gohtml+
-brand.gohtml+
-breadcrumbs.gohtml+
-collection.gohtml+
-faq.gohtml+
-news.gohtml+
-organization.gohtml+
-product.gohtml+
-webpage.gohtml+
-website.gohtml+
-jsonld.gohtml+
+article.gohtml
+brand.gohtml
+breadcrumbs.gohtml
+collection.gohtml
+faq.gohtml
+news.gohtml
+organization.gohtml
+product.gohtml
+webpage.gohtml
+website.gohtml
+jsonld.gohtml
 
 Главная (content/_index.md)
 schema_type: ["website", "organization", "brand", "breadcrumbs"]
@@ -26,7 +26,7 @@ FAQ (content/faq/*)
 schema_type: ["faq", "organization", "breadcrumbs"]
 
 About (content/about/index.md)
-schema_type: [, "organization", "brand", "breadcrumbs"]
+schema_type: ["organization", "brand", "breadcrumbs"]
 
 Contact (content/contact/index.md)
 schema_type: ["organization", "breadcrumbs"]
