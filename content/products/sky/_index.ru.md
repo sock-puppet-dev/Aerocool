@@ -6,6 +6,7 @@ lastmod: 2026-03-19
 summary: "Aerocool SKY — серия кресел от базового комфорта до расширенной эргономики."
 slug: "sky"
 schema_types: ["collection", "organization", "breadcrumbs"]
+image: "cover.webp"
 ---
 
 # Aerocool SKY — универсальная серия игровых кресел

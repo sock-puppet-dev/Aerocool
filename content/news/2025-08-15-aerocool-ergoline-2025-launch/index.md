@@ -5,6 +5,7 @@ date: 2025-08-15T10:00:00+03:00
 lastmod: 2025-08-15T10:00:00+03:00
 slug: "ergoline-2025"
 schema_types: ["news", "organization", "breadcrumbs"]
+image: "cover.webp"
 ---
 
 # Новий рівень комфорту: серія офісних крісел Aerocool ErgoLine 2025

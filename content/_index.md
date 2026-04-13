@@ -4,6 +4,7 @@ description: "Офіційний сайт Aerocool в Україні. Ергон
 date: 2026-03-19
 lastmod: 2026-03-19
 schema_types: ["website", "organization", "brand", "breadcrumbs"]
+image: "cover.webp"
 ---
 
 # Aerocool — ігрові та офісні крісла в Україні

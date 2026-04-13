@@ -6,6 +6,7 @@ lastmod: 2026-03-19
 summary: "Серия Aerocool WING — комфортные игровые кресла для работы и гейминга."
 slug: "wing"
 schema_types: ["collection", "organization", "breadcrumbs"]
+image: "cover.webp"
 ---
 
 # Aerocool WING — современная серия игровых кресел

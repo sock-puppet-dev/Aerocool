@@ -6,6 +6,7 @@ slug: "obzor-aerocool-duke-2025"
 description: "Обзор Aerocool DUKE 2025: эргономика, 3D подлокотники, Tilt-механизм, поддержка спины и комфорт для игр и офиса."
 summary: "Полный обзор Aerocool DUKE 2025: эргономика, Tilt-механизм и комфорт."
 schema_types: ["article", "organization", "breadcrumbs"]
+image: "1-front.png"
 ---
 {{< seo-image
     src="1-front.png"

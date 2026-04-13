@@ -6,6 +6,7 @@ slug: "ergonomichnye-aksessuary-2025"
 description: "Обзор лучших эргономичных аксессуаров 2025 года: подставки, лампы, коврики, органайзеры и другие решения для здорового офиса."
 summary: "Полный гид по эргономичным аксессуарам 2025 года: комфорт и продуктивность на рабочем месте."
 schema_types: ["article", "organization", "breadcrumbs"]
+image: "1-front.png"
 ---
 {{< seo-image
     src="1-front.png"

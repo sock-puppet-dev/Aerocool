@@ -5,6 +5,7 @@ title: ""          		# Название сайта/главной страниц
 description: ""    		# Короткое описание сайта, включая ключевые слова
 date: 2026-03-19   		# Дата публикации (можно текущую)
 lastmod: 2026-03-19 	# Дата последнего изменения
+image: "cover.webp"     # Картинка обложки
 schema_types: ["website", "organization", "brand", "breadcrumbs"] # Тип, необходим чтобы срабатывал скрипт JSON-LD
 ---
 
@@ -15,6 +16,7 @@ title: ""          		# Заголовок страницы
 description: ""    		# Описание страницы
 date: 2026-03-19   		# Дата создания
 lastmod: 2026-03-19 	# Дата последнего обновления
+image: "cover.webp"     # Картинка обложки
 schema_types: ["organization", "brand", "breadcrumbs"] # Тип, необходим чтобы срабатывал скрипт JSON-LD
 ---
 
@@ -26,6 +28,7 @@ description: ""    		# Краткое описание списка
 date: 2026-03-19		# Дата создания
 lastmod: 2026-03-19		# Дата последнего обновления
 summary: ""        		# Краткая версия для анонса (статьи или новости)
+image: "cover.webp"     # Картинка обложки
 schema_types: ["collection", "organization", "breadcrumbs"] # Тип, необходим чтобы срабатывал скрипт JSON-LD
 ---
 
@@ -40,6 +43,7 @@ lastmod: 2026-03-19 	# Дата последнего обновления
 slug: ""           		# Контролируемый URL, короткий и понятный
 categories: [""]   		# Категории (например, "royal", "releases")
 tags: [""]         		# Теги для фильтрации и навигации
+image: "cover.webp"     # Картинка обложки
 schema_type: ["article", "organization", "breadcrumbs"]     # Тип, необходим чтобы срабатывал скрипт JSON-LD
 ---
 
@@ -54,6 +58,7 @@ lastmod: 2026-03-19 	                                # Дата последне
 slug: ""           		                                # Контролируемый URL, короткий и понятный
 categories: [""]   		                                # Категории (например, "royal", "releases")
 tags: [""]         		                                # Теги для фильтрации и навигации
+image: "cover.webp"     # Картинка обложки
 schema_type: ["news", "organization", "breadcrumbs"]    # Тип, необходим чтобы срабатывал скриптов JSON-LD
 ---
 
@@ -88,6 +93,7 @@ summary: "FAQ щодо крісел Aerocool: гарантія, доставка
 lastmod: 2025-08-05T10:00:00+03:00
 slug: "faq"
 schema_type: ["faq", "organization", "breadcrumbs"]
+image: "cover.webp"     # Картинка обложки
 faq:
   - question: "Як обрати ідеальне крісло для геймерів?"
     answer: "Для вибору геймерського крісла звертайте увагу на ергономіку, матеріали та налаштування висоти і спинки."

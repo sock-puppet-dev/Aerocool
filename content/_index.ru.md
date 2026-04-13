@@ -4,6 +4,7 @@ description: "Официальный сайт Aerocool в Украине. Эрг
 date: 2026-03-19
 lastmod: 2026-03-19
 schema_types: ["website", "organization", "brand", "breadcrumbs"]
+image: "cover.webp"
 ---
 
 # Aerocool — игровые и офисные кресла в Украине

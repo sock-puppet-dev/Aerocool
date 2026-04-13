@@ -5,6 +5,7 @@ description: "Зв'яжіться з офіційним представнико
 summary: "Контакти Aerocool Україна: адреса офісу, телефон, email підтримки та консультації щодо вибору крісел."
 lastmod: 2025-08-05T10:00:00+03:00
 schema_types: ["organization", "breadcrumbs"]
+image: "cover.webp"
 ---
 # Контакти Aerocool
 

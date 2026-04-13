@@ -5,6 +5,7 @@ date: 2026-03-19
 lastmod: 2026-03-19
 summary: "Купуйте ігрові та офісні крісла Aerocool в Україні. Підбірка всіх моделей та серій."
 schema_types: ["collection", "organization", "breadcrumbs"]
+image: "cover.webp"
 ---
 
 # Каталог крісел Aerocool

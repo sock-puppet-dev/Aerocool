@@ -1,6 +1,7 @@
 ---
 title: "Про компанію Aerocool"
 description: "Дізнайтеся більше про бренд Aerocool — офіційний бренд в Україні, що спеціалізується на ергономічних ігрових та офісних кріслах. Комфорт, якість та гарантія."
+image: "cover.webp"
 schema_types: ["organization", "brand", "breadcrumbs"]
 ---
 

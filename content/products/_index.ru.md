@@ -5,6 +5,7 @@ date: 2026-03-19
 lastmod: 2026-03-19
 summary: "Купите игровые и офисные кресла Aerocool в Украине. Подборка всех моделей и серий."
 schema_types: ["collection", "organization", "breadcrumbs"]
+image: "cover.webp"
 ---
 
 # Каталог кресел Aerocool
