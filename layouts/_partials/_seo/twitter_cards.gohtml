@@ -1,6 +1,6 @@
-{{ $title := .Title | default .Site.Title }}
+{{ $title := partial "page-title.gohtml" . }}
 {{ $description := partial "page-description.gohtml" . }}
-{{ $url := .Permalink | absURL }}
+{{ $url := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) }}
 {{ $image := partial "page-image.gohtml" . }}
 
 <meta name="twitter:card" content="summary_large_image" />

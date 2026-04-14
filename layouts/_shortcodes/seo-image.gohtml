@@ -1,6 +1,17 @@
 {{- $src := .Get "src" -}}
 {{- $alt := .Get "alt" | default "" -}}
+{{- $title := .Get "title" | default "" -}}
+{{- $pageLanguage := partial "page-language.gohtml" .Page -}}
 {{- $class := .Get "class" | default "" -}}
+{{- $loading := .Get "loading" | default "lazy" -}}
+{{- $fetchpriority := .Get "fetchpriority" | default "auto" -}}
+{{- $sizes := .Get "sizes" | default "" -}}
+{{- $preload := eq (printf "%v" (.Get "preload" | default false)) "true" -}}
+{{- $jsonld := eq (printf "%v" (.Get "jsonld" | default false)) "true" -}}
+{{- $targetWidth := 0 -}}
+{{- with .Get "width" }}{{ $targetWidth = int . }}{{ end -}}
+{{- $targetHeight := 0 -}}
+{{- with .Get "height" }}{{ $targetHeight = int . }}{{ end -}}
 
 {{- $img := .Page.Resources.GetMatch $src -}}
 {{- if not $img }}
@@ -8,21 +19,69 @@
 {{- end -}}
 
 {{- if eq $img.MediaType.SubType "svg" }}
-  <img src="{{ $img.RelPermalink }}" alt="{{ $alt }}" class="{{ $class }}">
+  {{- if $preload }}
+  <link rel="preload" as="image" href="{{ $img.RelPermalink }}">
+  {{- end }}
+  <figure class="{{ $class }}">
+    <img
+      src="{{ $img.RelPermalink }}"
+      alt="{{ $alt }}"
+      {{ with $title }}title="{{ . }}"{{ end }}
+      loading="{{ $loading }}"
+      decoding="async"
+      fetchpriority="{{ $fetchpriority }}"
+    >
+
+    {{ with .Inner }}
+    <figcaption class="text-sm text-center">
+      {{ . | markdownify }}
+    </figcaption>
+    {{ end }}
+  </figure>
 {{- else }}
 
-{{- $resized := $img.Resize "1200x jpg" -}}
+{{- $rendered := $img -}}
+{{- if and (gt $targetWidth 0) (gt $targetHeight 0) -}}
+  {{- $rendered = $img.Fit (printf "%dx%d" $targetWidth $targetHeight) -}}
+{{- else if gt $targetWidth 0 -}}
+  {{- $rendered = $img.Resize (printf "%dx" $targetWidth) -}}
+{{- else if gt $targetHeight 0 -}}
+  {{- $rendered = $img.Resize (printf "x%d" $targetHeight) -}}
+{{- end -}}
+
+{{- $srcset := slice -}}
+{{- $candidateWidths := slice 480 768 1024 1280 1600 1920 -}}
+{{- range $candidateWidths -}}
+  {{- if lt . $rendered.Width -}}
+    {{- $variant := $img.Resize (printf "%dx" .) -}}
+    {{- $srcset = $srcset | append (printf "%s %dw" $variant.RelPermalink $variant.Width) -}}
+  {{- end -}}
+{{- end -}}
+{{- $srcset = $srcset | append (printf "%s %dw" $rendered.RelPermalink $rendered.Width) -}}
+
+{{- if $preload }}
+<link
+  rel="preload"
+  as="image"
+  href="{{ $rendered.RelPermalink }}"
+  imagesrcset="{{ delimit $srcset ", " }}"
+  {{ with $sizes }}imagesizes="{{ . }}"{{ end }}
+>
+{{- end }}
 
 <figure class="{{ $class }}">
   <img
-    src="{{ $resized.RelPermalink }}"
-    width="{{ $resized.Width }}"
-    height="{{ $resized.Height }}"
+    src="{{ $rendered.RelPermalink }}"
+    {{ with $sizes }}sizes="{{ . }}"{{ end }}
+    srcset="{{ delimit $srcset ", " }}"
+    width="{{ $rendered.Width }}"
+    height="{{ $rendered.Height }}"
     alt="{{ $alt }}"
-    loading="eager"
+    {{ with $title }}title="{{ . }}"{{ end }}
+    loading="{{ $loading }}"
     decoding="async"
-    fetchpriority="high"
-    style="aspect-ratio: {{ $resized.Width }} / {{ $resized.Height }};"
+    fetchpriority="{{ $fetchpriority }}"
+    style="aspect-ratio: {{ $rendered.Width }} / {{ $rendered.Height }};"
   >
 
   {{ with .Inner }}
@@ -31,5 +90,21 @@
   </figcaption>
   {{ end }}
 </figure>
+
+{{- if $jsonld }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  "contentUrl": "{{ $rendered.Permalink }}",
+  "url": "{{ $rendered.Permalink }}",
+  {{ with $title }}"name": {{ . | jsonify }},{{ end }}
+  {{ with $alt }}"description": {{ . | jsonify }},{{ end }}
+  "width": "{{ $rendered.Width }}",
+  "height": "{{ $rendered.Height }}",
+  "inLanguage": "{{ $pageLanguage }}"
+}
+</script>
+{{- end }}
 
 {{- end }}

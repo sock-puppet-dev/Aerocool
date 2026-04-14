@@ -1,6 +1,7 @@
 {{ $schemaTypes := .Params.schema_types | default (slice) }}
 {{ if and .IsPage (in $schemaTypes "news") }}
 {{ $pageImage := partial "page-image.gohtml" . }}
+{{ $pageLanguage := partial "page-language.gohtml" . }}
 
 {
   "@type": "NewsArticle",
@@ -31,7 +32,7 @@
     }
   },
 
-  "inLanguage": "{{ .Site.Language.Lang }}",
+  "inLanguage": "{{ $pageLanguage }}",
   "isAccessibleForFree": true,
   "articleSection": "{{ .Section }}",
 

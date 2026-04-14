@@ -1,4 +1,10 @@
 {{- $description := .Params.description | default .Summary | plainify -}}
+{{- $pageNumber := .Scratch.Get "pageNumber" | default 1 -}}
+{{- if eq $pageNumber 1 -}}
+  {{- with findRE `(^|/)page/[0-9]+/` .RelPermalink 1 -}}
+    {{- $pageNumber = int (replaceRE `^.*page/([0-9]+)/$` "$1" (index . 0)) -}}
+  {{- end -}}
+{{- end -}}
 
 {{- if not $description -}}
   {{- if eq .Site.Language.Lang "ru" -}}
@@ -21,6 +27,14 @@
     {{- else -}}
       {{- $description = .Site.Params.description | default .Site.Title -}}
     {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if gt $pageNumber 1 -}}
+  {{- if eq .Site.Language.Lang "ru" -}}
+    {{- $description = printf "%s Страница %d." $description $pageNumber -}}
+  {{- else -}}
+    {{- $description = printf "%s Сторінка %d." $description $pageNumber -}}
   {{- end -}}
 {{- end -}}
 

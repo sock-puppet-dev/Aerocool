@@ -1,12 +1,13 @@
 {{ $homeName := cond (eq .Site.Language.Lang "ru") "Главная" "Головна" }}
+{{ $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) }}
 {
   "@type": "BreadcrumbList",
-  "@id": "{{ .Permalink | absURL }}#breadcrumbs",
+  "@id": "{{ $pageURL }}#breadcrumbs",
 
   "name": "Breadcrumbs",
 
   "mainEntityOfPage": {
-    "@id": "{{ .Permalink | absURL }}"
+    "@id": "{{ $pageURL }}"
   },
 
   "itemListElement": [

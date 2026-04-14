@@ -1,0 +1,8 @@
+{{- $language := .Site.Language.Lang -}}
+{{- if eq $language "uk" -}}
+  {{- "uk-UA" -}}
+{{- else if eq $language "ru" -}}
+  {{- "ru-UA" -}}
+{{- else -}}
+  {{- $language -}}
+{{- end -}}

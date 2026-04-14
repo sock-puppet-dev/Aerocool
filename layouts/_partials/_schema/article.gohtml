@@ -1,6 +1,7 @@
 {{ $schemaTypes := .Params.schema_types | default (slice) }}
 {{ if and .IsPage (in $schemaTypes "article") }}
 {{ $pageImage := partial "page-image.gohtml" . }}
+{{ $pageLanguage := partial "page-language.gohtml" . }}
 
 {
   "@type": "Article",
@@ -41,6 +42,6 @@
   "articleSection": "{{ .Section }}",
   "wordCount": {{ .WordCount }},
 
-  "inLanguage": "{{ .Site.Language.Lang }}"
+  "inLanguage": "{{ $pageLanguage }}"
 }
 {{ end }}

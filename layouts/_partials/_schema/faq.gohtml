@@ -1,5 +1,6 @@
 {{ if .Params.faq }}
   {{ $faq := .Params.faq }}
+{{ $pageLanguage := partial "page-language.gohtml" . }}
 {
   "@type": "FAQPage",
   "@id": "{{ .Permalink | absURL }}#faq",
@@ -17,7 +18,7 @@
     "@id": "{{ .Site.BaseURL | absURL }}#organization"
   },
 
-  "inLanguage": "{{ .Site.Language.Lang }}",
+  "inLanguage": "{{ $pageLanguage }}",
 
   "mainEntity": [
     {{ range $index, $qa := $faq }}

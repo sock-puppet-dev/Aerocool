@@ -18,17 +18,35 @@
 <meta name="robots" content="noindex,nofollow">
 {{ end }}
 
+{{- $pageNumber := 1 -}}
+{{- $pagePermalink := .Permalink | absURL -}}
+{{- if or .IsHome .IsSection (eq .Kind "taxonomy") (eq .Kind "term") -}}
+  {{- $pages := union .RegularPages .Sections -}}
+  {{- if .IsHome -}}
+    {{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections -}}
+    {{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true" -}}
+  {{- end -}}
+  {{- $paginator := .Paginate $pages -}}
+  {{- $pageNumber = $paginator.PageNumber -}}
+  {{- if gt $pageNumber 1 -}}
+    {{- $pagePermalink = $paginator.URL | absURL -}}
+  {{- end -}}
+{{- end -}}
+{{- .Scratch.Set "pageNumber" $pageNumber -}}
+{{- .Scratch.Set "pagePermalink" $pagePermalink -}}
+
 <!-- Title & description -->
-<title>{{ if .IsHome }}{{ else }}{{ if .Title }}{{ .Title }} | {{ end }}{{ end }}{{ site.Title }}</title>
+{{- $pageTitle := partial "page-title.gohtml" . -}}
+<title>{{ $pageTitle }}</title>
 <meta name="description" content="{{ partial "page-description.gohtml" . }}">
 
 <!-- Canonical URL -->
-<link rel="canonical" href="{{ if .Params.canonicalURL -}} {{ trim .Params.canonicalURL " " }} {{- else -}} {{ .Permalink }} {{- end }}">
+<link rel="canonical" href="{{ if .Params.canonicalURL -}} {{ trim .Params.canonicalURL " " }} {{- else -}} {{ $pagePermalink }} {{- end }}">
 
 <!-- SEO Partials: JSON-LD, Open Graph, Twitter Cards -->
-{{ partial "_seo/jsonld.html" . }}
-{{ partial "_seo/opengraph.html" . }}
-{{ partial "_seo/twitter_cards.html" . }}
+{{ partial "_seo/jsonld.gohtml" . }}
+{{ partial "_seo/opengraph.gohtml" . }}
+{{ partial "_seo/twitter_cards.gohtml" . }}
 
 <!-- Additional meta -->
 <meta name="author" content="{{ partial "author.html" . }}">

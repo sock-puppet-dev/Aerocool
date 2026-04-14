@@ -1,3 +1,4 @@
+{{ $pageLanguage := partial "page-language.gohtml" . }}
 {
   "@type": "WebSite",
   "@id": "{{ .Site.BaseURL | absURL }}#website",
@@ -12,7 +13,7 @@
   "description": {{ . | jsonify }},
   {{ end }}
 
-  "inLanguage": "{{ .Site.Language.Lang }}",
+  "inLanguage": "{{ $pageLanguage }}",
   "isFamilyFriendly": true,
 
   "image": {

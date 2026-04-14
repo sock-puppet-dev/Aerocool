@@ -2,11 +2,13 @@
 {{ $hasBreadcrumbs := or (in $schemaTypes "breadcrumbs") (.Params.breadcrumbs) .IsHome (eq .Kind "section") (eq .Kind "taxonomy") (eq .Kind "term") }}
 {{ $pageImage := partial "page-image.gohtml" . }}
 {{ $pageDescription := partial "page-description.gohtml" . }}
+{{ $pageLanguage := partial "page-language.gohtml" . }}
+{{ $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) }}
 {
   "@type": "WebPage",
-  "@id": "{{ .Permalink | absURL }}#webpage",
+  "@id": "{{ $pageURL }}#webpage",
 
-  "url": "{{ .Permalink | absURL }}",
+  "url": "{{ $pageURL }}",
   "name": {{ .Title | jsonify }},
 
   "description": {{ $pageDescription | jsonify }},
@@ -24,11 +26,11 @@
     "url": "{{ $pageImage }}"
   },
 
-  "inLanguage": "{{ .Site.Language.Lang }}",
+  "inLanguage": "{{ $pageLanguage }}",
 
   {{ if $hasBreadcrumbs }}
   "breadcrumb": {
-    "@id": "{{ .Permalink | absURL }}#breadcrumbs"
+    "@id": "{{ $pageURL }}#breadcrumbs"
   },
   {{ end }}
 
@@ -37,35 +39,35 @@
   {{/* PRODUCT PAGE */}}
   {{ if and .IsPage (in $schemaTypes "product") }}
   "mainEntity": {
-    "@id": "{{ .Permalink | absURL }}#product"
+    "@id": "{{ $pageURL }}#product"
   },
   {{ end }}
 
   {{/* ARTICLE PAGE */}}
   {{ if and .IsPage (in $schemaTypes "article") }}
   "mainEntity": {
-    "@id": "{{ .Permalink | absURL }}#article"
+    "@id": "{{ $pageURL }}#article"
   },
   {{ end }}
 
   {{/* NEWS PAGE */}}
   {{ if and .IsPage (in $schemaTypes "news") }}
   "mainEntity": {
-    "@id": "{{ .Permalink | absURL }}#news"
+    "@id": "{{ $pageURL }}#news"
   },
   {{ end }}
 
   {{/* FAQ PAGE */}}
   {{ if .Params.faq }}
   "mainEntity": {
-    "@id": "{{ .Permalink | absURL }}#faq"
+    "@id": "{{ $pageURL }}#faq"
   },
   {{ end }}
 
   {{/* COLLECTION PAGE */}}
   {{ if or (in $schemaTypes "collection") (eq .Kind "section") (eq .Kind "taxonomy") (eq .Kind "term") }}
   "mainEntity": {
-    "@id": "{{ .Permalink | absURL }}#collection"
+    "@id": "{{ $pageURL }}#collection"
   },
   {{ end }}
 

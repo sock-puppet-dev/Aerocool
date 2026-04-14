@@ -1,6 +1,6 @@
-{{ $title := .Title | default .Site.Title }}
+{{ $title := partial "page-title.gohtml" . }}
 {{ $description := partial "page-description.gohtml" . }}
-{{ $url := .Permalink | absURL }}
+{{ $url := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) }}
 {{ $schemaTypes := .Params.schema_types | default (slice) }}
 {{ $ogType := "website" }}
 {{ $image := partial "page-image.gohtml" . }}

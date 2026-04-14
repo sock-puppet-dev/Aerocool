@@ -1,8 +1,14 @@
 {{ $pageDescription := partial "page-description.gohtml" . }}
+{{ $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) }}
+{{ $pageLanguage := partial "page-language.gohtml" . }}
+{{ $items := .Pages }}
+{{ with .Paginator }}
+  {{ $items = .Pages }}
+{{ end }}
 {
   "@type": "CollectionPage",
-  "@id": "{{ .Permalink | absURL }}#collection",
-  "url": "{{ .Permalink | absURL }}",
+  "@id": "{{ $pageURL }}#collection",
+  "url": "{{ $pageURL }}",
   "name": {{ .Title | jsonify }},
   "description": {{ $pageDescription | jsonify }},
 
@@ -18,24 +24,23 @@
   "mainEntity": {
     "@type": "ItemList",
     "itemListElement": [
-      {{- $pages := .Pages -}}
-      {{- range $index, $p := $pages -}}
+      {{- range $index, $p := $items -}}
       {
         "@type": "ListItem",
         "position": {{ add $index 1 }},
         "url": "{{ $p.Permalink }}"
-      }{{ if ne (add $index 1) (len $pages) }},{{ end }}
+      }{{ if ne (add $index 1) (len $items) }},{{ end }}
       {{- end -}}
     ]
   },
 
   "breadcrumb": {
-    "@id": "{{ .Permalink | absURL }}#breadcrumbs"
+    "@id": "{{ $pageURL }}#breadcrumbs"
   },
 
   "publisher": {
     "@id": "{{ .Site.BaseURL | absURL }}#organization"
   },
 
-  "inLanguage": "{{ .Site.Language.Lang }}"
+  "inLanguage": "{{ $pageLanguage }}"
 }
