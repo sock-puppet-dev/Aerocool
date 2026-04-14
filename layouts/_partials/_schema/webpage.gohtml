@@ -1,6 +1,7 @@
 {{ $schemaTypes := .Params.schema_types | default (slice) }}
 {{ $hasBreadcrumbs := or (in $schemaTypes "breadcrumbs") (.Params.breadcrumbs) .IsHome (eq .Kind "section") (eq .Kind "taxonomy") (eq .Kind "term") }}
-{{ $pageImage := partial "_helpers/page-image.gohtml" . }}
+{{ $pageImage := partial "page-image.gohtml" . }}
+{{ $pageDescription := partial "page-description.gohtml" . }}
 {
   "@type": "WebPage",
   "@id": "{{ .Permalink | absURL }}#webpage",
@@ -8,9 +9,7 @@
   "url": "{{ .Permalink | absURL }}",
   "name": {{ .Title | jsonify }},
 
-  {{ with .Params.description }}
-  "description": {{ . | plainify | jsonify }},
-  {{ end }}
+  "description": {{ $pageDescription | jsonify }},
 
   "isPartOf": {
     "@id": "{{ .Site.BaseURL | absURL }}#website"
@@ -64,7 +63,7 @@
   {{ end }}
 
   {{/* COLLECTION PAGE */}}
-  {{ if or (in $schemaTypes "collection") (eq .Kind "section") (eq .Kind "taxonomy") }}
+  {{ if or (in $schemaTypes "collection") (eq .Kind "section") (eq .Kind "taxonomy") (eq .Kind "term") }}
   "mainEntity": {
     "@id": "{{ .Permalink | absURL }}#collection"
   },

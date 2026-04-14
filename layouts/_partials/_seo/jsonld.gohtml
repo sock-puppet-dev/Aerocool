@@ -39,7 +39,7 @@
 {{- end -}}
 
 {{/* COLLECTION (категории / списки) */}}
-{{- if or (in $schemaTypes "collection") (eq .Kind "section") (eq .Kind "taxonomy") -}}
+{{- if or (in $schemaTypes "collection") (eq .Kind "section") (eq .Kind "taxonomy") (eq .Kind "term") -}}
   {{- $graph = $graph | append (partial "_schema/collection.gohtml" .) -}}
 {{- end -}}
 

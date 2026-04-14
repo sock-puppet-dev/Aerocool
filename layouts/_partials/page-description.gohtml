@@ -1,0 +1,27 @@
+{{- $description := .Params.description | default .Summary | plainify -}}
+
+{{- if not $description -}}
+  {{- if eq .Site.Language.Lang "ru" -}}
+    {{- if eq .Kind "term" -}}
+      {{- $description = printf "%s — подборка материалов и страниц Aerocool в Украине." .Title -}}
+    {{- else if eq .Kind "taxonomy" -}}
+      {{- $description = printf "%s — навигационная страница Aerocool в Украине." .Title -}}
+    {{- else if eq .Kind "section" -}}
+      {{- $description = printf "%s — раздел сайта Aerocool в Украине." .Title -}}
+    {{- else -}}
+      {{- $description = .Site.Params.description | default .Site.Title -}}
+    {{- end -}}
+  {{- else -}}
+    {{- if eq .Kind "term" -}}
+      {{- $description = printf "%s — добірка матеріалів і сторінок Aerocool в Україні." .Title -}}
+    {{- else if eq .Kind "taxonomy" -}}
+      {{- $description = printf "%s — навігаційна сторінка Aerocool в Україні." .Title -}}
+    {{- else if eq .Kind "section" -}}
+      {{- $description = printf "%s — розділ сайту Aerocool в Україні." .Title -}}
+    {{- else -}}
+      {{- $description = .Site.Params.description | default .Site.Title -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $description -}}

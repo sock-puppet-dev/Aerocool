@@ -1,0 +1,24 @@
+{{- $schemaTypes := .Params.schema_types | default (slice) -}}
+
+{{- with .Params.image -}}
+  {{- $src := . -}}
+  {{- with $.Resources.GetMatch $src -}}
+    {{- .Permalink -}}
+  {{- else -}}
+    {{- if or (hasPrefix $src "http://") (hasPrefix $src "https://") -}}
+      {{- $src -}}
+    {{- else -}}
+      {{- $src | absURL -}}
+    {{- end -}}
+  {{- end -}}
+{{- else -}}
+  {{- if in $schemaTypes "product" -}}
+    {{- "images/default-product.jpg" | absURL -}}
+  {{- else if in $schemaTypes "news" -}}
+    {{- "images/default-news.jpg" | absURL -}}
+  {{- else if in $schemaTypes "article" -}}
+    {{- "images/default-article.jpg" | absURL -}}
+  {{- else -}}
+    {{- "images/logo.svg" | absURL -}}
+  {{- end -}}
+{{- end -}}

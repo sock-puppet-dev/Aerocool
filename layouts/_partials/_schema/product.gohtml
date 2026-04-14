@@ -1,22 +1,16 @@
 {{ $schemaTypes := .Params.schema_types | default (slice) }}
 {{ if and .IsPage (in $schemaTypes "product") }}
+{{ $pageImage := partial "page-image.gohtml" . }}
 {
   "@type": "Product",
   "@id": "{{ .Permalink | absURL }}#product",
   "name": {{ .Title | jsonify }},
 
-  {{ $images := .Resources.Match "*.{png,jpg,jpeg}" }}
   "image": [
-    {{ if gt (len $images) 0 }}
-      {{ range $index, $img := $images }}
-        "{{ $img.Permalink }}"{{ if ne (add $index 1) (len $images) }},{{ end }}
-      {{ end }}
-    {{ else }}
-      "{{ "images/default-product.jpg" | absURL }}"
-    {{ end }}
+    "{{ $pageImage }}"
   ],
 
-  "description": {{ .Params.description | plainify | jsonify }},
+  "description": {{ .Params.description | default .Summary | plainify | jsonify }},
 
   "sku": {{ .Params.sku | default "" | jsonify }},
 

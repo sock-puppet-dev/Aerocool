@@ -1,5 +1,6 @@
 {{ $schemaTypes := .Params.schema_types | default (slice) }}
 {{ if and .IsPage (in $schemaTypes "article") }}
+{{ $pageImage := partial "page-image.gohtml" . }}
 
 {
   "@type": "Article",
@@ -13,15 +14,8 @@
   "headline": {{ .Title | jsonify }},
   "description": {{ .Params.description | default .Summary | plainify | jsonify }},
 
-  {{ $images := .Resources.Match "*.{png,jpg,jpeg}" }}
   "image": [
-    {{ if gt (len $images) 0 }}
-      {{ range $index, $img := $images }}
-        "{{ $img.Permalink }}"{{ if ne (add $index 1) (len $images) }},{{ end }}
-      {{ end }}
-    {{ else }}
-      "{{ "images/default-article.jpg" | absURL }}"
-    {{ end }}
+    "{{ $pageImage }}"
   ],
 
   "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",

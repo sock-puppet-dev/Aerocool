@@ -1,9 +1,10 @@
+{{ $pageDescription := partial "page-description.gohtml" . }}
 {
   "@type": "CollectionPage",
   "@id": "{{ .Permalink | absURL }}#collection",
   "url": "{{ .Permalink | absURL }}",
   "name": {{ .Title | jsonify }},
-  "description": {{ .Params.description | default .Summary | plainify | jsonify }},
+  "description": {{ $pageDescription | jsonify }},
 
   "isPartOf": {
     "@id": "{{ .Site.BaseURL | absURL }}#website"

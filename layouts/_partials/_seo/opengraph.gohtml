@@ -1,9 +1,14 @@
 {{ $title := .Title | default .Site.Title }}
-{{ $description := .Params.description | default .Summary | plainify }}
+{{ $description := partial "page-description.gohtml" . }}
 {{ $url := .Permalink | absURL }}
 {{ $schemaTypes := .Params.schema_types | default (slice) }}
 {{ $ogType := "website" }}
-{{ $image := partial "_helpers/page-image.gohtml" . }}
+{{ $image := partial "page-image.gohtml" . }}
+{{ $ogLocale := "uk_UA" }}
+
+{{ if eq .Site.Language.Lang "ru" }}
+  {{ $ogLocale = "ru_UA" }}
+{{ end }}
 
 {{ if and .IsPage (in $schemaTypes "product") }}
   {{ $ogType = "product" }}
@@ -17,4 +22,4 @@
 <meta property="og:image" content="{{ $image }}" />
 <meta property="og:url" content="{{ $url }}" />
 <meta property="og:site_name" content="{{ .Site.Title }}" />
-<meta property="og:locale" content="{{ .Site.Language.Lang }}" />
+<meta property="og:locale" content="{{ $ogLocale }}" />
