@@ -29,8 +29,8 @@
 /* Основные контейнеры */
 /* Определяем ширину навигации и основного контента */
 :root {
-    --nav-width: 1000px;
-    --main-width: 1000px;
+    --nav-width: 1100px;
+    --main-width: 1100px;
 }
 
 body {
@@ -39,7 +39,7 @@ body {
 
 /* Принудительно ограничиваем ширину всех основных контейнеров */
 .nav, .main, .footer {
-    max-width: calc(1000px + var(--gap) * 2) !important;
+    max-width: calc(1100px + var(--gap) * 2) !important;
 }
 
 /* View Transitions API — плавные SPA-подобные переходы */
