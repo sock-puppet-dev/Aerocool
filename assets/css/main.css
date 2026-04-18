@@ -53,3 +53,20 @@ body {
     animation-fill-mode: both;
   }
 }
+
+/* Сброс стилей dl, dt, dd внутри FAQ для корректного отображения */
+.post-content dl.divide-y {
+    display: block !important;
+}
+
+.post-content dl.divide-y dt,
+.post-content dl.divide-y dd {
+    width: 100% !important;
+    margin-inline-start: 0 !important;
+    padding-inline-start: 0 !important;
+}
+
+.post-content dl.divide-y dd ~ dd,
+.post-content dl.divide-y dt ~ dt {
+    margin-top: 0 !important;
+}
