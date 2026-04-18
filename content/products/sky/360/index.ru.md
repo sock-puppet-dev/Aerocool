@@ -11,6 +11,9 @@ tags: ["aerocool", "игровое кресло", "sky", "sky 360"]
 image: "360.png"
 price: 12400
 sku: "SKY-360-001"
+# уточнить у производителя, оставил незаполнеными
+# mpn: ""
+# gtin13: ""
 availability: InStock
 priceValidUntil: 2027-12-31
 rating:

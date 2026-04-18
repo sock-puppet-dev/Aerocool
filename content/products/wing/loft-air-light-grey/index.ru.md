@@ -11,6 +11,8 @@ tags: ["aerocool", "игровое кресло", "wing", "loft air", "light gre
 image: "loft-air-light-grey.png"
 price: 12000
 sku: "WING-LALG-001"
+mpn: "TEGC-3097004.41"
+gtin13: "4711530966518"
 availability: InStock
 priceValidUntil: 2027-12-31
 rating:

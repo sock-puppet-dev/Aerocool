@@ -11,6 +11,9 @@ tags: ["aerocool", "игровое кресло", "sky", "sky lite"]
 image: "lite.png"
 price: 8500
 sku: "SKY-LITE-001"
+# уточнить у производителя, оставил незаполнеными
+# mpn: ""
+# gtin13: ""
 availability: InStock
 priceValidUntil: 2027-12-31
 rating:

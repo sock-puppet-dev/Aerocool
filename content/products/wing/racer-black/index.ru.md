@@ -11,6 +11,8 @@ tags: ["aerocool", "игровое кресло", "wing", "racer", "black"]
 image: "racer-black.png"
 price: 11500
 sku: "WING-RB-001"
+mpn: "TEGC-3096001.11"
+gtin13: "4711530966488"
 availability: InStock
 priceValidUntil: 2027-12-31
 rating:

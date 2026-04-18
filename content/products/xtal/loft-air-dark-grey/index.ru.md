@@ -11,6 +11,8 @@ tags: ["aerocool", "игровое кресло", "xtal", "loft air", "dark grey
 image: "loft-air-dark-grey.png"
 price: 12500
 sku: "XTAL-LADG-001"
+mpn: "TEGC-210010Z.Z1"
+gtin13: "4711530966792"
 availability: InStock
 priceValidUntil: 2027-12-31
 rating:
