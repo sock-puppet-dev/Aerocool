@@ -13,6 +13,7 @@ price: 11000
 sku: "WING-MB-001"
 mpn: "TEGC-3098001.11"
 gtin13: "4711530966525"
+warranty: 12
 availability: InStock
 priceValidUntil: 2027-12-31
 rating:

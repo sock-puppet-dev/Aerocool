@@ -13,6 +13,7 @@ price: 12000
 sku: "XTAL-RB-001"
 mpn: "TEGC-2099101.11"
 gtin13: "4711530966778"
+warranty: 12
 availability: InStock
 priceValidUntil: 2027-12-31
 rating:

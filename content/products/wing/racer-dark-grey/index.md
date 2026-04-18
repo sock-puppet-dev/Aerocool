@@ -13,6 +13,7 @@ price: 11500
 sku: "WING-RDG-001"
 mpn: "TEGC-309600Z.Z1"
 gtin13: "4711530966495"
+warranty: 12
 availability: InStock
 priceValidUntil: 2027-12-31
 rating:

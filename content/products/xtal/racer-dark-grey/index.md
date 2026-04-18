@@ -13,6 +13,7 @@ price: 12000
 sku: "XTAL-RDG-001"
 mpn: "TEGC-210010Z.Z1"
 gtin13: "4711530966792"
+warranty: 12
 availability: InStock
 priceValidUntil: 2027-12-31
 rating:

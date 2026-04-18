@@ -13,6 +13,7 @@ price: 12000
 sku: "WING-LALG-001"
 mpn: "TEGC-3097004.41"
 gtin13: "4711530966518"
+warranty: 12
 availability: InStock
 priceValidUntil: 2027-12-31
 rating:

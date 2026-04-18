@@ -14,6 +14,7 @@ sku: "SKY-LITE-001"
 # уточнить у производителя, оставил незаполнеными
 # mpn: ""
 # gtin13: ""
+warranty: 12
 availability: InStock
 priceValidUntil: 2027-12-31
 rating:

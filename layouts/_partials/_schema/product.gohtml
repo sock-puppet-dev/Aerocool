@@ -1,9 +1,18 @@
 {{ $schemaTypes := .Params.schema_types | default (slice) }}
 {{ if and .IsPage (in $schemaTypes "product") }}
 {{ $pageImage := partial "page-image.gohtml" . }}
+{{ $today := now }}
+{{ $nextYear := add ($today.Year) 1 }}
+
 {
   "@type": "Product",
   "@id": "{{ .Permalink | absURL }}#product",
+
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ .Permalink | absURL }}"
+  },
+
   "name": {{ .Title | jsonify }},
 
   "image": [
@@ -12,7 +21,16 @@
 
   "description": {{ .Params.description | default .Summary | plainify | jsonify }},
 
-  "sku": {{ .Params.sku | default "" | jsonify }},
+  "sku": {{ .Params.sku | jsonify }},
+  "category": {{ .Params.category | default .Section | jsonify }},
+
+  {{ with .Params.mpn }}
+  "mpn": {{ . | jsonify }},
+  {{ end }}
+
+  {{ with .Params.gtin13 }}
+  "gtin13": {{ . | jsonify }},
+  {{ end }}
 
   "brand": {
     "@id": "https://aerocool.io/#brand"
@@ -23,25 +41,61 @@
     "url": "{{ .Permalink | absURL }}",
     "priceCurrency": "UAH",
     "price": {{ .Params.price | default 0 }},
+    "priceValidUntil": "{{ .Params.priceValidUntil | default (printf "%d-12-31" $nextYear) }}",
     "availability": "https://schema.org/{{ .Params.availability | default "InStock" }}",
     "itemCondition": "https://schema.org/NewCondition",
+
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": {{ .Params.price | default 0 }},
+      "priceCurrency": "UAH"
+    },
 
     "seller": {
       "@type": "Organization",
       "@id": "{{ .Site.BaseURL | absURL }}#organization"
     },
 
-    {{ $today := now }}
-    {{ $nextYear := add ($today.Year) 1 }}
-    "priceValidUntil": "{{ .Params.priceValidUntil | default (printf "%d-12-31" $nextYear) }}"
-  }
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "UA",
+      "merchantReturnDays": {{ .Params.return_days | default 14 }},
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "returnFees": "https://schema.org/FreeReturn",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow"
+    },
 
-  {{ with .Params.rating }},
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "{{ .Params.shipping_country | default "UA" }}"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 0,
+          "maxValue": 1,
+          "unitCode": "DAY"
+        }
+      }
+    }{{ with .Params.warranty }},
+    "warranty": {
+      "@type": "WarrantyPromise",
+      "durationOfWarranty": {
+        "@type": "QuantitativeValue",
+        "value": {{ . }},
+        "unitCode": "MON"
+      }
+    }
+    {{ end }}
+  }{{ with .Params.rating }}{{ if and .value .count }},
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "{{ .value }}",
-    "reviewCount": "{{ .count }}"
+    "ratingValue": {{ .value }},
+    "reviewCount": {{ .count }}
   }
-  {{ end }}
+  {{ end }}{{ end }}
 }
 {{ end }}

@@ -13,6 +13,7 @@ price: 12500
 sku: "XTAL-LALG-001"
 mpn: "TEGC-2100104.41"
 gtin13: "4711530966808"
+warranty: 12
 availability: InStock
 priceValidUntil: 2027-12-31
 rating:

@@ -13,6 +13,7 @@ price: 12000
 sku: "WING-LADG-001"
 mpn: "TEGC-309700Z.Z1"
 gtin13: "4711530966501"
+warranty: 12
 availability: InStock
 priceValidUntil: 2027-12-31
 rating:
