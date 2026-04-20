@@ -3,14 +3,14 @@
 [build]
   publish = "public"
   # Папка с результатом сборки Hugo
-  command = "git submodule update --init --recursive && npm run build && hugo --gc --minify"
-  # 1) Обновляем git-подмодули 2) Собираем Tailwind CSS  3) Собираем сайт Hugo с очисткой кэша и минификацией
+  command = "git submodule update --init --recursive && hugo --gc --minify"
+  # 1) Обновляем git-подмодули 2) Собираем сайт Hugo с очисткой кэша и минификацией
 
 [build.environment]
   HUGO_VERSION = "0.157.0"
   # Версия Hugo
   HUGO_ENV = "development"
-  # Режим сборки Hugo ("development, production")
+  # Режим сборки Hugo для боевого деплоя
   TZ = "Europe/Kyiv"
   # Часовой пояс
   NODE_VERSION = "24"
