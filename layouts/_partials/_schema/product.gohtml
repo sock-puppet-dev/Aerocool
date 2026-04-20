@@ -3,6 +3,7 @@
 {{ $pageImage := partial "page-image.gohtml" . }}
 {{ $today := now }}
 {{ $nextYear := add ($today.Year) 1 }}
+{{ $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) }}
 {{ $productCategory := .Section }}
 {{ with .Params.category }}
   {{ $productCategory = . }}
@@ -14,11 +15,10 @@
 
 {
   "@type": "Product",
-  "@id": "{{ .Permalink | absURL }}#product",
+  "@id": "{{ $pageURL }}#product",
 
   "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "{{ .Permalink | absURL }}"
+    "@id": "{{ $pageURL }}#webpage"
   },
 
   "name": {{ .Title | jsonify }},
@@ -46,7 +46,7 @@
 
   "offers": {
     "@type": "Offer",
-    "url": "{{ .Permalink | absURL }}",
+    "url": "{{ $pageURL }}",
     "priceCurrency": "UAH",
     "price": {{ .Params.price | default 0 }},
     "priceValidUntil": "{{ .Params.priceValidUntil | default (printf "%d-12-31" $nextYear) }}",
@@ -60,7 +60,6 @@
     },
 
     "seller": {
-      "@type": "Organization",
       "@id": "{{ .Site.BaseURL | absURL }}#organization"
     },
 

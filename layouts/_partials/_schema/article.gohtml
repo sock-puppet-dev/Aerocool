@@ -3,14 +3,14 @@
 {{ $pageImage := partial "page-image.gohtml" . }}
 {{ $pageLanguage := partial "page-language.gohtml" . }}
 {{ $websiteId := partial "page-website-id.gohtml" . }}
+{{ $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) }}
 
 {
   "@type": "Article",
-  "@id": "{{ .Permalink | absURL }}#article",
+  "@id": "{{ $pageURL }}#article",
 
   "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "{{ .Permalink | absURL }}"
+    "@id": "{{ $pageURL }}#webpage"
   },
 
   "headline": {{ .Title | jsonify }},
@@ -24,16 +24,11 @@
   "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
 
   "author": {
-    "@type": "Organization",
     "@id": "{{ .Site.BaseURL | absURL }}#organization"
   },
 
   "publisher": {
-    "@type": "Organization",
-    "@id": "{{ .Site.BaseURL | absURL }}#organization",
-    "logo": {
-      "@id": "{{ .Site.BaseURL | absURL }}#logo"
-    }
+    "@id": "{{ .Site.BaseURL | absURL }}#organization"
   },
 
   "isPartOf": {
