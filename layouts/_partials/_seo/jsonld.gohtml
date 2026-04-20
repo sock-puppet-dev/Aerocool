@@ -3,6 +3,7 @@
 {{/* ======================== ГЛОБАЛЬНЫЕ СУЩНОСТИ ======================== */}}
 {{- $graph = $graph | append (partial "_schema/website.gohtml" .) -}}
 {{- $graph = $graph | append (partial "_schema/organization.gohtml" .) -}}
+{{- $graph = $graph | append (partial "_schema/global-organization.gohtml" .) -}}
 {{- $graph = $graph | append (partial "_schema/brand.gohtml" .) -}}
 
 {{/* ======================== TYPES ======================== */}}
