@@ -3,6 +3,14 @@
 {{ $pageImage := partial "page-image.gohtml" . }}
 {{ $today := now }}
 {{ $nextYear := add ($today.Year) 1 }}
+{{ $productCategory := .Section }}
+{{ with .Params.category }}
+  {{ $productCategory = . }}
+{{ else }}
+  {{ with .Params.categories }}
+    {{ $productCategory = index . 0 }}
+  {{ end }}
+{{ end }}
 
 {
   "@type": "Product",
@@ -22,7 +30,7 @@
   "description": {{ .Params.description | default .Summary | plainify | jsonify }},
 
   "sku": {{ .Params.sku | jsonify }},
-  "category": {{ .Params.category | default .Section | jsonify }},
+  "category": {{ $productCategory | jsonify }},
 
   {{ with .Params.mpn }}
   "mpn": {{ . | jsonify }},

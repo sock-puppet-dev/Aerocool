@@ -1,4 +1,3 @@
-{{ $pageLanguage := partial "page-language.gohtml" . }}
 {
   "@type": "Organization",
   "@id": "{{ .Site.BaseURL | absURL }}#organization",
@@ -63,7 +62,5 @@
     "https://x.com/AerocoolGlobal",
     "https://www.linkedin.com/company/aerocool-advanced-technologies-corp./",
     "https://www.youtube.com/@AeroCoolGlobal"
-  ],
-
-  "inLanguage": "{{ $pageLanguage }}"
+  ]
 }

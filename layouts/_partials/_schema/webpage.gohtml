@@ -3,6 +3,7 @@
 {{ $pageImage := partial "page-image.gohtml" . }}
 {{ $pageDescription := partial "page-description.gohtml" . }}
 {{ $pageLanguage := partial "page-language.gohtml" . }}
+{{ $websiteId := partial "page-website-id.gohtml" . }}
 {{ $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) }}
 {
   "@type": "WebPage",
@@ -14,7 +15,7 @@
   "description": {{ $pageDescription | jsonify }},
 
   "isPartOf": {
-    "@id": "{{ .Site.BaseURL | absURL }}#website"
+    "@id": "{{ $websiteId }}"
   },
 
   "about": {

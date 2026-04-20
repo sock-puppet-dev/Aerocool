@@ -1,8 +1,10 @@
 {{ $pageLanguage := partial "page-language.gohtml" . }}
+{{ $websiteId := partial "page-website-id.gohtml" . }}
+{{ $websiteURL := "" | absLangURL }}
 {
   "@type": "WebSite",
-  "@id": "{{ .Site.BaseURL | absURL }}#website",
-  "url": "{{ .Site.BaseURL | absURL }}",
+  "@id": "{{ $websiteId }}",
+  "url": "{{ $websiteURL }}",
   "name": {{ .Site.Title | jsonify }},
 
   {{ with .Site.Params.alternateName }}
@@ -29,7 +31,7 @@
 
   "potentialAction": {
     "@type": "SearchAction",
-    "@id": "{{ .Site.BaseURL | absURL }}#search",
+    "@id": "{{ printf "%s#search" $websiteURL }}",
     "target": {
       "@type": "EntryPoint",
       "urlTemplate": "{{ "search" | absLangURL }}?q={search_term_string}"

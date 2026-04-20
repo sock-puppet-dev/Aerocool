@@ -2,6 +2,7 @@
 {{ if and .IsPage (in $schemaTypes "article") }}
 {{ $pageImage := partial "page-image.gohtml" . }}
 {{ $pageLanguage := partial "page-language.gohtml" . }}
+{{ $websiteId := partial "page-website-id.gohtml" . }}
 
 {
   "@type": "Article",
@@ -36,7 +37,7 @@
   },
 
   "isPartOf": {
-    "@id": "{{ .Site.BaseURL | absURL }}#website"
+    "@id": "{{ $websiteId }}"
   },
 
   "articleSection": "{{ .Section }}",
