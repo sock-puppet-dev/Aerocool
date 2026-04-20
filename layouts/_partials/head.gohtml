@@ -131,7 +131,7 @@
 <link rel="{{ .Rel }}" type="{{ .MediaType.Type | html }}" href="{{ .Permalink | safeURL }}">
 {{ end }}
 {{ range .AllTranslations -}}
-<link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
+<link rel="alternate" hreflang="{{ partial "page-language.gohtml" . }}" href="{{ .Permalink }}">
 {{ end }}
 
 <!-- Prefetch важных страниц меню -->
