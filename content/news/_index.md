@@ -1,5 +1,7 @@
 ---
 title: "Новини Aerocool"
+slug: "news"
+date: 2025-08-01T00:00:00+03:00
 description: "Останні новини та оновлення бренду Aerocool в Україні."
 schema_types: ["collection", "organization", "breadcrumbs"]
 image: "cover.webp"

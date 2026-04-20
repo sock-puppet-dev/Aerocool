@@ -1,6 +1,7 @@
 ---
 title: "Пошук"
 layout: "search"
+date: 2025-08-05T10:00:00+03:00
 description: "Пошук по сайту Aerocool в Україні: товари, статті, новини та сторінки бренду."
 summary: "Пошук по сайту Aerocool"
 slug: "search"
