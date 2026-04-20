@@ -72,11 +72,26 @@
       "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow"
     },
 
+    "acceptedPaymentMethod": [
+      "https://schema.org/Cash",
+      "https://schema.org/CreditCard"
+    ],
+
+    "areaServed": {
+      "@type": "Country",
+      "name": "Ukraine"
+    },
+
     "shippingDetails": {
       "@type": "OfferShippingDetails",
       "shippingDestination": {
         "@type": "DefinedRegion",
         "addressCountry": "{{ .Params.shipping_country | default "UA" }}"
+      },
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": 0,
+        "currency": "UAH"
       },
       "deliveryTime": {
         "@type": "ShippingDeliveryTime",
@@ -84,6 +99,12 @@
           "@type": "QuantitativeValue",
           "minValue": 0,
           "maxValue": 1,
+          "unitCode": "DAY"
+        },
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 3,
           "unitCode": "DAY"
         }
       }
@@ -94,7 +115,8 @@
         "@type": "QuantitativeValue",
         "value": {{ . }},
         "unitCode": "MON"
-      }
+      },
+      "warrantyScope": "https://schema.org/PartsAndLaborWarranty"
     }
     {{ end }}
   }{{ with .Params.rating }}{{ if and .value .count }},
