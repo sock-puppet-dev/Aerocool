@@ -70,3 +70,73 @@ body {
 .post-content dl.divide-y dt ~ dt {
     margin-top: 0 !important;
 }
+
+.entry-title-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.entry-title-link:hover,
+.entry-title-link:focus-visible {
+    text-decoration: underline;
+}
+
+.related-links {
+    margin-top: 2rem;
+    padding: 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--entry);
+}
+
+.related-links__title {
+    margin: 0 0 1rem;
+}
+
+.related-links__grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.related-links__group h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+}
+
+.related-links__group ul {
+    margin: 0;
+    padding-left: 1.1rem;
+}
+
+.related-links__group li {
+    margin: 0.25rem 0;
+}
+
+.footer-links {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.footer-links__title {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.footer-links__group ul {
+    margin: 0;
+    padding-left: 1.1rem;
+}
+
+.footer-links__group li {
+    margin: 0.2rem 0;
+}
+
+@media (min-width: 768px) {
+    .related-links__grid,
+    .footer-links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}

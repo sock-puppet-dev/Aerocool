@@ -8,5 +8,6 @@ slug: "search"
 placeholder: "Поиск по сайту"
 schema_types: ["organization", "breadcrumbs"]
 image: "cover.webp"
+robotsNoIndex: true
 lastmod: 2026-04-21
 ---

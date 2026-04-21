@@ -12,7 +12,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- Robots -->
-{{ if and (or hugo.IsProduction (eq site.Params.env "production")) (ne .Params.robotsNoIndex true) }}
+{{- $robotsNoIndex := or (eq .Layout "search") (eq .Params.robotsNoIndex true) -}}
+{{ if and (or hugo.IsProduction (eq site.Params.env "production")) (not $robotsNoIndex) }}
 <meta name="robots" content="index,follow">
 {{ else }}
 <meta name="robots" content="noindex,nofollow">

@@ -14,7 +14,7 @@ lastmod: 2026-04-21T10:00:00+03:00
 schema_types: ["product", "organization", "breadcrumbs"]
 slug: "<slug>"
 categories: ["<series>"]
-tags: ["aerocool", "эргономичное кресло", "<series>", "<variant>"]
+tags: ["aerocool", "эргономичное кресло", "<commercial-cluster>", "<series>", "<variant>"]
 image: "<image-file>"
 price: 0
 sku: "<SKU>"
@@ -118,5 +118,6 @@ rating:
 - Не путать `Racer`, `Loft Air`, `Mesh`.
 - Не писать общий рекламный текст без конкретики.
 - В `description` и `summary` упоминать реальные differentiators.
+- В `title`, `description`, `summary` и `tags` учитывать релевантный commercial cluster: `игровое кресло`, `офисное кресло`, `компьютерное кресло`, если это соответствует конкретной модели.
 - Внутри текста раскрывать не только “что есть”, но и “кому это подходит”.
 - Если доступны `mpn`, `gtin13`, `return_days`, `shipping_country`, заполнять их во front matter, потому что product schema их уже поддерживает.

@@ -1,0 +1,43 @@
+{{- $isRU := eq .Language.Lang "ru" -}}
+{{- $navLabel := "Важливі розділи сайту" -}}
+{{- $sectionsTitle := "Основні розділи" -}}
+{{- $seriesTitle := "Серії крісел" -}}
+{{- if $isRU -}}
+  {{- $navLabel = "Важные разделы сайта" -}}
+  {{- $sectionsTitle = "Основные разделы" -}}
+  {{- $seriesTitle = "Серии кресел" -}}
+{{- end -}}
+
+{{- $pagesScratch := newScratch -}}
+{{- with site.GetPage "/products" }}{{- $pagesScratch.SetInMap "sections" .RelPermalink . -}}{{- end -}}
+{{- with site.GetPage "/articles" }}{{- $pagesScratch.SetInMap "sections" .RelPermalink . -}}{{- end -}}
+{{- with site.GetPage "/news" }}{{- $pagesScratch.SetInMap "sections" .RelPermalink . -}}{{- end -}}
+{{- with site.GetPage "/faq" }}{{- $pagesScratch.SetInMap "sections" .RelPermalink . -}}{{- end -}}
+{{- with site.GetPage "/about" }}{{- $pagesScratch.SetInMap "sections" .RelPermalink . -}}{{- end -}}
+{{- with site.GetPage "/contact" }}{{- $pagesScratch.SetInMap "sections" .RelPermalink . -}}{{- end -}}
+
+{{- $seriesScratch := newScratch -}}
+{{- range slice "sky" "wing" "xtal" -}}
+  {{- with site.GetPage (printf "/products/%s" .) -}}
+    {{- $seriesScratch.SetInMap "pages" .RelPermalink . -}}
+  {{- end -}}
+{{- end -}}
+
+<nav class="footer-links" aria-label="{{ $navLabel }}">
+  <div class="footer-links__group">
+    <span class="footer-links__title">{{ $sectionsTitle }}</span>
+    <ul>
+      {{- range $pagesScratch.GetSortedMapValues "sections" }}
+      <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+      {{- end }}
+    </ul>
+  </div>
+  <div class="footer-links__group">
+    <span class="footer-links__title">{{ $seriesTitle }}</span>
+    <ul>
+      {{- range $seriesScratch.GetSortedMapValues "pages" }}
+      <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+      {{- end }}
+    </ul>
+  </div>
+</nav>

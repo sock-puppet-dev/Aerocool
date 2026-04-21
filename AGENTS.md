@@ -31,6 +31,8 @@
 
 Use the project guides before inventing new front matter or SEO patterns:
 
+- `KEYWORD-MAP-2026.md`
+- `CONTENT-SEO-CHECKLIST-2026.md`
 - `GUIDE to all front matters.md`
 - `GUIDE to seo-image.md`
 - `GUIDE to schema_types.md`
@@ -46,6 +48,10 @@ Use the project guides before inventing new front matter or SEO patterns:
 - Product variants are intentionally split by model/color. Keep one variant per folder and one slug per variant.
 - Use `schema_types` in front matter. Templates read `.Params.schema_types`; do not switch to `schema_type`.
 - Preserve `date` and `lastmod` fields when editing content. Update `lastmod` when making substantive changes.
+- The project should cover not only brand queries, but also broad commercial clusters such as `игровое кресло`, `офисное кресло`, `компьютерное кресло`, `кресло для работы`, and `home office`.
+- Evergreen articles in `content/articles` should normally target at least `10000` body characters per language version.
+- Brand and launch news in `content/news` should normally target at least `5000` body characters per language version when they are meant to support organic discovery.
+- Articles and news should always bridge into the catalog with direct internal links to relevant series, products, FAQs, and contact pages.
 
 ## Images And SEO
 
@@ -86,3 +92,4 @@ Use the project guides before inventing new front matter or SEO patterns:
 - Check that localized links resolve correctly under `/` and `/ru/`.
 - Check that page bundle images resolve from the correct folder.
 - Check that schema-related front matter uses `schema_types` and matches the existing partials.
+- For article and news rewrites, also verify body-length targets and whether the content covers both branded and broad commercial intents where relevant.

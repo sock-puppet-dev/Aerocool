@@ -8,6 +8,8 @@
       <!-- gap-4 → расстояние между логотипом и блоком языков -->
 
       {{- $label_text := (site.Params.label.text | default site.Title) }}
+      {{- $visible_label := strings.TrimSpace $label_text }}
+      {{- $logo_title := cond (ne $visible_label "") $label_text site.Title }}
       <!-- Текст логотипа:
            если в params.label.text задан кастомный текст → берем его,
            иначе используем site.Title -->
@@ -18,7 +20,8 @@
       <a
         href="{{ "" | absLangURL }}"
         accesskey="h"
-        title="{{ $label_text }} (Alt + H)"
+        title="{{ $logo_title }} (Alt + H)"
+        aria-label="{{ site.Title }}"
       >
         <!-- Ссылка на главную страницу -->
 
@@ -50,7 +53,7 @@
 
         <img
           src="{{ $img.Permalink }}"
-          alt="logo"
+          alt="{{ site.Title }}"
           class="h-8 w-auto"
         >
         <!-- h-8 → фиксированная высота логотипа -->
@@ -60,14 +63,18 @@
              если Hugo resource не найден, вставляем URL как есть -->
         <img
           src="{{- site.Params.label.icon | absURL -}}"
-          alt="logo"
+          alt="{{ site.Title }}"
           class="h-8 w-auto"
         >
         {{- end -}}
 
         {{- end }}
 
+        {{- if $visible_label -}}
         {{- $label_text -}}
+        {{- else -}}
+        <span class="sr-only">{{ site.Title }}</span>
+        {{- end -}}
         <!-- Текст рядом с логотипом -->
 
       </a>

@@ -1,0 +1,151 @@
+{{- $section := .Section -}}
+{{- $isRelevantSection := in (slice "products" "articles" "news") $section -}}
+{{- if $isRelevantSection -}}
+  {{- $isRU := eq .Language.Lang "ru" -}}
+  {{- $blockTitle := "Що подивитися далі" -}}
+  {{- $primaryTitle := "Ключові розділи" -}}
+  {{- $productsTitle := "Схожі моделі" -}}
+  {{- $materialsTitle := "Корисні матеріали" -}}
+  {{- $catalogLabel := "Каталог крісел Aerocool" -}}
+  {{- $articlesLabel := "Статті та гіди Aerocool" -}}
+  {{- $newsLabel := "Новини Aerocool" -}}
+  {{- if $isRU -}}
+    {{- $blockTitle = "Что посмотреть дальше" -}}
+    {{- $primaryTitle = "Ключевые разделы" -}}
+    {{- $productsTitle = "Подходящие модели" -}}
+    {{- $materialsTitle = "Полезные материалы" -}}
+    {{- $catalogLabel = "Каталог кресел Aerocool" -}}
+    {{- $articlesLabel = "Статьи и гиды Aerocool" -}}
+    {{- $newsLabel = "Новости Aerocool" -}}
+  {{- end -}}
+
+  {{- $catalogPage := site.GetPage "/products" -}}
+  {{- $articlesPage := site.GetPage "/articles" -}}
+  {{- $newsPage := site.GetPage "/news" -}}
+
+  {{- $seriesSlugs := slice -}}
+  {{- if eq $section "products" -}}
+    {{- with .Params.categories -}}
+      {{- with index . 0 -}}
+        {{- $seriesSlugs = $seriesSlugs | append . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- else -}}
+    {{- $haystack := upper (printf "%s %s %s %s %s" .Title (.Params.description | default "") (.Params.summary | default "") .Plain .RelPermalink) -}}
+    {{- if in $haystack "SKY" }}{{- $seriesSlugs = $seriesSlugs | append "sky" -}}{{- end -}}
+    {{- if in $haystack "WING" }}{{- $seriesSlugs = $seriesSlugs | append "wing" -}}{{- end -}}
+    {{- if in $haystack "XTAL" }}{{- $seriesSlugs = $seriesSlugs | append "xtal" -}}{{- end -}}
+  {{- end -}}
+
+  {{- $seriesScratch := newScratch -}}
+  {{- $productsScratch := newScratch -}}
+  {{- $materialsScratch := newScratch -}}
+
+  {{- range $seriesSlugs -}}
+    {{- $seriesSlug := . -}}
+    {{- with site.GetPage (printf "/products/%s" $seriesSlug) -}}
+      {{- $seriesScratch.SetInMap "pages" .RelPermalink . -}}
+    {{- end -}}
+    {{- range where site.RegularPages "Section" "products" -}}
+      {{- if and (ne .RelPermalink $.RelPermalink) (in (.Params.categories | default (slice)) $seriesSlug) -}}
+        {{- $productsScratch.SetInMap "pages" .RelPermalink . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if eq $section "products" -}}
+    {{- range where site.RegularPages "Section" "articles" -}}
+      {{- $page := . -}}
+      {{- $text := upper (printf "%s %s %s %s" $page.Title ($page.Params.description | default "") ($page.Params.summary | default "") $page.Plain) -}}
+      {{- range $seriesSlugs -}}
+        {{- if in $text (upper .) -}}
+          {{- $materialsScratch.SetInMap "pages" $page.RelPermalink $page -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- range where site.RegularPages "Section" "news" -}}
+      {{- $page := . -}}
+      {{- $text := upper (printf "%s %s %s %s" $page.Title ($page.Params.description | default "") ($page.Params.summary | default "") $page.Plain) -}}
+      {{- range $seriesSlugs -}}
+        {{- if in $text (upper .) -}}
+          {{- $materialsScratch.SetInMap "pages" $page.RelPermalink $page -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- else if eq $section "articles" -}}
+    {{- range where site.RegularPages "Section" "news" -}}
+      {{- $page := . -}}
+      {{- $text := upper (printf "%s %s %s %s" $page.Title ($page.Params.description | default "") ($page.Params.summary | default "") $page.Plain) -}}
+      {{- range $seriesSlugs -}}
+        {{- if in $text (upper .) -}}
+          {{- $materialsScratch.SetInMap "pages" $page.RelPermalink $page -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- else if eq $section "news" -}}
+    {{- range where site.RegularPages "Section" "articles" -}}
+      {{- $page := . -}}
+      {{- $text := upper (printf "%s %s %s %s" $page.Title ($page.Params.description | default "") ($page.Params.summary | default "") $page.Plain) -}}
+      {{- range $seriesSlugs -}}
+        {{- if in $text (upper .) -}}
+          {{- $materialsScratch.SetInMap "pages" $page.RelPermalink $page -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $seriesPages := $seriesScratch.GetSortedMapValues "pages" | default (slice) -}}
+  {{- $productPages := $productsScratch.GetSortedMapValues "pages" | default (slice) -}}
+  {{- $materialPages := $materialsScratch.GetSortedMapValues "pages" | default (slice) -}}
+
+  {{- if or $catalogPage $articlesPage $newsPage (gt (len $seriesPages) 0) (gt (len $productPages) 0) (gt (len $materialPages) 0) -}}
+  <section class="related-links" aria-labelledby="related-links-title">
+    <h2 id="related-links-title" class="related-links__title">{{ $blockTitle }}</h2>
+    <div class="related-links__grid">
+      <div class="related-links__group">
+        <h3>{{ $primaryTitle }}</h3>
+        <ul>
+          {{- with $catalogPage }}
+          <li><a href="{{ .RelPermalink }}">{{ $catalogLabel }}</a></li>
+          {{- end }}
+          {{- range first 3 $seriesPages }}
+          <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+          {{- end }}
+          {{- if ne $section "articles" -}}
+            {{- with $articlesPage }}
+            <li><a href="{{ .RelPermalink }}">{{ $articlesLabel }}</a></li>
+            {{- end }}
+          {{- end }}
+          {{- if ne $section "news" -}}
+            {{- with $newsPage }}
+            <li><a href="{{ .RelPermalink }}">{{ $newsLabel }}</a></li>
+            {{- end }}
+          {{- end }}
+        </ul>
+      </div>
+
+      {{- if gt (len $productPages) 0 }}
+      <div class="related-links__group">
+        <h3>{{ $productsTitle }}</h3>
+        <ul>
+          {{- range first 3 $productPages }}
+          <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+          {{- end }}
+        </ul>
+      </div>
+      {{- end }}
+
+      {{- if gt (len $materialPages) 0 }}
+      <div class="related-links__group">
+        <h3>{{ $materialsTitle }}</h3>
+        <ul>
+          {{- range first 4 $materialPages }}
+          <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+          {{- end }}
+        </ul>
+      </div>
+      {{- end }}
+    </div>
+  </section>
+  {{- end -}}
+{{- end -}}

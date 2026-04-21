@@ -101,6 +101,8 @@ schema_types: ["article", "organization", "breadcrumbs"]
 ```
 
 Если у статьи есть собственная обложка в page bundle, поле `image` можно указывать на локальный файл bundle вместо статического default image.
+Для проекта `Aerocool` основная evergreen-статья обычно должна иметь `10000+` знаков тела на каждую языковую версию.
+`description` и `summary` у статьи должны помогать покрывать не только бренд, но и релевантный широкий кластер: `игровое кресло`, `офисное кресло`, `компьютерное кресло`, `кресло для работы`, `home office`.
 
 8. Новость `content/news/<slug>/index.md` и `index.ru.md`
 
@@ -116,6 +118,9 @@ image: "images/default-news.jpg"
 schema_types: ["news", "organization", "breadcrumbs"]
 ---
 ```
+
+Для проекта `Aerocool` ranking-supporting новость обычно должна иметь `5000+` знаков тела на каждую языковую версию.
+Если новость используется как SEO-landing для серии, модели или запуска, поле `summary` следует заполнять обязательно.
 
 9. Товар `content/products/<series>/<model>/index.md` и `index.ru.md`
 
