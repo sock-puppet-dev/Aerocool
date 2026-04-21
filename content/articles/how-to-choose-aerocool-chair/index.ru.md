@@ -1,10 +1,10 @@
 ---
-title: "Как выбрать кресло Aerocool: гид по сериям SKY, WING и XTAL"
+title: "Как выбрать кресло Aerocool для работы, home office и гейминга"
 date: 2026-04-14T10:00:00+03:00
 lastmod: 2026-04-21T12:00:00+03:00
 slug: "how-to-choose-aerocool-chair"
-description: "Практический гид по выбору кресла Aerocool: как соотнести серии SKY, WING и XTAL со своим сценарием работы, home office и гейминга."
-summary: "Объясняем, как выбрать кресло Aerocool не по картинке, а по механике, материалу и сценарию использования."
+description: "Практический гид по выбору игрового, офисного или компьютерного кресла Aerocool: как соотнести серии SKY, WING и XTAL со своим сценарием работы, home office и гейминга."
+summary: "Объясняем, как выбрать игровое, офисное или компьютерное кресло Aerocool не по картинке, а по механике, материалу и сценарию использования."
 schema_types: ["article", "organization", "breadcrumbs"]
 image: "images/default-article.jpg"
 ---

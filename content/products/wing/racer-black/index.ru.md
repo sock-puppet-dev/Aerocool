@@ -1,13 +1,13 @@
 ---
-title: "Эргономичное кресло Aerocool WING Racer Black"
-description: "Купить Aerocool WING Racer Black в Украине — эргономичное кресло серии WING с 11D регулировкой, synchronous tilt и поверхностью Leatherette."
-summary: "Aerocool WING Racer Black — кресло серии WING с 11D регулировкой, Leatherette и эргономикой для длительной работы и гейминга."
+title: "Эргономичное игровое кресло Aerocool WING Racer Black"
+description: "Купить Aerocool WING Racer Black в Украине — эргономичное игровое и компьютерное кресло серии WING с 11D регулировкой, synchronous tilt, двойной спинкой и поверхностью Leatherette."
+summary: "Aerocool WING Racer Black — игровое и компьютерное кресло серии WING с 11D регулировкой, двойной спинкой и поверхностью Leatherette."
 date: 2026-03-19
 lastmod: 2026-04-21
 schema_types: ["product", "organization", "breadcrumbs"]
 slug: "racer-black"
 categories: ["wing"]
-tags: ["aerocool", "эргономичное кресло", "wing", "racer black"]
+tags: ["aerocool", "эргономичное кресло", "игровое кресло", "компьютерное кресло", "wing", "racer black"]
 image: "racer-black.png"
 price: 11500
 sku: "WING-RB-001"

@@ -1,13 +1,13 @@
 ---
-title: "Эргономичное кресло Aerocool XTAL Loft Air Light Grey"
-description: "Купить Aerocool XTAL Loft Air Light Grey в Украине — эргономичное кресло серии XTAL с 7D регулировкой, synchronous tilt и поверхностью Multi-layer breathable mesh fabric."
-summary: "Aerocool XTAL Loft Air Light Grey — кресло серии XTAL с 7D регулировкой, Multi-layer breathable mesh fabric и эргономикой для длительной работы и гейминга."
+title: "Эргономичное офисное кресло Aerocool XTAL Loft Air Light Grey"
+description: "Купить Aerocool XTAL Loft Air Light Grey в Украине — эргономичное офисное и компьютерное кресло серии XTAL с 7D регулировкой, synchronous tilt, fully replaceable design и поверхностью Multi-layer breathable mesh fabric."
+summary: "Aerocool XTAL Loft Air Light Grey — офисное и компьютерное кресло серии XTAL с 7D регулировкой, fully replaceable design и дышащей поверхностью для работы и home office."
 date: 2026-03-19
 lastmod: 2026-04-21
 schema_types: ["product", "organization", "breadcrumbs"]
 slug: "loft-air-light-grey"
 categories: ["xtal"]
-tags: ["aerocool", "эргономичное кресло", "xtal", "loft air light grey"]
+tags: ["aerocool", "эргономичное кресло", "офисное кресло", "компьютерное кресло", "xtal", "loft air light grey", "home office"]
 image: "loft-air-light-grey.png"
 price: 12500
 sku: "XTAL-LALG-001"

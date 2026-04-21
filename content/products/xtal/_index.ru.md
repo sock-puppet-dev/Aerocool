@@ -1,6 +1,6 @@
 ---
-title: "Aerocool XTAL — серия эргономичных кресел Racer, Loft Air и Mesh"
-description: "Серия Aerocool XTAL: fully replaceable design, 3D подлокотники с подушками, synchronous tilt, сравнение Racer, Loft Air и Mesh."
+title: "Aerocool XTAL — эргономичные игровые и компьютерные кресла"
+description: "Серия Aerocool XTAL: игровые и компьютерные кресла Racer, Loft Air и Mesh с fully replaceable design, synchronous tilt и 3D подлокотниками с подушками."
 date: 2026-03-19
 lastmod: 2026-04-21
 summary: "XTAL — серия с fully replaceable design, 7D регулировкой и тремя вариантами поверхности: Racer, Loft Air и Mesh."
@@ -9,9 +9,9 @@ schema_types: ["collection", "organization", "breadcrumbs"]
 image: "cover.webp"
 ---
 
-# Aerocool XTAL — серия с fully replaceable design и синхронным наклоном
+# Aerocool XTAL — серия игровых и компьютерных кресел
 
-Серия **Aerocool XTAL** создана для тех, кто хочет совместить эргономичную настройку, синхронный наклон и конструкцию со сменными элементами. Это линейка для пользователей, которым важны сервисная гибкость, стабильная поддержка спины и выраженный комфорт в зоне контакта с подлокотниками.
+Серия **Aerocool XTAL** создана для тех, кто хочет совместить эргономичную настройку, синхронный наклон и конструкцию со сменными элементами. Это линейка игровых и компьютерных кресел для пользователей, которым важны сервисная гибкость, стабильная поддержка спины и выраженный комфорт в зоне контакта с подлокотниками.
 
 Ключевые особенности серии:
 

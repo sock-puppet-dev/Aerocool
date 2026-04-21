@@ -2,8 +2,8 @@
 title: "Часті запитання (FAQ) — Aerocool"
 slug: "faq"
 date: 2025-08-05T10:00:00+03:00
-description: "Відповіді на ключові запитання про серії SKY, WING і XTAL, гарантію, матеріали, synchronous tilt, доставку та підбір крісел Aerocool."
-summary: "FAQ про вибір серії, матеріалів, гарантію, доставку та консультації Aerocool."
+description: "Відповіді на ключові запитання про ігрові, офісні та комп'ютерні крісла Aerocool, серії SKY, WING і XTAL, гарантію, матеріали, synchronous tilt, доставку та підбір."
+summary: "FAQ про ігрові, офісні та комп'ютерні крісла Aerocool: вибір серії, матеріалів, гарантію, доставку та консультації."
 lastmod: 2026-04-21
 schema_types: ["faq", "organization", "breadcrumbs"]
 image: "cover.webp"

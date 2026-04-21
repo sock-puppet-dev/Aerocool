@@ -1,13 +1,13 @@
 ---
-title: "Ергономічне крісло Aerocool WING Loft Air Light Grey"
-description: "Купити Aerocool WING Loft Air Light Grey в Україні — ергономічне крісло серії WING з 11D регулюванням, synchronous tilt і поверхнею Multi-layer breathable mesh fabric."
-summary: "Aerocool WING Loft Air Light Grey — крісло серії WING з 11D регулюванням, Multi-layer breathable mesh fabric та ергономікою для тривалої роботи й геймінгу."
+title: "Ергономічне офісне крісло Aerocool WING Loft Air Light Grey"
+description: "Купити Aerocool WING Loft Air Light Grey в Україні — ергономічне офісне та комп'ютерне крісло серії WING з 11D регулюванням, synchronous tilt, подвійною спинкою і поверхнею Multi-layer breathable mesh fabric."
+summary: "Aerocool WING Loft Air Light Grey — офісне та комп'ютерне крісло серії WING з 11D регулюванням, подвійною спинкою й дихаючою поверхнею для роботи та home office."
 date: 2026-03-19
 lastmod: 2026-04-21
 schema_types: ["product", "organization", "breadcrumbs"]
 slug: "loft-air-light-grey"
 categories: ["wing"]
-tags: ["aerocool", "ергономічне крісло", "wing", "loft air light grey"]
+tags: ["aerocool", "ергономічне крісло", "офісне крісло", "комп'ютерне крісло", "wing", "loft air light grey", "home office"]
 image: "loft-air-light-grey.png"
 price: 12000
 sku: "WING-LALG-001"

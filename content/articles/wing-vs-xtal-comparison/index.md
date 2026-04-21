@@ -1,10 +1,10 @@
 ---
-title: "Aerocool WING чи XTAL: що обрати"
+title: "Aerocool WING чи XTAL: яке ігрове крісло обрати"
 date: 2026-04-06T10:00:00+03:00
 lastmod: 2026-04-21T12:00:00+03:00
 slug: "wing-vs-xtal"
-description: "Порівнюємо серії Aerocool WING і XTAL: подвійна спинка, fully replaceable design, 11D проти 7D, типи поверхні та сценарії вибору."
-summary: "Детальне порівняння WING і XTAL для тих, хто вибирає крісло під довгу роботу та стабільний комфорт."
+description: "Порівнюємо ігрові та комп'ютерні крісла серій Aerocool WING і XTAL: подвійна спинка, fully replaceable design, 11D проти 7D, типи поверхні та сценарії вибору."
+summary: "Детальне порівняння ігрових і комп'ютерних крісел WING і XTAL для тих, хто вибирає модель під довгу роботу та стабільний комфорт."
 schema_types: ["article", "organization", "breadcrumbs"]
 image: "images/default-article.jpg"
 ---
