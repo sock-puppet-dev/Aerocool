@@ -1,10 +1,10 @@
 {{- $graph := slice -}}
 
 {{/* ======================== ГЛОБАЛЬНЫЕ СУЩНОСТИ ======================== */}}
-{{- $graph = $graph | append (partial "_schema/website.gohtml" .) -}}
-{{- $graph = $graph | append (partial "_schema/local-organization.gohtml" .) -}}
-{{- $graph = $graph | append (partial "_schema/global-organization.gohtml" .) -}}
-{{- $graph = $graph | append (partial "_schema/brand.gohtml" .) -}}
+{{- $graph = $graph | append (partial "_schema/website.html" .) -}}
+{{- $graph = $graph | append (partial "_schema/local-organization.html" .) -}}
+{{- $graph = $graph | append (partial "_schema/global-organization.html" .) -}}
+{{- $graph = $graph | append (partial "_schema/brand.html" .) -}}
 
 {{/* ======================== TYPES ======================== */}}
 {{- $schemaTypes := .Params.schema_types | default (slice) -}}
@@ -14,38 +14,38 @@
 
 {{/* NEWS */}}
 {{- if and .IsPage (in $schemaTypes "news") -}}
-  {{- $graph = $graph | append (partial "_schema/news.gohtml" .) -}}
+  {{- $graph = $graph | append (partial "_schema/news.html" .) -}}
 {{- end -}}
 
 {{/* ARTICLE */}}
 {{- if and .IsPage (in $schemaTypes "article") -}}
-  {{- $graph = $graph | append (partial "_schema/article.gohtml" .) -}}
+  {{- $graph = $graph | append (partial "_schema/article.html" .) -}}
 {{- end -}}
 
 {{/* PRODUCT */}}
 {{- if and .IsPage (in $schemaTypes "product") -}}
-  {{- $graph = $graph | append (partial "_schema/product.gohtml" .) -}}
+  {{- $graph = $graph | append (partial "_schema/product.html" .) -}}
 {{- end -}}
 
 {{/* ======================== СПЕЦИАЛЬНЫЕ СУЩНОСТИ ======================== */}}
 
 {{/* FAQ */}}
 {{- if or (in $schemaTypes "faq") (.Params.faq) -}}
-  {{- $graph = $graph | append (partial "_schema/faq.gohtml" .) -}}
+  {{- $graph = $graph | append (partial "_schema/faq.html" .) -}}
 {{- end -}}
 
 {{/* BREADCRUMBS */}}
 {{- if $hasBreadcrumbs -}}
-  {{- $graph = $graph | append (partial "_schema/breadcrumbs.gohtml" .) -}}
+  {{- $graph = $graph | append (partial "_schema/breadcrumbs.html" .) -}}
 {{- end -}}
 
 {{/* COLLECTION (категории / списки) */}}
 {{- if or (in $schemaTypes "collection") (eq .Kind "section") (eq .Kind "taxonomy") (eq .Kind "term") -}}
-  {{- $graph = $graph | append (partial "_schema/collection.gohtml" .) -}}
+  {{- $graph = $graph | append (partial "_schema/collection.html" .) -}}
 {{- end -}}
 
 {{/* WEBPAGE */}}
-{{- $graph = $graph | append (partial "_schema/webpage.gohtml" .) -}}
+{{- $graph = $graph | append (partial "_schema/webpage.html" .) -}}
 
 {{/* ======================== ФИНАЛЬНЫЙ ВЫВОД ======================== */}}
 

@@ -37,17 +37,17 @@
 {{- .Scratch.Set "pagePermalink" $pagePermalink -}}
 
 <!-- Title & description -->
-{{- $pageTitle := partial "page-title.gohtml" . -}}
+{{- $pageTitle := partial "page-title.html" . -}}
 <title>{{ $pageTitle }}</title>
-<meta name="description" content="{{ partial "page-description.gohtml" . }}">
+<meta name="description" content="{{ partial "page-description.html" . }}">
 
 <!-- Canonical URL -->
 <link rel="canonical" href="{{ if .Params.canonicalURL -}} {{ trim .Params.canonicalURL " " }} {{- else -}} {{ $pagePermalink }} {{- end }}">
 
 <!-- SEO Partials: JSON-LD, Open Graph, Twitter Cards -->
-{{ partial "_seo/jsonld.gohtml" . }}
-{{ partial "_seo/opengraph.gohtml" . }}
-{{ partial "_seo/twitter_cards.gohtml" . }}
+{{ partial "_seo/jsonld.html" . }}
+{{ partial "_seo/opengraph.html" . }}
+{{ partial "_seo/twitter_cards.html" . }}
 
 <!-- Additional meta -->
 <meta name="author" content="{{ partial "author.html" . }}">
@@ -109,7 +109,7 @@
 {{- /* templates.Defer откладывает генерацию CSS до момента, когда все шаблоны будут обработаны.
        Это гарантирует, что Tailwind увидит ВСЕ классы, использованные на сайте. */ -}}
 {{- with (templates.Defer (dict "key" "global")) }}
-    {{ partial "css.gohtml" . }}
+    {{ partial "css.html" . }}
 {{- end }}
 
 <!-- Search page JS -->
@@ -132,7 +132,7 @@
 <link rel="{{ .Rel }}" type="{{ .MediaType.Type | html }}" href="{{ .Permalink | safeURL }}">
 {{ end }}
 {{ range .AllTranslations -}}
-<link rel="alternate" hreflang="{{ partial "page-language.gohtml" . }}" href="{{ .Permalink }}">
+<link rel="alternate" hreflang="{{ partial "page-language.html" . }}" href="{{ .Permalink }}">
 {{ end }}
 
 <!-- Prefetch важных страниц меню -->

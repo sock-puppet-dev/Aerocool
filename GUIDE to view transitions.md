@@ -1,4 +1,4 @@
-1. Основной скрипт View Transitions в текущем проекте лежит в `layouts/_partials/extend_footer.gohtml`
+1. Основной скрипт View Transitions в текущем проекте лежит в `layouts/_partials/extend_footer.html`
 
 ```html
 <script>
@@ -48,7 +48,7 @@
 </main>
 ```
 
-3. Prefetch основных страниц меню уже подключается в `layouts/_partials/head.gohtml`
+3. Prefetch основных страниц меню уже подключается в `layouts/_partials/head.html`
 
 ```html
 {{ range .Site.Menus.main }}
@@ -79,6 +79,6 @@
 ```
 
 Важно:
-1. В этом проекте не использовать путь `layouts/_default/baseof.gohtml` для локальной правки; актуальная локальная точка входа — `layouts/baseof.html`.
+1. В этом проекте не использовать путь `layouts/_default/baseof.html` для локальной правки; актуальная локальная точка входа — `layouts/baseof.html`.
 2. Скрипт должен игнорировать внешние ссылки, `mailto:`, `tel:`, download-ссылки и модифицированные клики.
 3. Любые изменения View Transitions проверять на обычной навигации и при `prefers-reduced-motion`.

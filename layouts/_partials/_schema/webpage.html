@@ -1,9 +1,9 @@
 {{ $schemaTypes := .Params.schema_types | default (slice) }}
 {{ $hasBreadcrumbs := or (in $schemaTypes "breadcrumbs") (.Params.breadcrumbs) .IsHome (eq .Kind "section") (eq .Kind "taxonomy") (eq .Kind "term") }}
-{{ $pageImage := partial "page-image.gohtml" . }}
-{{ $pageDescription := partial "page-description.gohtml" . }}
-{{ $pageLanguage := partial "page-language.gohtml" . }}
-{{ $websiteId := partial "page-website-id.gohtml" . }}
+{{ $pageImage := partial "page-image.html" . }}
+{{ $pageDescription := partial "page-description.html" . }}
+{{ $pageLanguage := partial "page-language.html" . }}
+{{ $websiteId := partial "page-website-id.html" . }}
 {{ $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) }}
 {
   "@type": "WebPage",

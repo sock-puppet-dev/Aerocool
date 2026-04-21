@@ -8,11 +8,11 @@
 
 ## 1. Что Уже Есть В Проекте
 
-- [ ] В проекте уже реализованы `robots`, `canonical`, `hreflang`, Open Graph, Twitter Cards и JSON-LD через [layouts/_partials/head.gohtml](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/head.gohtml#L14).
-- [ ] Для сайта уже есть `WebSite` schema с `SearchAction` через [layouts/_partials/_schema/website.gohtml](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/website.gohtml#L1).
-- [ ] Для товарных страниц уже есть `Product`, `Offer`, shipping, return policy и rating через [layouts/_partials/_schema/product.gohtml](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/product.gohtml#L1).
-- [ ] Для статей уже есть `Article` schema через [layouts/_partials/_schema/article.gohtml](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/article.gohtml#L1).
-- [ ] Для бренда и локальной организации уже есть отдельные schema partials через [layouts/_partials/_schema/brand.gohtml](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/brand.gohtml#L1) и [layouts/_partials/_schema/local-organization.gohtml](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/local-organization.gohtml#L1).
+- [ ] В проекте уже реализованы `robots`, `canonical`, `hreflang`, Open Graph, Twitter Cards и JSON-LD через [layouts/_partials/head.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/head.html#L14).
+- [ ] Для сайта уже есть `WebSite` schema с `SearchAction` через [layouts/_partials/_schema/website.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/website.html#L1).
+- [ ] Для товарных страниц уже есть `Product`, `Offer`, shipping, return policy и rating через [layouts/_partials/_schema/product.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/product.html#L1).
+- [ ] Для статей уже есть `Article` schema через [layouts/_partials/_schema/article.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/article.html#L1).
+- [ ] Для бренда и локальной организации уже есть отдельные schema partials через [layouts/_partials/_schema/brand.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/brand.html#L1) и [layouts/_partials/_schema/local-organization.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/local-organization.html#L1).
 - [ ] Это означает, что главный резерв роста сейчас не в “базовом техничном SEO”, а в качестве контента, полноте продуктовых страниц, internal linking, image coverage, author trust и post-publish optimization.
 
 ## 2. Неподвижные Правила Для Любой Страницы

@@ -4,7 +4,7 @@
 {{- partial "index_profile.html" . }}
 {{- else }}
 
-{{- $pageDescription := .Description | default (partial "page-description.gohtml" .) }}
+{{- $pageDescription := .Description | default (partial "page-description.html" .) }}
 
 {{- if not .IsHome | and .Title }}
 <header class="page-header">

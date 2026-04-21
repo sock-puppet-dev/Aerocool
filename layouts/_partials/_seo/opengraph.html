@@ -1,9 +1,9 @@
-{{ $title := partial "page-title.gohtml" . }}
-{{ $description := partial "page-description.gohtml" . }}
+{{ $title := partial "page-title.html" . }}
+{{ $description := partial "page-description.html" . }}
 {{ $url := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) }}
 {{ $schemaTypes := .Params.schema_types | default (slice) }}
 {{ $ogType := "website" }}
-{{ $image := partial "page-image.gohtml" . }}
+{{ $image := partial "page-image.html" . }}
 {{ $ogLocale := "uk_UA" }}
 
 {{ if eq .Site.Language.Lang "ru" }}

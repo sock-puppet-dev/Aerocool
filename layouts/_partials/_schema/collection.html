@@ -1,7 +1,7 @@
-{{ $pageDescription := partial "page-description.gohtml" . }}
+{{ $pageDescription := partial "page-description.html" . }}
 {{ $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) }}
-{{ $pageLanguage := partial "page-language.gohtml" . }}
-{{ $websiteId := partial "page-website-id.gohtml" . }}
+{{ $pageLanguage := partial "page-language.html" . }}
+{{ $websiteId := partial "page-website-id.html" . }}
 {{ $items := .Pages }}
 {{ with .Paginator }}
   {{ $items = .Pages }}

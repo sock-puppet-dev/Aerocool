@@ -1,8 +1,8 @@
 {{ $schemaTypes := .Params.schema_types | default (slice) }}
 {{ if and .IsPage (in $schemaTypes "article") }}
-{{ $pageImage := partial "page-image.gohtml" . }}
-{{ $pageLanguage := partial "page-language.gohtml" . }}
-{{ $websiteId := partial "page-website-id.gohtml" . }}
+{{ $pageImage := partial "page-image.html" . }}
+{{ $pageLanguage := partial "page-language.html" . }}
+{{ $websiteId := partial "page-website-id.html" . }}
 {{ $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) }}
 
 {

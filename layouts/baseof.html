@@ -3,11 +3,11 @@
 {{- end -}}
 
 <!DOCTYPE html>
-{{- $htmlLang := partial "page-language.gohtml" . -}}
+{{- $htmlLang := partial "page-language.html" . -}}
 <html lang="{{ $htmlLang }}" dir="{{ .Language.LanguageDirection | default "auto" }}">
 
 <head>
-    {{- partial "head.gohtml" . }}
+    {{- partial "head.html" . }}
 </head>
 
 <body class="
@@ -18,13 +18,13 @@
 {{- print " dark" }}
 {{- end -}}
 " id="top">
-{{- partialCached "header.gohtml" . .Page -}}
+{{- partialCached "header.html" . .Page -}}
 
 <main class="main">
   {{ block "main" . }}{{ end }}
 </main>
 
-{{ partialCached "footer.gohtml" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
+{{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
 </body>
 
 </html>

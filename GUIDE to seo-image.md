@@ -1,6 +1,6 @@
 Короткий гид по shortcode `seo-image` в текущем проекте `Aerocool`.
 
-Shortcode живет в `layouts/_shortcodes/seo-image.gohtml` и работает только с изображениями, которые лежат внутри page bundle. Если файла нет рядом со страницей, сборка упадет с ошибкой.
+Shortcode живет в `layouts/_shortcodes/seo-image.html` и работает только с изображениями, которые лежат внутри page bundle. Если файла нет рядом со страницей, сборка упадет с ошибкой.
 
 1. Hero / LCP изображение товара
 

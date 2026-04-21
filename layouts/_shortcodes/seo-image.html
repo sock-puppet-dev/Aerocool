@@ -1,7 +1,7 @@
 {{- $src := .Get "src" -}}
 {{- $alt := .Get "alt" | default "" -}}
 {{- $title := .Get "title" | default "" -}}
-{{- $pageLanguage := partial "page-language.gohtml" .Page -}}
+{{- $pageLanguage := partial "page-language.html" .Page -}}
 {{- $class := .Get "class" | default "" -}}
 {{- $loading := .Get "loading" | default "lazy" -}}
 {{- $fetchpriority := .Get "fetchpriority" | default "auto" -}}
