@@ -137,7 +137,7 @@
 <!-- Prefetch важных страниц меню -->
 {{ range .Site.Menus.main }}
   {{- if not (findRE "://" .URL) }}
-<link rel="prefetch" href="{{ .URL | absLangURL }}">
+<link rel="prefetch" href="{{ .URL | relLangURL }}">
   {{- end }}
 {{ end }}
 
