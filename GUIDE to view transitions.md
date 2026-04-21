@@ -1,5 +1,6 @@
-1) Основной скрипт View Transitions, в Hugo лучше вставлять в layouts/_partials/extend_footer.gohtml
+1. Основной скрипт View Transitions в текущем проекте лежит в `layouts/_partials/extend_footer.gohtml`
 
+```html
 <script>
 (function() {
   if (typeof document.startViewTransition !== "function") return;
@@ -37,21 +38,29 @@
   });
 })();
 </script>
+```
 
-2) Основной контейнер страницы, в layouts/_default/baseof.gohtml
+2. Основной контейнер страницы находится в `layouts/baseof.html`
 
+```html
 <main class="main">
   {{ block "main" . }}{{ end }}
 </main>
+```
 
-3) Prefetch страниц, в layouts/_partials/head.gohtml
+3. Prefetch основных страниц меню уже подключается в `layouts/_partials/head.gohtml`
 
+```html
 {{ range .Site.Menus.main }}
-<link rel="prefetch" href="{{ .URL }}">
+  {{- if not (findRE "://" .URL) }}
+<link rel="prefetch" href="{{ .URL | relLangURL }}">
+  {{- end }}
 {{ end }}
+```
 
-4) Tailwind-анимации для плавности View Transitions
+4. Если нужно усилить анимации, CSS добавлять в `assets/css/main.css`
 
+```css
 @layer components {
   ::view-transition-old(root),
   ::view-transition-new(root) {
@@ -67,3 +76,9 @@
     animation: none;
   }
 }
+```
+
+Важно:
+1. В этом проекте не использовать путь `layouts/_default/baseof.gohtml` для локальной правки; актуальная локальная точка входа — `layouts/baseof.html`.
+2. Скрипт должен игнорировать внешние ссылки, `mailto:`, `tel:`, download-ссылки и модифицированные клики.
+3. Любые изменения View Transitions проверять на обычной навигации и при `prefers-reduced-motion`.

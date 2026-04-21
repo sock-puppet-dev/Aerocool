@@ -33,7 +33,7 @@ Use the project guides before inventing new front matter or SEO patterns:
 
 - `GUIDE to all front matters.md`
 - `GUIDE to seo-image.md`
-- `GUIDE to schema_type.md`
+- `GUIDE to schema_types.md`
 - `GUIDE to view transitions.md`
 - `GUIDE to mise.md`
 

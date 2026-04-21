@@ -1,121 +1,174 @@
-1) Главная страница (_index.md)
+Использовать в проекте только поле `schema_types`. Поле `schema_type` в текущем `Aerocool` не используется.
 
+1. Главная страница `content/_index.md` и `content/_index.ru.md`
+
+```yaml
 ---
-title: ""          		# Название сайта/главной страницы, с ключевыми словами
-description: ""    		# Короткое описание сайта, включая ключевые слова
-date: 2026-03-19   		# Дата публикации (можно текущую)
-lastmod: 2026-03-19 	# Дата последнего изменения
-image: "cover.webp"     # Картинка обложки
-schema_types: ["website", "organization", "brand", "breadcrumbs"] # Тип, необходим чтобы срабатывал скрипт JSON-LD
+title: ""
+description: ""
+date: 2026-03-19
+lastmod: 2026-04-21
+image: "cover.webp"
+schema_types: ["website", "organization", "brand", "breadcrumbs"]
 ---
+```
 
-2) About / Контакты /
+2. About `content/about/index.md` и `index.ru.md`
 
+```yaml
 ---
-title: ""          		# Заголовок страницы
-description: ""    		# Описание страницы
-date: 2026-03-19   		# Дата создания
-lastmod: 2026-03-19 	# Дата последнего обновления
-image: "cover.webp"     # Картинка обложки
-schema_types: ["organization", "brand", "breadcrumbs"] # Тип, необходим чтобы срабатывал скрипт JSON-LD
+title: ""
+description: ""
+date: 2025-08-05T10:00:00+03:00
+lastmod: 2026-04-21
+summary: ""
+slug: "about"
+image: "cover.webp"
+schema_types: ["organization", "brand", "breadcrumbs"]
 ---
+```
 
-3) Articles List / News List / Products List
+3. Contact `content/contact/index.md` и `index.ru.md`
 
+```yaml
 ---
-title: ""          		# Заголовок списка (например, "Статьи о креслах")
-description: ""    		# Краткое описание списка
-date: 2026-03-19		# Дата создания
-lastmod: 2026-03-19		# Дата последнего обновления
-summary: ""        		# Краткая версия для анонса (статьи или новости)
-image: "cover.webp"     # Картинка обложки
-schema_types: ["collection", "organization", "breadcrumbs"] # Тип, необходим чтобы срабатывал скрипт JSON-LD
+title: ""
+description: ""
+date: 2025-08-05T10:00:00+03:00
+lastmod: 2026-04-21
+summary: ""
+slug: "contact"
+image: "cover.webp"
+schema_types: ["organization", "breadcrumbs"]
 ---
+```
 
-4) Article Item
+4. Search `content/search.md` и `content/search.ru.md`
 
+```yaml
 ---
-title: ""          		# Название статьи/новости/товара
-description: ""    		# Подробное описание, включающее ключевые слова
-summary: ""        		# Краткая версия для анонса (статьи или новости)
-date: 2026-03-19   		# Дата публикации
-lastmod: 2026-03-19 	# Дата последнего обновления
-slug: ""           		# Контролируемый URL, короткий и понятный
-categories: [""]   		# Категории (например, "royal", "releases")
-tags: [""]         		# Теги для фильтрации и навигации
-image: "cover.webp"     # Картинка обложки
-schema_type: ["article", "organization", "breadcrumbs"]     # Тип, необходим чтобы срабатывал скрипт JSON-LD
+title: ""
+description: ""
+date: 2025-08-05T10:00:00+03:00
+lastmod: 2026-04-21
+slug: "search"
+schema_types: ["organization", "breadcrumbs"]
 ---
+```
 
-5) News Item
+5. Листинги `content/articles/_index.md`, `content/news/_index.md`, `content/products/_index.md` и локализованные пары
 
+```yaml
 ---
-title: ""          		                                # Название статьи/новости/товара
-description: ""    		                                # Подробное описание, включающее ключевые слова
-summary: ""        		                                # Краткая версия для анонса (статьи или новости)
-date: 2026-03-19   		                                # Дата публикации
-lastmod: 2026-03-19 	                                # Дата последнего обновления
-slug: ""           		                                # Контролируемый URL, короткий и понятный
-categories: [""]   		                                # Категории (например, "royal", "releases")
-tags: [""]         		                                # Теги для фильтрации и навигации
-image: "cover.webp"     # Картинка обложки
-schema_type: ["news", "organization", "breadcrumbs"]    # Тип, необходим чтобы срабатывал скриптов JSON-LD
+title: ""
+description: ""
+date: 2026-03-19
+lastmod: 2026-04-21
+summary: ""
+image: "cover.webp"
+schema_types: ["collection", "organization", "breadcrumbs"]
 ---
+```
 
-6) Product Item
+6. Страница серии `content/products/<series>/_index.md` и `_index.ru.md`
 
+```yaml
 ---
-title: ""          		                                    # Название товара
-description: ""    		                                    # Подробное описание, включающее ключевые слова
-summary: ""        		                                    # Краткая версия для анонса
-date: 2026-03-19   		                                    # Дата публикации
-lastmod: 2026-03-19 	                                    # Дата последнего обновления
-slug: ""           		                                    # Контролируемый URL, короткий и понятный
-categories: [""]   		                                    # Категории (например, "royal", "releases")
-tags: [""]         		                                    # Теги для фильтрации и навигации
-schema_type: ["product", "organization", "breadcrumbs"]     # Тип для поюключения JSON-LD partials
-image: "racer-dark-grey.png"                                # Основное изображение товара
-price: 6999                                                 # Цена товара
-sku: "BARON-BR-001"                                         # SKU (артикул)
-availability: InStock                                       # Наличие товара
-priceValidUntil: 2026-12-31                                 # Срок действия цены
-rating:                                                     # Рейтинг товара
-  value: 4.8                                                # Средняя оценка (например, 4.8 из 5)
-  count: 124                                                # Количество отзывов
+title: ""
+description: ""
+date: 2026-03-19
+lastmod: 2026-04-21
+summary: ""
+slug: "<series>"
+image: "cover.webp"
+schema_types: ["collection", "organization", "breadcrumbs"]
 ---
+```
 
-7) FAQ Item
+7. Статья `content/articles/<slug>/index.md` и `index.ru.md`
 
+```yaml
+---
+title: ""
+description: ""
+summary: ""
+date: 2026-04-21T10:00:00+03:00
+lastmod: 2026-04-21T10:00:00+03:00
+slug: "<slug>"
+image: "images/default-article.jpg"
+schema_types: ["article", "organization", "breadcrumbs"]
+---
+```
+
+Если у статьи есть собственная обложка в page bundle, поле `image` можно указывать на локальный файл bundle вместо статического default image.
+
+8. Новость `content/news/<slug>/index.md` и `index.ru.md`
+
+```yaml
+---
+title: ""
+description: ""
+summary: ""
+date: 2026-04-21T10:00:00+03:00
+lastmod: 2026-04-21T10:00:00+03:00
+slug: "<slug>"
+image: "images/default-news.jpg"
+schema_types: ["news", "organization", "breadcrumbs"]
+---
+```
+
+9. Товар `content/products/<series>/<model>/index.md` и `index.ru.md`
+
+```yaml
+---
+title: ""
+description: ""
+summary: ""
+date: 2026-04-21T10:00:00+03:00
+lastmod: 2026-04-21T10:00:00+03:00
+slug: "<slug>"
+categories: ["<series>"]
+tags: ["aerocool", "<series>", "<variant>"]
+image: "<image-file>"
+schema_types: ["product", "organization", "breadcrumbs"]
+price: 0
+sku: "<SKU>"
+availability: InStock
+priceValidUntil: 2027-12-31
+warranty: 12
+mpn: "<MPN>"          # optional
+gtin13: "<GTIN13>"    # optional
+return_days: 14       # optional
+shipping_country: "UA" # optional
+rating:
+  value: 4.8
+  count: 10
+---
+```
+
+10. FAQ `content/faq/index.md` и `index.ru.md`
+
+```yaml
 ---
 title: "Часті запитання (FAQ) — Aerocool"
-description: "Відповіді на популярні запитання про ігрові та офісні крісла Aerocool, гарантію, доставку та сервіс в Україні."
-summary: "FAQ щодо крісел Aerocool: гарантія, доставка, тестування, аксесуари та підтримка."
-lastmod: 2025-08-05T10:00:00+03:00
+description: "Відповіді на ключові запитання про серії SKY, WING і XTAL, гарантію, матеріали, synchronous tilt, доставку та підбір крісел Aerocool."
+summary: "FAQ про вибір серії, матеріалів, гарантію, доставку та консультації Aerocool."
+date: 2025-08-05T10:00:00+03:00
+lastmod: 2026-04-21
 slug: "faq"
-schema_type: ["faq", "organization", "breadcrumbs"]
-image: "cover.webp"     # Картинка обложки
+image: "cover.webp"
+schema_types: ["faq", "organization", "breadcrumbs"]
 faq:
-  - question: "Як обрати ідеальне крісло для геймерів?"
-    answer: "Для вибору геймерського крісла звертайте увагу на ергономіку, матеріали та налаштування висоти і спинки."
-  - question: "Чи надаєте ви гарантію на крісла?"
-    answer: "Так, ми надаємо гарантію 24 місяці на всі моделі Aerocool."
+  - question: "Яка гарантія на крісла Aerocool?"
+    answer: "Для актуальних моделей на сайті гарантійний строк становить 12 місяців. Точний гарантійний термін також зазначений на сторінці конкретної моделі."
 ---
+```
 
-Чтобы FAQ заработал, в front matter страницы нужно добавить поле faq в виде массива объектов.
-
-
-Примечание по SEO 2026:
-1) keywords — не использовать, Google их игнорирует.
-2) sitemap.priority и sitemap.changefreq — не использовать, Google их игнорирует.
-3) slug — что это и где использовать, когда обязательный: 
-на страницах продуктов, статей, новостей, где нужно контролировать точный URL.
-на главной, категориях и FAQ slug обычно не указывают, Hugo сам формирует путь.
-4) Для современного SEO не нужно добавлять поле keywords в front matter или в \<head\>. Основной фокус должен быть на:
-   1.	Title и Description — включай главные ключевые слова естественно.
-   2.	URL/Slug — короткий, понятный, с ключевыми словами.
-   3.	Контент страницы — ключевые слова распределены естественно в тексте.
-   4.	Alt-теги изображений — особенно для продуктов и статей.
-   5.	JSON-LD / Schema.org / Open Graph / Twitter Cards — для структурированных данных и расширенных сниппетов.
-5) JSON-LD создается шаблонами отдельно
-6) Задача попасть в топ 1 в Search Engine Results Page
-7) Если один товар, который имеет много цветов, для каждого товара необходим отдельный slug + цвет
+Важно:
+1. Всегда использовать `schema_types`, не `schema_type`.
+2. `lastmod` обновляется при любом содержательном изменении страницы.
+3. Для `uk` и `ru` версии факты должны совпадать, меняется язык и локальные ссылки.
+4. Для статей и новостей не оставлять пустое `image`.
+5. Для товаров с несколькими цветами или материалами держать отдельный `slug` и отдельную папку на вариант.
+6. Поле `keywords` не добавлять вручную в front matter.
+7. FAQ в front matter должен совпадать с видимым FAQ на странице.

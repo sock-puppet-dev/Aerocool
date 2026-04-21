@@ -18,11 +18,13 @@ tags: ["aerocool", "эргономичное кресло", "<series>", "<varian
 image: "<image-file>"
 price: 0
 sku: "<SKU>"
-mpn: "<MPN>"
-gtin13: "<GTIN13>"
 warranty: 12
 availability: InStock
 priceValidUntil: 2027-12-31
+mpn: "<MPN>"             # optional
+gtin13: "<GTIN13>"       # optional
+return_days: 14          # optional
+shipping_country: "UA"   # optional
 rating:
   value: 4.8
   count: 10
@@ -99,14 +101,16 @@ rating:
 
 ## Что еще посмотреть
 
-- [Вся серия](/ru/products/<series>/)
-- [Каталог](/ru/products/)
-- [Контакты](/ru/contact/)
+- [Вся серия](<SERIES_URL>)
+- [Каталог](<CATALOG_URL>)
+- [Контакты](<CONTACT_URL>)
 
 ## Вывод
 
 ...
 ```
+
+Для `index.md` используем локальные URL вида `/products/...`, `/contact/`. Для `index.ru.md` используем `/ru/products/...`, `/ru/contact/`. Если shortcode `seo-image` вставляется и в перевод, на translated page ставим `jsonld=false`.
 
 ## Editorial Rules
 
@@ -115,3 +119,4 @@ rating:
 - Не писать общий рекламный текст без конкретики.
 - В `description` и `summary` упоминать реальные differentiators.
 - Внутри текста раскрывать не только “что есть”, но и “кому это подходит”.
+- Если доступны `mpn`, `gtin13`, `return_days`, `shipping_country`, заполнять их во front matter, потому что product schema их уже поддерживает.

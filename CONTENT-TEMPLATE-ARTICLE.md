@@ -12,6 +12,7 @@ lastmod: 2026-04-21T10:00:00+03:00
 slug: "<slug>"
 description: "Краткое точное описание темы статьи и ее практической пользы."
 summary: "Одно предложение о том, что пользователь поймет после чтения."
+image: "images/default-article.jpg"
 schema_types: ["article", "organization", "breadcrumbs"]
 ---
 ```
@@ -55,3 +56,5 @@ schema_types: ["article", "organization", "breadcrumbs"]
 - Всегда связывать статью с каталогом и конкретными сериями/моделями.
 - По возможности использовать цифры и характеристики производителя.
 - Не превращать статью в новость, если тема evergreen.
+- Если у статьи нет собственной обложки в bundle, оставлять явное `image: "images/default-article.jpg"` во front matter.
+- Для `index.md` и `index.ru.md` держать факты синхронно, меняя только язык и локальные ссылки.
