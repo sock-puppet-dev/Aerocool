@@ -1,62 +1,81 @@
 ---
-title: "Aerocool XTAL — інноваційна серія ігрових крісел (Racer, Loft Air, Mesh)"
-description: "Повний огляд серії Aerocool XTAL: Racer Black, Racer Dark Grey, Loft Air Dark Grey, Loft Air Light Grey, Mesh Black. Ергономічні ігрові крісла для тривалого комфорту."
+title: "Aerocool XTAL — серія ергономічних крісел Racer, Loft Air і Mesh"
+description: "Серія Aerocool XTAL: fully replaceable design, 3D підлокітники з подушками, synchronous tilt, порівняння Racer, Loft Air і Mesh."
 date: 2026-03-19
-lastmod: 2026-03-19
-summary: "Огляд усіх моделей Aerocool XTAL: характеристики, відмінності та кольори."
+lastmod: 2026-04-21
+summary: "XTAL — серія з fully replaceable design, 7D регулюванням і трьома варіантами поверхні: Racer, Loft Air і Mesh."
 slug: "xtal"
 schema_types: ["collection", "organization", "breadcrumbs"]
 image: "cover.webp"
 ---
 
-# Aerocool XTAL — інноваційна серія ігрових крісел
+# Aerocool XTAL — серія з fully replaceable design і синхронним нахилом
 
-Серія **Aerocool XTAL** — це сучасні ігрові крісла, що поєднують **ергономіку, преміальні матеріали та продуманий дизайн** для тривалого комфорту.
+Серія **Aerocool XTAL** створена для тих, хто хоче поєднати ергономічне налаштування, синхронний нахил і конструкцію зі змінними елементами. Це лінійка для користувачів, яким важливі сервісна гнучкість, стабільна підтримка спини та виражений комфорт у зоні контакту з підлокітниками.
 
-Лінійка створена для користувачів, яким важливо:
-- правильна підтримка спини  
-- комфорт під час тривалої роботи або гри  
-- сучасний стиль і дизайн  
+Ключові особливості серії:
 
-## Моделі серії Aerocool XTAL
+- **fully replaceable design, retail cushion replacement**;
+- **3D cushion design armrest**;
+- **synchronous tilt**.
 
-Лінійка включає кілька моделей, які відрізняються дизайном, матеріалами та рівнем вентиляції:
+## Базові характеристики всієї серії XTAL
 
-### XTAL Racer — динамічний стиль і підтримка
-- **Aerocool XTAL Racer Black**
-- **Aerocool XTAL Racer Dark Grey**
+- загальна регульованість: `7D`;
+- підголівник: `1D adjustable`, `up & down`, `replaceable design`;
+- поперекова підтримка: `replaceable design`;
+- спинка: `1D synchronous tilt`;
+- підлокітники: `3D with cushion, lockable`;
+- механізм: `SYNC5 multi-adjustable`;
+- сидіння: `2D adjustable`, `up & down`, `front & back`;
+- база: сталева `350 мм`;
+- ролики: `75 мм silent caster`;
+- вага моделі: `26.3 кг`.
 
-Підходить для геймерів, які віддають перевагу спортивному дизайну та щільній підтримці.
+## Варіанти XTAL
 
-### XTAL Loft Air — максимальний комфорт і вентиляція
-- **Aerocool XTAL Loft Air Dark Grey**
-- **Aerocool XTAL Loft Air Light Grey**
+### Racer
 
-Ідеальний вибір для тривалої роботи завдяки покращеній циркуляції повітря та м’якій посадці.
+**Racer Black** і **Racer Dark Grey** мають поверхню **Leatherette**. Це хороший вибір для тих, кому потрібен більш щільний контакт і легший догляд за оббивкою.
 
-### XTAL Mesh — легкість і повітропроникність
-- **Aerocool XTAL Mesh Black**
+### Loft Air
 
-Сітчаста конструкція забезпечує відмінну вентиляцію та комфорт навіть при тривалому використанні.
+**Loft Air Dark Grey** і **Loft Air Light Grey** отримали **multi-layer breathable mesh fabric**. Такі варіанти м'якші в щоденній експлуатації та краще відчуваються під час тривалого сидіння.
 
-## Переваги серії XTAL
+### Mesh
 
-- Ергономічна форма для підтримки хребта  
-- Якісні матеріали та довговічність  
-- Різноманітність моделей під різні сценарії  
-- Сучасний мінімалістичний дизайн  
-- Підходить для дому та офісу  
+**Mesh Black** — версія з поверхнею **Breathable mesh**, яка дає більше повітрообміну та відчуття легкості.
 
-## Як обрати модель XTAL
+## Кому підійде XTAL
 
-Вибір залежить від ваших задач:
+- тим, хто хоче сервісно гнучку конструкцію зі змінними елементами;
+- тим, кому подобається синхронний нахил і фіксація в кількох положеннях;
+- тим, хто цінує комфорт підлокітників завдяки подушкам на `3D` armrest.
 
-- Для ігор → **Racer**  
-- Для роботи та тривалого сидіння → **Loft Air**  
-- Для максимальної вентиляції → **Mesh**  
+## Моделі серії XTAL
+
+- [Aerocool XTAL Racer Black](/products/xtal/racer-black/)
+- [Aerocool XTAL Racer Dark Grey](/products/xtal/racer-dark-grey/)
+- [Aerocool XTAL Loft Air Dark Grey](/products/xtal/loft-air-dark-grey/)
+- [Aerocool XTAL Loft Air Light Grey](/products/xtal/loft-air-light-grey/)
+- [Aerocool XTAL Mesh Black](/products/xtal/mesh-black/)
+
+## Корисні матеріали по серії
+
+Якщо хочете глибше розібратися в механіці, матеріалах і відмінностях між моделями, почніть із цих матеріалів:
+
+- [Aerocool WING чи XTAL: порівняння серій](/articles/wing-vs-xtal/)
+- [Racer, Loft Air чи Mesh: як обрати поверхню](/articles/racer-vs-loft-air-vs-mesh/)
+- [7D, 8D чи 11D: як читати регулювання](/articles/how-to-choose-chair-by-adjustability/)
+- [Як обрати крісло Aerocool під свій сценарій](/articles/how-to-choose-aerocool-chair/)
+
+## Новини по серії
+
+Окремо стежте за новинами та офіційними анонсами, пов’язаними з цією серією:
+
+- [Запуск серії XTAL](/news/xtal-series-launch/)
+- [Фокус на Loft Air і Mesh](/news/loft-air-and-mesh-focus/)
 
 ## Висновок
 
-Серія **Aerocool XTAL** — це збалансоване рішення для тих, хто шукає **комфортне, стильне та надійне ігрове крісло**.
-
-Оберіть модель, яка найкраще відповідає вашому стилю роботи та рівню навантаження.
+**Aerocool XTAL** — це серія для тих, хто хоче стабільну ергономічну платформу, синхронний нахил і додаткову цінність у вигляді **fully replaceable design**. Вибір між Racer, Loft Air і Mesh визначається насамперед відчуттям поверхні та пріоритетом між щільністю контакту і вентиляцією.
