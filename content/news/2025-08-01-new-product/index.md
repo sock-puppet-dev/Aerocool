@@ -32,7 +32,7 @@ image: "cover.webp"
 
 - 🛠️ Металева посилена рама для тривалої експлуатації  
 - 📅 Офіційна гарантія 3 роки з сервісним обслуговуванням по всій Україні  
-- 🚚 Можливість тест-драйву та безкоштовна доставка
+- 🚚 Консультація щодо вибору моделі та доставка по Україні
 
 ---
 
@@ -52,7 +52,14 @@ image: "cover.webp"
 
 ---
 
-![Aerocool Baron Pro 2026](https://aerocool.ua/images/news/baron-pro-2026-launch.jpg)
+{{< seo-image
+    src="cover.webp"
+    alt="Aerocool Baron Pro 2026 — анонс нової моделі ігрового крісла"
+    title="Aerocool Baron Pro 2026 — офіційний анонс"
+    class="w-full rounded-2xl shadow-xl my-6"
+    loading="lazy"
+    sizes="100vw"
+/>}}
 
 ---
 

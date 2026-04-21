@@ -1,78 +1,94 @@
-// static/sw.js
+const STATIC_CACHE = 'aerocool-static-v1';
+const RUNTIME_CACHE = 'aerocool-runtime-v1';
+const OFFLINE_URL = '/offline.html';
+const PRECACHE_URLS = [
+  OFFLINE_URL,
+  '/manifest.webmanifest',
+  '/android-chrome-192x192.png',
+  '/android-chrome-512x512.png',
+  '/apple-touch-icon.png',
+  '/favicon.ico',
+  '/favicon-16x16.png',
+  '/favicon-32x32.png',
+  '/safari-pinned-tab.svg'
+];
 
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.5.4/workbox-sw.js');
-
-if (workbox) {
-  console.log('✅ Workbox загружен');
-
-  // 🔧 Настройки кэша
-  workbox.setConfig({ debug: false });
-
-  // 💡 Кэш HTML-страниц (включая мультиязычные)
-  workbox.routing.registerRoute(
-    ({ request }) => request.mode === 'navigate',
-    new workbox.strategies.NetworkFirst({
-      cacheName: 'pages-cache',
-      plugins: [
-        new workbox.expiration.ExpirationPlugin({
-          maxEntries: 100,
-          maxAgeSeconds: 7 * 24 * 60 * 60, // 7 дней
-        }),
-      ],
-    })
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(STATIC_CACHE).then((cache) => cache.addAll(PRECACHE_URLS))
   );
+  self.skipWaiting();
+});
 
-  // 💡 Кэш стилей (CSS)
-  workbox.routing.registerRoute(
-    ({ request }) => request.destination === 'style',
-    new workbox.strategies.StaleWhileRevalidate({
-      cacheName: 'styles-cache',
-    })
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((keys) =>
+      Promise.all(
+        keys
+          .filter((key) => ![STATIC_CACHE, RUNTIME_CACHE].includes(key))
+          .map((key) => caches.delete(key))
+      )
+    )
   );
+  self.clients.claim();
+});
 
-  // 💡 Кэш скриптов (JS)
-  workbox.routing.registerRoute(
-    ({ request }) => request.destination === 'script',
-    new workbox.strategies.StaleWhileRevalidate({
-      cacheName: 'scripts-cache',
+async function staleWhileRevalidate(request) {
+  const cache = await caches.open(RUNTIME_CACHE);
+  const cached = await cache.match(request);
+  const networkPromise = fetch(request)
+    .then((response) => {
+      if (response.ok) {
+        cache.put(request, response.clone());
+      }
+      return response;
     })
-  );
+    .catch(() => cached);
 
-  // 💡 Кэш изображений
-  workbox.routing.registerRoute(
-    ({ request }) => request.destination === 'image',
-    new workbox.strategies.CacheFirst({
-      cacheName: 'images-cache',
-      plugins: [
-        new workbox.expiration.ExpirationPlugin({
-          maxEntries: 100,
-          maxAgeSeconds: 30 * 24 * 60 * 60, // 30 дней
-        }),
-      ],
-    })
-  );
-
-  // 🌐 Кэш webmanifest
-  workbox.routing.registerRoute(
-    /\/manifest\.webmanifest$/,
-    new workbox.strategies.StaleWhileRevalidate({
-      cacheName: 'manifest-cache',
-    })
-  );
-
-  // 📦 Прекаш оффлайн-страницы
-  workbox.precaching.precacheAndRoute([
-    { url: '/offline.html', revision: null },
-  ]);
-
-  // 📄 Оффлайн fallback
-  workbox.routing.setCatchHandler(async ({ event }) => {
-    if (event.request.destination === 'document') {
-      return caches.match('/offline.html');
-    }
-    return Response.error();
-  });
-
-} else {
-  console.log('❌ Workbox не загружен');
+  return cached || networkPromise;
 }
+
+async function cacheFirst(request) {
+  const cache = await caches.open(RUNTIME_CACHE);
+  const cached = await cache.match(request);
+  if (cached) {
+    return cached;
+  }
+
+  const response = await fetch(request);
+  if (response.ok) {
+    cache.put(request, response.clone());
+  }
+  return response;
+}
+
+self.addEventListener('fetch', (event) => {
+  const { request } = event;
+  if (request.method !== 'GET') {
+    return;
+  }
+
+  const url = new URL(request.url);
+  if (url.origin !== self.location.origin) {
+    return;
+  }
+
+  if (request.mode === 'navigate') {
+    event.respondWith(
+      fetch(request).catch(async () => {
+        const cache = await caches.open(STATIC_CACHE);
+        return cache.match(OFFLINE_URL);
+      })
+    );
+    return;
+  }
+
+  if (request.destination === 'style' || request.destination === 'script' || url.pathname.endsWith('/manifest.webmanifest')) {
+    event.respondWith(staleWhileRevalidate(request));
+    return;
+  }
+
+  if (request.destination === 'image') {
+    event.respondWith(cacheFirst(request));
+  }
+});

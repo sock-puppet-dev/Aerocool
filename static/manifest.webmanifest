@@ -1,13 +1,13 @@
 {
-  "name": "Aerocool Україна",
+  "name": "Aerocool Ukraine",
   "short_name": "Aerocool",
-  "description": "Офіційний сайт Aerocool в Україні",
-  "start_url": "/?utm_source=pwa",
+  "description": "Official Aerocool website in Ukraine",
+  "id": "/",
+  "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
-  "lang": "uk-UA",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
