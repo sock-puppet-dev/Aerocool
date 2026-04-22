@@ -1,4 +1,12 @@
-Имя файла обновлено под текущее поле front matter: в проекте `Aerocool` нужно использовать `schema_types`.
+# Руководство По `schema_types`
+
+В проекте `Aerocool` используется только поле `schema_types`.
+
+Важно:
+
+- `schema_types` определяет, какую схему пытается собрать шаблонный слой.
+- `schema_types` не управляет индексацией страницы. Для служебных страниц вроде `search` это решается через `robotsNoIndex` и `layouts/_partials/head.html`.
+- `404` и служебные alias-страницы не описываются через метаданные в `content/`; для них используются отдельные шаблонные файлы.
 
 Главная `content/_index.md`
 `schema_types: ["website", "organization", "brand", "breadcrumbs"]`
@@ -24,11 +32,11 @@
 FAQ `content/faq/index.md`
 `schema_types: ["faq", "organization", "breadcrumbs"]`
 
-About `content/about/index.md`
+Страница о бренде `content/about/index.md`
 `schema_types: ["organization", "brand", "breadcrumbs"]`
 
-Contact `content/contact/index.md`
+Контакты `content/contact/index.md`
 `schema_types: ["organization", "breadcrumbs"]`
 
-Search `content/search.md`
+Поиск `content/search.md`
 `schema_types: ["organization", "breadcrumbs"]`

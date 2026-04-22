@@ -9,7 +9,6 @@ schema_types: ["news", "organization", "breadcrumbs"]
 image: "images/default-news.jpg"
 ---
 
-# Aerocool XTAL: новая серия в каталоге с акцентом на fully replaceable design
 
 Aerocool представляет серию **XTAL** — линейку эргономичных кресел для тех, кто хочет совместить синхронный наклон, современную посадку и конструкцию со сменными элементами.
 

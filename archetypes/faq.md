@@ -11,6 +11,3 @@ faq:
   - question: ""
     answer: ""
 ---
-
-# {{ replace .Name "-" " " | title }}
-

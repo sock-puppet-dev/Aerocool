@@ -16,7 +16,7 @@
       "position": 1,
       "name": {{ $homeName | jsonify }},
       "item": {
-        "@id": "{{ .Site.BaseURL | absURL }}"
+        "@id": "{{ .Site.Home.Permalink | absURL }}"
       }
     }
 

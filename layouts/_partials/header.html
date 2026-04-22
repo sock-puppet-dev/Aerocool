@@ -10,9 +10,27 @@
       {{- $label_text := (site.Params.label.text | default site.Title) }}
       {{- $visible_label := strings.TrimSpace $label_text }}
       {{- $logo_title := cond (ne $visible_label "") $label_text site.Title }}
+      {{- $logo_src := "" }}
       <!-- Текст логотипа:
            если в params.label.text задан кастомный текст → берем его,
            иначе используем site.Title -->
+
+      {{- if site.Params.label.icon }}
+      {{- $img := resources.Get site.Params.label.icon }}
+      {{- if $img }}
+      {{- $processableFormats := (slice "jpg" "jpeg" "png" "gif") -}}
+      {{- if hugo.IsExtended }}
+      {{- $processableFormats = $processableFormats | append "webp" -}}
+      {{- end -}}
+      {{- $prod := (hugo.IsProduction | or (eq site.Params.env "production")) }}
+      {{- if and (in $processableFormats $img.MediaType.SubType) (eq $prod true) }}
+      {{- $img = $img.Resize "x30" }}
+      {{- end }}
+      {{- $logo_src = $img.Permalink }}
+      {{- else }}
+      {{- $logo_src = site.Params.label.icon | absURL }}
+      {{- end -}}
+      {{- end }}
 
       {{- if site.Title }}
       <!-- Если у сайта есть Title → показываем логотип/название -->
@@ -25,49 +43,12 @@
       >
         <!-- Ссылка на главную страницу -->
 
-        {{- if site.Params.label.icon }}
-        <!-- Если задан путь к иконке логотипа -->
-
-        {{- $img := resources.Get site.Params.label.icon }}
-        <!-- Пытаемся получить файл как Hugo resource,
-             чтобы при необходимости обработать его -->
-
-        {{- if $img }}
-        <!-- Если ресурс найден внутри Hugo pipeline -->
-
-        {{- $processableFormats := (slice "jpg" "jpeg" "png" "gif") -}}
-        <!-- Форматы, которые Hugo может обработать -->
-
-        {{- if hugo.IsExtended }}
-        {{- $processableFormats = $processableFormats | append "webp" -}}
-        {{- end -}}
-        <!-- В Hugo Extended можно также обрабатывать webp -->
-
-        {{- $prod := (hugo.IsProduction | or (eq site.Params.env "production")) }}
-        <!-- Проверяем, запущен ли сайт в production режиме -->
-
-        {{- if and (in $processableFormats $img.MediaType.SubType) (eq $prod true) }}
-        <!-- В production уменьшаем картинку для оптимизации -->
-        {{- $img = $img.Resize "x30" }}
-        {{- end }}
-
+        {{- if $logo_src }}
         <img
-          src="{{ $img.Permalink }}"
+          src="{{ $logo_src }}"
           alt="{{ site.Title }}"
           class="h-8 w-auto"
         >
-        <!-- h-8 → фиксированная высота логотипа -->
-
-        {{- else }}
-        <!-- Fallback:
-             если Hugo resource не найден, вставляем URL как есть -->
-        <img
-          src="{{- site.Params.label.icon | absURL -}}"
-          alt="{{ site.Title }}"
-          class="h-8 w-auto"
-        >
-        {{- end -}}
-
         {{- end }}
 
         {{- if $visible_label -}}
@@ -243,11 +224,15 @@
         <!-- Header панели -->
         <div class="flex items-center justify-between">
           <a href="{{ "" | absLangURL }}">
+            {{- if $logo_src }}
             <img
-              src="{{ site.Params.label.icon | absURL }}"
+              src="{{ $logo_src }}"
               class="h-8 w-auto"
-              alt="logo"
+              alt="{{ site.Title }}"
             >
+            {{- else }}
+            <span class="sr-only">{{ site.Title }}</span>
+            {{- end }}
           </a>
 
           <label for="nav-toggle" class="p-2">

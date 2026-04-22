@@ -30,7 +30,7 @@ rating:
   fetchpriority=high
   class="w-full rounded-2xl shadow-xl"
   sizes="100vw"
-  jsonld=true
+  jsonld=false
 />}}
 
 ## Aerocool SKY Lite — эргономичное кресло для ежедневного комфорта

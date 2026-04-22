@@ -227,14 +227,10 @@ params:
     hiddenInSingle: false
   # изображение по умолчанию для Open Graph / Twitter Cards (например, логотип)
   images: ["/images/logo.svg"]
-# Настроки блока sitemap
+# Настройки блока sitemap
 sitemap:
-  # Частота обновления страниц для поисковиков (рекомендуется указывать для статичных страниц)
-  changefreq: weekly
   # Имя файла карты сайта
   filename: sitemap.xml
-  # Приоритет страниц (от 0.0 до 1.0)
-  priority: 0.7
 # Добавить генерацию index.json для поиска
 outputs:
   home:

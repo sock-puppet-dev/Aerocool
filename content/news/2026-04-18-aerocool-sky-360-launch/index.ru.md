@@ -9,7 +9,6 @@ schema_types: ["news", "organization", "breadcrumbs"]
 image: "images/default-news.jpg"
 ---
 
-# Aerocool SKY 360: старшая конфигурация серии SKY уже на сайте
 
 Aerocool выделяет модель **SKY 360** как старшую конфигурацию серии SKY для пользователей, которым нужна более глубокая адаптация кресла под себя.
 

@@ -1,12 +1,13 @@
-# Product Page Template
+# Шаблон Страницы Товара
 
-Использовать для новых страниц товаров в `content/products/<series>/<model>/index.md` и `index.ru.md`.
+Использовать для новых карточек товаров в `content/products/<series>/<model>/index.md` и `index.ru.md`.
 
-## Front Matter
+## Поля Метаданных Страницы
 
 ```yaml
 ---
 title: "Эргономичное кресло Aerocool <MODEL>"
+h1: "Aerocool <MODEL>"      # необязательно
 description: "Купить Aerocool <MODEL> в Украине — эргономичное кресло серии <SERIES> с <KEY_FEATURE_1>, <KEY_FEATURE_2> и <CORE_USE_CASE>."
 summary: "Aerocool <MODEL> — кресло серии <SERIES> с <ADJUSTABILITY>, <SURFACE_TYPE> и эргономикой для <USE_CASE>."
 date: 2026-04-21T10:00:00+03:00
@@ -21,17 +22,17 @@ sku: "<SKU>"
 warranty: 12
 availability: InStock
 priceValidUntil: 2027-12-31
-mpn: "<MPN>"             # optional
-gtin13: "<GTIN13>"       # optional
-return_days: 14          # optional
-shipping_country: "UA"   # optional
+mpn: "<MPN>"             # необязательно
+gtin13: "<GTIN13>"       # необязательно
+return_days: 14          # необязательно
+shipping_country: "UA"   # необязательно
 rating:
   value: 4.8
   count: 10
 ---
 ```
 
-## Body Structure
+## Структура Текста
 
 ```md
 {{< seo-image 
@@ -39,7 +40,7 @@ rating:
   width="1920"
   height="1080"
   alt="Кресло Aerocool <MODEL> — краткое точное описание"
-  title="Aerocool <MODEL> — краткий SEO-friendly title"
+  title="Aerocool <MODEL> — краткий SEO-дружественный заголовок"
   loading="eager"
   preload=true
   fetchpriority=high
@@ -47,8 +48,6 @@ rating:
   sizes="100vw"
   jsonld=true
 />}}
-
-## Aerocool <MODEL> — короткое позиционирование модели
 
 **Aerocool <MODEL>** — это ...
 
@@ -110,14 +109,16 @@ rating:
 ...
 ```
 
-Для `index.md` используем локальные URL вида `/products/...`, `/contact/`. Для `index.ru.md` используем `/ru/products/...`, `/ru/contact/`. Если shortcode `seo-image` вставляется и в перевод, на translated page ставим `jsonld=false`.
+Для `index.md` использовать локальные URL вида `/products/...`, `/contact/`. Для `index.ru.md` использовать `/ru/products/...`, `/ru/contact/`. Если shortcode `seo-image` вставляется и в перевод, на переведенной странице ставить `jsonld=false`.
 
-## Editorial Rules
+## Редакционные Правила
 
+- Видимый `H1` рендерит шаблонный слой; в теле товарной страницы не добавлять markdown `# H1`.
+- Если SEO `title` получается длинным, используйте более короткий `h1`, например `Aerocool <MODEL>`.
 - Не выдумывать характеристики, которые не подтверждены производителем.
 - Не путать `Racer`, `Loft Air`, `Mesh`.
 - Не писать общий рекламный текст без конкретики.
-- В `description` и `summary` упоминать реальные differentiators.
-- В `title`, `description`, `summary` и `tags` учитывать релевантный commercial cluster: `игровое кресло`, `офисное кресло`, `компьютерное кресло`, если это соответствует конкретной модели.
+- В `description` и `summary` упоминать реальные отличительные особенности.
+- В `title`, `description`, `summary` и `tags` учитывать релевантный коммерческий кластер: `игровое кресло`, `офисное кресло`, `компьютерное кресло`, если это соответствует конкретной модели.
 - Внутри текста раскрывать не только “что есть”, но и “кому это подходит”.
-- Если доступны `mpn`, `gtin13`, `return_days`, `shipping_country`, заполнять их во front matter, потому что product schema их уже поддерживает.
+- Если доступны `mpn`, `gtin13`, `return_days`, `shipping_country`, заполнять их в метаданных страницы, потому что разметка `Product` уже поддерживает эти данные.

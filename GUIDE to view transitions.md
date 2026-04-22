@@ -1,4 +1,8 @@
-1. Основной скрипт View Transitions в текущем проекте лежит в `layouts/_partials/extend_footer.html`
+# Руководство По API View Transitions
+
+## 1. Где находится основной скрипт
+
+Основной скрипт API View Transitions в текущем проекте лежит в `layouts/_partials/extend_footer.html`.
 
 ```html
 <script>
@@ -40,7 +44,9 @@
 </script>
 ```
 
-2. Основной контейнер страницы находится в `layouts/baseof.html`
+## 2. Где находится основной контейнер страницы
+
+Основной контейнер страницы находится в `layouts/baseof.html`.
 
 ```html
 <main class="main">
@@ -48,7 +54,9 @@
 </main>
 ```
 
-3. Prefetch основных страниц меню уже подключается в `layouts/_partials/head.html`
+## 3. Где подключен prefetch
+
+Prefetch основных страниц меню уже подключается в `layouts/_partials/head.html`.
 
 ```html
 {{ range .Site.Menus.main }}
@@ -58,7 +66,9 @@
 {{ end }}
 ```
 
-4. Если нужно усилить анимации, CSS добавлять в `assets/css/main.css`
+## 4. Куда добавлять CSS для анимаций
+
+Если нужно усилить анимации, CSS добавлять в `assets/css/main.css`.
 
 ```css
 @layer components {
@@ -78,7 +88,9 @@
 }
 ```
 
-Важно:
-1. В этом проекте не использовать путь `layouts/_default/baseof.html` для локальной правки; актуальная локальная точка входа — `layouts/baseof.html`.
-2. Скрипт должен игнорировать внешние ссылки, `mailto:`, `tel:`, download-ссылки и модифицированные клики.
-3. Любые изменения View Transitions проверять на обычной навигации и при `prefers-reduced-motion`.
+## Важно
+
+1. В этом проекте не использовать путь `layouts/_default/baseof.html` для локальной правки; актуальная точка входа — `layouts/baseof.html`.
+2. Локальные partial-шаблоны и шаблоны в проекте держим в формате `.html`, поэтому любые новые переопределения для View Transitions тоже нужно создавать как `.html`.
+3. Скрипт должен игнорировать внешние ссылки, `mailto:`, `tel:`, ссылки на скачивание и модифицированные клики.
+4. Любые изменения View Transitions нужно проверять на обычной навигации и при `prefers-reduced-motion`.

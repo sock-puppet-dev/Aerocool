@@ -1,24 +1,63 @@
-mise version                          # Показывает версию mise
-mise doctor                           # Проверяет систему и конфигурацию mise
-mise current hugo                     # Показывает, какая версия Hugo активна в текущей сессии
+# Руководство По `mise`
 
-mise install hugo@0.157.0             # Попытка установить из реестра mise (может не сработать для старых версий)
-mise uninstall hugo@0.153.0           # Удаление устаревшей версии
+Короткий справочник по `mise` для текущего проекта `Aerocool`.
 
-mise use hugo@0.157.0                 # Переключение версии Hugo
-mise use --global hugo@0.157.0        # Глобальная активация Hugo  
+## Актуальные Версии Проекта
 
-mise which hugo                       # Показывает полный путь к активному бинарнику Hugo
-mise ls --installed                   # Список всех установленных версий инструментов
+- `Hugo 0.157.0`
+- `Node 24`
 
+Именно эти версии зафиксированы в `netlify.toml`, поэтому локальная среда через `mise` должна совпадать с ними максимально близко.
 
-С использованием AQUA:
-В MISE с Backend Aqua инструменты указываются в формате: aqua:владелец/репозиторий aqua:gohugoio/hugo
+## Базовая Диагностика
 
-mise use aqua:gohugoio/hugo@0.157.0              # Переключение на эту версию для текущей сессии
-mise use --global aqua:gohugoio/hugo@0.157.0     # Глобальная активация (по умолчанию для всех терминалов)
+```bash
+mise version
+mise doctor
+mise current hugo
+mise which hugo
+mise ls --installed
+```
 
-mise install aqua:gohugoio/hugo@0.157.0          # Установка через Aqua
-mise uninstall aqua:gohugoio/hugo@0.157.0        # Удаление через Aqua
+## Hugo Через Стандартный Backend
 
+```bash
+mise install hugo@0.157.0
+mise use hugo@0.157.0
+mise use --global hugo@0.157.0
+mise uninstall hugo@0.153.0
+```
 
+Если стандартный backend не дает нужную старшую или младшую версию, для Hugo в этом проекте удобнее использовать `aqua`.
+
+## Hugo Через Aqua
+
+В `mise` с backend `aqua` инструмент задается как `aqua:<owner>/<repo>`.
+
+```bash
+mise install aqua:gohugoio/hugo@0.157.0
+mise use aqua:gohugoio/hugo@0.157.0
+mise use --global aqua:gohugoio/hugo@0.157.0
+mise uninstall aqua:gohugoio/hugo@0.157.0
+```
+
+## Практическая Проверка После Переключения
+
+```bash
+hugo version
+node -v
+npm -v
+```
+
+После этого можно запускать проект:
+
+```bash
+npm install
+npm run dev
+```
+
+или production-подобную проверку:
+
+```bash
+hugo --environment production --minify --gc --cleanDestinationDir
+```

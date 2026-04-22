@@ -22,20 +22,11 @@
   {{- $catalogPage := site.GetPage "/products" -}}
   {{- $articlesPage := site.GetPage "/articles" -}}
   {{- $newsPage := site.GetPage "/news" -}}
+  {{- $allProductPages := where site.RegularPages "Section" "products" -}}
+  {{- $allArticlePages := where site.RegularPages "Section" "articles" -}}
+  {{- $allNewsPages := where site.RegularPages "Section" "news" -}}
 
-  {{- $seriesSlugs := slice -}}
-  {{- if eq $section "products" -}}
-    {{- with .Params.categories -}}
-      {{- with index . 0 -}}
-        {{- $seriesSlugs = $seriesSlugs | append . -}}
-      {{- end -}}
-    {{- end -}}
-  {{- else -}}
-    {{- $haystack := upper (printf "%s %s %s %s %s" .Title (.Params.description | default "") (.Params.summary | default "") .Plain .RelPermalink) -}}
-    {{- if in $haystack "SKY" }}{{- $seriesSlugs = $seriesSlugs | append "sky" -}}{{- end -}}
-    {{- if in $haystack "WING" }}{{- $seriesSlugs = $seriesSlugs | append "wing" -}}{{- end -}}
-    {{- if in $haystack "XTAL" }}{{- $seriesSlugs = $seriesSlugs | append "xtal" -}}{{- end -}}
-  {{- end -}}
+  {{- $seriesSlugs := partial "page-series-slugs.html" . -}}
 
   {{- $seriesScratch := newScratch -}}
   {{- $productsScratch := newScratch -}}
@@ -46,51 +37,27 @@
     {{- with site.GetPage (printf "/products/%s" $seriesSlug) -}}
       {{- $seriesScratch.SetInMap "pages" .RelPermalink . -}}
     {{- end -}}
-    {{- range where site.RegularPages "Section" "products" -}}
-      {{- if and (ne .RelPermalink $.RelPermalink) (in (.Params.categories | default (slice)) $seriesSlug) -}}
+    {{- range $allProductPages -}}
+      {{- $pageSeriesSlugs := partial "page-series-slugs.html" . -}}
+      {{- if and (ne .RelPermalink $.RelPermalink) (in $pageSeriesSlugs $seriesSlug) -}}
         {{- $productsScratch.SetInMap "pages" .RelPermalink . -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
 
+  {{- $materialCandidates := slice -}}
   {{- if eq $section "products" -}}
-    {{- range where site.RegularPages "Section" "articles" -}}
-      {{- $page := . -}}
-      {{- $text := upper (printf "%s %s %s %s" $page.Title ($page.Params.description | default "") ($page.Params.summary | default "") $page.Plain) -}}
-      {{- range $seriesSlugs -}}
-        {{- if in $text (upper .) -}}
-          {{- $materialsScratch.SetInMap "pages" $page.RelPermalink $page -}}
-        {{- end -}}
-      {{- end -}}
-    {{- end -}}
-    {{- range where site.RegularPages "Section" "news" -}}
-      {{- $page := . -}}
-      {{- $text := upper (printf "%s %s %s %s" $page.Title ($page.Params.description | default "") ($page.Params.summary | default "") $page.Plain) -}}
-      {{- range $seriesSlugs -}}
-        {{- if in $text (upper .) -}}
-          {{- $materialsScratch.SetInMap "pages" $page.RelPermalink $page -}}
-        {{- end -}}
-      {{- end -}}
-    {{- end -}}
+    {{- $materialCandidates = union $allArticlePages $allNewsPages -}}
   {{- else if eq $section "articles" -}}
-    {{- range where site.RegularPages "Section" "news" -}}
-      {{- $page := . -}}
-      {{- $text := upper (printf "%s %s %s %s" $page.Title ($page.Params.description | default "") ($page.Params.summary | default "") $page.Plain) -}}
-      {{- range $seriesSlugs -}}
-        {{- if in $text (upper .) -}}
-          {{- $materialsScratch.SetInMap "pages" $page.RelPermalink $page -}}
-        {{- end -}}
-      {{- end -}}
-    {{- end -}}
+    {{- $materialCandidates = $allNewsPages -}}
   {{- else if eq $section "news" -}}
-    {{- range where site.RegularPages "Section" "articles" -}}
-      {{- $page := . -}}
-      {{- $text := upper (printf "%s %s %s %s" $page.Title ($page.Params.description | default "") ($page.Params.summary | default "") $page.Plain) -}}
-      {{- range $seriesSlugs -}}
-        {{- if in $text (upper .) -}}
-          {{- $materialsScratch.SetInMap "pages" $page.RelPermalink $page -}}
-        {{- end -}}
-      {{- end -}}
+    {{- $materialCandidates = $allArticlePages -}}
+  {{- end -}}
+
+  {{- range $materialCandidates -}}
+    {{- $pageSeriesSlugs := partial "page-series-slugs.html" . -}}
+    {{- if and (ne .RelPermalink $.RelPermalink) (gt (len (intersect $seriesSlugs $pageSeriesSlugs)) 0) -}}
+      {{- $materialsScratch.SetInMap "pages" .RelPermalink . -}}
     {{- end -}}
   {{- end -}}
 

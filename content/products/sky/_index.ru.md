@@ -9,7 +9,6 @@ schema_types: ["collection", "organization", "breadcrumbs"]
 image: "cover.webp"
 ---
 
-# Aerocool SKY — офисная и компьютерная эргономичная серия Lite и 360
 
 Серия **Aerocool SKY** построена вокруг трех общих преимуществ и логичного разделения по уровню настройки:
 

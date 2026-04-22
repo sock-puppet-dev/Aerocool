@@ -32,7 +32,7 @@ rating:
   fetchpriority=high
   class="w-full rounded-2xl shadow-xl"
   sizes="100vw"
-  jsonld=true
+  jsonld=false
 />}}
 
 ## Aerocool XTAL Racer Black — эргономичное кресло со сменной сервисной логикой

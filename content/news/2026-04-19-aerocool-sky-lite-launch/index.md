@@ -9,7 +9,6 @@ schema_types: ["news", "organization", "breadcrumbs"]
 image: "images/default-news.jpg"
 ---
 
-# Aerocool SKY Lite: легка точка входу в серію SKY
 
 У каталозі Aerocool уже доступна модель **SKY Lite** — молодша конфігурація серії SKY для тих, кому потрібне ергономічне крісло з дихаючою поверхнею та сучасною механікою без перевантаження регулюваннями.
 

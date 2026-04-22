@@ -9,7 +9,6 @@ schema_types: ["news", "organization", "breadcrumbs"]
 image: "images/default-news.jpg"
 ---
 
-# Loft Air і Mesh: Aerocool розширює акцент на дихаючих конфігураціях
 
 Aerocool звертає окрему увагу на моделі з поверхнями **Loft Air** і **Mesh** у серіях **WING** та **XTAL**. Обидва формати орієнтовані на користувачів, які хочуть більш дихаюче крісло, але між ними є важлива різниця.
 

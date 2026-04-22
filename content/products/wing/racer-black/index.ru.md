@@ -32,7 +32,7 @@ rating:
   fetchpriority=high
   class="w-full rounded-2xl shadow-xl"
   sizes="100vw"
-  jsonld=true
+  jsonld=false
 />}}
 
 ## Aerocool WING Racer Black — эргономичное кресло с правильной поддержкой осанки

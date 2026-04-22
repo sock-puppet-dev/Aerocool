@@ -1,0 +1,47 @@
+{{- $seriesSlugs := slice -}}
+
+{{- with .Params.related_series -}}
+  {{- range . -}}
+    {{- $seriesSlugs = $seriesSlugs | append (lower .) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- with .Params.category -}}
+  {{- $seriesSlugs = $seriesSlugs | append (lower .) -}}
+{{- end -}}
+
+{{- with .Params.categories -}}
+  {{- range . -}}
+    {{- $seriesSlugs = $seriesSlugs | append (lower .) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- with .Params.tags -}}
+  {{- range . -}}
+    {{- $seriesSlugs = $seriesSlugs | append (lower .) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $structuredText := printf "%s %s %s %s %s" .Title (.Params.description | default "") (.Params.summary | default "") (.Params.slug | default "") .RelPermalink -}}
+{{- $haystack := upper $structuredText -}}
+
+{{- if in $haystack "SKY" -}}
+  {{- $seriesSlugs = $seriesSlugs | append "sky" -}}
+{{- end -}}
+{{- if in $haystack "WING" -}}
+  {{- $seriesSlugs = $seriesSlugs | append "wing" -}}
+{{- end -}}
+{{- if in $haystack "XTAL" -}}
+  {{- $seriesSlugs = $seriesSlugs | append "xtal" -}}
+{{- end -}}
+
+{{- $allowedSeries := slice "sky" "wing" "xtal" -}}
+{{- $normalized := slice -}}
+{{- range $seriesSlugs -}}
+  {{- $slug := lower . -}}
+  {{- if in $allowedSeries $slug -}}
+    {{- $normalized = $normalized | append $slug -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return ($normalized | uniq) -}}

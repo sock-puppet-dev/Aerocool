@@ -10,7 +10,6 @@ schema_types: ["collection", "organization", "breadcrumbs"]
 image: "cover.webp"
 ---
 
-# {{ replace .Type "-" " " | title }}
 {{- else -}}
 ---
 title: ""
@@ -25,6 +24,5 @@ tags: [""]
 image: "cover.webp"
 ---
 
-# {{ replace .Name "-" " " | title }}
 {{- end -}}
 

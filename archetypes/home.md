@@ -6,6 +6,3 @@ description: ""
 image: "cover.webp"
 schema_types: ["website", "organization", "brand", "breadcrumbs"]
 ---
-
-# {{ .Site.Title }}
-

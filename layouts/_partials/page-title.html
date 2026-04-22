@@ -7,4 +7,6 @@
     {{- $pageSuffix = printf " | Сторінка %d" $pageNumber -}}
   {{- end -}}
 {{- end -}}
-{{- printf "%s%s" (cond .IsHome .Site.Title (printf "%s | %s" .Title .Site.Title)) $pageSuffix -}}
+{{- $homeTitle := .Params.title | default .Title | default .Site.Title -}}
+{{- $pageTitle := cond .IsHome $homeTitle (printf "%s | %s" .Title .Site.Title) -}}
+{{- printf "%s%s" $pageTitle $pageSuffix -}}

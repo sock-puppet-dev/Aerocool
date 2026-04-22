@@ -12,7 +12,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- Robots -->
-{{- $robotsNoIndex := or (eq .Layout "search") (eq .Params.robotsNoIndex true) -}}
+{{- $is404 := or (eq .Kind "404") (eq .Layout "404") (eq .RelPermalink "/404.html") (eq .RelPermalink "/ru/404.html") -}}
+{{- $robotsNoIndex := or $is404 (eq .Layout "search") (eq .Params.robotsNoIndex true) -}}
 {{ if and (or hugo.IsProduction (eq site.Params.env "production")) (not $robotsNoIndex) }}
 <meta name="robots" content="index,follow">
 {{ else }}
@@ -42,25 +43,19 @@
 <meta name="description" content="{{ partial "page-description.html" . }}">
 
 <!-- Canonical URL -->
+{{- if not $is404 }}
 <link rel="canonical" href="{{ if .Params.canonicalURL -}} {{ trim .Params.canonicalURL " " }} {{- else -}} {{ $pagePermalink }} {{- end }}">
+{{- end }}
 
 <!-- SEO Partials: JSON-LD, Open Graph, Twitter Cards -->
+{{- if not $is404 }}
 {{ partial "_seo/jsonld.html" . }}
 {{ partial "_seo/opengraph.html" . }}
 {{ partial "_seo/twitter_cards.html" . }}
+{{- end }}
 
 <!-- Additional meta -->
 <meta name="author" content="{{ partial "author.html" . }}">
-{{- if .IsHome }}
-  {{ with site.Params.keywords -}}
-  <meta name="keywords" content="{{- range $i, $e := . }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}">
-  {{- end }}
-{{- else }}
-  <meta name="keywords" content="{{ if .Params.keywords -}}
-      {{- range $i, $e := .Params.keywords }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}
-      {{- else -}}
-      {{- range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}{{- end -}}">
-{{- end }}
 
 <!-- Search engines verification -->
 {{- if site.Params.analytics.google.SiteVerificationTag }}
@@ -136,11 +131,13 @@
 {{ end }}
 
 <!-- Prefetch важных страниц меню -->
+{{- if not $is404 }}
 {{ range .Site.Menus.main }}
   {{- if not (findRE "://" .URL) }}
 <link rel="prefetch" href="{{ .URL | relLangURL }}">
   {{- end }}
 {{ end }}
+{{- end }}
 
 <!-- Extend Head -->
 {{ partial "extend_head.html" . }}
