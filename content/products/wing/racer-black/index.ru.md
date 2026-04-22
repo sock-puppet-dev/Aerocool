@@ -8,7 +8,12 @@ schema_types: ["product", "organization", "breadcrumbs"]
 slug: "racer-black"
 categories: ["wing"]
 tags: ["aerocool", "эргономичное кресло", "игровое кресло", "компьютерное кресло", "wing", "racer black"]
-image: "racer-black.png"
+image: "01-front.png"
+cover:
+  image: "01-front.png"
+  alt: "Кресло Aerocool WING Racer Black"
+  relative: true
+  hiddenInSingle: true
 price: 11500
 sku: "WING-RB-001"
 mpn: "TEGC-3096001.11"
@@ -20,20 +25,21 @@ rating:
   value: 4.8
   count: 61
 ---
-
 {{< seo-image 
-  src="racer-black.png"
-  width="1920"
-  height="1080"
-  alt="Кресло Aerocool WING Racer Black — эргономичная модель серии WING цвета черный"
-  title="Aerocool WING Racer Black — эргономичное кресло серии WING"
+  src="01-front.png"
+  width="2000"
+  height="2000"
+  alt="Кресло Aerocool WING Racer Black"
+  title="Aerocool WING Racer Black"
   loading="eager"
   preload=true
   fetchpriority=high
-  class="w-full rounded-2xl shadow-xl"
+  class="w-full rounded-2xl"
   sizes="100vw"
   jsonld=false
 />}}
+
+
 
 ## Aerocool WING Racer Black — эргономичное кресло с правильной поддержкой осанки
 

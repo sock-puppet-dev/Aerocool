@@ -3,12 +3,17 @@ title: "Ергономічне комп'ютерне крісло Aerocool SKY 3
 description: "Купити Aerocool SKY 360 в Україні — ергономічне комп'ютерне та офісне крісло з synchronous tilt, дихаючою сіткою, 2D поперековою підтримкою та 11D регулюванням."
 summary: "Aerocool SKY 360 — комп'ютерне та офісне крісло серії SKY з 11D регулюванням, synchronous tilt і глибшим налаштуванням для роботи та home office."
 date: 2026-03-19
-lastmod: 2026-04-21
+lastmod: 2026-04-23
 schema_types: ["product", "organization", "breadcrumbs"]
 slug: "360"
 categories: ["sky"]
 tags: ["aerocool", "ергономічне крісло", "комп'ютерне крісло", "офісне крісло", "sky", "sky 360", "home office"]
-image: "360.png"
+image: "01-front.png"
+cover:
+  image: "01-front.png"
+  alt: "Крісло Aerocool SKY 360"
+  relative: true
+  hiddenInSingle: true
 price: 12400
 sku: "SKY-360-001"
 warranty: 12
@@ -18,13 +23,12 @@ rating:
   value: 4.8
   count: 53
 ---
-
 {{< seo-image 
-  src="360.png"
-  width="1920"
-  height="1080"
-  alt="Крісло Aerocool SKY 360 — ергономічна модель серії SKY з дихаючою сіткою"
-  title="Aerocool SKY 360 — ергономічне крісло серії SKY"
+  src="01-front.png"
+  width="2000"
+  height="2000"
+  alt="Крісло Aerocool SKY 360"
+  title="Aerocool SKY 360"
   loading="eager"
   preload=true
   fetchpriority=high
@@ -32,6 +36,7 @@ rating:
   sizes="100vw"
   jsonld=true
 />}}
+
 
 ## Aerocool SKY 360 — розширена адаптація під тіло й сценарій використання
 

@@ -8,7 +8,12 @@ schema_types: ["product", "organization", "breadcrumbs"]
 slug: "mesh-black"
 categories: ["wing"]
 tags: ["aerocool", "эргономичное кресло", "компьютерное кресло", "офисное кресло", "wing", "mesh black"]
-image: "mesh-black.png"
+image: "01-front.png"
+cover:
+  image: "01-front.png"
+  alt: "Кресло Aerocool WING Mesh Black"
+  relative: true
+  hiddenInSingle: true
 price: 11000
 sku: "WING-MB-001"
 mpn: "TEGC-3098001.11"
@@ -20,20 +25,21 @@ rating:
   value: 4.7
   count: 47
 ---
-
 {{< seo-image 
-  src="mesh-black.png"
-  width="1920"
-  height="1080"
-  alt="Кресло Aerocool WING Mesh Black — эргономичная модель серии WING цвета черный"
-  title="Aerocool WING Mesh Black — эргономичное кресло серии WING"
+  src="01-front.png"
+  width="2000"
+  height="2000"
+  alt="Кресло Aerocool WING Mesh Black"
+  title="Aerocool WING Mesh Black"
   loading="eager"
   preload=true
   fetchpriority=high
-  class="w-full rounded-2xl shadow-xl"
+  class="w-full rounded-2xl"
   sizes="100vw"
   jsonld=false
 />}}
+
+
 
 ## Aerocool WING Mesh Black — эргономичное кресло с правильной поддержкой осанки
 

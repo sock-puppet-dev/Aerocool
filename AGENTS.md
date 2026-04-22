@@ -38,6 +38,7 @@
 - `KEYWORD-MAP-2026.md`
 - `CONTENT-SEO-CHECKLIST-2026.md`
 - `GUIDE to all front matters.md`
+- `GUIDE to helpers.md`
 - `GUIDE to seo-image.md`
 - `GUIDE to schema_types.md`
 - `GUIDE to view transitions.md`
@@ -51,7 +52,8 @@
 - Для статей, новостей и товарных вариантов используйте явные `slug`, если важен контроль URL.
 - Варианты товаров сознательно разделены по модели и цвету. Для каждого варианта — отдельная папка и отдельный `slug`.
 - Во front matter использовать только `schema_types`. Шаблоны читают `.Params.schema_types`; не переходить на `schema_type`.
-- Видимый `H1` страницы рендерится шаблонным слоем через `layouts/_partials/page-h1.html` по правилу `.Params.h1 | default .Title`.
+- Для большинства страниц видимый `H1` рендерится шаблонным слоем через `layouts/_partials/page-h1.html` по правилу `.Params.h1 | default .Title`.
+- Текущая главная страница — исключение: ее hero и видимый `H1` задаются в `layouts/_shortcodes/home-content-section.html` и `layouts/_shortcodes/home-content-section-ru.html`.
 - Не добавлять markdown `# H1` внутрь `content/`. Тело страницы должно начинаться с вводного абзаца или с `##`.
 - Поле `h1` в метаданных страницы использовать только тогда, когда видимый заголовок должен отличаться от SEO-заголовка документа `title`.
 - При редактировании сохранять `date` и `lastmod`. `lastmod` обновлять при любом содержательном изменении.
@@ -64,6 +66,7 @@
 
 - Для контентных изображений по возможности использовать shortcode `seo-image`, а не сырые `<img>`.
 - Для главных изображений первого экрана (LCP) обычно нужен `eager loading`; для второстепенных изображений — `lazy loading`.
+- Для hero-изображения главной страницы сейчас используется обычный `<img>` внутри локализованных home-shortcodes; там сохранять локальный путь через `relURL`, `loading="eager"` и `fetchpriority="high"`.
 - В локальном гиде по изображениям рекомендовано `jsonld=true` на основной языковой версии страницы и `jsonld=false` на переводе.
 - `alt` должен быть описательным и соответствовать языку страницы.
 - В проекте уже есть шаблоны schema.org-разметки для `website`, `organization`, `brand`, `collection`, `article`, `news`, `product`, `faq` и `breadcrumbs`.

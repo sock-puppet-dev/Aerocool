@@ -3,12 +3,17 @@ title: "Ергономічне комп'ютерне крісло Aerocool XTAL 
 description: "Купити Aerocool XTAL Mesh Black в Україні — ергономічне комп'ютерне та офісне крісло серії XTAL з 7D регулюванням, synchronous tilt, fully replaceable design і поверхнею Breathable mesh."
 summary: "Aerocool XTAL Mesh Black — комп'ютерне та офісне крісло серії XTAL з 7D регулюванням, fully replaceable design і максимально дихаючою поверхнею."
 date: 2026-03-19
-lastmod: 2026-04-21
+lastmod: 2026-04-23
 schema_types: ["product", "organization", "breadcrumbs"]
 slug: "mesh-black"
 categories: ["xtal"]
 tags: ["aerocool", "ергономічне крісло", "комп'ютерне крісло", "офісне крісло", "xtal", "mesh black"]
-image: "mesh-black.png"
+image: "01-front.png"
+cover:
+  image: "01-front.png"
+  alt: "Крісло Aerocool XTAL Mesh Black"
+  relative: true
+  hiddenInSingle: true
 price: 12000
 sku: "XTAL-MB-001"
 mpn: "TEGC-2101101.11"
@@ -20,13 +25,12 @@ rating:
   value: 4.9
   count: 74
 ---
-
 {{< seo-image 
-  src="mesh-black.png"
-  width="1920"
-  height="1080"
-  alt="Крісло Aerocool XTAL Mesh Black — ергономічна модель серії XTAL кольору чорний"
-  title="Aerocool XTAL Mesh Black — ергономічне крісло серії XTAL"
+  src="01-front.png"
+  width="2000"
+  height="2000"
+  alt="Крісло Aerocool XTAL Mesh Black"
+  title="Aerocool XTAL Mesh Black"
   loading="eager"
   preload=true
   fetchpriority=high
@@ -34,6 +38,7 @@ rating:
   sizes="100vw"
   jsonld=true
 />}}
+
 
 ## Aerocool XTAL Mesh Black — ергономічне крісло зі змінною сервісною логікою
 

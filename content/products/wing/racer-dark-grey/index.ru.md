@@ -8,7 +8,12 @@ schema_types: ["product", "organization", "breadcrumbs"]
 slug: "racer-dark-grey"
 categories: ["wing"]
 tags: ["aerocool", "эргономичное кресло", "игровое кресло", "компьютерное кресло", "wing", "racer dark grey"]
-image: "racer-dark-grey.png"
+image: "01-front.png"
+cover:
+  image: "01-front.png"
+  alt: "Кресло Aerocool WING Racer Dark Grey"
+  relative: true
+  hiddenInSingle: true
 price: 11500
 sku: "WING-RDG-001"
 mpn: "TEGC-309600Z.Z1"
@@ -20,20 +25,21 @@ rating:
   value: 4.8
   count: 54
 ---
-
 {{< seo-image 
-  src="racer-dark-grey.png"
-  width="1920"
-  height="1080"
-  alt="Кресло Aerocool WING Racer Dark Grey — эргономичная модель серии WING цвета темно-серый"
-  title="Aerocool WING Racer Dark Grey — эргономичное кресло серии WING"
+  src="01-front.png"
+  width="2000"
+  height="2000"
+  alt="Кресло Aerocool WING Racer Dark Grey"
+  title="Aerocool WING Racer Dark Grey"
   loading="eager"
   preload=true
   fetchpriority=high
-  class="w-full rounded-2xl shadow-xl"
+  class="w-full rounded-2xl"
   sizes="100vw"
   jsonld=false
 />}}
+
+
 
 ## Aerocool WING Racer Dark Grey — эргономичное кресло с правильной поддержкой осанки
 

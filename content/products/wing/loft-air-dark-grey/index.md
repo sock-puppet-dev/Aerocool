@@ -8,7 +8,12 @@ schema_types: ["product", "organization", "breadcrumbs"]
 slug: "loft-air-dark-grey"
 categories: ["wing"]
 tags: ["aerocool", "ергономічне крісло", "офісне крісло", "комп'ютерне крісло", "wing", "loft air dark grey", "home office"]
-image: "loft-air-dark-grey.png"
+image: "01-front.png"
+cover:
+  image: "01-front.png"
+  alt: "Крісло Aerocool WING Loft Air Dark Grey"
+  relative: true
+  hiddenInSingle: true
 price: 12000
 sku: "WING-LADG-001"
 mpn: "TEGC-309700Z.Z1"
@@ -20,20 +25,21 @@ rating:
   value: 4.9
   count: 58
 ---
-
 {{< seo-image 
-  src="loft-air-dark-grey.png"
-  width="1920"
-  height="1080"
-  alt="Крісло Aerocool WING Loft Air Dark Grey — ергономічна модель серії WING кольору темно-сірий"
-  title="Aerocool WING Loft Air Dark Grey — ергономічне крісло серії WING"
+  src="01-front.png"
+  width="2000"
+  height="2000"
+  alt="Крісло Aerocool WING Loft Air Dark Grey"
+  title="Aerocool WING Loft Air Dark Grey"
   loading="eager"
   preload=true
   fetchpriority=high
-  class="w-full rounded-2xl shadow-xl"
+  class="w-full rounded-2xl"
   sizes="100vw"
   jsonld=true
 />}}
+
+
 
 ## Aerocool WING Loft Air Dark Grey — ергономічне крісло з правильною підтримкою постави
 

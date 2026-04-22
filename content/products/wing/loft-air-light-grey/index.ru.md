@@ -8,7 +8,12 @@ schema_types: ["product", "organization", "breadcrumbs"]
 slug: "loft-air-light-grey"
 categories: ["wing"]
 tags: ["aerocool", "эргономичное кресло", "офисное кресло", "компьютерное кресло", "wing", "loft air light grey", "home office"]
-image: "loft-air-light-grey.png"
+image: "01-front.png"
+cover:
+  image: "01-front.png"
+  alt: "Кресло Aerocool WING Loft Air Light Grey"
+  relative: true
+  hiddenInSingle: true
 price: 12000
 sku: "WING-LALG-001"
 mpn: "TEGC-3097004.41"
@@ -20,20 +25,21 @@ rating:
   value: 4.9
   count: 63
 ---
-
 {{< seo-image 
-  src="loft-air-light-grey.png"
-  width="1920"
-  height="1080"
-  alt="Кресло Aerocool WING Loft Air Light Grey — эргономичная модель серии WING цвета светло-серый"
-  title="Aerocool WING Loft Air Light Grey — эргономичное кресло серии WING"
+  src="01-front.png"
+  width="2000"
+  height="2000"
+  alt="Кресло Aerocool WING Loft Air Light Grey"
+  title="Aerocool WING Loft Air Light Grey"
   loading="eager"
   preload=true
   fetchpriority=high
-  class="w-full rounded-2xl shadow-xl"
+  class="w-full rounded-2xl"
   sizes="100vw"
   jsonld=false
 />}}
+
+
 
 ## Aerocool WING Loft Air Light Grey — эргономичное кресло с правильной поддержкой осанки
 

@@ -3,12 +3,17 @@ title: "Эргономичное игровое кресло Aerocool XTAL Racer
 description: "Купить Aerocool XTAL Racer Dark Grey в Украине — эргономичное игровое и компьютерное кресло серии XTAL с 7D регулировкой, synchronous tilt, fully replaceable design и поверхностью Leatherette."
 summary: "Aerocool XTAL Racer Dark Grey — игровое и компьютерное кресло серии XTAL с 7D регулировкой, fully replaceable design и поверхностью Leatherette."
 date: 2026-03-19
-lastmod: 2026-04-21
+lastmod: 2026-04-23
 schema_types: ["product", "organization", "breadcrumbs"]
 slug: "racer-dark-grey"
 categories: ["xtal"]
 tags: ["aerocool", "эргономичное кресло", "игровое кресло", "компьютерное кресло", "xtal", "racer dark grey"]
-image: "racer-dark-grey.png"
+image: "01-front.png"
+cover:
+  image: "01-front.png"
+  alt: "Кресло Aerocool XTAL Racer Dark Grey"
+  relative: true
+  hiddenInSingle: true
 price: 12000
 sku: "XTAL-RDG-001"
 mpn: "TEGC-210010Z.Z1"
@@ -20,13 +25,12 @@ rating:
   value: 4.9
   count: 86
 ---
-
 {{< seo-image 
-  src="racer-dark-grey.png"
-  width="1920"
-  height="1080"
-  alt="Кресло Aerocool XTAL Racer Dark Grey — эргономичная модель серии XTAL цвета темно-серый"
-  title="Aerocool XTAL Racer Dark Grey — эргономичное кресло серии XTAL"
+  src="01-front.png"
+  width="2000"
+  height="2000"
+  alt="Кресло Aerocool XTAL Racer Dark Grey"
+  title="Aerocool XTAL Racer Dark Grey"
   loading="eager"
   preload=true
   fetchpriority=high
@@ -34,6 +38,7 @@ rating:
   sizes="100vw"
   jsonld=false
 />}}
+
 
 ## Aerocool XTAL Racer Dark Grey — эргономичное кресло со сменной сервисной логикой
 

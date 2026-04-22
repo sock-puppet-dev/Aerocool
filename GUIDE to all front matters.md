@@ -6,7 +6,8 @@
 
 - `title` обязателен и отвечает за SEO-заголовок документа.
 - `h1` необязателен и нужен только тогда, когда видимый заголовок страницы должен отличаться от `title`.
-- Видимый `H1` рендерит шаблонный слой по правилу `.Params.h1 | default .Title`.
+- Для большинства страниц видимый `H1` рендерит шаблонный слой по правилу `.Params.h1 | default .Title`.
+- Исключение на текущий момент — главная страница: ее hero и видимый `H1` задаются в `layouts/_shortcodes/home-content-section.html` и `layouts/_shortcodes/home-content-section-ru.html`.
 - В теле markdown не добавлять `# H1`; контент начинается с лида или с `##`.
 
 ## 1. Главная Страница `content/_index.md` и `content/_index.ru.md`
@@ -14,7 +15,7 @@
 ```yaml
 ---
 title: ""
-h1: ""          # необязательно
+h1: ""          # сейчас не влияет на видимый H1 главной; hero и заголовок живут в home-content-section*.html
 description: ""
 summary: ""     # необязательно, но желательно для связанных блоков
 date: 2026-03-19
@@ -23,6 +24,8 @@ image: "cover.webp"
 schema_types: ["website", "organization", "brand", "breadcrumbs"]
 ---
 ```
+
+`title`, `description`, `summary` и `image` для главной по-прежнему задаются через front matter. Но видимый `H1` и hero-изображение на текущем этапе живут в локализованных home-shortcodes, а не в универсальном helper-слое.
 
 ## 2. Страница О Бренде `content/about/index.md` и `index.ru.md`
 

@@ -30,7 +30,8 @@
 - Служебные страницы вынесены в отдельные шаблоны: `layouts/404.html` и `layouts/alias.html`.
 - Языковые sitemap-шаблоны вынесены в [layouts/sitemap.xml](/Users/stadnyk/MEGA/Aerocool/layouts/sitemap.xml), а корневой мультиязычный индекс — в [layouts/sitemapindex.xml](/Users/stadnyk/MEGA/Aerocool/layouts/sitemapindex.xml).
 - Локальные partial-шаблоны и shortcodes в проекте держим в формате `.html`, а не `.gohtml`.
-- Видимый `H1` принадлежит шаблонному слою и рендерится через `layouts/_partials/page-h1.html` по правилу `.Params.h1 | default .Title`.
+- Для большинства страниц видимый `H1` принадлежит шаблонному слою и рендерится через `layouts/_partials/page-h1.html` по правилу `.Params.h1 | default .Title`.
+- Текущая главная страница — осознанное исключение: ее hero и видимый `H1` живут в [layouts/_shortcodes/home-content-section.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-content-section.html) и [layouts/_shortcodes/home-content-section-ru.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-content-section-ru.html).
 - В теле markdown не используем `# H1`; контент начинается с вводного абзаца или `##`.
 
 ## Контентные Правила
@@ -46,6 +47,7 @@
 ## Изображения И SEO
 
 - Для изображений внутри папки страницы (`page bundle` в терминологии Hugo) использовать shortcode `seo-image`.
+- Hero-изображение главной сейчас задается отдельно в локализованных home-shortcodes и не проходит через `seo-image`; для него держим локальный путь через `relURL`, `loading="eager"` и `fetchpriority="high"`.
 - Для главного изображения основной языковой версии допустим `jsonld=true`.
 - Для перевода при использовании `seo-image` держим `jsonld=false`.
 - `search`, `404` и служебные alias-страницы — это служебные страницы, и они должны оставаться `noindex,nofollow`.
@@ -68,6 +70,7 @@ hugo --environment production --minify --gc --cleanDestinationDir
 - `CONTENT-SEO-CHECKLIST-2026.md`
 - `KEYWORD-MAP-2026.md`
 - `GUIDE to all front matters.md`
+- `GUIDE to helpers.md`
 - `GUIDE to seo-image.md`
 - `GUIDE to schema_types.md`
 - `GUIDE to view transitions.md`

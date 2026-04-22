@@ -3,12 +3,17 @@ title: "Эргономичное офисное кресло Aerocool SKY Lite"
 description: "Купить Aerocool SKY Lite в Украине — эргономичное офисное и компьютерное кресло с synchronous tilt, дышащей сеткой, 2D поясничной поддержкой и 8D регулировкой."
 summary: "Aerocool SKY Lite — офисное и компьютерное кресло серии SKY с 8D регулировкой, synchronous tilt и дышащей поверхностью для работы и home office."
 date: 2026-03-19
-lastmod: 2026-04-21
+lastmod: 2026-04-23
 schema_types: ["product", "organization", "breadcrumbs"]
 slug: "lite"
 categories: ["sky"]
 tags: ["aerocool", "эргономичное кресло", "офисное кресло", "компьютерное кресло", "sky", "lite", "home office"]
-image: "lite.png"
+image: "01-front.png"
+cover:
+  image: "01-front.png"
+  alt: "Кресло Aerocool SKY Lite"
+  relative: true
+  hiddenInSingle: true
 price: 8500
 sku: "SKY-LITE-001"
 warranty: 12
@@ -18,13 +23,12 @@ rating:
   value: 4.6
   count: 41
 ---
-
 {{< seo-image 
-  src="lite.png"
-  width="1920"
-  height="1080"
-  alt="Кресло Aerocool SKY Lite — эргономичная модель серии SKY с дышащей сеткой"
-  title="Aerocool SKY Lite — эргономичное кресло серии SKY"
+  src="01-front.png"
+  width="2000"
+  height="2000"
+  alt="Кресло Aerocool SKY Lite"
+  title="Aerocool SKY Lite"
   loading="eager"
   preload=true
   fetchpriority=high
@@ -32,6 +36,7 @@ rating:
   sizes="100vw"
   jsonld=false
 />}}
+
 
 ## Aerocool SKY Lite — эргономичное кресло для ежедневного комфорта
 

@@ -4,6 +4,7 @@
 
 Shortcode `seo-image` находится в `layouts/_shortcodes/seo-image.html` и работает только с изображениями, которые лежат внутри папки страницы (`page bundle` в терминологии Hugo). Если файла нет рядом со страницей, сборка упадет с ошибкой.
 Этот shortcode отвечает только за изображение, `preload`, `srcset` и необязательный `ImageObject` JSON-LD. Он не рендерит `H1` страницы и не влияет на `title`.
+Текущее hero-изображение главной страницы — отдельное исключение: оно живет в `layouts/_shortcodes/home-content-section.html` и `layouts/_shortcodes/home-content-section-ru.html` и сейчас не проходит через `seo-image`.
 
 ## 1. Главное изображение товара в первом экране (LCP)
 
