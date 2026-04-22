@@ -134,6 +134,16 @@ body {
     margin: 0.2rem 0;
 }
 
+@media (max-width: 767px) {
+    .related-links__group a,
+    .footer-links__group a {
+        display: block;
+        min-height: 44px;
+        padding: 0.35rem 0;
+        line-height: 1.3;
+    }
+}
+
 @media (min-width: 768px) {
     .related-links__grid,
     .footer-links {
