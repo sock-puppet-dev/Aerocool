@@ -17,6 +17,11 @@ slug: "<slug>"
 categories: ["<series>"]
 tags: ["aerocool", "эргономичное кресло", "<commercial-cluster>", "<series>", "<variant>"]
 image: "<image-file>"
+cover:
+  image: "<image-file>"
+  alt: "Кресло Aerocool <MODEL>"
+  relative: true
+  hiddenInSingle: true
 price: 0
 sku: "<SKU>"
 warranty: 12
@@ -37,14 +42,14 @@ rating:
 ```md
 {{< seo-image 
   src="<image-file>"
-  width="1920"
-  height="1080"
+  width="2000"
+  height="2000"
   alt="Кресло Aerocool <MODEL> — краткое точное описание"
   title="Aerocool <MODEL> — краткий SEO-дружественный заголовок"
   loading="eager"
   preload=true
   fetchpriority=high
-  class="w-full rounded-2xl shadow-xl"
+  class="w-full rounded-2xl"
   sizes="100vw"
   jsonld=true
 />}}
@@ -111,6 +116,12 @@ rating:
 
 Для `index.md` использовать локальные URL вида `/products/...`, `/contact/`. Для `index.ru.md` использовать `/ru/products/...`, `/ru/contact/`. Если shortcode `seo-image` вставляется и в перевод, на переведенной странице ставить `jsonld=false`.
 
+Текущий рабочий паттерн для product pages:
+
+- `image` — для SEO, OG, Twitter и schema;
+- `cover.image` — для preview в листингах;
+- `seo-image` — для основного изображения в теле страницы.
+
 ## Редакционные Правила
 
 - Видимый `H1` рендерит шаблонный слой; в теле товарной страницы не добавлять markdown `# H1`.
@@ -122,3 +133,4 @@ rating:
 - В `title`, `description`, `summary` и `tags` учитывать релевантный коммерческий кластер: `игровое кресло`, `офисное кресло`, `компьютерное кресло`, если это соответствует конкретной модели.
 - Внутри текста раскрывать не только “что есть”, но и “кому это подходит”.
 - Если доступны `mpn`, `gtin13`, `return_days`, `shipping_country`, заполнять их в метаданных страницы, потому что разметка `Product` уже поддерживает эти данные.
+- Для квадратных фронтальных изображений товара нормален размер `2000x2000`; если используется широкий hero-кадр, под него можно задать другую целевую пропорцию.

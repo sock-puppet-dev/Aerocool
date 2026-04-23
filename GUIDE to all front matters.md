@@ -142,13 +142,19 @@ summary: ""
 date: 2026-04-22T10:00:00+03:00
 lastmod: 2026-04-22T10:00:00+03:00
 slug: "<slug>"
-image: "images/default-news.jpg"
+image: "01-front.png"
+cover:
+  image: "01-front.png"
+  alt: "Обложка новости про Aerocool <MODEL/SERIES>"
+  relative: true
+  hiddenInSingle: true
 schema_types: ["news", "organization", "breadcrumbs"]
 ---
 ```
 
 Для проекта `Aerocool` новость, которая поддерживает ранжирование, обычно должна иметь `5000+` знаков тела на каждую языковую версию.
 Если новость используется как SEO-посадочная страница для серии, модели или запуска, поле `summary` нужно заполнять обязательно.
+Если у новости есть локальная обложка в папке страницы, текущий стандарт проекта — использовать ее как `image`, дублировать в `cover.image` для preview и выводить в начале тела через shortcode `seo-image`.
 
 ## 9. Товар `content/products/<series>/<model>/index.md` и `index.ru.md`
 
@@ -164,6 +170,11 @@ slug: "<slug>"
 categories: ["<series>"]
 tags: ["aerocool", "<series>", "<variant>"]
 image: "<image-file>"
+cover:
+  image: "<image-file>"
+  alt: "Кресло Aerocool <MODEL>"
+  relative: true
+  hiddenInSingle: true
 schema_types: ["product", "organization", "breadcrumbs"]
 price: 0
 sku: "<SKU>"
@@ -181,6 +192,7 @@ rating:
 ```
 
 Если на переведенной товарной странице используется shortcode `seo-image`, для `index.ru.md` ставить `jsonld=false`.
+`image` отвечает за SEO/OG/schema, а `cover.image` — за preview-карточки в листингах. Для большинства product pages в текущем проекте нужны оба поля сразу.
 
 ## 10. FAQ `content/faq/index.md` и `index.ru.md`
 

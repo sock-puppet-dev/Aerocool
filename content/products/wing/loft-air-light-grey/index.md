@@ -1,9 +1,9 @@
 ---
 title: "Ергономічне офісне крісло Aerocool WING Loft Air Light Grey"
-description: "Купити Aerocool WING Loft Air Light Grey в Україні — ергономічне офісне та комп'ютерне крісло серії WING з 11D регулюванням, synchronous tilt, подвійною спинкою і поверхнею Multi-layer breathable mesh fabric."
+description: "Купити Aerocool WING Loft Air Light Grey в Україні — ергономічне офісне та комп'ютерне крісло серії WING з 11D регулюванням, synchronous tilt, подвійною спинкою і поверхнею багатошарова дихаюча сітчаста тканина."
 summary: "Aerocool WING Loft Air Light Grey — офісне та комп'ютерне крісло серії WING з 11D регулюванням, подвійною спинкою й дихаючою поверхнею для роботи та home office."
 date: 2026-03-19
-lastmod: 2026-04-21
+lastmod: 2026-04-23
 schema_types: ["product", "organization", "breadcrumbs"]
 slug: "loft-air-light-grey"
 categories: ["wing"]
@@ -43,15 +43,15 @@ rating:
 
 ## Aerocool WING Loft Air Light Grey — ергономічне крісло з правильною підтримкою постави
 
-**Aerocool WING Loft Air Light Grey** — це модель серії WING з поверхнею Multi-layer breathable mesh fabric, 11D регулюванням, synchronous tilt і фокусом на адаптації під користувача.
+**Aerocool WING Loft Air Light Grey** — це модель серії WING з багатошаровою дихаючою сітчастою тканиною, 11D регулюванням, synchronous tilt і фокусом на адаптації під користувача.
 Ця конфігурація зберігає спільну ергономічну платформу серії, але дає своє відчуття посадки завдяки матеріалу поверхні та кольору.
 
 ## Ключові переваги
 
-- dual backrest design з динамічною підбудовою під поставу
-- підлокітники 4D X 360 multifunctional armrest
+- подвійна спинка з динамічною підбудовою під поставу
+- підлокітники 4D X 360
 - підголівник з регулюванням по висоті та куту
-- поверхня Multi-layer breathable mesh fabric
+- поверхня з багатошарової дихаючої сітчастої тканини
 - синхронний нахил і багатопозиційна фіксація
 
 ## Кому підійде
@@ -64,22 +64,22 @@ rating:
 
 - Модель: WING Loft Air Light Grey
 - Загальна регульованість: 11D
-- Підголівник: 2D adjustable, up & down, angle
-- Каркас: Nylon
-- Поверхня: Multi-layer breathable mesh fabric
-- Внутрішній матеріал: Molding foam
+- Підголівник: 2D регулювання: висота та кут
+- Каркас: нейлон
+- Поверхня: багатошарова дихаюча сітчаста тканина
+- Внутрішній матеріал: формований наповнювач
 - Спинка: 1D synchronous tilt
-- Поперекова підтримка: 2D dual backrest design, dynamic adjusting
-- Підлокітники: 4D X 360 adjustable
-- Механізм: SYNC5 multi-adjustable
-- Сидіння: 2D adjustable, up & down, front & back
+- Поперекова підтримка: 2D подвійна спинка, динамічне підлаштування
+- Підлокітники: 4D X 360
+- Механізм: SYNC5 з розширеним налаштуванням
+- Сидіння: 2D регулювання: вгору/вниз, вперед/назад
 - Тип нахилу: Synchronous tilt
-- Фіксація: Multi-angle lock
-- Опір спинки: Weight sensitive
-- Газліфт: BIFMA tested, class 4
-- База: 350mm steel base
-- Ролики: 75mm silent caster
-- Вага виробу: 23.9kg
+- Фіксація: багатопозиційна фіксація
+- Опір спинки: адаптація опору до ваги користувача
+- Газліфт: клас 4, протестовано за BIFMA
+- База: сталева база 350 мм
+- Ролики: тихі ролики 75 мм
+- Вага виробу: 23.9 кг
 
 ## Чим ця версія відрізняється всередині серії
 

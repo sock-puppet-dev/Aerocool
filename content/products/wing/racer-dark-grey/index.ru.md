@@ -3,7 +3,7 @@ title: "Эргономичное игровое кресло Aerocool WING Racer
 description: "Купить Aerocool WING Racer Dark Grey в Украине — эргономичное игровое и компьютерное кресло серии WING с 11D регулировкой, synchronous tilt, двойной спинкой и поверхностью Leatherette."
 summary: "Aerocool WING Racer Dark Grey — игровое и компьютерное кресло серии WING с 11D регулировкой, двойной спинкой и поверхностью Leatherette."
 date: 2026-03-19
-lastmod: 2026-04-21
+lastmod: 2026-04-23
 schema_types: ["product", "organization", "breadcrumbs"]
 slug: "racer-dark-grey"
 categories: ["wing"]
@@ -43,13 +43,13 @@ rating:
 
 ## Aerocool WING Racer Dark Grey — эргономичное кресло с правильной поддержкой осанки
 
-**Aerocool WING Racer Dark Grey** — это модель серии WING с поверхностью Leatherette с 11D регулировкой, synchronous tilt и фокусом на адаптации под пользователя.
+**Aerocool WING Racer Dark Grey** — это модель серии WING с обивкой Leatherette, 11D регулировкой, synchronous tilt и фокусом на адаптации под пользователя.
 Эта конфигурация сохраняет общую эргономическую платформу серии, но дает свое ощущение посадки благодаря материалу поверхности и цвету.
 
 ## Ключевые преимущества
 
-- dual backrest design с динамической подстройкой под осанку
-- подлокотники 4D X 360 multifunctional armrest
+- двойная спинка с динамической подстройкой под осанку
+- подлокотники 4D X 360
 - подголовник с регулировкой по высоте и углу
 - поверхность Leatherette
 - синхронный наклон и многопозиционная фиксация
@@ -64,22 +64,22 @@ rating:
 
 - Модель: WING Racer Dark Grey
 - Общая регулировка: 11D
-- Подголовник: 2D adjustable, up & down, angle
-- Каркас: Nylon
+- Подголовник: 2D регулировка: высота и угол
+- Каркас: нейлон
 - Поверхность: Leatherette
-- Внутренний материал: Molding foam
+- Внутренний материал: формованный наполнитель
 - Спинка: 1D synchronous tilt
-- Поясничная поддержка: 2D dual backrest design, dynamic adjusting
-- Подлокотники: 4D X 360 adjustable
-- Механизм: SYNC5 multi-adjustable
-- Сиденье: 2D adjustable, up & down, front & back
+- Поясничная поддержка: 2D двойная спинка, динамическая подстройка
+- Подлокотники: 4D X 360
+- Механизм: SYNC5 с расширенной настройкой
+- Сиденье: 2D регулировка: вверх/вниз, вперед/назад
 - Тип наклона: Synchronous tilt
-- Фиксация: Multi-angle lock
-- Сопротивление спинки: Weight sensitive
-- Газлифт: BIFMA tested, class 4
-- База: 350mm steel base
-- Ролики: 75mm silent caster
-- Вес изделия: 23.9kg
+- Фиксация: многопозиционная фиксация
+- Сопротивление спинки: адаптация сопротивления к весу пользователя
+- Газлифт: класс 4, протестировано по BIFMA
+- База: стальная база 350 мм
+- Ролики: тихие ролики 75 мм
+- Вес изделия: 23.9 кг
 
 ## Чем эта версия отличается внутри серии
 

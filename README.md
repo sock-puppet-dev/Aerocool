@@ -19,7 +19,7 @@
 - `content/news/` — новости, анонсы и материалы о запусках
 - `content/about`, `content/contact`, `content/faq`, `content/search*` — статичные и служебные страницы
 - `layouts/` — локальные Hugo-переопределения
-- `assets/css/main.css` — главный CSS-источник проекта
+- `assets/css/main.css` — главный CSS-источник проекта: здесь живут Tailwind, локальные design tokens, белый page canvas, базовый текстовый слой и component-layer проекта
 - `static/` — статические файлы
 - `hugo.yaml` — глобальная конфигурация сайта
 - `netlify.toml` — production-сборка и заголовки ответа
@@ -32,6 +32,7 @@
 - Локальные partial-шаблоны и shortcodes в проекте держим в формате `.html`, а не `.gohtml`.
 - Для большинства страниц видимый `H1` принадлежит шаблонному слою и рендерится через `layouts/_partials/page-h1.html` по правилу `.Params.h1 | default .Title`.
 - Текущая главная страница — осознанное исключение: ее hero и видимый `H1` живут в [layouts/_shortcodes/home-content-section.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-content-section.html) и [layouts/_shortcodes/home-content-section-ru.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-content-section-ru.html).
+- Home hero использует namespaced CSS-хуки `home-hero__*`, а их визуальный слой живет в [assets/css/main.css](/Users/stadnyk/MEGA/Aerocool/assets/css/main.css).
 - В теле markdown не используем `# H1`; контент начинается с вводного абзаца или `##`.
 
 ## Контентные Правила
@@ -47,6 +48,7 @@
 ## Изображения И SEO
 
 - Для изображений внутри папки страницы (`page bundle` в терминологии Hugo) использовать shortcode `seo-image`.
+- Для карточек товаров текущий рабочий паттерн такой: `image` для SEO/OG/schema, `cover.image` для preview в листингах и `seo-image` в теле страницы для основного изображения.
 - Hero-изображение главной сейчас задается отдельно в локализованных home-shortcodes и не проходит через `seo-image`; для него держим локальный путь через `relURL`, `loading="eager"` и `fetchpriority="high"`.
 - Для главного изображения основной языковой версии допустим `jsonld=true`.
 - Для перевода при использовании `seo-image` держим `jsonld=false`.
@@ -59,10 +61,11 @@
 npm install
 npm run dev
 npm run build
+hugo server --environment production --disableFastRender
 hugo --environment production --minify --gc --cleanDestinationDir
 ```
 
-`npm run dev` запускает `hugo server`, а `npm run build` предварительно обновляет подмодули и затем собирает production-сборку.
+`npm run dev` запускает `hugo server`, а `npm run build` предварительно обновляет подмодули и затем собирает production-сборку. Для отладки шаблонов, CSS, SEO и изображений предпочтителен `hugo server --environment production --disableFastRender`.
 
 ## Локальная Документация
 

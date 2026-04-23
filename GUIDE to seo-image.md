@@ -6,25 +6,45 @@ Shortcode `seo-image` находится в `layouts/_shortcodes/seo-image.html`
 Этот shortcode отвечает только за изображение, `preload`, `srcset` и необязательный `ImageObject` JSON-LD. Он не рендерит `H1` страницы и не влияет на `title`.
 Текущее hero-изображение главной страницы — отдельное исключение: оно живет в `layouts/_shortcodes/home-content-section.html` и `layouts/_shortcodes/home-content-section-ru.html` и сейчас не проходит через `seo-image`.
 
+Для товарных страниц текущий стандарт проекта такой:
+
+- `image` во front matter — для `og:image`, `twitter:image` и schema;
+- `cover.image` — для preview в листингах;
+- `seo-image` в теле страницы — для основного видимого изображения карточки.
+
 ## 1. Главное изображение товара в первом экране (LCP)
+
+Сначала во front matter:
+
+```yaml
+image: "01-front.png"
+cover:
+  image: "01-front.png"
+  alt: "Кресло Aerocool SKY 360"
+  relative: true
+  hiddenInSingle: true
+```
+
+Потом в теле страницы:
 
 ```md
 {{< seo-image 
-  src="sky-360.png"
-  width="1920"
-  height="1080"
+  src="01-front.png"
+  width="2000"
+  height="2000"
   alt="Кресло Aerocool SKY 360 — эргономичная модель с 11D регулировкой"
   title="Aerocool SKY 360"
   loading="eager"
   preload=true
   fetchpriority=high
-  class="w-full rounded-2xl shadow-xl"
+  class="w-full rounded-2xl"
   sizes="100vw"
   jsonld=true
 />}}
 ```
 
 - Для главного изображения товара использовать `loading="eager"`, `preload=true`, `fetchpriority=high`.
+- Для квадратного фронтального product image нормален точный размер `2000x2000`.
 - `jsonld=true` оставлять только на основной языковой версии страницы.
 - Для перевода использовать тот же shortcode, но ставить `jsonld=false`, даже если картинка и `src` остаются теми же.
 
@@ -40,7 +60,7 @@ Shortcode `seo-image` находится в `layouts/_shortcodes/seo-image.html`
   loading="lazy"
   preload=false
   fetchpriority=auto
-  class="w-full rounded-2xl shadow-lg"
+  class="w-full rounded-2xl"
   sizes="(max-width: 768px) 100vw, 1200px"
 />}}
 ```
@@ -80,7 +100,8 @@ Shortcode `seo-image` находится в `layouts/_shortcodes/seo-image.html`
 
 ## Важно
 
-1. Для статей и новостей без локальной обложки можно не использовать shortcode, а задать `image` во front matter как `images/default-article.jpg` или `images/default-news.jpg`.
+1. Текущий рекомендуемый стандарт для статей и новостей с локальной обложкой в проекте — `image + cover.image + seo-image`. Fallback на `images/default-article.jpg` или `images/default-news.jpg` допустим только если локальной обложки в папке страницы действительно нет.
 2. Не использовать устаревшие примеры с `Baron` в новых материалах; ориентироваться на текущие серии `SKY`, `WING`, `XTAL`.
 3. Не вставлять через shortcode изображения, которых нет в папке страницы.
 4. На переведенной странице локализовать `alt` и `title`, даже если используется тот же исходный файл изображения.
+5. Для product page не забывать, что `cover.image` нужен отдельно: без него картинка появится в теле страницы, но не появится в preview-листингах.
