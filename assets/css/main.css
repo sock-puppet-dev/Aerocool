@@ -28,16 +28,34 @@
    страниц и статей, а не всего сайта целиком.
    ========================================================= */
 
-/* Маркеры для ненумерованных списков в теле страницы. */
-.post-content ul li {
-    list-style: disc;
-    margin-left: 1rem;
+/* Возвращаем нормальную иерархию маркеров для markdown-списков.
+   Важно задавать тип на уровне контейнера ul/ol, а не на каждом li,
+   иначе вложенные уровни теряют привычный переход disc/circle/square
+   и decimal/alpha/roman. */
+.post-content ul {
+    list-style-type: disc;
 }
 
-/* Нумерация для ordered lists в теле страницы. */
-.post-content ol li {
-    list-style: decimal;
-    margin-left: 1rem;
+.post-content ul ul {
+    list-style-type: circle;
+}
+
+.post-content ul ul ul {
+    list-style-type: square;
+}
+
+/* То же самое для ordered lists: вложенные уровни становятся визуально
+   различимыми без дополнительных hardcode-отступов на каждом li. */
+.post-content ol {
+    list-style-type: decimal;
+}
+
+.post-content ol ol {
+    list-style-type: lower-alpha;
+}
+
+.post-content ol ol ol {
+    list-style-type: lower-roman;
 }
 
 /* =========================================================
@@ -49,6 +67,7 @@
    - базовый шрифт;
    - базовый размер и цвет обычного текста.
    - базовый белый canvas сайта через var(--theme).
+   - мягкая палитра поверх PaperMod для более чистого docs-каталога.
 
    Это "точка настройки", а не место для разовых фиксов.
    Если нужно поменять ощущение сайта целиком, начинать лучше
@@ -57,11 +76,30 @@
 :root {
     --nav-width: 1100px;
     --main-width: 1100px;
+    --text-width: 720px;
     --project-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
         Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     --base-text-size: 1rem;
     --base-text-line-height: 1.75;
     --base-text-color: #4b5563;
+    --bg-soft: #f8fafc;
+    --bg-muted: #f3f4f6;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --accent-soft: #dbeafe;
+    --link-underline: #bfdbfe;
+    --border-strong: #d1d5db;
+    --shadow-soft: 0 8px 24px rgba(15, 23, 42, 0.06);
+    --shadow-card: 0 2px 10px rgba(15, 23, 42, 0.04);
+    --theme: #ffffff;
+    --entry: #ffffff;
+    --primary: #111827;
+    --secondary: #6b7280;
+    --tertiary: #d1d5db;
+    --content: #374151;
+    --code-bg: #f8fafc;
+    --border: #e5e7eb;
+    --radius: 14px;
 }
 
 /* Единый sans-serif стек для всего интерфейса:
@@ -78,6 +116,8 @@ select {
    Заголовки и специальные блоки дальше могут задавать свои
    собственные размеры поверх этого значения. */
 body {
+    color: var(--content);
+    background: var(--theme);
     font-size: var(--base-text-size);
     line-height: var(--base-text-line-height);
 }
@@ -110,6 +150,226 @@ body.list {
     font-size: var(--base-text-size);
     line-height: var(--base-text-line-height);
     color: var(--base-text-color);
+}
+
+/* =========================================================
+   3.1 КОМПОНЕНТНЫЙ СЛОЙ ПРОЕКТА
+   ---------------------------------------------------------
+   Ниже мы не меняем HTML-структуру сайта, а донастраиваем уже
+   существующие компоненты PaperMod и локальных partials:
+   - page/post headers;
+   - карточки списков;
+   - два типа ссылок: text links и surface/CTA links;
+   - related/footer blocks;
+   - pagination и вспомогательную навигацию.
+
+   Это и есть "перевод" дизайн-системы в живые селекторы проекта.
+   ========================================================= */
+
+/* Заголовки получают чуть более плотную типографику и темный графитовый цвет,
+   чтобы страница выглядела ближе к docs/catalog style, а не к блогу по умолчанию. */
+.post-title,
+.page-header h1,
+.entry-header h2,
+.first-entry .entry-header h1,
+.related-links__title,
+.footer-links__title,
+.post-content h1,
+.post-content h2,
+.post-content h3 {
+    color: var(--primary);
+    letter-spacing: -0.02em;
+}
+
+/* Вводные описания страниц делаем чуть крупнее, но не такими большими,
+   как hero-lead на главной. Это помогает section/list страницам выглядеть
+   более собранно и "документационно". */
+.post-description {
+    max-width: var(--text-width);
+    color: var(--content);
+    font-size: 1.125rem;
+    line-height: 1.7;
+}
+
+/* Meta-информация должна быть заметной, но вторичной относительно контента. */
+.post-meta,
+.breadcrumbs,
+.entry-footer,
+.entry-hint {
+    color: var(--secondary);
+}
+
+/* Текстовые ссылки приводим к одному паттерну:
+   спокойный акцентный синий + тонкое underline вместо разнородных
+   box-shadow/border-bottom решений темы.
+
+   Важно:
+   - это слой именно для inline/text links;
+   - CTA-кнопки и card/surface links ниже живут отдельно;
+   - так проект не смешивает обычные текстовые ссылки с кнопками. */
+.post-content a,
+.related-links a,
+.footer a,
+.breadcrumbs a,
+.home-hero a:not(.home-hero__cta),
+.entry-cover a {
+    border-bottom: 0;
+    box-shadow: none;
+    text-decoration: underline;
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.18em;
+    text-decoration-color: var(--link-underline);
+    transition: color 180ms ease, text-decoration-color 180ms ease;
+}
+
+/* Цветовая система для text links:
+   обычное состояние — accent,
+   hover — accent-hover,
+   underline становится заметнее при наведении. */
+.post-content a,
+.related-links a,
+.footer a,
+.breadcrumbs a,
+.home-hero a:not(.home-hero__cta),
+.entry-cover a,
+.pagination a,
+.paginav a,
+.entry-title-link:hover,
+.entry-title-link:focus-visible {
+    color: var(--accent);
+}
+
+.post-content a:hover,
+.related-links a:hover,
+.footer a:hover,
+.breadcrumbs a:hover,
+.home-hero a:not(.home-hero__cta):hover,
+.entry-cover a:hover,
+.pagination a:hover,
+.paginav a:hover {
+    color: var(--accent-hover);
+}
+
+.post-content a:hover,
+.related-links a:hover,
+.footer a:hover,
+.breadcrumbs a:hover,
+.home-hero a:not(.home-hero__cta):hover,
+.entry-cover a:hover {
+    text-decoration-color: currentColor;
+}
+
+/* Карточки и вспомогательные поверхности строим по одному принципу:
+   белый фон, мягкая граница и легкая тень.
+   Так интерфейс остается спокойным, а отделение блоков достигается
+   структурой, а не тяжелыми серыми плашками.
+
+   Это уже не text links, а surface-слой проекта:
+   карточки, TOC, pagination surfaces, post tags, share buttons. */
+.post-entry,
+.related-links,
+.toc,
+.paginav,
+.pagination a,
+.post-tags a,
+.share-buttons {
+    background: var(--entry);
+    border-color: var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+}
+
+/* У pagination в теме нет явного border, поэтому одного border-color
+   недостаточно. Добавляем рамку, чтобы пагинация жила в той же
+   surface-системе, что и TOC, paginav и post-tags. */
+.pagination a {
+    border: 1px solid var(--border);
+}
+
+/* Карточки в списках получают более "живой" hover, но без aggressive motion. */
+.post-entry {
+    transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.post-entry:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-soft);
+}
+
+.post-entry:active {
+    transform: translateY(0) scale(0.99);
+}
+
+/* Пагинация и маленькие навигационные карточки используют свой hover-state.
+   Это surface links, поэтому у них меняется не underline, а сама поверхность. */
+.pagination a,
+.paginav a,
+.post-tags a {
+    transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+.pagination a:hover,
+.paginav a:hover,
+.post-tags a:hover {
+    background: var(--bg-soft);
+}
+
+/* Home hero получает свой namespaced слой, чтобы не зависеть от случайных
+   utility-классов и жить в той же системе, что и остальной сайт.
+
+   Здесь тоже есть два типа ссылок:
+   - home-hero__cta = кнопки действия;
+   - обычные ссылки внутри hero = text links из общего слоя выше. */
+.home-hero__eyebrow {
+    color: var(--accent);
+}
+
+.home-hero__title {
+    max-width: 12ch;
+}
+
+.home-hero__lead {
+    max-width: 34rem;
+    color: var(--content);
+}
+
+.home-hero__actions {
+    align-items: center;
+}
+
+.home-hero__cta {
+    border-radius: var(--radius);
+    transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease,
+        box-shadow 180ms ease, transform 180ms ease;
+}
+
+.home-hero__cta:hover {
+    transform: translateY(-1px);
+}
+
+.home-hero__cta--primary {
+    background: var(--accent);
+    box-shadow: var(--shadow-card);
+}
+
+.home-hero__cta--primary:hover {
+    background: var(--accent-hover);
+    box-shadow: var(--shadow-soft);
+}
+
+.home-hero__cta--secondary {
+    background: #fff;
+    border-color: var(--border-strong);
+}
+
+.home-hero__cta--secondary:hover {
+    background: var(--bg-soft);
+}
+
+.home-hero__image {
+    border-radius: calc(var(--radius) + 4px);
+    box-shadow: var(--shadow-soft);
 }
 
 /* =========================================================
