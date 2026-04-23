@@ -11,6 +11,12 @@
       {{- $visible_label := strings.TrimSpace $label_text }}
       {{- $logo_title := cond (ne $visible_label "") $label_text site.Title }}
       {{- $logo_src := "" }}
+      {{- $logo_height := site.Params.label.iconHeight | default 30 }}
+      {{- $logo_width := site.Params.label.iconWidth }}
+      {{- $logo_style := printf "height: %dpx; width: auto;" $logo_height }}
+      {{- with $logo_width }}
+      {{- $logo_style = printf "width: %dpx; height: %dpx; object-fit: contain;" . $logo_height }}
+      {{- end }}
       <!-- Текст логотипа:
            если в params.label.text задан кастомный текст → берем его,
            иначе используем site.Title -->
@@ -24,7 +30,11 @@
       {{- end -}}
       {{- $prod := (hugo.IsProduction | or (eq site.Params.env "production")) }}
       {{- if and (in $processableFormats $img.MediaType.SubType) (eq $prod true) }}
+      {{- if site.Params.label.iconHeight }}
+      {{- $img = $img.Resize (printf "x%d" $logo_height) }}
+      {{- else }}
       {{- $img = $img.Resize "x30" }}
+      {{- end }}
       {{- end }}
       {{- $logo_src = $img.Permalink }}
       {{- else }}
@@ -47,7 +57,8 @@
         <img
           src="{{ $logo_src }}"
           alt="{{ site.Title }}"
-          class="h-8 w-auto"
+          style="{{ $logo_style | safeCSS }}"
+          decoding="async"
         >
         {{- end }}
 
@@ -227,7 +238,8 @@
             {{- if $logo_src }}
             <img
               src="{{ $logo_src }}"
-              class="h-8 w-auto"
+              style="{{ $logo_style | safeCSS }}"
+              decoding="async"
               alt="{{ site.Title }}"
             >
             {{- else }}

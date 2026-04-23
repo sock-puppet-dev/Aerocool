@@ -1,50 +1,114 @@
-/* Tailwind & Hugo CSS Setup */
-/* Подключение Tailwind CSS */
+/* =========================================================
+   1. БАЗОВОЕ ПОДКЛЮЧЕНИЕ CSS
+   ---------------------------------------------------------
+   Этот файл — главный локальный CSS-слой проекта.
+   Сначала Hugo подключает тему PaperMod, а потом этот файл
+   дополняет или аккуратно переопределяет нужные стили.
+
+   Важно:
+   - если задачу можно решить здесь, тему лучше не править;
+   - здесь не стоит без необходимости дублировать стили темы;
+   - этот файл должен оставаться коротким и понятным.
+   ========================================================= */
+
+/* Подключаем Tailwind CSS 4. */
 @import "tailwindcss";
-/* Подключаем hugo_stats.json как источник для JIT. Hugo записывает сюда все найденные в шаблонах CSS-классы. */
+
+/* Подключаем hugo_stats.json как источник классов для Tailwind.
+   Hugo во время сборки записывает туда все классы, найденные
+   в шаблонах и контенте, чтобы Tailwind не выкинул их как unused. */
 @source "hugo_stats.json";
 
-/* Списки в контенте */
-/* Буллеты для ul (ненумерованные списки) */
+/* =========================================================
+   2. БАЗОВАЯ ТИПОГРАФИКА КОНТЕНТА
+   ---------------------------------------------------------
+   PaperMod довольно сдержанно оформляет списки, поэтому здесь
+   мы явно возвращаем обычные маркеры для markdown-контента.
+   Эти правила касаются только .post-content, то есть текста
+   страниц и статей, а не всего сайта целиком.
+   ========================================================= */
+
+/* Маркеры для ненумерованных списков в теле страницы. */
 .post-content ul li {
     list-style: disc;
     margin-left: 1rem;
 }
 
-/* Нумерованные списки ol */
+/* Нумерация для ordered lists в теле страницы. */
 .post-content ol li {
     list-style: decimal;
     margin-left: 1rem;
 }
 
-/* Логотипы и заголовки */
-/* Подгоняем размеры логотипов */
-.site-title img,
-.logo img {
-    display: inline-block;
-    height: 50px;
-    width: 120px;
-}
+/* =========================================================
+   3. ГЛОБАЛЬНЫЕ ДИЗАЙН-ТОКЕНЫ ПРОЕКТА
+   ---------------------------------------------------------
+   Здесь задаются переменные, которые потом используются
+   несколькими блоками сразу:
+   - ширина навигации и основного контента;
+   - базовый шрифт;
+   - базовый размер и цвет обычного текста.
 
-/* Основные контейнеры */
-/* Определяем ширину навигации и основного контента */
+   Это "точка настройки", а не место для разовых фиксов.
+   Если нужно поменять ощущение сайта целиком, начинать лучше
+   отсюда, а не с разбросанных hardcode-значений ниже.
+   ========================================================= */
 :root {
     --nav-width: 1100px;
     --main-width: 1100px;
+    --project-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    --base-text-size: 1rem;
+    --base-text-line-height: 1.75;
+    --base-text-color: #4b5563;
 }
 
+/* Единый sans-serif стек для всего интерфейса:
+   страницы, кнопки, формы, элементы поиска и т.д. */
+body,
+button,
+input,
+textarea,
+select {
+    font-family: var(--project-font-sans);
+}
+
+/* Базовый размер и межстрочный интервал для обычного текста.
+   Заголовки и специальные блоки дальше могут задавать свои
+   собственные размеры поверх этого значения. */
 body {
-  background-color: #ffffff !important;
+    font-size: var(--base-text-size);
+    line-height: var(--base-text-line-height);
 }
 
-/* Принудительно ограничиваем ширину всех основных контейнеров */
-.nav, .main, .footer {
-    max-width: calc(1100px + var(--gap) * 2) !important;
+/* Базовый текстовый слой проекта.
+   Здесь мы сознательно красим только "обычный" текст:
+   описания страниц, абзацы, списки, FAQ-ответы, элементы
+   related-links и footer-links.
+
+   Важно:
+   - сюда не добавляем заголовки;
+   - сюда не добавляем кнопки и CTA;
+   - сюда не возвращаем .entry-content и .footer span, чтобы
+     не ломать компактную типографику самой темы. */
+.post-description,
+.post-content p,
+.post-content li,
+.post-content dd,
+.related-links li,
+.footer-links li {
+    font-size: var(--base-text-size);
+    line-height: var(--base-text-line-height);
+    color: var(--base-text-color);
 }
 
-/* View Transitions API — плавные SPA-подобные переходы */
-/* Этот блок делает переходы между страницами плавными,
-   используя стандартную анимацию Tailwind (duration + easing) */
+/* =========================================================
+   4. ПЛАВНЫЕ ПЕРЕХОДЫ МЕЖДУ СТРАНИЦАМИ
+   ---------------------------------------------------------
+   Это enhancement-слой для View Transitions API.
+   Он не должен менять логику навигации, только визуально
+   смягчает переход между страницами.
+   ========================================================= */
 @layer components {
   ::view-transition-old(root),
   ::view-transition-new(root) {
@@ -54,23 +118,42 @@ body {
   }
 }
 
-/* Сброс стилей dl, dt, dd внутри FAQ для корректного отображения */
-.post-content dl.divide-y {
-    display: block !important;
+/* =========================================================
+   5. FAQ SHORTCODE
+   ---------------------------------------------------------
+   В теме PaperMod <dl> по умолчанию оформляется как flex-список.
+   Наш FAQ-shortcode, наоборот, использует Tailwind-сетку и ждет,
+   что <dl>/<dt>/<dd> будут вести себя как обычные блочные элементы.
+
+   Поэтому ниже мы не "ломаем dl вообще", а очень узко лечим
+   только .faq-block внутри .post-content.
+   ========================================================= */
+.post-content .faq-block dl.divide-y {
+    display: block;
 }
 
-.post-content dl.divide-y dt,
-.post-content dl.divide-y dd {
-    width: 100% !important;
-    margin-inline-start: 0 !important;
-    padding-inline-start: 0 !important;
+.post-content .faq-block dl.divide-y dt,
+.post-content .faq-block dl.divide-y dd {
+    width: auto;
+    margin-inline-start: 0;
+    padding-inline-start: 0;
 }
 
-.post-content dl.divide-y dd ~ dd,
-.post-content dl.divide-y dt ~ dt {
-    margin-top: 0 !important;
+.post-content .faq-block dl.divide-y dd ~ dd,
+.post-content .faq-block dl.divide-y dt ~ dt {
+    margin-top: 0;
 }
 
+/* =========================================================
+   6. RELATED-LINKS И FOOTER-LINKS
+   ---------------------------------------------------------
+   Это локальные SEO/навигационные блоки проекта.
+   Тема PaperMod их не знает, поэтому здесь мы полностью
+   задаем им внешний вид.
+   ========================================================= */
+
+/* Заголовок карточки/статьи остается обычной ссылкой без
+   отдельного цвета, чтобы не спорить с цветом родительского блока. */
 .entry-title-link {
     color: inherit;
     text-decoration: none;
@@ -81,6 +164,7 @@ body {
     text-decoration: underline;
 }
 
+/* Контейнер блока "Что посмотреть дальше" под статьями и товарами. */
 .related-links {
     margin-top: 2rem;
     padding: 1.25rem;
@@ -89,29 +173,36 @@ body {
     background: var(--entry);
 }
 
+/* Заголовок всего related-блока. */
 .related-links__title {
     margin: 0 0 1rem;
 }
 
+/* На мобильных это одна колонка, на десктопе ниже станет две. */
 .related-links__grid {
     display: grid;
     gap: 1rem;
 }
 
+/* Локальный заголовок внутри одной колонки related-блока. */
 .related-links__group h3 {
     margin: 0 0 0.5rem;
     font-size: 1rem;
 }
 
+/* Списки внутри related-блока начинаются с небольшим отступом,
+   чтобы маркеры и текст выглядели привычно. */
 .related-links__group ul {
     margin: 0;
     padding-left: 1.1rem;
 }
 
+/* Небольшое вертикальное расстояние между ссылками. */
 .related-links__group li {
     margin: 0.25rem 0;
 }
 
+/* Footer-links — это навигационный блок внизу сайта. */
 .footer-links {
     display: grid;
     gap: 1rem;
@@ -119,21 +210,31 @@ body {
     text-align: left;
 }
 
+/* Заголовок одной группы ссылок в футере. */
 .footer-links__title {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
 }
 
+/* Внутренний список ссылок в колонке футера. */
 .footer-links__group ul {
     margin: 0;
     padding-left: 1.1rem;
 }
 
+/* Чуть более плотный вертикальный ритм, чем в related-links. */
 .footer-links__group li {
     margin: 0.2rem 0;
 }
 
+/* =========================================================
+   7. RESPONSIVE-ПРАВИЛА
+   ---------------------------------------------------------
+   На мобильных увеличиваем зону нажатия у текстовых ссылок,
+   чтобы пройти Lighthouse-проверку по tap targets и просто
+   сделать навигацию удобнее пальцем.
+   ========================================================= */
 @media (max-width: 767px) {
     .related-links__group a,
     .footer-links__group a {
@@ -144,6 +245,8 @@ body {
     }
 }
 
+/* Начиная с планшета related-links и footer-links
+   раскладываются в две колонки. */
 @media (min-width: 768px) {
     .related-links__grid,
     .footer-links {
