@@ -1,10 +1,18 @@
 {{- $graph := slice -}}
 
 {{/* ======================== ГЛОБАЛЬНЫЕ СУЩНОСТИ ======================== */}}
-{{- $graph = $graph | append (partial "_schema/website.html" .) -}}
-{{- $graph = $graph | append (partial "_schema/local-organization.html" .) -}}
-{{- $graph = $graph | append (partial "_schema/global-organization.html" .) -}}
-{{- $graph = $graph | append (partial "_schema/brand.html" .) -}}
+{{- with partial "_schema/website.html" . -}}
+  {{- $graph = $graph | append (transform.Unmarshal .) -}}
+{{- end -}}
+{{- with partial "_schema/local-organization.html" . -}}
+  {{- $graph = $graph | append (transform.Unmarshal .) -}}
+{{- end -}}
+{{- with partial "_schema/global-organization.html" . -}}
+  {{- $graph = $graph | append (transform.Unmarshal .) -}}
+{{- end -}}
+{{- with partial "_schema/brand.html" . -}}
+  {{- $graph = $graph | append (transform.Unmarshal .) -}}
+{{- end -}}
 
 {{/* ======================== TYPES ======================== */}}
 {{- $schemaTypes := .Params.schema_types | default (slice) -}}
@@ -14,45 +22,59 @@
 
 {{/* NEWS */}}
 {{- if and .IsPage (in $schemaTypes "news") -}}
-  {{- $graph = $graph | append (partial "_schema/news.html" .) -}}
+  {{- with partial "_schema/news.html" . -}}
+    {{- $graph = $graph | append (transform.Unmarshal .) -}}
+  {{- end -}}
 {{- end -}}
 
 {{/* ARTICLE */}}
 {{- if and .IsPage (in $schemaTypes "article") -}}
-  {{- $graph = $graph | append (partial "_schema/article.html" .) -}}
+  {{- with partial "_schema/article.html" . -}}
+    {{- $graph = $graph | append (transform.Unmarshal .) -}}
+  {{- end -}}
 {{- end -}}
 
 {{/* PRODUCT */}}
 {{- if and .IsPage (in $schemaTypes "product") -}}
-  {{- $graph = $graph | append (partial "_schema/product.html" .) -}}
+  {{- with partial "_schema/product.html" . -}}
+    {{- $graph = $graph | append (transform.Unmarshal .) -}}
+  {{- end -}}
 {{- end -}}
 
 {{/* ======================== СПЕЦИАЛЬНЫЕ СУЩНОСТИ ======================== */}}
 
 {{/* FAQ */}}
 {{- if or (in $schemaTypes "faq") (.Params.faq) -}}
-  {{- $graph = $graph | append (partial "_schema/faq.html" .) -}}
+  {{- with partial "_schema/faq.html" . -}}
+    {{- $graph = $graph | append (transform.Unmarshal .) -}}
+  {{- end -}}
 {{- end -}}
 
 {{/* BREADCRUMBS */}}
 {{- if $hasBreadcrumbs -}}
-  {{- $graph = $graph | append (partial "_schema/breadcrumbs.html" .) -}}
+  {{- with partial "_schema/breadcrumbs.html" . -}}
+    {{- $graph = $graph | append (transform.Unmarshal .) -}}
+  {{- end -}}
 {{- end -}}
 
 {{/* COLLECTION (категории / списки) */}}
 {{- if or (in $schemaTypes "collection") (eq .Kind "section") (eq .Kind "taxonomy") (eq .Kind "term") -}}
-  {{- $graph = $graph | append (partial "_schema/collection.html" .) -}}
+  {{- with partial "_schema/collection.html" . -}}
+    {{- $graph = $graph | append (transform.Unmarshal .) -}}
+  {{- end -}}
 {{- end -}}
 
 {{/* WEBPAGE */}}
-{{- $graph = $graph | append (partial "_schema/webpage.html" .) -}}
+{{- with partial "_schema/webpage.html" . -}}
+  {{- $graph = $graph | append (transform.Unmarshal .) -}}
+{{- end -}}
 
 {{/* ======================== ФИНАЛЬНЫЙ ВЫВОД ======================== */}}
 
-{{- $graphJSON := delimit $graph "," -}}
-{{- $jsonld := printf `{
-  "@context": "https://schema.org",
-  "@graph": [%s]
-}` $graphJSON -}}
-
-{{- printf `<script type="application/ld+json">%s</script>` $jsonld | safeHTML -}}
+{{- if gt (len $graph) 0 -}}
+  {{- $payload := dict
+    "@context" "https://schema.org"
+    "@graph" $graph
+  -}}
+  {{- printf `<script type="application/ld+json">%s</script>` ($payload | jsonify) | safeHTML -}}
+{{- end -}}

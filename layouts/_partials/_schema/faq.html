@@ -1,36 +1,25 @@
-{{ if .Params.faq }}
-  {{ $faq := .Params.faq }}
-{{ $pageLanguage := partial "page-language.html" . }}
-{{ $websiteId := partial "page-website-id.html" . }}
-{
-  "@type": "FAQPage",
-  "@id": "{{ .Permalink | absURL }}#faq",
-
-  "mainEntityOfPage": {
-    "@id": "{{ .Permalink | absURL }}#webpage"
-  },
-
-  "isPartOf": {
-    "@id": "{{ $websiteId }}"
-  },
-
-  "publisher": {
-    "@id": "{{ .Site.BaseURL | absURL }}#organization"
-  },
-
-  "inLanguage": "{{ $pageLanguage }}",
-
-  "mainEntity": [
-    {{ range $index, $qa := $faq }}
-    {
-      "@type": "Question",
-      "name": {{ $qa.question | jsonify }},
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": {{ $qa.answer | plainify | jsonify }}
-      }
-    }{{ if ne (add $index 1) (len $faq) }},{{ end }}
-    {{ end }}
-  ]
-}
-{{ end }}
+{{- if .Params.faq -}}
+{{- $pageLanguage := partial "page-language.html" . -}}
+{{- $websiteId := partial "page-website-id.html" . -}}
+{{- $pageURL := .Permalink | absURL -}}
+{{- $questions := slice -}}
+{{- range .Params.faq -}}
+  {{- $questions = $questions | append (dict
+    "@type" "Question"
+    "name" .question
+    "acceptedAnswer" (dict
+      "@type" "Answer"
+      "text" (.answer | plainify)
+    )
+  ) -}}
+{{- end -}}
+{{- (dict
+  "@type" "FAQPage"
+  "@id" (printf "%s#faq" $pageURL)
+  "mainEntityOfPage" (dict "@id" (printf "%s#webpage" $pageURL))
+  "isPartOf" (dict "@id" $websiteId)
+  "publisher" (dict "@id" (printf "%s#organization" (.Site.BaseURL | absURL)))
+  "inLanguage" $pageLanguage
+  "mainEntity" $questions
+) | jsonify -}}
+{{- end -}}

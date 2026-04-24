@@ -1,63 +1,48 @@
-{
-  "@type": "Organization",
-  "@id": "{{ .Site.BaseURL | absURL }}#organization",
-  "name": "Aerocool Ukraine",
-  "url": "{{ .Site.BaseURL | absURL }}",
-
-  "logo": {
-    "@type": "ImageObject",
-    "@id": "{{ .Site.BaseURL | absURL }}#logo",
-    "url": "{{ "images/logo.svg" | absURL }}"
-  },
-
-  "image": {
-    "@id": "{{ .Site.BaseURL | absURL }}#logo"
-  },
-
-  "areaServed": {
-    "@type": "Country",
-    "name": "Ukraine"
-  },
-
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "UA",
-    "addressLocality": "Kyiv"
-  },
-
-  "location": {
-    "@type": "Place",
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "50.4501",
-      "longitude": "30.5234"
-    }
-  },
-
-  "parentOrganization": {
-    "@id": "https://aerocool.io/#organization"
-  },
-
-  "brand": {
-    "@id": "https://aerocool.io/#brand"
-  },
-
-  "contactPoint": [
-    {
-      "@type": "ContactPoint",
-      "contactType": "customer support",
-      "telephone": "+380665020441",
-      "email": "support@aerocool.ua",
-      "areaServed": "UA",
-      "availableLanguage": ["uk","ru","en"]
-    }
-  ],
-
-  "sameAs": [
-    "https://www.facebook.com/AeroCoolGlobal/",
-    "https://www.instagram.com/aerocool_global",
-    "https://x.com/AerocoolGlobal",
-    "https://www.linkedin.com/company/aerocool-advanced-technologies-corp./",
-    "https://www.youtube.com/@AeroCoolGlobal"
-  ]
-}
+{{- $sameAs := slice
+  "https://www.facebook.com/AeroCoolGlobal/"
+  "https://www.instagram.com/aerocool_global"
+  "https://x.com/AerocoolGlobal"
+  "https://www.linkedin.com/company/aerocool-advanced-technologies-corp./"
+  "https://www.youtube.com/@AeroCoolGlobal"
+-}}
+{{- $organization := dict
+  "@type" "Organization"
+  "@id" (printf "%s#organization" (.Site.BaseURL | absURL))
+  "name" "Aerocool Ukraine"
+  "url" (.Site.BaseURL | absURL)
+  "logo" (dict
+    "@type" "ImageObject"
+    "@id" (printf "%s#logo" (.Site.BaseURL | absURL))
+    "url" ("images/logo.svg" | absURL)
+  )
+  "image" (dict "@id" (printf "%s#logo" (.Site.BaseURL | absURL)))
+  "areaServed" (dict
+    "@type" "Country"
+    "name" "Ukraine"
+  )
+  "address" (dict
+    "@type" "PostalAddress"
+    "addressCountry" "UA"
+    "addressLocality" "Kyiv"
+  )
+  "location" (dict
+    "@type" "Place"
+    "geo" (dict
+      "@type" "GeoCoordinates"
+      "latitude" "50.4501"
+      "longitude" "30.5234"
+    )
+  )
+  "parentOrganization" (dict "@id" "https://aerocool.io/#organization")
+  "brand" (dict "@id" "https://aerocool.io/#brand")
+  "contactPoint" (slice (dict
+    "@type" "ContactPoint"
+    "contactType" "customer support"
+    "telephone" "+380665020441"
+    "email" "support@aerocool.ua"
+    "areaServed" "UA"
+    "availableLanguage" (slice "uk" "ru" "en")
+  ))
+  "sameAs" $sameAs
+-}}
+{{- $organization | jsonify -}}

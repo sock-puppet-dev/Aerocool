@@ -1,43 +1,29 @@
-{{ $schemaTypes := .Params.schema_types | default (slice) }}
-{{ if and .IsPage (in $schemaTypes "news") }}
-{{ $pageImage := partial "page-image.html" . }}
-{{ $pageLanguage := partial "page-language.html" . }}
-{{ $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) }}
-
-{
-  "@type": "NewsArticle",
-  "@id": "{{ $pageURL }}#news",
-  "mainEntityOfPage": {
-    "@id": "{{ $pageURL }}#webpage"
-  },
-
-  "headline": {{ .Title | jsonify }},
-  "description": {{ .Params.description | default .Summary | plainify | jsonify }},
-
-  "image": [
-    "{{ $pageImage }}"
-  ],
-
-  "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
-  "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
-
-  "author": {
-    "@id": "{{ .Site.BaseURL | absURL }}#organization"
-  },
-
-  "publisher": {
-    "@id": "{{ .Site.BaseURL | absURL }}#organization"
-  },
-
-  "inLanguage": "{{ $pageLanguage }}",
-  "isAccessibleForFree": true,
-  "articleSection": "{{ .Section }}",
-
-  {{ with .Params.tags }}
-  "keywords": {{ . | jsonify }},
-  {{ end }}
-
-  "wordCount": "{{ .WordCount }}",
-  "timeRequired": "PT{{ .ReadingTime }}M"
-}
-{{ end }}
+{{- $schemaTypes := .Params.schema_types | default (slice) -}}
+{{- if and .IsPage (in $schemaTypes "news") -}}
+{{- $pageImage := partial "page-image.html" . -}}
+{{- $pageLanguage := partial "page-language.html" . -}}
+{{- $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) -}}
+{{- $datePublished := .Date.Format "2006-01-02T15:04:05Z07:00" -}}
+{{- $dateModified := .Lastmod.Format "2006-01-02T15:04:05Z07:00" -}}
+{{- $newsArticle := dict
+  "@type" "NewsArticle"
+  "@id" (printf "%s#news" $pageURL)
+  "mainEntityOfPage" (dict "@id" (printf "%s#webpage" $pageURL))
+  "headline" .Title
+  "description" (.Params.description | default .Summary | plainify)
+  "image" (slice $pageImage)
+  "datePublished" $datePublished
+  "dateModified" $dateModified
+  "author" (dict "@id" (printf "%s#organization" (.Site.BaseURL | absURL)))
+  "publisher" (dict "@id" (printf "%s#organization" (.Site.BaseURL | absURL)))
+  "inLanguage" $pageLanguage
+  "isAccessibleForFree" true
+  "articleSection" .Section
+  "wordCount" (printf "%d" .WordCount)
+  "timeRequired" (printf "PT%dM" .ReadingTime)
+-}}
+{{- with .Params.tags -}}
+  {{- $newsArticle = merge $newsArticle (dict "keywords" .) -}}
+{{- end -}}
+{{- $newsArticle | jsonify -}}
+{{- end -}}

@@ -1,14 +1,14 @@
-{
-  "@type": "Brand",
-  "@id": "https://aerocool.io/#brand",
-
-  "name": "Aerocool",
-  "url": "https://aerocool.io/",
-  "sameAs": [
-    "https://www.facebook.com/AeroCoolGlobal/",
-    "https://www.instagram.com/aerocool_global",
-    "https://x.com/AerocoolGlobal",
-    "https://www.linkedin.com/company/aerocool-advanced-technologies-corp./",
-    "https://www.youtube.com/@AeroCoolGlobal"
-  ]
-}
+{{- $sameAs := slice
+  "https://www.facebook.com/AeroCoolGlobal/"
+  "https://www.instagram.com/aerocool_global"
+  "https://x.com/AerocoolGlobal"
+  "https://www.linkedin.com/company/aerocool-advanced-technologies-corp./"
+  "https://www.youtube.com/@AeroCoolGlobal"
+-}}
+{{- (dict
+  "@type" "Brand"
+  "@id" "https://aerocool.io/#brand"
+  "name" "Aerocool"
+  "url" "https://aerocool.io/"
+  "sameAs" $sameAs
+) | jsonify -}}

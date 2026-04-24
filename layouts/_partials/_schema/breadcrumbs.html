@@ -1,63 +1,45 @@
-{{ $homeName := cond (eq .Site.Language.Lang "ru") "Главная" "Головна" }}
-{{ $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) }}
-{
-  "@type": "BreadcrumbList",
-  "@id": "{{ $pageURL }}#breadcrumbs",
-
-  "name": "Breadcrumbs",
-
-  "mainEntityOfPage": {
-    "@id": "{{ $pageURL }}#webpage"
-  },
-
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": {{ $homeName | jsonify }},
-      "item": {
-        "@id": "{{ .Site.Home.Permalink | absURL }}"
-      }
-    }
-
-    {{ $position := 2 }}
-
-    {{/* Собираем цепочку секций */}}
-    {{ $sections := slice }}
-    {{ with .CurrentSection }}
-      {{ $s := . }}
-      {{ range $s.Ancestors.Reverse }}
-        {{ if not .IsHome }}
-          {{ $sections = $sections | append . }}
-        {{ end }}
-      {{ end }}
-      {{ if not $s.IsHome }}
-        {{ $sections = $sections | append $s }}
-      {{ end }}
-    {{ end }}
-
-    {{ range $sections }}
-    ,{
-      "@type": "ListItem",
-      "position": {{ $position }},
-      "name": {{ .Title | jsonify }},
-      "item": {
-        "@id": "{{ .Permalink | absURL }}"
-      }
-    }
-    {{ $position = add $position 1 }}
-    {{ end }}
-
-    {{/* Текущая страница */}}
-    {{ if and (not .IsHome) (or (not .CurrentSection) (ne .CurrentSection.Permalink .Permalink)) }}
-    ,{
-      "@type": "ListItem",
-      "position": {{ $position }},
-      "name": {{ .Title | jsonify }},
-      "item": {
-        "@id": "{{ .Permalink | absURL }}"
-      }
-    }
-    {{ end }}
-  ]
-}
+{{- $homeName := cond (eq .Site.Language.Lang "ru") "Главная" "Головна" -}}
+{{- $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) -}}
+{{- $itemList := slice (dict
+  "@type" "ListItem"
+  "position" 1
+  "name" $homeName
+  "item" (dict "@id" (.Site.Home.Permalink | absURL))
+) -}}
+{{- $position := 2 -}}
+{{- $sections := slice -}}
+{{- with .CurrentSection -}}
+  {{- $section := . -}}
+  {{- range $section.Ancestors.Reverse -}}
+    {{- if not .IsHome -}}
+      {{- $sections = $sections | append . -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if not $section.IsHome -}}
+    {{- $sections = $sections | append $section -}}
+  {{- end -}}
+{{- end -}}
+{{- range $sections -}}
+  {{- $itemList = $itemList | append (dict
+    "@type" "ListItem"
+    "position" $position
+    "name" .Title
+    "item" (dict "@id" (.Permalink | absURL))
+  ) -}}
+  {{- $position = add $position 1 -}}
+{{- end -}}
+{{- if and (not .IsHome) (or (not .CurrentSection) (ne .CurrentSection.Permalink .Permalink)) -}}
+  {{- $itemList = $itemList | append (dict
+    "@type" "ListItem"
+    "position" $position
+    "name" .Title
+    "item" (dict "@id" (.Permalink | absURL))
+  ) -}}
+{{- end -}}
+{{- (dict
+  "@type" "BreadcrumbList"
+  "@id" (printf "%s#breadcrumbs" $pageURL)
+  "name" "Breadcrumbs"
+  "mainEntityOfPage" (dict "@id" (printf "%s#webpage" $pageURL))
+  "itemListElement" $itemList
+) | jsonify -}}

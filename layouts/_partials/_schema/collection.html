@@ -1,47 +1,35 @@
-{{ $pageDescription := partial "page-description.html" . }}
-{{ $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) }}
-{{ $pageLanguage := partial "page-language.html" . }}
-{{ $websiteId := partial "page-website-id.html" . }}
-{{ $items := .Pages }}
-{{ with .Paginator }}
-  {{ $items = .Pages }}
-{{ end }}
-{
-  "@type": "CollectionPage",
-  "@id": "{{ $pageURL }}#collection",
-  "url": "{{ $pageURL }}",
-  "name": {{ .Title | jsonify }},
-  "description": {{ $pageDescription | jsonify }},
-
-  "isPartOf": {
-    "@id": "{{ $websiteId }}"
-  },
-
-  "about": {
-    "@type": "Thing",
-    "name": {{ .Title | jsonify }}
-  },
-
-  "mainEntity": {
-    "@type": "ItemList",
-    "itemListElement": [
-      {{- range $index, $p := $items -}}
-      {
-        "@type": "ListItem",
-        "position": {{ add $index 1 }},
-        "url": "{{ $p.Permalink }}"
-      }{{ if ne (add $index 1) (len $items) }},{{ end }}
-      {{- end -}}
-    ]
-  },
-
-  "breadcrumb": {
-    "@id": "{{ $pageURL }}#breadcrumbs"
-  },
-
-  "publisher": {
-    "@id": "{{ .Site.BaseURL | absURL }}#organization"
-  },
-
-  "inLanguage": "{{ $pageLanguage }}"
-}
+{{- $pageDescription := partial "page-description.html" . -}}
+{{- $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) -}}
+{{- $pageLanguage := partial "page-language.html" . -}}
+{{- $websiteId := partial "page-website-id.html" . -}}
+{{- $pages := .Pages -}}
+{{- with .Paginator -}}
+  {{- $pages = .Pages -}}
+{{- end -}}
+{{- $itemList := slice -}}
+{{- range $index, $page := $pages -}}
+  {{- $itemList = $itemList | append (dict
+    "@type" "ListItem"
+    "position" (add $index 1)
+    "url" $page.Permalink
+  ) -}}
+{{- end -}}
+{{- (dict
+  "@type" "CollectionPage"
+  "@id" (printf "%s#collection" $pageURL)
+  "url" $pageURL
+  "name" .Title
+  "description" $pageDescription
+  "isPartOf" (dict "@id" $websiteId)
+  "about" (dict
+    "@type" "Thing"
+    "name" .Title
+  )
+  "mainEntity" (dict
+    "@type" "ItemList"
+    "itemListElement" $itemList
+  )
+  "breadcrumb" (dict "@id" (printf "%s#breadcrumbs" $pageURL))
+  "publisher" (dict "@id" (printf "%s#organization" (.Site.BaseURL | absURL)))
+  "inLanguage" $pageLanguage
+) | jsonify -}}

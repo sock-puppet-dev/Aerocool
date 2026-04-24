@@ -1,130 +1,116 @@
-{{ $schemaTypes := .Params.schema_types | default (slice) }}
-{{ if and .IsPage (in $schemaTypes "product") }}
-{{ $pageImage := partial "page-image.html" . }}
-{{ $today := now }}
-{{ $nextYear := add ($today.Year) 1 }}
-{{ $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) }}
-{{ $productCategory := .Section }}
-{{ with .Params.category }}
-  {{ $productCategory = . }}
-{{ else }}
-  {{ with .Params.categories }}
-    {{ $productCategory = index . 0 }}
-  {{ end }}
-{{ end }}
-
-{
-  "@type": "Product",
-  "@id": "{{ $pageURL }}#product",
-
-  "mainEntityOfPage": {
-    "@id": "{{ $pageURL }}#webpage"
-  },
-
-  "name": {{ .Title | jsonify }},
-
-  "image": [
-    "{{ $pageImage }}"
-  ],
-
-  "description": {{ .Params.description | default .Summary | plainify | jsonify }},
-
-  "sku": {{ .Params.sku | jsonify }},
-  "category": {{ $productCategory | jsonify }},
-
-  {{ with .Params.mpn }}
-  "mpn": {{ . | jsonify }},
-  {{ end }}
-
-  {{ with .Params.gtin13 }}
-  "gtin13": {{ . | jsonify }},
-  {{ end }}
-
-  "brand": {
-    "@id": "https://aerocool.io/#brand"
-  },
-
-  "offers": {
-    "@type": "Offer",
-    "url": "{{ $pageURL }}",
-    "priceCurrency": "UAH",
-    "price": {{ .Params.price | default 0 }},
-    "priceValidUntil": "{{ .Params.priceValidUntil | default (printf "%d-12-31" $nextYear) }}",
-    "availability": "https://schema.org/{{ .Params.availability | default "InStock" }}",
-    "itemCondition": "https://schema.org/NewCondition",
-
-    "priceSpecification": {
-      "@type": "UnitPriceSpecification",
-      "price": {{ .Params.price | default 0 }},
-      "priceCurrency": "UAH"
-    },
-
-    "seller": {
-      "@id": "{{ .Site.BaseURL | absURL }}#organization"
-    },
-
-    "hasMerchantReturnPolicy": {
-      "@type": "MerchantReturnPolicy",
-      "applicableCountry": "UA",
-      "merchantReturnDays": {{ .Params.return_days | default 14 }},
-      "returnMethod": "https://schema.org/ReturnByMail",
-      "returnFees": "https://schema.org/FreeReturn",
-      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow"
-    },
-
-    "acceptedPaymentMethod": [
-      "https://schema.org/Cash",
-      "https://schema.org/CreditCard"
-    ],
-
-    "areaServed": {
-      "@type": "Country",
-      "name": "Ukraine"
-    },
-
-    "shippingDetails": {
-      "@type": "OfferShippingDetails",
-      "shippingDestination": {
-        "@type": "DefinedRegion",
-        "addressCountry": "{{ .Params.shipping_country | default "UA" }}"
-      },
-      "shippingRate": {
-        "@type": "MonetaryAmount",
-        "value": 0,
-        "currency": "UAH"
-      },
-      "deliveryTime": {
-        "@type": "ShippingDeliveryTime",
-        "handlingTime": {
-          "@type": "QuantitativeValue",
-          "minValue": 0,
-          "maxValue": 1,
-          "unitCode": "DAY"
-        },
-        "transitTime": {
-          "@type": "QuantitativeValue",
-          "minValue": 1,
-          "maxValue": 3,
-          "unitCode": "DAY"
-        }
-      }
-    }{{ with .Params.warranty }},
-    "warranty": {
-      "@type": "WarrantyPromise",
-      "durationOfWarranty": {
-        "@type": "QuantitativeValue",
-        "value": {{ . }},
-        "unitCode": "MON"
-      },
-      "warrantyScope": "http://purl.org/goodrelations/v1#PartsAndLabor-BringIn"
-    }
-    {{ end }}
-  }{{ with .Params.rating }}{{ if and .value .count }},
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": {{ .value }},
-    "reviewCount": {{ .count }}
-  }
-  {{ end }}{{ end }}
-}
-{{ end }}
+{{- $schemaTypes := .Params.schema_types | default (slice) -}}
+{{- if and .IsPage (in $schemaTypes "product") -}}
+{{- $pageImage := partial "page-image.html" . -}}
+{{- $today := now -}}
+{{- $nextYear := add ($today.Year) 1 -}}
+{{- $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) -}}
+{{- $productCategory := .Section -}}
+{{- with .Params.category -}}
+  {{- $productCategory = . -}}
+{{- else -}}
+  {{- with .Params.categories -}}
+    {{- $productCategory = index . 0 -}}
+  {{- end -}}
+{{- end -}}
+{{- $priceValidUntil := printf "%d-12-31" $nextYear -}}
+{{- with .Params.priceValidUntil -}}
+  {{- $priceValidUntil = time.Format "2006-01-02" . -}}
+{{- end -}}
+{{- $offer := dict
+  "@type" "Offer"
+  "url" $pageURL
+  "priceCurrency" "UAH"
+  "price" (.Params.price | default 0)
+  "priceValidUntil" $priceValidUntil
+  "availability" (printf "https://schema.org/%s" (.Params.availability | default "InStock"))
+  "itemCondition" "https://schema.org/NewCondition"
+  "priceSpecification" (dict
+    "@type" "UnitPriceSpecification"
+    "price" (.Params.price | default 0)
+    "priceCurrency" "UAH"
+  )
+  "seller" (dict "@id" (printf "%s#organization" (.Site.BaseURL | absURL)))
+  "hasMerchantReturnPolicy" (dict
+    "@type" "MerchantReturnPolicy"
+    "applicableCountry" "UA"
+    "merchantReturnDays" (.Params.return_days | default 14)
+    "returnMethod" "https://schema.org/ReturnByMail"
+    "returnFees" "https://schema.org/FreeReturn"
+    "returnPolicyCategory" "https://schema.org/MerchantReturnFiniteReturnWindow"
+  )
+  "acceptedPaymentMethod" (slice
+    "https://schema.org/Cash"
+    "https://schema.org/CreditCard"
+  )
+  "areaServed" (dict
+    "@type" "Country"
+    "name" "Ukraine"
+  )
+  "shippingDetails" (dict
+    "@type" "OfferShippingDetails"
+    "shippingDestination" (dict
+      "@type" "DefinedRegion"
+      "addressCountry" (.Params.shipping_country | default "UA")
+    )
+    "shippingRate" (dict
+      "@type" "MonetaryAmount"
+      "value" 0
+      "currency" "UAH"
+    )
+    "deliveryTime" (dict
+      "@type" "ShippingDeliveryTime"
+      "handlingTime" (dict
+        "@type" "QuantitativeValue"
+        "minValue" 0
+        "maxValue" 1
+        "unitCode" "DAY"
+      )
+      "transitTime" (dict
+        "@type" "QuantitativeValue"
+        "minValue" 1
+        "maxValue" 3
+        "unitCode" "DAY"
+      )
+    )
+  )
+-}}
+{{- with .Params.warranty -}}
+  {{- $offer = merge $offer (dict "warranty" (dict
+    "@type" "WarrantyPromise"
+    "durationOfWarranty" (dict
+      "@type" "QuantitativeValue"
+      "value" .
+      "unitCode" "MON"
+    )
+    "warrantyScope" "http://purl.org/goodrelations/v1#PartsAndLabor-BringIn"
+  )) -}}
+{{- end -}}
+{{- $product := dict
+  "@type" "Product"
+  "@id" (printf "%s#product" $pageURL)
+  "mainEntityOfPage" (dict "@id" (printf "%s#webpage" $pageURL))
+  "name" .Title
+  "image" (slice $pageImage)
+  "description" (.Params.description | default .Summary | plainify)
+  "sku" .Params.sku
+  "category" $productCategory
+  "brand" (dict "@id" "https://aerocool.io/#brand")
+  "offers" $offer
+-}}
+{{- with .Params.mpn -}}
+  {{- $product = merge $product (dict "mpn" .) -}}
+{{- end -}}
+{{- with .Params.gtin13 -}}
+  {{- $product = merge $product (dict "gtin13" .) -}}
+{{- end -}}
+{{- with .Params.rating -}}
+  {{- if and .value .count -}}
+    {{- $product = merge $product (dict "aggregateRating" (dict
+      "@type" "AggregateRating"
+      "ratingValue" .value
+      "reviewCount" .count
+    )) -}}
+  {{- end -}}
+{{- end -}}
+{{- $product | jsonify -}}
+{{- end -}}

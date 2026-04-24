@@ -1,78 +1,45 @@
-{{ $schemaTypes := .Params.schema_types | default (slice) }}
-{{ $hasBreadcrumbs := or (in $schemaTypes "breadcrumbs") (.Params.breadcrumbs) .IsHome (eq .Kind "section") (eq .Kind "taxonomy") (eq .Kind "term") }}
-{{ $pageImage := partial "page-image.html" . }}
-{{ $pageDescription := partial "page-description.html" . }}
-{{ $pageLanguage := partial "page-language.html" . }}
-{{ $websiteId := partial "page-website-id.html" . }}
-{{ $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) }}
-{
-  "@type": "WebPage",
-  "@id": "{{ $pageURL }}#webpage",
-
-  "url": "{{ $pageURL }}",
-  "name": {{ .Title | jsonify }},
-
-  "description": {{ $pageDescription | jsonify }},
-
-  "isPartOf": {
-    "@id": "{{ $websiteId }}"
-  },
-
-  "about": {
-    "@id": "{{ .Site.BaseURL | absURL }}#organization"
-  },
-
-  "primaryImageOfPage": {
-    "@type": "ImageObject",
-    "url": "{{ $pageImage }}"
-  },
-
-  "inLanguage": "{{ $pageLanguage }}",
-
-  {{ if $hasBreadcrumbs }}
-  "breadcrumb": {
-    "@id": "{{ $pageURL }}#breadcrumbs"
-  },
-  {{ end }}
-
-  {{/* ======================== TYPE-SPECIFIC LOGIC ======================== */}}
-
-  {{/* PRODUCT PAGE */}}
-  {{ if and .IsPage (in $schemaTypes "product") }}
-  "mainEntity": {
-    "@id": "{{ $pageURL }}#product"
-  },
-  {{ end }}
-
-  {{/* ARTICLE PAGE */}}
-  {{ if and .IsPage (in $schemaTypes "article") }}
-  "mainEntity": {
-    "@id": "{{ $pageURL }}#article"
-  },
-  {{ end }}
-
-  {{/* NEWS PAGE */}}
-  {{ if and .IsPage (in $schemaTypes "news") }}
-  "mainEntity": {
-    "@id": "{{ $pageURL }}#news"
-  },
-  {{ end }}
-
-  {{/* FAQ PAGE */}}
-  {{ if .Params.faq }}
-  "mainEntity": {
-    "@id": "{{ $pageURL }}#faq"
-  },
-  {{ end }}
-
-  {{/* COLLECTION PAGE */}}
-  {{ if or (in $schemaTypes "collection") (eq .Kind "section") (eq .Kind "taxonomy") (eq .Kind "term") }}
-  "mainEntity": {
-    "@id": "{{ $pageURL }}#collection"
-  },
-  {{ end }}
-
-  "publisher": {
-    "@id": "{{ .Site.BaseURL | absURL }}#organization"
-  }
-}
+{{- $schemaTypes := .Params.schema_types | default (slice) -}}
+{{- $hasBreadcrumbs := or (in $schemaTypes "breadcrumbs") (.Params.breadcrumbs) .IsHome (eq .Kind "section") (eq .Kind "taxonomy") (eq .Kind "term") -}}
+{{- $pageImage := partial "page-image.html" . -}}
+{{- $pageDescription := partial "page-description.html" . -}}
+{{- $pageLanguage := partial "page-language.html" . -}}
+{{- $websiteId := partial "page-website-id.html" . -}}
+{{- $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) -}}
+{{- $webpage := dict
+  "@type" "WebPage"
+  "@id" (printf "%s#webpage" $pageURL)
+  "url" $pageURL
+  "name" .Title
+  "description" $pageDescription
+  "isPartOf" (dict "@id" $websiteId)
+  "about" (dict "@id" (printf "%s#organization" (.Site.BaseURL | absURL)))
+  "primaryImageOfPage" (dict
+    "@type" "ImageObject"
+    "url" $pageImage
+  )
+  "inLanguage" $pageLanguage
+  "publisher" (dict "@id" (printf "%s#organization" (.Site.BaseURL | absURL)))
+-}}
+{{- if $hasBreadcrumbs -}}
+  {{- $webpage = merge $webpage (dict "breadcrumb" (dict "@id" (printf "%s#breadcrumbs" $pageURL))) -}}
+{{- end -}}
+{{- $mainEntityID := "" -}}
+{{- if and .IsPage (in $schemaTypes "product") -}}
+  {{- $mainEntityID = printf "%s#product" $pageURL -}}
+{{- end -}}
+{{- if and .IsPage (in $schemaTypes "article") -}}
+  {{- $mainEntityID = printf "%s#article" $pageURL -}}
+{{- end -}}
+{{- if and .IsPage (in $schemaTypes "news") -}}
+  {{- $mainEntityID = printf "%s#news" $pageURL -}}
+{{- end -}}
+{{- if .Params.faq -}}
+  {{- $mainEntityID = printf "%s#faq" $pageURL -}}
+{{- end -}}
+{{- if or (in $schemaTypes "collection") (eq .Kind "section") (eq .Kind "taxonomy") (eq .Kind "term") -}}
+  {{- $mainEntityID = printf "%s#collection" $pageURL -}}
+{{- end -}}
+{{- if ne $mainEntityID "" -}}
+  {{- $webpage = merge $webpage (dict "mainEntity" (dict "@id" $mainEntityID)) -}}
+{{- end -}}
+{{- $webpage | jsonify -}}

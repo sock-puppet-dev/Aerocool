@@ -1,38 +1,29 @@
-{{ $pageLanguage := partial "page-language.html" . }}
-{{ $websiteId := partial "page-website-id.html" . }}
-{{ $websiteURL := "" | absLangURL }}
-{
-  "@type": "WebSite",
-  "@id": "{{ $websiteId }}",
-  "url": "{{ $websiteURL }}",
-  "name": {{ .Site.Title | jsonify }},
-
-  {{ with .Site.Params.alternateName }}
-  "alternateName": {{ . | jsonify }},
-  {{ end }}
-
-  {{ with .Site.Params.description }}
-  "description": {{ . | jsonify }},
-  {{ end }}
-
-  "inLanguage": "{{ $pageLanguage }}",
-  "isFamilyFriendly": true,
-
-  "image": {
-    "@id": "{{ .Site.BaseURL | absURL }}#logo"
-  },
-
-  "publisher": {
-    "@id": "{{ .Site.BaseURL | absURL }}#organization"
-  },
-
-  "potentialAction": {
-    "@type": "SearchAction",
-    "@id": "{{ printf "%s#search" $websiteURL }}",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": "{{ "search" | absLangURL }}?q={search_term_string}"
-    },
-    "query-input": "required name=search_term_string"
-  }
-}
+{{- $pageLanguage := partial "page-language.html" . -}}
+{{- $websiteId := partial "page-website-id.html" . -}}
+{{- $websiteURL := "" | absLangURL -}}
+{{- $website := dict
+  "@type" "WebSite"
+  "@id" $websiteId
+  "url" $websiteURL
+  "name" .Site.Title
+  "inLanguage" $pageLanguage
+  "isFamilyFriendly" true
+  "image" (dict "@id" (printf "%s#logo" (.Site.BaseURL | absURL)))
+  "publisher" (dict "@id" (printf "%s#organization" (.Site.BaseURL | absURL)))
+  "potentialAction" (dict
+    "@type" "SearchAction"
+    "@id" (printf "%s#search" $websiteURL)
+    "target" (dict
+      "@type" "EntryPoint"
+      "urlTemplate" (printf "%s?q={search_term_string}" ("search" | absLangURL))
+    )
+    "query-input" "required name=search_term_string"
+  )
+-}}
+{{- with .Site.Params.alternateName -}}
+  {{- $website = merge $website (dict "alternateName" .) -}}
+{{- end -}}
+{{- with .Site.Params.description -}}
+  {{- $website = merge $website (dict "description" .) -}}
+{{- end -}}
+{{- $website | jsonify -}}
