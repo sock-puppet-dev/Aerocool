@@ -309,8 +309,8 @@
 
 | URL / файл | Основной интент | Основные ключи | Дополнительные ключи |
 | --- | --- | --- | --- |
-| `content/faq/index.md` | FAQ | `faq aerocool`, `питання про крісла aerocool` | `гарантія`, `доставка`, `synchronous tilt`, `матеріали` |
-| `content/faq/index.ru.md` | FAQ | `faq aerocool`, `вопросы о креслах aerocool` | `гарантия`, `доставка`, `synchronous tilt`, `материалы` |
+| `content/faq/index.md` | FAQ | `faq aerocool`, `питання про крісла aerocool` | `гарантія`, `доставка`, `synchronous tilt`, `7d 8d 11d`, `sky wing xtal`, `racer loft air mesh` |
+| `content/faq/index.ru.md` | FAQ | `faq aerocool`, `вопросы о креслах aerocool` | `гарантия`, `доставка`, `synchronous tilt`, `7d 8d 11d`, `sky wing xtal`, `racer loft air mesh` |
 | `content/about/index.md` | доверие | `про бренд aerocool`, `крісла aerocool україна` | `sky`, `wing`, `xtal`, `ергономіка` |
 | `content/about/index.ru.md` | доверие | `о бренде aerocool`, `кресла aerocool украина` | `sky`, `wing`, `xtal`, `эргономика` |
 | `content/contact/index.md` | контакты | `контакти aerocool`, `купити крісло aerocool` | `консультація`, `доставка`, `гарантія` |
