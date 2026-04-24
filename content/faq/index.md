@@ -10,7 +10,7 @@ image: "cover.webp"
 faq:
   - question: "Aerocool.ua — це офіційний сайт бренду в Україні?"
     answer: >-
-      Так. [Aerocool.ua](/) подає себе як офіційний сайт Aerocool в Україні, де
+      Так. [Aerocool.ua](/) — офіційний сайт Aerocool в Україні, де
       зібрано актуальні серії [SKY](/products/sky/), [WING](/products/wing/) і
       [XTAL](/products/xtal/), а також гіди, FAQ, новини й контакти бренду.
   - question: "Чим відрізняються серії SKY, WING і XTAL?"
@@ -184,7 +184,7 @@ faq:
 
 ## 1. Aerocool.ua — це офіційний сайт бренду в Україні?
 
-Так. [Aerocool.ua](/) подає себе як офіційний сайт Aerocool в Україні, де
+Так. [Aerocool.ua](/) — офіційний сайт Aerocool в Україні, де
 зібрано актуальні серії [SKY](/products/sky/), [WING](/products/wing/) і
 [XTAL](/products/xtal/), а також гіди, FAQ, новини й контакти бренду.
 
