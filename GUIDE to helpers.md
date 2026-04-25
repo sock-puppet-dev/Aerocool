@@ -561,6 +561,7 @@
 Что делает:
 
 - рендерит `FAQPage` на основе `.Params.faq`.
+- Для самой страницы `/faq/` видимый список вопросов и ответов рендерит не shortcode, а отдельный layout [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html).
 
 ### `collection.html`
 
@@ -587,6 +588,7 @@
 - плохой `description` -> [page-description.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-description.html)
 - странный `H1` на большинстве страниц -> [page-h1.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-h1.html)
 - странный `H1` или hero на главной -> [home-content-section.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-content-section.html), [home-content-section-ru.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-content-section-ru.html)
+- проблема с видимым FAQ на `/faq/` -> [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html)
 - не та картинка в соцсетях -> [page-image.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-image.html), [opengraph.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/opengraph.html), [twitter_cards.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/twitter_cards.html)
 - canonical / robots / hreflang -> [head.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/head.html)
 - schema не та -> [jsonld.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/jsonld.html) и нужный файл в `_schema`
