@@ -24,6 +24,7 @@
     "@type" "PostalAddress"
     "addressCountry" "UA"
     "addressLocality" "Kyiv"
+    "streetAddress" "Stepana Rudnytskoho, 19/14"
   )
   "location" (dict
     "@type" "Place"
@@ -33,16 +34,34 @@
       "longitude" "30.5234"
     )
   )
+  "email" "support@aerocool.ua"
   "parentOrganization" (dict "@id" "https://aerocool.io/#organization")
   "brand" (dict "@id" "https://aerocool.io/#brand")
-  "contactPoint" (slice (dict
-    "@type" "ContactPoint"
-    "contactType" "customer support"
-    "telephone" "+380665020441"
-    "email" "support@aerocool.ua"
-    "areaServed" "UA"
-    "availableLanguage" (slice "uk" "ru" "en")
-  ))
+  "contactPoint" (slice
+    (dict
+      "@type" "ContactPoint"
+      "contactType" "customer support"
+      "telephone" "+380665020441"
+      "email" "support@aerocool.ua"
+      "areaServed" "UA"
+      "availableLanguage" (slice "uk" "ru" "en")
+    )
+    (dict
+      "@type" "ContactPoint"
+      "contactType" "sales"
+      "email" "sales@aerocool.ua"
+      "areaServed" "UA"
+      "availableLanguage" (slice "uk" "ru" "en")
+    )
+  )
+  "openingHoursSpecification" (slice
+    (dict
+      "@type" "OpeningHoursSpecification"
+      "dayOfWeek" (slice "https://schema.org/Monday" "https://schema.org/Tuesday" "https://schema.org/Wednesday" "https://schema.org/Thursday" "https://schema.org/Friday")
+      "opens" "09:00"
+      "closes" "18:00"
+    )
+  )
   "sameAs" $sameAs
 -}}
 {{- $organization | jsonify -}}

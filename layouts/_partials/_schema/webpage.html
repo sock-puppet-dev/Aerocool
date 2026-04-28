@@ -1,10 +1,9 @@
 {{- $schemaTypes := .Params.schema_types | default (slice) -}}
-{{- $hasBreadcrumbs := or (in $schemaTypes "breadcrumbs") (.Params.breadcrumbs) .IsHome (eq .Kind "section") (eq .Kind "taxonomy") (eq .Kind "term") -}}
-{{- $pageImage := partial "page-image.html" . -}}
 {{- $pageDescription := partial "page-description.html" . -}}
 {{- $pageLanguage := partial "page-language.html" . -}}
 {{- $websiteId := partial "page-website-id.html" . -}}
 {{- $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) -}}
+{{- $pageImageID := printf "%s#primary-image" $pageURL -}}
 {{- $webpage := dict
   "@type" "WebPage"
   "@id" (printf "%s#webpage" $pageURL)
@@ -12,15 +11,16 @@
   "name" .Title
   "description" $pageDescription
   "isPartOf" (dict "@id" $websiteId)
-  "about" (dict "@id" (printf "%s#organization" (.Site.BaseURL | absURL)))
-  "primaryImageOfPage" (dict
-    "@type" "ImageObject"
-    "url" $pageImage
-  )
+  "primaryImageOfPage" (dict "@id" $pageImageID)
   "inLanguage" $pageLanguage
-  "publisher" (dict "@id" (printf "%s#organization" (.Site.BaseURL | absURL)))
 -}}
-{{- if $hasBreadcrumbs -}}
+{{- if in $schemaTypes "organization" -}}
+  {{- $webpage = merge $webpage (dict
+    "about" (dict "@id" (printf "%s#organization" (.Site.BaseURL | absURL)))
+    "publisher" (dict "@id" (printf "%s#organization" (.Site.BaseURL | absURL)))
+  ) -}}
+{{- end -}}
+{{- if in $schemaTypes "breadcrumbs" -}}
   {{- $webpage = merge $webpage (dict "breadcrumb" (dict "@id" (printf "%s#breadcrumbs" $pageURL))) -}}
 {{- end -}}
 {{- $mainEntityID := "" -}}
@@ -33,10 +33,10 @@
 {{- if and .IsPage (in $schemaTypes "news") -}}
   {{- $mainEntityID = printf "%s#news" $pageURL -}}
 {{- end -}}
-{{- if .Params.faq -}}
+{{- if in $schemaTypes "faq" -}}
   {{- $mainEntityID = printf "%s#faq" $pageURL -}}
 {{- end -}}
-{{- if or (in $schemaTypes "collection") (eq .Kind "section") (eq .Kind "taxonomy") (eq .Kind "term") -}}
+{{- if in $schemaTypes "collection" -}}
   {{- $mainEntityID = printf "%s#collection" $pageURL -}}
 {{- end -}}
 {{- if ne $mainEntityID "" -}}

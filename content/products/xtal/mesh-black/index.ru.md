@@ -4,7 +4,7 @@ description: "Купить Aerocool XTAL Mesh Black в Украине — эрг
 summary: "Aerocool XTAL Mesh Black — компьютерное и офисное кресло серии XTAL с 7D регулировкой, сменными элементами и максимально дышащей поверхностью."
 date: 2026-03-19
 lastmod: 2026-04-23
-schema_types: ["product", "organization", "breadcrumbs"]
+schema_types: ["website", "product", "organization", "breadcrumbs"]
 slug: "mesh-black"
 categories: ["xtal"]
 tags: ["aerocool", "эргономичное кресло", "компьютерное кресло", "офисное кресло", "xtal", "mesh black"]

@@ -5,7 +5,7 @@ lastmod: 2026-04-28T00:00:00+03:00
 slug: "sky-lite-vs-sky-360"
 description: "Детальное сравнение офисных и компьютерных кресел Aerocool SKY Lite и SKY 360: разница в регулировках, подлокотниках, базе, роликах и сценариях работы."
 summary: "Объясняем, чем отличаются офисные и компьютерные кресла SKY Lite и SKY 360 и кому подходит каждая модель."
-schema_types: ["article", "organization", "breadcrumbs"]
+schema_types: ["website", "article", "organization", "breadcrumbs"]
 image: "01-front.png"
 cover:
   image: "01-front.png"

@@ -5,7 +5,7 @@ summary: "Обзор SKY Lite как базового офисного и home o
 date: 2026-04-19T10:00:00+03:00
 lastmod: 2026-04-28T00:00:00+03:00
 slug: "sky-lite-launch"
-schema_types: ["news", "organization", "breadcrumbs"]
+schema_types: ["website", "news", "organization", "breadcrumbs"]
 image: "01-front.png"
 cover:
   image: "01-front.png"

@@ -3,8 +3,10 @@
 Короткое руководство по shortcode `seo-image` в текущем проекте `Aerocool`.
 
 Shortcode `seo-image` находится в `layouts/_shortcodes/seo-image.html` и работает только с изображениями, которые лежат внутри папки страницы (`page bundle` в терминологии Hugo). Если файла нет рядом со страницей, сборка упадет с ошибкой.
-Этот shortcode отвечает только за изображение, `preload`, `srcset` и необязательный `ImageObject` JSON-LD. Он не рендерит `H1` страницы и не влияет на `title`.
+Этот shortcode отвечает только за HTML-изображение, `preload` и `srcset`. Он не рендерит `H1` страницы, не влияет на `title` и больше не выводит отдельный JSON-LD.
 Текущее hero-изображение главной страницы — отдельное исключение: оно живет в `layouts/_shortcodes/home-content-section.html` и `layouts/_shortcodes/home-content-section-ru.html` и сейчас не проходит через `seo-image`.
+
+JSON-LD для основного изображения страницы собирается централизованно через `layouts/_partials/_schema/page-image-object.html` и попадает в общий `@graph`. Источник URL изображения - поле `image` во front matter через helper `page-image.html`.
 
 Для товарных страниц текущий стандарт проекта такой:
 
@@ -39,14 +41,13 @@ cover:
   fetchpriority=high
   class="w-full rounded-2xl"
   sizes="100vw"
-  jsonld=true
 />}}
 ```
 
 - Для главного изображения товара использовать `loading="eager"`, `preload=true`, `fetchpriority=high`.
 - Для квадратного фронтального product image нормален точный размер `2000x2000`.
-- `jsonld=true` оставлять только на основной языковой версии страницы.
-- Для перевода использовать тот же shortcode, но ставить `jsonld=false`, даже если картинка и `src` остаются теми же.
+- Параметр `jsonld` больше не нужен: schema для primary image берется из `image` во front matter.
+- В старом контенте `jsonld=true` / `jsonld=false` может встречаться как совместимый legacy-параметр, но текущий shortcode его не использует.
 
 ## 2. Основное контентное изображение
 
@@ -96,7 +97,7 @@ cover:
 - `fetchpriority`: `high` только для главных изображений первого экрана
 - `sizes`: media query для адаптивной загрузки
 - `class`: Tailwind-классы
-- `jsonld`: `true` только на основной языковой странице, `false` на переводе; даже если на переводе по ошибке оставить `true`, shortcode не выведет `ImageObject`
+- `jsonld`: legacy-параметр без эффекта в текущей архитектуре
 
 ## Важно
 
@@ -105,3 +106,4 @@ cover:
 3. Не вставлять через shortcode изображения, которых нет в папке страницы.
 4. На переведенной странице локализовать `alt` и `title`, даже если используется тот же исходный файл изображения.
 5. Для product page не забывать, что `cover.image` нужен отдельно: без него картинка появится в теле страницы, но не появится в preview-листингах.
+6. Для schema.org основным источником изображения остается front matter `image`, а не параметры shortcode.

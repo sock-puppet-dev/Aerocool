@@ -1,0 +1,22 @@
+{{- $pageLanguage := partial "page-language.html" . -}}
+{{- $pageDescription := partial "page-description.html" . -}}
+{{- $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) -}}
+{{- $imageURL := partial "page-image.html" . -}}
+{{- $imageObject := dict
+  "@type" "ImageObject"
+  "@id" (printf "%s#primary-image" $pageURL)
+  "url" $imageURL
+  "contentUrl" $imageURL
+  "inLanguage" $pageLanguage
+  "name" .Title
+  "description" $pageDescription
+-}}
+{{- with .Params.image -}}
+  {{- with $.Resources.GetMatch . -}}
+    {{- $imageObject = merge $imageObject (dict
+      "width" .Width
+      "height" .Height
+    ) -}}
+  {{- end -}}
+{{- end -}}
+{{- $imageObject | jsonify -}}

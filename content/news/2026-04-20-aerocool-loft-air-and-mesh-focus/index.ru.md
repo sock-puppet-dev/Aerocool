@@ -5,7 +5,7 @@ summary: "Объяснение разницы между Loft Air и Mesh в WIN
 date: 2026-04-20T10:00:00+03:00
 lastmod: 2026-04-28T00:00:00+03:00
 slug: "loft-air-and-mesh-focus"
-schema_types: ["news", "organization", "breadcrumbs"]
+schema_types: ["website", "news", "organization", "breadcrumbs"]
 image: "01-front.png"
 cover:
   image: "01-front.png"

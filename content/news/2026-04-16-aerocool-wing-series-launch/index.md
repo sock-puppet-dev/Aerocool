@@ -5,7 +5,7 @@ summary: "Запуск серії WING: ігрові та комп'ютерні 
 date: 2026-04-16T10:00:00+03:00
 lastmod: 2026-04-23T00:00:00+03:00
 slug: "wing-series-launch"
-schema_types: ["news", "organization", "breadcrumbs"]
+schema_types: ["website", "news", "organization", "breadcrumbs"]
 image: "01-front.png"
 cover:
   image: "01-front.png"

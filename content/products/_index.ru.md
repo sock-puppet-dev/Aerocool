@@ -4,7 +4,7 @@ description: "Каталог кресел Aerocool в Украине: игров
 date: 2026-03-19
 lastmod: 2026-04-23
 summary: "Каталог Aerocool с делением на серии SKY, WING и XTAL и пояснением, какое кресло выбрать под ваш сценарий."
-schema_types: ["collection", "organization", "breadcrumbs"]
+schema_types: ["website", "collection", "organization", "breadcrumbs"]
 image: "cover.webp"
 ---
 

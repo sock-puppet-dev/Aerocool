@@ -1,22 +1,27 @@
 {{- $graph := slice -}}
+{{- $schemaTypes := .Params.schema_types | default (slice) -}}
 
 {{/* ======================== ГЛОБАЛЬНЫЕ СУЩНОСТИ ======================== */}}
-{{- with partial "_schema/website.html" . -}}
-  {{- $graph = $graph | append (transform.Unmarshal .) -}}
+{{- if in $schemaTypes "website" -}}
+  {{- with partial "_schema/website.html" . -}}
+    {{- $graph = $graph | append (transform.Unmarshal .) -}}
+  {{- end -}}
 {{- end -}}
-{{- with partial "_schema/local-organization.html" . -}}
-  {{- $graph = $graph | append (transform.Unmarshal .) -}}
+{{- if in $schemaTypes "organization" -}}
+  {{- with partial "_schema/local-organization.html" . -}}
+    {{- $graph = $graph | append (transform.Unmarshal .) -}}
+  {{- end -}}
+  {{- with partial "_schema/global-organization.html" . -}}
+    {{- $graph = $graph | append (transform.Unmarshal .) -}}
+  {{- end -}}
 {{- end -}}
-{{- with partial "_schema/global-organization.html" . -}}
-  {{- $graph = $graph | append (transform.Unmarshal .) -}}
-{{- end -}}
-{{- with partial "_schema/brand.html" . -}}
-  {{- $graph = $graph | append (transform.Unmarshal .) -}}
+{{- if in $schemaTypes "brand" -}}
+  {{- with partial "_schema/brand.html" . -}}
+    {{- $graph = $graph | append (transform.Unmarshal .) -}}
+  {{- end -}}
 {{- end -}}
 
 {{/* ======================== TYPES ======================== */}}
-{{- $schemaTypes := .Params.schema_types | default (slice) -}}
-{{- $hasBreadcrumbs := or (in $schemaTypes "breadcrumbs") (.Params.breadcrumbs) .IsHome (eq .Kind "section") (eq .Kind "taxonomy") (eq .Kind "term") -}}
 
 {{/* ======================== КОНТЕНТНЫЕ СУЩНОСТИ ======================== */}}
 
@@ -44,29 +49,44 @@
 {{/* ======================== СПЕЦИАЛЬНЫЕ СУЩНОСТИ ======================== */}}
 
 {{/* FAQ */}}
-{{- if or (in $schemaTypes "faq") (.Params.faq) -}}
+{{- if and (in $schemaTypes "faq") .Params.faq -}}
   {{- with partial "_schema/faq.html" . -}}
     {{- $graph = $graph | append (transform.Unmarshal .) -}}
   {{- end -}}
 {{- end -}}
 
 {{/* BREADCRUMBS */}}
-{{- if $hasBreadcrumbs -}}
+{{- if in $schemaTypes "breadcrumbs" -}}
   {{- with partial "_schema/breadcrumbs.html" . -}}
     {{- $graph = $graph | append (transform.Unmarshal .) -}}
   {{- end -}}
 {{- end -}}
 
 {{/* COLLECTION (категории / списки) */}}
-{{- if or (in $schemaTypes "collection") (eq .Kind "section") (eq .Kind "taxonomy") (eq .Kind "term") -}}
+{{- if in $schemaTypes "collection" -}}
   {{- with partial "_schema/collection.html" . -}}
     {{- $graph = $graph | append (transform.Unmarshal .) -}}
   {{- end -}}
 {{- end -}}
 
-{{/* WEBPAGE */}}
-{{- with partial "_schema/webpage.html" . -}}
+{{/* PRIMARY IMAGE */}}
+{{- with partial "_schema/page-image-object.html" . -}}
   {{- $graph = $graph | append (transform.Unmarshal .) -}}
+{{- end -}}
+
+{{/* PAGE-LEVEL NODE */}}
+{{- if in $schemaTypes "about-page" -}}
+  {{- with partial "_schema/about-page.html" . -}}
+    {{- $graph = $graph | append (transform.Unmarshal .) -}}
+  {{- end -}}
+{{- else if in $schemaTypes "contact-page" -}}
+  {{- with partial "_schema/contact-page.html" . -}}
+    {{- $graph = $graph | append (transform.Unmarshal .) -}}
+  {{- end -}}
+{{- else -}}
+  {{- with partial "_schema/webpage.html" . -}}
+    {{- $graph = $graph | append (transform.Unmarshal .) -}}
+  {{- end -}}
 {{- end -}}
 
 {{/* ======================== ФИНАЛЬНЫЙ ВЫВОД ======================== */}}

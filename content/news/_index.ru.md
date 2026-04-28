@@ -3,7 +3,7 @@ title: "Новости Aerocool — серии SKY, WING, XTAL и анонсы �
 slug: "news"
 date: 2025-08-01T00:00:00+03:00
 description: "Новости Aerocool в Украине: запуск серий SKY, WING, XTAL, анонсы моделей SKY Lite, SKY 360 и обновления по Loft Air и Mesh."
-schema_types: ["collection", "organization", "breadcrumbs"]
+schema_types: ["website", "collection", "organization", "breadcrumbs"]
 image: "cover.webp"
 lastmod: 2026-04-21
 summary: "Официальные новости Aerocool о запуске серий, отдельных моделях и обновлении каталога в Украине."

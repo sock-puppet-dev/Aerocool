@@ -5,7 +5,7 @@ date: 2025-08-05T10:00:00+03:00
 lastmod: 2026-04-21
 summary: "Контакти Aerocool Україна: телефон, email, адреса офісу та консультації з підбору ігрових, офісних і комп'ютерних крісел."
 slug: "contact"
-schema_types: ["organization", "breadcrumbs"]
+schema_types: ["website", "organization", "contact-page", "breadcrumbs"]
 image: "cover.webp"
 ---
 

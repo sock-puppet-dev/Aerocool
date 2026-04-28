@@ -4,7 +4,7 @@ description: "Про Aerocool в Україні: ігрові, офісні та
 date: 2025-08-05T10:00:00+03:00
 lastmod: 2026-04-21
 slug: "about"
-schema_types: ["organization", "brand", "breadcrumbs"]
+schema_types: ["website", "organization", "brand", "about-page", "breadcrumbs"]
 image: "cover.webp"
 ---
 

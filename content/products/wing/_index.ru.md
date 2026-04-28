@@ -5,7 +5,7 @@ date: 2026-03-19
 lastmod: 2026-04-21
 summary: "WING — серия с двойной спинкой, 11D регулировкой и тремя форматами поверхности: Racer, Loft Air и Mesh."
 slug: "wing"
-schema_types: ["collection", "organization", "breadcrumbs"]
+schema_types: ["website", "collection", "organization", "breadcrumbs"]
 image: "cover.webp"
 ---
 

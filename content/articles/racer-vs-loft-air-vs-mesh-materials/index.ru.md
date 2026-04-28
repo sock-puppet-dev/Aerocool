@@ -5,7 +5,7 @@ lastmod: 2026-04-28T00:00:00+03:00
 slug: "racer-vs-loft-air-vs-mesh"
 description: "Объясняем разницу между поверхностями Racer, Loft Air и Mesh в креслах Aerocool: контакт, вентиляция, уход и сценарии использования."
 summary: "Гайд по выбору между Racer, Loft Air и Mesh для серий WING и XTAL."
-schema_types: ["article", "organization", "breadcrumbs"]
+schema_types: ["website", "article", "organization", "breadcrumbs"]
 image: "01-front.png"
 cover:
   image: "01-front.png"

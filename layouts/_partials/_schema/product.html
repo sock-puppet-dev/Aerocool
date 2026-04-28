@@ -1,9 +1,9 @@
 {{- $schemaTypes := .Params.schema_types | default (slice) -}}
 {{- if and .IsPage (in $schemaTypes "product") -}}
-{{- $pageImage := partial "page-image.html" . -}}
 {{- $today := now -}}
 {{- $nextYear := add ($today.Year) 1 -}}
 {{- $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) -}}
+{{- $pageImageID := printf "%s#primary-image" $pageURL -}}
 {{- $productCategory := .Section -}}
 {{- with .Params.category -}}
   {{- $productCategory = . -}}
@@ -90,7 +90,7 @@
   "@id" (printf "%s#product" $pageURL)
   "mainEntityOfPage" (dict "@id" (printf "%s#webpage" $pageURL))
   "name" .Title
-  "image" (slice $pageImage)
+  "image" (dict "@id" $pageImageID)
   "description" (.Params.description | default .Summary | plainify)
   "sku" .Params.sku
   "category" $productCategory

@@ -5,7 +5,7 @@ lastmod: 2026-04-28T00:00:00+03:00
 slug: "how-to-choose-aerocool-chair"
 description: "Практичний гайд по вибору ігрового, офісного або комп'ютерного крісла Aerocool: як співвіднести серії SKY, WING і XTAL зі своїм сценарієм роботи, home office і геймінгу."
 summary: "Пояснюємо, як вибрати ігрове, офісне або комп'ютерне крісло Aerocool не за картинкою, а за механікою, матеріалом і сценарієм використання."
-schema_types: ["article", "organization", "breadcrumbs"]
+schema_types: ["website", "article", "organization", "breadcrumbs"]
 image: "01-front.png"
 cover:
   image: "01-front.png"

@@ -5,7 +5,7 @@ date: 2025-08-05T10:00:00+03:00
 description: "FAQ Aerocool в Україні: серії SKY, WING і XTAL, матеріали Racer, Loft Air і Mesh, 7D, 8D, 11D, synchronous tilt, гарантія, доставка, оплата, повернення, складання та вибір крісла для роботи й геймінгу."
 summary: "Практичний FAQ про крісла Aerocool: серії, матеріали, налаштування, сервіс і допомога з вибором."
 lastmod: 2026-04-28
-schema_types: ["faq", "organization", "breadcrumbs"]
+schema_types: ["website", "faq", "organization", "breadcrumbs"]
 image: "cover.webp"
 faq:
   - question: "Aerocool.ua — це офіційний сайт бренду в Україні?"

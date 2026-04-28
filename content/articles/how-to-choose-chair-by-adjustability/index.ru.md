@@ -5,7 +5,7 @@ lastmod: 2026-04-28T00:00:00+03:00
 slug: "how-to-choose-chair-by-adjustability"
 description: "Разбираем, что означают 7D, 8D и 11D в креслах Aerocool и как правильно выбирать модель по количеству регулировок."
 summary: "Объясняем, когда достаточно 7D или 8D, а когда есть смысл переходить на 11D."
-schema_types: ["article", "organization", "breadcrumbs"]
+schema_types: ["website", "article", "organization", "breadcrumbs"]
 image: "01-front.png"
 cover:
   image: "01-front.png"

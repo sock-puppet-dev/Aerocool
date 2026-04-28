@@ -5,7 +5,7 @@ date: 2026-03-19
 lastmod: 2026-04-23
 summary: "XTAL — серия с конструкцией со сменными элементами, 7D регулировкой и тремя вариантами поверхности: Racer, Loft Air и Mesh."
 slug: "xtal"
-schema_types: ["collection", "organization", "breadcrumbs"]
+schema_types: ["website", "collection", "organization", "breadcrumbs"]
 image: "cover.webp"
 ---
 

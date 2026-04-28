@@ -8,10 +8,16 @@
 {{- end -}}
 {{- $itemList := slice -}}
 {{- range $index, $page := $pages -}}
+  {{- $itemURL := $page.Permalink | absURL -}}
   {{- $itemList = $itemList | append (dict
     "@type" "ListItem"
     "position" (add $index 1)
-    "url" $page.Permalink
+    "name" $page.Title
+    "item" (dict
+      "@id" $itemURL
+      "url" $itemURL
+      "name" $page.Title
+    )
   ) -}}
 {{- end -}}
 {{- (dict

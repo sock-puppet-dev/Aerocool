@@ -5,7 +5,7 @@ date: 2026-03-19
 lastmod: 2026-04-23
 summary: "Серія SKY з двома конфігураціями: Lite для щоденного використання та 360 для більш глибокого налаштування посадки."
 slug: "sky"
-schema_types: ["collection", "organization", "breadcrumbs"]
+schema_types: ["website", "collection", "organization", "breadcrumbs"]
 image: "cover.webp"
 ---
 

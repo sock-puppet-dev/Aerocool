@@ -1,0 +1,32 @@
+{{- $pageDescription := partial "page-description.html" . -}}
+{{- $pageLanguage := partial "page-language.html" . -}}
+{{- $websiteId := partial "page-website-id.html" . -}}
+{{- $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) -}}
+{{- $pageImageID := printf "%s#primary-image" $pageURL -}}
+{{- $contactPage := dict
+  "@type" "ContactPage"
+  "@id" (printf "%s#webpage" $pageURL)
+  "url" $pageURL
+  "name" .Title
+  "description" $pageDescription
+  "isPartOf" (dict "@id" $websiteId)
+  "primaryImageOfPage" (dict "@id" $pageImageID)
+  "inLanguage" $pageLanguage
+  "publisher" (dict "@id" (printf "%s#organization" (.Site.BaseURL | absURL)))
+  "about" (dict "@id" (printf "%s#organization" (.Site.BaseURL | absURL)))
+  "mainEntity" (dict "@id" (printf "%s#organization" (.Site.BaseURL | absURL)))
+  "lastReviewed" (.Lastmod.Format "2006-01-02")
+  "significantLink" (slice
+    "tel:+380665020441"
+    "mailto:support@aerocool.ua"
+    "mailto:sales@aerocool.ua"
+  )
+  "relatedLink" (slice
+    ("products" | absLangURL)
+    ("faq" | absLangURL)
+  )
+-}}
+{{- if in (.Params.schema_types | default (slice)) "breadcrumbs" -}}
+  {{- $contactPage = merge $contactPage (dict "breadcrumb" (dict "@id" (printf "%s#breadcrumbs" $pageURL))) -}}
+{{- end -}}
+{{- $contactPage | jsonify -}}

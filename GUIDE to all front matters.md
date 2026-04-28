@@ -39,7 +39,7 @@ date: 2025-08-05T10:00:00+03:00
 lastmod: 2026-04-22
 slug: "about"
 image: "cover.webp"
-schema_types: ["organization", "brand", "breadcrumbs"]
+schema_types: ["website", "organization", "brand", "about-page", "breadcrumbs"]
 ---
 ```
 
@@ -55,7 +55,7 @@ date: 2025-08-05T10:00:00+03:00
 lastmod: 2026-04-22
 slug: "contact"
 image: "cover.webp"
-schema_types: ["organization", "breadcrumbs"]
+schema_types: ["website", "organization", "contact-page", "breadcrumbs"]
 ---
 ```
 
@@ -72,13 +72,13 @@ date: 2025-08-05T10:00:00+03:00
 lastmod: 2026-04-22
 slug: "search"
 placeholder: ""
-schema_types: ["organization", "breadcrumbs"]
+schema_types: ["website", "organization", "breadcrumbs"]
 image: "cover.webp"
 robotsNoIndex: true
 ---
 ```
 
-`/search/` в текущем проекте — служебная страница и должна оставаться `noindex,nofollow`.
+`/search/` в текущем проекте — служебная страница и должна оставаться `noindex,nofollow`. Для `layout: "search"` JSON-LD не рендерится, даже если `schema_types` заполнен для общей совместимости front matter.
 
 ## 5. Листинги `content/articles/_index.md`, `content/news/_index.md`, `content/products/_index.md` и локализованные пары
 
@@ -91,7 +91,7 @@ date: 2026-03-19
 lastmod: 2026-04-22
 summary: ""
 image: "cover.webp"
-schema_types: ["collection", "organization", "breadcrumbs"]
+schema_types: ["website", "collection", "organization", "breadcrumbs"]
 ---
 ```
 
@@ -107,7 +107,7 @@ lastmod: 2026-04-22
 summary: ""
 slug: "<series>"
 image: "cover.webp"
-schema_types: ["collection", "organization", "breadcrumbs"]
+schema_types: ["website", "collection", "organization", "breadcrumbs"]
 ---
 ```
 
@@ -123,7 +123,7 @@ date: 2026-04-22T10:00:00+03:00
 lastmod: 2026-04-22T10:00:00+03:00
 slug: "<slug>"
 image: "images/default-article.jpg"
-schema_types: ["article", "organization", "breadcrumbs"]
+schema_types: ["website", "article", "organization", "breadcrumbs"]
 ---
 ```
 
@@ -149,7 +149,7 @@ cover:
   alt: "Обложка новости про Aerocool <MODEL/SERIES>"
   relative: true
   hiddenInSingle: true
-schema_types: ["news", "organization", "breadcrumbs"]
+schema_types: ["website", "news", "organization", "breadcrumbs"]
 ---
 ```
 
@@ -177,7 +177,7 @@ cover:
   alt: "Кресло Aerocool <MODEL>"
   relative: true
   hiddenInSingle: true
-schema_types: ["product", "organization", "breadcrumbs"]
+schema_types: ["website", "product", "organization", "breadcrumbs"]
 price: 0
 sku: "<SKU>"
 availability: InStock
@@ -193,8 +193,8 @@ rating:
 ---
 ```
 
-Если на переведенной товарной странице используется shortcode `seo-image`, для `index.ru.md` ставить `jsonld=false`.
 `image` отвечает за SEO/OG/schema, а `cover.image` — за preview-карточки в листингах. Для большинства product pages в текущем проекте нужны оба поля сразу.
+Параметр `jsonld` в shortcode `seo-image` больше не нужен: `ImageObject` собирается централизованно из front matter `image`.
 
 ## 10. FAQ `content/faq/index.md` и `index.ru.md`
 
@@ -208,7 +208,7 @@ date: 2025-08-05T10:00:00+03:00
 lastmod: 2026-04-28
 slug: "faq"
 image: "cover.webp"
-schema_types: ["faq", "organization", "breadcrumbs"]
+schema_types: ["website", "faq", "organization", "breadcrumbs"]
 faq:
   - question: "Aerocool.ua — это официальный сайт бренда в Украине?"
     answer: "Да. Aerocool.ua — официальный сайт Aerocool в Украине. Здесь собраны актуальные серии SKY, WING и XTAL, а также гайды, FAQ, новости и контакты."
@@ -248,3 +248,4 @@ FAQ в проекте должен читаться как нормальный 
 7. Для FAQ-страницы канонический массив вопросов и ответов хранится в `faq:`; layout и schema читают его напрямую.
 8. `404` и служебные alias-страницы — это служебные страницы шаблонного слоя, а не типы контента в `content/`.
 9. Если `h1` не нужен, поле можно не заполнять: шаблонный слой автоматически возьмет `title`.
+10. Для страниц с JSON-LD обычно указывать `website`, чтобы `WebSite` и связи `isPartOf` оставались явными в графе.

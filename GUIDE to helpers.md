@@ -96,6 +96,9 @@
 5. В `jsonld.html` собирается `@graph` из schema helpers:
    - `website.html`
    - `webpage.html`
+   - `about-page.html`
+   - `contact-page.html`
+   - `page-image-object.html`
    - `product.html`
    - `article.html`
    - `news.html`
@@ -464,7 +467,7 @@
 Что делает:
 
 - собирает итоговый schema.org `@graph`;
-- включает глобальные сущности:
+- включает сущности по `schema_types`:
   - `WebSite`
   - локальную `Organization`
   - глобальную `Organization`
@@ -476,9 +479,13 @@
   - `FAQPage`
   - `CollectionPage`
   - `WebPage`
+  - `AboutPage`
+  - `ContactPage`
+  - `ImageObject`
   - `BreadcrumbList`
 
 Это главный entrypoint для всего schema-слоя.
+Для страниц с `layout: "search"` `head.html` не вызывает `jsonld.html`, поэтому JSON-LD там не рендерится.
 
 Когда идти сюда:
 
@@ -509,6 +516,36 @@
 - описывает конкретную страницу как `WebPage`;
 - связывает ее с `WebSite`;
 - подключает `mainEntity`, `breadcrumb`, `publisher`, `primaryImageOfPage`.
+
+### `about-page.html`
+
+Файл: [about-page.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/about-page.html)
+
+Что делает:
+
+- описывает страницу `/about/` как `AboutPage`;
+- связывает страницу с `Brand`, локальной `Organization`, `WebSite`, breadcrumbs и primary image;
+- добавляет `lastReviewed` и ключевые `significantLink`.
+
+### `contact-page.html`
+
+Файл: [contact-page.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/contact-page.html)
+
+Что делает:
+
+- описывает страницу `/contact/` как `ContactPage`;
+- связывает страницу с локальной `Organization`;
+- добавляет `lastReviewed`, `significantLink` для `tel:` / `mailto:` и `relatedLink` на каталог и FAQ.
+
+### `page-image-object.html`
+
+Файл: [page-image-object.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/page-image-object.html)
+
+Что делает:
+
+- строит единый `ImageObject` для основного изображения страницы;
+- использует `image` во front matter через `page-image.html`;
+- дает стабильный `@id` вида `#primary-image`, на который ссылаются `WebPage`, `Product`, `Article` и `NewsArticle`.
 
 ### `local-organization.html`
 
@@ -579,7 +616,7 @@
 
 Что делает:
 
-- рендерит `FAQPage` на основе `.Params.faq`.
+- рендерит `FAQPage` на основе `.Params.faq`, если в `schema_types` есть `faq`.
 - Для самой страницы `/faq/` видимый FAQ выводится через shortcode [layouts/_shortcodes/faq-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq-list.html), а layout [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html) задает место его вывода в контентном потоке.
 
 ### `collection.html`

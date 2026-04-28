@@ -1,7 +1,8 @@
-{{- if .Params.faq -}}
+{{- $schemaTypes := .Params.schema_types | default (slice) -}}
+{{- if and (in $schemaTypes "faq") .Params.faq -}}
 {{- $pageLanguage := partial "page-language.html" . -}}
 {{- $websiteId := partial "page-website-id.html" . -}}
-{{- $pageURL := .Permalink | absURL -}}
+{{- $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) -}}
 {{- $questions := slice -}}
 {{- range .Params.faq -}}
   {{- $questions = $questions | append (dict
@@ -9,7 +10,7 @@
     "name" .question
     "acceptedAnswer" (dict
       "@type" "Answer"
-      "text" (.answer | plainify)
+      "text" (.answer | markdownify | plainify)
     )
   ) -}}
 {{- end -}}

@@ -5,7 +5,7 @@ lastmod: 2026-04-28T00:00:00+03:00
 slug: "what-is-synchronous-tilt"
 description: "Пояснюємо, як працює synchronous tilt у кріслах Aerocool, чому він важливий для тривалого сидіння і в яких серіях використовується."
 summary: "Гайд по synchronous tilt у серіях SKY, WING і XTAL та його впливу на щоденний комфорт."
-schema_types: ["article", "organization", "breadcrumbs"]
+schema_types: ["website", "article", "organization", "breadcrumbs"]
 image: "01-front.png"
 cover:
   image: "01-front.png"

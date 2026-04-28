@@ -1,17 +1,11 @@
 {{- $src := .Get "src" -}}
 {{- $alt := .Get "alt" | default "" -}}
 {{- $title := .Get "title" | default "" -}}
-{{- $pageLanguage := partial "page-language.html" .Page -}}
-{{- $sitesByWeight := sort .Page.Site.Sites "Language.Weight" -}}
-{{- $primarySite := index $sitesByWeight 0 -}}
-{{- $isPrimaryLanguage := eq .Page.Language.Lang $primarySite.Language.Lang -}}
 {{- $class := .Get "class" | default "" -}}
 {{- $loading := .Get "loading" | default "lazy" -}}
 {{- $fetchpriority := .Get "fetchpriority" | default "auto" -}}
 {{- $sizes := .Get "sizes" | default "" -}}
 {{- $preload := eq (printf "%v" (.Get "preload" | default false)) "true" -}}
-{{- $jsonld := eq (printf "%v" (.Get "jsonld" | default false)) "true" -}}
-{{- $renderJSONLD := and $jsonld $isPrimaryLanguage -}}
 {{- $targetWidth := 0 -}}
 {{- with .Get "width" }}{{ $targetWidth = int . }}{{ end -}}
 {{- $targetHeight := 0 -}}
@@ -102,21 +96,6 @@
   {{ end }}
 </figure>
 
-{{- if $renderJSONLD }}
-{{- $imageObject := dict
-  "@context" "https://schema.org"
-  "@type" "ImageObject"
-  "contentUrl" $rendered.Permalink
-  "url" $rendered.Permalink
-  "width" $rendered.Width
-  "height" $rendered.Height
-  "inLanguage" $pageLanguage
--}}
-{{- with $title }}{{ $imageObject = merge $imageObject (dict "name" .) }}{{ end -}}
-{{- with $alt }}{{ $imageObject = merge $imageObject (dict "description" .) }}{{ end -}}
-<script type="application/ld+json">
-{{- $imageObject | jsonify | safeJS -}}
-</script>
-{{- end }}
+{{- /* JSON-LD for the primary page image is emitted centrally in layouts/_partials/_seo/jsonld.html. */ -}}
 
 {{- end }}

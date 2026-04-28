@@ -1,0 +1,32 @@
+{{- $pageDescription := partial "page-description.html" . -}}
+{{- $pageLanguage := partial "page-language.html" . -}}
+{{- $websiteId := partial "page-website-id.html" . -}}
+{{- $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) -}}
+{{- $pageImageID := printf "%s#primary-image" $pageURL -}}
+{{- $aboutEntityID := printf "%s#organization" (.Site.BaseURL | absURL) -}}
+{{- if in (.Params.schema_types | default (slice)) "brand" -}}
+  {{- $aboutEntityID = "https://aerocool.io/#brand" -}}
+{{- end -}}
+{{- $aboutPage := dict
+  "@type" "AboutPage"
+  "@id" (printf "%s#webpage" $pageURL)
+  "url" $pageURL
+  "name" .Title
+  "description" $pageDescription
+  "isPartOf" (dict "@id" $websiteId)
+  "primaryImageOfPage" (dict "@id" $pageImageID)
+  "inLanguage" $pageLanguage
+  "publisher" (dict "@id" (printf "%s#organization" (.Site.BaseURL | absURL)))
+  "about" (dict "@id" $aboutEntityID)
+  "mainEntity" (dict "@id" (printf "%s#organization" (.Site.BaseURL | absURL)))
+  "lastReviewed" (.Lastmod.Format "2006-01-02")
+  "significantLink" (slice
+    ("products" | absLangURL)
+    ("faq" | absLangURL)
+    ("contact" | absLangURL)
+  )
+-}}
+{{- if in (.Params.schema_types | default (slice)) "breadcrumbs" -}}
+  {{- $aboutPage = merge $aboutPage (dict "breadcrumb" (dict "@id" (printf "%s#breadcrumbs" $pageURL))) -}}
+{{- end -}}
+{{- $aboutPage | jsonify -}}

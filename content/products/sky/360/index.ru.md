@@ -4,7 +4,7 @@ description: "Купить Aerocool SKY 360 в Украине — эргоном
 summary: "Aerocool SKY 360 — компьютерное и офисное кресло серии SKY с 11D регулировкой, synchronous tilt и более глубокой настройкой для работы и home office."
 date: 2026-03-19
 lastmod: 2026-04-23
-schema_types: ["product", "organization", "breadcrumbs"]
+schema_types: ["website", "product", "organization", "breadcrumbs"]
 slug: "360"
 categories: ["sky"]
 tags: ["aerocool", "эргономичное кресло", "компьютерное кресло", "офисное кресло", "sky", "sky 360", "home office"]

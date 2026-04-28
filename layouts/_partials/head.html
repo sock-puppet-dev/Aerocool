@@ -48,8 +48,10 @@
 {{- end }}
 
 <!-- SEO Partials: JSON-LD, Open Graph, Twitter Cards -->
-{{- if not $is404 }}
+{{- if and (not $is404) (ne .Layout "search") }}
 {{ partial "_seo/jsonld.html" . }}
+{{- end }}
+{{- if not $is404 }}
 {{ partial "_seo/opengraph.html" . }}
 {{ partial "_seo/twitter_cards.html" . }}
 {{- end }}

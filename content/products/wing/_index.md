@@ -5,7 +5,7 @@ date: 2026-03-19
 lastmod: 2026-04-21
 summary: "WING — серія з подвійною спинкою, 11D регулюванням і трьома форматами поверхні: Racer, Loft Air і Mesh."
 slug: "wing"
-schema_types: ["collection", "organization", "breadcrumbs"]
+schema_types: ["website", "collection", "organization", "breadcrumbs"]
 image: "cover.webp"
 ---
 
