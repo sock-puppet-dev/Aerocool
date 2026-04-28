@@ -2,7 +2,7 @@
 
 {{- if .Page.Params.faq }}
 <div class="faq-block bg-white">
-  <div class="mx-auto max-w-7xl px-6 py-12 sm:py-16 lg:px-8">
+  <div class="mx-auto max-w-7xl px-6 pb-12 pt-2 sm:pb-16 sm:pt-4 lg:px-8">
     {{- $faqTitle := "" -}}
     {{- if eq .Page.Language.Lang "ru" -}}
       {{- $faqTitle = .Page.Params.faq_title | default "Часто задаваемые вопросы" -}}
