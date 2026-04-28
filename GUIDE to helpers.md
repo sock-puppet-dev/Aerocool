@@ -364,6 +364,25 @@
 - если нужно усилить связь `article -> product`;
 - если нужно изменить состав блока и правила подбора.
 
+### `editorial-note.html`
+
+Файл: [editorial-note.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/editorial-note.html)
+
+Что делает:
+
+- выводит видимый редакционный trust-блок на статьях и новостях;
+- срабатывает для страниц, где `schema_types` содержит `article` или `news`;
+- показывает редакционную ответственность Aerocool Украина;
+- объясняет, что характеристики, цены, гарантия и наличие сверяются с карточками товаров и служебными страницами сайта;
+- выводит дату последнего обновления из `.Lastmod`;
+- локализуется по языку страницы.
+
+Когда идти сюда:
+
+- если нужно изменить формулировку редакционной ответственности;
+- если появятся отдельные авторы, редакторы или reviewer-поля;
+- если Article/NewsArticle schema начнет читать персональные author/reviewer-данные.
+
 ### `css.html`
 
 Файл: [css.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/css.html)
@@ -561,7 +580,7 @@
 Что делает:
 
 - рендерит `FAQPage` на основе `.Params.faq`.
-- Для самой страницы `/faq/` видимый список вопросов и ответов рендерит не shortcode, а отдельный layout [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html).
+- Для самой страницы `/faq/` видимый FAQ выводится через shortcode [layouts/_shortcodes/faq_list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq_list.html), а layout [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html) задает место его вывода в контентном потоке.
 
 ### `collection.html`
 
@@ -588,7 +607,8 @@
 - плохой `description` -> [page-description.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-description.html)
 - странный `H1` на большинстве страниц -> [page-h1.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-h1.html)
 - странный `H1` или hero на главной -> [home-content-section.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-content-section.html), [home-content-section-ru.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-content-section-ru.html)
-- проблема с видимым FAQ на `/faq/` -> [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html)
+- проблема с видимым FAQ на `/faq/` -> [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html) и [faq_list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq_list.html)
+- нет редакционного trust-блока на статье или новости -> [editorial-note.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/editorial-note.html) и вызов в [single.html](/Users/stadnyk/MEGA/Aerocool/layouts/single.html)
 - не та картинка в соцсетях -> [page-image.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-image.html), [opengraph.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/opengraph.html), [twitter_cards.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/twitter_cards.html)
 - canonical / robots / hreflang -> [head.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/head.html)
 - schema не та -> [jsonld.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/jsonld.html) и нужный файл в `_schema`

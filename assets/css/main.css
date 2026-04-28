@@ -199,6 +199,25 @@ body.list {
     color: var(--secondary);
 }
 
+/* Editorial-note делает редакционную ответственность видимой на статьях
+   и новостях, не превращая ее в отдельную карточку внутри контента. */
+.editorial-note {
+    display: grid;
+    gap: 0.25rem;
+    max-width: var(--text-width);
+    margin-top: 0.9rem;
+    padding: 0.85rem 1rem;
+    border-left: 3px solid var(--accent);
+    background: var(--code-bg);
+    color: var(--content);
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+.editorial-note strong {
+    color: var(--primary);
+}
+
 /* Текстовые ссылки приводим к одному паттерну:
    спокойный акцентный синий + тонкое underline вместо разнородных
    box-shadow/border-bottom решений темы.
