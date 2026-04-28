@@ -166,7 +166,7 @@
 
 - [ ] FAQ должен отвечать на реальные вопросы пользователей, саппорта и отдела продаж.
 - [ ] Все вопросы и ответы должны быть видимы на странице.
-- [ ] Для текущего проекта канонический FAQ хранится в `faq:` во front matter, а видимый FAQ на `/faq/` рендерится из него через [layouts/_shortcodes/faq_list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq_list.html), который выводится в [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html).
+- [ ] Для текущего проекта канонический FAQ хранится в `faq:` во front matter, а видимый FAQ на `/faq/` рендерится из него через [layouts/_shortcodes/faq-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq-list.html), который выводится в [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html).
 - [ ] Не держать второй полный экземпляр FAQ в markdown-теле страницы без отдельной необходимости: это снова создаст лишнюю точку рассинхрона.
 - [ ] FAQ должен снимать возражения и помогать конверсии.
 - [ ] FAQ полезен как контентный слой и structured data, но нельзя строить стратегию на ожидании FAQ rich result.

@@ -219,12 +219,12 @@ faq:
 ---
 ```
 
-Для FAQ-страницы в текущем проекте `faq:` — это канонический источник вопросов и ответов. Видимый FAQ берется из этого массива через [layouts/_shortcodes/faq_list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq_list.html), который выводится в [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html), а `FAQPage` schema читает тот же массив через [layouts/_partials/_schema/faq.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/faq.html).
+Для FAQ-страницы в текущем проекте `faq:` — это канонический источник вопросов и ответов. Видимый FAQ берется из этого массива через [layouts/_shortcodes/faq-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq-list.html), который выводится в [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html), а `FAQPage` schema читает тот же массив через [layouts/_partials/_schema/faq.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/faq.html).
 
 В markdown-теле FAQ-страницы сейчас нужен не второй полный экземпляр вопросов, а только supporting-контент и точка вывода FAQ:
 
 - сначала короткий лид без `# H1`;
-- затем `{{< faq_list >}}`;
+- затем `{{< faq-list >}}`;
 - затем блок внутренних ссылок на каталог, серии, статьи и контакты.
 
 Если на FAQ-странице используется длинный формат на `30+` вопросов, он должен оставаться:

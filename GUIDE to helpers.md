@@ -580,7 +580,7 @@
 Что делает:
 
 - рендерит `FAQPage` на основе `.Params.faq`.
-- Для самой страницы `/faq/` видимый FAQ выводится через shortcode [layouts/_shortcodes/faq_list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq_list.html), а layout [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html) задает место его вывода в контентном потоке.
+- Для самой страницы `/faq/` видимый FAQ выводится через shortcode [layouts/_shortcodes/faq-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq-list.html), а layout [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html) задает место его вывода в контентном потоке.
 
 ### `collection.html`
 
@@ -607,7 +607,7 @@
 - плохой `description` -> [page-description.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-description.html)
 - странный `H1` на большинстве страниц -> [page-h1.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-h1.html)
 - странный `H1` или hero на главной -> [home-content-section.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-content-section.html), [home-content-section-ru.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-content-section-ru.html)
-- проблема с видимым FAQ на `/faq/` -> [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html) и [faq_list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq_list.html)
+- проблема с видимым FAQ на `/faq/` -> [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html) и [faq-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq-list.html)
 - нет редакционного trust-блока на статье или новости -> [editorial-note.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/editorial-note.html) и вызов в [single.html](/Users/stadnyk/MEGA/Aerocool/layouts/single.html)
 - не та картинка в соцсетях -> [page-image.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-image.html), [opengraph.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/opengraph.html), [twitter_cards.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/twitter_cards.html)
 - canonical / robots / hreflang -> [head.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/head.html)
