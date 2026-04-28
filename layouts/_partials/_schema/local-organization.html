@@ -33,6 +33,14 @@
       "latitude" "50.4501"
       "longitude" "30.5234"
     )
+    "openingHoursSpecification" (slice
+      (dict
+        "@type" "OpeningHoursSpecification"
+        "dayOfWeek" (slice "https://schema.org/Monday" "https://schema.org/Tuesday" "https://schema.org/Wednesday" "https://schema.org/Thursday" "https://schema.org/Friday")
+        "opens" "09:00"
+        "closes" "18:00"
+      )
+    )
   )
   "email" "support@aerocool.ua"
   "parentOrganization" (dict "@id" "https://aerocool.io/#organization")
@@ -52,14 +60,6 @@
       "email" "sales@aerocool.ua"
       "areaServed" "UA"
       "availableLanguage" (slice "uk" "ru" "en")
-    )
-  )
-  "openingHoursSpecification" (slice
-    (dict
-      "@type" "OpeningHoursSpecification"
-      "dayOfWeek" (slice "https://schema.org/Monday" "https://schema.org/Tuesday" "https://schema.org/Wednesday" "https://schema.org/Thursday" "https://schema.org/Friday")
-      "opens" "09:00"
-      "closes" "18:00"
     )
   )
   "sameAs" $sameAs
