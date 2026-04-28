@@ -34,7 +34,7 @@ rating:
   loading="eager"
   preload=true
   fetchpriority=high
-  class="w-full rounded-2xl shadow-xl"
+  class="w-full rounded-2xl"
   sizes="100vw"
   jsonld=true
 />}}
