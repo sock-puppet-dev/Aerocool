@@ -36,35 +36,13 @@
 
   {{- if .Content }}
   <div class="post-content">
+
+    {{/* Логика вывода FAQ вынесена в шорткод layouts/shortcodes/faq_list.html */}}
+    {{/* Это позволяет управлять позицией блока FAQ прямо в контенте index.md / index.ru.md */}}
+    
     {{- if not (.Param "disableAnchoredHeadings") }}
     {{- partial "anchored_headings.html" .Content -}}
     {{- else }}{{ .Content }}{{ end }}
-  </div>
-  {{- end }}
-
-  {{- if .Params.faq }}
-  <div class="faq-block bg-white">
-    <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
-      {{- $faqTitle := "" -}}
-      {{- if eq .Language.Lang "ru" -}}
-        {{- $faqTitle = .Params.faq_title | default "Часто задаваемые вопросы" -}}
-      {{- else -}}
-        {{- $faqTitle = .Params.faq_title | default "Відповіді на запитання" -}}
-      {{- end -}}
-      <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">{{ $faqTitle }}</h2>
-      <dl class="mt-20 divide-y divide-gray-900/10">
-        {{ range $index, $item := .Params.faq }}
-        <div class="py-8 first:pt-0 last:pb-0 lg:grid lg:grid-cols-12 lg:gap-8">
-          <dt class="text-base/7 font-semibold text-gray-900 lg:col-span-5">{{ $item.question }}</dt>
-          <dd class="mt-4 lg:col-span-7 lg:mt-0">
-            <div class="text-base/7 text-gray-600">
-              {{ $item.answer | markdownify }}
-            </div>
-          </dd>
-        </div>
-        {{ end }}
-      </dl>
-    </div>
   </div>
   {{- end }}
 

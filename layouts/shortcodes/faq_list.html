@@ -1,0 +1,27 @@
+{{/* Логика рендеринга FAQ из frontmatter. Вызывается шорткодом {{< faq_list >}} в контенте. */}}
+
+{{- if .Page.Params.faq }}
+<div class="faq-block bg-white">
+  <div class="mx-auto max-w-7xl px-6 py-12 sm:py-16 lg:px-8">
+    {{- $faqTitle := "" -}}
+    {{- if eq .Page.Language.Lang "ru" -}}
+      {{- $faqTitle = .Page.Params.faq_title | default "Часто задаваемые вопросы" -}}
+    {{- else -}}
+      {{- $faqTitle = .Page.Params.faq_title | default "Відповіді на запитання" -}}
+    {{- end -}}
+    <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">{{ $faqTitle }}</h2>
+    <dl class="mt-12 divide-y divide-gray-900/10">
+      {{ range $index, $item := .Page.Params.faq }}
+      <div class="py-8 first:pt-0 last:pb-0 lg:grid lg:grid-cols-12 lg:gap-8">
+        <dt class="text-base/7 font-semibold text-gray-900 lg:col-span-5">{{ $item.question }}</dt>
+        <dd class="mt-4 lg:col-span-7 lg:mt-0">
+          <div class="text-base/7 text-gray-600">
+            {{ $item.answer | markdownify }}
+          </div>
+        </dd>
+      </div>
+      {{ end }}
+    </dl>
+  </div>
+</div>
+{{- end }}
