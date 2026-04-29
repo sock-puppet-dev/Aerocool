@@ -9,6 +9,7 @@ schema_types: ["website", "organization", "contact-page", "breadcrumbs"]
 image: "cover.webp"
 ---
 
+{{< contact >}}
 
 Свяжитесь с **Aerocool Украина**, если вам нужна помощь с выбором кресла, сравнением серий **SKY**, **WING** и **XTAL**, уточнением характеристик, доставки или сервисной поддержки.
 
