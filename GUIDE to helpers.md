@@ -98,6 +98,7 @@
    - `webpage.html`
    - `about-page.html`
    - `contact-page.html`
+   - `logo.html`
    - `page-image-object.html`
    - `product.html`
    - `article.html`
@@ -472,6 +473,7 @@
   - локальную `Organization`
   - глобальную `Organization`
   - `Brand`
+- автоматически закрывает зависимости `logo` и `brand`, если выбранные сущности на них ссылаются;
 - добавляет контентные сущности по типу страницы:
   - `Product`
   - `Article`
@@ -486,6 +488,8 @@
 
 Это главный entrypoint для всего schema-слоя.
 Для страниц с `layout: "search"` `head.html` не вызывает `jsonld.html`, поэтому JSON-LD там не рендерится.
+Для главной страницы `BreadcrumbList` не рендерится, потому что одноэлементные breadcrumbs на home не дают полезной структуры.
+Техническая валидность графа не отменяет Google quality rules: значения, которые попадают в JSON-LD, должны соответствовать видимому контенту страницы.
 
 Когда идти сюда:
 
@@ -505,7 +509,8 @@
 
 - описывает сайт как `WebSite`;
 - включает `SearchAction`;
-- задает `@id`, `url`, `name`, `description`, `publisher`, `image`, `inLanguage`.
+- задает `@id`, `url`, `name`, `description`, `image`, `inLanguage`;
+- добавляет `publisher`, если в `schema_types` включена `organization`.
 
 ### `webpage.html`
 
@@ -515,7 +520,8 @@
 
 - описывает конкретную страницу как `WebPage`;
 - связывает ее с `WebSite`;
-- подключает `mainEntity`, `breadcrumb`, `publisher`, `primaryImageOfPage`.
+- подключает `mainEntity`, `breadcrumb`, `publisher`, `primaryImageOfPage`;
+- не добавляет `breadcrumb` на главной странице.
 
 ### `about-page.html`
 
@@ -546,6 +552,17 @@
 - строит единый `ImageObject` для основного изображения страницы;
 - использует `image` во front matter через `page-image.html`;
 - дает стабильный `@id` вида `#primary-image`, на который ссылаются `WebPage`, `Product`, `Article` и `NewsArticle`.
+
+### `logo.html`
+
+Файл: [logo.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/logo.html)
+
+Что делает:
+
+- строит отдельный top-level `ImageObject` для логотипа;
+- дает стабильный `@id` вида `#logo`;
+- используется как `WebSite.image`, `Organization.logo` и `Organization.image`;
+- подключается как зависимый top-level узел, если в графе есть `website` или `organization`.
 
 ### `local-organization.html`
 
@@ -635,6 +652,7 @@
 Что делает:
 
 - строит `BreadcrumbList` для schema-графа.
+- не рендерится на главной странице, чтобы не создавать одноэлементную хлебную крошку.
 
 ## Как Быстро Понять, Куда Идти
 

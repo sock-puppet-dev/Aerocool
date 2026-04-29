@@ -1,0 +1,8 @@
+{{- (dict
+  "@type" "ImageObject"
+  "@id" (printf "%s#logo" (.Site.BaseURL | absURL))
+  "url" ("images/logo.svg" | absURL)
+  "contentUrl" ("images/logo.svg" | absURL)
+  "name" "Aerocool logo"
+  "inLanguage" (partial "page-language.html" .)
+) | jsonify -}}

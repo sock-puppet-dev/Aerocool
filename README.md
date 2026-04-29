@@ -73,6 +73,7 @@ hugo --environment production --minify --gc --cleanDestinationDir
 - `KEYWORD-MAP-2026.md`
 - `GUIDE to all front matters.md`
 - `GUIDE to helpers.md`
+- `JSON-LD-GRAPH-ROADMAP-2026.md`
 - `GUIDE to seo-image.md`
 - `GUIDE to schema_types.md`
 - `GUIDE to view transitions.md`

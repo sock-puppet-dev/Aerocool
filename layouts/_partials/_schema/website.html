@@ -1,4 +1,5 @@
 {{- $pageLanguage := partial "page-language.html" . -}}
+{{- $schemaTypes := .Params.schema_types | default (slice) -}}
 {{- $websiteId := partial "page-website-id.html" . -}}
 {{- $websiteURL := "" | absLangURL -}}
 {{- $website := dict
@@ -9,7 +10,6 @@
   "inLanguage" $pageLanguage
   "isFamilyFriendly" true
   "image" (dict "@id" (printf "%s#logo" (.Site.BaseURL | absURL)))
-  "publisher" (dict "@id" (printf "%s#organization" (.Site.BaseURL | absURL)))
   "potentialAction" (dict
     "@type" "SearchAction"
     "@id" (printf "%s#search" $websiteURL)
@@ -20,6 +20,9 @@
     "query-input" "required name=search_term_string"
   )
 -}}
+{{- if in $schemaTypes "organization" -}}
+  {{- $website = merge $website (dict "publisher" (dict "@id" (printf "%s#organization" (.Site.BaseURL | absURL)))) -}}
+{{- end -}}
 {{- with .Site.Params.alternateName -}}
   {{- $website = merge $website (dict "alternateName" .) -}}
 {{- end -}}

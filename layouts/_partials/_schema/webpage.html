@@ -20,7 +20,7 @@
     "publisher" (dict "@id" (printf "%s#organization" (.Site.BaseURL | absURL)))
   ) -}}
 {{- end -}}
-{{- if in $schemaTypes "breadcrumbs" -}}
+{{- if and (in $schemaTypes "breadcrumbs") (not .IsHome) -}}
   {{- $webpage = merge $webpage (dict "breadcrumb" (dict "@id" (printf "%s#breadcrumbs" $pageURL))) -}}
 {{- end -}}
 {{- $mainEntityID := "" -}}

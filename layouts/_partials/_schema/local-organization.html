@@ -10,11 +10,7 @@
   "@id" (printf "%s#organization" (.Site.BaseURL | absURL))
   "name" "Aerocool Ukraine"
   "url" (.Site.BaseURL | absURL)
-  "logo" (dict
-    "@type" "ImageObject"
-    "@id" (printf "%s#logo" (.Site.BaseURL | absURL))
-    "url" ("images/logo.svg" | absURL)
-  )
+  "logo" (dict "@id" (printf "%s#logo" (.Site.BaseURL | absURL)))
   "image" (dict "@id" (printf "%s#logo" (.Site.BaseURL | absURL)))
   "areaServed" (dict
     "@type" "Country"

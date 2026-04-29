@@ -7,6 +7,11 @@
     {{- $graph = $graph | append (transform.Unmarshal .) -}}
   {{- end -}}
 {{- end -}}
+{{- if or (in $schemaTypes "website") (in $schemaTypes "organization") -}}
+  {{- with partial "_schema/logo.html" . -}}
+    {{- $graph = $graph | append (transform.Unmarshal .) -}}
+  {{- end -}}
+{{- end -}}
 {{- if in $schemaTypes "organization" -}}
   {{- with partial "_schema/local-organization.html" . -}}
     {{- $graph = $graph | append (transform.Unmarshal .) -}}
@@ -15,7 +20,7 @@
     {{- $graph = $graph | append (transform.Unmarshal .) -}}
   {{- end -}}
 {{- end -}}
-{{- if in $schemaTypes "brand" -}}
+{{- if or (in $schemaTypes "brand") (in $schemaTypes "organization") (in $schemaTypes "product") -}}
   {{- with partial "_schema/brand.html" . -}}
     {{- $graph = $graph | append (transform.Unmarshal .) -}}
   {{- end -}}
@@ -56,7 +61,7 @@
 {{- end -}}
 
 {{/* BREADCRUMBS */}}
-{{- if in $schemaTypes "breadcrumbs" -}}
+{{- if and (in $schemaTypes "breadcrumbs") (not .IsHome) -}}
   {{- with partial "_schema/breadcrumbs.html" . -}}
     {{- $graph = $graph | append (transform.Unmarshal .) -}}
   {{- end -}}
