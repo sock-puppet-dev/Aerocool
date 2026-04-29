@@ -4,7 +4,7 @@
 
 ## Стек
 
-- `Hugo 0.157.0`
+- `Hugo 0.158.0`
 - `Node 24`
 - `PaperMod` как git-подмодуль
 - `Tailwind CSS 4`
@@ -57,6 +57,7 @@
 ## Основные Команды
 
 ```bash
+mise install
 npm install
 npm run dev
 npm run build
@@ -64,7 +65,7 @@ hugo server --environment production --disableFastRender
 hugo --environment production --minify --gc --cleanDestinationDir
 ```
 
-`npm run dev` запускает `hugo server`, а `npm run build` предварительно обновляет подмодули и затем собирает production-сборку. Для отладки шаблонов, CSS, SEO и изображений предпочтителен `hugo server --environment production --disableFastRender`.
+Локальные версии инструментов зафиксированы в [.mise.toml](/Users/stadnyk/MEGA/Aerocool/.mise.toml): `Hugo 0.158.0` и `Node 24`. `npm run dev` запускает `hugo server`, а `npm run build` предварительно обновляет подмодули и затем собирает production-сборку. Для отладки шаблонов, CSS, SEO и изображений предпочтителен `hugo server --environment production --disableFastRender`.
 
 ## Локальная Документация
 

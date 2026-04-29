@@ -74,7 +74,7 @@
 
       <!-- ===== LANGUAGE SWITCH ===== -->
       <div class="logo-switches flex items-center">
-        {{- $lang := .Lang }}
+        {{- $lang := .Language.Name }}
         <!-- Текущий язык страницы -->
 
         {{- with .AllTranslations }}
@@ -116,8 +116,9 @@
               {{- range . }}
               <!-- Перебираем все доступные переводы -->
 
-              {{- $display_name := .Lang | upper }}
-              {{- if eq .Lang "uk" }}
+              {{- $translationLang := .Language.Name }}
+              {{- $display_name := $translationLang | upper }}
+              {{- if eq $translationLang "uk" }}
               {{ $display_name = "UA" }}
               {{ end }}
 

@@ -1,7 +1,7 @@
 {{- $pageNumber := .Scratch.Get "pageNumber" | default 1 -}}
 {{- $pageSuffix := "" -}}
 {{- if gt $pageNumber 1 -}}
-  {{- if eq .Site.Language.Lang "ru" -}}
+  {{- if eq .Site.Language.Name "ru" -}}
     {{- $pageSuffix = printf " | Страница %d" $pageNumber -}}
   {{- else -}}
     {{- $pageSuffix = printf " | Сторінка %d" $pageNumber -}}

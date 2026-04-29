@@ -1,0 +1,10 @@
+- id: page_not_found
+  translation: "Сторінку не знайдено"
+
+- id: words
+  translation:
+    zero: "0 слів"
+    one: "1 слово"
+    few: "{{ .Count }} слова"
+    many: "{{ .Count }} слів"
+    other: "{{ .Count }} слова"

@@ -4,11 +4,8 @@
 {{ $schemaTypes := .Params.schema_types | default (slice) }}
 {{ $ogType := "website" }}
 {{ $image := partial "page-image.html" . }}
-{{ $ogLocale := "uk_UA" }}
-
-{{ if eq .Site.Language.Lang "ru" }}
-  {{ $ogLocale = "ru_UA" }}
-{{ end }}
+{{ $languageLocale := .Site.Language.Locale | default .Site.Language.Name }}
+{{ $ogLocale := replace $languageLocale "-" "_" }}
 
 {{ if and .IsPage (in $schemaTypes "product") }}
   {{ $ogType = "product" }}

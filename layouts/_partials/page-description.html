@@ -7,7 +7,7 @@
 {{- end -}}
 
 {{- if not $description -}}
-  {{- if eq .Site.Language.Lang "ru" -}}
+  {{- if eq .Site.Language.Name "ru" -}}
     {{- if eq .Kind "term" -}}
       {{- $description = printf "%s — подборка материалов и страниц Aerocool в Украине." .Title -}}
     {{- else if eq .Kind "taxonomy" -}}
@@ -31,7 +31,7 @@
 {{- end -}}
 
 {{- if gt $pageNumber 1 -}}
-  {{- if eq .Site.Language.Lang "ru" -}}
+  {{- if eq .Site.Language.Name "ru" -}}
     {{- $description = printf "%s Страница %d." $description $pageNumber -}}
   {{- else -}}
     {{- $description = printf "%s Сторінка %d." $description $pageNumber -}}

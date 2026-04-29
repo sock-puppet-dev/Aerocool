@@ -1,7 +1,7 @@
 {{- $schemaTypes := .Params.schema_types | default (slice) -}}
 {{- $isEditorialPage := and .IsPage (or (in $schemaTypes "article") (in $schemaTypes "news")) -}}
 {{- if $isEditorialPage -}}
-  {{- $isRU := eq .Language.Lang "ru" -}}
+  {{- $isRU := eq .Language.Name "ru" -}}
   {{- $title := "Редакційна перевірка" -}}
   {{- $prepared := "Підготовлено редакцією Aerocool Україна." -}}
   {{- $checked := "Характеристики, ціни, гарантія та наявність звіряються з картками товарів і службовими сторінками сайту." -}}

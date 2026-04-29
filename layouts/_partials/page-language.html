@@ -1,8 +1,13 @@
-{{- $language := .Site.Language.Lang -}}
-{{- if eq $language "uk" -}}
-  {{- "uk-UA" -}}
-{{- else if eq $language "ru" -}}
-  {{- "ru-UA" -}}
+{{- $locale := .Language.Locale | default .Site.Language.Locale -}}
+{{- if $locale -}}
+  {{- $locale -}}
 {{- else -}}
-  {{- $language -}}
+  {{- $language := .Language.Name | default .Site.Language.Name -}}
+  {{- if eq $language "uk" -}}
+    {{- "uk-UA" -}}
+  {{- else if eq $language "ru" -}}
+    {{- "ru-UA" -}}
+  {{- else -}}
+    {{- $language -}}
+  {{- end -}}
 {{- end -}}

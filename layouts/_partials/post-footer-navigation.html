@@ -1,7 +1,7 @@
 {{- $section := .Section -}}
 {{- $isRelevantSection := in (slice "products" "articles" "news") $section -}}
 {{- if $isRelevantSection -}}
-  {{- $isRU := eq .Language.Lang "ru" -}}
+  {{- $isRU := eq .Language.Name "ru" -}}
   {{- $blockTitle := "Що подивитися далі" -}}
   {{- $primaryTitle := "Ключові розділи" -}}
   {{- $productsTitle := "Схожі моделі" -}}

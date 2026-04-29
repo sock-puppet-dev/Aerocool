@@ -43,7 +43,7 @@ npm run build
 
 Результат:
 
-- Hugo: `v0.157.0`
+- Hugo: `v0.158.0`
 - Pages: `47` UK, `45` RU
 - Paginator pages: `6` UK, `6` RU
 - Aliases: `8` UK, `7` RU
