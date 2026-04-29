@@ -307,7 +307,7 @@ params:
 
 ### P3 - Dormant RSS fallback still references deprecated `site.Author`
 
-File: `layouts/_default/rss.xml`
+File: `layouts/rss.xml`
 
 The local RSS template still includes fallback branches referencing `site.Author.email` and `site.Author.name`. They are not reached with the current config because `site.Params.author` is set, so the build emits no warning.
 
