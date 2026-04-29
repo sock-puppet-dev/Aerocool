@@ -9,7 +9,7 @@
 
 Проект технически совместим с Hugo `0.161.0`.
 
-Сборка на Hugo `0.161.0` и Node `24` в текущем окружении `development` проходит без ошибок, без `--printI18nWarnings`, без path warnings и без предупреждений по deprecated language API. Самое важное изменение `0.161.0` - запуск Node-инструментов Hugo через Node `--permission` - на проект не ломает сборку: Tailwind установлен как npm-пакет, `css.TailwindCSS` работает, Node версии `>= 22` доступен.
+Сборка на Hugo `0.161.0` и Node `24` в текущем окружении `development` проходит без ошибок, с `--printI18nWarnings` без предупреждений, без path warnings и без предупреждений по deprecated language API. Самое важное изменение `0.161.0` - запуск Node-инструментов Hugo через Node `--permission` - на проект не ломает сборку: Tailwind установлен как npm-пакет, `css.TailwindCSS` работает, Node версии `>= 22` доступен.
 
 Переход на Hugo `0.161.0` можно считать безопасным по совместимости: pinned-версии в `.mise.toml` и `netlify.toml` переведены на Hugo `0.161.0`. Окружение сборки временно оставлено `development`; production-режим включать только после финальной проверки.
 
@@ -21,7 +21,9 @@
 - Tailwind CSS integration: https://gohugo.io/functions/css/tailwindcss/
 - Language configuration: https://gohugo.io/configuration/languages/
 - `Site.Language`: https://gohugo.io/methods/site/language/
+- `Page.Language`: https://gohugo.io/methods/page/language/
 - `Site.Sites` deprecation: https://gohugo.io/methods/site/sites/
+- New template system: https://gohugo.io/templates/new-templatesystem-overview/
 - Permalinks configuration: https://gohugo.io/configuration/permalinks/
 
 ## Что изменилось в Hugo 0.161.0 и влияние на проект
@@ -97,6 +99,7 @@ allowworker = ['tailwindcss']
 Проверка локальных шаблонов:
 
 - Deprecated `.Language.Lang`, `.Language.LanguageCode`, `.Language.LanguageDirection`, `.Language.LanguageName` в локальных `layouts/` не найдены.
+- Старый `.Page.Lang` в `layouts/_shortcodes/contact.html` заменен на `.Page.Language.Name`.
 - `layouts/baseof.html` использует `.Language.Direction`.
 - `layouts/_partials/page-language.html` использует `.Language.Locale` с fallback на `.Language.Name`.
 - `layouts/rss.xml` использует `site.Language.Locale | default site.Language.Name`.
@@ -229,7 +232,7 @@ mise x hugo@0.161.0 node@24 -- hugo --environment development --gc --minify --te
 mise x hugo@0.161.0 node@24 -- npm run build
 mise x hugo@0.161.0 node@24 -- hugo config --format toml
 mise x hugo@0.161.0 -- hugo mod graph
-rg -n --glob '!themes/**' --glob '!public/**' --glob '!resources/**' --glob '!node_modules/**' 'languageCode|languageName|languageDirection|LanguageCode|LanguageName|LanguageDirection|\.Language\.Lang|\.Site\.Language\.Lang|site\.Language\.Lang|\.Lang\b|site\.Sites\b|\.Site\.Sites\b|\.Page\.Sites\b|site\.Data\b|\.Site\.Data\b|excludeFiles|includeFiles|:filename' layouts hugo.yaml netlify.toml package.json .mise.toml
+rg -n --glob '!themes/**' --glob '!public/**' --glob '!resources/**' --glob '!node_modules/**' 'languageCode|languageName|languageDirection|LanguageCode|LanguageName|LanguageDirection|\.Language\.Lang\b|\.Site\.Language\.Lang\b|site\.Language\.Lang\b|\.Page\.Lang\b|\.Lang\b|site\.Sites\b|\.Site\.Sites\b|\.Page\.Sites\b|site\.Data\b|\.Site\.Data\b|excludeFiles|includeFiles|:filename' layouts hugo.yaml netlify.toml package.json .mise.toml
 rg -n 'schema_type:' content layouts
 rg -n '^# ' content
 rg -n 'resources\.GetRemote|http\.Get|GetRemote|remoteResource' layouts assets hugo.yaml netlify.toml package.json
@@ -242,7 +245,7 @@ git diff --check
 - Node version: `v24.15.0`.
 - Development-environment build: success.
 - `npm run build`: success.
-- Pages: `47` UK, `45` RU.
+- Pages: `48` UK, `46` RU.
 - Paginator pages: `6` UK, `6` RU.
 - Non-page files: `36` UK.
 - Static files: `16` UK, `16` RU.
@@ -290,7 +293,7 @@ Build command:
 command = "git submodule update --init --recursive && hugo --environment development --gc --minify"
 ```
 
-### P2 - `params.env` remains `development`
+### Intentional - `params.env` remains `development`
 
 File: `hugo.yaml:110`
 
@@ -301,24 +304,15 @@ params:
   env: development
 ```
 
-Impact: this is a theme/project param, not the same as Hugo's build environment, and current local templates mostly avoid relying on it for robots. But it is misleading for production and can affect theme logic if a PaperMod partial becomes active later.
+Impact: this is a theme/project param, not the same as Hugo's build environment. For the current project phase it intentionally stays `development`, matching `HUGO_ENVIRONMENT = "development"` and the temporary noindex behavior. Do not switch it to `production` until the separate production-readiness check is approved.
 
-Recommended change after confirming no local dev dependency:
-
-```yaml
-params:
-  env: production
-```
-
-### P3 - Dormant RSS fallback still references deprecated `site.Author`
+### Resolved - RSS no longer references deprecated `site.Author`
 
 File: `layouts/rss.xml`
 
-The local RSS template still includes fallback branches referencing `site.Author.email` and `site.Author.name`. They are not reached with the current config because `site.Params.author` is set, so the build emits no warning.
+The local RSS template uses only `site.Params.author` for author metadata. Fallback branches for deprecated `site.Author.email` and `site.Author.name` were removed.
 
-Impact: not blocking for Hugo `0.161.0`, but this is low-grade template debt.
-
-Recommended cleanup: remove the `site.Author` fallback and keep only `site.Params.author`.
+Impact: local RSS output no longer depends on deprecated author configuration keys.
 
 ### P3 - PaperMod submodule still contains deprecated language API
 
@@ -348,7 +342,7 @@ node = "24"
 
 3. Keep `HUGO_ENVIRONMENT = "development"` until production mode is approved.
 
-4. Optionally change `params.env` from `development` to `production`.
+4. Keep `params.env = development` until the separate production-readiness check is approved.
 
 5. Re-run:
 
