@@ -11,7 +11,7 @@
 
 Production-сборка на Hugo `0.161.0` и Node `24` проходит без ошибок, без `--printI18nWarnings`, без path warnings и без предупреждений по deprecated language API. Самое важное изменение `0.161.0` - запуск Node-инструментов Hugo через Node `--permission` - на проект не ломает сборку: Tailwind установлен как npm-пакет, `css.TailwindCSS` работает, Node версии `>= 22` доступен.
 
-Переход можно считать безопасным после обновления pinned-версий в `.mise.toml` и `netlify.toml`. Сейчас репозиторий все еще закреплен на Hugo `0.158.0`, поэтому фактическая миграция в конфигурации деплоя еще не выполнена.
+Переход на Hugo `0.161.0` можно считать безопасным по совместимости: pinned-версии в `.mise.toml` и `netlify.toml` переведены на Hugo `0.161.0`. Окружение сборки временно оставлено `development`; production-режим включать только после финальной проверки.
 
 ## Источники документации Hugo
 
@@ -87,7 +87,7 @@ allowworker = ['tailwindcss']
 
 ### 4. Языки и deprecated language API
 
-Документация Hugo после `0.158.0` считает deprecated:
+Актуальная документация Hugo считает deprecated:
 
 - `.Language.Lang` -> использовать `.Language.Name`
 - `.Language.LanguageCode` -> использовать `.Language.Locale`
@@ -207,21 +207,21 @@ allowworker = ['tailwindcss']
 
 Текущее состояние:
 
-- `netlify.toml` закрепляет `HUGO_VERSION = "0.158.0"`.
-- `.mise.toml` закрепляет `hugo = "0.158.0"`.
+- `netlify.toml` закрепляет `HUGO_VERSION = "0.161.0"`.
+- `.mise.toml` закрепляет `hugo = "0.161.0"`.
 - `NODE_VERSION = "24"` соответствует требованиям Hugo `0.161.0`.
-- Build command: `git submodule update --init --recursive && hugo --gc --minify`.
-- `HUGO_ENV = "development"` остается рискованным для production-деплоя.
+- Build command: `git submodule update --init --recursive && hugo --environment development --gc --minify`.
+- `HUGO_ENVIRONMENT = "development"` оставляет сборку во временном development-режиме.
 
-Вывод: runtime совместим, но deploy pin еще не обновлен. Перед фактическим переходом нужно обновить Hugo version pins и убрать/исправить development environment.
+Вывод: runtime и deploy pin совместимы с Hugo `0.161.0`; production environment пока намеренно не включен.
 
 ## Команды проверки
 
 ```bash
 mise x hugo@0.161.0 -- hugo version
 mise x node@24 -- node --version
-mise x hugo@0.161.0 node@24 -- hugo --environment production --gc --minify --printPathWarnings --printI18nWarnings
-mise x hugo@0.161.0 node@24 -- hugo --environment production --gc --minify --templateMetrics --templateMetricsHints
+mise x hugo@0.161.0 node@24 -- hugo --environment development --gc --minify --printPathWarnings --printI18nWarnings
+mise x hugo@0.161.0 node@24 -- hugo --environment development --gc --minify --templateMetrics --templateMetricsHints
 mise x hugo@0.161.0 node@24 -- npm run build
 mise x hugo@0.161.0 node@24 -- hugo config --format toml
 mise x hugo@0.161.0 -- hugo mod graph
@@ -236,7 +236,7 @@ git diff --check
 
 - Hugo version: `v0.161.0`.
 - Node version: `v24.15.0`.
-- Production build: success.
+- Development-environment build: success.
 - `npm run build`: success.
 - Pages: `47` UK, `45` RU.
 - Paginator pages: `6` UK, `6` RU.
@@ -251,7 +251,7 @@ git diff --check
 
 ## Findings
 
-### P1 - Hugo pins still point to 0.158.0
+### Resolved - Hugo pins point to 0.161.0
 
 Files:
 
@@ -261,41 +261,28 @@ Files:
 Current values:
 
 ```toml
-hugo = "0.158.0"
-HUGO_VERSION = "0.158.0"
-```
-
-Impact: local/default tooling and Netlify production deploy will not actually use Hugo `0.161.0` until these pins are updated.
-
-Recommended change:
-
-```toml
 hugo = "0.161.0"
 HUGO_VERSION = "0.161.0"
 ```
 
-### P1 - Netlify production build still declares development environment
+Impact: local/default tooling and Netlify production deploy use Hugo `0.161.0`.
+
+### Intentional - Netlify build still uses development environment
 
 File: `netlify.toml:12`
 
 Current value:
 
 ```toml
-HUGO_ENV = "development"
+HUGO_ENVIRONMENT = "development"
 ```
 
-Impact: this is not a Hugo `0.161.0` blocker, but it is a production correctness risk. If development environment is applied in Netlify, Hugo/template logic based on environment can produce development behavior in deploy output.
+Impact: Netlify build uses the official Hugo environment variable, but intentionally remains in `development` until production mode is approved.
 
-Recommended change:
-
-```toml
-HUGO_ENVIRONMENT = "production"
-```
-
-And update build command:
+Build command:
 
 ```toml
-command = "git submodule update --init --recursive && hugo --environment production --gc --minify"
+command = "git submodule update --init --recursive && hugo --environment development --gc --minify"
 ```
 
 ### P2 - `params.env` remains `development`
@@ -332,9 +319,9 @@ Recommended cleanup: remove the `site.Author` fallback and keep only `site.Param
 
 Files in `themes/PaperMod/layouts/` still reference deprecated language fields. Active project output is safe because local overrides replace those paths. Keep this on the checklist for future theme updates.
 
-## Migration checklist to Hugo 0.161.0
+## Current Hugo 0.161.0 checklist
 
-1. Update `.mise.toml`:
+1. Expected `.mise.toml`:
 
 ```toml
 [tools]
@@ -342,19 +329,19 @@ hugo = "0.161.0"
 node = "24"
 ```
 
-2. Update `netlify.toml`:
+2. Expected `netlify.toml`:
 
 ```toml
 [build]
-  command = "git submodule update --init --recursive && hugo --environment production --gc --minify"
+  command = "git submodule update --init --recursive && hugo --environment development --gc --minify"
 
 [build.environment]
   HUGO_VERSION = "0.161.0"
-  HUGO_ENVIRONMENT = "production"
+  HUGO_ENVIRONMENT = "development"
   NODE_VERSION = "24"
 ```
 
-3. Remove or stop using `HUGO_ENV = "development"` in production.
+3. Keep `HUGO_ENVIRONMENT = "development"` until production mode is approved.
 
 4. Optionally change `params.env` from `development` to `production`.
 
@@ -363,10 +350,10 @@ node = "24"
 ```bash
 mise trust
 mise install
-mise x hugo@0.161.0 node@24 -- hugo --environment production --gc --minify --printPathWarnings --printI18nWarnings
+mise x hugo@0.161.0 node@24 -- hugo --environment development --gc --minify --printPathWarnings --printI18nWarnings
 mise x hugo@0.161.0 node@24 -- npm run build
 ```
 
 ## Final assessment
 
-Hugo `0.161.0` can be adopted. The project code, local templates, i18n, Tailwind pipeline, SEO/schema templates, sitemap/RSS output and multilingual content model are compatible. The remaining work is operational configuration: update pinned Hugo versions and ensure Netlify production build does not run with development environment variables.
+Hugo `0.161.0` is adopted in project tooling and Netlify configuration. The project code, local templates, i18n, Tailwind pipeline, SEO/schema templates, sitemap/RSS output and multilingual content model are compatible. The build environment remains `development` by design until production mode is approved.

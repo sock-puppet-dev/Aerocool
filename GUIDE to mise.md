@@ -4,7 +4,7 @@
 
 ## Актуальные Версии Проекта
 
-- `Hugo 0.158.0`
+- `Hugo 0.161.0`
 - `Node 24`
 
 Именно эти версии зафиксированы в `netlify.toml` и [.mise.toml](/Users/stadnyk/MEGA/Aerocool/.mise.toml), поэтому локальная среда через `mise` должна совпадать с ними максимально близко.
@@ -26,15 +26,14 @@ mise ls --installed
 mise install
 ```
 
-Эта команда читает [.mise.toml](/Users/stadnyk/MEGA/Aerocool/.mise.toml) и ставит зафиксированные версии `Hugo 0.158.0` и `Node 24`.
+Эта команда читает [.mise.toml](/Users/stadnyk/MEGA/Aerocool/.mise.toml) и ставит зафиксированные версии `Hugo 0.161.0` и `Node 24`.
 
 ## Hugo Через Стандартный Backend
 
 ```bash
-mise install hugo@0.158.0
-mise use hugo@0.158.0
-mise use --global hugo@0.158.0
-mise uninstall hugo@0.153.0
+mise install hugo@0.161.0
+mise use hugo@0.161.0
+mise use --global hugo@0.161.0
 ```
 
 Если стандартный backend не дает нужную старшую или младшую версию, для Hugo в этом проекте удобнее использовать `aqua`.
@@ -44,10 +43,9 @@ mise uninstall hugo@0.153.0
 В `mise` с backend `aqua` инструмент задается как `aqua:<owner>/<repo>`.
 
 ```bash
-mise install aqua:gohugoio/hugo@0.158.0
-mise use aqua:gohugoio/hugo@0.158.0
-mise use --global aqua:gohugoio/hugo@0.158.0
-mise uninstall aqua:gohugoio/hugo@0.158.0
+mise install aqua:gohugoio/hugo@0.161.0
+mise use aqua:gohugoio/hugo@0.161.0
+mise use --global aqua:gohugoio/hugo@0.161.0
 ```
 
 ## Практическая Проверка После Переключения
@@ -72,8 +70,10 @@ npm install
 npm run dev
 ```
 
-или production-подобную проверку:
+или build-проверку в текущем временном окружении:
 
 ```bash
-hugo --environment production --minify --gc --cleanDestinationDir
+hugo --environment development --gc --minify --cleanDestinationDir
 ```
+
+Для Hugo `0.161.0` дополнительно важно держать `Node 24` и npm-зависимости `tailwindcss` / `@tailwindcss/cli` установленными в проекте. Начиная с Hugo `0.161.0`, Hugo запускает Tailwind/PostCSS/Babel через Node permission model; standalone Tailwind CLI для `css.TailwindCSS` в этом проекте не используем.

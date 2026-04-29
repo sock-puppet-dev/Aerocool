@@ -7,7 +7,7 @@
 
 Проверено:
 
-- production-сборка через `npm run build`;
+- сборка через `npm run build` в текущем окружении `development`;
 - фактический HTML в `public/`, а не только Hugo-шаблоны;
 - все `application/ld+json` блоки;
 - соответствие основным Google rich result features, которые реально затрагивает проект:
@@ -43,7 +43,7 @@ npm run build
 
 Результат:
 
-- Hugo: `v0.158.0`
+- Hugo: `v0.161.0`
 - Pages: `47` UK, `45` RU
 - Paginator pages: `6` UK, `6` RU
 - Aliases: `8` UK, `7` RU

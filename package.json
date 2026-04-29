@@ -7,7 +7,7 @@
   },
   "scripts": {
     "prebuild": "git submodule update --init --recursive",
-    "build": "hugo --gc --minify",
+    "build": "hugo --environment development --gc --minify",
     "predev": "git submodule update --init --recursive",
     "dev": "hugo server"
   }

@@ -9,10 +9,11 @@
 
 ## Стек
 
-- В `Netlify` зафиксирована версия `Hugo 0.158.0`.
+- В `Netlify` зафиксирована версия `Hugo 0.161.0`.
 - В `Netlify` зафиксирована версия `Node 24`.
 - Локальные версии инструментов зафиксированы в `.mise.toml`.
 - Для стилизации используется `Tailwind CSS 4`.
+- В Hugo 0.161.0 Node-инструменты запускаются через Node permission model; Tailwind должен оставаться npm-зависимостью проекта, standalone Tailwind CLI не использовать.
 - Локальные SEO-шаблоны и шаблоны schema.org-разметки находятся в `layouts/_partials/_seo` и `layouts/_partials/_schema`.
 
 ## Структура Репозитория
@@ -30,7 +31,7 @@
 - `assets/css/main.css` — главный источник Tailwind и кастомного CSS; здесь же живут локальные design tokens, белый page canvas, базовый текстовый слой и component-layer проекта.
 - `static/` — статические файлы, которые копируются как есть.
 - `hugo.yaml` — основная конфигурация сайта: языки, постоянные ссылки, меню и настройки сборки.
-- `netlify.toml` — production-сборка и заголовки ответа.
+- `netlify.toml` — сборка и заголовки ответа; временно используется `HUGO_ENVIRONMENT = "development"`, production включать только после финальной проверки.
 
 ## Локальные Гайды
 
@@ -89,7 +90,7 @@
 - Локальная разработка: `./script_start.sh` или `hugo server`.
 - Tailwind компилируется через `css.TailwindCSS` внутри Hugo; отдельный watch-процесс Tailwind не нужен.
 - `npm run dev` — это удобный алиас для `hugo server`.
-- Production build в `Netlify`: `git submodule update --init --recursive && hugo --gc --minify`.
+- Build в `Netlify`: `git submodule update --init --recursive && hugo --environment development --gc --minify`.
 - `script_clean.sh` — разрушительный скрипт: он удаляет `public`, `resources`, `node_modules`, `.cache` и `package-lock.json`, а затем заново ставит зависимости.
 
 ## Правила Редактирования

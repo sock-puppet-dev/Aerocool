@@ -4,7 +4,7 @@
 
 ## Стек
 
-- `Hugo 0.158.0`
+- `Hugo 0.161.0`
 - `Node 24`
 - `PaperMod` как git-подмодуль
 - `Tailwind CSS 4`
@@ -22,7 +22,7 @@
 - `assets/css/main.css` — главный CSS-источник проекта: здесь живут Tailwind, локальные design tokens, белый page canvas, базовый текстовый слой и component-layer проекта
 - `static/` — статические файлы
 - `hugo.yaml` — глобальная конфигурация сайта
-- `netlify.toml` — production-сборка и заголовки ответа
+- `netlify.toml` — сборка и заголовки ответа; сейчас окружение Hugo временно `development`
 
 ## Текущая Архитектура Шаблонов
 
@@ -61,11 +61,11 @@ mise install
 npm install
 npm run dev
 npm run build
-hugo server --environment production --disableFastRender
-hugo --environment production --minify --gc --cleanDestinationDir
+hugo server --environment development --disableFastRender
+hugo --environment development --gc --minify --cleanDestinationDir
 ```
 
-Локальные версии инструментов зафиксированы в [.mise.toml](/Users/stadnyk/MEGA/Aerocool/.mise.toml): `Hugo 0.158.0` и `Node 24`. `npm run dev` запускает `hugo server`, а `npm run build` предварительно обновляет подмодули и затем собирает production-сборку. Для отладки шаблонов, CSS, SEO и изображений предпочтителен `hugo server --environment production --disableFastRender`.
+Локальные версии инструментов зафиксированы в [.mise.toml](/Users/stadnyk/MEGA/Aerocool/.mise.toml): `Hugo 0.161.0` и `Node 24`. `npm run dev` запускает `hugo server`, а `npm run build` предварительно обновляет подмодули и затем собирает сборку в окружении `development`. Production-режим пока не включаем. Для Hugo 0.161.0 важно, что Tailwind установлен как npm-зависимость проекта: Hugo запускает Node-инструменты через Node permission model, поэтому standalone Tailwind CLI не используем. Для отладки шаблонов, CSS, SEO и изображений предпочтителен `hugo server --environment development --disableFastRender`.
 
 ## Локальная Документация
 
