@@ -26,10 +26,13 @@
 
 ## Текущая Архитектура Шаблонов
 
-- Основной общий слой шаблонов живет в `layouts/single.html` и `layouts/list.html`.
-- Служебные страницы вынесены в отдельные шаблоны: `layouts/404.html` и `layouts/alias.html`.
+- Основной общий слой шаблонов живет в [layouts/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/single.html) и [layouts/list.html](/Users/stadnyk/MEGA/Aerocool/layouts/list.html).
+- Служебные страницы вынесены в отдельные верхнеуровневые шаблоны: [layouts/404.html](/Users/stadnyk/MEGA/Aerocool/layouts/404.html), [layouts/alias.html](/Users/stadnyk/MEGA/Aerocool/layouts/alias.html) и [layouts/search.html](/Users/stadnyk/MEGA/Aerocool/layouts/search.html).
+- RSS-шаблон находится в [layouts/rss.xml](/Users/stadnyk/MEGA/Aerocool/layouts/rss.xml).
 - Языковые sitemap-шаблоны вынесены в [layouts/sitemap.xml](/Users/stadnyk/MEGA/Aerocool/layouts/sitemap.xml), а корневой мультиязычный индекс — в [layouts/sitemapindex.xml](/Users/stadnyk/MEGA/Aerocool/layouts/sitemapindex.xml).
+- В проекте больше нет локальной папки `layouts/_default`; локальные overrides держим верхнеуровнево в `layouts/` или в профильных подпапках вроде `layouts/faq/`.
 - Локальные partial-шаблоны и shortcodes в проекте держим в формате `.html`, а не `.gohtml`.
+- Partial списка переводов называется [layouts/_partials/translation-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/translation-list.html); старое имя `translation_list.html` не использовать.
 - Для большинства страниц видимый `H1` принадлежит шаблонному слою и рендерится через `layouts/_partials/page-h1.html` по правилу `.Params.h1 | default .Title`.
 - Текущая главная страница — осознанное исключение: ее hero и видимый `H1` живут в [layouts/_shortcodes/home-content-section.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-content-section.html) и [layouts/_shortcodes/home-content-section-ru.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-content-section-ru.html).
 - Home hero использует namespaced CSS-хуки `home-hero__*`, а их визуальный слой живет в [assets/css/main.css](/Users/stadnyk/MEGA/Aerocool/assets/css/main.css).
@@ -51,7 +54,7 @@
 - Для карточек товаров текущий рабочий паттерн такой: `image` для SEO/OG/schema, `cover.image` для preview в листингах и `seo-image` в теле страницы для основного изображения.
 - Hero-изображение главной сейчас задается отдельно в локализованных home-shortcodes и не проходит через `seo-image`; для него держим локальный путь через `relURL`, `loading="eager"` и `fetchpriority="high"`.
 - JSON-LD для основного изображения собирается централизованно в общем `@graph`; `seo-image` больше не выводит отдельный `ImageObject`.
-- `search`, `404` и служебные alias-страницы — это служебные страницы, и они должны оставаться `noindex,nofollow`.
+- `search`, `404` и служебные alias-страницы — это служебные страницы, и они должны оставаться `noindex,nofollow`. Пока окружение Hugo временно `development`, все HTML-страницы тоже получают `noindex,nofollow`; `index,follow` вернется только после включения production-режима.
 - Корневой `sitemap.xml` в мультиязычной сборке является индексом карт сайта, а реальные списки URL лежат в `/uk/sitemap.xml` и `/ru/sitemap.xml`.
 
 ## Основные Команды

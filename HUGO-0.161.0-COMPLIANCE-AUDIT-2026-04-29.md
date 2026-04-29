@@ -9,7 +9,7 @@
 
 Проект технически совместим с Hugo `0.161.0`.
 
-Production-сборка на Hugo `0.161.0` и Node `24` проходит без ошибок, без `--printI18nWarnings`, без path warnings и без предупреждений по deprecated language API. Самое важное изменение `0.161.0` - запуск Node-инструментов Hugo через Node `--permission` - на проект не ломает сборку: Tailwind установлен как npm-пакет, `css.TailwindCSS` работает, Node версии `>= 22` доступен.
+Сборка на Hugo `0.161.0` и Node `24` в текущем окружении `development` проходит без ошибок, без `--printI18nWarnings`, без path warnings и без предупреждений по deprecated language API. Самое важное изменение `0.161.0` - запуск Node-инструментов Hugo через Node `--permission` - на проект не ломает сборку: Tailwind установлен как npm-пакет, `css.TailwindCSS` работает, Node версии `>= 22` доступен.
 
 Переход на Hugo `0.161.0` можно считать безопасным по совместимости: pinned-версии в `.mise.toml` и `netlify.toml` переведены на Hugo `0.161.0`. Окружение сборки временно оставлено `development`; production-режим включать только после финальной проверки.
 
@@ -81,7 +81,7 @@ allowworker = ['tailwindcss']
 - `assets/css/main.css` явно подключает `@source "hugo_stats.json";`.
 - `layouts/_partials/css.html` вызывает `css.TailwindCSS`.
 - `package.json` содержит `tailwindcss` и `@tailwindcss/cli`.
-- Production CSS собран и fingerprinted.
+- CSS pipeline успешно собирается через Hugo `css.TailwindCSS`.
 
 Вывод: CSS pipeline соответствует документации Hugo `0.161.0`.
 
@@ -99,9 +99,10 @@ allowworker = ['tailwindcss']
 - Deprecated `.Language.Lang`, `.Language.LanguageCode`, `.Language.LanguageDirection`, `.Language.LanguageName` в локальных `layouts/` не найдены.
 - `layouts/baseof.html` использует `.Language.Direction`.
 - `layouts/_partials/page-language.html` использует `.Language.Locale` с fallback на `.Language.Name`.
-- RSS использует `site.Language.Locale | default site.Language.Name`.
+- `layouts/rss.xml` использует `site.Language.Locale | default site.Language.Name`.
 - OpenGraph использует `.Site.Language.Locale`.
 - Переключатель языка и sitemap index используют `.Language.Name` для language key, что соответствует документации.
+- `layouts/_partials/translation-list.html` использует `.Language.Name` и `.Language.Label`.
 
 В теме PaperMod deprecated API еще есть:
 
@@ -112,7 +113,7 @@ allowworker = ['tailwindcss']
 - `themes/PaperMod/layouts/partials/templates/schema_json.html`
 - `themes/PaperMod/layouts/partials/translation_list.html`
 
-Но активные пути перекрыты локальными override в `layouts/`, и сборка на `0.161.0` не выдает deprecated warnings.
+Но активные пути перекрыты локальными override в `layouts/`, включая `layouts/search.html`, и сборка на `0.161.0` не выдает deprecated warnings.
 
 Вывод: локальная часть проекта соответствует актуальному language API. Theme debt остается только как неисполняемый риск при будущих обновлениях/удалении override.
 
@@ -169,7 +170,8 @@ allowworker = ['tailwindcss']
 
 Проверка generated output:
 
-- `/` и `/ru/` имеют `index,follow`.
+- В текущем `development`-окружении `/` и `/ru/` намеренно имеют `noindex,nofollow`.
+- После включения production-режима нужно отдельно подтвердить, что индексируемые URL снова получают `index,follow`.
 - `/404.html`, `/ru/404.html`, `/search/`, alias `/page/1/` имеют `noindex,nofollow`.
 - `og:locale` выводится как `uk_UA` и `ru_UA`.
 - HTML lang/dir выводится как `uk-UA/ltr` и `ru-UA/ltr`.
@@ -187,6 +189,7 @@ allowworker = ['tailwindcss']
   - `https://aerocool.ua/uk/sitemap.xml`
   - `https://aerocool.ua/ru/sitemap.xml`
 - `public/uk/sitemap.xml` и `public/ru/sitemap.xml` генерируются.
+- Активный локальный RSS-шаблон находится в `layouts/rss.xml`.
 - RSS содержит `<generator>Hugo -- 0.161.0</generator>`.
 - RSS language: `uk-UA`, `ru-UA`.
 
@@ -199,7 +202,8 @@ allowworker = ['tailwindcss']
 - Hugo module graph: `project PaperMod`.
 - У темы не найден `package.json` или `package.hugo.json`, значит Node package merge из Hugo modules не требуется.
 - Deprecated language API в теме есть, но локально перекрыты активными шаблонами.
-- Локальные overrides покрывают критичные `baseof`, `head`, `header`, `footer`, RSS, sitemap, 404, alias, SEO/schema partials.
+- Локальные overrides покрывают критичные `baseof`, `head`, `header`, `footer`, RSS, sitemap, 404, alias, search, SEO/schema partials.
+- В локальном слое больше нет папки `layouts/_default`; RSS и search лежат как `layouts/rss.xml` и `layouts/search.html`.
 
 Вывод: текущая тема не блокирует переход, но при обновлении PaperMod нужно повторно прогнать grep по deprecated language API.
 
@@ -242,12 +246,13 @@ git diff --check
 - Paginator pages: `6` UK, `6` RU.
 - Non-page files: `36` UK.
 - Static files: `16` UK, `16` RU.
-- Processed images: `264` UK.
+- Processed images: `144` UK.
 - Aliases: `8` UK, `7` RU.
 - I18n warnings: none.
 - Path warnings: none.
 - Template metrics hints: no actionable warnings.
 - `git diff --check`: clean.
+- Template metrics подтверждают использование `rss.xml`, `search.html` и `_partials/translation-list.html`.
 
 ## Findings
 
@@ -265,7 +270,7 @@ hugo = "0.161.0"
 HUGO_VERSION = "0.161.0"
 ```
 
-Impact: local/default tooling and Netlify production deploy use Hugo `0.161.0`.
+Impact: local/default tooling and Netlify build use Hugo `0.161.0`.
 
 ### Intentional - Netlify build still uses development environment
 

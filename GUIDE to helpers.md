@@ -105,7 +105,9 @@
    - `news.html`
    - `faq.html`
    - `breadcrumbs.html`
-   - и других
+	   - и других
+
+Верхнеуровневые шаблоны `layouts/search.html` и `layouts/rss.xml` тоже считаются локальными overrides проекта. Папки `layouts/_default` в текущей структуре нет.
 
 ## Группа 1. Page Helpers
 
@@ -341,6 +343,21 @@
 
 - если нужно усилить sitewide-перелинковку;
 - если нужно добавить или убрать важные ссылки из footer.
+
+### `translation-list.html`
+
+Файл: [translation-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/translation-list.html)
+
+Что делает:
+
+- выводит список переводов текущей страницы;
+- использует актуальные Hugo language fields `.Language.Name` и `.Language.Label`;
+- вызывается из [layouts/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/single.html), [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html) и [layouts/search.html](/Users/stadnyk/MEGA/Aerocool/layouts/search.html).
+
+Важно:
+
+- старое имя `translation_list.html` не использовать в локальных шаблонах;
+- в теме PaperMod оно еще встречается, поэтому локальный `search.html` нужен как override.
 
 ### `post-footer-navigation.html`
 

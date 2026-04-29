@@ -35,6 +35,8 @@
 
 ## Build Result
 
+Примечание: проект временно собирается с `HUGO_ENVIRONMENT = "development"`, поэтому текущий generated HTML получает `noindex,nofollow`. Rich Results eligibility нужно перепроверить после включения production-режима, когда индексируемые страницы снова будут отдавать `index,follow`.
+
 Команда:
 
 ```bash

@@ -79,7 +79,7 @@ robotsNoIndex: true
 ---
 ```
 
-`/search/` в текущем проекте — служебная страница и должна оставаться `noindex,nofollow`. Для `layout: "search"` JSON-LD не рендерится, даже если `schema_types` заполнен для общей совместимости front matter.
+`/search/` в текущем проекте — служебная страница и должна оставаться `noindex,nofollow`. Для `layout: "search"` JSON-LD не рендерится, даже если `schema_types` заполнен для общей совместимости front matter. Пока проект временно собирается с `HUGO_ENVIRONMENT = "development"`, все HTML-страницы также получают `noindex,nofollow`; перед production-переходом нужно отдельно проверить возврат `index,follow` для индексируемых страниц.
 
 ## 5. Листинги `content/articles/_index.md`, `content/news/_index.md`, `content/products/_index.md` и локализованные пары
 
