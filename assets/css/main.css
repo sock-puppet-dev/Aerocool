@@ -345,7 +345,10 @@ body.list {
 }
 
 .home-hero__title {
-    max-width: 12ch;
+    max-width: 18ch;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
 }
 
 .home-hero__lead {
