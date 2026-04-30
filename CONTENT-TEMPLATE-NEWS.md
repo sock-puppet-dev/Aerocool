@@ -21,7 +21,7 @@ cover:
   alt: "Обкладинка новини про Aerocool <MODEL/SERIES>"
   relative: true
   hiddenInSingle: true
-schema_types: ["news", "organization", "breadcrumbs"]
+schema_types: ["website", "news", "organization", "breadcrumbs"]
 ---
 ```
 

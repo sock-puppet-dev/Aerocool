@@ -309,8 +309,14 @@
 | `content/articles/_index.ru.md` | хаб статей | `как выбрать игровое кресло`, `как выбрать офисное кресло`, `как выбрать компьютерное кресло` | `aerocool sky`, `aerocool wing`, `aerocool xtal` |
 | `content/articles/how-to-choose-aerocool-chair/index.md` | общий гайд | `як вибрати крісло aerocool`, `крісло для роботи`, `крісло для home office` | `ігрове крісло`, `офісне крісло`, `комп'ютерне крісло` |
 | `content/articles/how-to-choose-aerocool-chair/index.ru.md` | общий гайд | `как выбрать кресло aerocool`, `кресло для работы`, `кресло для home office` | `игровое кресло`, `офисное кресло`, `компьютерное кресло` |
+| `content/articles/how-to-choose-chair-by-adjustability/index.md` | гайд по регулировкам | `регулювання крісла`, `7D 8D 11D`, `як вибрати ергономічне крісло` | `підлокітники`, `сидіння`, `поперекова підтримка`, `Synchronous Tilt` |
+| `content/articles/how-to-choose-chair-by-adjustability/index.ru.md` | гайд по регулировкам | `регулировки кресла`, `7D 8D 11D`, `как выбрать эргономичное кресло` | `подлокотники`, `сиденье`, `поясничная поддержка`, `Synchronous Tilt` |
+| `content/articles/racer-vs-loft-air-vs-mesh-materials/index.md` | сравнение материалов | `Racer Loft Air Mesh`, `матеріали крісла Aerocool`, `яку поверхню обрати` | `leatherette`, `вентильована тканина`, `сітка`, `home office` |
+| `content/articles/racer-vs-loft-air-vs-mesh-materials/index.ru.md` | сравнение материалов | `Racer Loft Air Mesh`, `материалы кресла Aerocool`, `какую поверхность выбрать` | `leatherette`, `вентилируемая ткань`, `сетка`, `home office` |
 | `content/articles/sky-lite-vs-sky-360-guide/index.md` | сравнение | `sky lite чи sky 360`, `яке крісло для роботи обрати` | `8d`, `11d`, `office`, `home office` |
 | `content/articles/sky-lite-vs-sky-360-guide/index.ru.md` | сравнение | `sky lite или sky 360`, `какое кресло для работы выбрать` | `8d`, `11d`, `office`, `home office` |
+| `content/articles/what-is-synchronous-tilt-guide/index.md` | объяснение механизма | `що таке Synchronous Tilt`, `синхронний нахил крісла`, `механізм крісла Aerocool` | `ергономіка`, `Multi-angle`, `Weight sensitive`, `SYNC5` |
+| `content/articles/what-is-synchronous-tilt-guide/index.ru.md` | объяснение механизма | `что такое Synchronous Tilt`, `синхронный наклон кресла`, `механизм кресла Aerocool` | `эргономика`, `Multi-angle`, `Weight sensitive`, `SYNC5` |
 | `content/articles/wing-vs-xtal-comparison/index.md` | сравнение | `wing чи xtal`, `яке ігрове крісло обрати` | `gaming`, `dual backrest`, `fully replaceable design` |
 | `content/articles/wing-vs-xtal-comparison/index.ru.md` | сравнение | `wing или xtal`, `какое игровое кресло выбрать` | `gaming`, `dual backrest`, `fully replaceable design` |
 | `content/articles/sync4-sync5-mechanism-guide/index.md` | информационный / коммерческий | `SYNC4`, `SYNC5`, `SYNC5 multi-adjustable`, `механізм крісла Aerocool` | `Synchronous Tilt`, `XTAL`, `WING`, `SKY 360`, `SKY Lite`, `регулювання сидіння` |
@@ -320,6 +326,18 @@
 
 | URL / файл | Основной интент | Основные ключи | Дополнительные ключи |
 | --- | --- | --- | --- |
+| `content/news/2026-04-15-aerocool-sky-series-launch/index.md` | запуск серии | `Aerocool SKY`, `SKY Lite`, `SKY 360` | `офісне крісло`, `комп'ютерне крісло`, `Synchronous Tilt` |
+| `content/news/2026-04-15-aerocool-sky-series-launch/index.ru.md` | запуск серии | `Aerocool SKY`, `SKY Lite`, `SKY 360` | `офисное кресло`, `компьютерное кресло`, `Synchronous Tilt` |
+| `content/news/2026-04-16-aerocool-wing-series-launch/index.md` | запуск серии | `Aerocool WING`, `WING Racer`, `WING Loft Air`, `WING Mesh` | `ігрове крісло`, `офісне крісло`, `11D`, `dual backrest` |
+| `content/news/2026-04-16-aerocool-wing-series-launch/index.ru.md` | запуск серии | `Aerocool WING`, `WING Racer`, `WING Loft Air`, `WING Mesh` | `игровое кресло`, `офисное кресло`, `11D`, `dual backrest` |
+| `content/news/2026-04-17-aerocool-xtal-series-launch/index.md` | запуск серии | `Aerocool XTAL`, `XTAL Racer`, `XTAL Loft Air`, `XTAL Mesh` | `7D`, `Synchronous Tilt`, `fully replaceable design` |
+| `content/news/2026-04-17-aerocool-xtal-series-launch/index.ru.md` | запуск серии | `Aerocool XTAL`, `XTAL Racer`, `XTAL Loft Air`, `XTAL Mesh` | `7D`, `Synchronous Tilt`, `fully replaceable design` |
+| `content/news/2026-04-18-aerocool-sky-360-launch/index.md` | запуск модели | `Aerocool SKY 360`, `SKY 360 11D`, `комп'ютерне крісло SKY 360` | `3D X 360`, `2D сидіння`, `SYNC5`, `home office` |
+| `content/news/2026-04-18-aerocool-sky-360-launch/index.ru.md` | запуск модели | `Aerocool SKY 360`, `SKY 360 11D`, `компьютерное кресло SKY 360` | `3D X 360`, `2D сиденье`, `SYNC5`, `home office` |
+| `content/news/2026-04-19-aerocool-sky-lite-launch/index.md` | запуск модели | `Aerocool SKY Lite`, `SKY Lite 8D`, `офісне крісло SKY Lite` | `SYNC4`, `Synchronous Tilt`, `вентильована сітка`, `home office` |
+| `content/news/2026-04-19-aerocool-sky-lite-launch/index.ru.md` | запуск модели | `Aerocool SKY Lite`, `SKY Lite 8D`, `офисное кресло SKY Lite` | `SYNC4`, `Synchronous Tilt`, `вентилируемая сетка`, `home office` |
+| `content/news/2026-04-20-aerocool-loft-air-and-mesh-focus/index.md` | материал и выбор | `Aerocool Loft Air`, `Aerocool Mesh`, `вентильована поверхня` | `WING`, `XTAL`, `офісне крісло`, `комп'ютерне крісло` |
+| `content/news/2026-04-20-aerocool-loft-air-and-mesh-focus/index.ru.md` | материал и выбор | `Aerocool Loft Air`, `Aerocool Mesh`, `вентилируемая поверхность` | `WING`, `XTAL`, `офисное кресло`, `компьютерное кресло` |
 | `content/news/2026-04-30-aerocool-sync4-sync5-mechanism-update/index.md` | новостное уточнение спецификаций | `Aerocool SYNC5`, `SYNC4 і SYNC5`, `механізм крісла Aerocool` | `XTAL`, `WING`, `SKY 360`, `SKY Lite`, `Synchronous Tilt` |
 | `content/news/2026-04-30-aerocool-sync4-sync5-mechanism-update/index.ru.md` | новостное уточнение спецификаций | `Aerocool SYNC5`, `SYNC4 и SYNC5`, `механизм кресла Aerocool` | `XTAL`, `WING`, `SKY 360`, `SKY Lite`, `Synchronous Tilt` |
 
@@ -349,8 +367,8 @@
 
 Дополнительно в этом проходе:
 
-- все 6 основных постоянно актуальных статей расширены до формата `10000+` знаков на язык
-- все 6 ключевых новостей расширены до формата `5000+` знаков на язык
+- все 7 основных постоянно актуальных статей расширены до формата `10000+` знаков на язык
+- все 7 ключевых новостей расширены до формата `5000+` знаков на язык
 - слой статей и новостей усилен под широкое коммерческое покрытие, а не только под брендовые запросы о запусках
 
 Главная цель этого обновления: убрать перекос только в брендовые запросы и запросы по функциям, а также добавить системное покрытие широких коммерческих кластеров:

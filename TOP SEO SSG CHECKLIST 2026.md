@@ -63,7 +63,7 @@
 | CollectionPage | Категории |
 | ItemList | Списки товаров |
 | LocalBusiness | Если есть локальное представительство |
-| SearchAction | Поиск по сайту |
+| SearchAction | Поиск по сайту; с 2024-11-21 не дает отдельный sitelinks search box в Google |
 | ImageObject | Важные изображения |
 | VideoObject | Видео, если есть |
 | Person | Автор / эксперт / reviewer |

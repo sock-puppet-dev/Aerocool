@@ -1,6 +1,7 @@
 # Google Rich Results Quality Audit
 
 Дата аудита: 2026-04-29  
+Актуализировано: 2026-04-30
 Проект: `Aerocool Ukraine` / Hugo / двуязычный сайт `uk` + `ru`
 
 ## Scope
@@ -46,32 +47,33 @@ npm run build
 Результат:
 
 - Hugo: `v0.161.0`
-- Pages: `47` UK, `45` RU
-- Paginator pages: `6` UK, `6` RU
+- Pages: `50` UK, `48` RU
+- Paginator pages: `7` UK, `7` RU
 - Aliases: `8` UK, `7` RU
+- Processed images: `154`
 - Build: успешный
 
 ## Inventory
 
-Фактически найдено 80 HTML-страниц с JSON-LD.
+Фактически найдено 88 HTML-страниц с JSON-LD.
 
 | Type | Count | Google rich result role |
 |---|---:|---|
 | `Product` | 24 | Да: Product snippet / Merchant listing |
-| `BreadcrumbList` | 70 | Да: Breadcrumb rich result |
-| `Article` | 12 | Да, как Article structured data / enhanced understanding |
-| `NewsArticle` | 12 | Да, как Article structured data / enhanced understanding |
+| `BreadcrumbList` | 76 | Да: Breadcrumb rich result |
+| `Article` | 14 | Да, как Article structured data / enhanced understanding |
+| `NewsArticle` | 14 | Да, как Article structured data / enhanced understanding |
 | `FAQPage` | 2 | Формально да, но eligibility сильно ограничена |
-| `Organization` | 160 | Да, organization information / logo / knowledge signals |
-| `WebSite` | 80 | Поддерживающая сущность; SearchAction больше не дает sitelinks search box |
-| `Brand` | 80 | Поддерживающая сущность |
-| `ImageObject` | 160 | Поддерживающая сущность |
-| `WebPage` | 76 | Поддерживающая сущность |
+| `Organization` | 172 | Да, organization information / logo / knowledge signals |
+| `WebSite` | 86 | Поддерживающая сущность; SearchAction больше не дает sitelinks search box |
+| `Brand` | 86 | Поддерживающая сущность |
+| `ImageObject` | 174 | Поддерживающая сущность |
+| `WebPage` | 84 | Поддерживающая сущность |
 | `CollectionPage` | 16 | Не отдельный Google rich result, но полезная семантика |
 | `AboutPage` | 2 | Поддерживающая сущность |
 | `ContactPage` | 2 | Поддерживающая сущность |
 
-Noindex-страниц с JSON-LD не найдено. Это хорошо: `search`, `404` и alias-страницы не попадают в индексируемую rich-result зону.
+Так как сборка сейчас намеренно идет в `development`, все 88 HTML-страниц с JSON-LD получают `noindex,nofollow`. Это временное состояние проекта. Служебные `search`, `404` и alias-страницы JSON-LD не рендерят.
 
 ## Executive Summary
 
@@ -94,12 +96,12 @@ Noindex-страниц с JSON-LD не найдено. Это хорошо: `sea
 | Product snippet | Есть на 24 товарных URL | Технически близко к eligible | Высокий: price/rating/availability не видны |
 | Merchant listing | Есть Offer, shipping, return policy | Условно, если страница реально продает товар | Высокий: нет явного purchase flow, не видны price/availability |
 | Review snippet | Есть `aggregateRating` на 24 товарах | Сомнительно | Высокий: rating не виден, источник отзывов не ясен |
-| Breadcrumb | 70 nodes, positions/items ok | Хорошая eligible-зона | Низкий |
+| Breadcrumb | 76 nodes, positions/items ok | Хорошая eligible-зона | Низкий |
 | FAQ rich result | 2 pages, 33 Q/A видимы | Низкая для коммерческого сайта | Низкий технически, высокий ожиданиями |
-| Article | 12 nodes | Хорошая семантика | Средний: image ratios, author inline data |
-| NewsArticle | 12 nodes | Хорошая семантика | Средний: image ratios, author inline data |
-| Organization | 160 nodes | Поддерживающая eligible-зона | Средний: слишком широко дублируется |
-| WebSite/SearchAction | 80 nodes | Не дает sitelinks search box | Низкий |
+| Article | 14 nodes | Хорошая семантика | Средний: image ratios, author inline data |
+| NewsArticle | 14 nodes | Хорошая семантика | Средний: image ratios, author inline data |
+| Organization | 172 nodes | Поддерживающая eligible-зона | Средний: слишком широко дублируется |
+| WebSite/SearchAction | 86 nodes | Не дает sitelinks search box | Низкий |
 | CollectionPage | 16 nodes | Не отдельный Google rich result | Низкий |
 
 ## Critical Findings
@@ -182,8 +184,8 @@ Recommended fix:
 
 Affected:
 
-- 12 `Article` nodes.
-- 12 `NewsArticle` nodes.
+- 14 `Article` nodes.
+- 14 `NewsArticle` nodes.
 
 Current:
 
@@ -204,7 +206,7 @@ Recommended fix:
 
 Affected:
 
-- 24 article/news nodes.
+- 28 article/news nodes.
 
 Current:
 
@@ -230,8 +232,8 @@ This aligns more closely with Google author markup best practices.
 
 Affected:
 
-- 80 pages with local `Organization`;
-- 80 pages with global parent `Organization`.
+- 86 pages with local `Organization`;
+- 86 pages with global parent `Organization`.
 
 Google recommends placing organization information on the home page or a single page that describes the organization. Current duplication is not a syntax error, but it makes every page heavier and increases the chance of stale organization data being repeated everywhere.
 
@@ -244,7 +246,7 @@ Recommended fix:
 
 Affected:
 
-- 80 `WebSite` nodes.
+- 86 `WebSite` nodes.
 
 Google removed the sitelinks search box visual element starting 2024-11-21. The `SearchAction` node is not harmful, but it should not be treated as a rich-result opportunity.
 
@@ -375,30 +377,34 @@ Common warnings:
 
 | URL | Type | Words | Image | Published | Modified | Risk |
 |---|---|---:|---|---|---|---|
-| `/articles/how-to-choose-aerocool-chair/` | Article | 1834 | 1536x1024 | 2026-04-14 | 2026-04-28 | P2 image/author |
-| `/articles/how-to-choose-chair-by-adjustability/` | Article | 1789 | 1536x1024 | 2026-04-12 | 2026-04-28 | P2 image/author |
-| `/articles/racer-vs-loft-air-vs-mesh/` | Article | 1710 | 1536x1024 | 2026-04-08 | 2026-04-28 | P2 image/author |
-| `/articles/sky-lite-vs-sky-360/` | Article | 1767 | 1536x1024 | 2026-04-04 | 2026-04-28 | P2 image/author |
-| `/articles/what-is-synchronous-tilt/` | Article | 1700 | 1536x1024 | 2026-04-10 | 2026-04-28 | P2 image/author |
-| `/articles/wing-vs-xtal/` | Article | 1705 | 1536x1024 | 2026-04-06 | 2026-04-28 | P2 image/author |
-| `/news/loft-air-and-mesh-focus/` | NewsArticle | 804 | 1536x1024 | 2026-04-20 | 2026-04-28 | P2 image/author |
-| `/news/sky-360-launch/` | NewsArticle | 845 | 1536x1024 | 2026-04-18 | 2026-04-28 | P2 image/author |
-| `/news/sky-lite-launch/` | NewsArticle | 798 | 1536x1024 | 2026-04-19 | 2026-04-28 | P2 image/author |
-| `/news/sky-series-launch/` | NewsArticle | 816 | 1536x1024 | 2026-04-15 | 2026-04-28 | P2 image/author |
-| `/news/wing-series-launch/` | NewsArticle | 812 | 1536x1024 | 2026-04-16 | 2026-04-23 | P2 image/author |
-| `/news/xtal-series-launch/` | NewsArticle | 789 | 1536x1024 | 2026-04-17 | 2026-04-28 | P2 image/author |
-| `/ru/articles/how-to-choose-aerocool-chair/` | Article | 1879 | 1536x1024 | 2026-04-14 | 2026-04-28 | P2 image/author |
-| `/ru/articles/how-to-choose-chair-by-adjustability/` | Article | 1786 | 1536x1024 | 2026-04-12 | 2026-04-28 | P2 image/author |
-| `/ru/articles/racer-vs-loft-air-vs-mesh/` | Article | 1739 | 1536x1024 | 2026-04-08 | 2026-04-28 | P2 image/author |
-| `/ru/articles/sky-lite-vs-sky-360/` | Article | 1781 | 1536x1024 | 2026-04-04 | 2026-04-28 | P2 image/author |
-| `/ru/articles/what-is-synchronous-tilt/` | Article | 1702 | 1536x1024 | 2026-04-10 | 2026-04-28 | P2 image/author |
-| `/ru/articles/wing-vs-xtal/` | Article | 1715 | 1536x1024 | 2026-04-06 | 2026-04-28 | P2 image/author |
-| `/ru/news/loft-air-and-mesh-focus/` | NewsArticle | 808 | 1536x1024 | 2026-04-20 | 2026-04-28 | P2 image/author |
-| `/ru/news/sky-360-launch/` | NewsArticle | 820 | 1536x1024 | 2026-04-18 | 2026-04-28 | P2 image/author |
-| `/ru/news/sky-lite-launch/` | NewsArticle | 801 | 1536x1024 | 2026-04-19 | 2026-04-28 | P2 image/author |
-| `/ru/news/sky-series-launch/` | NewsArticle | 809 | 1536x1024 | 2026-04-15 | 2026-04-28 | P2 image/author |
-| `/ru/news/wing-series-launch/` | NewsArticle | 835 | 1536x1024 | 2026-04-16 | 2026-04-23 | P2 image/author |
-| `/ru/news/xtal-series-launch/` | NewsArticle | 804 | 1536x1024 | 2026-04-17 | 2026-04-28 | P2 image/author |
+| `/articles/how-to-choose-aerocool-chair/` | Article | 1833 | 1536x1024 | 2026-04-14 | 2026-04-30 | P2 image/author |
+| `/articles/how-to-choose-chair-by-adjustability/` | Article | 1789 | 1536x1024 | 2026-04-12 | 2026-04-30 | P2 image/author |
+| `/articles/racer-vs-loft-air-vs-mesh/` | Article | 1715 | 1536x1024 | 2026-04-08 | 2026-04-30 | P2 image/author |
+| `/articles/sky-lite-vs-sky-360/` | Article | 1772 | 1536x1024 | 2026-04-04 | 2026-04-30 | P2 image/author |
+| `/articles/sync4-sync5-mechanism-guide/` | Article | 1997 | 1536x1024 | 2026-04-30 | 2026-04-30 | P2 image/author |
+| `/articles/what-is-synchronous-tilt/` | Article | 1722 | 1536x1024 | 2026-04-10 | 2026-04-30 | P2 image/author |
+| `/articles/wing-vs-xtal/` | Article | 1705 | 1536x1024 | 2026-04-06 | 2026-04-30 | P2 image/author |
+| `/news/loft-air-and-mesh-focus/` | NewsArticle | 805 | 1536x1024 | 2026-04-20 | 2026-04-30 | P2 image/author |
+| `/news/sky-360-launch/` | NewsArticle | 843 | 1536x1024 | 2026-04-18 | 2026-04-30 | P2 image/author |
+| `/news/sky-lite-launch/` | NewsArticle | 796 | 1536x1024 | 2026-04-19 | 2026-04-30 | P2 image/author |
+| `/news/sky-series-launch/` | NewsArticle | 816 | 1536x1024 | 2026-04-15 | 2026-04-30 | P2 image/author |
+| `/news/sync4-sync5-mechanism-update/` | NewsArticle | 787 | 1536x1024 | 2026-04-30 | 2026-04-30 | P2 image/author |
+| `/news/wing-series-launch/` | NewsArticle | 811 | 1536x1024 | 2026-04-16 | 2026-04-30 | P2 image/author |
+| `/news/xtal-series-launch/` | NewsArticle | 789 | 1536x1024 | 2026-04-17 | 2026-04-30 | P2 image/author |
+| `/ru/articles/how-to-choose-aerocool-chair/` | Article | 1878 | 1536x1024 | 2026-04-14 | 2026-04-30 | P2 image/author |
+| `/ru/articles/how-to-choose-chair-by-adjustability/` | Article | 1787 | 1536x1024 | 2026-04-12 | 2026-04-30 | P2 image/author |
+| `/ru/articles/racer-vs-loft-air-vs-mesh/` | Article | 1745 | 1536x1024 | 2026-04-08 | 2026-04-30 | P2 image/author |
+| `/ru/articles/sky-lite-vs-sky-360/` | Article | 1786 | 1536x1024 | 2026-04-04 | 2026-04-30 | P2 image/author |
+| `/ru/articles/sync4-sync5-mechanism-guide/` | Article | 2023 | 1536x1024 | 2026-04-30 | 2026-04-30 | P2 image/author |
+| `/ru/articles/what-is-synchronous-tilt/` | Article | 1726 | 1536x1024 | 2026-04-10 | 2026-04-30 | P2 image/author |
+| `/ru/articles/wing-vs-xtal/` | Article | 1716 | 1536x1024 | 2026-04-06 | 2026-04-30 | P2 image/author |
+| `/ru/news/loft-air-and-mesh-focus/` | NewsArticle | 809 | 1536x1024 | 2026-04-20 | 2026-04-30 | P2 image/author |
+| `/ru/news/sky-360-launch/` | NewsArticle | 816 | 1536x1024 | 2026-04-18 | 2026-04-30 | P2 image/author |
+| `/ru/news/sky-lite-launch/` | NewsArticle | 799 | 1536x1024 | 2026-04-19 | 2026-04-30 | P2 image/author |
+| `/ru/news/sky-series-launch/` | NewsArticle | 809 | 1536x1024 | 2026-04-15 | 2026-04-30 | P2 image/author |
+| `/ru/news/sync4-sync5-mechanism-update/` | NewsArticle | 792 | 1536x1024 | 2026-04-30 | 2026-04-30 | P2 image/author |
+| `/ru/news/wing-series-launch/` | NewsArticle | 835 | 1536x1024 | 2026-04-16 | 2026-04-30 | P2 image/author |
+| `/ru/news/xtal-series-launch/` | NewsArticle | 804 | 1536x1024 | 2026-04-17 | 2026-04-30 | P2 image/author |
 
 Note:
 
@@ -408,7 +414,7 @@ Note:
 
 Current:
 
-- 70 `BreadcrumbList` nodes.
+- 76 `BreadcrumbList` nodes.
 - 0 bad position/item checks.
 - All have at least two items.
 
@@ -499,7 +505,7 @@ Risks / improvements:
 
 Current:
 
-- `WebSite` emitted on all 80 JSON-LD pages.
+- `WebSite` emitted on 86 of 88 JSON-LD pages; the two contact-success service pages only render `BreadcrumbList`, `ImageObject` and `WebPage`.
 - `SearchAction` points to localized search URL.
 
 Status:
@@ -516,7 +522,7 @@ Recommendation:
 
 Current:
 
-- 160 `ImageObject` nodes.
+- 174 `ImageObject` nodes.
 - Product images: mostly `2000x2000`, strong for product presentation.
 - Article/news images: `1536x1024`, enough pixels but not in recommended article ratios.
 - Logo image is SVG.

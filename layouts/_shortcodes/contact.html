@@ -1,4 +1,4 @@
-{{- $isRu := eq .Page.Language.Name "ru" -}}
+{{- $isRu := eq .Page.Lang "ru" -}}
 {{- $action := cond $isRu "/ru/contact/success/" "/contact/success/" -}}
 {{- $language := cond $isRu "ru" "uk" -}}
 {{- $subject := cond $isRu "Новая заявка с формы Aerocool Украина" "Нова заявка з форми Aerocool Україна" -}}

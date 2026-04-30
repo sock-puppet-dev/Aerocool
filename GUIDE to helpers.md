@@ -165,7 +165,7 @@
 - если в front matter задан `h1`, берем его;
 - если `h1` не задан, берем `title`.
 - Для большинства страниц проекта это и есть основной источник видимого `H1`.
-- Текущее исключение — главная страница: ее hero и видимый `H1` сейчас живут в [home-content-section.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-content-section.html) и [home-content-section-ru.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-content-section-ru.html).
+- Текущее исключение — главная страница: ее hero и видимый `H1` сейчас живут в [home-hero.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero.html) и [home-hero-ru.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero-ru.html).
 
 Когда идти сюда:
 
@@ -678,7 +678,7 @@
 - неправильный `<title>` -> [page-title.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-title.html)
 - плохой `description` -> [page-description.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-description.html)
 - странный `H1` на большинстве страниц -> [page-h1.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-h1.html)
-- странный `H1` или hero на главной -> [home-content-section.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-content-section.html), [home-content-section-ru.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-content-section-ru.html)
+- странный `H1` или hero на главной -> [home-hero.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero.html), [home-hero-ru.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero-ru.html)
 - проблема с видимым FAQ на `/faq/` -> [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html) и [faq-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq-list.html)
 - нет редакционного trust-блока на статье или новости -> [editorial-note.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/editorial-note.html) и вызов в [single.html](/Users/stadnyk/MEGA/Aerocool/layouts/single.html)
 - не та картинка в соцсетях -> [page-image.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-image.html), [opengraph.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/opengraph.html), [twitter_cards.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/twitter_cards.html)

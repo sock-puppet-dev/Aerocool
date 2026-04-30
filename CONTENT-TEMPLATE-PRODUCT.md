@@ -12,7 +12,7 @@ description: "Купить Aerocool <MODEL> в Украине — эргоном
 summary: "Aerocool <MODEL> — кресло серии <SERIES> с <ADJUSTABILITY>, <SURFACE_TYPE> и эргономикой для <USE_CASE>."
 date: 2026-04-21T10:00:00+03:00
 lastmod: 2026-04-21T10:00:00+03:00
-schema_types: ["product", "organization", "breadcrumbs"]
+schema_types: ["website", "product", "organization", "breadcrumbs"]
 slug: "<slug>"
 categories: ["<series>"]
 tags: ["aerocool", "эргономичное кресло", "<commercial-cluster>", "<series>", "<variant>"]

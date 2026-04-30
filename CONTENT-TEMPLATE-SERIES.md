@@ -13,8 +13,13 @@ date: 2026-04-21T10:00:00+03:00
 lastmod: 2026-04-21T10:00:00+03:00
 summary: "Серия <SERIES> с понятным позиционированием, сравнением моделей и сценариями выбора."
 slug: "<series>"
-schema_types: ["collection", "organization", "breadcrumbs"]
 image: "cover.webp"
+cover:
+  image: "cover.webp"
+  alt: "Обложка серии Aerocool <SERIES>"
+  relative: true
+  hiddenInSingle: true
+schema_types: ["website", "collection", "organization", "breadcrumbs"]
 ---
 ```
 

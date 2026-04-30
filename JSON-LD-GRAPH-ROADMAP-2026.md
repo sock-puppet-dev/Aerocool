@@ -1,6 +1,6 @@
 # JSON-LD Graph Audit And Roadmap 2026
 
-Актуально на `2026-04-29`.
+Актуально на `2026-04-30`.
 
 Этот документ фиксирует текущее состояние JSON-LD Graph проекта `Aerocool Ukraine`, объясняет оценку `Google rich-results quality: 9/10` и хранит roadmap усиления structured data без риска переспама или несоответствия видимому контенту.
 
@@ -20,6 +20,8 @@
 - `WebPage.url` совпадает с canonical;
 - `search`, `404`, alias и служебная пагинация остаются без JSON-LD;
 - даты `Article` и `NewsArticle` сериализуются как `+03:00`, без `&#43;`.
+
+Фактическая актуальная сборка в `development` содержит `88` HTML-страниц с JSON-LD: `24` `Product`, `14` `Article`, `14` `NewsArticle`, `76` `BreadcrumbList`, `2` `FAQPage`, `16` `CollectionPage`, `2` `AboutPage` и `2` `ContactPage`. Из-за временного `HUGO_ENVIRONMENT = "development"` эти страницы сейчас получают `noindex,nofollow`; rich-results eligibility нужно перепроверить после production-перехода.
 
 ### Google rich-results quality: `9/10`
 

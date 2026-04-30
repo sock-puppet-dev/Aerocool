@@ -7,7 +7,7 @@
 - `title` обязателен и отвечает за SEO-заголовок документа.
 - `h1` необязателен и нужен только тогда, когда видимый заголовок страницы должен отличаться от `title`.
 - Для большинства страниц видимый `H1` рендерит шаблонный слой по правилу `.Params.h1 | default .Title`.
-- Исключение на текущий момент — главная страница: ее hero и видимый `H1` задаются в `layouts/_shortcodes/home-content-section.html` и `layouts/_shortcodes/home-content-section-ru.html`.
+- Исключение на текущий момент — главная страница: ее hero и видимый `H1` задаются в `layouts/_shortcodes/home-hero.html` и `layouts/_shortcodes/home-hero-ru.html`.
 - В теле markdown не добавлять `# H1`; контент начинается с лида или с `##`.
 
 ## Терминология И Написание
@@ -24,11 +24,11 @@
 ```yaml
 ---
 title: ""
-h1: ""          # сейчас не влияет на видимый H1 главной; hero и заголовок живут в home-content-section*.html
+h1: ""          # сейчас не влияет на видимый H1 главной; hero и заголовок живут в home-hero*.html
 description: ""
 summary: ""     # необязательно, но желательно для связанных блоков
 date: 2026-03-19
-lastmod: 2026-04-22
+lastmod: 2026-04-30
 image: "cover.webp"
 schema_types: ["website", "organization", "brand"]
 ---
@@ -46,7 +46,7 @@ h1: ""          # необязательно
 description: ""
 summary: ""     # желательно
 date: 2025-08-05T10:00:00+03:00
-lastmod: 2026-04-22
+lastmod: 2026-04-30
 slug: "about"
 image: "cover.webp"
 schema_types: ["website", "organization", "brand", "about-page", "breadcrumbs"]
@@ -62,7 +62,7 @@ h1: ""          # необязательно
 description: ""
 summary: ""
 date: 2025-08-05T10:00:00+03:00
-lastmod: 2026-04-22
+lastmod: 2026-04-30
 slug: "contact"
 image: "cover.webp"
 schema_types: ["website", "organization", "contact-page", "breadcrumbs"]
@@ -79,7 +79,7 @@ layout: "search"
 description: ""
 summary: ""
 date: 2025-08-05T10:00:00+03:00
-lastmod: 2026-04-22
+lastmod: 2026-04-30
 slug: "search"
 placeholder: ""
 schema_types: ["website", "organization", "breadcrumbs"]
@@ -98,7 +98,7 @@ title: ""
 h1: ""          # необязательно
 description: ""
 date: 2026-03-19
-lastmod: 2026-04-22
+lastmod: 2026-04-30
 summary: ""
 image: "cover.webp"
 schema_types: ["website", "collection", "organization", "breadcrumbs"]
@@ -113,7 +113,7 @@ title: ""
 h1: ""          # необязательно
 description: ""
 date: 2026-03-19
-lastmod: 2026-04-22
+lastmod: 2026-04-30
 summary: ""
 slug: "<series>"
 image: "cover.webp"
@@ -137,14 +137,19 @@ h1: ""          # необязательно
 description: ""
 summary: ""
 date: 2026-04-22T10:00:00+03:00
-lastmod: 2026-04-22T10:00:00+03:00
+lastmod: 2026-04-30T10:00:00+03:00
 slug: "<slug>"
-image: "images/default-article.jpg"
+image: "01-front.png"
+cover:
+  image: "01-front.png"
+  alt: "Обложка статьи Aerocool <TOPIC>"
+  relative: true
+  hiddenInSingle: true
 schema_types: ["website", "article", "organization", "breadcrumbs"]
 ---
 ```
 
-Если у статьи есть собственная обложка в папке страницы (`page bundle`), поле `image` можно указывать на локальный файл из этой папки вместо статического изображения по умолчанию.
+Текущий стандарт для статей — локальная обложка `01-front.png` в папке страницы, `image + cover.image` во front matter и вывод изображения через shortcode `seo-image` в начале тела. Fallback на `images/default-article.jpg` допустим только как запасной сценарий, если локальной обложки действительно нет.
 Для проекта `Aerocool` основная постоянно актуальная статья обычно должна иметь `10000+` знаков основного текста на каждую языковую версию.
 Добор до `10000+` знаков должен быть редакционным, а не механическим: добавлять сценарии выбора, критерии, сравнения, практические проверки, FAQ и полезные внутренние ссылки.
 `description` и `summary` у статьи должны помогать покрывать не только бренд, но и релевантный широкий кластер: `игровое кресло`, `офисное кресло`, `компьютерное кресло`, `кресло для работы`, `home office`.
@@ -158,7 +163,7 @@ h1: ""          # необязательно
 description: ""
 summary: ""
 date: 2026-04-22T10:00:00+03:00
-lastmod: 2026-04-22T10:00:00+03:00
+lastmod: 2026-04-30T10:00:00+03:00
 slug: "<slug>"
 image: "01-front.png"
 cover:
@@ -184,7 +189,7 @@ h1: ""          # необязательно
 description: ""
 summary: ""
 date: 2026-04-22T10:00:00+03:00
-lastmod: 2026-04-22T10:00:00+03:00
+lastmod: 2026-04-30T10:00:00+03:00
 slug: "<slug>"
 categories: ["<series>"]
 tags: ["aerocool", "<series>", "<variant>"]
@@ -224,7 +229,7 @@ h1: ""          # необязательно
 description: "FAQ Aerocool в Украине: серии SKY, WING и XTAL, материалы Racer, Loft Air и Mesh, 7D, 8D, 11D, Synchronous Tilt, гарантия, доставка, оплата, возврат, сборка и выбор кресла для работы и гейминга."
 summary: "Практичный FAQ о креслах Aerocool: серии, материалы, настройки, сервис и помощь с выбором."
 date: 2025-08-05T10:00:00+03:00
-lastmod: 2026-04-28
+lastmod: 2026-04-30
 slug: "faq"
 image: "cover.webp"
 schema_types: ["website", "faq", "organization", "breadcrumbs"]

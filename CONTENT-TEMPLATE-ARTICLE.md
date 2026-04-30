@@ -15,9 +15,31 @@ lastmod: 2026-04-21T10:00:00+03:00
 slug: "<slug>"
 description: "Краткое точное описание темы статьи и ее практической пользы."
 summary: "Одно предложение о том, что пользователь поймет после чтения."
-image: "images/default-article.jpg"
-schema_types: ["article", "organization", "breadcrumbs"]
+image: "01-front.png"
+cover:
+  image: "01-front.png"
+  alt: "Обложка статьи Aerocool <TOPIC>"
+  relative: true
+  hiddenInSingle: true
+schema_types: ["website", "article", "organization", "breadcrumbs"]
 ---
+```
+
+Сразу после front matter, если у статьи есть локальная обложка в папке страницы:
+
+```md
+{{< seo-image
+  src="01-front.png"
+  width="1536"
+  height="1024"
+  alt="Обложка статьи Aerocool <TOPIC>"
+  title="Aerocool <TITLE>"
+  loading="eager"
+  preload=true
+  fetchpriority=high
+  class="w-full rounded-2xl"
+  sizes="100vw"
+/>}}
 ```
 
 ## Структура Текста
@@ -81,6 +103,7 @@ schema_types: ["article", "organization", "breadcrumbs"]
 - Всегда связывать статью с каталогом и конкретными сериями или моделями.
 - По возможности использовать цифры и характеристики производителя.
 - Не превращать статью в новость, если тема остается актуальной надолго.
-- Если у статьи нет собственной обложки в папке страницы, оставлять явное `image: "images/default-article.jpg"` в метаданных страницы.
+- Текущий рекомендуемый стандарт для article bundle в проекте: `image + cover.image + seo-image` с локальным `01-front.png`.
+- Если у статьи нет собственной обложки в папке страницы, допустим fallback `image: "images/default-article.jpg"`, но это запасной сценарий, а не основной стандарт.
 - Для `index.md` и `index.ru.md` держать факты синхронно, меняя только язык и локальные ссылки.
 - В статье желательно иметь 3-8 осмысленных внутренних ссылок: серия, товар, FAQ, контакты, связанные гайды.

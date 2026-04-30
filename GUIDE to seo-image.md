@@ -4,7 +4,7 @@
 
 Shortcode `seo-image` находится в `layouts/_shortcodes/seo-image.html` и работает только с изображениями, которые лежат внутри папки страницы (`page bundle` в терминологии Hugo). Если файла нет рядом со страницей, сборка упадет с ошибкой.
 Этот shortcode отвечает только за HTML-изображение, `preload` и `srcset`. Он не рендерит `H1` страницы, не влияет на `title` и больше не выводит отдельный JSON-LD.
-Текущее hero-изображение главной страницы — отдельное исключение: оно живет в `layouts/_shortcodes/home-content-section.html` и `layouts/_shortcodes/home-content-section-ru.html` и сейчас не проходит через `seo-image`.
+Текущее hero-изображение главной страницы — отдельное исключение: оно живет в `layouts/_shortcodes/home-hero.html` и `layouts/_shortcodes/home-hero-ru.html` и сейчас не проходит через `seo-image`.
 
 JSON-LD для основного изображения страницы собирается централизованно через `layouts/_partials/_schema/page-image-object.html` и попадает в общий `@graph`. Источник URL изображения - поле `image` во front matter через helper `page-image.html`.
 
@@ -47,7 +47,7 @@ cover:
 - Для главного изображения товара использовать `loading="eager"`, `preload=true`, `fetchpriority=high`.
 - Для квадратного фронтального product image нормален точный размер `2000x2000`.
 - Параметр `jsonld` больше не нужен: schema для primary image берется из `image` во front matter.
-- `jsonld=true` / `jsonld=false` в новых материалах не добавлять. Если legacy-параметр встречается в старом контенте, его можно удалить: текущий shortcode его не использует.
+- Legacy-значения параметра `jsonld` в новых материалах не добавлять. Если такой параметр встречается в старом контенте, его можно удалить: текущий shortcode его не использует.
 
 ## 2. Основное контентное изображение
 
