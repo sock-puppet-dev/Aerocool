@@ -1,9 +1,9 @@
 ---
 title: "Эргономичное игровое кресло Aerocool XTAL Racer Black"
-description: "Купить Aerocool XTAL Racer Black в Украине — эргономичное игровое и компьютерное кресло серии XTAL с 7D регулировкой, synchronous tilt, сменными элементами и обивкой Leatherette."
+description: "Купить Aerocool XTAL Racer Black в Украине — эргономичное игровое и компьютерное кресло серии XTAL с 7D регулировкой, Synchronous Tilt, сменными элементами и обивкой Leatherette."
 summary: "Aerocool XTAL Racer Black — игровое и компьютерное кресло серии XTAL с 7D регулировкой, сменными элементами и обивкой Leatherette."
 date: 2026-03-19
-lastmod: 2026-04-23
+lastmod: 2026-04-30
 schema_types: ["website", "product", "organization", "breadcrumbs"]
 slug: "racer-black"
 categories: ["xtal"]
@@ -42,7 +42,7 @@ rating:
 
 ## Aerocool XTAL Racer Black — эргономичное кресло серии XTAL
 
-**Aerocool XTAL Racer Black** — это модель серии XTAL с обивкой Leatherette, 7D регулировкой, synchronous tilt и сбалансированной эргономической платформой.
+**Aerocool XTAL Racer Black** — это модель серии XTAL с обивкой Leatherette, 7D регулировкой, Synchronous Tilt и сбалансированной эргономической платформой.
 Эта конфигурация сохраняет общую эргономическую платформу серии, но дает свое ощущение посадки благодаря материалу поверхности и цвету.
 
 ## Ключевые преимущества
@@ -67,7 +67,7 @@ rating:
 - Каркас: нейлон
 - Поверхность: Leatherette
 - Внутренний материал: формованный наполнитель
-- Спинка: 1D synchronous tilt
+- Спинка: 1D Synchronous Tilt
 - Поясничная поддержка: сменный элемент
 - Подлокотники: 3D с подушками, с фиксацией
 - Механизм: SYNC5 с расширенной настройкой

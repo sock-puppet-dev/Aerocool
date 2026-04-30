@@ -2,9 +2,9 @@
 title: "Статті та гіди Aerocool — як вибрати ігрове, офісне чи комп'ютерне крісло"
 slug: "articles"
 date: 2025-08-01T00:00:00+03:00
-description: "Статті Aerocool про серії SKY, WING і XTAL, вибір ігрового, офісного та комп'ютерного крісла, synchronous tilt, 7D/8D/11D регулювання, матеріали Racer, Loft Air і Mesh."
+description: "Статті Aerocool про серії SKY, WING і XTAL, вибір ігрового, офісного та комп'ютерного крісла, Synchronous Tilt, 7D/8D/11D регулювання, матеріали Racer, Loft Air і Mesh."
 summary: "Практичні гіди Aerocool про вибір серії, механіки, матеріалів і сценаріїв використання крісел."
-lastmod: 2026-04-21
+lastmod: 2026-04-30
 schema_types: ["website", "collection", "organization", "breadcrumbs"]
 image: "cover.webp"
 ---
@@ -16,7 +16,7 @@ image: "cover.webp"
 - порівняння серій і конкретних моделей;
 - пояснення по `7D`, `8D` і `11D` регулюваннях;
 - гіди по матеріалах **Racer**, **Loft Air** і **Mesh**;
-- окремі розбори механіки **synchronous tilt**;
+- окремі розбори механіки **Synchronous Tilt**;
 - практичні сценарії вибору крісла для роботи, home office та геймінгу.
 
 ## Рекомендуємо почати з цих матеріалів
@@ -25,7 +25,7 @@ image: "cover.webp"
 - [Aerocool SKY Lite чи SKY 360: яке крісло обрати](/articles/sky-lite-vs-sky-360/)
 - [Aerocool WING чи XTAL: яку серію обрати](/articles/wing-vs-xtal/)
 - [Racer, Loft Air чи Mesh: яку поверхню крісла Aerocool обрати](/articles/racer-vs-loft-air-vs-mesh/)
-- [Що таке synchronous tilt у кріслах Aerocool](/articles/what-is-synchronous-tilt/)
+- [Що таке Synchronous Tilt у кріслах Aerocool](/articles/what-is-synchronous-tilt/)
 - [7D, 8D чи 11D: як кількість регулювань впливає на вибір](/articles/how-to-choose-chair-by-adjustability/)
 
 ## Як використовувати статті разом із каталогом

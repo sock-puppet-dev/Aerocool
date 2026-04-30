@@ -28,7 +28,7 @@ cover:
 - загальна регульованість: `11D`;
 - підголівник: `2D регулювання`, `вгору/вниз`, `кут`;
 - поперекова підтримка: `2D подвійна спинка, динамічне підлаштування`;
-- спинка: `1D synchronous tilt`;
+- спинка: `1D Synchronous Tilt`;
 - механізм: `SYNC5 з розширеним налаштуванням`;
 - сидіння: `2D регулювання`, `вгору/вниз`, `вперед/назад`;
 - газліфт: **клас 4, протестовано за BIFMA**;
@@ -70,7 +70,7 @@ cover:
 
 - [Aerocool WING чи XTAL: порівняння серій](/articles/wing-vs-xtal/)
 - [Racer, Loft Air чи Mesh: як обрати поверхню](/articles/racer-vs-loft-air-vs-mesh/)
-- [Що таке synchronous tilt і чому він важливий](/articles/what-is-synchronous-tilt/)
+- [Що таке Synchronous Tilt і чому він важливий](/articles/what-is-synchronous-tilt/)
 - [Як обрати крісло Aerocool під свій сценарій](/articles/how-to-choose-aerocool-chair/)
 
 ## Новини по серії

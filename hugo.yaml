@@ -168,7 +168,7 @@ params:
     - кресло для home office
     - кресло для работы за компьютером
     - кресло для гейминга
-    - synchronous tilt кресло
+    - Synchronous Tilt кресло
 # Автор
   author: "Aerocool Advanced Technologies Corp."
 # Включает отображение количества слов в постах блога
@@ -287,7 +287,7 @@ languages:
         - крісло для home office
         - крісло для роботи за комп'ютером
         - крісло для геймінгу
-        - synchronous tilt крісло
+        - Synchronous Tilt крісло
     menu:
       main:                               # Главное меню (будет отображаться в шапке или навигации)
         - identifier: products            # Уникальный ID пункта меню, нужен Hugo для сопоставления с другими языками
@@ -341,7 +341,7 @@ languages:
         - кресло для home office
         - кресло для работы за компьютером
         - кресло для гейминга
-        - synchronous tilt кресло
+        - Synchronous Tilt кресло
     menu:
       main:
         - identifier: products              # Тот же identifier, что и в английской версии — это важно

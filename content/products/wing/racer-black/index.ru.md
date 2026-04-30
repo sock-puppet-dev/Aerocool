@@ -1,9 +1,9 @@
 ---
 title: "Эргономичное игровое кресло Aerocool WING Racer Black"
-description: "Купить Aerocool WING Racer Black в Украине — эргономичное игровое и компьютерное кресло серии WING с 11D регулировкой, synchronous tilt, двойной спинкой и поверхностью Leatherette."
+description: "Купить Aerocool WING Racer Black в Украине — эргономичное игровое и компьютерное кресло серии WING с 11D регулировкой, Synchronous Tilt, двойной спинкой и поверхностью Leatherette."
 summary: "Aerocool WING Racer Black — игровое и компьютерное кресло серии WING с 11D регулировкой, двойной спинкой и поверхностью Leatherette."
 date: 2026-03-19
-lastmod: 2026-04-23
+lastmod: 2026-04-30
 schema_types: ["website", "product", "organization", "breadcrumbs"]
 slug: "racer-black"
 categories: ["wing"]
@@ -43,7 +43,7 @@ rating:
 
 ## Aerocool WING Racer Black — эргономичное кресло с правильной поддержкой осанки
 
-**Aerocool WING Racer Black** — это модель серии WING с обивкой Leatherette, 11D регулировкой, synchronous tilt и фокусом на адаптации под пользователя.
+**Aerocool WING Racer Black** — это модель серии WING с обивкой Leatherette, 11D регулировкой, Synchronous Tilt и фокусом на адаптации под пользователя.
 Эта конфигурация сохраняет общую эргономическую платформу серии, но дает свое ощущение посадки благодаря материалу поверхности и цвету.
 
 ## Ключевые преимущества
@@ -68,7 +68,7 @@ rating:
 - Каркас: нейлон
 - Поверхность: Leatherette
 - Внутренний материал: формованный наполнитель
-- Спинка: 1D synchronous tilt
+- Спинка: 1D Synchronous Tilt
 - Поясничная поддержка: 2D двойная спинка, динамическая подстройка
 - Подлокотники: 4D X 360
 - Механизм: SYNC5 с расширенной настройкой
@@ -91,7 +91,7 @@ rating:
 
 - [Aerocool WING или XTAL: сравнение серий](/ru/articles/wing-vs-xtal/)
 - [Racer, Loft Air или Mesh: как выбрать поверхность](/ru/articles/racer-vs-loft-air-vs-mesh/)
-- [Что такое synchronous tilt и почему он важен](/ru/articles/what-is-synchronous-tilt/)
+- [Что такое Synchronous Tilt и почему он важен](/ru/articles/what-is-synchronous-tilt/)
 - [Как выбрать кресло Aerocool под свой сценарий](/ru/articles/how-to-choose-aerocool-chair/)
 
 ## Новости и анонсы Aerocool

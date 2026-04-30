@@ -1,9 +1,9 @@
 ---
 title: "Ергономічне комп'ютерне крісло Aerocool WING Mesh Black"
-description: "Купити Aerocool WING Mesh Black в Україні — ергономічне комп'ютерне та офісне крісло серії WING з 11D регулюванням, synchronous tilt, подвійною спинкою та поверхнею з дихаючої сітки."
+description: "Купити Aerocool WING Mesh Black в Україні — ергономічне комп'ютерне та офісне крісло серії WING з 11D регулюванням, Synchronous Tilt, подвійною спинкою та поверхнею з дихаючої сітки."
 summary: "Aerocool WING Mesh Black — комп'ютерне та офісне крісло серії WING з 11D регулюванням, подвійною спинкою й максимально дихаючою поверхнею."
 date: 2026-03-19
-lastmod: 2026-04-23
+lastmod: 2026-04-30
 schema_types: ["website", "product", "organization", "breadcrumbs"]
 slug: "mesh-black"
 categories: ["wing"]
@@ -43,7 +43,7 @@ rating:
 
 ## Aerocool WING Mesh Black — ергономічне крісло з правильною підтримкою постави
 
-**Aerocool WING Mesh Black** — це модель серії WING з поверхнею з дихаючої сітки, 11D регулюванням, synchronous tilt і фокусом на адаптації під користувача.
+**Aerocool WING Mesh Black** — це модель серії WING з поверхнею з дихаючої сітки, 11D регулюванням, Synchronous Tilt і фокусом на адаптації під користувача.
 Ця конфігурація зберігає спільну ергономічну платформу серії, але дає своє відчуття посадки завдяки матеріалу поверхні та кольору.
 
 ## Ключові переваги
@@ -68,7 +68,7 @@ rating:
 - Каркас: нейлон
 - Поверхня: дихаюча сітка
 - Внутрішній матеріал: формований наповнювач
-- Спинка: 1D synchronous tilt
+- Спинка: 1D Synchronous Tilt
 - Поперекова підтримка: 2D подвійна спинка, динамічне підлаштування
 - Підлокітники: 4D X 360
 - Механізм: SYNC5 з розширеним налаштуванням
@@ -91,7 +91,7 @@ rating:
 
 - [Aerocool WING чи XTAL: порівняння серій](/articles/wing-vs-xtal/)
 - [Racer, Loft Air чи Mesh: як обрати поверхню](/articles/racer-vs-loft-air-vs-mesh/)
-- [Що таке synchronous tilt і чому він важливий](/articles/what-is-synchronous-tilt/)
+- [Що таке Synchronous Tilt і чому він важливий](/articles/what-is-synchronous-tilt/)
 - [Як обрати крісло Aerocool під свій сценарій](/articles/how-to-choose-aerocool-chair/)
 
 ## Новини та анонси Aerocool

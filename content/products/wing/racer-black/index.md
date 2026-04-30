@@ -1,9 +1,9 @@
 ---
 title: "Ергономічне ігрове крісло Aerocool WING Racer Black"
-description: "Купити Aerocool WING Racer Black в Україні — ергономічне ігрове та комп'ютерне крісло серії WING з 11D регулюванням, synchronous tilt, подвійною спинкою та поверхнею Leatherette."
+description: "Купити Aerocool WING Racer Black в Україні — ергономічне ігрове та комп'ютерне крісло серії WING з 11D регулюванням, Synchronous Tilt, подвійною спинкою та поверхнею Leatherette."
 summary: "Aerocool WING Racer Black — ігрове та комп'ютерне крісло серії WING з 11D регулюванням, подвійною спинкою й поверхнею Leatherette."
 date: 2026-03-19
-lastmod: 2026-04-23
+lastmod: 2026-04-30
 schema_types: ["website", "product", "organization", "breadcrumbs"]
 slug: "racer-black"
 categories: ["wing"]
@@ -43,7 +43,7 @@ rating:
 
 ## Aerocool WING Racer Black — ергономічне крісло з правильною підтримкою постави
 
-**Aerocool WING Racer Black** — це модель серії WING з оббивкою Leatherette, 11D регулюванням, synchronous tilt і фокусом на адаптації під користувача.
+**Aerocool WING Racer Black** — це модель серії WING з оббивкою Leatherette, 11D регулюванням, Synchronous Tilt і фокусом на адаптації під користувача.
 Ця конфігурація зберігає спільну ергономічну платформу серії, але дає своє відчуття посадки завдяки матеріалу поверхні та кольору.
 
 ## Ключові переваги
@@ -68,7 +68,7 @@ rating:
 - Каркас: нейлон
 - Поверхня: Leatherette
 - Внутрішній матеріал: формований наповнювач
-- Спинка: 1D synchronous tilt
+- Спинка: 1D Synchronous Tilt
 - Поперекова підтримка: 2D подвійна спинка, динамічне підлаштування
 - Підлокітники: 4D X 360
 - Механізм: SYNC5 з розширеним налаштуванням
@@ -91,7 +91,7 @@ rating:
 
 - [Aerocool WING чи XTAL: порівняння серій](/articles/wing-vs-xtal/)
 - [Racer, Loft Air чи Mesh: як обрати поверхню](/articles/racer-vs-loft-air-vs-mesh/)
-- [Що таке synchronous tilt і чому він важливий](/articles/what-is-synchronous-tilt/)
+- [Що таке Synchronous Tilt і чому він важливий](/articles/what-is-synchronous-tilt/)
 - [Як обрати крісло Aerocool під свій сценарій](/articles/how-to-choose-aerocool-chair/)
 
 ## Новини та анонси Aerocool

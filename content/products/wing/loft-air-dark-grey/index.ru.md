@@ -1,9 +1,9 @@
 ---
 title: "Эргономичное офисное кресло Aerocool WING Loft Air Dark Grey"
-description: "Купить Aerocool WING Loft Air Dark Grey в Украине — эргономичное офисное и компьютерное кресло серии WING с 11D регулировкой, synchronous tilt, двойной спинкой и поверхностью из многослойной дышащей сетчатой ткани."
+description: "Купить Aerocool WING Loft Air Dark Grey в Украине — эргономичное офисное и компьютерное кресло серии WING с 11D регулировкой, Synchronous Tilt, двойной спинкой и поверхностью из многослойной дышащей сетчатой ткани."
 summary: "Aerocool WING Loft Air Dark Grey — офисное и компьютерное кресло серии WING с 11D регулировкой, двойной спинкой и дышащей поверхностью для работы и home office."
 date: 2026-03-19
-lastmod: 2026-04-23
+lastmod: 2026-04-30
 schema_types: ["website", "product", "organization", "breadcrumbs"]
 slug: "loft-air-dark-grey"
 categories: ["wing"]
@@ -43,7 +43,7 @@ rating:
 
 ## Aerocool WING Loft Air Dark Grey — эргономичное кресло с правильной поддержкой осанки
 
-**Aerocool WING Loft Air Dark Grey** — это модель серии WING с поверхностью из многослойной дышащей сетчатой ткани, 11D регулировкой, synchronous tilt и фокусом на адаптации под пользователя.
+**Aerocool WING Loft Air Dark Grey** — это модель серии WING с поверхностью из многослойной дышащей сетчатой ткани, 11D регулировкой, Synchronous Tilt и фокусом на адаптации под пользователя.
 Эта конфигурация сохраняет общую эргономическую платформу серии, но дает свое ощущение посадки благодаря материалу поверхности и цвету.
 
 ## Ключевые преимущества
@@ -68,7 +68,7 @@ rating:
 - Каркас: нейлон
 - Поверхность: многослойная дышащая сетчатая ткань
 - Внутренний материал: формованный наполнитель
-- Спинка: 1D synchronous tilt
+- Спинка: 1D Synchronous Tilt
 - Поясничная поддержка: 2D двойная спинка, динамическая подстройка
 - Подлокотники: 4D X 360
 - Механизм: SYNC5 с расширенной настройкой
@@ -91,7 +91,7 @@ rating:
 
 - [Aerocool WING или XTAL: сравнение серий](/ru/articles/wing-vs-xtal/)
 - [Racer, Loft Air или Mesh: как выбрать поверхность](/ru/articles/racer-vs-loft-air-vs-mesh/)
-- [Что такое synchronous tilt и почему он важен](/ru/articles/what-is-synchronous-tilt/)
+- [Что такое Synchronous Tilt и почему он важен](/ru/articles/what-is-synchronous-tilt/)
 - [Как выбрать кресло Aerocool под свой сценарий](/ru/articles/how-to-choose-aerocool-chair/)
 
 ## Новости и анонсы Aerocool

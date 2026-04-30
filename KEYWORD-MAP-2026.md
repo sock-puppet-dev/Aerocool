@@ -1,6 +1,6 @@
 # Карта Ключевых Слов 2026
 
-Актуально на `2026-04-22`.
+Актуально на `2026-04-30`.
 
 Этот документ фиксирует стратегию по ключевым словам для всего проекта `Aerocool` и распределение поисковых кластеров по страницам сайта.
 
@@ -39,6 +39,12 @@
 - объем набирается только через полезное расширение интента: сценарии выбора, сравнения, практические проверки, FAQ, внутренние переходы в каталог и объяснение коммерческой значимости
 - статьи и новости должны работать не только на брендовую видимость, но и на широкий коммерческий спрос
 - служебные страницы вроде `/search/`, `404` и служебных alias-страниц не входят в карту целевых ключевых слов и не должны восприниматься как органические посадочные страницы
+
+## Терминологический Стандарт
+
+- В keyword map, front matter, видимом контенте, FAQ, alt-текстах и внутренних ссылках механизм наклона пишется как `Synchronous Tilt`.
+- Нижнерегистровое написание этого термина не использовать в редакционном тексте и метаданных.
+- URL/slug остаются человекочитаемыми и нижнерегистровыми, если уже закреплены в структуре сайта: например, `/articles/what-is-synchronous-tilt/`.
 
 ## Архитектура Интентов
 
@@ -167,7 +173,7 @@
 - `aerocool sky 360`
 - `sky lite`
 - `sky 360`
-- `synchronous tilt`
+- `Synchronous Tilt`
 - `3d x 360 armrest`
 - `8d регулировка`
 - `11d регулировка`
@@ -219,7 +225,7 @@
 
 ### 6. Кластеры По Функциям И Характеристикам
 
-- `synchronous tilt`
+- `Synchronous Tilt`
 - `sync4`
 - `sync5`
 - `dual backrest design`
@@ -247,8 +253,8 @@
 
 | URL / файл | Основной интент | Основные ключи | Дополнительные ключи |
 | --- | --- | --- | --- |
-| `content/products/sky/_index.md` | офисная линейка | `aerocool sky`, `офісне крісло aerocool sky`, `комп'ютерне крісло aerocool sky` | `sky lite`, `sky 360`, `synchronous tilt` |
-| `content/products/sky/_index.ru.md` | офисная линейка | `aerocool sky`, `офисное кресло aerocool sky`, `компьютерное кресло aerocool sky` | `sky lite`, `sky 360`, `synchronous tilt` |
+| `content/products/sky/_index.md` | офисная линейка | `aerocool sky`, `офісне крісло aerocool sky`, `комп'ютерне крісло aerocool sky` | `sky lite`, `sky 360`, `Synchronous Tilt` |
+| `content/products/sky/_index.ru.md` | офисная линейка | `aerocool sky`, `офисное кресло aerocool sky`, `компьютерное кресло aerocool sky` | `sky lite`, `sky 360`, `Synchronous Tilt` |
 | `content/products/wing/_index.md` | игровая и офисная линейка | `aerocool wing`, `ігрове крісло aerocool wing`, `офісне крісло aerocool wing` | `dual backrest`, `11d`, `racer`, `loft air`, `mesh` |
 | `content/products/wing/_index.ru.md` | игровая и офисная линейка | `aerocool wing`, `игровое кресло aerocool wing`, `офисное кресло aerocool wing` | `dual backrest`, `11d`, `racer`, `loft air`, `mesh` |
 | `content/products/xtal/_index.md` | игровая и компьютерная линейка | `aerocool xtal`, `ігрове крісло aerocool xtal`, `комп'ютерне крісло aerocool xtal` | `fully replaceable design`, `7d`, `racer`, `loft air`, `mesh` |
@@ -258,8 +264,8 @@
 
 | URL / файл | Основной интент | Основные ключи | Дополнительные ключи |
 | --- | --- | --- | --- |
-| `content/products/sky/lite/index.md` | офисный товар | `офісне крісло aerocool sky lite`, `комп'ютерне крісло sky lite` | `8d`, `synchronous tilt`, `home office`, `breathable mesh` |
-| `content/products/sky/lite/index.ru.md` | офисный товар | `офисное кресло aerocool sky lite`, `компьютерное кресло sky lite` | `8d`, `synchronous tilt`, `home office`, `breathable mesh` |
+| `content/products/sky/lite/index.md` | офисный товар | `офісне крісло aerocool sky lite`, `комп'ютерне крісло sky lite` | `8d`, `Synchronous Tilt`, `home office`, `breathable mesh` |
+| `content/products/sky/lite/index.ru.md` | офисный товар | `офисное кресло aerocool sky lite`, `компьютерное кресло sky lite` | `8d`, `Synchronous Tilt`, `home office`, `breathable mesh` |
 | `content/products/sky/360/index.md` | компьютерный товар | `комп'ютерне крісло aerocool sky 360`, `офісне крісло sky 360` | `11d`, `3d x 360 armrest`, `home office`, `breathable mesh` |
 | `content/products/sky/360/index.ru.md` | компьютерный товар | `компьютерное кресло aerocool sky 360`, `офисное кресло sky 360` | `11d`, `3d x 360 armrest`, `home office`, `breathable mesh` |
 
@@ -310,8 +316,8 @@
 
 | URL / файл | Основной интент | Основные ключи | Дополнительные ключи |
 | --- | --- | --- | --- |
-| `content/faq/index.md` | FAQ | `faq aerocool`, `питання про крісла aerocool` | `гарантія`, `доставка`, `оплата`, `повернення`, `складання`, `synchronous tilt`, `7d 8d 11d`, `sky wing xtal`, `racer loft air mesh` |
-| `content/faq/index.ru.md` | FAQ | `faq aerocool`, `вопросы о креслах aerocool` | `гарантия`, `доставка`, `оплата`, `возврат`, `сборка`, `synchronous tilt`, `7d 8d 11d`, `sky wing xtal`, `racer loft air mesh` |
+| `content/faq/index.md` | FAQ | `faq aerocool`, `питання про крісла aerocool` | `гарантія`, `доставка`, `оплата`, `повернення`, `складання`, `Synchronous Tilt`, `7d 8d 11d`, `sky wing xtal`, `racer loft air mesh` |
+| `content/faq/index.ru.md` | FAQ | `faq aerocool`, `вопросы о креслах aerocool` | `гарантия`, `доставка`, `оплата`, `возврат`, `сборка`, `Synchronous Tilt`, `7d 8d 11d`, `sky wing xtal`, `racer loft air mesh` |
 | `content/about/index.md` | доверие | `про бренд aerocool`, `крісла aerocool україна` | `sky`, `wing`, `xtal`, `ергономіка` |
 | `content/about/index.ru.md` | доверие | `о бренде aerocool`, `кресла aerocool украина` | `sky`, `wing`, `xtal`, `эргономика` |
 | `content/contact/index.md` | контакты | `контакти aerocool`, `купити крісло aerocool` | `консультація`, `доставка`, `гарантія` |
@@ -364,7 +370,7 @@
 - `mesh vs leatherette chair`
 - `какой материал кресла лучше`
 - `11d регулировка кресла`
-- `synchronous tilt что это`
+- `Synchronous Tilt что это`
 - `dual backrest что это`
 - `fully replaceable design chair`
 
