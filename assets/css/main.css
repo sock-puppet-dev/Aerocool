@@ -75,7 +75,7 @@
    ========================================================= */
 :root {
     --nav-width: 1280px;
-    --main-width: 960px;
+    --main-width: 1150px;
     --text-width: 720px;
     --project-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
         Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -185,7 +185,7 @@ body.list {
    как hero-lead на главной. Это помогает section/list страницам выглядеть
    более собранно и "документационно". */
 .post-description {
-    max-width: var(--text-width);
+    /* max-width: var(--text-width); */
     color: var(--content);
     font-size: 1.125rem;
     line-height: 1.7;
