@@ -108,9 +108,16 @@ lastmod: 2026-04-22
 summary: ""
 slug: "<series>"
 image: "cover.webp"
+cover:
+  image: "cover.webp"
+  alt: "Обложка серии Aerocool <SERIES>"
+  relative: true
+  hiddenInSingle: true
 schema_types: ["website", "collection", "organization", "breadcrumbs"]
 ---
 ```
+
+Для страниц серий `cover.image` нужен, если серия выводится карточкой внутри родительского каталога `/products/`. В текущем проекте это рекомендованный паттерн для `SKY`, `WING` и `XTAL`: `image` остается источником для SEO/OG/schema, а `cover.image` дает preview в листинге. `alt` должен быть локализован под язык страницы.
 
 ## 7. Статья `content/articles/<slug>/index.md` и `index.ru.md`
 
