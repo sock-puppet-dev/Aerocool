@@ -107,6 +107,8 @@
 - `aerocool xtal`
 - `sky lite 8d`
 - `sky 360 11d`
+- `aerocool sync5`
+- `sync4 sync5 aerocool`
 - `игровое кресло aerocool`
 - `офисное кресло aerocool`
 - `компьютерное кресло aerocool`
@@ -311,6 +313,15 @@
 | `content/articles/sky-lite-vs-sky-360-guide/index.ru.md` | сравнение | `sky lite или sky 360`, `какое кресло для работы выбрать` | `8d`, `11d`, `office`, `home office` |
 | `content/articles/wing-vs-xtal-comparison/index.md` | сравнение | `wing чи xtal`, `яке ігрове крісло обрати` | `gaming`, `dual backrest`, `fully replaceable design` |
 | `content/articles/wing-vs-xtal-comparison/index.ru.md` | сравнение | `wing или xtal`, `какое игровое кресло выбрать` | `gaming`, `dual backrest`, `fully replaceable design` |
+| `content/articles/sync4-sync5-mechanism-guide/index.md` | информационный / коммерческий | `SYNC4`, `SYNC5`, `SYNC5 multi-adjustable`, `механізм крісла Aerocool` | `Synchronous Tilt`, `XTAL`, `WING`, `SKY 360`, `SKY Lite`, `регулювання сидіння` |
+| `content/articles/sync4-sync5-mechanism-guide/index.ru.md` | информационный / коммерческий | `SYNC4`, `SYNC5`, `SYNC5 multi-adjustable`, `механизм кресла Aerocool` | `Synchronous Tilt`, `XTAL`, `WING`, `SKY 360`, `SKY Lite`, `регулировка сиденья` |
+
+### Новости
+
+| URL / файл | Основной интент | Основные ключи | Дополнительные ключи |
+| --- | --- | --- | --- |
+| `content/news/2026-04-30-aerocool-sync4-sync5-mechanism-update/index.md` | новостное уточнение спецификаций | `Aerocool SYNC5`, `SYNC4 і SYNC5`, `механізм крісла Aerocool` | `XTAL`, `WING`, `SKY 360`, `SKY Lite`, `Synchronous Tilt` |
+| `content/news/2026-04-30-aerocool-sync4-sync5-mechanism-update/index.ru.md` | новостное уточнение спецификаций | `Aerocool SYNC5`, `SYNC4 и SYNC5`, `механизм кресла Aerocool` | `XTAL`, `WING`, `SKY 360`, `SKY Lite`, `Synchronous Tilt` |
 
 ### Поддерживающие Разделы
 

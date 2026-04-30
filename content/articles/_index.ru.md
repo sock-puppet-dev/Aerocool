@@ -14,8 +14,8 @@ image: "cover.webp"
 ## Что вы найдете в этом разделе
 
 - сравнения серий и конкретных моделей;
-- объяснения по `7D`, `8D` и `11D` регулировкам;
-- гиды по материалам **Racer**, **Loft Air** и **Mesh**;
+- разборы `7D`, `8D` и `11D` регулировок;
+- материалы о поверхностях **Racer**, **Loft Air** и **Mesh**;
 - отдельные разборы механики **Synchronous Tilt**;
 - практические сценарии выбора кресла для работы, home office и гейминга.
 
@@ -26,6 +26,7 @@ image: "cover.webp"
 - [Aerocool WING или XTAL: какую серию выбрать](/ru/articles/wing-vs-xtal/)
 - [Racer, Loft Air или Mesh: какую поверхность кресла Aerocool выбрать](/ru/articles/racer-vs-loft-air-vs-mesh/)
 - [Что такое Synchronous Tilt в креслах Aerocool](/ru/articles/what-is-synchronous-tilt/)
+- [SYNC4 и SYNC5 multi-adjustable в креслах Aerocool](/ru/articles/sync4-sync5-mechanism-guide/)
 - [7D, 8D или 11D: как количество регулировок влияет на выбор](/ru/articles/how-to-choose-chair-by-adjustability/)
 
 ## Как использовать статьи вместе с каталогом

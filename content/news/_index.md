@@ -2,10 +2,10 @@
 title: "Новини Aerocool — серії SKY, WING, XTAL та анонси моделей"
 slug: "news"
 date: 2025-08-01T00:00:00+03:00
-description: "Новини Aerocool в Україні: запуск серій SKY, WING, XTAL, анонси моделей SKY Lite, SKY 360 та оновлення по Loft Air і Mesh."
+description: "Новини Aerocool в Україні: запуск серій SKY, WING, XTAL, анонси моделей SKY Lite, SKY 360, оновлення щодо Loft Air, Mesh і механізмів SYNC4/SYNC5."
 schema_types: ["website", "collection", "organization", "breadcrumbs"]
 image: "cover.webp"
-lastmod: 2026-04-21
+lastmod: 2026-04-30
 summary: "Офіційні новини Aerocool про запуск серій, окремі моделі та оновлення каталогу в Україні."
 ---
 
@@ -17,8 +17,9 @@ summary: "Офіційні новини Aerocool про запуск серій,
 - запуск серії **SKY**;
 - запуск серії **WING**;
 - запуск серії **XTAL**;
-- окремі матеріали по **SKY Lite** і **SKY 360**;
-- акцент на дихаючих форматах **Loft Air** і **Mesh**.
+- окремі матеріали про **SKY Lite** і **SKY 360**;
+- акцент на вентильованих форматах **Loft Air** і **Mesh**.
+- уточнення щодо механізмів **SYNC4** і **SYNC5 multi-adjustable**.
 
 ## Рекомендуємо переглянути
 
@@ -28,6 +29,7 @@ summary: "Офіційні новини Aerocool про запуск серій,
 - [Aerocool акцентує увагу на SKY 360](/news/sky-360-launch/)
 - [Aerocool додає SKY Lite](/news/sky-lite-launch/)
 - [Aerocool робить акцент на Loft Air і Mesh](/news/loft-air-and-mesh-focus/)
+- [Aerocool уточнює механізми SYNC4 і SYNC5](/news/sync4-sync5-mechanism-update/)
 
 ## Як поєднувати новини з каталогом
 
