@@ -164,7 +164,6 @@ allowworker = ['tailwindcss']
 - Статичные страницы `about`, `contact`, `faq` синхронизированы по языкам.
 - `articles`, `news`, `products` используют page bundle structure.
 - Markdown `# H1` в `content/` не найден.
-- `schema_type:` singular не найден.
 - `schema_types` используется в контенте и шаблонах.
 - В `content/**/*.md` inline-code фрагменты оформлены по текущему редакционному стандарту ``**`...`**``.
 - `date` и `lastmod` присутствуют у проверенных страниц.
