@@ -8,6 +8,7 @@
 /wp-includes/*                          /404.html  404
 /wp-content/*                           /404.html  404
 /xmlrpc.php                             /404.html  404
+/wlwmanifest.xml                        /404.html  404
 
 # WordPress scanner URLs inside folders
 /*/wp-login.php                         /404.html  404
@@ -22,6 +23,13 @@
 /.git/*                                 /404.html  404
 /.env                                   /404.html  404
 /.env.*                                 /404.html  404
+
+# Common config/backup scanner URLs
+/config.php                             /404.html  404
+/config.json                            /404.html  404
+/database.sql                           /404.html  404
+/backup.sql                             /404.html  404
+/db.sql                                 /404.html  404
 
 # cPanel/OpenID scanner URLs
 /openid_connect/*                       /404.html  404
