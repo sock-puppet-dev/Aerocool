@@ -1,0 +1,29 @@
+# Netlify redirects for common bot/scanner requests.
+# Format:
+# FROM_PATH                             TO_PATH    STATUS_CODE
+
+# WordPress scanner URLs in root
+/wp-login.php                           /404.html  404
+/wp-admin/*                             /404.html  404
+/wp-includes/*                          /404.html  404
+/wp-content/*                           /404.html  404
+/xmlrpc.php                             /404.html  404
+
+# WordPress scanner URLs inside folders
+/*/wp-login.php                         /404.html  404
+/*/wp-admin/*                           /404.html  404
+/*/wp-includes/*                        /404.html  404
+/*/wp-content/*                         /404.html  404
+/*/xmlrpc.php                           /404.html  404
+/*/wlwmanifest.xml                      /404.html  404
+
+# Sensitive files/directories scanners
+/.git                                   /404.html  404
+/.git/*                                 /404.html  404
+/.env                                   /404.html  404
+/.env.*                                 /404.html  404
+
+# cPanel/OpenID scanner URLs
+/openid_connect/*                       /404.html  404
+/cpanel                                 /404.html  404
+/cpanel/*                               /404.html  404
