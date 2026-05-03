@@ -21,8 +21,18 @@
 # Sensitive files/directories scanners
 /.git                                   /404.html  404
 /.git/*                                 /404.html  404
+
 /.env                                   /404.html  404
 /.env.*                                 /404.html  404
+/*/.env                                 /404.html  404
+/*/.env.*                               /404.html  404
+
+/secrets.json                           /404.html  404
+/credentials.json                       /404.html  404
+/serviceAccountKey.json                 /404.html  404
+
+/.aws                                   /404.html  404
+/.aws/*                                 /404.html  404
 
 # Common config/backup scanner URLs
 /config.php                             /404.html  404
