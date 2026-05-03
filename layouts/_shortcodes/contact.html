@@ -91,7 +91,7 @@
               {{ cond $isRu "Имя" "Ім'я" }}
             </label>
             <div class="mt-2.5">
-              <input id="first-name" type="text" name="first_name" autocomplete="given-name" required class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600" />
+              <input id="first-name" type="text" name="first_name" autocomplete="given-name" required minlength="2" pattern="^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ' -]{2,}$" title="{{ cond $isRu "Введите имя (минимум 2 символа, только буквы)" "Введіть ім'я (мінімум 2 символи, лише літери)" }}" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600" />
             </div>
           </div>
 
@@ -100,14 +100,14 @@
               {{ cond $isRu "Фамилия" "Прізвище" }}
             </label>
             <div class="mt-2.5">
-              <input id="last-name" type="text" name="last_name" autocomplete="family-name" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600" />
+              <input id="last-name" type="text" name="last_name" autocomplete="family-name" required minlength="2" pattern="^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ' -]{2,}$" title="{{ cond $isRu "Введите фамилию (минимум 2 символа, только буквы)" "Введіть прізвище (мінімум 2 символи, лише літери)" }}" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600" />
             </div>
           </div>
 
           <div class="sm:col-span-2">
             <label for="email" class="block text-sm/6 font-semibold text-gray-900">Email</label>
             <div class="mt-2.5">
-              <input id="email" type="email" name="email" autocomplete="email" required class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600" />
+              <input id="email" type="email" name="email" autocomplete="email" required title="{{ cond $isRu "Введите корректный email" "Введіть коректний email" }}" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600" />
             </div>
           </div>
 
@@ -116,7 +116,7 @@
               {{ cond $isRu "Телефон" "Телефон" }}
             </label>
             <div class="mt-2.5">
-              <input id="phone-number" type="tel" name="phone" autocomplete="tel" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600" />
+              <input id="phone-number" type="tel" name="phone" autocomplete="tel" required inputmode="tel" pattern="^\+?[0-9 ()-]{10,20}$" maxlength="20" title="{{ cond $isRu "Введите телефон в формате +380XXXXXXXXX" "Введіть телефон у форматі +380XXXXXXXXX" }}" oninput="this.value=this.value.replace(/[^0-9+() -]/g,'')" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600" />
             </div>
           </div>
 
