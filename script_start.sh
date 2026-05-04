@@ -2,5 +2,5 @@
 
 set -e
 
-echo "🌟 Запускаем сервер Hugo со встроенным Tailwind-пайплайном..."
+echo "🌟 Запускаем сервер Hugo со встроенным Tailwind-пайплайном"
 exec hugo server
