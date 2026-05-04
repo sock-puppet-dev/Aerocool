@@ -2,5 +2,5 @@
 
 set -e
 
-echo "🌟 Starting Hugo server with the built-in Tailwind pipeline..."
+echo "🌟 Запускаем сервер Hugo со встроенным Tailwind-пайплайном..."
 exec hugo server

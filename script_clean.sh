@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🧹 Cleaning project..."
+echo "🧹 Очищаем проект..."
 
 # ⚡ Очистка Hugo
 
@@ -15,11 +15,10 @@ rm -rf node_modules
 rm -rf .cache
 rm -rf package-lock.json
 
-# ⚡ Переустановка зависимостей, нужных Hugo Tailwind pipeline
+# ⚡ Переустановка зависимостей, нужных для Hugo Tailwind pipeline
 
-echo "📦 Reinstalling..."
+echo "📦 Переустанавливаем зависимости..."
 
 npm install
 
-echo "🚀 Done. Run hugo server."
-
+echo "🚀 Готово. Запусти hugo server."
