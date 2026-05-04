@@ -41,7 +41,6 @@ Field data          PageSpeed Insights, Chrome UX Report, Google Search Console 
 Установка:                              npm install -g lighthouse          
 Обычный тест:                           lighthouse https://aerocool.ua
 Открыть отчёт сразу в браузере:         lighthouse https://aerocool.ua --view
-Сохранить HTML-отчёт:                   
 
 Отчет HTML + JSON одновременно:
 

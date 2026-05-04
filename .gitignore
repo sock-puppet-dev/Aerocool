@@ -16,3 +16,9 @@ hugo_stats.json
 .DS_Store
 # файлы VS Code
 .vscode/
+# Unlighthouse audit outputs
+unlighthouse/reports/
+unlighthouse/.unlighthouse/
+unlighthouse/lighthouse/
+# Node dependencies inside Unlighthouse audit folder
+unlighthouse/node_modules/

@@ -33,3 +33,65 @@ Speed Index         Скорость визуального заполнения
 TTI                 Time to Interactive, в новых версиях менее важен
 Performance Score   Общая оценка производительности
 
+Для твоего Hugo-сайта самые важные:
+LCP
+CLS
+TBT
+FCP
+Performance Score
+SEO Score
+
+Unlighthouse хорош для разработки.
+Для SEO-реальности нужно ещё смотреть:
+
+Google Search Console → Core Web Vitals
+PageSpeed Insights
+Chrome UX Report
+
+Ниже — максимальный production-набор конфигов Unlighthouse под твой сайт:
+Hugo v0.160+
+Netlify
+aerocool.ua
+мультиязычность uk / ru
+SEO
+Core Web Vitals
+Lighthouse
+Unlighthouse
+
+Что запускать
+Из папки:
+cd /Users/stadnyk/MEGA/Aerocool/unlighthouse
+
+npm run audit:urls
+npm run audit
+npm run audit:mobile
+npm run audit:desktop
+npm run audit:strict
+npm run audit:preview
+
+Главный рабочий порядок для тебя:
+cd /Users/stadnyk/MEGA/Aerocool/unlighthouse
+npm run audit:urls
+npm run audit
+npm run audit:strict
+
+audit:urls      быстрая проверка главных шаблонов.
+audit           обычная проверка production.
+audit:strict    глубокая проверка перед важным релизом.
+
+Финальная проверка установки:
+
+cd /Users/stadnyk/MEGA/Aerocool/unlighthouse
+
+npm run audit:urls
+npm run audit
+npm run audit:desktop
+
+
+npm run audit:urls      → unlighthouse/reports/critical-urls/
+npm run audit           → unlighthouse/reports/production/
+npm run audit:mobile    → unlighthouse/reports/mobile/
+npm run audit:desktop   → unlighthouse/reports/desktop/
+npm run audit:strict    → unlighthouse/reports/strict/
+npm run audit:preview   → unlighthouse/reports/preview/
+

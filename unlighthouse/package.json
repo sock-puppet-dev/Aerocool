@@ -1,0 +1,21 @@
+{
+  "name": "aerocool-unlighthouse-audit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Unlighthouse audit configuration for Aerocool Hugo site",
+  "type": "module",
+  "scripts": {
+    "audit": "unlighthouse --config-file unlighthouse.production.config.ts",
+    "audit:mobile": "unlighthouse --config-file unlighthouse.mobile.config.ts",
+    "audit:desktop": "unlighthouse --config-file unlighthouse.desktop.config.ts",
+    "audit:strict": "unlighthouse --config-file unlighthouse.strict.config.ts",
+    "audit:preview": "unlighthouse --config-file unlighthouse.preview.config.ts",
+    "audit:urls": "unlighthouse --config-file unlighthouse.urls.config.ts",
+    "audit:debug": "unlighthouse --config-file unlighthouse.production.config.ts --debug"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "typescript": "^6.0.3",
+    "unlighthouse": "^0.17.9"
+  }
+}
