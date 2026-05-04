@@ -233,7 +233,7 @@ mise x hugo@0.161.0 node@24 -- hugo --environment development --gc --minify --te
 mise x hugo@0.161.0 node@24 -- npm run build
 mise x hugo@0.161.0 node@24 -- hugo config --format toml
 mise x hugo@0.161.0 -- hugo mod graph
-rg -n --glob '!themes/**' --glob '!public/**' --glob '!resources/**' --glob '!node_modules/**' 'languageCode|languageName|languageDirection|LanguageCode|LanguageName|LanguageDirection|\.Language\.Lang\b|\.Site\.Language\.Lang\b|site\.Language\.Lang\b|\.Page\.Lang\b|\.Lang\b|site\.Sites\b|\.Site\.Sites\b|\.Page\.Sites\b|site\.Data\b|\.Site\.Data\b|excludeFiles|includeFiles|:filename' layouts hugo.yaml netlify.toml package.json .mise.toml
+rg -n --glob '!themes/**' --glob '!public/**' --glob '!resources/**' --glob '!node_modules/**' 'languageCode|languageName|languageDirection|LanguageCode|LanguageName|LanguageDirection|\.Language\.Lang\b|\.Site\.Language\.Lang\b|site\.Language\.Lang\b|\.Page\.Lang\b|\.Lang\b|site\.Sites\b|\.Site\.Sites\b|\.Page\.Sites\b|site\.Data\b|\.Site\.Data\b|excludeFiles|includeFiles|:filename' layouts hugo.yaml netlify.toml package.json mise.toml
 rg -n 'schema_type:' content layouts
 rg -n '^# ' content
 rg -n 'resources\.GetRemote|http\.Get|GetRemote|remoteResource' layouts assets hugo.yaml netlify.toml package.json
