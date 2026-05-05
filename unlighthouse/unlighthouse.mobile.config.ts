@@ -1,4 +1,5 @@
 import { defineUnlighthouseConfig } from 'unlighthouse/config'
+import { cleanPuppeteerOptions, qualityCategories } from './unlighthouse.shared.ts'
 
 /**
  * Unlighthouse Mobile Config
@@ -63,6 +64,8 @@ export default defineUnlighthouseConfig({
    * потому что нам нужны реальные текущие данные, а не старый результат.
    */
   cache: false,
+
+  puppeteerOptions: cleanPuppeteerOptions,
 
   /**
    * scanner
@@ -267,12 +270,7 @@ export default defineUnlighthouseConfig({
      * PWA можно проверять отдельно обычным Lighthouse,
      * потому что Unlighthouse чаще используют для массового аудита страниц.
      */
-    onlyCategories: [
-      'performance',
-      'accessibility',
-      'best-practices',
-      'seo'
-    ],
+    onlyCategories: qualityCategories,
 
     /**
      * clearStorage

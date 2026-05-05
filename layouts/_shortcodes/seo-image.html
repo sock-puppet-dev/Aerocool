@@ -63,14 +63,15 @@
   {{- end -}}
 {{- end -}}
 {{- $srcset = $srcset | append (printf "%s %dw" $rendered.RelPermalink $rendered.Width) -}}
+{{- $srcsetAttr := delimit $srcset ", " -}}
 
 {{- if $preload }}
 <link
   rel="preload"
   as="image"
   href="{{ $rendered.RelPermalink }}"
-  imagesrcset="{{ delimit $srcset ", " }}"
-  {{ with $sizes }}imagesizes="{{ . }}"{{ end }}
+  {{ printf "imagesrcset=%q" $srcsetAttr | safeHTMLAttr }}
+  {{ with $sizes }}{{ printf "imagesizes=%q" . | safeHTMLAttr }}{{ end }}
 >
 {{- end }}
 
@@ -78,7 +79,7 @@
   <img
     src="{{ $rendered.RelPermalink }}"
     {{ with $sizes }}sizes="{{ . }}"{{ end }}
-    srcset="{{ delimit $srcset ", " }}"
+    srcset="{{ $srcsetAttr }}"
     width="{{ $rendered.Width }}"
     height="{{ $rendered.Height }}"
     alt="{{ $alt }}"

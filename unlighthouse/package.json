@@ -6,12 +6,20 @@
   "type": "module",
   "scripts": {
     "audit": "unlighthouse --config-file unlighthouse.production.config.ts",
+    "audit:ci": "unlighthouse-ci --config-file unlighthouse.production.config.ts --reporter jsonExpanded --build-static true && npm run check:reports -- reports/production",
     "audit:mobile": "unlighthouse --config-file unlighthouse.mobile.config.ts",
     "audit:desktop": "unlighthouse --config-file unlighthouse.desktop.config.ts",
     "audit:strict": "unlighthouse --config-file unlighthouse.strict.config.ts",
+    "audit:ci:strict": "unlighthouse-ci --config-file unlighthouse.strict.config.ts --reporter jsonExpanded --build-static true && npm run check:reports -- reports/strict",
     "audit:preview": "unlighthouse --config-file unlighthouse.preview.config.ts",
+    "audit:ci:preview": "unlighthouse-ci --config-file unlighthouse.preview.config.ts --reporter jsonExpanded --build-static true && npm run check:reports -- reports/preview",
+    "audit:technical": "unlighthouse --config-file unlighthouse.technical.config.ts",
+    "audit:ci:technical": "unlighthouse-ci --config-file unlighthouse.technical.config.ts --reporter jsonExpanded --build-static true && npm run check:reports -- reports/technical-noindex",
     "audit:urls": "unlighthouse --config-file unlighthouse.urls.config.ts",
-    "audit:debug": "unlighthouse --config-file unlighthouse.production.config.ts --debug"
+    "audit:ci:urls": "unlighthouse-ci --config-file unlighthouse.urls.config.ts --reporter jsonExpanded --build-static true && npm run check:reports -- reports/critical-urls",
+    "audit:debug": "unlighthouse --config-file unlighthouse.production.config.ts --debug",
+    "check:reports": "node scripts/validate-reports.mjs",
+    "check:types": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/node": "^25.6.0",

@@ -1,4 +1,5 @@
 import { defineUnlighthouseConfig } from 'unlighthouse/config'
+import { cleanPuppeteerOptions, qualityCategories } from './unlighthouse.shared.ts'
 
 /**
  * Unlighthouse Production Config
@@ -42,6 +43,8 @@ export default defineUnlighthouseConfig({
    * а не от обычного пользователя или бота.
    */
   userAgent: 'Aerocool-Unlighthouse-Audit/1.0',
+
+  puppeteerOptions: cleanPuppeteerOptions,
 
   scanner: {
     /**
@@ -142,12 +145,7 @@ export default defineUnlighthouseConfig({
     /**
      * Основные категории аудита.
      */
-    onlyCategories: [
-      'performance',
-      'accessibility',
-      'best-practices',
-      'seo'
-    ],
+    onlyCategories: qualityCategories,
 
     /**
      * Очищаем storage перед запуском.

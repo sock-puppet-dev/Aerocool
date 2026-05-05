@@ -1,6 +1,6 @@
 {{- $isRu := eq .Page.Language.Lang "ru" -}}
 <div class="home-hero relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
-  <div class="absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
+  <div class="absolute inset-0 -z-10 hidden overflow-hidden md:block" aria-hidden="true">
     <svg class="absolute top-0 left-[max(50%,25rem)] h-256 w-512 -translate-x-1/2 mask-[radial-gradient(64rem_64rem_at_top,white,transparent)] stroke-gray-200">
       <defs>
         <pattern id="home-content-grid-pattern" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
@@ -22,7 +22,7 @@
             {{- if $isRu -}}Официальный каталог Aerocool в Украине{{- else -}}Офіційний каталог Aerocool в Україні{{- end -}}
           </p>
 
-          <h1 class="home-hero__title mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
+          <h1 class="home-hero__title mt-2 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
             {{- if $isRu -}}
               Эргономичные игровые, офисные и компьютерные кресла для ежедневного комфорта
             {{- else -}}

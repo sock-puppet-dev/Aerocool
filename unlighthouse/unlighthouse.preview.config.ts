@@ -1,4 +1,5 @@
 import { defineUnlighthouseConfig } from 'unlighthouse/config'
+import { cleanPuppeteerOptions, getRequiredPreviewSite, qualityCategories } from './unlighthouse.shared.ts'
 
 /**
  * Unlighthouse Preview Config
@@ -10,7 +11,7 @@ import { defineUnlighthouseConfig } from 'unlighthouse/config'
  * 1. сделал изменения в Hugo;
  * 2. push в GitHub;
  * 3. Netlify создал Deploy Preview;
- * 4. вставил preview URL сюда;
+ * 4. передал preview URL через UNLIGHTHOUSE_PREVIEW_URL;
  * 5. запустил npm run audit:preview;
  * 6. проверил качество;
  * 7. только потом merge/deploy в production.
@@ -20,17 +21,10 @@ import { defineUnlighthouseConfig } from 'unlighthouse/config'
  */
 
 /**
- * previewSite
- * ------------------------------------------------------------
- * СЮДА вставляешь актуальный Netlify Deploy Preview URL.
- *
- * Пример:
- * const previewSite = 'https://deploy-preview-123--hugo-aerocool.netlify.app'
- *
- * Важно:
- * Это должен быть полный URL с https://
+ * previewSite берется только из UNLIGHTHOUSE_PREVIEW_URL.
+ * Так в конфиге не остается случайного старого deploy-preview URL.
  */
-const previewSite = 'https://deploy-preview-123--hugo-aerocool.netlify.app'
+const previewSite = getRequiredPreviewSite()
 
 export default defineUnlighthouseConfig({
   /**
@@ -52,6 +46,8 @@ export default defineUnlighthouseConfig({
    * User-Agent для логов.
    */
   userAgent: 'Aerocool-Unlighthouse-Preview-Audit/1.0',
+
+  puppeteerOptions: cleanPuppeteerOptions,
 
   scanner: {
     /**
@@ -141,12 +137,7 @@ export default defineUnlighthouseConfig({
     /**
      * Основные категории.
      */
-    onlyCategories: [
-      'performance',
-      'accessibility',
-      'best-practices',
-      'seo'
-    ],
+    onlyCategories: qualityCategories,
 
     /**
      * Чистый запуск.

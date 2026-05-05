@@ -1,4 +1,5 @@
 import { defineUnlighthouseConfig } from 'unlighthouse/config'
+import { cleanPuppeteerOptions, qualityCategories } from './unlighthouse.shared.ts'
 
 /**
  * Unlighthouse Desktop Config
@@ -32,6 +33,8 @@ export default defineUnlighthouseConfig({
    * Выключаем кэш, чтобы каждый запуск был свежим.
    */
   cache: false,
+
+  puppeteerOptions: cleanPuppeteerOptions,
 
   scanner: {
     /**
@@ -117,12 +120,7 @@ export default defineUnlighthouseConfig({
     /**
      * Проверяем основные категории качества.
      */
-    onlyCategories: [
-      'performance',
-      'accessibility',
-      'best-practices',
-      'seo'
-    ],
+    onlyCategories: qualityCategories,
 
     /**
      * Чистый запуск без старого storage.

@@ -47,10 +47,37 @@
 <link rel="canonical" href="{{ if .Params.canonicalURL -}} {{ trim .Params.canonicalURL " " }} {{- else -}} {{ $pagePermalink }} {{- end }}">
 {{- end }}
 
-<!-- SEO Partials: JSON-LD, Open Graph, Twitter Cards -->
-{{- if and (not $is404) (ne .Layout "search") }}
-{{ partial "_seo/jsonld.html" . }}
+<!-- CSS: keep stylesheet discovery before JSON-LD and social metadata for faster first paint -->
+{{- $includes := slice (" " | resources.FromString "assets/css/includes-blank.css") }}
+{{- if not (eq site.Params.assets.disableScrollBarStyle true) }}
+    {{- $ScrollStyle := resources.Get "css/includes/scroll-bar.css" }}
+    {{- $includes = (append $ScrollStyle $includes) }}
 {{- end }}
+{{- $includes_all := $includes | resources.Concat "assets/css/includes.css" }}
+{{- $theme_vars := resources.Get "css/core/theme-vars.css" }}
+{{- $reset := resources.Get "css/core/reset.css" }}
+{{- $media := resources.Get "css/core/zmedia.css" }}
+{{- $license_css := resources.Get "css/core/license.css" }}
+{{- $common := (resources.Match "css/common/*.css") | resources.Concat "assets/css/common.css" }}
+{{- $chroma_styles := resources.Get "css/includes/chroma-styles.css" }}
+{{- $chroma_mod := resources.Get "css/includes/chroma-mod.css" }}
+{{- $core := (slice $theme_vars $reset $common $chroma_styles $chroma_mod $includes_all $media) | resources.Concat "assets/css/core.css" | resources.Minify }}
+{{- $extended := (resources.Match "css/extended/*.css") | resources.Concat "assets/css/extended.css" | resources.Minify }}
+{{- $stylesheet := (slice $license_css $core $extended) | resources.Concat "assets/css/stylesheet.css" }}
+{{- if not site.Params.assets.disableFingerprinting }}
+    {{- $stylesheet := $stylesheet | fingerprint }}
+    <link crossorigin="anonymous" href="{{ $stylesheet.RelPermalink }}" integrity="{{ $stylesheet.Data.Integrity }}" rel="preload stylesheet" as="style">
+{{- else }}
+    <link crossorigin="anonymous" href="{{ $stylesheet.RelPermalink }}" rel="preload stylesheet" as="style">
+{{- end }}
+
+{{- /* templates.Defer откладывает генерацию CSS до момента, когда все шаблоны будут обработаны.
+     Это гарантирует, что Tailwind увидит ВСЕ классы, использованные на сайте. */ -}}
+{{- with (templates.Defer (dict "key" "global")) }}
+    {{ partial "css.html" . }}
+{{- end }}
+
+<!-- SEO Partials: Open Graph and Twitter Cards. JSON-LD is emitted near the end of body. -->
 {{- if not $is404 }}
 {{ partial "_seo/opengraph.html" . }}
 {{ partial "_seo/twitter_cards.html" . }}
@@ -78,36 +105,6 @@
 <link rel="icon" type="image/png" sizes="16x16" href="{{ site.Params.assets.favicon16x16 | default "favicon-16x16.png" | absURL }}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ site.Params.assets.favicon32x32 | default "favicon-32x32.png" | absURL }}">
 <link rel="mask-icon" href="{{ site.Params.assets.safari_pinned_tab | default "safari-pinned-tab.svg" | absURL }}">
-
-<!-- CSS -->
-{{- $includes := slice (" " | resources.FromString "assets/css/includes-blank.css") }}
-{{- if not (eq site.Params.assets.disableScrollBarStyle true) }}
-    {{- $ScrollStyle := resources.Get "css/includes/scroll-bar.css" }}
-    {{- $includes = (append $ScrollStyle $includes) }}
-{{- end }}
-{{- $includes_all := $includes | resources.Concat "assets/css/includes.css" }}
-{{- $theme_vars := resources.Get "css/core/theme-vars.css" }}
-{{- $reset := resources.Get "css/core/reset.css" }}
-{{- $media := resources.Get "css/core/zmedia.css" }}
-{{- $license_css := resources.Get "css/core/license.css" }}
-{{- $common := (resources.Match "css/common/*.css") | resources.Concat "assets/css/common.css" }}
-{{- $chroma_styles := resources.Get "css/includes/chroma-styles.css" }}
-{{- $chroma_mod := resources.Get "css/includes/chroma-mod.css" }}
-{{- $core := (slice $theme_vars $reset $common $chroma_styles $chroma_mod $includes_all $media) | resources.Concat "assets/css/core.css" | resources.Minify }}
-{{- $extended := (resources.Match "css/extended/*.css") | resources.Concat "assets/css/extended.css" | resources.Minify }}
-{{- $stylesheet := (slice $license_css $core $extended) | resources.Concat "assets/css/stylesheet.css" }}
-{{- if not site.Params.assets.disableFingerprinting }}
-    {{- $stylesheet := $stylesheet | fingerprint }}
-    <link crossorigin="anonymous" href="{{ $stylesheet.RelPermalink }}" integrity="{{ $stylesheet.Data.Integrity }}" rel="preload stylesheet" as="style">
-{{- else }}
-    <link crossorigin="anonymous" href="{{ $stylesheet.RelPermalink }}" rel="preload stylesheet" as="style">
-{{- end }}
-
-{{- /* templates.Defer откладывает генерацию CSS до момента, когда все шаблоны будут обработаны.
-       Это гарантирует, что Tailwind увидит ВСЕ классы, использованные на сайте. */ -}}
-{{- with (templates.Defer (dict "key" "global")) }}
-    {{ partial "css.html" . }}
-{{- end }}
 
 <!-- Search page JS -->
 {{- if eq .Layout "search" -}}

@@ -1,4 +1,5 @@
 import { defineUnlighthouseConfig } from 'unlighthouse/config'
+import { cleanPuppeteerOptions, qualityCategories } from './unlighthouse.shared.ts'
 
 /**
  * Unlighthouse Critical URLs Config
@@ -14,7 +15,6 @@ import { defineUnlighthouseConfig } from 'unlighthouse/config'
  * - статьи;
  * - FAQ;
  * - контакты;
- * - 404.
  *
  * Когда использовать:
  * - после небольшого изменения CSS;
@@ -43,6 +43,8 @@ export default defineUnlighthouseConfig({
    * Без кэша.
    */
   cache: false,
+
+  puppeteerOptions: cleanPuppeteerOptions,
 
   /**
    * urls
@@ -149,12 +151,10 @@ export default defineUnlighthouseConfig({
     'https://aerocool.ua/ru/articles/racer-vs-loft-air-vs-mesh/',
 
     /**
-     * 404 страница.
-     *
-     * Важно:
-     * Если /404.html доступна как статический файл, её можно проверять.
+     * Технические noindex-страницы проверяются отдельным конфигом
+     * unlighthouse.technical.config.ts, чтобы SEO budget 100 оставался
+     * честным для индексируемых URL.
      */
-    'https://aerocool.ua/404.html'
   ],
 
   scanner: {
@@ -205,12 +205,7 @@ export default defineUnlighthouseConfig({
     /**
      * Главные категории Lighthouse.
      */
-    onlyCategories: [
-      'performance',
-      'accessibility',
-      'best-practices',
-      'seo'
-    ],
+    onlyCategories: qualityCategories,
 
     /**
      * Чистый запуск.

@@ -1,0 +1,68 @@
+{{- with .cxt }}
+{{- if and .Params.cover.image (not $.isHidden) }}
+<figure class="entry-cover">
+    {{- $loading := cond $.IsSingle "eager" "lazy" }}
+    {{- $fetchpriority := cond $.IsSingle "high" "auto" }}
+    {{- $addLink := and site.Params.cover.linkFullImages $.IsSingle }}
+    {{- $alt := (.Params.cover.alt | default .Params.cover.caption | plainify) }}
+    {{- $responsiveImages := (.Params.cover.responsiveImages | default site.Params.cover.responsiveImages) | default true }}
+
+    {{- $pageBundleCover := (.Resources.ByType "image").GetMatch (printf "*%s*" .Params.cover.image) }}
+    {{- $globalResourcesCover := (resources.ByType "image").GetMatch (printf "*%s*" .Params.cover.image) }}
+    {{- $cover := or $pageBundleCover $globalResourcesCover }}
+
+    {{- $processableFormats := slice "jpg" "jpeg" "png" "webp" }}
+    {{- $imgdl := .Params.cover.image | absURL }}
+    {{- if $cover }}
+        {{- $imgdl = $cover.Permalink }}
+    {{- end }}
+
+    {{- if $addLink }}
+        <a href="{{ $imgdl }}" target="_blank" rel="noopener noreferrer">
+    {{- end }}
+
+    {{- if and $cover $responsiveImages (in $processableFormats $cover.MediaType.SubType) }}
+        {{- $fallbackWidth := cond $.IsSingle 1080 720 }}
+        {{- if lt $cover.Width $fallbackWidth }}
+            {{- $fallbackWidth = $cover.Width }}
+        {{- end }}
+        {{- $fallback := $cover.Resize (printf "%dx webp q82" $fallbackWidth) }}
+        {{- $candidateWidths := slice 360 480 720 1080 1500 }}
+        {{- $srcset := slice }}
+        {{- range $candidateWidths }}
+            {{- if le . $cover.Width }}
+                {{- $variant := $cover.Resize (printf "%dx webp q82" .) }}
+                {{- $srcset = $srcset | append (printf "%s %dw" $variant.RelPermalink $variant.Width) }}
+            {{- end }}
+        {{- end }}
+        {{- if not (in $candidateWidths $fallback.Width) }}
+            {{- $srcset = $srcset | append (printf "%s %dw" $fallback.RelPermalink $fallback.Width) }}
+        {{- end }}
+        {{- $sizes := cond $.IsSingle "(min-width: 768px) 720px, 100vw" "(min-width: 768px) 360px, 100vw" }}
+        <img
+            loading="{{ $loading }}"
+            decoding="async"
+            fetchpriority="{{ $fetchpriority }}"
+            src="{{ $fallback.RelPermalink }}"
+            srcset="{{ delimit $srcset ", " }}"
+            sizes="{{ $sizes }}"
+            width="{{ $fallback.Width }}"
+            height="{{ $fallback.Height }}"
+            alt="{{ $alt }}"
+            style="aspect-ratio: {{ $fallback.Width }} / {{ $fallback.Height }};">
+    {{- else }}
+        <img loading="{{ $loading }}" decoding="async" fetchpriority="{{ $fetchpriority }}" src="{{ $imgdl }}" alt="{{ $alt }}">
+    {{- end }}
+
+    {{- if $addLink }}
+        </a>
+    {{- end }}
+
+    {{- if $.IsSingle }}
+        {{- with .Params.cover.caption }}
+            <figcaption>{{ . | markdownify }}</figcaption>
+        {{- end }}
+    {{- end }}
+</figure>
+{{- end }}
+{{- end }}

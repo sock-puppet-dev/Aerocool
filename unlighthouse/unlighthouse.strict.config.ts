@@ -1,4 +1,5 @@
 import { defineUnlighthouseConfig } from 'unlighthouse/config'
+import { cleanPuppeteerOptions, qualityCategories } from './unlighthouse.shared.ts'
 
 /**
  * Unlighthouse Strict Config
@@ -45,6 +46,8 @@ export default defineUnlighthouseConfig({
    * или запускать npm run audit:debug.
    */
   debug: false,
+
+  puppeteerOptions: cleanPuppeteerOptions,
 
   scanner: {
     /**
@@ -141,12 +144,7 @@ export default defineUnlighthouseConfig({
     /**
      * Проверяем все основные категории.
      */
-    onlyCategories: [
-      'performance',
-      'accessibility',
-      'best-practices',
-      'seo'
-    ],
+    onlyCategories: qualityCategories,
 
     /**
      * Чистый запуск.

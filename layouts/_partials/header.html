@@ -56,7 +56,8 @@
         {{- if $logo_src }}
         <img
           src="{{ $logo_src }}"
-          alt="{{ site.Title }}"
+          alt=""
+          aria-hidden="true"
           style="{{ $logo_style | safeCSS }}"
           decoding="async"
         >
@@ -235,13 +236,14 @@
 
         <!-- Header панели -->
         <div class="flex items-center justify-between">
-          <a href="{{ "" | absLangURL }}">
+          <a href="{{ "" | absLangURL }}" aria-label="{{ site.Title }}">
             {{- if $logo_src }}
             <img
               src="{{ $logo_src }}"
               style="{{ $logo_style | safeCSS }}"
               decoding="async"
-              alt="{{ site.Title }}"
+              alt=""
+              aria-hidden="true"
             >
             {{- else }}
             <span class="sr-only">{{ site.Title }}</span>
@@ -259,7 +261,7 @@
           {{- range site.Menus.main }}
           <a
             href="{{ .URL | absLangURL }}"
-            onclick="document.getElementById('nav-toggle').checked=false"
+            data-nav-close
             class="block px-3 py-2 text-lg font-semibold hover:bg-gray-50"
           >
             <!-- При клике закрываем меню -->
