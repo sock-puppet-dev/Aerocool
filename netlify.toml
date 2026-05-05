@@ -3,13 +3,13 @@
 [build]
   publish = "public"
   # Папка с результатом сборки Hugo
-  command = "git submodule update --init --recursive && hugo --environment production --gc --minify"
+  command = "git submodule update --init --recursive && hugo --environment development --gc --minify"
   # 1) Обновляем git-подмодули 2) Собираем сайт Hugo с очисткой кэша и минификацией
 
 [build.environment]
   HUGO_VERSION = "0.161.0"
   # Версия Hugo
-  HUGO_ENVIRONMENT = "production"
+  HUGO_ENVIRONMENT = "development"
   # Боевой режим Hugo: индексируемые страницы получают index,follow
   TZ = "Europe/Kyiv"
   # Часовой пояс
