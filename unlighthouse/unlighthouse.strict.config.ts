@@ -147,7 +147,7 @@ export default defineUnlighthouseConfig({
     onlyCategories: qualityCategories,
 
     /**
-     * Чистый запуск.
+     * Чистый запуск: Lighthouse по умолчанию сбрасывает storage.
      */
   },
 

@@ -1,7 +1,7 @@
 # Hugo v0.161.0 compliance audit
 
 Дата аудита: 2026-04-29  
-Актуализировано: 2026-04-30
+Актуализировано: 2026-05-05
 Проект: Aerocool Ukraine  
 Проверяемая версия: Hugo `v0.161.0`  
 Локальная связка проверки: Hugo `v0.161.0`, Node `v24.15.0`
@@ -10,9 +10,11 @@
 
 Проект технически совместим с Hugo `0.161.0`.
 
-Сборка на Hugo `0.161.0` и Node `24` в текущем окружении `development` проходит без ошибок, с `--printI18nWarnings` без предупреждений, без path warnings и без предупреждений по deprecated language API. На актуальной проверке собрано `50` страниц UK, `48` страниц RU, по `7` paginator pages на язык и `154` processed images. Самое важное изменение `0.161.0` - запуск Node-инструментов Hugo через Node `--permission` - на проект не ломает сборку: Tailwind установлен как npm-пакет, `css.TailwindCSS` работает, Node версии `>= 22` доступен.
+Сборка на Hugo `0.161.0` и Node `24` в текущем окружении `development` проходит без ошибок, с `--printI18nWarnings` без предупреждений, без path warnings и без предупреждений по deprecated language API. На актуальной проверке собрано `50` страниц UK, `48` страниц RU, по `7` paginator pages на язык и `296` processed images. Самое важное изменение `0.161.0` - запуск Node-инструментов Hugo через Node `--permission` - на проект не ломает сборку: Tailwind установлен как npm-пакет, `css.TailwindCSS` работает, Node версии `>= 22` доступен.
 
-Переход на Hugo `0.161.0` можно считать безопасным по совместимости: pinned-версии в `.mise.toml` и `netlify.toml` переведены на Hugo `0.161.0`. Окружение сборки временно оставлено `development`; production-режим включать только после финальной проверки.
+Переход на Hugo `0.161.0` можно считать безопасным по совместимости: pinned-версии в `mise.toml` и `netlify.toml` переведены на Hugo `0.161.0`. Окружение сборки временно оставлено `development`; production-режим включать только после финальной проверки.
+
+Простыми словами для новичка: этот аудит подтверждает, что текущая версия Hugo подходит проекту, Tailwind собирается штатно, локальные overrides работают, а временный `development/noindex` режим является осознанной настройкой, а не поломкой.
 
 ## Источники документации Hugo
 
@@ -100,7 +102,7 @@ allowworker = ['tailwindcss']
 Проверка локальных шаблонов:
 
 - Deprecated `.Language.Lang`, `.Language.LanguageCode`, `.Language.LanguageDirection`, `.Language.LanguageName` в локальных `layouts/` не найдены.
-- Старый `.Page.Lang` в `layouts/_shortcodes/contact.html` заменен на `.Page.Language.Name`.
+- Старые обращения к language API в `layouts/_shortcodes/contact.html`, `layouts/_shortcodes/home-hero.html` и `layouts/404.html` заменены на `.Page.Language.Name` / `.Site.Language.Name`.
 - `layouts/baseof.html` использует `.Language.Direction`.
 - `layouts/_partials/page-language.html` использует `.Language.Locale` с fallback на `.Language.Name`.
 - `layouts/rss.xml` использует `site.Language.Locale | default site.Language.Name`.
@@ -216,7 +218,7 @@ allowworker = ['tailwindcss']
 Текущее состояние:
 
 - `netlify.toml` закрепляет `HUGO_VERSION = "0.161.0"`.
-- `.mise.toml` закрепляет `hugo = "0.161.0"`.
+- `mise.toml` закрепляет `hugo = "0.161.0"`.
 - `NODE_VERSION = "24"` соответствует требованиям Hugo `0.161.0`.
 - Build command: `git submodule update --init --recursive && hugo --environment development --gc --minify`.
 - `HUGO_ENVIRONMENT = "development"` оставляет сборку во временном development-режиме.
@@ -246,11 +248,11 @@ git diff --check
 - Node version: `v24.15.0`.
 - Development-environment build: success.
 - `npm run build`: success.
-- Pages: `48` UK, `46` RU.
-- Paginator pages: `6` UK, `6` RU.
-- Non-page files: `36` UK.
-- Static files: `16` UK, `16` RU.
-- Processed images: `144` UK.
+- Pages: `50` UK, `48` RU.
+- Paginator pages: `7` UK, `7` RU.
+- Non-page files: `38` UK.
+- Static files: `19` UK, `19` RU.
+- Processed images: `296`.
 - Aliases: `8` UK, `7` RU.
 - I18n warnings: none.
 - Path warnings: none.
@@ -264,7 +266,7 @@ git diff --check
 
 Files:
 
-- `.mise.toml:2`
+- `mise.toml:2`
 - `netlify.toml:10`
 
 Current values:
@@ -321,7 +323,7 @@ Files in `themes/PaperMod/layouts/` still reference deprecated language fields. 
 
 ## Current Hugo 0.161.0 checklist
 
-1. Expected `.mise.toml`:
+1. Expected `mise.toml`:
 
 ```toml
 [tools]

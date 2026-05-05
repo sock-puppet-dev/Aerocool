@@ -1,4 +1,4 @@
-# GUIDE to helpers
+# Hugo Template Helpers Guide
 
 ## Зачем Нужен Этот Гайд
 
@@ -88,12 +88,12 @@
    - `page-description.html`
    - `_seo/opengraph.html`
    - `_seo/twitter_cards.html`
-   - `_seo/jsonld.html`
 4. В теле страницы рендерятся:
    - `header.html`
    - основной контент
    - `footer.html`
-5. В `jsonld.html` собирается `@graph` из schema helpers:
+5. В `footer.html` после основного контента вызывается `_seo/jsonld.html`, чтобы JSON-LD не задерживал первый экран.
+6. В `jsonld.html` собирается `@graph` из schema helpers:
    - `website.html`
    - `webpage.html`
    - `about-page.html`
@@ -165,7 +165,7 @@
 - если в front matter задан `h1`, берем его;
 - если `h1` не задан, берем `title`.
 - Для большинства страниц проекта это и есть основной источник видимого `H1`.
-- Текущее исключение — главная страница: ее hero и видимый `H1` сейчас живут в [home-hero.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero.html) и [home-hero-ru.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero-ru.html).
+- Текущее исключение — главная страница: ее hero и видимый `H1` сейчас живут в едином [home-hero.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero.html), который сам переключает украинский/русский текст по языку страницы.
 
 Когда идти сюда:
 
@@ -276,7 +276,6 @@
   - `<title>`
   - `description`
   - `canonical`
-  - JSON-LD
   - Open Graph
   - Twitter Cards
   - favicon
@@ -321,6 +320,7 @@
 - рендерит footer;
 - подключает footer-links;
 - рендерит copyright;
+- выводит JSON-LD через `_seo/jsonld.html` для обычных страниц;
 - регистрирует клиентские скрипты;
 - подключает scroll-to-top и другие client-side сценарии.
 
@@ -425,8 +425,14 @@
 
 Что делает:
 
-- это точка расширения footer-слоя;
-- обычно используется, когда нужно безопасно вставить дополнительную логику без переписывания основного footer.
+- сейчас не добавляет видимый HTML и не содержит скриптов;
+- оставлен как безопасная точка расширения footer-слоя;
+- содержит комментарий, что поведение footer живет в `assets/js/site.js`.
+
+Важно:
+
+- не возвращать сюда inline scripts без отдельной причины;
+- клиентское поведение сайта сейчас нужно менять в [assets/js/site.js](/Users/stadnyk/MEGA/Aerocool/assets/js/site.js).
 
 ### `script-theme.html`
 
@@ -504,7 +510,7 @@
   - `BreadcrumbList`
 
 Это главный entrypoint для всего schema-слоя.
-Для страниц с `layout: "search"` `head.html` не вызывает `jsonld.html`, поэтому JSON-LD там не рендерится.
+Для страниц с `layout: "search"` `footer.html` не вызывает `jsonld.html`, поэтому JSON-LD там не рендерится.
 Для главной страницы `BreadcrumbList` не рендерится, потому что одноэлементные breadcrumbs на home не дают полезной структуры.
 Техническая валидность графа не отменяет Google quality rules: значения, которые попадают в JSON-LD, должны соответствовать видимому контенту страницы.
 
@@ -678,7 +684,7 @@
 - неправильный `<title>` -> [page-title.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-title.html)
 - плохой `description` -> [page-description.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-description.html)
 - странный `H1` на большинстве страниц -> [page-h1.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-h1.html)
-- странный `H1` или hero на главной -> [home-hero.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero.html), [home-hero-ru.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero-ru.html)
+- странный `H1` или hero на главной -> [home-hero.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero.html)
 - проблема с видимым FAQ на `/faq/` -> [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html) и [faq-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq-list.html)
 - нет редакционного trust-блока на статье или новости -> [editorial-note.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/editorial-note.html) и вызов в [single.html](/Users/stadnyk/MEGA/Aerocool/layouts/single.html)
 - не та картинка в соцсетях -> [page-image.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-image.html), [opengraph.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/opengraph.html), [twitter_cards.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/twitter_cards.html)

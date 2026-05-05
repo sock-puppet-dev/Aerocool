@@ -123,7 +123,8 @@ export default defineUnlighthouseConfig({
     onlyCategories: qualityCategories,
 
     /**
-     * Чистый запуск без старого storage.
+     * Lighthouse по умолчанию запускается без старого storage.
+     * Мы не отключаем этот сброс.
      */
   },
 

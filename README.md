@@ -1,92 +1,343 @@
-# Aerocool
+# Aerocool Ukraine
 
-Маркетинговый и каталоговый сайт `Aerocool Ukraine` на `Hugo` с двуязычной архитектурой `uk` + `ru`, SEO-ориентированным контентом и каталогом кресел серий `SKY`, `WING` и `XTAL`.
+Обновлено: 2026-05-06.
 
-## Стек
+`Aerocool Ukraine` — двуязычный маркетинговый и каталоговый сайт на `Hugo` для кресел Aerocool в Украине. Основной язык — украинский (`uk`), второй язык — русский (`ru`). Сайт собирается статически, деплоится через `Netlify`, использует локальные Hugo overrides поверх темы `PaperMod` и отдельный Unlighthouse-набор для технического аудита качества.
+
+Если ты открыл проект впервые, читай так:
+
+1. Этот `README.md` — общая карта проекта.
+2. `AGENTS.md` — правила, как безопасно менять проект.
+3. `docs/README.md` — оглавление всей документации.
+4. `docs/content/front-matter-reference.md` — какие поля писать в `content/**/*.md`.
+5. `docs/architecture/hugo-template-helpers.md` — какие шаблоны за что отвечают.
+6. `docs/quality/unlighthouse-site-audit.md` — как проверять качество сайта после правок.
+
+Проще говоря: `content/` отвечает за текст и данные страниц, `layouts/` отвечает за HTML/SEO/schema-логику, `assets/` отвечает за CSS/JS, а `unlighthouse/` отвечает за аудит качества.
+
+## 1. Главная идея проекта
+
+Проект должен решать три задачи:
+
+1. Быстро и корректно показывать каталог кресел Aerocool.
+2. Давать поисковикам чистую структуру: canonical, hreflang, sitemap, schema.org, robots meta.
+3. Поддерживать SEO-контент под брендовые и коммерческие запросы: `игровое кресло`, `офисное кресло`, `компьютерное кресло`, `кресло для работы`, `home office`.
+
+## 2. Стек
 
 - `Hugo 0.161.0`
 - `Node 24`
-- `PaperMod` как git-подмодуль
 - `Tailwind CSS 4`
-- `Netlify` для развертывания
+- `themes/PaperMod` как git-подмодуль
+- `Netlify` для сборки и публикации
+- `Unlighthouse` для массового Lighthouse-аудита
 
-## Структура Проекта
+Локальные версии инструментов фиксируются в `mise.toml`. В Netlify версии фиксируются в `netlify.toml`.
 
-- `content/` — весь контент сайта
-- `content/_index.md` и `content/_index.ru.md` — локализованные главные страницы
-- `content/products/` — каталог, серии и карточки товаров
-- `content/articles/` — постоянно актуальные статьи и материалы со сравнениями
-- `content/news/` — новости, анонсы и материалы о запусках
-- `content/about`, `content/contact`, `content/faq`, `content/search*` — статичные и служебные страницы
-- `layouts/` — локальные Hugo-переопределения
-- `assets/css/main.css` — главный CSS-источник проекта: здесь живут Tailwind, локальные design tokens, белый page canvas, базовый текстовый слой и component-layer проекта
-- `static/` — статические файлы
-- `hugo.yaml` — глобальная конфигурация сайта
-- `netlify.toml` — сборка и заголовки ответа; сейчас окружение Hugo временно `development`
+Важно: в проекте сейчас есть файл `mise.toml`, а не `.mise.toml`. Если в старой заметке встретилось `.mise.toml`, это устаревшее имя.
 
-## Текущая Архитектура Шаблонов
+## 3. Важное про Netlify и production
 
-- Основной общий слой шаблонов живет в [layouts/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/single.html) и [layouts/list.html](/Users/stadnyk/MEGA/Aerocool/layouts/list.html).
-- Служебные страницы вынесены в отдельные верхнеуровневые шаблоны: [layouts/404.html](/Users/stadnyk/MEGA/Aerocool/layouts/404.html), [layouts/alias.html](/Users/stadnyk/MEGA/Aerocool/layouts/alias.html) и [layouts/search.html](/Users/stadnyk/MEGA/Aerocool/layouts/search.html).
-- RSS-шаблон находится в [layouts/rss.xml](/Users/stadnyk/MEGA/Aerocool/layouts/rss.xml).
-- Языковые sitemap-шаблоны вынесены в [layouts/sitemap.xml](/Users/stadnyk/MEGA/Aerocool/layouts/sitemap.xml), а корневой мультиязычный индекс — в [layouts/sitemapindex.xml](/Users/stadnyk/MEGA/Aerocool/layouts/sitemapindex.xml).
-- В проекте больше нет локальной папки `layouts/_default`; локальные overrides держим верхнеуровнево в `layouts/` или в профильных подпапках вроде `layouts/faq/`.
-- Локальные partial-шаблоны и shortcodes в проекте держим в формате `.html`, а не `.gohtml`.
-- Partial списка переводов называется [layouts/_partials/translation-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/translation-list.html); старое имя `translation_list.html` не использовать.
-- Для большинства страниц видимый `H1` принадлежит шаблонному слою и рендерится через `layouts/_partials/page-h1.html` по правилу `.Params.h1 | default .Title`.
-- Текущая главная страница — осознанное исключение: ее hero и видимый `H1` живут в [layouts/_shortcodes/home-hero.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero.html) и [layouts/_shortcodes/home-hero-ru.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero-ru.html).
-- Home hero использует namespaced CSS-хуки `home-hero__*`, а их визуальный слой живет в [assets/css/main.css](/Users/stadnyk/MEGA/Aerocool/assets/css/main.css).
-- В теле markdown не используем `# H1`; контент начинается с вводного абзаца или `##`.
+Сейчас `netlify.toml` намеренно собирает сайт в `development`:
 
-## Контентные Правила
+```toml
+command = "git submodule update --init --recursive && hugo --environment development --gc --minify"
+HUGO_ENVIRONMENT = "development"
+```
 
-- Основной язык — украинский (`index.md`), перевод — русский (`index.ru.md`).
-- Использовать только `schema_types`, не `schema_type`.
-- При необходимости можно задавать отдельный `h1` в метаданных страницы, если видимый заголовок должен быть короче или чище, чем SEO-заголовок `title`.
-- Evergreen-статьи в `content/articles` обычно целятся в `10000+` знаков тела на каждую языковую версию.
-- Новости в `content/news`, если они поддерживают органическую видимость, обычно целятся в `5000+` знаков тела на каждую языковую версию.
-- Контент должен покрывать не только брендовые запросы, но и широкие коммерческие кластеры: `игровое кресло`, `офисное кресло`, `компьютерное кресло`, `кресло для работы`, `home office`.
-- Технические обозначения, характеристики и поисковые фразы, которые в markdown оформляются как inline-code, пишем жирным code-стилем: ``**`11D`**``, ``**`SYNC5 multi-adjustable`**``. Это правило относится к `content/**/*.md`, а не к Hugo/JS-коду в `layouts/`.
-- Статьи и новости должны вести в каталог, серии, конкретные товары, FAQ и контакты.
+Это значит:
 
-## Изображения И SEO
+- HTML-страницы получают `noindex,nofollow`;
+- это безопасный режим для доработки сайта;
+- финальный SEO-аудит indexability нельзя считать полным, пока Netlify не переведен на `production`.
 
-- Для изображений внутри папки страницы (`page bundle` в терминологии Hugo) использовать shortcode `seo-image`.
-- Для карточек товаров текущий рабочий паттерн такой: `image` для SEO/OG/schema, `cover.image` для preview в листингах и `seo-image` в теле страницы для основного изображения.
-- Hero-изображение главной сейчас задается отдельно в локализованных home-shortcodes и не проходит через `seo-image`; для него держим локальный путь через `relURL`, `loading="eager"` и `fetchpriority="high"`.
-- JSON-LD для основного изображения собирается централизованно в общем `@graph`; `seo-image` больше не выводит отдельный `ImageObject`.
-- `search`, `404` и служебные alias-страницы — это служебные страницы, и они должны оставаться `noindex,nofollow`. Пока окружение Hugo временно `development`, все HTML-страницы тоже получают `noindex,nofollow`; `index,follow` вернется только после включения production-режима.
-- Корневой `sitemap.xml` в мультиязычной сборке является индексом карт сайта, а реальные списки URL лежат в `/uk/sitemap.xml` и `/ru/sitemap.xml`.
+Когда сайт готов к индексации, нужно отдельно поменять Netlify на:
 
-## Основные Команды
+```toml
+command = "git submodule update --init --recursive && hugo --environment production --gc --minify"
+HUGO_ENVIRONMENT = "production"
+```
+
+Локально production можно проверить командой:
+
+```bash
+npm run build:production
+```
+
+## 4. Почему нет GitHub Actions
+
+Основной pipeline проекта — `Netlify`. Он уже умеет:
+
+- забирать код из Git;
+- ставить зависимости;
+- собирать Hugo;
+- публиковать сайт;
+- создавать Deploy Preview.
+
+GitHub Actions workflow для Unlighthouse был лишним, если ты не хочешь отдельный CI-контур рядом с Netlify. Поэтому `.github/workflows/unlighthouse.yml` удален.
+
+Текущий правильный workflow такой:
+
+1. Локально или в ветке делаешь изменения.
+2. Netlify собирает Deploy Preview.
+3. Проверяешь сайт вручную или через Unlighthouse из папки `unlighthouse/`.
+4. После финального решения переводишь Netlify в `production`, если сайт должен индексироваться.
+
+## 5. Основная структура
+
+```text
+content/                 контент сайта
+content/products/        каталог, серии и варианты товаров
+content/articles/        evergreen-статьи
+content/news/            новости и запусковые материалы
+layouts/                 локальные Hugo-шаблоны и overrides
+layouts/_partials/       локальные partials
+layouts/_shortcodes/     локальные shortcodes
+assets/css/main.css      Tailwind CSS и локальный visual layer
+assets/js/site.js        общий внешний JS сайта без inline-скриптов
+static/                  статические файлы
+unlighthouse/            аудит Lighthouse/Unlighthouse
+hugo.yaml                конфигурация Hugo
+netlify.toml             сборка Netlify и HTTP headers
+mise.toml                локальные версии Hugo и Node для mise
+package.json             npm-команды корневого Hugo-проекта
+```
+
+Что не нужно редактировать вручную:
+
+- `public/` — результат сборки Hugo;
+- `resources/` — временные Hugo-кэши;
+- `node_modules/` — установленные npm-пакеты;
+- `unlighthouse/reports/` — временные отчеты аудита.
+
+Если нужно изменить страницу, почти всегда начинай с `content/`, `layouts/` или `assets/`, а не с `public/`.
+
+## 6. Контент и языки
+
+Текущий паттерн локализации:
+
+```text
+index.md      украинская версия
+index.ru.md   русская версия
+```
+
+Это относится к статьям, новостям, страницам товаров и статичным страницам. Украинская и русская версии должны оставаться синхронными, если задача явно не ограничена одним языком.
+
+В `content/**/*.md` не добавляем markdown `# H1`. Видимый H1 обычно рендерится шаблоном через `layouts/_partials/page-h1.html`, а тело страницы начинается с вводного абзаца или `##`.
+
+Во front matter использовать `schema_types`, не `schema_type`.
+
+## 7. Шаблоны
+
+Главные локальные шаблоны:
+
+- `layouts/baseof.html` — общий HTML-каркас.
+- `layouts/_partials/head.html` — meta, canonical, OG/Twitter, CSS, search JS.
+- `layouts/_partials/header.html` — шапка, логотип, меню, переключатель языка.
+- `layouts/_partials/footer.html` — footer, JSON-LD внизу body, внешний `site.js`.
+- `layouts/single.html` — одиночные страницы.
+- `layouts/list.html` — листинги.
+- `layouts/404.html`, `layouts/search.html`, `layouts/alias.html` — служебные страницы.
+- `layouts/sitemap.xml` и `layouts/sitemapindex.xml` — мультиязычные sitemap-файлы.
+
+Локальные изменения делаем в `layouts/`, а не в `themes/PaperMod`, чтобы тема оставалась обновляемым подмодулем.
+
+## 8. Что делает `layouts/_partials/cover.html`
+
+`layouts/_partials/cover.html` — это локальный override стандартного PaperMod cover partial.
+
+Он нужен для `cover.image` в front matter:
+
+```yaml
+cover:
+  image: "01-front.png"
+  alt: "Описательное alt на языке страницы"
+```
+
+Что делает override:
+
+- ищет картинку в page bundle рядом с `index.md` / `index.ru.md`;
+- если может обработать изображение, генерирует WebP-версии;
+- выводит `srcset` и `sizes`;
+- добавляет `width` и `height`, чтобы не было CLS;
+- для одиночной страницы ставит `loading="eager"` и `fetchpriority="high"`;
+- для карточек в списках ставит `loading="lazy"`;
+- предотвращает старую проблему с пустым `src=""` в листингах.
+
+Когда его трогать:
+
+- если меняется логика cover-картинок;
+- если меняются размеры карточек в списках;
+- если Lighthouse снова показывает `unsized images`, `empty src` или проблемы image delivery.
+
+Когда не трогать:
+
+- при обычном добавлении товара, статьи или новости. Там достаточно правильно заполнить `cover.image` и `cover.alt`.
+
+## 9. Изображения
+
+Есть два разных сценария:
+
+1. `seo-image` — изображение внутри тела страницы.
+2. `cover.image` — обложка для листингов и одиночной страницы.
+
+Для контентного изображения в markdown использовать shortcode:
+
+```go-html-template
+{{</* seo-image src="01-front.png" alt="Описательный alt" loading="eager" */>}}
+```
+
+Для карточки/cover использовать front matter:
+
+```yaml
+image: "01-front.png"
+cover:
+  image: "01-front.png"
+  alt: "Описательный alt"
+```
+
+`image` идет в SEO/OG/schema, `cover.image` — в визуальный preview.
+
+## 10. JavaScript и CSP
+
+Inline JS убран из footer и offline-страницы. Общая логика сайта живет в:
+
+```text
+assets/js/site.js
+static/offline.js
+```
+
+`assets/js/site.js` отвечает за:
+
+- scroll memory меню;
+- плавные якорные переходы;
+- кнопку scroll-to-top;
+- закрытие мобильного меню;
+- sanitizing телефона в contact-форме;
+- view transitions;
+- code copy buttons, если они включены;
+- service worker registration.
+
+Это сделано, чтобы `Content-Security-Policy` мог быть строже и чтобы Lighthouse Best Practices не ругался на inline scripts.
+
+## 11. SEO и robots
+
+В `development` все HTML-страницы получают:
+
+```html
+<meta name="robots" content="noindex,nofollow">
+```
+
+В `production` индексируемые страницы получают:
+
+```html
+<meta name="robots" content="index,follow">
+```
+
+Служебные страницы всегда должны оставаться `noindex,nofollow`:
+
+```text
+/404.html
+/search/
+/ru/search/
+alias-страницы
+```
+
+JSON-LD генерируется централизованно через `layouts/_partials/_seo/jsonld.html` и выводится ближе к концу `body`, чтобы не задерживать первый экран.
+
+## 12. Unlighthouse
+
+Папка:
+
+```bash
+cd unlighthouse
+```
+
+Основные команды:
+
+```bash
+npm install
+npm run check:types
+npm run audit:urls
+npm run audit:ci:urls
+npm run audit:technical
+npm run audit:ci:technical
+```
+
+Важно:
+
+- `audit:*` — интерактивные dashboard-прогоны;
+- `audit:ci:*` — строгие прогоны с budget и exit code;
+- `unlighthouse/reports/` не коммитится;
+- старый загрязненный AdGuard-отчет удален;
+- если в отчете появляется `local.adguard.org`, отчет бесполезен и его надо удалить.
+
+Технические noindex-страницы проверяются отдельным конфигом `unlighthouse.technical.config.ts`, потому что SEO 100 для них невозможен и не нужен.
+
+Подробно смотри [docs/quality/unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/unlighthouse-site-audit.md).
+
+## 13. Основные команды разработки
 
 ```bash
 mise install
 npm install
 npm run dev
 npm run build
-hugo server --environment development --disableFastRender
-hugo --environment development --gc --minify --cleanDestinationDir
+npm run build:production
 ```
 
-Локальные версии инструментов зафиксированы в [.mise.toml](/Users/stadnyk/MEGA/Aerocool/.mise.toml): `Hugo 0.161.0` и `Node 24`. `npm run dev` запускает `hugo server`, а `npm run build` предварительно обновляет подмодули и затем собирает сборку в окружении `development`. Production-режим пока не включаем. Для Hugo 0.161.0 важно, что Tailwind установлен как npm-зависимость проекта: Hugo запускает Node-инструменты через Node permission model, поэтому standalone Tailwind CLI не используем. Для отладки шаблонов, CSS, SEO и изображений предпочтителен `hugo server --environment development --disableFastRender`.
+Что они делают:
 
-## Локальная Документация
+- `mise install` — читает `mise.toml` и ставит нужные версии Hugo/Node.
+- `npm install` — ставит npm-зависимости проекта.
+- `npm run dev` — запускает `hugo server`.
+- `npm run build` — development-сборка, безопасная для noindex.
+- `npm run build:production` — локальная production-сборка для финальной проверки index/follow.
 
-- `AGENTS.md`
-- `CONTENT-SEO-CHECKLIST-2026.md`
-- `KEYWORD-MAP-2026.md`
-- `GUIDE to all front matters.md`
-- `GUIDE to helpers.md`
-- `JSON-LD-GRAPH-ROADMAP-2026.md`
-- `GUIDE to seo-image.md`
-- `GUIDE to schema_types.md`
-- `GUIDE to view transitions.md`
-- `GUIDE to mise.md`
-- `HUGO-0.161.0-COMPLIANCE-AUDIT-2026-04-29.md`
-- `RICH-RESULTS-AUDIT-2026-04-29.md`
-- `TOP SEO SSG CHECKLIST 2026.md`
-- `CONTENT-TEMPLATE-ARTICLE.md`
-- `CONTENT-TEMPLATE-NEWS.md`
-- `CONTENT-TEMPLATE-PRODUCT.md`
-- `CONTENT-TEMPLATE-SERIES.md`
+## 14. Перед важным deploy
+
+Минимальный чек:
+
+```bash
+npm run build
+npm run build:production
+cd unlighthouse
+npm run check:types
+npm run audit:ci:urls
+npm run audit:ci:technical
+```
+
+Перед включением production в Netlify дополнительно проверить:
+
+- главную `/`;
+- русскую главную `/ru/`;
+- каталог `/products/` и `/ru/products/`;
+- одну серию;
+- одну карточку товара;
+- одну статью;
+- одну новость;
+- `/search/` и `/ru/search/`;
+- `/404.html`;
+- sitemap index и языковые sitemap.
+
+## 15. Карта документации
+
+- `README.md` — главный вход в проект.
+- `AGENTS.md` — правила работы для Codex/агентов.
+- [docs/README.md](/Users/stadnyk/MEGA/Aerocool/docs/README.md) — оглавление всей документации.
+- [docs/quality/unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/unlighthouse-site-audit.md) — Unlighthouse, бюджеты, отчеты, порядок аудита.
+- [docs/quality/lighthouse-single-page-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/lighthouse-single-page-audit.md) — одиночный Lighthouse и PageSpeed-подход.
+- [docs/content/seo-image-shortcode.md](/Users/stadnyk/MEGA/Aerocool/docs/content/seo-image-shortcode.md) — shortcode изображений в теле контента.
+- [docs/seo/schema-types-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/schema-types-reference.md) — schema.org типы.
+- [docs/architecture/hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/hugo-template-helpers.md) — локальные helper partials.
+- [docs/content/front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/front-matter-reference.md) — front matter полей.
+- [docs/architecture/browser-view-transitions.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/browser-view-transitions.md) — view transitions.
+- [docs/deploy/local-tooling-mise.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/local-tooling-mise.md) — локальные версии Hugo/Node.
+- [docs/audits/2026-04-29-hugo-0-161-compliance-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-04-29-hugo-0-161-compliance-audit.md) — совместимость проекта с Hugo 0.161.0.
+- [docs/seo/json-ld-graph-audit-roadmap-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/json-ld-graph-audit-roadmap-2026.md) — текущее состояние schema.org графа и roadmap.
+- [docs/audits/2026-04-29-google-rich-results-quality-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-04-29-google-rich-results-quality-audit.md) — аудит Google rich results качества.
+- [docs/content/content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/content-seo-checklist-2026.md) — SEO-проверка контента.
+- [docs/seo/seo-keyword-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/seo-keyword-map-2026.md) — карта ключей.
+- `docs/content/templates/` — шаблоны статей, новостей, товаров и серий.
+
+Если нужно быстро понять проект без глубокого SEO-контекста, достаточно прочитать `README.md`, `AGENTS.md`, `docs/README.md`, `docs/content/front-matter-reference.md`, `docs/architecture/hugo-template-helpers.md` и `docs/quality/unlighthouse-site-audit.md`. Остальные документы нужны для более точной работы с контентом, schema.org, SEO и аудитом качества.

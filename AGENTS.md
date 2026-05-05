@@ -11,7 +11,7 @@
 
 - В `Netlify` зафиксирована версия `Hugo 0.161.0`.
 - В `Netlify` зафиксирована версия `Node 24`.
-- Локальные версии инструментов зафиксированы в `.mise.toml`.
+- Локальные версии инструментов зафиксированы в `mise.toml`.
 - Для стилизации используется `Tailwind CSS 4`.
 - В Hugo 0.161.0 Node-инструменты запускаются через Node permission model; Tailwind должен оставаться npm-зависимостью проекта, standalone Tailwind CLI не использовать.
 - Локальные SEO-шаблоны и шаблоны schema.org-разметки находятся в `layouts/_partials/_seo` и `layouts/_partials/_schema`.
@@ -35,19 +35,27 @@
 - `static/` — статические файлы, которые копируются как есть.
 - `hugo.yaml` — основная конфигурация сайта: языки, постоянные ссылки, меню и настройки сборки.
 - `netlify.toml` — сборка и заголовки ответа; временно используется `HUGO_ENVIRONMENT = "development"`, production включать только после финальной проверки.
+- `mise.toml` — локальные версии `Hugo 0.161.0` и `Node 24` для `mise`.
+- `unlighthouse/` — локальный набор конфигов для массового Lighthouse-аудита. Он не деплоит сайт, а проверяет уже опубликованный URL или Netlify Deploy Preview.
 
 ## Локальные Гайды
 
 Перед тем как придумывать новые метаданные страницы, SEO-паттерн или контентную структуру, сначала сверяйтесь с локальными документами:
 
-- `KEYWORD-MAP-2026.md`
-- `CONTENT-SEO-CHECKLIST-2026.md`
-- `GUIDE to all front matters.md`
-- `GUIDE to helpers.md`
-- `GUIDE to seo-image.md`
-- `GUIDE to schema_types.md`
-- `GUIDE to view transitions.md`
-- `GUIDE to mise.md`
+- `README.md`
+- `docs/README.md`
+- `docs/seo/seo-keyword-map-2026.md`
+- `docs/content/content-seo-checklist-2026.md`
+- `docs/content/front-matter-reference.md`
+- `docs/architecture/hugo-template-helpers.md`
+- `docs/content/seo-image-shortcode.md`
+- `docs/seo/schema-types-reference.md`
+- `docs/architecture/browser-view-transitions.md`
+- `docs/deploy/local-tooling-mise.md`
+- `docs/quality/lighthouse-single-page-audit.md`
+- `docs/quality/unlighthouse-site-audit.md`
+
+Для новичка порядок чтения такой: сначала `README.md`, затем `docs/README.md`, затем `docs/content/front-matter-reference.md`, затем `docs/architecture/hugo-template-helpers.md`, затем `docs/quality/unlighthouse-site-audit.md`. Остальные гайды подключать по задаче.
 
 ## Контентные Правила
 
@@ -58,7 +66,7 @@
 - Варианты товаров сознательно разделены по модели и цвету. Для каждого варианта — отдельная папка и отдельный `slug`.
 - Во front matter использовать только `schema_types`. Шаблоны читают `.Params.schema_types`; не переходить на `schema_type`.
 - Для большинства страниц видимый `H1` рендерится шаблонным слоем через `layouts/_partials/page-h1.html` по правилу `.Params.h1 | default .Title`.
-- Текущая главная страница — исключение: ее hero и видимый `H1` задаются в `layouts/_shortcodes/home-hero.html` и `layouts/_shortcodes/home-hero-ru.html`.
+- Текущая главная страница — исключение: ее hero и видимый `H1` задаются единым shortcode `layouts/_shortcodes/home-hero.html`, который сам переключает украинский/русский текст по языку страницы.
 - Home hero использует namespaced CSS-хуки `home-hero__*`; их визуальный слой держим в `assets/css/main.css`, а не размазываем по теме.
 - Не добавлять markdown `# H1` внутрь `content/`. Тело страницы должно начинаться с вводного абзаца или с `##`.
 - Поле `h1` в метаданных страницы использовать только тогда, когда видимый заголовок должен отличаться от SEO-заголовка документа `title`.
@@ -74,7 +82,7 @@
 - Для контентных изображений по возможности использовать shortcode `seo-image`, а не сырые `<img>`.
 - Для товарных карточек текущий стандарт такой: `image` во front matter для SEO/OG/schema, `cover.image` для preview в листингах и `seo-image` в теле страницы для основного изображения.
 - Для главных изображений первого экрана (LCP) обычно нужен `eager loading`; для второстепенных изображений — `lazy loading`.
-- Для hero-изображения главной страницы сейчас используется обычный `<img>` внутри локализованных home-shortcodes; там сохранять локальный путь через `relURL`, `loading="eager"` и `fetchpriority="high"`.
+- Для hero-изображения главной страницы сейчас используется обычный `<img>` внутри `layouts/_shortcodes/home-hero.html`; там сохранять локальный путь через `relURL`, `loading="eager"` и `fetchpriority="high"`.
 - Параметр `jsonld` в shortcode `seo-image` больше не использовать: schema для primary image собирается централизованно из `image` во front matter.
 - `alt` должен быть описательным и соответствовать языку страницы.
 - В проекте уже есть шаблоны schema.org-разметки для `website`, `organization`, `brand`, `collection`, `article`, `news`, `product`, `faq` и `breadcrumbs`.

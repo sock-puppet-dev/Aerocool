@@ -1,5 +1,5 @@
 {{- define "main" }}
-{{- $isRu := eq .Site.Language.Lang "ru" -}}
+{{- $isRu := eq .Site.Language.Name "ru" -}}
 {{- $contactPage := site.GetPage "/contact" -}}
 
 <section class="not-found">

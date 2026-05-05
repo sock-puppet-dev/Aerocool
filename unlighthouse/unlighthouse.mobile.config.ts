@@ -273,11 +273,12 @@ export default defineUnlighthouseConfig({
     onlyCategories: qualityCategories,
 
     /**
-     * clearStorage
+     * Storage
      * ------------------------------------------------------------
-     * true = очищать cookies/localStorage/sessionStorage перед аудитом.
+     * Lighthouse по умолчанию делает аудит как чистый первый визит
+     * и сбрасывает cookies/localStorage/sessionStorage.
      *
-     * Это делает проверку чище и ближе к первому визиту пользователя.
+     * Мы не задаем disableStorageReset, значит это поведение остается включенным.
      */
   },
 

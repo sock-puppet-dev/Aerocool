@@ -1,7 +1,7 @@
 # Google Rich Results Quality Audit
 
 Дата аудита: 2026-04-29  
-Актуализировано: 2026-04-30
+Актуализировано: 2026-05-05
 Проект: `Aerocool Ukraine` / Hugo / двуязычный сайт `uk` + `ru`
 
 ## Scope
@@ -38,6 +38,8 @@
 
 Примечание: проект временно собирается с `HUGO_ENVIRONMENT = "development"`, поэтому текущий generated HTML получает `noindex,nofollow`. Rich Results eligibility нужно перепроверить после включения production-режима, когда индексируемые страницы снова будут отдавать `index,follow`.
 
+Простыми словами для новичка: этот аудит проверяет не “красоту текста”, а то, совпадает ли JSON-LD разметка с реальным видимым содержимым страниц. Google может игнорировать rich results, если в schema есть цена, наличие или рейтинг, которых пользователь не видит на странице.
+
 Команда:
 
 ```bash
@@ -50,7 +52,7 @@ npm run build
 - Pages: `50` UK, `48` RU
 - Paginator pages: `7` UK, `7` RU
 - Aliases: `8` UK, `7` RU
-- Processed images: `154`
+- Processed images: `296`
 - Build: успешный
 
 ## Inventory

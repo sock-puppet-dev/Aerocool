@@ -2,6 +2,18 @@
 
 В проекте `Aerocool` используется только поле `schema_types`.
 
+`schema_types` — это список флагов в front matter, который говорит шаблонам, какие schema.org сущности нужно добавить в JSON-LD граф страницы.
+
+Простыми словами:
+
+```yaml
+schema_types: ["website", "product", "organization", "breadcrumbs"]
+```
+
+означает: “эта страница относится к сайту, описывает товар, связана с организацией и должна иметь хлебные крошки”.
+
+Не нужно придумывать новое поле `schema_type`: проект его не читает.
+
 Важно:
 
 - `schema_types` определяет, какие schema.org-сущности включает шаблонный слой.
@@ -13,7 +25,7 @@
 - Основное изображение страницы теперь описывается через единый `ImageObject` в общем `@graph`, а не через отдельный JSON-LD-скрипт из `seo-image`.
 - `breadcrumbs` не используется на главной странице, потому что home не нуждается в одноэлементном `BreadcrumbList`.
 - Чистый Schema Validator не равен гарантии rich results: для Google данные в JSON-LD должны совпадать с видимым контентом страницы.
-- Текущий roadmap усиления графа и rich-results качества хранится в `JSON-LD-GRAPH-ROADMAP-2026.md`.
+- Текущий roadmap усиления графа и rich-results качества хранится в [json-ld-graph-audit-roadmap-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/json-ld-graph-audit-roadmap-2026.md).
 
 Главная `content/_index.md`
 `schema_types: ["website", "organization", "brand"]`

@@ -1,0 +1,86 @@
+# Документация Aerocool
+
+Обновлено: 2026-05-06.
+
+Это оглавление всей проектной документации. В корне репозитория остались только два входных документа:
+
+- [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) — короткая карта проекта.
+- [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md) — правила работы для Codex/агентов.
+
+Все подробные гайды, чеклисты, шаблоны и аудиты лежат здесь, в `docs/`.
+
+## Правило Имен Файлов
+
+Имена файлов документации должны быть короткими, но понятными без открытия файла:
+
+- использовать английский `kebab-case`, без пробелов и случайных заглавных букв;
+- не начинать новые файлы с `GUIDE to ...`, потому что назначение должно быть видно из темы файла;
+- справочники называть через `*-reference.md`;
+- шаблоны называть через `*-template.md`;
+- чеклисты называть через `*-checklist-2026.md` или другой актуальный год;
+- аудиты-снимки называть через дату в начале: `YYYY-MM-DD-topic-audit.md`;
+- если документ описывает инструмент и сценарий проверки, в имени должны быть оба смысла: например `unlighthouse-site-audit.md`.
+
+## Быстрый Старт
+
+Если ты новичок в проекте, читай в таком порядке:
+
+1. [README.md](/Users/stadnyk/MEGA/Aerocool/README.md)
+2. [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md)
+3. [content/front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/front-matter-reference.md)
+4. [architecture/hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/hugo-template-helpers.md)
+5. [quality/unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/unlighthouse-site-audit.md)
+
+Этого достаточно, чтобы понять структуру проекта, правила контента, шаблонный слой и базовые проверки качества.
+
+## Architecture
+
+- [architecture/hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/hugo-template-helpers.md) — локальные Hugo partials/helpers, SEO helpers и schema helpers.
+- [architecture/browser-view-transitions.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/browser-view-transitions.md) — View Transitions и внешний `assets/js/site.js`.
+
+## Content
+
+- [content/front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/front-matter-reference.md) — все front matter поля для страниц.
+- [content/seo-image-shortcode.md](/Users/stadnyk/MEGA/Aerocool/docs/content/seo-image-shortcode.md) — shortcode `seo-image`.
+- [content/content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/content-seo-checklist-2026.md) — редакционный SEO-чеклист.
+
+Шаблоны новых материалов:
+
+- [content/templates/article-template.md](/Users/stadnyk/MEGA/Aerocool/docs/content/templates/article-template.md)
+- [content/templates/news-template.md](/Users/stadnyk/MEGA/Aerocool/docs/content/templates/news-template.md)
+- [content/templates/product-template.md](/Users/stadnyk/MEGA/Aerocool/docs/content/templates/product-template.md)
+- [content/templates/series-template.md](/Users/stadnyk/MEGA/Aerocool/docs/content/templates/series-template.md)
+
+## SEO
+
+- [seo/seo-keyword-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/seo-keyword-map-2026.md) — карта ключевых слов.
+- [seo/schema-types-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/schema-types-reference.md) — поле `schema_types`.
+- [seo/json-ld-graph-audit-roadmap-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/json-ld-graph-audit-roadmap-2026.md) — аудит и roadmap JSON-LD graph.
+- [seo/google-seo-audit-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/google-seo-audit-checklist-2026.md) — полный SEO-аудит для Google.
+- [seo/ssg-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/ssg-seo-checklist-2026.md) — общий SSG SEO-чеклист.
+
+## Quality
+
+- [quality/lighthouse-single-page-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/lighthouse-single-page-audit.md) — одиночный Lighthouse-аудит.
+- [quality/unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/unlighthouse-site-audit.md) — массовый Unlighthouse-аудит.
+
+## Deploy
+
+- [deploy/local-tooling-mise.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/local-tooling-mise.md) — локальные версии Hugo/Node через `mise`.
+
+## Audits
+
+- [audits/2026-04-29-hugo-0-161-compliance-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-04-29-hugo-0-161-compliance-audit.md) — аудит совместимости с Hugo 0.161.0.
+- [audits/2026-04-29-google-rich-results-quality-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-04-29-google-rich-results-quality-audit.md) — аудит Google rich results качества.
+
+## Правило Поддержки
+
+Если меняется код, который описан в документации, документацию нужно обновлять в том же изменении.
+
+Примеры:
+
+- поменял `layouts/_partials/head.html` — проверь `architecture/hugo-template-helpers.md`;
+- поменял front matter поля — проверь `content/front-matter-reference.md`;
+- поменял `seo-image` — проверь `content/seo-image-shortcode.md`;
+- поменял Unlighthouse конфиг — проверь `quality/unlighthouse-site-audit.md`;
+- поменял версии Hugo/Node — проверь `deploy/local-tooling-mise.md`, `README.md` и `netlify.toml`.

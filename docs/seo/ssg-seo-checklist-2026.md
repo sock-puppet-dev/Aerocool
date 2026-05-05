@@ -2,6 +2,8 @@
 
 Этот файл — финальный список элементов для построения SSG-сайта уровня **top SEO**: Hugo, техническое SEO, schema.org, Core Web Vitals, контентная стратегия, entity SEO, E-E-A-T, мониторинг и развитие сайта.
 
+Примечание для новичка: это общий стратегический чеклист, а не список файлов, которые нужно сразу менять. Для текущего проекта Aerocool фактические правила лежат в [README.md](/Users/stadnyk/MEGA/Aerocool/README.md), [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md), [content/seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/content-seo-checklist-2026.md), [content/front-matter.md](/Users/stadnyk/MEGA/Aerocool/docs/content/front-matter-reference.md) и [quality/unlighthouse.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/unlighthouse-site-audit.md).
+
 ---
 
 ## 1. Платформа
@@ -12,10 +14,10 @@
 | Хостинг | **Netlify / Cloudflare Pages / Vercel** |
 | CDN | Netlify Edge / Cloudflare CDN |
 | CSS | Tailwind CSS |
-| Поиск | Pagefind |
-| Деплой | GitHub → Netlify / Cloudflare Pages |
+| Поиск | Для Aerocool сейчас локальная search-страница Hugo/PaperMod; Pagefind можно рассмотреть отдельно |
+| Деплой | Git-репозиторий -> Netlify / Cloudflare Pages |
 | Версионирование | Git + GitHub |
-| CI-проверки | Lighthouse CI / HTML validator / link checker |
+| CI-проверки | Для Aerocool сейчас локальный Unlighthouse; отдельный GitHub Actions gate не используется |
 
 ---
 
@@ -327,7 +329,7 @@
 | Google Analytics 4 | Да |
 | Plausible / Umami | Альтернатива |
 | PageSpeed Insights | Да |
-| Lighthouse CI | Да |
+| Lighthouse / Unlighthouse | Да; в Aerocool используется локальный `unlighthouse/` |
 | CrUX monitoring | Да |
 | Server logs analysis | Желательно |
 | Broken link checker | Да |
@@ -374,7 +376,7 @@
 | installable PWA | Не всегда обязательно |
 | View Transitions API | Желательно для UX |
 | Speculation Rules API | Желательно осторожно |
-| Pagefind search | Да |
+| Search page | Да; в Aerocool сейчас локальная search-страница, Pagefind не установлен |
 
 ---
 
@@ -450,7 +452,7 @@ Hugo / Astro
 Hugo
 + Netlify
 + Tailwind CSS
-+ Pagefind
++ локальная search-страница
 + AVIF/WebP
 + PWA
 + schema.org @graph

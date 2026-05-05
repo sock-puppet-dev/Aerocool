@@ -1,14 +1,16 @@
 # SEO-Чек-Лист Контента Aerocool 2026
 
-Актуально на `2026-04-30`.
+Актуально на `2026-05-05`.
 
 Этот документ — единый редакционный и SEO-регламент для всего проекта `Aerocool`. Он адаптирован под текущую структуру сайта на `Hugo` с разделами `home`, `products`, `articles`, `news`, `faq`, `about`, `contact`, `search`, а также под двуязычную архитектуру `uk` + `ru`.
 
 Важно: ни один чек-лист не гарантирует `топ-1` в Google. По официальным рекомендациям Google, даже если страница соблюдает Search Essentials и лучшие практики, это не означает гарантированный обход, индексирование или ранжирование. Цель этого документа — максимально повысить вероятность сильного ранжирования, высокого CTR и коммерческой полезности.
 
+Как пользоваться новичку: перед публикацией страницы бери нужный раздел этого чек-листа, проходи пункты сверху вниз и отмечай только то, что действительно выполнено в тексте, front matter, изображениях, ссылках и schema.org. Если пункт непонятен, сначала смотри [README.md](/Users/stadnyk/MEGA/Aerocool/README.md), [front-matter.md](/Users/stadnyk/MEGA/Aerocool/docs/content/front-matter-reference.md) и [helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/hugo-template-helpers.md).
+
 ## 1. Что Уже Есть В Проекте
 
-- [ ] В проекте уже реализованы `robots`, `canonical`, `hreflang`, Open Graph, Twitter Cards и JSON-LD через [layouts/_partials/head.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/head.html#L14).
+- [ ] В проекте уже реализованы `robots`, `canonical`, `hreflang`, Open Graph и Twitter Cards через [layouts/_partials/head.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/head.html#L14), а JSON-LD выводится через [layouts/_partials/footer.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/footer.html#L30) и [layouts/_partials/_seo/jsonld.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/jsonld.html#L1).
 - [ ] Для сайта уже есть `WebSite` schema с `SearchAction` через [layouts/_partials/_schema/website.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/website.html#L1).
 - [ ] Для товарных страниц уже есть `Product`, `Offer`, данные по доставке, политике возврата и рейтингам через [layouts/_partials/_schema/product.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/product.html#L1).
 - [ ] Для статей уже есть `Article` schema через [layouts/_partials/_schema/article.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/article.html#L1).
@@ -28,7 +30,7 @@
 - [ ] Расширение до редакционного ориентира должно быть смысловым: добавляем сценарии выбора, сравнения, практические проверки, FAQ, следующий шаг и внутренние ссылки, а не абзацы ради объема.
 - [ ] После расширения или литературной обработки `uk` и `ru` версии должны оставаться синхронными по фактам, структуре аргумента и коммерческому интенту, но формулировки могут быть естественно локализованы.
 - [ ] `Title`, `H1`, `description`, интро и основной CTA должны быть согласованы друг с другом и обещать одну и ту же пользу.
-- [ ] Для большинства страниц в текущем проекте видимый `H1` принадлежит шаблонному слою и рендерится по правилу `h1 | default title`; исключение сейчас — главная, где `H1` живет в локализованных home-shortcodes. В теле markdown не должно быть `# H1`.
+- [ ] Для большинства страниц в текущем проекте видимый `H1` принадлежит шаблонному слою и рендерится по правилу `h1 | default title`; исключение сейчас — главная, где `H1` живет в `layouts/_shortcodes/home-hero.html`. В теле markdown не должно быть `# H1`.
 - [ ] Фирменные и технические термины пишутся единообразно во всех языковых версиях, front matter, видимом тексте и внутренних ссылках. Для механизма наклона стандарт проекта — `Synchronous Tilt`; нижнерегистровый вариант не использовать.
 - [ ] В markdown-контенте все inline-code фрагменты оформляются жирным code-стилем: ``**`11D`**``, ``**`SYNC5 multi-adjustable`**``, ``**`офисное кресло`**``. Это правило применяется к видимому контенту в `content/**/*.md`, но не к Hugo/JS-коду в `layouts/`.
 - [ ] Страница должна быть полезна даже если пользователь зайдет на нее напрямую, без контекста категории или рекламы.
@@ -39,7 +41,7 @@
 - [ ] У страницы есть уникальный `title`.
 - [ ] У страницы есть уникальный `H1`.
 - [ ] У страницы есть уникальный `description`, который описывает реальную пользу и тему страницы.
-- [ ] Если нужен отдельный видимый заголовок, он задается через front matter `h1`; если он не нужен, layout берет `title`. Исключение на текущем этапе — главная страница, где видимый `H1` задается в home-shortcodes.
+- [ ] Если нужен отдельный видимый заголовок, он задается через front matter `h1`; если он не нужен, layout берет `title`. Исключение на текущем этапе — главная страница, где видимый `H1` задается в `layouts/_shortcodes/home-hero.html`.
 - [ ] Первые 150-250 слов прямо отвечают на основной запрос.
 - [ ] На странице есть четкая структура из подзаголовков под реальные подзапросы пользователя.
 - [ ] На странице есть доказательства экспертности: детали, сценарии, спецификации, критерии выбора, сравнения, процесс оценки.

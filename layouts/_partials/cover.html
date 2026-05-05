@@ -1,3 +1,20 @@
+{{- /*
+Local PaperMod cover override.
+
+Зачем он нужен:
+- PaperMod по умолчанию не всегда корректно обрабатывает локальные cover.image из page bundle;
+- старый вывод мог давать пустой src="" в листингах, что портило Lighthouse;
+- здесь cover-картинки превращаются в responsive WebP с width/height, srcset и sizes.
+
+Где используется:
+- карточки записей в списках;
+- cover на одиночных страницах, если cover не скрыт.
+
+Как управлять:
+- в front matter страницы указываем cover.image;
+- cover.alt желательно задавать явно на языке страницы;
+- cover.responsiveImages: false отключает обработку для конкретной страницы.
+*/ -}}
 {{- with .cxt }}
 {{- if and .Params.cover.image (not $.isHidden) }}
 <figure class="entry-cover">

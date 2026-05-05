@@ -148,7 +148,8 @@ export default defineUnlighthouseConfig({
     onlyCategories: qualityCategories,
 
     /**
-     * Очищаем storage перед запуском.
+     * Lighthouse по умолчанию сбрасывает storage перед запуском.
+     * Мы не отключаем это поведение.
      */
   },
 

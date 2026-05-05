@@ -10,7 +10,7 @@
   HUGO_VERSION = "0.161.0"
   # Версия Hugo
   HUGO_ENVIRONMENT = "development"
-  # Боевой режим Hugo: индексируемые страницы получают index,follow
+  # Временный безопасный режим Hugo: HTML-страницы остаются noindex,nofollow
   TZ = "Europe/Kyiv"
   # Часовой пояс
   NODE_VERSION = "24"
