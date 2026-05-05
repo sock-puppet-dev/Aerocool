@@ -2,7 +2,9 @@
 
 Обновлено: 2026-05-05.
 
-Unlighthouse в этом проекте — это контроль качества Aerocool по Performance, Accessibility, Best Practices и SEO сразу по украинской и русской версиям сайта. Цель текущего набора — не “примерно хорошо”, а проверяемый режим **10/10**: CI должен падать, если есть сторонняя инъекция, пустой `src`, сломанный `imagesrcset`, console errors или просадка ниже бюджетов.
+Unlighthouse в этом проекте — это контроль качества Aerocool по Performance, Accessibility, Best Practices 
+и SEO сразу по украинской и русской версиям сайта. Цель текущего набора — не “примерно хорошо”, а проверяемый режим **10/10**: 
+CI должен падать, если есть сторонняя инъекция, пустой `src`, сломанный `imagesrcset`, console errors или просадка ниже бюджетов.
 
 ## Где находится
 
@@ -10,7 +12,9 @@ Unlighthouse в этом проекте — это контроль качест
 cd /Users/stadnyk/MEGA/Aerocool/unlighthouse
 ```
 
-Unlighthouse установлен локально в `unlighthouse/package.json`. Глобальную установку `npm install -g unlighthouse` не использовать как основной workflow: локальная версия зафиксирована в `package-lock.json`, поэтому результаты воспроизводимее.
+Unlighthouse установлен локально в `unlighthouse/package.json`. 
+Глобальную установку `npm install -g unlighthouse` не использовать как основной workflow: 
+локальная версия зафиксирована в `package-lock.json`, поэтому результаты воспроизводимее.
 
 ## Установка и базовая проверка
 
@@ -35,10 +39,9 @@ npm run check:types
 ## Правило чистого аудита
 
 Перед локальным прогоном отключить AdGuard, VPN-инъекции, content blockers, расширения браузера и любые системные фильтры, которые могут добавлять JS/CSS в страницы.
-
 Если в отчете встречается `local.adguard.org`, прогон недействителен. Такой отчет нельзя использовать для оценки Performance, Best Practices, TBT, FCP и LCP.
-
-Конфиги используют общий `cleanPuppeteerOptions` из `unlighthouse/unlighthouse.shared.ts`, где Chromium запускается без расширений и фоновых сервисов. Дополнительно `npm run check:reports` автоматически ловит `local.adguard.org`, пустые `src`, закодированные пробелы в `imagesrcset`, browser console errors и провалы категорий.
+Конфиги используют общий `cleanPuppeteerOptions` из `unlighthouse/unlighthouse.shared.ts`, где Chromium запускается без расширений и фоновых сервисов. 
+Дополнительно `npm run check:reports` автоматически ловит `local.adguard.org`, пустые `src`, закодированные пробелы в `imagesrcset`, browser console errors и провалы категорий.
 
 ## Главные команды
 
@@ -91,7 +94,6 @@ npm run audit:strict     -> unlighthouse/reports/strict/
 npm run audit:preview    -> unlighthouse/reports/preview/
 npm run audit:technical  -> unlighthouse/reports/technical-noindex/
 ```
-
 Старый загрязненный отчет перенесен в:
 
 ```text
@@ -152,7 +154,8 @@ hugo --environment production --gc --minify
 alias-страницы
 ```
 
-Поэтому они вынесены в `unlighthouse.technical.config.ts`: там проверяются Performance, Accessibility и Best Practices, но не SEO. Это сохраняет честный SEO budget 100 для индексируемых URL.
+Поэтому они вынесены в `unlighthouse.technical.config.ts`: там проверяются Performance, Accessibility и Best Practices, но не SEO. 
+Это сохраняет честный SEO budget 100 для индексируемых URL.
 
 ## Бюджеты качества
 
@@ -206,7 +209,6 @@ Unlighthouse report validation passed: 10/10 (...)
 ```text
 .github/workflows/unlighthouse.yml
 ```
-
 Он запускается вручную и каждый понедельник в `05:00 UTC`:
 
 1. `npm ci`
@@ -232,7 +234,8 @@ Best Practices:
 смотреть console errors, CSP, mixed content, пустые/битые изображения и сторонние инъекции.
 
 Images:
-особое внимание на hero, `seo-image`, `cover.image` в листингах и PNG-обложки статей/новостей/товаров. Локальный override `layouts/_partials/cover.html` теперь генерирует WebP, `srcset`, `sizes`, `width` и `height`.
+особое внимание на hero, `seo-image`, `cover.image` в листингах и PNG-обложки статей/новостей/товаров. 
+Локальный override `layouts/_partials/cover.html` теперь генерирует WebP, `srcset`, `sizes`, `width` и `height`.
 
 ## 10-бальная шкала
 
