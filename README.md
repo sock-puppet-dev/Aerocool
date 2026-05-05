@@ -34,8 +34,6 @@
 
 Локальные версии инструментов фиксируются в `mise.toml`. В Netlify версии фиксируются в `netlify.toml`.
 
-Важно: в проекте сейчас есть файл `mise.toml`, а не `.mise.toml`. Если в старой заметке встретилось `.mise.toml`, это устаревшее имя.
-
 ## 3. Важное про Netlify и production
 
 Сейчас `netlify.toml` намеренно собирает сайт в `development`:
@@ -64,17 +62,15 @@ HUGO_ENVIRONMENT = "production"
 npm run build:production
 ```
 
-## 4. Почему нет GitHub Actions
+## 4. Основной pipeline проекта Netlify
 
-Основной pipeline проекта — `Netlify`. Он уже умеет:
+`Netlify` уже умеет:
 
 - забирать код из Git;
 - ставить зависимости;
 - собирать Hugo;
 - публиковать сайт;
 - создавать Deploy Preview.
-
-GitHub Actions workflow для Unlighthouse был лишним, если ты не хочешь отдельный CI-контур рядом с Netlify. Поэтому `.github/workflows/unlighthouse.yml` удален.
 
 Текущий правильный workflow такой:
 
@@ -125,7 +121,7 @@ index.ru.md   русская версия
 
 В `content/**/*.md` не добавляем markdown `# H1`. Видимый H1 обычно рендерится шаблоном через `layouts/_partials/page-h1.html`, а тело страницы начинается с вводного абзаца или `##`.
 
-Во front matter использовать `schema_types`, не `schema_type`.
+Во front matter использовать `schema_types`.
 
 ## 7. Шаблоны
 
