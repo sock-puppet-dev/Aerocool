@@ -92,6 +92,7 @@ layouts/_shortcodes/     локальные shortcodes
 assets/css/main.css      Tailwind CSS и локальный visual layer
 assets/js/site.js        общий внешний JS сайта без inline-скриптов
 static/                  статические файлы
+static/_redirects        forced 404 для scanner/sensitive URL на Netlify
 unlighthouse/            аудит Lighthouse/Unlighthouse
 hugo.yaml                конфигурация Hugo
 netlify.toml             сборка Netlify и HTTP headers
@@ -241,7 +242,22 @@ alias-страницы
 
 JSON-LD генерируется централизованно через `layouts/_partials/_seo/jsonld.html` и выводится ближе к концу `body`, чтобы не задерживать первый экран.
 
-## 12. Unlighthouse
+## 12. Netlify routing и 404
+
+`static/_redirects` копируется Hugo в `public/_redirects` и обрабатывается Netlify раньше правил из `netlify.toml`.
+
+В текущем проекте этот файл не используется для SEO-переадресаций. Его назначение — принудительно отдавать кастомную `404` для типовых bot/scanner URL вроде `/wp-login.php`, `/.env`, `/.git/*`, `/cpanel/*`.
+
+Правила поддержки:
+
+- для таких scanner/sensitive путей использовать статус `404!`, чтобы правило сработало даже при случайном наличии файла;
+- не использовать `*` в середине path, например `/*/wp-login.php`; для одного сегмента использовать placeholder `/:prefix/wp-login.php`;
+- общий fallback `/* -> /404.html 404` остается в `netlify.toml`;
+- после правок проверять, что `public/_redirects` обновился после сборки и что `/404.html` остается `noindex,nofollow`.
+
+Подробно смотри [docs/deploy/netlify-routing.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/netlify-routing.md).
+
+## 13. Unlighthouse
 
 Папка:
 
@@ -272,7 +288,7 @@ npm run audit:ci:technical
 
 Подробно смотри [docs/quality/unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/unlighthouse-site-audit.md).
 
-## 13. Основные команды разработки
+## 14. Основные команды разработки
 
 ```bash
 mise install
@@ -290,7 +306,7 @@ npm run build:production
 - `npm run build` — development-сборка, безопасная для noindex.
 - `npm run build:production` — локальная production-сборка для финальной проверки index/follow.
 
-## 14. Перед важным deploy
+## 15. Перед важным deploy
 
 Минимальный чек:
 
@@ -314,9 +330,10 @@ npm run audit:ci:technical
 - одну новость;
 - `/search/` и `/ru/search/`;
 - `/404.html`;
+- `public/_redirects`, если менялись `static/_redirects` или 404/routing;
 - sitemap index и языковые sitemap.
 
-## 15. Карта документации
+## 16. Карта документации
 
 - `README.md` — главный вход в проект.
 - `AGENTS.md` — правила работы для Codex/агентов.
@@ -329,6 +346,7 @@ npm run audit:ci:technical
 - [docs/content/front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/front-matter-reference.md) — front matter полей.
 - [docs/architecture/browser-view-transitions.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/browser-view-transitions.md) — view transitions.
 - [docs/deploy/local-tooling-mise.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/local-tooling-mise.md) — локальные версии Hugo/Node.
+- [docs/deploy/netlify-routing.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/netlify-routing.md) — Netlify redirects, forced 404 и служебная 404.
 - [docs/audits/2026-04-29-hugo-0-161-compliance-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-04-29-hugo-0-161-compliance-audit.md) — совместимость проекта с Hugo 0.161.0.
 - [docs/seo/json-ld-graph-audit-roadmap-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/json-ld-graph-audit-roadmap-2026.md) — текущее состояние schema.org графа и roadmap.
 - [docs/audits/2026-04-29-google-rich-results-quality-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-04-29-google-rich-results-quality-audit.md) — аудит Google rich results качества.

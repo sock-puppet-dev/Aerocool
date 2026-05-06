@@ -33,6 +33,7 @@
 - Partial списка переводов — `layouts/_partials/translation-list.html`; старое имя `translation_list.html` не использовать.
 - `assets/css/main.css` — главный источник Tailwind и кастомного CSS; здесь же живут локальные design tokens, белый page canvas, базовый текстовый слой и component-layer проекта.
 - `static/` — статические файлы, которые копируются как есть.
+- `static/_redirects` — Netlify `_redirects` для forced `404!` по bot/scanner и sensitive URL. SEO-переадресации сюда добавлять только осознанно; общий fallback `/* -> /404.html 404` живет в `netlify.toml`.
 - `hugo.yaml` — основная конфигурация сайта: языки, постоянные ссылки, меню и настройки сборки.
 - `netlify.toml` — сборка и заголовки ответа; временно используется `HUGO_ENVIRONMENT = "development"`, production включать только после финальной проверки.
 - `mise.toml` — локальные версии `Hugo 0.161.0` и `Node 24` для `mise`.
@@ -52,6 +53,7 @@
 - `docs/seo/schema-types-reference.md`
 - `docs/architecture/browser-view-transitions.md`
 - `docs/deploy/local-tooling-mise.md`
+- `docs/deploy/netlify-routing.md`
 - `docs/quality/lighthouse-single-page-audit.md`
 - `docs/quality/unlighthouse-site-audit.md`
 
@@ -113,6 +115,7 @@
 - Предпочитать небольшие переопределения в `layouts/` и точечные правки контента вместо широких изменений темы.
 - При добавлении новых разделов сохранять текущую двуязычную структуру папок и файлов.
 - При изменении меню, языков, permalink-логики или SEO-дефолтов осторожно редактировать `hugo.yaml`, потому что это влияет на весь сайт.
+- При изменении `static/_redirects` использовать синтаксис Netlify: `*` только как splat в конце path segment, placeholder `/:prefix/...` для одного сегмента, scanner/sensitive правила со статусом `404!`.
 
 ## Проверки
 
@@ -123,5 +126,6 @@
 - Проверять, что метаданные страницы, связанные со schema.org, используют `schema_types` и соответствуют текущим шаблонам.
 - Проверять, что `search` остается `noindex,nofollow`. Пока проект намеренно собирается с `HUGO_ENVIRONMENT = "development"`, все HTML-страницы остаются `noindex,nofollow`; перед production-переходом отдельно проверить возврат `index,follow` для индексируемых URL.
 - Проверять, что `404` и служебные alias-страницы остаются `noindex,nofollow`.
+- При правках `static/_redirects` проверять, что `public/_redirects` обновился после сборки и что кастомная 404 продолжает отдаваться для scanner/sensitive URL.
 - Проверять, что корневой `sitemap.xml` остается индексом карт сайта, а `/uk/sitemap.xml` и `/ru/sitemap.xml` содержат только индексируемые URL.
 - Для статей и новостей дополнительно проверять целевые объемы текста и покрытие как брендовых, так и широких коммерческих интентов.

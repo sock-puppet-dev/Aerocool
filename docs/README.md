@@ -67,6 +67,7 @@
 ## Deploy
 
 - [deploy/local-tooling-mise.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/local-tooling-mise.md) — локальные версии Hugo/Node через `mise`.
+- [deploy/netlify-routing.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/netlify-routing.md) — Netlify `_redirects`, forced 404 и служебная 404-страница.
 
 ## Audits
 
@@ -85,3 +86,4 @@
 - поменял `seo-image` — проверь `content/seo-image-shortcode.md`;
 - поменял Unlighthouse конфиг — проверь `quality/unlighthouse-site-audit.md`;
 - поменял версии Hugo/Node — проверь `deploy/local-tooling-mise.md`, `README.md` и `netlify.toml`.
+- поменял `static/_redirects`, `layouts/404.html` или fallback в `netlify.toml` — проверь `deploy/netlify-routing.md`, `README.md` и `AGENTS.md`.
