@@ -110,6 +110,8 @@ npm run build
 
 ### P1: Product commercial data is not visible
 
+Status update `2026-05-06`: mitigated in content. All product pages now include a visible commercial data block with price, SKU, warranty, availability wording and rating value/count when rating is present in front matter. MPN and GTIN are also visible where they exist.
+
 Affected:
 
 - 24/24 `Product` nodes.
@@ -144,6 +146,8 @@ Recommended fix:
   - rating only if real reviews exist and are shown.
 
 ### P1: AggregateRating is high risk
+
+Status update `2026-05-06`: partially mitigated. Rating value and count are now visible on product pages, but the source and individual review evidence are still not documented in the page body.
 
 Affected:
 
@@ -334,11 +338,12 @@ Current fields:
 Status:
 
 - Required merchant fields: technically strong.
-- Quality: price/availability/shipping/returns/payment facts should be visible to users.
+- Quality: price/availability/shipping/returns/payment facts are now visible to users.
 
-Potential issue:
+Status update `2026-05-06`:
 
-- `shippingRate.value = 0` and `returnFees = FreeReturn` should only be used if shipping and returns are genuinely free in the stated context. If customer pays delivery or return shipping, these values should be changed.
+- Merchant conditions were strengthened in `/faq/` and now visibly confirm delivery by `Нова Пошта`, delivery cost `0 грн`, handling `0-1 day`, transit `1-3 days`, return window `14 days`, `FreeReturn`, and cash/card payment support.
+- If these business rules change later, update `/faq/`, product page copy and `layouts/_partials/_schema/product.html` together.
 
 ### AggregateRating Node
 
@@ -410,7 +415,7 @@ Common warnings:
 
 Note:
 
-- Existing local content rules target 10000 characters for evergreen articles and 5000 characters for news. Current word counts are broadly consistent with that direction, but this is content-depth SEO rather than structured-data eligibility.
+- At the time of this audit, local content rules targeted 10000 characters for evergreen articles and 5000 characters for news. The current 2026-05-06 documentation also defines 6000 characters for product pages, 6000 for series pages, 7000 for `/products/`, `/articles/` and `/news/` hubs, and 10000 for `/about/`. These are content-depth SEO targets rather than structured-data eligibility requirements.
 
 ## Breadcrumb Audit
 
@@ -559,17 +564,15 @@ Recommendation:
 
 ### Phase 1: Protect Product rich results
 
-1. Add visible product facts block to product layout/content:
+1. Done on `2026-05-06`: add visible product facts block to product content:
    - price;
    - availability;
    - SKU;
    - MPN/GTIN where available;
    - warranty;
-   - delivery;
-   - returns;
-   - payment methods.
-2. Remove `aggregateRating` until ratings are visible and sourced.
-3. Confirm if `shippingRate: 0` and `returnFees: FreeReturn` are legally/operationally true. If not, correct them.
+   - rating value/count where present.
+2. Still open: document rating source or remove `aggregateRating` if ratings are not independently supported.
+3. Done on `2026-05-06`: confirm merchant delivery/return/payment conditions visibly in `/faq/`.
 4. Add MPN/GTIN for SKY Lite and SKY 360 if official identifiers exist; otherwise leave omitted.
 
 ### Phase 2: Improve Article/News rich-result quality
@@ -591,9 +594,9 @@ Recommendation:
 | JSON-LD validity | Good |
 | Breadcrumb rich results | Good |
 | Product snippet syntax | Good |
-| Product rich-result quality | Needs work |
-| Merchant listing eligibility | Needs decision |
-| Review snippet eligibility | High risk |
+| Product rich-result quality | Improved; monitor evidence |
+| Merchant listing eligibility | Improved; FAQ now confirms merchant conditions |
+| Review snippet eligibility | Medium risk until rating source is documented |
 | FAQ rich-result expectation | Low probability |
 | Article/News schema quality | Medium |
 | Organization graph | Medium cleanup |

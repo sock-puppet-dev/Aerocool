@@ -622,11 +622,13 @@
   - `price`
   - `sku`
   - `availability`
-  - `shipping`
-  - `return policy`
+  - `shippingDetails`
+  - `hasMerchantReturnPolicy`
+  - `acceptedPaymentMethod`
   - `warranty`
   - `aggregateRating`
   - `brand`
+- merchant-условия из `shippingDetails`, `hasMerchantReturnPolicy` и `acceptedPaymentMethod` должны оставаться синхронизированными с видимыми условиями в `/faq/`.
 
 Когда идти сюда:
 
