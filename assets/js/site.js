@@ -251,13 +251,46 @@
     });
   }
 
+  function getServiceWorkerUrl() {
+    var serviceWorkerUrl = '/sw.js';
+
+    if (!window.trustedTypes || typeof window.trustedTypes.createPolicy !== 'function') {
+      return serviceWorkerUrl;
+    }
+
+    try {
+      var policy = window.trustedTypes.createPolicy('aerocool-service-worker', {
+        createScriptURL: function (value) {
+          var url = new URL(value, window.location.origin);
+
+          if (url.origin !== window.location.origin || url.pathname !== serviceWorkerUrl) {
+            throw new TypeError('Unexpected service worker URL');
+          }
+
+          return value;
+        }
+      });
+
+      return policy.createScriptURL(serviceWorkerUrl);
+    }
+    catch (_) {
+      return null;
+    }
+  }
+
   function setupServiceWorker() {
     if (!('serviceWorker' in navigator)) {
       return;
     }
 
     window.addEventListener('load', function () {
-      navigator.serviceWorker.register('/sw.js').catch(function () {
+      var serviceWorkerUrl = getServiceWorkerUrl();
+
+      if (!serviceWorkerUrl) {
+        return;
+      }
+
+      navigator.serviceWorker.register(serviceWorkerUrl).catch(function () {
         // Service worker registration should never break the page experience.
       });
     });
