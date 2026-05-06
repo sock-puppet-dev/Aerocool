@@ -2,7 +2,7 @@
 
 Обновлено: 2026-05-06.
 
-Этот документ описывает, как в проекте устроены Netlify redirects и кастомная `404`.
+Этот документ описывает, как в проекте устроены Netlify redirects, HTTP headers и кастомная `404`.
 
 ## 1. Где Живут Правила
 
@@ -93,7 +93,39 @@ HTML кастомной страницы ошибки задается в `layou
 - ссылка на главную должна вести на текущий язык: `/` для `uk`, `/ru/` для `ru`;
 - после изменения 404-шаблона проверять главную, `/404.html` и `/ru/404.html`.
 
-## 7. Проверка После Правок
+## 7. HTTP Headers
+
+HTTP headers задаются в `netlify.toml`, в блоке:
+
+```toml
+[[headers]]
+  for = "/*"
+  [headers.values]
+```
+
+Текущий security baseline:
+
+- `X-Frame-Options = "DENY"`;
+- `X-Content-Type-Options = "nosniff"`;
+- `Cross-Origin-Opener-Policy = "same-origin"`;
+- `Referrer-Policy = "strict-origin-when-cross-origin"`;
+- `Permissions-Policy = "geolocation=(), microphone=(), camera=()"`;
+- `Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"`;
+- `Content-Security-Policy` без inline scripts, с `trusted-types aerocool-service-worker` и `require-trusted-types-for 'script'`.
+
+`Cross-Origin-Opener-Policy: same-origin` нужен для изоляции top-level окна от других browsing contexts. Он закрывает PageSpeed/Lighthouse warning про отсутствующий COOP.
+
+Trusted Types включены через CSP, поэтому DOM XSS sinks и некоторые script URL assignments становятся строже. В проекте это особенно касается регистрации service worker:
+
+```text
+assets/js/site.js
+```
+
+Функция `getServiceWorkerUrl()` создает policy `aerocool-service-worker` и разрешает только локальный `/sw.js`. Не заменять ее обратно на прямой `navigator.serviceWorker.register('/sw.js')`: при текущем CSP Chrome блокирует такую строку ошибкой `This document requires 'TrustedScriptURL' assignment`, а Lighthouse затем сообщает, что service worker не контролирует `start_url`.
+
+Не добавлять `Cross-Origin-Embedder-Policy` автоматически вместе с COOP. COEP может ломать кросс-ориджин ресурсы, если они не отдают нужные CORS/CORP headers. Для текущего PageSpeed warning достаточно COOP.
+
+## 8. Проверка После Правок
 
 Минимальная проверка:
 
@@ -111,5 +143,7 @@ find static public -name '.DS_Store' -print
 - файл заканчивается newline;
 - `.DS_Store` не попал в `static/` и `public/`;
 - `public/404.html` и `public/ru/404.html` содержат `noindex,nofollow`.
+- после изменения `Content-Security-Policy` опубликованный Deploy Preview не пишет CSP/Trusted Types errors в console;
+- service worker регистрируется и контролирует `start_url` из `manifest.webmanifest`.
 
-Для полной проверки redirect engine лучше использовать Netlify Deploy Preview или Netlify CLI, потому что локальная Hugo-сборка проверяет генерацию файлов, но не полностью эмулирует Netlify routing.
+Для полной проверки redirect engine и headers лучше использовать Netlify Deploy Preview или Netlify CLI, потому что локальная Hugo-сборка проверяет генерацию файлов, но не полностью эмулирует Netlify routing и HTTP headers.

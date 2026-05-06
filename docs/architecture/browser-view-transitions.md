@@ -93,6 +93,15 @@ layouts/_partials/footer.html
 - кнопки копирования кода;
 - регистрацию service worker.
 
+Регистрация service worker совместима с текущим CSP и Trusted Types:
+
+- `netlify.toml` включает `require-trusted-types-for 'script'`;
+- CSP разрешает policy `aerocool-service-worker`;
+- `assets/js/site.js` получает `/sw.js` через `getServiceWorkerUrl()`;
+- policy разрешает только локальный `/sw.js`.
+
+Не заменять этот код на прямой `navigator.serviceWorker.register('/sw.js')`. В Chrome при включенных Trusted Types это ломает PWA-аудит и дает console error `This document requires 'TrustedScriptURL' assignment`.
+
 Поэтому новичку важно помнить:
 
 ```text

@@ -391,12 +391,16 @@ Accessibility напрямую не гарантирует ТОП‑1, но вл
 | HTTPS | Обязательно |
 | HSTS | Желательно |
 | Content-Security-Policy | Желательно, но аккуратно |
+| Cross-Origin-Opener-Policy | `same-origin` |
+| Trusted Types | `trusted-types aerocool-service-worker` + `require-trusted-types-for 'script'` |
 | X-Content-Type-Options | `nosniff` |
 | Referrer-Policy | `strict-origin-when-cross-origin` |
 | Permissions-Policy | Ограничить лишнее |
 | X-Frame-Options / CSP frame-ancestors | Защита от iframe |
 
-Для Netlify это можно настроить через файл `_headers`.
+В текущем проекте Netlify headers задаются в `netlify.toml`, а не в `_headers`.
+
+При изменении CSP отдельно проверить, что service worker продолжает регистрироваться. С включенным Trusted Types прямой `navigator.serviceWorker.register('/sw.js')` блокируется в Chrome, поэтому проект использует policy `aerocool-service-worker` в `assets/js/site.js`.
 
 ---
 

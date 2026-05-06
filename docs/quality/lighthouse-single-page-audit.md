@@ -99,6 +99,8 @@ Best Practices:
 
 - console errors;
 - CSP;
+- COOP;
+- Trusted Types;
 - HTTPS;
 - mixed content;
 - пустые или битые ресурсы.
@@ -119,6 +121,36 @@ Netlify собирает и публикует сайт. Lighthouse провер
 Если Netlify сейчас собирает `development`, Lighthouse SEO может показывать проблемы с indexability, потому что страницы намеренно получают `noindex,nofollow`.
 
 Финальный SEO-Lighthouse имеет смысл только после production-сборки и deploy.
+
+## PageSpeed, CSP И Service Worker
+
+PageSpeed может показывать security warnings, которые исправляются не в HTML, а в HTTP headers Netlify.
+
+Текущий проектный baseline в `netlify.toml`:
+
+- `Cross-Origin-Opener-Policy: same-origin`;
+- `Content-Security-Policy` с `trusted-types aerocool-service-worker`;
+- `require-trusted-types-for 'script'`.
+
+Если после включения Trusted Types в консоли появляется:
+
+```text
+This document requires 'TrustedScriptURL' assignment.
+```
+
+первое место проверки — регистрация service worker в `assets/js/site.js`. Она должна идти через `getServiceWorkerUrl()`, а не через прямую строку `navigator.serviceWorker.register('/sw.js')`.
+
+Если Lighthouse/PageSpeed пишет:
+
+```text
+Does not register a service worker that controls page and start_url
+```
+
+проверить три вещи:
+
+- нет console errors по CSP/Trusted Types;
+- `manifest.webmanifest` содержит `start_url: "/"` и `scope: "/"`;
+- `/sw.js` доступен на опубликованном Deploy Preview и регистрируется без ошибки.
 
 ## Как это связано с Unlighthouse
 

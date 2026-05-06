@@ -228,6 +228,20 @@ static/offline.js
 
 Это сделано, чтобы `Content-Security-Policy` мог быть строже и чтобы Lighthouse Best Practices не ругался на inline scripts.
 
+Дополнительно в `netlify.toml` включены security headers для PageSpeed/Lighthouse:
+
+- `Cross-Origin-Opener-Policy: same-origin`;
+- `Content-Security-Policy` с `trusted-types aerocool-service-worker`;
+- `require-trusted-types-for 'script'`.
+
+Из-за `require-trusted-types-for 'script'` регистрацию service worker нельзя возвращать к простому строковому вызову:
+
+```js
+navigator.serviceWorker.register('/sw.js')
+```
+
+Текущий стандарт — получать URL через `getServiceWorkerUrl()` в `assets/js/site.js`. Эта функция создает Trusted Types policy `aerocool-service-worker` и разрешает только локальный `/sw.js`. Если PageSpeed показывает `This document requires 'TrustedScriptURL' assignment`, сначала проверить именно этот участок.
+
 ## 11. SEO и robots
 
 В `development` все HTML-страницы получают:
