@@ -332,6 +332,7 @@ npm run audit:ci:technical
 - [docs/audits/2026-04-29-hugo-0-161-compliance-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-04-29-hugo-0-161-compliance-audit.md) — совместимость проекта с Hugo 0.161.0.
 - [docs/seo/json-ld-graph-audit-roadmap-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/json-ld-graph-audit-roadmap-2026.md) — текущее состояние schema.org графа и roadmap.
 - [docs/audits/2026-04-29-google-rich-results-quality-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-04-29-google-rich-results-quality-audit.md) — аудит Google rich results качества.
+- [docs/audits/2026-05-06-project-readiness-assessment.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-06-project-readiness-assessment.md) — итоговая оценка готовности проекта.
 - [docs/content/content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/content-seo-checklist-2026.md) — SEO-проверка контента.
 - [docs/seo/seo-keyword-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/seo-keyword-map-2026.md) — карта ключей.
 - `docs/content/templates/` — шаблоны статей, новостей, товаров и серий.
