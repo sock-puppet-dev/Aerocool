@@ -647,7 +647,7 @@ body.list {
    Namespace нужен, чтобы правила PaperMod для .footer, .footer-links
    и общих ссылок не перебивали темный Tailwind-макет. */
 .site-footer {
-    background: #111827;
+    background: #222;
 }
 
 .site-footer__inner {
