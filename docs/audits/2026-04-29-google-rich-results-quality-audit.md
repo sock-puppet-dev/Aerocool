@@ -340,10 +340,10 @@ Status:
 - Required merchant fields: technically strong.
 - Quality: price/availability/shipping/returns/payment facts are now visible to users.
 
-Status update `2026-05-06`:
+Status update `2026-05-07`:
 
-- Merchant conditions were strengthened in `/faq/` and now visibly confirm delivery by `Нова Пошта`, delivery cost `0 грн`, handling `0-1 day`, transit `1-3 days`, return window `14 days`, `FreeReturn`, and cash/card payment support.
-- If these business rules change later, update `/faq/`, product page copy and `layouts/_partials/_schema/product.html` together.
+- Product front matter is now the source of truth for merchant facts; `/faq/` visibly confirms delivery by `Нова Пошта`, delivery cost `0 грн`, handling `0-1 day`, transit `1-3 days`, return window `14 days`, `FreeReturn`, and cash/card payment support.
+- If these business rules change later, update product front matter first, then synchronize product page copy, `/faq/` and rendered `Product` JSON-LD together.
 
 ### AggregateRating Node
 
@@ -498,7 +498,7 @@ Strengths:
 
 - Stable IDs.
 - Parent/brand relationship is explicit.
-- `sameAs` is present.
+- Global `sameAs` is present on the global organization/brand, while the local organization is connected through `parentOrganization` and `brand`.
 - Contact points are present.
 - Local address exists.
 

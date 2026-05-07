@@ -123,9 +123,9 @@
 - [ ] Есть FAQ по предсказуемым возражениям: рост, вес, ткань/эко-кожа, доставка, сборка, гарантия.
 - [ ] Есть CTA на покупку или консультацию.
 - [ ] У карточки есть реальная коммерческая завершенность, а не “картинка + 2 абзаца”.
-- [ ] На странице должны быть реальные данные: `price`, `sku`, `mpn`, `gtin13`, `availability`, `warranty`, `return_days`.
+- [ ] На странице должны быть реальные данные в front matter: `price`, `sku`, `mpn`, `gtin13`, `availability`, `warranty`, `return_days`, `return_method`, `return_fees`, `shipping_country`, `shipping_rate`, `shipping_currency`, сроки доставки и `payment_methods`.
 - [ ] Цена, наличие, гарантия, доставка, возврат, рейтинг и количество отзывов должны быть видимыми на странице, если эти же данные выводятся в `Product` JSON-LD.
-- [ ] Merchant-условия из `Product` JSON-LD должны совпадать с `/faq/`: бесплатная доставка по Украине `Новой Почтой`, передача в отправку `0-1 день`, транзит `1-3 дня`, возврат `14 дней`, бесплатный возврат и оплата наличными/картой.
+- [ ] Product front matter является единым источником правды для `Product` JSON-LD; видимый commercial block и `/faq/` должны подтверждать те же merchant-условия.
 - [ ] Если данные меняются быстро, обновление контента и schema должно идти синхронно.
 - [ ] Для product image в текущем проекте использовать связку `image + cover.image + seo-image`, а не только один shortcode или только одно поле front matter.
 - [ ] Для product schema желательно поддерживать не одно изображение, а набор `16:9`, `4:3`, `1:1`, так как Google рекомендует это для товарных выдач.
@@ -307,8 +307,8 @@
 - [ ] Поле `h1` в метаданных страницы необязательно и используется только тогда, когда видимый заголовок должен отличаться от SEO `title`.
 - [ ] Для `collection`-страниц желательно иметь и `summary`, если шаблон использует краткое описание в списках и сниппетах.
 - [ ] Для товарных страниц обязательно заполнять `title`, `description`, `summary`, `date`, `lastmod`, `slug`, `categories`, `tags`, `image`, `schema_types`, `price`, `sku`, `availability`, `priceValidUntil`.
-- [ ] Для товарных страниц желательно заполнять `mpn`, `gtin13`, `warranty`, `rating.value`, `rating.count`, `return_days`, `shipping_country`, если эти данные доступны.
-- [ ] Если меняются доставка, возврат или способы оплаты, обновлять `/faq/`, `Product` JSON-LD и видимый коммерческий блок товарных страниц синхронно.
+- [ ] Для товарных страниц желательно заполнять `mpn`, `gtin13`, `warranty`, `rating.value`, `rating.count`, `return_days`, `return_method`, `return_fees`, `shipping_country`, `shipping_rate`, `shipping_currency`, `shipping_handling_min`, `shipping_handling_max`, `shipping_transit_min`, `shipping_transit_max`, `payment_methods`, если эти данные доступны.
+- [ ] Если меняются доставка, возврат или способы оплаты, сначала обновлять product front matter, затем синхронно проверять `Product` JSON-LD, видимый коммерческий блок товарных страниц и `/faq/`.
 - [ ] Для статей обязательно заполнять `title`, `description`, `summary`, `date`, `lastmod`, `slug`, `image`, `schema_types`.
 - [ ] Для статей желательно заполнять `tags`, `categories` или иной тематический классификатор, если он используется в перелинковке.
 - [ ] Для новостей обязательно заполнять `title`, `description`, `date`, `lastmod`, `slug`, `image`, `schema_types`.

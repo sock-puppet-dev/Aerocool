@@ -16,6 +16,15 @@
 {{- with .Params.priceValidUntil -}}
   {{- $priceValidUntil = time.Format "2006-01-02" . -}}
 {{- end -}}
+{{- $returnMethod := .Params.return_method | default "https://schema.org/ReturnByMail" -}}
+{{- $returnFees := .Params.return_fees | default "https://schema.org/FreeReturn" -}}
+{{- $shippingRate := .Params.shipping_rate | default 0 -}}
+{{- $shippingCurrency := .Params.shipping_currency | default "UAH" -}}
+{{- $shippingHandlingMin := .Params.shipping_handling_min | default 0 -}}
+{{- $shippingHandlingMax := .Params.shipping_handling_max | default 1 -}}
+{{- $shippingTransitMin := .Params.shipping_transit_min | default 1 -}}
+{{- $shippingTransitMax := .Params.shipping_transit_max | default 3 -}}
+{{- $paymentMethods := .Params.payment_methods | default (slice "https://schema.org/Cash" "https://schema.org/CreditCard") -}}
 {{- $offer := dict
   "@type" "Offer"
   "url" $pageURL
@@ -34,14 +43,11 @@
     "@type" "MerchantReturnPolicy"
     "applicableCountry" "UA"
     "merchantReturnDays" (.Params.return_days | default 14)
-    "returnMethod" "https://schema.org/ReturnByMail"
-    "returnFees" "https://schema.org/FreeReturn"
+    "returnMethod" $returnMethod
+    "returnFees" $returnFees
     "returnPolicyCategory" "https://schema.org/MerchantReturnFiniteReturnWindow"
   )
-  "acceptedPaymentMethod" (slice
-    "https://schema.org/Cash"
-    "https://schema.org/CreditCard"
-  )
+  "acceptedPaymentMethod" $paymentMethods
   "areaServed" (dict
     "@type" "Country"
     "name" "Ukraine"
@@ -54,21 +60,21 @@
     )
     "shippingRate" (dict
       "@type" "MonetaryAmount"
-      "value" 0
-      "currency" "UAH"
+      "value" $shippingRate
+      "currency" $shippingCurrency
     )
     "deliveryTime" (dict
       "@type" "ShippingDeliveryTime"
       "handlingTime" (dict
         "@type" "QuantitativeValue"
-        "minValue" 0
-        "maxValue" 1
+        "minValue" $shippingHandlingMin
+        "maxValue" $shippingHandlingMax
         "unitCode" "DAY"
       )
       "transitTime" (dict
         "@type" "QuantitativeValue"
-        "minValue" 1
-        "maxValue" 3
+        "minValue" $shippingTransitMin
+        "maxValue" $shippingTransitMax
         "unitCode" "DAY"
       )
     )

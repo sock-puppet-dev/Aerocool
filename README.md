@@ -125,6 +125,8 @@ index.ru.md   русская версия
 
 Во front matter использовать `schema_types`.
 
+Для товарных страниц product facts хранятся в front matter конкретного `content/products/<series>/<model>/index*.md`. Это единый источник правды для цены, наличия, SKU, MPN, GTIN, гарантии, доставки, возврата, способов оплаты и rating; `Product` JSON-LD, видимый товарный блок и `/faq/` должны быть синхронизированы с ним.
+
 Редакционные ориентиры объема для SEO-посадочных страниц:
 
 - статьи в `content/articles` — обычно `10000+` знаков основного текста на каждую языковую версию;
@@ -388,6 +390,7 @@ npm run audit:ci:technical
 - [docs/audits/2026-05-06-schemaapp-pdf-documentation-integration-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-06-schemaapp-pdf-documentation-integration-audit.md) — что добавили внешние SchemaApp PDF в документацию проекта.
 - [docs/audits/2026-05-06-project-readiness-assessment.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-06-project-readiness-assessment.md) — итоговая оценка готовности проекта.
 - [docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md) — текущий план действий после обновления документации и SchemaApp/AI Search интеграции.
+- [docs/audits/2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md) — выводы из 126 статей SchemaApp за 2016-2026 для текущего проекта.
 - [docs/content/content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/content-seo-checklist-2026.md) — SEO-проверка контента.
 - [docs/seo/seo-keyword-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/seo-keyword-map-2026.md) — карта ключей.
 - `docs/content/templates/` — шаблоны статей, новостей, товаров и серий.

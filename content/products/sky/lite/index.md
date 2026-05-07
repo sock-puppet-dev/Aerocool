@@ -3,7 +3,7 @@ title: "Ергономічне офісне крісло Aerocool SKY Lite"
 description: "Купити Aerocool SKY Lite в Україні — ергономічне офісне та комп'ютерне крісло з Synchronous Tilt, вентильованою сіткою, 2D поперековою підтримкою та 8D регулюванням."
 summary: "Aerocool SKY Lite — офісне та комп'ютерне крісло серії SKY з 8D регулюванням, Synchronous Tilt і вентильованою поверхнею для роботи та home office."
 date: 2026-03-19
-lastmod: 2026-05-06
+lastmod: 2026-05-07
 schema_types: ["website", "product", "organization", "breadcrumbs"]
 slug: "lite"
 categories: ["sky"]
@@ -19,6 +19,19 @@ sku: "SKY-LITE-001"
 warranty: 12
 availability: InStock
 priceValidUntil: 2027-12-31
+return_days: 14
+return_method: "https://schema.org/ReturnByMail"
+return_fees: "https://schema.org/FreeReturn"
+shipping_country: "UA"
+shipping_rate: 0
+shipping_currency: "UAH"
+shipping_handling_min: 0
+shipping_handling_max: 1
+shipping_transit_min: 1
+shipping_transit_max: 3
+payment_methods:
+  - "https://schema.org/Cash"
+  - "https://schema.org/CreditCard"
 rating:
   value: 4.6
   count: 41

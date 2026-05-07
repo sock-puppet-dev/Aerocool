@@ -61,3 +61,5 @@
 Главный практический следующий шаг после этой интеграции — не добавлять новые schema-типы немедленно, а спроектировать `entity registry`, `about_entities`, `mentions_entities`, `ProductGroup` и источник правды для rating/reviews.
 
 Актуальный порядок внедрения после повторной ревизии `2026-05-07` зафиксирован в [2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md).
+
+Отдельная ревизия 126 статей SchemaApp за `2016-2026` хранится в [2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md).

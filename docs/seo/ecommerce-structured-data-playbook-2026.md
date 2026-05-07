@@ -44,7 +44,7 @@
 - `FAQPage` для канонического `/faq/`;
 - единый `ImageObject` для primary image страницы.
 
-Главный риск: данные e-commerce schema должны совпадать с видимым контентом и реальным источником правды. Особенно это касается цены, наличия, рейтинга, количества отзывов, доставки, возврата и гарантии.
+Главный риск: данные e-commerce schema должны совпадать с видимым контентом и единым источником правды. Для Aerocool таким источником является product front matter; видимый commercial block и `/faq/` подтверждают те же значения. Особенно это касается цены, наличия, рейтинга, количества отзывов, доставки, возврата и гарантии.
 
 ## 3. Essential Product Properties
 
@@ -64,7 +64,7 @@
 | Reviews / rating | только реальные видимые данные | Опционально и рискованно |
 | MPN / GTIN | front matter, если официально известны | Желательно |
 | Warranty | front matter + visible product/FAQ facts | Желательно |
-| Shipping / returns | Product schema + `/faq/` + visible commercial block | Желательно |
+| Shipping / returns | front matter + Product schema + visible commercial block + `/faq/` | Желательно |
 
 Если поле попадает в JSON-LD, но не видно пользователю, это потенциальный schema quality риск.
 
@@ -180,8 +180,8 @@ Schema помогает E-E-A-T только тогда, когда усилив
 ### P0
 
 1. Проверить источник `aggregateRating` и решить: подтвердить или убрать.
-2. Поддерживать видимый commercial block на product pages как источник правды для Product schema.
-3. Держать `/faq/`, front matter и `Product` JSON-LD синхронными по доставке, возврату, оплате и гарантии.
+2. Поддерживать product front matter как единый источник правды для Product schema.
+3. Держать видимый commercial block, `/faq/` и `Product` JSON-LD синхронными с front matter по доставке, возврату, оплате и гарантии.
 
 ### P1
 

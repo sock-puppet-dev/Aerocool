@@ -224,8 +224,8 @@ AI follow-up вопросы не равны обычному Google `People Also
 
 | Entity | Тип Schema.org | Каноническая Страница | Где Усиливать | Следующее Действие |
 | --- | --- | --- | --- | --- |
-| Aerocool | `Brand` | `/` или `/about/` | Home, About, Product, Collection | Использовать стабильный `@id`; `sameAs` только на реальные официальные источники |
-| Aerocool Ukraine | `Organization` / `OnlineStore`, если подтвердится модель магазина | `/about/`, `/contact/`, `/faq/` | Organization graph, FAQ, Contact | Не расширять до `OnlineStore` без видимых merchant facts |
+| Aerocool | `Brand` | `/` или `/about/` | Home, About, Product, Collection | Использовать стабильный `@id`; глобальные соцпрофили держать как `sameAs` бренда/global organization |
+| Aerocool Ukraine | `Organization` / `OnlineStore`, если подтвердится модель магазина | `/about/`, `/contact/`, `/faq/` | Organization graph, FAQ, Contact | Не расширять до `OnlineStore`; связь с глобальным Aerocool через `parentOrganization` и `brand`, без local `sameAs` |
 | Каталог кресел | `CollectionPage` | `/products/` | Product hub, series pages | Связать с сериями и коммерческими интентами |
 | SKY | `ProductGroup` / `CollectionPage` | `/products/sky/` | Серия, товары, статьи | Спроектировать group ID и связи вариантов |
 | WING | `ProductGroup` / `CollectionPage` | `/products/wing/` | Серия, товары, статьи | Спроектировать group ID и связи вариантов |
@@ -242,9 +242,9 @@ AI follow-up вопросы не равны обычному Google `People Also
 | Racer | `DefinedTerm` / material | product pages | Materials, specs | Привязать к конкретным товарам |
 | Loft Air | `DefinedTerm` / material | product pages | Materials, specs | Привязать к конкретным товарам |
 | Dual backrest | `DefinedTerm` / feature | статьи/товары | Product specs, articles | Нужен короткий ответ и видимый контекст |
-| Доставка | `OfferShippingDetails` / policy | `/faq/` | Product, FAQ | Держать UI и JSON-LD синхронными |
-| Возврат | `MerchantReturnPolicy` | `/faq/` | Product, FAQ | Держать UI и JSON-LD синхронными |
-| Гарантия | `WarrantyPromise` / `PropertyValue` | products, `/faq/` | Product pages | Показывать видимо перед расширением schema |
+| Доставка | `OfferShippingDetails` / policy | product front matter + `/faq/` | Product, FAQ | Front matter — source of truth; UI и FAQ подтверждают |
+| Возврат | `MerchantReturnPolicy` | product front matter + `/faq/` | Product, FAQ | Front matter — source of truth; UI и FAQ подтверждают |
+| Гарантия | `WarrantyPromise` / `PropertyValue` | product front matter + products + `/faq/` | Product pages | Показывать видимо перед расширением schema |
 
 ## 8. Schema Roadmap Для AI Search
 

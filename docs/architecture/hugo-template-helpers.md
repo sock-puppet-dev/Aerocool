@@ -593,7 +593,9 @@
 
 Что делает:
 
-- описывает `Aerocool Ukraine` как локальную организацию/представительство.
+- описывает `Aerocool Ukraine` как локальную организацию/представительство;
+- связывает локальную сущность с глобальной компанией через `parentOrganization` и с глобальным брендом через `brand`;
+- не содержит `sameAs` на глобальные соцсети, потому что эти профили едины для всех представительств и принадлежат глобальным сущностям.
 
 ### `global-organization.html`
 
@@ -601,7 +603,8 @@
 
 Что делает:
 
-- описывает глобальную компанию `Aerocool`.
+- описывает глобальную компанию `Aerocool`;
+- содержит официальные глобальные `sameAs` профили Aerocool.
 
 ### `brand.html`
 
@@ -609,7 +612,8 @@
 
 Что делает:
 
-- описывает глобальный бренд `Aerocool`.
+- описывает глобальный бренд `Aerocool`;
+- содержит официальные глобальные `sameAs` профили Aerocool.
 
 ### `product.html`
 
@@ -622,19 +626,21 @@
   - `price`
   - `sku`
   - `availability`
+  - `priceValidUntil`
   - `shippingDetails`
   - `hasMerchantReturnPolicy`
   - `acceptedPaymentMethod`
   - `warranty`
   - `aggregateRating`
   - `brand`
-- merchant-условия из `shippingDetails`, `hasMerchantReturnPolicy` и `acceptedPaymentMethod` должны оставаться синхронизированными с видимыми условиями в `/faq/`.
+- для product facts источником правды является front matter конкретной товарной страницы;
+- merchant-условия из `shippingDetails`, `hasMerchantReturnPolicy` и `acceptedPaymentMethod` читаются из front matter и должны оставаться синхронизированными с видимым товарным текстом и `/faq/` как policy-зеркалом.
 
 Когда идти сюда:
 
 - если product schema неверная;
 - если в rich results у товара странные данные;
-- если цена, наличие или seller schema рендерятся не так.
+- если front matter заполнен верно, но цена, наличие, доставка, возврат, payment methods или seller schema рендерятся не так.
 
 ### `article.html`
 

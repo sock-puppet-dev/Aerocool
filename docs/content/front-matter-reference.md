@@ -226,7 +226,18 @@ warranty: 12
 mpn: "<MPN>"           # необязательно
 gtin13: "<GTIN13>"     # необязательно
 return_days: 14        # необязательно
-shipping_country: "UA" # необязательно
+return_method: "https://schema.org/ReturnByMail" # необязательно
+return_fees: "https://schema.org/FreeReturn"     # необязательно
+shipping_country: "UA"       # необязательно
+shipping_rate: 0             # необязательно
+shipping_currency: "UAH"     # необязательно
+shipping_handling_min: 0     # необязательно
+shipping_handling_max: 1     # необязательно
+shipping_transit_min: 1      # необязательно
+shipping_transit_max: 3      # необязательно
+payment_methods:             # необязательно
+  - "https://schema.org/Cash"
+  - "https://schema.org/CreditCard"
 rating:
   value: 4.8
   count: 10
@@ -238,8 +249,11 @@ rating:
 Для проекта `Aerocool` товарная страница обычно должна иметь `6000+` знаков основного текста на каждую языковую версию. Добор объема должен объяснять назначение модели, сценарии использования, материалы, регулировки, отличия от альтернатив, FAQ, сервисные условия и следующий коммерческий шаг.
 
 Параметр `jsonld` в shortcode `seo-image` больше не нужен: `ImageObject` собирается централизованно из front matter `image`.
-Поля `price`, `availability`, `rating.value`, `rating.count`, `warranty`, `return_days` и `shipping_country` должны совпадать с видимым коммерческим блоком карточки товара.
-По состоянию на `2026-05-06` merchant-условия `Product` JSON-LD подтверждены в `/faq/`: доставка по Украине `Новой Почтой`, стоимость доставки для покупателя `0 грн`, передача в отправку `0-1 день`, транзит `1-3 дня`, возврат `14 дней`, возврат бесплатный для покупателя, способы оплаты включают наличные и карту. Если эти условия меняются, сначала обновлять `/faq/`, затем `layouts/_partials/_schema/product.html` и товарный контент.
+
+Для товарных страниц единый источник правды по product facts — front matter конкретной страницы. Это относится к `price`, `sku`, `mpn`, `gtin13`, `availability`, `priceValidUntil`, `warranty`, `return_days`, `return_method`, `return_fees`, `shipping_country`, `shipping_rate`, `shipping_currency`, `shipping_handling_min`, `shipping_handling_max`, `shipping_transit_min`, `shipping_transit_max`, `payment_methods`, `rating.value` и `rating.count`.
+
+[layouts/_partials/_schema/product.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/product.html) читает merchant facts из front matter и строит `Offer`, `OfferShippingDetails`, `MerchantReturnPolicy`, `acceptedPaymentMethod`, `WarrantyPromise` и `AggregateRating`. Видимый коммерческий блок товарной страницы и `/faq/` должны подтверждать эти же значения, но не являются первичным источником. Если меняется цена, наличие, SKU, GTIN, гарантия, доставка, возврат или оплата, сначала обновлять product front matter, затем в том же изменении синхронизировать видимый product copy и `/faq/`, если это изменение policy-wide. Сам partial менять нужно только при изменении schema mapping или добавлении новых полей.
+
 Если рейтинг или количество отзывов не подтверждены реальными видимыми данными, их нельзя усиливать дополнительной `Review`-разметкой.
 
 ## 10. FAQ `content/faq/index.md` и `index.ru.md`

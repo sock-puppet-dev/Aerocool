@@ -3,7 +3,7 @@ title: "Эргономичное офисное кресло Aerocool WING Loft 
 description: "Купить Aerocool WING Loft Air Dark Grey в Украине — эргономичное офисное и компьютерное кресло серии WING с 11D регулировкой, Synchronous Tilt, двойной спинкой и поверхностью из многослойной вентилируемой сетчатой ткани."
 summary: "Aerocool WING Loft Air Dark Grey — офисное и компьютерное кресло серии WING с 11D регулировкой, двойной спинкой и вентилируемой поверхностью для работы и home office."
 date: 2026-03-19
-lastmod: 2026-05-06
+lastmod: 2026-05-07
 schema_types: ["website", "product", "organization", "breadcrumbs"]
 slug: "loft-air-dark-grey"
 categories: ["wing"]
@@ -21,6 +21,19 @@ gtin13: "4711530966501"
 warranty: 12
 availability: InStock
 priceValidUntil: 2027-12-31
+return_days: 14
+return_method: "https://schema.org/ReturnByMail"
+return_fees: "https://schema.org/FreeReturn"
+shipping_country: "UA"
+shipping_rate: 0
+shipping_currency: "UAH"
+shipping_handling_min: 0
+shipping_handling_max: 1
+shipping_transit_min: 1
+shipping_transit_max: 3
+payment_methods:
+  - "https://schema.org/Cash"
+  - "https://schema.org/CreditCard"
 rating:
   value: 4.9
   count: 58

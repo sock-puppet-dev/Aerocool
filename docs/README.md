@@ -103,6 +103,7 @@
 - [audits/2026-05-06-schemaapp-pdf-documentation-integration-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-06-schemaapp-pdf-documentation-integration-audit.md) — интеграция выводов из SchemaApp PDF в локальную документацию.
 - [audits/2026-05-06-project-readiness-assessment.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-06-project-readiness-assessment.md) — итоговая оценка готовности проекта после обновления документации и аудита.
 - [audits/2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md) — актуальный P0/P1/P2/P3 план действий для production, schema, entities и AI Search.
+- [audits/2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md) — corpus-анализ 126 статей SchemaApp за 2016-2026.
 
 ## Правило Поддержки
 
@@ -114,7 +115,7 @@
 - поменял front matter поля — проверь `content/front-matter-reference.md`;
 - поменял `seo-image` — проверь `content/seo-image-shortcode.md`;
 - поменял schema.org partials — проверь `seo/schema-types-reference.md`, `seo/schema-markup-quality-checklist-2026.md` и `seo/json-ld-graph-audit-roadmap-2026.md`;
-- поменял product schema, варианты, rating, delivery или return policy — проверь `seo/ecommerce-structured-data-playbook-2026.md`, `content/front-matter-reference.md` и `/faq/`;
+- поменял product schema, варианты, rating, delivery или return policy — проверь `content/front-matter-reference.md`, `seo/ecommerce-structured-data-playbook-2026.md`, product front matter, видимый товарный текст и `/faq/` как policy-зеркало;
 - поменял entity strategy, `about`, `mentions`, `sameAs` или `@id` — проверь `seo/entities-knowledge-graph-playbook-2026.md` и `seo/ai-search-entity-map-2026.md`;
 - поменял Unlighthouse конфиг — проверь `quality/unlighthouse-site-audit.md`;
 - поменял версии Hugo/Node — проверь `deploy/local-tooling-mise.md`, `README.md` и `netlify.toml`;

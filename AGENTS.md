@@ -59,6 +59,7 @@
 - `docs/seo/google-seo-audit-checklist-2026.md`
 - `docs/seo/ssg-seo-checklist-2026.md`
 - `docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md`
+- `docs/audits/2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md`
 - `docs/architecture/browser-view-transitions.md`
 - `docs/deploy/local-tooling-mise.md`
 - `docs/deploy/netlify-routing.md`
@@ -75,6 +76,7 @@
 - Для статей, новостей и товарных вариантов используйте явные `slug`, если важен контроль URL.
 - Варианты товаров сознательно разделены по модели и цвету. Для каждого варианта — отдельная папка и отдельный `slug`.
 - Во front matter использовать только `schema_types`. Шаблоны читают `.Params.schema_types`; не переходить на `schema_type`.
+- Для товарных страниц единый источник правды по product facts — front matter конкретного `content/products/<series>/<model>/index*.md`: цена, наличие, SKU, MPN, GTIN, гарантия, доставка, возврат, способы оплаты и rating. Видимый товарный текст и `/faq/` должны подтверждать эти значения, а не заменять их.
 - Для большинства страниц видимый `H1` рендерится шаблонным слоем через `layouts/_partials/page-h1.html` по правилу `.Params.h1 | default .Title`.
 - Текущая главная страница — исключение: ее hero и видимый `H1` задаются единым shortcode `layouts/_shortcodes/home-hero.html`, который сам переключает украинский/русский текст по языку страницы.
 - Home hero использует namespaced CSS-хуки `home-hero__*`; их визуальный слой держим в `assets/css/main.css`, а не размазываем по теме.

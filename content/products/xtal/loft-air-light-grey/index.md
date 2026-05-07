@@ -3,7 +3,7 @@ title: "Ергономічне офісне крісло Aerocool XTAL Loft Air 
 description: "Купити Aerocool XTAL Loft Air Light Grey в Україні — ергономічне офісне та комп'ютерне крісло серії XTAL з 7D регулюванням, Synchronous Tilt, змінними елементами та багатошаровою вентильованою сітчастою тканиною."
 summary: "Aerocool XTAL Loft Air Light Grey — офісне та комп'ютерне крісло серії XTAL з 7D регулюванням, змінними елементами та вентильованою текстильною поверхнею для роботи й home office."
 date: 2026-03-19
-lastmod: 2026-05-06
+lastmod: 2026-05-07
 schema_types: ["website", "product", "organization", "breadcrumbs"]
 slug: "loft-air-light-grey"
 categories: ["xtal"]
@@ -21,6 +21,19 @@ gtin13: "4711530966808"
 warranty: 12
 availability: InStock
 priceValidUntil: 2027-12-31
+return_days: 14
+return_method: "https://schema.org/ReturnByMail"
+return_fees: "https://schema.org/FreeReturn"
+shipping_country: "UA"
+shipping_rate: 0
+shipping_currency: "UAH"
+shipping_handling_min: 0
+shipping_handling_max: 1
+shipping_transit_min: 1
+shipping_transit_max: 3
+payment_methods:
+  - "https://schema.org/Cash"
+  - "https://schema.org/CreditCard"
 rating:
   value: 4.9
   count: 68
