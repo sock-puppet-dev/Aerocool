@@ -51,13 +51,21 @@
 - `docs/architecture/hugo-template-helpers.md`
 - `docs/content/seo-image-shortcode.md`
 - `docs/seo/schema-types-reference.md`
+- `docs/seo/schema-markup-quality-checklist-2026.md`
+- `docs/seo/ai-search-entity-map-2026.md`
+- `docs/seo/entities-knowledge-graph-playbook-2026.md`
+- `docs/seo/ecommerce-structured-data-playbook-2026.md`
+- `docs/seo/json-ld-graph-audit-roadmap-2026.md`
+- `docs/seo/google-seo-audit-checklist-2026.md`
+- `docs/seo/ssg-seo-checklist-2026.md`
+- `docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md`
 - `docs/architecture/browser-view-transitions.md`
 - `docs/deploy/local-tooling-mise.md`
 - `docs/deploy/netlify-routing.md`
 - `docs/quality/lighthouse-single-page-audit.md`
 - `docs/quality/unlighthouse-site-audit.md`
 
-Для новичка порядок чтения такой: сначала `README.md`, затем `docs/README.md`, затем `docs/content/front-matter-reference.md`, затем `docs/architecture/hugo-template-helpers.md`, затем `docs/quality/unlighthouse-site-audit.md`. Остальные гайды подключать по задаче.
+Для новичка порядок чтения такой: сначала `README.md`, затем `docs/README.md`, затем `docs/content/front-matter-reference.md`, затем `docs/architecture/hugo-template-helpers.md`, затем `docs/quality/unlighthouse-site-audit.md`. Для SEO/schema-задач после этого читать `docs/seo/schema-types-reference.md`, `docs/seo/schema-markup-quality-checklist-2026.md`, `docs/seo/entities-knowledge-graph-playbook-2026.md` и профильный playbook по задаче. Остальные гайды подключать по задаче.
 
 ## Контентные Правила
 

@@ -12,6 +12,8 @@
 4. Не добавляй поля “на всякий случай”, если шаблоны проекта их не используют.
 5. После правки запусти `npm run build`.
 
+Практический план будущих entity/product fields (`about_entities`, `mentions_entities`, `product_group_id`, `variant_attributes`, `rating_source`) описан в [2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md). До появления entity registry и поддержки в Hugo templates эти поля не добавлять в `content/`.
+
 ## Главное Правило По Заголовкам
 
 - `title` обязателен и отвечает за SEO-заголовок документа.

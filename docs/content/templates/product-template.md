@@ -44,7 +44,7 @@ rating:
 ## Структура Текста
 
 ```md
-{{< seo-image 
+{{< seo-image
   src="<image-file>"
   width="2000"
   height="2000"

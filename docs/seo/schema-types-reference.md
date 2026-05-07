@@ -26,6 +26,9 @@ schema_types: ["website", "product", "organization", "breadcrumbs"]
 - `breadcrumbs` не используется на главной странице, потому что home не нуждается в одноэлементном `BreadcrumbList`.
 - Чистый Schema Validator не равен гарантии rich results: для Google данные в JSON-LD должны совпадать с видимым контентом страницы.
 - Текущий roadmap усиления графа и rich-results качества хранится в [json-ld-graph-audit-roadmap-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/json-ld-graph-audit-roadmap-2026.md).
+- QA-правила schema.org-графа, schema drift и ownership описаны в [schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/schema-markup-quality-checklist-2026.md).
+- Entity strategy, `@id`, `sameAs`, `about` и `mentions` проектируются через [entities-knowledge-graph-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entities-knowledge-graph-playbook-2026.md) и [ai-search-entity-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/ai-search-entity-map-2026.md).
+- Product/Offer/rating/variant/image policy для каталога описана в [ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/ecommerce-structured-data-playbook-2026.md).
 
 Главная `content/_index.md`
 `schema_types: ["website", "organization", "brand"]`

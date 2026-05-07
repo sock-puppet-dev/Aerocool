@@ -1,7 +1,7 @@
 # Google Rich Results Quality Audit
 
-Дата аудита: 2026-04-29  
-Актуализировано: 2026-05-05
+Дата аудита: 2026-04-29
+Актуализировано: 2026-05-06
 Проект: `Aerocool Ukraine` / Hugo / двуязычный сайт `uk` + `ru`
 
 ## Scope
@@ -79,13 +79,13 @@ npm run build
 
 ## Executive Summary
 
-Техническая база хорошая: JSON-LD валиден, граф централизован, обязательные поля основных типов в целом присутствуют. Основная проблема не синтаксис, а quality compliance: часть разметки описывает данные, которые не видны пользователю на странице.
+Техническая база хорошая: JSON-LD валиден, граф централизован, обязательные поля основных типов в целом присутствуют. После обновлений `2026-05-06` основной риск hidden product facts заметно снижен: price, availability, SKU, warranty, merchant facts и rating value/count выводятся видимо там, где эти поля есть во front matter. Главный оставшийся риск — не синтаксис, а quality evidence для рейтингов/отзывов и финальная проверка на production URL.
 
 Самые важные риски:
 
-1. Все 24 `Product` nodes содержат `price`, `availability`, `aggregateRating`, `sku`, часто `mpn` и `gtin13`, но эти данные не выводятся видимо на товарных страницах. Это риск по Google quality guidelines: structured data не должна размечать невидимый пользователю контент.
-2. Все 24 `aggregateRating` nodes невидимы на странице. Review snippet documentation отдельно говорит, что при `AggregateRating` пользователь должен видеть aggregate rating на странице.
-3. Merchant listing eligibility под вопросом, если товар нельзя купить прямо на странице. Сейчас страницы выглядят скорее как каталог/маркетинговые карточки, а не checkout-ready merchant pages.
+1. Все 24 `Product` nodes содержат `price`, `availability`, `aggregateRating`, `sku`, часто `mpn` и `gtin13`; после обновлений `2026-05-06` эти данные в целом подтверждены видимым product facts block. Оставшийся риск — источник рейтингов и review evidence.
+2. Все 24 `aggregateRating` nodes теперь имеют видимое значение/count на странице, но источник рейтинга и индивидуальные отзывы пока не оформлены как полноценный пользовательский слой.
+3. Merchant listing eligibility под вопросом, если товар нельзя купить прямо на странице. После появления visible facts и коммерческого CTA риск ниже, но страницы всё ещё нужно проверять как каталог/маркетинговые карточки, а не полноценный checkout-ready merchant flow.
 4. `FAQPage` технически корректен и видим, но Google ограничивает FAQ rich results well-known authoritative government/health сайтами. Для коммерческого сайта это почти нулевая ставка на видимый FAQ rich result.
 5. Все `Article` и `NewsArticle` используют одно primary image `1536x1024` с ratio `1.5`. Google рекомендует несколько high-resolution images в ratio `16x9`, `4x3`, `1x1`.
 6. `WebSite.SearchAction` больше не дает sitelinks search box: Google удалил этот визуальный элемент с 2024-11-21.
@@ -95,9 +95,9 @@ npm run build
 
 | Feature | Current state | Eligibility | Quality risk |
 |---|---|---|---|
-| Product snippet | Есть на 24 товарных URL | Технически близко к eligible | Высокий: price/rating/availability не видны |
-| Merchant listing | Есть Offer, shipping, return policy | Условно, если страница реально продает товар | Высокий: нет явного purchase flow, не видны price/availability |
-| Review snippet | Есть `aggregateRating` на 24 товарах | Сомнительно | Высокий: rating не виден, источник отзывов не ясен |
+| Product snippet | Есть на 24 товарных URL | Технически близко к eligible | Средний: visible facts добавлены, rating evidence еще нужно подтвердить |
+| Merchant listing | Есть Offer, shipping, return policy | Условно, если страница реально продает товар | Средний: есть visible facts/CTA, но нет checkout flow |
+| Review snippet | Есть `aggregateRating` на 24 товарах | Сомнительно | Средний/высокий: rating виден, источник отзывов не ясен |
 | Breadcrumb | 76 nodes, positions/items ok | Хорошая eligible-зона | Низкий |
 | FAQ rich result | 2 pages, 33 Q/A видимы | Низкая для коммерческого сайта | Низкий технически, высокий ожиданиями |
 | Article | 14 nodes | Хорошая семантика | Средний: image ratios, author inline data |

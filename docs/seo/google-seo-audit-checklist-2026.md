@@ -1,9 +1,11 @@
 # Полный SEO-аудит сайта для выхода в ТОП‑1 Google
 
-> Контекст: сайт на Hugo / Netlify, уже используется Unlighthouse.  
+> Контекст: сайт на Hugo / Netlify, уже используется Unlighthouse.
 > Цель: не просто получить 100/100 в Lighthouse, а пройти полный SEO-контур: индексация, Core Web Vitals, structured data, контент, доверие, UX, конкуренты, ссылки и постоянный мониторинг.
 
 > Примечание для текущего проекта Aerocool: Netlify сейчас намеренно собирает сайт в `development/noindex`, поэтому финальную проверку индексируемости нужно делать только после отдельного production-переключения. Unlighthouse в этом проекте запускается локально из папки `unlighthouse/`, а GitHub Actions gate сейчас не используется.
+
+> Практический порядок внедрения для текущего проекта: [2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md).
 
 ---
 
@@ -57,6 +59,7 @@ Unlighthouse в основном проверяет Lighthouse-аудиты по
 | 10 | Content audit | Качество, полнота, интент, E‑E‑A‑T |
 | 11 | Security audit | HTTPS, headers, безопасность |
 | 12 | Analytics audit | Netlify Analytics, Search Console, конверсии |
+| 13 | AI Search / Entity audit | Видимость бренда и товаров в AI-ответах, citations, sentiment, entity graph |
 
 ---
 
@@ -425,7 +428,32 @@ Accessibility напрямую не гарантирует ТОП‑1, но вл
 
 ---
 
-## 17. Что добавить к Unlighthouse
+## 17. AI Search / Entity Visibility Audit
+
+Для проекта `Aerocool` SEO-аудит должен проверять не только classic SERP, но и то, как бренд, серии, модели и сценарии выбора появляются в AI-ответах.
+
+Проверить:
+
+| Что | Зачем |
+|---|---|
+| Entity home | У каждой важной сущности есть каноническая страница или сильный блок |
+| Prompt-аудит | Проверка conversational prompts по бренду, сериям, товарам и сценариям |
+| Citation ownership | AI-системы цитируют `aerocool.ua`, а не только маркетплейсы или конкурентов |
+| Brand sentiment | Ответы описывают бренд и товары корректно, без искажения позиционирования |
+| Entity graph | `Organization`, `Brand`, `Product`, `Article`, `FAQ`, `BreadcrumbList`, `about`, `mentions`, `sameAs`, `@id` связаны между собой |
+| Visible evidence | Цены, наличие, доставка, гарантия, рейтинг и характеристики подтверждены видимым контентом |
+| Component content | Страницы имеют повторяемые блоки, которые можно цитировать: короткий ответ, сравнение, FAQ, характеристики, CTA |
+| AI referrals | После production-запуска отслеживать реферальный трафик от AI-платформ, где он доступен |
+
+Профильные документы:
+
+- [ai-search-entity-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/ai-search-entity-map-2026.md)
+- [entities-knowledge-graph-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entities-knowledge-graph-playbook-2026.md)
+- [schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/schema-markup-quality-checklist-2026.md)
+
+---
+
+## 18. Что добавить к Unlighthouse
 
 Текущий SEO-стек должен выглядеть так:
 
@@ -446,14 +474,16 @@ Accessibility напрямую не гарантирует ТОП‑1, но вл
    ↓
 8. Google Merchant Center
    ↓
-9. Manual UX audit
+9. AI Search / Entity audit
    ↓
-10. Content / E-E-A-T audit
+10. Manual UX audit
+   ↓
+11. Content / E-E-A-T audit
 ```
 
 ---
 
-## 18. Жёсткий стандарт для Hugo-сайта
+## 19. Жёсткий стандарт для Hugo-сайта
 
 Для каждой важной страницы:
 
@@ -474,13 +504,15 @@ Accessibility напрямую не гарантирует ТОП‑1, но вл
 | Canonical | Правильный |
 | Hreflang | Правильный |
 | Content | Лучше конкурентов |
+| Entity clarity | Главная сущность и связи понятны человеку и JSON-LD |
+| AI citation readiness | Есть короткие, проверяемые, цитируемые блоки |
 | CTA | Видимый |
 | Trust | Контакты, гарантия, доставка |
 | Mobile UX | Идеально |
 
 ---
 
-## 19. Рекомендуемый порядок аудита для aerocool.ua
+## 20. Рекомендуемый порядок аудита для aerocool.ua
 
 ### Этап 1 — техническая база
 
@@ -542,9 +574,19 @@ FAQ
 Улучшить страницы до уровня лучше конкурентов
 ```
 
+### Этап 6 — AI Search
+
+```text
+Проверить prompt matrix
+Проверить AI citations
+Проверить brand sentiment
+Проверить entity homes
+Проверить visible evidence для schema facts
+```
+
 ---
 
-## 20. Итоговая формула ТОП‑1
+## 21. Итоговая формула ТОП‑1
 
 ```text
 Technical SEO
@@ -554,6 +596,8 @@ Technical SEO
 + Content Quality
 + E-E-A-T / Trust
 + Product SEO
++ AI Search Visibility
++ Entity Graph
 + Competitor Audit
 + Backlinks
 + Local SEO

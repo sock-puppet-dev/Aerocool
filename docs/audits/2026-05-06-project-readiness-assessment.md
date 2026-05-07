@@ -8,13 +8,15 @@
 
 Проект находится в очень сильном состоянии: документация стала понятной для новичка, аудит качества описан и проверен, лишний GitHub Actions workflow удален, старые временные отчеты Unlighthouse убраны, обычная и production-сборка Hugo проходят без ошибок, а ключевые SEO-посадочные страницы в `content/` доведены до текущих редакционных ориентиров по объему.
 
+После интеграции внешних SchemaApp PDF документация также покрывает AI Search visibility, entity/knowledge graph strategy, schema.org QA, e-commerce structured data, повторяемые content components и контроль соответствия видимого контента JSON-LD.
+
 Не `10 / 10` только потому, что Netlify пока намеренно работает в `development`-режиме с `noindex,nofollow`. Для этапа доработки это правильно, но для финального SEO-запуска нужно отдельно включить production и проверить реальный опубликованный URL.
 
 ## Оценка По Блокам
 
 | Блок | Оценка | Почему |
 | --- | ---: | --- |
-| Документация | 10 / 10 | Все подробные гайды перенесены в `docs/`, есть оглавление, понятные имена файлов и порядок чтения для новичка. |
+| Документация | 10 / 10 | Все подробные гайды перенесены в `docs/`, есть оглавление, понятные имена файлов, порядок чтения для новичка и отдельные playbooks для schema QA, AI Search, entities/knowledge graph и e-commerce structured data. |
 | Структура `docs/` | 10 / 10 | Документы разделены на `architecture`, `content`, `seo`, `quality`, `deploy`, `audits`; имена файлов отражают суть. |
 | Unlighthouse и Lighthouse | 10 / 10 | Конфиги описаны, сценарии аудита понятны, typecheck проходит. |
 | Netlify workflow | 9.5 / 10 | Основной pipeline остается в Netlify; лишний GitHub Actions gate удален. До финала нужно переключить production-режим. |
@@ -34,6 +36,8 @@
 - `layouts/_partials/cover.html` описан как локальный PaperMod override для cover-картинок.
 - Документация теперь объясняет, что проект пока специально находится в `development/noindex` режиме.
 - Контентный аудит от `2026-05-06` подтвердил, что статьи, новости, товарные страницы, страницы серий, хабы `/products/`, `/articles/`, `/news/` и `/about/` проходят текущие целевые стандарты объема.
+- Выводы из SchemaApp PDF вынесены в отдельный integration audit и разнесены по профильным документам, а не оставлены как внешние заметки.
+- Добавлены/подключены playbooks для AI Search, schema.org QA, entity strategy, knowledge graph и e-commerce rich results.
 
 ## Что Еще Нужно Для Честных 10 / 10
 
@@ -43,7 +47,11 @@
 4. Убедиться, что `search`, `404` и alias-страницы остаются `noindex,nofollow`.
 5. Прогнать Unlighthouse production/strict audit по реальному URL.
 6. Поддерживать контентные стандарты при новых товарах, сериях, статьях и новостях, чтобы новые страницы не возвращали проект к тонкому контенту.
+7. После production-запуска завести baseline AI Search-аудита: prompts, AI citations, brand sentiment, citation ownership и AI referral/crawler traffic.
+8. Решить источник рейтингов/отзывов для product schema: подтвердить реальный `aggregateRating` видимыми данными или убрать его из JSON-LD.
 
 ## Финальный Вывод
 
-Текущая база проекта уже профессиональная. Главная оставшаяся работа перед `10 / 10` — не переписывание проекта, а финальная production-проверка: Netlify production environment, реальный URL, индексируемость, Unlighthouse strict audit и ручная проверка ключевых страниц.
+Текущая база проекта уже профессиональная. Главная оставшаяся работа перед `10 / 10` — не переписывание проекта, а финальная production-проверка: Netlify production environment, реальный URL, индексируемость, Unlighthouse strict audit, ручная проверка ключевых страниц и стартовый AI Search baseline после индексации.
+
+Актуальный практический план действий после повторной ревизии `2026-05-07` хранится в [2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md).

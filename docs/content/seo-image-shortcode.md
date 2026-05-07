@@ -32,7 +32,7 @@ cover:
 Потом в теле страницы:
 
 ```md
-{{< seo-image 
+{{< seo-image
   src="01-front.png"
   width="2000"
   height="2000"
@@ -54,7 +54,7 @@ cover:
 ## 2. Основное контентное изображение
 
 ```md
-{{< seo-image 
+{{< seo-image
   src="wing-mesh-black.png"
   width="1200"
   height="800"
@@ -74,7 +74,7 @@ cover:
 ## 3. Второстепенное или галерейное изображение
 
 ```md
-{{< seo-image 
+{{< seo-image
   src="wing-mesh-side.png"
   width="800"
   height="600"
