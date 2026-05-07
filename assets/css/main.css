@@ -219,7 +219,7 @@ body.list {
 }
 
 /* Текстовые ссылки приводим к одному паттерну:
-   спокойный акцентный синий + тонкое underline вместо разнородных
+   спокойный акцентный синий без underline и разнородных
    box-shadow/border-bottom решений темы.
 
    Важно:
@@ -234,17 +234,13 @@ body.list {
 .entry-cover a {
     border-bottom: 0;
     box-shadow: none;
-    text-decoration: underline;
-    text-decoration-thickness: 0.08em;
-    text-underline-offset: 0.18em;
-    text-decoration-color: var(--link-underline);
-    transition: color 180ms ease, text-decoration-color 180ms ease;
+    text-decoration: none;
+    transition: color 180ms ease;
 }
 
 /* Цветовая система для text links:
    обычное состояние — accent,
-   hover — accent-hover,
-   underline становится заметнее при наведении. */
+   hover — accent-hover. */
 .post-content a,
 .related-links a,
 .footer a,
@@ -275,7 +271,7 @@ body.list {
 .breadcrumbs a:hover,
 .home-hero a:not(.home-hero__cta):hover,
 .entry-cover a:hover {
-    text-decoration-color: currentColor;
+    text-decoration: none;
 }
 
 /* Карточки и вспомогательные поверхности строим по одному принципу:
@@ -459,7 +455,7 @@ body.list {
 
 .entry-title-link:hover,
 .entry-title-link:focus-visible {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 /* Контейнер блока "Что посмотреть дальше" под статьями и товарами.
@@ -643,9 +639,7 @@ body.list {
     }
 }
 
-/* Новый основной футер.
-   Namespace нужен, чтобы правила PaperMod для .footer, .footer-links
-   и общих ссылок не перебивали темный Tailwind-макет. */
+/* footer block */
 .site-footer {
     background: #222;
 }
