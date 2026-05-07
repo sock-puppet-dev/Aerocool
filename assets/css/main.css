@@ -88,6 +88,12 @@
     --accent-hover: #432dd7;
     --accent-soft: #e0e7ff;
     --link-underline: #c7d2fe;
+    --color-link-rose: #d60057;
+    --color-link-purple: #7c1fff;
+    --color-link-blue: #004cff;
+    --color-link-cyan: #0088cc;
+    --color-link-green: #008c45;
+    --color-link-orange: #d94700;
     --border-strong: #d1d5db;
     --shadow-soft: 0 8px 24px rgba(15, 23, 42, 0.06);
     --shadow-card: 0 2px 10px rgba(15, 23, 42, 0.04);
@@ -219,7 +225,7 @@ body.list {
 }
 
 /* Текстовые ссылки приводим к одному паттерну:
-   спокойный акцентный синий без underline и разнородных
+   многоцветный перелив без underline и разнородных
    box-shadow/border-bottom решений темы.
 
    Важно:
@@ -235,34 +241,56 @@ body.list {
     border-bottom: 0;
     box-shadow: none;
     text-decoration: none;
-    transition: color 180ms ease;
+    transition: color 180ms ease, transform 400ms ease;
 }
 
-/* Цветовая система для text links:
-   обычное состояние — accent,
-   hover — accent-hover. */
-.post-content a,
-.related-links a,
-.footer a,
-.breadcrumbs a,
-.home-hero a:not(.home-hero__cta),
-.entry-cover a,
-.pagination a,
-.paginav a,
-.entry-title-link:hover,
-.entry-title-link:focus-visible {
-    color: var(--accent);
+/* Многоцветный link-эффект для обычных ссылок сайта.
+   Размер и padding не задаем глобально, чтобы ссылки внутри меню,
+   футера, хлебных крошек и абзацев не превратились в большие CTA. */
+:where(
+    .post-content a,
+    .related-links a,
+    .footer a,
+    .breadcrumbs a,
+    .home-hero a:not(.home-hero__cta),
+    .entry-cover a,
+    .pagination a,
+    .paginav a,
+    .entry-title-link,
+    .color-link
+) {
+    animation: colorChange 60s linear infinite;
+    color: var(--color-link-rose);
 }
 
-.post-content a:hover,
-.related-links a:hover,
-.footer a:hover,
-.breadcrumbs a:hover,
-.home-hero a:not(.home-hero__cta):hover,
-.entry-cover a:hover,
-.pagination a:hover,
-.paginav a:hover {
-    color: var(--accent-hover);
+:where(
+    .post-content a,
+    .related-links a,
+    .footer a,
+    .breadcrumbs a,
+    .home-hero a:not(.home-hero__cta),
+    .entry-cover a,
+    .pagination a,
+    .paginav a,
+    .entry-title-link,
+    .color-link
+) {
+    display: inline-block;
+}
+
+:where(
+    .post-content a,
+    .related-links a,
+    .footer a,
+    .breadcrumbs a,
+    .home-hero a:not(.home-hero__cta),
+    .entry-cover a,
+    .pagination a,
+    .paginav a,
+    .entry-title-link,
+    .color-link
+):hover {
+    transform: scale(1.08);
 }
 
 .post-content a:hover,
@@ -272,6 +300,84 @@ body.list {
 .home-hero a:not(.home-hero__cta):hover,
 .entry-cover a:hover {
     text-decoration: none;
+}
+
+@keyframes colorChange {
+    0% {
+        color: var(--color-link-blue);
+    }
+
+    11% {
+        color: var(--color-link-orange);
+    }
+
+    18% {
+        color: var(--color-link-purple);
+    }
+
+    29% {
+        color: var(--color-link-green);
+    }
+
+    41% {
+        color: var(--color-link-rose);
+    }
+
+    53% {
+        color: var(--color-link-cyan);
+    }
+
+    64% {
+        color: var(--color-link-purple);
+    }
+
+    73% {
+        color: var(--color-link-orange);
+    }
+
+    85% {
+        color: var(--color-link-blue);
+    }
+
+    93% {
+        color: var(--color-link-green);
+    }
+
+    100% {
+        color: var(--color-link-rose);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :where(
+        .post-content a,
+        .related-links a,
+        .footer a,
+        .breadcrumbs a,
+        .home-hero a:not(.home-hero__cta),
+        .entry-cover a,
+        .pagination a,
+        .paginav a,
+        .entry-title-link,
+        .color-link
+    ) {
+        animation: none;
+    }
+
+    :where(
+        .post-content a,
+        .related-links a,
+        .footer a,
+        .breadcrumbs a,
+        .home-hero a:not(.home-hero__cta),
+        .entry-cover a,
+        .pagination a,
+        .paginav a,
+        .entry-title-link,
+        .color-link
+    ):hover {
+        transform: none;
+    }
 }
 
 /* Карточки и вспомогательные поверхности строим по одному принципу:
