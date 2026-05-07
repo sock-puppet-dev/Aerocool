@@ -2,9 +2,19 @@
 title: "О бренде Aerocool в Украине"
 description: "О Aerocool в Украине: игровые, офисные и компьютерные кресла серий SKY, WING и XTAL, подход к эргономике, консультации по подбору и сервисная поддержка."
 date: 2025-08-05T10:00:00+03:00
-lastmod: 2026-05-06
+lastmod: 2026-05-07
 slug: "about"
 schema_types: ["website", "organization", "brand", "about-page", "breadcrumbs"]
+about_entities:
+  - "aerocool-brand"
+  - "aerocool-ukraine"
+  - "aerocool-global-organization"
+mentions_entities:
+  - "aerocool-catalog"
+  - "products-collection"
+  - "sky-series"
+  - "wing-series"
+  - "xtal-series"
 image: "cover.webp"
 ---
 

@@ -125,7 +125,7 @@ index.ru.md   русская версия
 
 Во front matter использовать `schema_types`.
 
-Для товарных страниц product facts хранятся в front matter конкретного `content/products/<series>/<model>/index*.md`. Это единый источник правды для цены, наличия, SKU, MPN, GTIN, гарантии, доставки, возврата, способов оплаты и rating; `Product` JSON-LD, видимый товарный блок и `/faq/` должны быть синхронизированы с ним.
+Для товарных страниц product facts хранятся в front matter конкретного `content/products/<series>/<model>/index*.md`. Это единый источник правды для цены, наличия, SKU, MPN, GTIN, гарантии, доставки, возврата, способов оплаты и rating. Владелец бизнес-значений — команда Aerocool Украина; `Product` JSON-LD, видимый товарный блок и `/faq/` должны быть синхронизированы с front matter.
 
 Редакционные ориентиры объема для SEO-посадочных страниц:
 
@@ -375,6 +375,8 @@ npm run audit:ci:technical
 - [docs/seo/schema-types-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/schema-types-reference.md) — schema.org типы.
 - [docs/seo/schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/schema-markup-quality-checklist-2026.md) — QA schema.org-графа, schema drift, ownership и vertical-specific запреты.
 - [docs/seo/ai-search-entity-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/ai-search-entity-map-2026.md) — AI Search-аудит, prompt matrix, entity map и agentic readiness.
+- [docs/seo/entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entity-registry-2026.md) — реестр сущностей, entity home, `@id`, статусы и управляемые связи.
+- [docs/seo/entity-registry-beginner-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entity-registry-beginner-guide-2026.md) — понятный гайд по Entity Registry, `about_entities`, `mentions_entities` и `product_group_id`.
 - [docs/seo/entities-knowledge-graph-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entities-knowledge-graph-playbook-2026.md) — entity home, semantic triples, `@id` и knowledge graph.
 - [docs/seo/ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/ecommerce-structured-data-playbook-2026.md) — Product/Offer/rating/variant/images policy для каталога.
 - [docs/architecture/hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/hugo-template-helpers.md) — локальные helper partials.

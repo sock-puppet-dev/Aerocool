@@ -6,6 +6,8 @@
 {{- $pageImageID := printf "%s#primary-image" $pageURL -}}
 {{- $datePublished := .Date.Format "2006-01-02T15:04:05Z07:00" -}}
 {{- $dateModified := .Lastmod.Format "2006-01-02T15:04:05Z07:00" -}}
+{{- $aboutRefs := partial "_schema/entity-ref-list.html" (dict "site" .Site "ids" (.Params.about_entities | default (slice))) -}}
+{{- $mentionRefs := partial "_schema/entity-ref-list.html" (dict "site" .Site "ids" (.Params.mentions_entities | default (slice))) -}}
 {{- $newsArticle := dict
   "@type" "NewsArticle"
   "@id" (printf "%s#news" $pageURL)
@@ -26,6 +28,12 @@
 -}}
 {{- with .Params.tags -}}
   {{- $newsArticle = merge $newsArticle (dict "keywords" .) -}}
+{{- end -}}
+{{- if gt (len $aboutRefs) 0 -}}
+  {{- $newsArticle = merge $newsArticle (dict "about" $aboutRefs) -}}
+{{- end -}}
+{{- if gt (len $mentionRefs) 0 -}}
+  {{- $newsArticle = merge $newsArticle (dict "mentions" $mentionRefs) -}}
 {{- end -}}
 {{- $newsArticle | jsonify -}}
 {{- end -}}

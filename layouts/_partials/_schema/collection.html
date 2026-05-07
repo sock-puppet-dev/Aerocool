@@ -6,6 +6,15 @@
 {{- with .Paginator -}}
   {{- $pages = .Pages -}}
 {{- end -}}
+{{- $about := dict
+  "@type" "Thing"
+  "name" .Title
+-}}
+{{- $aboutRefs := partial "_schema/entity-ref-list.html" (dict "site" .Site "ids" (.Params.about_entities | default (slice))) -}}
+{{- $mentionRefs := partial "_schema/entity-ref-list.html" (dict "site" .Site "ids" (.Params.mentions_entities | default (slice))) -}}
+{{- if gt (len $aboutRefs) 0 -}}
+  {{- $about = $aboutRefs -}}
+{{- end -}}
 {{- $itemList := slice -}}
 {{- range $index, $page := $pages -}}
   {{- $itemURL := $page.Permalink | absURL -}}
@@ -20,17 +29,14 @@
     )
   ) -}}
 {{- end -}}
-{{- (dict
+{{- $collection := dict
   "@type" "CollectionPage"
   "@id" (printf "%s#collection" $pageURL)
   "url" $pageURL
   "name" .Title
   "description" $pageDescription
   "isPartOf" (dict "@id" $websiteId)
-  "about" (dict
-    "@type" "Thing"
-    "name" .Title
-  )
+  "about" $about
   "mainEntity" (dict
     "@type" "ItemList"
     "itemListElement" $itemList
@@ -38,4 +44,8 @@
   "breadcrumb" (dict "@id" (printf "%s#breadcrumbs" $pageURL))
   "publisher" (dict "@id" (printf "%s#organization" (.Site.BaseURL | absURL)))
   "inLanguage" $pageLanguage
-) | jsonify -}}
+-}}
+{{- if gt (len $mentionRefs) 0 -}}
+  {{- $collection = merge $collection (dict "mentions" $mentionRefs) -}}
+{{- end -}}
+{{- $collection | jsonify -}}

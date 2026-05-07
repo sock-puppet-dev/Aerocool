@@ -308,6 +308,7 @@
 - [ ] Для `collection`-страниц желательно иметь и `summary`, если шаблон использует краткое описание в списках и сниппетах.
 - [ ] Для товарных страниц обязательно заполнять `title`, `description`, `summary`, `date`, `lastmod`, `slug`, `categories`, `tags`, `image`, `schema_types`, `price`, `sku`, `availability`, `priceValidUntil`.
 - [ ] Для товарных страниц желательно заполнять `mpn`, `gtin13`, `warranty`, `rating.value`, `rating.count`, `return_days`, `return_method`, `return_fees`, `shipping_country`, `shipping_rate`, `shipping_currency`, `shipping_handling_min`, `shipping_handling_max`, `shipping_transit_min`, `shipping_transit_max`, `payment_methods`, если эти данные доступны.
+- [ ] Бизнес-значения product facts должны быть подтверждены командой Aerocool Украина перед изменением front matter.
 - [ ] Если меняются доставка, возврат или способы оплаты, сначала обновлять product front matter, затем синхронно проверять `Product` JSON-LD, видимый коммерческий блок товарных страниц и `/faq/`.
 - [ ] Для статей обязательно заполнять `title`, `description`, `summary`, `date`, `lastmod`, `slug`, `image`, `schema_types`.
 - [ ] Для статей желательно заполнять `tags`, `categories` или иной тематический классификатор, если он используется в перелинковке.

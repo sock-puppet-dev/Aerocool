@@ -58,7 +58,7 @@
 - от одноразовой schema-разметки к ongoing schema QA;
 - от отдельных страниц к reusable content components.
 
-Главный практический следующий шаг после этой интеграции — не добавлять новые schema-типы немедленно, а спроектировать `entity registry`, `about_entities`, `mentions_entities`, `ProductGroup` и источник правды для rating/reviews.
+Главный практический результат после этой интеграции: product facts source of truth подтвержден как front matter, local organization facts подтверждены бизнесово, entity registry и safe resolver добавлены, а priority pages получили `about_entities`, `mentions_entities` и staged `product_group_id`. Следующий шаг — не добавлять новые schema-типы “для красоты”, а подтвердить источник rating/reviews, сделать visible variant navigation и переводить ProductGroup в JSON-LD только там, где связь видима пользователю.
 
 Актуальный порядок внедрения после повторной ревизии `2026-05-07` зафиксирован в [2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md).
 

@@ -7,6 +7,8 @@
 {{- if in (.Params.schema_types | default (slice)) "brand" -}}
   {{- $aboutEntityID = "https://aerocool.io/#brand" -}}
 {{- end -}}
+{{- $aboutRefs := partial "_schema/entity-ref-list.html" (dict "site" .Site "ids" (.Params.about_entities | default (slice))) -}}
+{{- $mentionRefs := partial "_schema/entity-ref-list.html" (dict "site" .Site "ids" (.Params.mentions_entities | default (slice))) -}}
 {{- $aboutPage := dict
   "@type" "AboutPage"
   "@id" (printf "%s#webpage" $pageURL)
@@ -28,5 +30,11 @@
 -}}
 {{- if in (.Params.schema_types | default (slice)) "breadcrumbs" -}}
   {{- $aboutPage = merge $aboutPage (dict "breadcrumb" (dict "@id" (printf "%s#breadcrumbs" $pageURL))) -}}
+{{- end -}}
+{{- if gt (len $aboutRefs) 0 -}}
+  {{- $aboutPage = merge $aboutPage (dict "about" $aboutRefs) -}}
+{{- end -}}
+{{- if gt (len $mentionRefs) 0 -}}
+  {{- $aboutPage = merge $aboutPage (dict "mentions" $mentionRefs) -}}
 {{- end -}}
 {{- $aboutPage | jsonify -}}

@@ -4,6 +4,8 @@
 {{- $websiteId := partial "page-website-id.html" . -}}
 {{- $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) -}}
 {{- $pageImageID := printf "%s#primary-image" $pageURL -}}
+{{- $aboutRefs := partial "_schema/entity-ref-list.html" (dict "site" .Site "ids" (.Params.about_entities | default (slice))) -}}
+{{- $mentionRefs := partial "_schema/entity-ref-list.html" (dict "site" .Site "ids" (.Params.mentions_entities | default (slice))) -}}
 {{- $webpage := dict
   "@type" "WebPage"
   "@id" (printf "%s#webpage" $pageURL)
@@ -16,9 +18,17 @@
 -}}
 {{- if in $schemaTypes "organization" -}}
   {{- $webpage = merge $webpage (dict
-    "about" (dict "@id" (printf "%s#organization" (.Site.BaseURL | absURL)))
     "publisher" (dict "@id" (printf "%s#organization" (.Site.BaseURL | absURL)))
   ) -}}
+  {{- if eq (len $aboutRefs) 0 -}}
+    {{- $webpage = merge $webpage (dict "about" (dict "@id" (printf "%s#organization" (.Site.BaseURL | absURL)))) -}}
+  {{- end -}}
+{{- end -}}
+{{- if gt (len $aboutRefs) 0 -}}
+  {{- $webpage = merge $webpage (dict "about" $aboutRefs) -}}
+{{- end -}}
+{{- if gt (len $mentionRefs) 0 -}}
+  {{- $webpage = merge $webpage (dict "mentions" $mentionRefs) -}}
 {{- end -}}
 {{- if and (in $schemaTypes "breadcrumbs") (not .IsHome) -}}
   {{- $webpage = merge $webpage (dict "breadcrumb" (dict "@id" (printf "%s#breadcrumbs" $pageURL))) -}}

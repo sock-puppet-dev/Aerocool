@@ -19,9 +19,9 @@
 Для `Aerocool Ukraine` это подтверждает уже выбранный порядок:
 
 1. Не расширять schema хаотично.
-2. Сначала закрыть P0-риски: production gate, `aggregateRating`, product facts, local organization facts.
-3. Затем создать entity registry и entity home map.
-4. Затем внедрять `ProductGroup`, `about`, `mentions`, entity linking и AI Search baseline.
+2. Сначала закрыть P0-риски: production gate, `aggregateRating`, product facts; local organization facts подтверждены `2026-05-07`.
+3. Entity registry, entity home map и safe resolver созданы `2026-05-07`.
+4. Priority pages получили `about_entities`, `mentions_entities` и staged `product_group_id` `2026-05-07`; дальше поддерживать visible entity linking, ProductGroup QA и AI Search baseline.
 5. `llms.txt`, MCP, NLWeb, agentic commerce и chatbot рассматривать только после production-стабилизации и готового knowledge graph.
 
 Практический план уже зафиксирован в [2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md).
@@ -60,9 +60,9 @@
 
 Что делать в Aerocool:
 
-- создать `docs/seo/entity-registry-2026.md`;
-- определить `entity home` для бренда, локальной организации, серий, моделей, материалов, механизмов и service policies;
-- после registry внедрять `about_entities`, `mentions_entities`, `product_group_id`.
+- использовать созданные [entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entity-registry-2026.md) и [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml) как канонический список entity IDs;
+- поддерживать `entity home` для бренда, локальной организации, серий, моделей, материалов, механизмов и service policies;
+- поддерживать `about_entities`, `mentions_entities`, `product_group_id` только там, где связь подтверждена видимым контентом.
 
 ### 2.3. AI-Generated Schema Markup Недостаточно
 
@@ -120,10 +120,10 @@
 
 Что делать в Aerocool:
 
-- сначала создать internal entity registry;
+- использовать internal entity registry как source of truth для entity IDs;
 - использовать `sameAs` только для точных официальных профилей или авторитетных knowledge bases;
 - держать глобальные соцсети Aerocool как `sameAs` глобального бренда/global organization, а local organization связывать через `parentOrganization` и `brand`;
-- после registry добавить `about` и `mentions`.
+- добавлять `about` и `mentions` через safe resolver только для confirmed entities.
 
 ### 2.6. Agentic Web, MCP, NLWeb И Graph-Vector RAG — P3, Не P0
 
@@ -144,7 +144,7 @@
 Что делать в Aerocool:
 
 - сейчас не внедрять MCP/NLWeb/chatbot;
-- сначала production, entity registry, ProductGroup, about/mentions и AI Search baseline;
+- сначала production, точечно подтвержденные ProductGroup/about/mentions и AI Search baseline;
 - вернуться к agentic layer только если появится бизнес-задача: консультация, подбор кресла, сравнение моделей, проверка наличия.
 
 ## 3. Самое Полезное Из 2024-2023 Evergreen
@@ -178,7 +178,7 @@
 - сохранять стабильные `@id`;
 - не плодить новые сущности на каждой странице;
 - связывать `WebPage.mainEntity`, `Product.brand`, `Article.author`, `BreadcrumbList`, `ImageObject`;
-- после entity registry добавить `about` и `mentions`.
+- добавлять `about` и `mentions` через registry только после visible content QA.
 
 ### 3.3. Multilingual Schema Markup
 
@@ -230,14 +230,14 @@
 - `LocalBusiness` как тип, если нет публичной customer-facing локальной бизнес-модели;
 - `OnlineStore`, если сайт остается каталогом без checkout flow;
 - third-party reviews без подтвержденного источника и соответствия Google policy;
-- agentic commerce, MCP, NLWeb, chatbot — до production, entity registry и стабильных product facts.
+- agentic commerce, MCP, NLWeb, chatbot — до production, подтвержденных ProductGroup/about/mentions и AI Search baseline.
 
 ## 6. Обновления Для Документации Aerocool
 
 Corpus подтверждает текущие документы:
 
 - [ai-search-entity-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/ai-search-entity-map-2026.md) — оставить AI Search baseline, prompt matrix, citation ownership, AI referrals.
-- [entities-knowledge-graph-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entities-knowledge-graph-playbook-2026.md) — следующий шаг: entity registry и entity home.
+- [entities-knowledge-graph-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entities-knowledge-graph-playbook-2026.md) — entity registry и entity home уже заложены; следующий шаг — точечное заполнение связей.
 - [schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/schema-markup-quality-checklist-2026.md) — усилить governance, freshness, ownership.
 - [ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/ecommerce-structured-data-playbook-2026.md) — `ProductGroup`, reviews/rating policy и product facts остаются P0/P1.
 - [json-ld-graph-audit-roadmap-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/json-ld-graph-audit-roadmap-2026.md) — roadmap правильный, но его нужно выполнять в порядке P0 -> P1 -> P2.
@@ -249,15 +249,15 @@ Corpus подтверждает текущие документы:
 
 1. Production gate.
 2. Rating source или removal of `aggregateRating`.
-3. Local organization facts и `sameAs`.
-4. Product facts source of truth: product front matter is canonical; UI, `/faq/` and `Product` JSON-LD mirror it.
-5. Entity registry.
+3. Done `2026-05-07`: local organization facts и `sameAs`.
+4. Done `2026-05-07`: product facts source of truth, owner and `priceValidUntil` are fixed; product front matter is canonical, команда Aerocool Украина owns business values, `priceValidUntil: 2027-12-31` is confirmed, UI, `/faq/` and `Product` JSON-LD mirror it.
+5. Done `2026-05-07`: entity registry, entity homes, `data/entities.yaml` and safe resolver.
 
 ### Сделать Далее
 
-1. `ProductGroup` design.
-2. `about_entities` / `mentions_entities`.
-3. `about` / `mentions` в JSON-LD.
+1. Visible variant navigation and ProductGroup confirmation.
+2. Visible content QA for existing page-by-page `about_entities` / `mentions_entities`.
+3. ProductGroup visible variant navigation and confirmation.
 4. AI Search prompt baseline.
 5. Article/News image ratios.
 

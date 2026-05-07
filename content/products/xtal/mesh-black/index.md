@@ -5,6 +5,23 @@ summary: "Aerocool XTAL Mesh Black — комп'ютерне та офісне �
 date: 2026-03-19
 lastmod: 2026-05-07
 schema_types: ["website", "product", "organization", "breadcrumbs"]
+about_entities:
+  - "xtal-mesh-black"
+  - "xtal-series"
+  - "computer-chair"
+  - "office-chair"
+  - "home-office"
+mentions_entities:
+  - "aerocool-brand"
+  - "mesh-material"
+  - "synchronous-tilt"
+  - "7d-adjustment"
+  - "gaming-chair"
+  - "delivery-policy"
+  - "payment-policy"
+  - "return-policy"
+  - "warranty-policy"
+product_group_id: "xtal-mesh-product-group"
 slug: "mesh-black"
 categories: ["xtal"]
 tags: ["aerocool", "ергономічне крісло", "комп'ютерне крісло", "офісне крісло", "xtal", "mesh black"]

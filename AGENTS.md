@@ -23,6 +23,7 @@
 - `content/about`, `content/contact`, `content/faq` — локализованные статичные страницы.
 - `content/articles`, `content/news` — материалы в формате папок страниц Hugo (`page bundle`) со структурами `index.md` и `index.ru.md`.
 - `content/products` — каталог товаров. Для серий используются `_index.md` / `_index.ru.md`, а варианты товаров лежат во вложенных папках как самостоятельные папки страниц.
+- `data/entities.yaml` — структурированный реестр entity IDs для safe resolver schema.org-связей.
 - `layouts/` — локальные Hugo-переопределения. По умолчанию правки вносятся сюда, а не в тему.
 - `layouts/single.html` и `layouts/list.html` — общие базовые шаблоны для большинства типов страниц.
 - `layouts/404.html`, `layouts/alias.html` и `layouts/search.html` — служебные шаблоны страниц, которые не должны попадать в SEO-индекс.
@@ -51,6 +52,8 @@
 - `docs/architecture/hugo-template-helpers.md`
 - `docs/content/seo-image-shortcode.md`
 - `docs/seo/schema-types-reference.md`
+- `docs/seo/entity-registry-2026.md`
+- `docs/seo/entity-registry-beginner-guide-2026.md`
 - `docs/seo/schema-markup-quality-checklist-2026.md`
 - `docs/seo/ai-search-entity-map-2026.md`
 - `docs/seo/entities-knowledge-graph-playbook-2026.md`
@@ -76,7 +79,8 @@
 - Для статей, новостей и товарных вариантов используйте явные `slug`, если важен контроль URL.
 - Варианты товаров сознательно разделены по модели и цвету. Для каждого варианта — отдельная папка и отдельный `slug`.
 - Во front matter использовать только `schema_types`. Шаблоны читают `.Params.schema_types`; не переходить на `schema_type`.
-- Для товарных страниц единый источник правды по product facts — front matter конкретного `content/products/<series>/<model>/index*.md`: цена, наличие, SKU, MPN, GTIN, гарантия, доставка, возврат, способы оплаты и rating. Видимый товарный текст и `/faq/` должны подтверждать эти значения, а не заменять их.
+- Entity-поля `about_entities`, `mentions_entities` и `product_group_id` можно добавлять только точечно: каждое значение должно существовать в `data/entities.yaml` и быть раскрыто видимым контентом страницы. Для `about_entities` и `mentions_entities` использовать только `confirmed` сущности; `product_group_id` может быть staged, но JSON-LD `isVariantOf` появится только после перевода ProductGroup в `confirmed`.
+- Для товарных страниц единый источник правды по product facts — front matter конкретного `content/products/<series>/<model>/index*.md`: цена, наличие, SKU, MPN, GTIN, гарантия, доставка, возврат, способы оплаты и rating. Владелец бизнес-значений — команда Aerocool Украина. Видимый товарный текст и `/faq/` должны подтверждать эти значения, а не заменять их.
 - Для большинства страниц видимый `H1` рендерится шаблонным слоем через `layouts/_partials/page-h1.html` по правилу `.Params.h1 | default .Title`.
 - Текущая главная страница — исключение: ее hero и видимый `H1` задаются единым shortcode `layouts/_shortcodes/home-hero.html`, который сам переключает украинский/русский текст по языку страницы.
 - Home hero использует namespaced CSS-хуки `home-hero__*`; их визуальный слой держим в `assets/css/main.css`, а не размазываем по теме.

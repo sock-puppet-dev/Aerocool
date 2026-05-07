@@ -5,6 +5,24 @@ summary: "Aerocool WING Loft Air Light Grey — офисное и компьют
 date: 2026-03-19
 lastmod: 2026-05-07
 schema_types: ["website", "product", "organization", "breadcrumbs"]
+about_entities:
+  - "wing-loft-air-light-grey"
+  - "wing-series"
+  - "office-chair"
+  - "computer-chair"
+  - "home-office"
+mentions_entities:
+  - "aerocool-brand"
+  - "loft-air-material"
+  - "synchronous-tilt"
+  - "sync5-mechanism"
+  - "11d-adjustment"
+  - "gaming-chair"
+  - "delivery-policy"
+  - "payment-policy"
+  - "return-policy"
+  - "warranty-policy"
+product_group_id: "wing-loft-air-product-group"
 slug: "loft-air-light-grey"
 categories: ["wing"]
 tags: ["aerocool", "эргономичное кресло", "офисное кресло", "компьютерное кресло", "wing", "loft air light grey", "home office"]

@@ -2,9 +2,21 @@
 title: "Ігрові, офісні та комп'ютерні крісла Aerocool в Україні"
 description: "Каталог крісел Aerocool в Україні: ігрові, офісні та комп'ютерні крісла серій SKY, WING і XTAL, порівняння моделей, матеріалів, регулювань і сценаріїв використання."
 date: 2026-03-19
-lastmod: 2026-05-06
+lastmod: 2026-05-07
 summary: "Каталог Aerocool з поділом на серії SKY, WING і XTAL та поясненням, яке крісло обрати під ваш сценарій."
 schema_types: ["website", "collection", "organization", "breadcrumbs"]
+about_entities:
+  - "aerocool-catalog"
+mentions_entities:
+  - "aerocool-brand"
+  - "sky-series"
+  - "wing-series"
+  - "xtal-series"
+  - "gaming-chair"
+  - "office-chair"
+  - "computer-chair"
+  - "ergonomic-chair"
+  - "home-office"
 image: "cover.webp"
 ---
 

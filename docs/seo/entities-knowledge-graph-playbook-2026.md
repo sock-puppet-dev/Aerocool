@@ -6,7 +6,7 @@
 
 Главная мысль: SEO больше не держится только на совпадении слов. Поиск и AI-системы пытаются понять сущности, их атрибуты и связи. Поэтому сайт Aerocool должен не просто покрывать ключевые слова, а строить понятный reusable knowledge graph из бренда, организации, серий, товаров, материалов, механизмов, сценариев и коммерческих условий.
 
-Текущий порядок внедрения entity registry, entity home, `about`, `mentions` и `ProductGroup` описан в [2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md).
+Текущий порядок внедрения entity registry, entity home, `about`, `mentions` и `ProductGroup` описан в [2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md). Актуальный реестр сущностей находится в [entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entity-registry-2026.md).
 
 ## 1. Что Такое Entity
 
@@ -130,9 +130,9 @@ Knowledge graph можно проектировать через тройки:
 - product -> brand;
 - product -> seller;
 - product -> page image;
-- product -> collection/series через visible links и будущий `ProductGroup`;
+- product -> collection/series через visible links и, после подтверждения групп, `ProductGroup`;
 - article/news -> publisher;
-- article/news -> related series/products через visible links и будущие `about` / `mentions`;
+- article/news -> related series/products через visible links и точечные `about` / `mentions`;
 - FAQ -> organization/service policy;
 - local organization -> global organization / brand.
 
@@ -159,7 +159,7 @@ Knowledge graph можно проектировать через тройки:
 
 Особенно осторожно с `sameAs`: это утверждение “это та же самая сущность”, а не просто “связано с темой”.
 
-Для текущего проекта: глобальные соцпрофили Aerocool официальные и единые для всех представительств. Поэтому `sameAs` остается у `https://aerocool.io/#brand` и `https://aerocool.io/#organization`; локальная сущность `https://aerocool.ua/#organization` связывается с ними через `brand` и `parentOrganization`, а не через собственный `sameAs`.
+Для текущего проекта: глобальные соцпрофили Aerocool официальные и единые для всех представительств. Поэтому `sameAs` остается у `https://aerocool.io/#brand` и `https://aerocool.io/#organization`; локальная сущность `https://aerocool.ua/#organization` связывается с ними через `brand` и `parentOrganization`, а не через собственный `sameAs`. Local organization facts для `Aerocool Ukraine` подтверждены пользователем проекта `2026-05-07`: адрес, телефон, support/sales email и часы работы считаются актуальными публичными business facts.
 
 ## 9. Entity Maturity Scale
 
@@ -216,12 +216,14 @@ Knowledge graph может быть переиспользован за пред
 
 ### P1
 
-1. Создать entity registry для бренда, организации, серий, моделей, материалов, механизмов и сценариев.
-2. Определить entity home для `Synchronous Tilt`, `SYNC4`, `SYNC5`, `Mesh`, `Racer`, `Loft Air`, `Dual backrest`.
-3. Спроектировать front matter для `about_entities` и `mentions_entities`.
-4. Спроектировать `ProductGroup` и `product_group_id`.
-5. Добавить видимые характеристики как источник для `additionalProperty`.
-6. Провести content gap audit по entity map.
+1. Done `2026-05-07`: initial entity registry создан в [entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entity-registry-2026.md).
+2. Done `2026-05-07`: entity home для `Synchronous Tilt`, `SYNC4`, `SYNC5`, `Mesh`, `Racer`, `Loft Air`, `Dual backrest` зафиксированы.
+3. Done `2026-05-07`: front matter для `about_entities` и `mentions_entities` спроектирован и подключен к safe resolver.
+4. Done `2026-05-07`: `ProductGroup` и `product_group_id` спроектированы; ProductGroup выводится только для confirmed entity.
+5. Done `2026-05-07`: beginner-гайд по Entity Registry добавлен.
+6. Done `2026-05-07`: priority pages получили `about_entities`, `mentions_entities` и staged `product_group_id`.
+7. Добавить видимые характеристики как источник для `additionalProperty`.
+8. Провести content gap audit по entity map.
 
 ### P2
 

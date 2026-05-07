@@ -1,0 +1,365 @@
+# Entity Registry Aerocool 2026
+
+Обновлено: 2026-05-07.
+
+Этот документ — канонический реестр сущностей проекта `Aerocool Ukraine`. Он нужен для управляемого Entity SEO, AI Search, `about_entities`, `mentions_entities`, `ProductGroup`, будущих `additionalProperty`, `llms.txt` и структурированного [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml).
+
+Если вы впервые работаете с entity-полями, сначала прочитайте [Entity Registry: гайд для новичка](/Users/stadnyk/MEGA/Aerocool/docs/seo/entity-registry-beginner-guide-2026.md).
+
+Реестр не заменяет `schema_types`. Поле `schema_types` по-прежнему выбирает типы JSON-LD, а registry фиксирует стабильные сущности, `@id`, entity home, связи, владельца фактов и условия внедрения.
+
+## 1. Как Использовать Этот Документ
+
+- При создании новой страницы сначала определить главную сущность страницы в registry.
+- При добавлении `about_entities` или `mentions_entities` использовать только `entity_id` из registry.
+- Если сущности нет в registry, сначала добавить ее сюда, затем использовать в контенте или шаблонах.
+- Если сущность имеет статус `planned`, ее можно использовать для планирования контента, но не стоит выводить как сильный JSON-LD relationship без видимого объяснения.
+- Если сущность имеет статус `do-not-markup`, ее не размечать и не использовать как `sameAs`.
+
+## 2. Core Rules
+
+- `entity_id` должен быть стабильным, коротким, lower-case и `kebab-case`.
+- `entity_home` — собственный URL сайта, который лучше всего объясняет сущность человеку.
+- `@id` — машинный стабильный идентификатор в JSON-LD graph.
+- `sameAs` — только для точного совпадения сущности, не для “похожих” или “связанных” ссылок.
+- Local organization `Aerocool Ukraine` не получает global social `sameAs`; она связана с global organization через `parentOrganization` и с global brand через `brand`.
+- Внешние профили Aerocool остаются у `https://aerocool.io/#brand` и `https://aerocool.io/#organization`.
+- Product facts canonical source — product front matter; владелец business values — команда Aerocool Украина.
+- Не добавлять entity fields в `content/`, пока Hugo templates не умеют безопасно читать эти поля.
+- Не создавать новые schema nodes, если человек не видит соответствующий факт на странице.
+
+## 3. Entity Statuses
+
+| Status | Meaning | Can Use In Planning | Can Use In JSON-LD Now |
+| --- | --- | --- | --- |
+| `confirmed` | Сущность имеет entity home, факты подтверждены, связана с видимым контентом | Yes | Yes, если шаблон поддерживает |
+| `planned` | Сущность важна, но нужен glossary block, visible specs, variant navigation или mapping | Yes | Not yet |
+| `needs-review` | Сущность есть в контенте, но факты, `@id` или entity home нужно уточнить | Yes | No |
+| `do-not-markup` | Сущность не стоит размечать отдельно на текущем этапе | No | No |
+
+## 4. Field Reference
+
+| Field | Meaning |
+| --- | --- |
+| `entity_id` | Stable internal ID used by future front matter and resolver |
+| `name_uk` / `name_ru` / `name_en` | Localized labels for editors and future UI/schema helpers |
+| `entity_class` | Brand, Organization, ProductSeries, ProductGroup, ProductVariant, Material, Mechanism, UseCase, Policy, ContentHub |
+| `schema_candidate` | Schema.org type to consider, not always active today |
+| `current_jsonld_id` | Existing `@id` emitted by current Hugo templates |
+| `future_jsonld_id` | Proposed `@id` for future graph nodes |
+| `entity_home` | Best URL on `aerocool.ua` for the entity |
+| `owner` | Who owns factual accuracy |
+| `status` | Registry status |
+| `sameAs` | External exact-identity links only |
+| `parent` | Parent entity in the graph |
+| `related` | Useful related entities for future `mentions` |
+
+## 5. ID Conventions
+
+| Entity Class | `entity_id` Pattern | Current / Future `@id` Pattern |
+| --- | --- | --- |
+| Brand | `aerocool-brand` | `https://aerocool.io/#brand` |
+| Local organization | `aerocool-ukraine` | `https://aerocool.ua/#organization` |
+| Website | `aerocool-website` | `https://aerocool.ua/#website` |
+| Collection | `<section>-collection` | `https://aerocool.ua/<section>/#collection` |
+| Product series | `<series>-series` | `https://aerocool.ua/products/<series>/#collection` |
+| Product group | `<series>-<model>-product-group` | `https://aerocool.ua/products/<series>/#<series>-<model>-product-group` |
+| Product variant | `<series>-<variant>` | `https://aerocool.ua/products/<series>/<variant>/#product` |
+| Material | `<name>-material` | Future glossary/entity node |
+| Mechanism | `<name>-mechanism` | Future glossary/entity node |
+| Use case | `<intent-name>` | Future glossary/entity node or content hub |
+| Policy | `<policy>-policy` | `/faq/` now; future policy pages if split |
+
+## 6. Core Brand, Site And Organization Entities
+
+| entity_id | name_en | name_uk | name_ru | entity_class | schema_candidate | current_jsonld_id | entity_home | owner | status | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `aerocool-brand` | Aerocool | Aerocool | Aerocool | Brand | `Brand` | `https://aerocool.io/#brand` | `/about/` | Global Aerocool + Aerocool Ukraine | `confirmed` | Global brand. Official global social profiles live here as `sameAs`. |
+| `aerocool-global-organization` | Aerocool Advanced Technologies Corp. | Aerocool Advanced Technologies Corp. | Aerocool Advanced Technologies Corp. | Organization | `Organization` | `https://aerocool.io/#organization` | `https://aerocool.io/` | Global Aerocool | `confirmed` | Global parent organization. |
+| `aerocool-ukraine` | Aerocool Ukraine | Aerocool Україна | Aerocool Украина | Organization | `Organization` | `https://aerocool.ua/#organization` | `/about/` + `/contact/` | Aerocool Ukraine | `confirmed` | Local facts confirmed `2026-05-07`; no local `sameAs` for global social profiles. |
+| `aerocool-website` | Aerocool Ukraine website | Сайт Aerocool Україна | Сайт Aerocool Украина | WebSite | `WebSite` | `https://aerocool.ua/#website` | `/` | Aerocool Ukraine | `confirmed` | Site-level entity for search, publisher and page graph. |
+| `aerocool-logo` | Aerocool logo | Логотип Aerocool | Логотип Aerocool | ImageObject | `ImageObject` | `https://aerocool.ua/#logo` | `/` | Aerocool Ukraine | `confirmed` | Shared visual identity node. |
+
+## 7. Official `sameAs` Registry
+
+Only these global profiles are currently approved as exact identity links for global Aerocool entities.
+
+| Target Entity | sameAs URL | Status | Notes |
+| --- | --- | --- | --- |
+| `aerocool-brand`, `aerocool-global-organization` | `https://www.facebook.com/AeroCoolGlobal/` | `confirmed` | Global official profile. |
+| `aerocool-brand`, `aerocool-global-organization` | `https://www.instagram.com/aerocool_global` | `confirmed` | Global official profile. |
+| `aerocool-brand`, `aerocool-global-organization` | `https://x.com/AerocoolGlobal` | `confirmed` | Global official profile. |
+| `aerocool-brand`, `aerocool-global-organization` | `https://www.linkedin.com/company/aerocool-advanced-technologies-corp./` | `confirmed` | Global official profile. |
+| `aerocool-brand`, `aerocool-global-organization` | `https://www.youtube.com/@AeroCoolGlobal` | `confirmed` | Global official profile. |
+| `aerocool-ukraine` | none | `confirmed` | Local entity uses `parentOrganization` and `brand`, not local `sameAs`. |
+
+## 8. Page And Content Hub Entities
+
+| entity_id | name_en | name_uk | name_ru | entity_class | schema_candidate | current_jsonld_id | entity_home | status | Suggested `about_entities` |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `home-page` | Homepage | Головна | Главная | WebPage | `WebPage` | `https://aerocool.ua/#webpage` | `/` | `confirmed` | `aerocool-brand`, `aerocool-ukraine`, `aerocool-catalog` |
+| `about-page` | About Aerocool Ukraine | Про Aerocool Україна | Об Aerocool Украина | AboutPage | `AboutPage` | `https://aerocool.ua/about/#webpage` | `/about/` | `confirmed` | `aerocool-brand`, `aerocool-ukraine`, `aerocool-global-organization` |
+| `contact-page` | Contacts | Контакти | Контакты | ContactPage | `ContactPage` | `https://aerocool.ua/contact/#webpage` | `/contact/` | `confirmed` | `aerocool-ukraine` |
+| `faq-page` | FAQ | FAQ | FAQ | FAQPage | `FAQPage` | `https://aerocool.ua/faq/#faq` | `/faq/` | `confirmed` | `delivery-policy`, `payment-policy`, `return-policy`, `warranty-policy` |
+| `products-collection` | Aerocool chairs catalog | Каталог крісел Aerocool | Каталог кресел Aerocool | Collection | `CollectionPage` | `https://aerocool.ua/products/#collection` | `/products/` | `confirmed` | `aerocool-catalog`, `gaming-chair`, `office-chair`, `computer-chair` |
+| `articles-collection` | Aerocool articles | Статті Aerocool | Статьи Aerocool | Collection | `CollectionPage` | `https://aerocool.ua/articles/#collection` | `/articles/` | `confirmed` | `chair-selection`, `ergonomic-chair`, `aerocool-catalog` |
+| `news-collection` | Aerocool news | Новини Aerocool | Новости Aerocool | Collection | `CollectionPage` | `https://aerocool.ua/news/#collection` | `/news/` | `confirmed` | `aerocool-brand`, `aerocool-catalog` |
+
+## 9. Product Series Entities
+
+| entity_id | name_en | name_uk | name_ru | entity_class | current_schema | future_schema | current_jsonld_id | entity_home | status | Main Relations |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `sky-series` | Aerocool SKY | Aerocool SKY | Aerocool SKY | ProductSeries | `CollectionPage` | `ProductGroup` where useful | `https://aerocool.ua/products/sky/#collection` | `/products/sky/` | `confirmed` | parent `aerocool-catalog`; variants `sky-lite`, `sky-360`; mentions `mesh-material`, `sync4-mechanism`, `sync5-mechanism` |
+| `wing-series` | Aerocool WING | Aerocool WING | Aerocool WING | ProductSeries | `CollectionPage` | `ProductGroup` where useful | `https://aerocool.ua/products/wing/#collection` | `/products/wing/` | `confirmed` | parent `aerocool-catalog`; variants WING products; mentions `racer-material`, `loft-air-material`, `mesh-material`, `11d-adjustment`, `dual-backrest` |
+| `xtal-series` | Aerocool XTAL | Aerocool XTAL | Aerocool XTAL | ProductSeries | `CollectionPage` | `ProductGroup` where useful | `https://aerocool.ua/products/xtal/#collection` | `/products/xtal/` | `confirmed` | parent `aerocool-catalog`; variants XTAL products; mentions `racer-material`, `loft-air-material`, `mesh-material`, `7d-adjustment`, `replaceable-elements` |
+
+## 10. ProductGroup Entities Planned For Variants
+
+`ProductGroup` should not render in JSON-LD until product pages show visible variant navigation. The IDs below are stable planning IDs.
+
+| entity_id | name_en | future_jsonld_id | entity_home | varies_by | variants | status | Blocking Requirement |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `sky-lite-product-group` | Aerocool SKY Lite | `https://aerocool.ua/products/sky/#sky-lite-product-group` | `/products/sky/` | model | `sky-lite` | `planned` | Single-variant group; use only if group-level page content is useful. |
+| `sky-360-product-group` | Aerocool SKY 360 | `https://aerocool.ua/products/sky/#sky-360-product-group` | `/products/sky/` | model | `sky-360` | `planned` | Single-variant group; use only if group-level page content is useful. |
+| `wing-racer-product-group` | Aerocool WING Racer | `https://aerocool.ua/products/wing/#wing-racer-product-group` | `/products/wing/` | color | `wing-racer-black`, `wing-racer-dark-grey` | `planned` | Add visible color navigation between variants. |
+| `wing-loft-air-product-group` | Aerocool WING Loft Air | `https://aerocool.ua/products/wing/#wing-loft-air-product-group` | `/products/wing/` | color | `wing-loft-air-light-grey`, `wing-loft-air-dark-grey` | `planned` | Add visible color navigation between variants. |
+| `wing-mesh-product-group` | Aerocool WING Mesh | `https://aerocool.ua/products/wing/#wing-mesh-product-group` | `/products/wing/` | material/color | `wing-mesh-black` | `planned` | Single current variant. |
+| `xtal-racer-product-group` | Aerocool XTAL Racer | `https://aerocool.ua/products/xtal/#xtal-racer-product-group` | `/products/xtal/` | color | `xtal-racer-black`, `xtal-racer-dark-grey` | `planned` | Add visible color navigation between variants. |
+| `xtal-loft-air-product-group` | Aerocool XTAL Loft Air | `https://aerocool.ua/products/xtal/#xtal-loft-air-product-group` | `/products/xtal/` | color | `xtal-loft-air-light-grey`, `xtal-loft-air-dark-grey` | `planned` | Add visible color navigation between variants. |
+| `xtal-mesh-product-group` | Aerocool XTAL Mesh | `https://aerocool.ua/products/xtal/#xtal-mesh-product-group` | `/products/xtal/` | material/color | `xtal-mesh-black` | `planned` | Single current variant. |
+
+## 11. Product Variant Entities
+
+| entity_id | name_en | SKU | MPN | GTIN-13 | series | material | color | adjustability | mechanism | current_jsonld_id | entity_home | planned_group |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `sky-360` | Aerocool SKY 360 | `SKY-360-001` |  |  | `sky-series` | `mesh-material` | not-specified | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/sky/360/#product` | `/products/sky/360/` | `sky-360-product-group` |
+| `sky-lite` | Aerocool SKY Lite | `SKY-LITE-001` |  |  | `sky-series` | `mesh-material` | not-specified | `8d-adjustment` | `sync4-mechanism` | `https://aerocool.ua/products/sky/lite/#product` | `/products/sky/lite/` | `sky-lite-product-group` |
+| `wing-loft-air-dark-grey` | Aerocool WING Loft Air Dark Grey | `WING-LADG-001` | `TEGC-309700Z.Z1` | `4711530966501` | `wing-series` | `loft-air-material` | dark-grey | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/wing/loft-air-dark-grey/#product` | `/products/wing/loft-air-dark-grey/` | `wing-loft-air-product-group` |
+| `wing-loft-air-light-grey` | Aerocool WING Loft Air Light Grey | `WING-LALG-001` | `TEGC-3097004.41` | `4711530966518` | `wing-series` | `loft-air-material` | light-grey | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/wing/loft-air-light-grey/#product` | `/products/wing/loft-air-light-grey/` | `wing-loft-air-product-group` |
+| `wing-mesh-black` | Aerocool WING Mesh Black | `WING-MB-001` | `TEGC-3098001.11` | `4711530966525` | `wing-series` | `mesh-material` | black | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/wing/mesh-black/#product` | `/products/wing/mesh-black/` | `wing-mesh-product-group` |
+| `wing-racer-black` | Aerocool WING Racer Black | `WING-RB-001` | `TEGC-3096001.11` | `4711530966488` | `wing-series` | `racer-material` | black | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/wing/racer-black/#product` | `/products/wing/racer-black/` | `wing-racer-product-group` |
+| `wing-racer-dark-grey` | Aerocool WING Racer Dark Grey | `WING-RDG-001` | `TEGC-309600Z.Z1` | `4711530966495` | `wing-series` | `racer-material` | dark-grey | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/wing/racer-dark-grey/#product` | `/products/wing/racer-dark-grey/` | `wing-racer-product-group` |
+| `xtal-loft-air-dark-grey` | Aerocool XTAL Loft Air Dark Grey | `XTAL-LADG-001` | `TEGC-210010Z.Z1` | `4711530966792` | `xtal-series` | `loft-air-material` | dark-grey | `7d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/xtal/loft-air-dark-grey/#product` | `/products/xtal/loft-air-dark-grey/` | `xtal-loft-air-product-group` |
+| `xtal-loft-air-light-grey` | Aerocool XTAL Loft Air Light Grey | `XTAL-LALG-001` | `TEGC-2100104.41` | `4711530966808` | `xtal-series` | `loft-air-material` | light-grey | `7d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/xtal/loft-air-light-grey/#product` | `/products/xtal/loft-air-light-grey/` | `xtal-loft-air-product-group` |
+| `xtal-mesh-black` | Aerocool XTAL Mesh Black | `XTAL-MB-001` | `TEGC-2101101.11` | `4711530966815` | `xtal-series` | `mesh-material` | black | `7d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/xtal/mesh-black/#product` | `/products/xtal/mesh-black/` | `xtal-mesh-product-group` |
+| `xtal-racer-black` | Aerocool XTAL Racer Black | `XTAL-RB-001` | `TEGC-2099101.11` | `4711530966778` | `xtal-series` | `racer-material` | black | `7d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/xtal/racer-black/#product` | `/products/xtal/racer-black/` | `xtal-racer-product-group` |
+| `xtal-racer-dark-grey` | Aerocool XTAL Racer Dark Grey | `XTAL-RDG-001` | `TEGC-210010Z.Z1` | `4711530966792` | `xtal-series` | `racer-material` | dark-grey | `7d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/xtal/racer-dark-grey/#product` | `/products/xtal/racer-dark-grey/` | `xtal-racer-product-group` |
+
+## 12. Material And Upholstery Entities
+
+| entity_id | name_en | name_uk | name_ru | entity_class | schema_candidate | entity_home | status | Current Strong Pages | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `racer-material` | Racer | Racer | Racer | Material | `DefinedTerm` or `Thing` | `/articles/racer-vs-loft-air-vs-mesh-materials/` | `confirmed` | material comparison article; Racer product pages | Leatherette-like dense contact and easier care. |
+| `loft-air-material` | Loft Air | Loft Air | Loft Air | Material | `DefinedTerm` or `Thing` | `/articles/racer-vs-loft-air-vs-mesh-materials/` | `confirmed` | material comparison article; Loft Air product pages | Ventilated multilayer textile feel. |
+| `mesh-material` | Mesh | Mesh / сітка | Mesh / сетка | Material | `DefinedTerm` or `Thing` | `/articles/racer-vs-loft-air-vs-mesh-materials/` | `confirmed` | material comparison article; SKY and Mesh product pages | Maximum ventilation entity. |
+| `leatherette-material` | Leatherette | екошкіра / Leatherette | экокожа / Leatherette | Material | `DefinedTerm` or `Thing` | `/articles/racer-vs-loft-air-vs-mesh-materials/` | `planned` | Racer pages | Treat as material behind Racer, not as separate page topic yet. |
+| `fabric-material` | Fabric | тканина | ткань | Material | `DefinedTerm` or `Thing` | `/articles/racer-vs-loft-air-vs-mesh-materials/` | `planned` | Loft Air pages | Treat as generic material until glossary is stronger. |
+
+## 13. Mechanism And Feature Entities
+
+| entity_id | name_en | name_uk | name_ru | entity_class | schema_candidate | entity_home | status | Strong Pages | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `synchronous-tilt` | Synchronous Tilt | Synchronous Tilt | Synchronous Tilt | Mechanism | `DefinedTerm` or `Thing` | `/articles/what-is-synchronous-tilt-guide/` | `confirmed` | sync tilt guide; product pages | Main tilt concept. |
+| `sync4-mechanism` | SYNC4 | SYNC4 | SYNC4 | Mechanism | `DefinedTerm` or `Thing` | `/articles/sync4-sync5-mechanism-guide/` | `confirmed` | SYNC4/SYNC5 guide; SKY Lite | Use where product content visibly says SYNC4. |
+| `sync5-mechanism` | SYNC5 | SYNC5 | SYNC5 | Mechanism | `DefinedTerm` or `Thing` | `/articles/sync4-sync5-mechanism-guide/` | `confirmed` | SYNC4/SYNC5 guide; SKY 360, WING, XTAL | Use where product content visibly says SYNC5. |
+| `7d-adjustment` | 7D adjustment | 7D регулювання | 7D регулировка | Feature | `DefinedTerm` or `Thing` | `/articles/how-to-choose-chair-by-adjustability/` | `confirmed` | adjustability guide; XTAL pages | Candidate for `additionalProperty`. |
+| `8d-adjustment` | 8D adjustment | 8D регулювання | 8D регулировка | Feature | `DefinedTerm` or `Thing` | `/articles/how-to-choose-chair-by-adjustability/` | `confirmed` | adjustability guide; SKY Lite | Candidate for `additionalProperty`. |
+| `11d-adjustment` | 11D adjustment | 11D регулювання | 11D регулировка | Feature | `DefinedTerm` or `Thing` | `/articles/how-to-choose-chair-by-adjustability/` | `confirmed` | adjustability guide; SKY 360, WING | Candidate for `additionalProperty`. |
+| `dual-backrest` | Dual backrest | подвійна спинка | двойная спинка | Feature | `DefinedTerm` or `Thing` | `/products/wing/` | `planned` | WING pages; WING vs XTAL comparison | Needs stronger canonical explanation before separate node. |
+| `replaceable-elements` | Replaceable elements | змінні елементи | сменные элементы | Feature | `DefinedTerm` or `Thing` | `/products/xtal/` | `planned` | XTAL pages; WING vs XTAL comparison | XTAL-specific feature; not ready as standalone schema node. |
+| `lumbar-support` | Lumbar support | поперекова підтримка | поясничная поддержка | Feature | `DefinedTerm` or `Thing` | product/series pages | `planned` | SKY pages | Add visible specs table first. |
+| `armrests-4d-x-360` | 4D X 360 armrests | підлокітники 4D X 360 | подлокотники 4D X 360 | Feature | `DefinedTerm` or `Thing` | `/products/wing/` | `planned` | WING pages | Candidate for `additionalProperty`. |
+| `armrests-3d-x-360` | 3D X 360 armrests | підлокітники 3D X 360 | подлокотники 3D X 360 | Feature | `DefinedTerm` or `Thing` | `/products/sky/` | `planned` | SKY 360 pages | Candidate for `additionalProperty`. |
+
+## 14. Use Case And Search Intent Entities
+
+| entity_id | name_en | name_uk | name_ru | entity_class | schema_candidate | entity_home | status | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `gaming-chair` | gaming chair | ігрове крісло | игровое кресло | UseCase / ProductCategory | `Thing` or `DefinedTerm` | `/products/` | `confirmed` | Broad commercial intent; strongly present in catalog and products. |
+| `office-chair` | office chair | офісне крісло | офисное кресло | UseCase / ProductCategory | `Thing` or `DefinedTerm` | `/products/` | `confirmed` | Broad commercial intent; SKY, Loft Air, Mesh pages. |
+| `computer-chair` | computer chair | комп'ютерне крісло | компьютерное кресло | UseCase / ProductCategory | `Thing` or `DefinedTerm` | `/products/` | `confirmed` | Broad commercial intent across catalog. |
+| `ergonomic-chair` | ergonomic chair | ергономічне крісло | эргономичное кресло | UseCase / ProductCategory | `Thing` or `DefinedTerm` | `/products/` | `confirmed` | Parent concept for selection articles. |
+| `home-office` | home office | home office | home office | UseCase | `Thing` or `DefinedTerm` | `/articles/how-to-choose-aerocool-chair/` | `confirmed` | Important for AI Search prompts and product copy. |
+| `long-sitting` | long sitting | довгі сесії | долгие сессии | UseCase | `Thing` or `DefinedTerm` | `/articles/how-to-choose-aerocool-chair/` | `planned` | Useful for ergonomic comparisons. |
+| `hot-room` | hot room | жарке приміщення | жаркое помещение | UseCase | `Thing` or `DefinedTerm` | `/articles/racer-vs-loft-air-vs-mesh-materials/` | `planned` | Connected to Mesh and Loft Air material decisions. |
+| `chair-selection` | chair selection | вибір крісла | выбор кресла | ContentTopic | `Thing` or `DefinedTerm` | `/articles/how-to-choose-aerocool-chair/` | `confirmed` | Main editorial support topic. |
+
+## 15. Service Policy Entities
+
+The current entity home for service policies is `/faq/`. Do not create separate policy schema until visible policy pages or anchors are stable.
+
+| entity_id | name_en | name_uk | name_ru | schema_candidate | entity_home | source_of_truth | owner | status | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `delivery-policy` | Delivery | Доставка | Доставка | `OfferShippingDetails` / policy reference | `/faq/` | product front matter | Aerocool Ukraine | `confirmed` | FAQ mirrors product front matter. |
+| `payment-policy` | Payment | Оплата | Оплата | payment policy reference | `/faq/` | product front matter | Aerocool Ukraine | `confirmed` | Uses `payment_methods`. |
+| `return-policy` | Returns | Повернення | Возврат | `MerchantReturnPolicy` | `/faq/` | product front matter | Aerocool Ukraine | `confirmed` | Uses `return_days`, `return_method`, `return_fees`. |
+| `warranty-policy` | Warranty | Гарантія | Гарантия | `WarrantyPromise` / policy reference | `/faq/` | product front matter | Aerocool Ukraine | `confirmed` | Uses `warranty`. |
+| `price-validity-policy` | Price validity | Актуальність ціни | Актуальность цены | Offer validity reference | product front matter | product front matter | Aerocool Ukraine | `confirmed` | `priceValidUntil: 2027-12-31` confirmed `2026-05-07`. |
+
+## 16. Editorial Content Entity Mapping
+
+This section maps existing article pages to primary and secondary entities. It is the planning source for page-by-page `about_entities` and `mentions_entities`.
+
+| Page | Primary `about_entities` | Candidate `mentions_entities` | Status |
+| --- | --- | --- | --- |
+| `/articles/how-to-choose-aerocool-chair/` | `chair-selection`, `aerocool-catalog` | `sky-series`, `wing-series`, `xtal-series`, `gaming-chair`, `office-chair`, `computer-chair`, `home-office`, `racer-material`, `loft-air-material`, `mesh-material` | `confirmed` |
+| `/articles/how-to-choose-chair-by-adjustability/` | `7d-adjustment`, `8d-adjustment`, `11d-adjustment` | `sky-series`, `wing-series`, `xtal-series`, `sky-lite`, `sky-360`, `synchronous-tilt` | `confirmed` |
+| `/articles/racer-vs-loft-air-vs-mesh-materials/` | `racer-material`, `loft-air-material`, `mesh-material` | `leatherette-material`, `fabric-material`, `hot-room`, `gaming-chair`, `office-chair`, `home-office` | `confirmed` |
+| `/articles/sky-lite-vs-sky-360-guide/` | `sky-series` | `sky-lite`, `sky-360`, `8d-adjustment`, `11d-adjustment`, `sync4-mechanism`, `sync5-mechanism`, `home-office` | `confirmed` |
+| `/articles/sync4-sync5-mechanism-guide/` | `sync4-mechanism`, `sync5-mechanism` | `synchronous-tilt`, `sky-lite`, `sky-360`, `wing-series`, `xtal-series` | `confirmed` |
+| `/articles/what-is-synchronous-tilt-guide/` | `synchronous-tilt` | `sync4-mechanism`, `sync5-mechanism`, `office-chair`, `home-office`, `long-sitting` | `confirmed` |
+| `/articles/wing-vs-xtal-comparison/` | `wing-series`, `xtal-series` | `11d-adjustment`, `7d-adjustment`, `dual-backrest`, `replaceable-elements`, `racer-material`, `loft-air-material`, `mesh-material`, `gaming-chair`, `computer-chair`, `home-office` | `confirmed` |
+
+## 17. News Entity Mapping
+
+| Page | Primary `about_entities` | Candidate `mentions_entities` | Status |
+| --- | --- | --- | --- |
+| `/news/2026-04-15-aerocool-sky-series-launch/` | `sky-series` | `sky-lite`, `sky-360`, `office-chair`, `computer-chair`, `home-office` | `confirmed` |
+| `/news/2026-04-16-aerocool-wing-series-launch/` | `wing-series` | `wing-racer-product-group`, `wing-loft-air-product-group`, `wing-mesh-product-group`, `11d-adjustment`, `dual-backrest` | `confirmed` |
+| `/news/2026-04-17-aerocool-xtal-series-launch/` | `xtal-series` | `xtal-racer-product-group`, `xtal-loft-air-product-group`, `xtal-mesh-product-group`, `7d-adjustment`, `replaceable-elements` | `confirmed` |
+| `/news/2026-04-18-aerocool-sky-360-launch/` | `sky-360` | `sky-series`, `11d-adjustment`, `sync5-mechanism`, `synchronous-tilt`, `home-office` | `confirmed` |
+| `/news/2026-04-19-aerocool-sky-lite-launch/` | `sky-lite` | `sky-series`, `8d-adjustment`, `sync4-mechanism`, `synchronous-tilt`, `office-chair` | `confirmed` |
+| `/news/2026-04-20-aerocool-loft-air-and-mesh-focus/` | `loft-air-material`, `mesh-material` | `wing-loft-air-product-group`, `xtal-loft-air-product-group`, `wing-mesh-product-group`, `xtal-mesh-product-group`, `hot-room` | `confirmed` |
+| `/news/2026-04-30-aerocool-sync4-sync5-mechanism-update/` | `sync4-mechanism`, `sync5-mechanism` | `synchronous-tilt`, `sky-series`, `wing-series`, `xtal-series` | `confirmed` |
+
+## 18. Relationship Triples
+
+Use these as the semantic backbone for future JSON-LD relationships.
+
+| Subject | Predicate | Object | Evidence |
+| --- | --- | --- | --- |
+| `aerocool-ukraine` | `brand` | `aerocool-brand` | local organization schema |
+| `aerocool-ukraine` | `parentOrganization` | `aerocool-global-organization` | local organization schema |
+| `aerocool-catalog` | `hasPart` | `sky-series`, `wing-series`, `xtal-series` | `/products/` |
+| `sky-series` | `hasVariant` | `sky-lite`, `sky-360` | `/products/sky/` |
+| `wing-series` | `hasVariant` | WING product variants | `/products/wing/` |
+| `xtal-series` | `hasVariant` | XTAL product variants | `/products/xtal/` |
+| `wing-racer-product-group` | `hasVariant` | `wing-racer-black`, `wing-racer-dark-grey` | future visible variant navigation |
+| `wing-loft-air-product-group` | `hasVariant` | `wing-loft-air-light-grey`, `wing-loft-air-dark-grey` | future visible variant navigation |
+| `xtal-racer-product-group` | `hasVariant` | `xtal-racer-black`, `xtal-racer-dark-grey` | future visible variant navigation |
+| `xtal-loft-air-product-group` | `hasVariant` | `xtal-loft-air-light-grey`, `xtal-loft-air-dark-grey` | future visible variant navigation |
+| `racer-material` | `isMaterialOf` | Racer product variants | product pages |
+| `loft-air-material` | `isMaterialOf` | Loft Air product variants | product pages |
+| `mesh-material` | `isMaterialOf` | SKY and Mesh product variants | product pages |
+| `sync4-mechanism` | `usedIn` | `sky-lite` | product page |
+| `sync5-mechanism` | `usedIn` | `sky-360`, WING variants, XTAL variants | product pages |
+| `delivery-policy` | `appliesTo` | Product offers | product front matter and `/faq/` |
+| `return-policy` | `appliesTo` | Product offers | product front matter and `/faq/` |
+| `warranty-policy` | `appliesTo` | Product offers | product front matter and `/faq/` |
+
+## 19. Front Matter Mapping
+
+Template support exists for `about_entities`, `mentions_entities` and `product_group_id`. On `2026-05-07`, these fields were filled on priority pages: home, about, contact, FAQ, product/article/news hubs, series pages, current articles, current news and product pages.
+
+Future additions must still be page-by-page after checking this registry and the visible page content.
+
+Product example:
+
+```yaml
+about_entities:
+  - wing-racer-black
+  - wing-series
+  - gaming-chair
+mentions_entities:
+  - racer-material
+  - 11d-adjustment
+  - sync5-mechanism
+  - synchronous-tilt
+  - delivery-policy
+  - warranty-policy
+product_group_id: "wing-racer-product-group"
+variant_attributes:
+  material: "racer-material"
+  color: "black"
+```
+
+Article example:
+
+```yaml
+about_entities:
+  - racer-material
+  - loft-air-material
+  - mesh-material
+mentions_entities:
+  - home-office
+  - office-chair
+  - gaming-chair
+```
+
+Rules:
+
+- `about_entities` should contain the main subject of the page.
+- `mentions_entities` should contain visibly discussed related products, series, materials, mechanisms, use cases and policies.
+- `product_group_id` must point to an entity in section 10 and will render only after that entity is moved from `planned` to `confirmed`.
+- `variant_attributes` should only contain visible attributes.
+- Unknown `entity_id` values should fail QA before production.
+- Entity values should be stable IDs, not display labels.
+
+## 20. `data/entities.yaml` Shape
+
+The structured resolver source now lives in [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml). Its shape follows this pattern:
+
+```yaml
+wing-racer-black:
+  name:
+    en: "Aerocool WING Racer Black"
+    uk: "Aerocool WING Racer Black"
+    ru: "Aerocool WING Racer Black"
+  entity_class: "ProductVariant"
+  schema_candidate: "Product"
+  current_jsonld_id: "https://aerocool.ua/products/wing/racer-black/#product"
+  entity_home: "/products/wing/racer-black/"
+  parent: "wing-racer-product-group"
+  related:
+    - "wing-series"
+    - "racer-material"
+    - "11d-adjustment"
+    - "sync5-mechanism"
+  status: "confirmed"
+```
+
+Resolver requirements:
+
+- return localized display name;
+- return `@id`;
+- fail or warn on unknown ID;
+- filter `planned`, `needs-review` and `do-not-markup` entities from JSON-LD by default;
+- support `about`, `mentions`, `isVariantOf` and `inProductGroupWithID`;
+- keep `additionalProperty` for a later pass after visible specification tables exist.
+
+## 21. QA Rules
+
+- Every `about_entities` value must exist in this registry.
+- Every `mentions_entities` value must exist in this registry.
+- No page should mention a product group that is not visibly linked or explained.
+- Do not render `ProductGroup` until variant navigation is visible.
+- Do not render `additionalProperty` until product specs are visible in a table or comparable block.
+- Do not render `Review` or reviewer entities until rating source is resolved.
+- Do not add `OnlineStore` while the site remains a catalog without confirmed checkout flow.
+- Do not add `sameAs` to marketplaces, random reviews or non-official pages.
+- If an entity changes entity home, update internal links, registry, future front matter and schema tests together.
+
+## 22. Do Not Mark Up Yet
+
+| Candidate | Status | Why |
+| --- | --- | --- |
+| `OnlineStore` | `do-not-markup` | Requires confirmed merchant/checkout scenario. |
+| `Review` | `do-not-markup` | Rating source and individual review evidence are not confirmed. |
+| Author/reviewer people | `do-not-markup` | No real editorial person model yet. |
+| Marketplace pages as `sameAs` | `do-not-markup` | Not exact identity. |
+| Random product reviews as `sameAs` | `do-not-markup` | Not exact identity. |
+| MCP/NLWeb/chatbot entities | `do-not-markup` | P3 only after production and stable knowledge graph. |
+
+## 23. Implementation Roadmap
+
+1. Keep this markdown file as the canonical registry during the first implementation pass.
+2. Add visible variant navigation for product groups with multiple variants.
+3. Add visible product specification tables.
+4. Done `2026-05-07`: add structured [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml).
+5. Done `2026-05-07`: implement safe entity resolver partials.
+6. Done `2026-05-07`: render optional `about` and `mentions` from resolver when front matter fields are present.
+7. Done `2026-05-07`: add [entity-registry-beginner-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entity-registry-beginner-guide-2026.md).
+8. Done `2026-05-07`: fill `about_entities`, `mentions_entities` and staged `product_group_id` on priority pages.
+9. Render `ProductGroup` only after visible variant navigation exists and group entities become `confirmed`.
+10. Render `additionalProperty` only after visible specs tables exist.
+9. Use this registry as input for `llms.txt` after production stabilization.

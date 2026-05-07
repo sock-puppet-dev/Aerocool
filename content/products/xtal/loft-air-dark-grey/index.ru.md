@@ -5,6 +5,23 @@ summary: "Aerocool XTAL Loft Air Dark Grey — офисное и компьют�
 date: 2026-03-19
 lastmod: 2026-05-07
 schema_types: ["website", "product", "organization", "breadcrumbs"]
+about_entities:
+  - "xtal-loft-air-dark-grey"
+  - "xtal-series"
+  - "office-chair"
+  - "computer-chair"
+  - "home-office"
+mentions_entities:
+  - "aerocool-brand"
+  - "loft-air-material"
+  - "synchronous-tilt"
+  - "7d-adjustment"
+  - "gaming-chair"
+  - "delivery-policy"
+  - "payment-policy"
+  - "return-policy"
+  - "warranty-policy"
+product_group_id: "xtal-loft-air-product-group"
 slug: "loft-air-dark-grey"
 categories: ["xtal"]
 tags: ["aerocool", "эргономичное кресло", "офисное кресло", "компьютерное кресло", "xtal", "loft air dark grey", "home office"]

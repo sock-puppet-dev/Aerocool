@@ -1,0 +1,28 @@
+{{- $site := site -}}
+{{- $ids := slice -}}
+{{- $allowPlanned := false -}}
+{{- if reflect.IsMap . -}}
+  {{- with .site -}}
+    {{- $site = . -}}
+  {{- end -}}
+  {{- with .ids -}}
+    {{- $ids = . -}}
+  {{- end -}}
+  {{- with .allow_planned -}}
+    {{- $allowPlanned = . -}}
+  {{- end -}}
+{{- else -}}
+  {{- $ids = . -}}
+{{- end -}}
+{{- $refs := slice -}}
+{{- $seen := dict -}}
+{{- range $ids -}}
+  {{- $id := printf "%s" . -}}
+  {{- if not (index $seen $id) -}}
+    {{- $seen = merge $seen (dict $id true) -}}
+    {{- with partial "_schema/entity-ref.html" (dict "site" $site "id" $id "allow_planned" $allowPlanned) -}}
+      {{- $refs = $refs | append . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $refs -}}

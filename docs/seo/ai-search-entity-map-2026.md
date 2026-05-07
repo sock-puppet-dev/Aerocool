@@ -220,16 +220,16 @@ AI follow-up вопросы не равны обычному Google `People Also
 
 ## 7. Entity Map
 
-Эта карта нужна для будущих `about`, `mentions`, `ProductGroup`, `additionalProperty` и внутренних ссылок.
+Эта карта нужна для управляемых `about`, `mentions`, `ProductGroup`, будущих `additionalProperty` и внутренних ссылок. Канонический список entity IDs и entity homes находится в [entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entity-registry-2026.md), а структурированный источник для schema resolver — в [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml).
 
 | Entity | Тип Schema.org | Каноническая Страница | Где Усиливать | Следующее Действие |
 | --- | --- | --- | --- | --- |
 | Aerocool | `Brand` | `/` или `/about/` | Home, About, Product, Collection | Использовать стабильный `@id`; глобальные соцпрофили держать как `sameAs` бренда/global organization |
-| Aerocool Ukraine | `Organization` / `OnlineStore`, если подтвердится модель магазина | `/about/`, `/contact/`, `/faq/` | Organization graph, FAQ, Contact | Не расширять до `OnlineStore`; связь с глобальным Aerocool через `parentOrganization` и `brand`, без local `sameAs` |
+| Aerocool Ukraine | `Organization` / `OnlineStore`, если подтвердится модель магазина | `/about/`, `/contact/`, `/faq/` | Organization graph, FAQ, Contact | Local facts подтверждены `2026-05-07`; не расширять до `OnlineStore`; связь с глобальным Aerocool через `parentOrganization` и `brand`, без local `sameAs` |
 | Каталог кресел | `CollectionPage` | `/products/` | Product hub, series pages | Связать с сериями и коммерческими интентами |
-| SKY | `ProductGroup` / `CollectionPage` | `/products/sky/` | Серия, товары, статьи | Спроектировать group ID и связи вариантов |
-| WING | `ProductGroup` / `CollectionPage` | `/products/wing/` | Серия, товары, статьи | Спроектировать group ID и связи вариантов |
-| XTAL | `ProductGroup` / `CollectionPage` | `/products/xtal/` | Серия, товары, статьи | Спроектировать group ID и связи вариантов |
+| SKY | `ProductGroup` / `CollectionPage` | `/products/sky/` | Серия, товары, статьи | Entity IDs зафиксированы; перед JSON-LD ProductGroup нужна видимая variant navigation |
+| WING | `ProductGroup` / `CollectionPage` | `/products/wing/` | Серия, товары, статьи | Entity IDs зафиксированы; перед JSON-LD ProductGroup нужна видимая variant navigation |
+| XTAL | `ProductGroup` / `CollectionPage` | `/products/xtal/` | Серия, товары, статьи | Entity IDs зафиксированы; перед JSON-LD ProductGroup нужна видимая variant navigation |
 | Товарный вариант | `Product` | `/products/<series>/<model>/` | Product pages | Добавить `additionalProperty` после видимой таблицы характеристик |
 | Игровое кресло | `Thing` / product category | `/products/`, статьи | Hubs, products, articles | Использовать как `about` для релевантных страниц |
 | Офисное кресло | `Thing` / product category | `/products/`, статьи | Hubs, products, articles | Использовать как `about` для home office страниц |
@@ -266,18 +266,21 @@ AI follow-up вопросы не равны обычному Google `People Also
 
 Текущие шаблоны читают `schema_types`. Это правило не менять.
 
-Возможные будущие поля нужно проектировать отдельно и документировать в `docs/content/front-matter-reference.md` перед внедрением:
+Текущий безопасный набор entity-полей уже документирован в `docs/content/front-matter-reference.md`, объяснен для новичков в [entity-registry-beginner-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entity-registry-beginner-guide-2026.md) и читается шаблонами:
 
 - `about_entities`;
 - `mentions_entities`;
+- `product_group_id`.
+
+На `2026-05-07` эти поля точечно заполнены на priority pages. Новые значения не добавлять массово: каждое значение должно существовать в [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml), иметь статус `confirmed` для JSON-LD и быть видимо раскрыто в тексте, ссылках, навигации или характеристиках страницы. `product_group_id` может быть подготовлен как staged field, но `isVariantOf` появится только после подтверждения ProductGroup.
+
+Поля, которые пока остаются проектными и требуют отдельного решения:
+
 - `related_products`;
 - `related_series`;
-- `product_group_id`;
 - `varies_by`;
 - `product_properties`;
 - `same_as`.
-
-Важно: до появления шаблонной поддержки эти поля не добавлять массово в `content/`, чтобы не создать неиспользуемый front matter.
 
 ## 10. Контентные Паттерны Для AI-Ответов
 

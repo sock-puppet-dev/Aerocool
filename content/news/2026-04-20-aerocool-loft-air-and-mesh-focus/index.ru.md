@@ -3,9 +3,22 @@ title: "Aerocool Loft Air и Mesh: фокус на вентилируемых п
 description: "Aerocool подчеркивает различия между Loft Air и Mesh в сериях WING и XTAL и объясняет, кому подойдет каждый формат поверхности."
 summary: "Объяснение разницы между Loft Air и Mesh в WING и XTAL для выбора офисного, компьютерного или home office кресла."
 date: 2026-04-20T10:00:00+03:00
-lastmod: 2026-04-30
+lastmod: 2026-05-07
 slug: "loft-air-and-mesh-focus"
 schema_types: ["website", "news", "organization", "breadcrumbs"]
+about_entities:
+  - "loft-air-material"
+  - "mesh-material"
+mentions_entities:
+  - "wing-loft-air-dark-grey"
+  - "wing-loft-air-light-grey"
+  - "wing-mesh-black"
+  - "xtal-loft-air-dark-grey"
+  - "xtal-loft-air-light-grey"
+  - "xtal-mesh-black"
+  - "office-chair"
+  - "computer-chair"
+  - "home-office"
 image: "01-front.png"
 cover:
   image: "01-front.png"

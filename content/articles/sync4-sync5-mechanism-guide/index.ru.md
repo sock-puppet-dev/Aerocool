@@ -1,11 +1,23 @@
 ---
 title: "SYNC4 и SYNC5 multi-adjustable в креслах Aerocool: какие модели используют эти механизмы"
 date: 2026-04-30T00:00:00+03:00
-lastmod: 2026-04-30
+lastmod: 2026-05-07
 slug: "sync4-sync5-mechanism-guide"
 description: "Объясняем, какие кресла Aerocool используют механизмы SYNC4 и SYNC5 multi-adjustable: все версии XTAL, все версии WING, SKY 360 и SKY Lite."
 summary: "Практический разбор механизмов SYNC4 и SYNC5 multi-adjustable в креслах Aerocool: Synchronous Tilt, multi-angle lock, weight sensitive и регулировка сиденья."
 schema_types: ["website", "article", "organization", "breadcrumbs"]
+about_entities:
+  - "sync4-mechanism"
+  - "sync5-mechanism"
+  - "synchronous-tilt"
+mentions_entities:
+  - "sky-lite"
+  - "sky-360"
+  - "sky-series"
+  - "wing-series"
+  - "xtal-series"
+  - "8d-adjustment"
+  - "11d-adjustment"
 image: "01-front.png"
 cover:
   image: "01-front.png"

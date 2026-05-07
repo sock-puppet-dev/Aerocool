@@ -2,10 +2,25 @@
 title: "Aerocool SKY — эргономичные офисные и компьютерные кресла Lite и 360"
 description: "Серия Aerocool SKY: офисные и компьютерные кресла SKY Lite и SKY 360, сравнение регулировок, подлокотников, базы и сценариев работы."
 date: 2026-03-19
-lastmod: 2026-05-06
+lastmod: 2026-05-07
 summary: "Серия SKY с двумя конфигурациями: Lite для ежедневного использования и 360 для более глубокой настройки посадки."
 slug: "sky"
 schema_types: ["website", "collection", "organization", "breadcrumbs"]
+about_entities:
+  - "sky-series"
+  - "office-chair"
+  - "computer-chair"
+  - "home-office"
+mentions_entities:
+  - "aerocool-brand"
+  - "sky-lite"
+  - "sky-360"
+  - "mesh-material"
+  - "synchronous-tilt"
+  - "sync4-mechanism"
+  - "sync5-mechanism"
+  - "8d-adjustment"
+  - "11d-adjustment"
 image: "cover.webp"
 cover:
   image: "cover.webp"

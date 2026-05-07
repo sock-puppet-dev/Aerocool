@@ -5,6 +5,24 @@ summary: "Aerocool WING Loft Air Dark Grey — офісне та комп'юте
 date: 2026-03-19
 lastmod: 2026-05-07
 schema_types: ["website", "product", "organization", "breadcrumbs"]
+about_entities:
+  - "wing-loft-air-dark-grey"
+  - "wing-series"
+  - "office-chair"
+  - "computer-chair"
+  - "home-office"
+mentions_entities:
+  - "aerocool-brand"
+  - "loft-air-material"
+  - "synchronous-tilt"
+  - "sync5-mechanism"
+  - "11d-adjustment"
+  - "gaming-chair"
+  - "delivery-policy"
+  - "payment-policy"
+  - "return-policy"
+  - "warranty-policy"
+product_group_id: "wing-loft-air-product-group"
 slug: "loft-air-dark-grey"
 categories: ["wing"]
 tags: ["aerocool", "ергономічне крісло", "офісне крісло", "комп'ютерне крісло", "wing", "loft air dark grey", "home office"]

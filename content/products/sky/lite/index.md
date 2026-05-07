@@ -5,6 +5,23 @@ summary: "Aerocool SKY Lite — офісне та комп'ютерне кріс
 date: 2026-03-19
 lastmod: 2026-05-07
 schema_types: ["website", "product", "organization", "breadcrumbs"]
+about_entities:
+  - "sky-lite"
+  - "sky-series"
+  - "office-chair"
+  - "computer-chair"
+  - "home-office"
+mentions_entities:
+  - "aerocool-brand"
+  - "mesh-material"
+  - "synchronous-tilt"
+  - "sync4-mechanism"
+  - "8d-adjustment"
+  - "delivery-policy"
+  - "payment-policy"
+  - "return-policy"
+  - "warranty-policy"
+product_group_id: "sky-lite-product-group"
 slug: "lite"
 categories: ["sky"]
 tags: ["aerocool", "ергономічне крісло", "офісне крісло", "комп'ютерне крісло", "sky", "lite", "home office"]

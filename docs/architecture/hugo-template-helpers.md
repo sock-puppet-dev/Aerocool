@@ -642,6 +642,27 @@
 - если в rich results у товара странные данные;
 - если front matter заполнен верно, но цена, наличие, доставка, возврат, payment methods или seller schema рендерятся не так.
 
+### `entity-ref.html`
+
+Файл: [entity-ref.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/entity-ref.html)
+
+Что делает:
+
+- безопасно резолвит один `entity_id` из [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml);
+- возвращает JSON-LD reference вида `{"@id": "..."}`;
+- по умолчанию выводит только сущности со статусом `confirmed`;
+- игнорирует неизвестные, `planned`, `needs-review` и `do-not-markup` сущности, чтобы front matter не ломал сборку.
+
+### `entity-ref-list.html`
+
+Файл: [entity-ref-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/entity-ref-list.html)
+
+Что делает:
+
+- безопасно резолвит список `about_entities` или `mentions_entities`;
+- удаляет повторяющиеся `entity_id`;
+- используется в `webpage`, `about-page`, `contact-page`, `collection`, `article` и `news` schema partials. Для товарных страниц `about_entities` и `mentions_entities` попадают в `WebPage`, а `Product` остается основным товарным узлом с `brand`, `offers`, `seller` и staged `product_group_id`.
+
 ### `article.html`
 
 Файл: [article.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/article.html)

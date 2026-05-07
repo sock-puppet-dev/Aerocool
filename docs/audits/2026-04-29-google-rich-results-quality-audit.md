@@ -500,12 +500,11 @@ Strengths:
 - Parent/brand relationship is explicit.
 - Global `sameAs` is present on the global organization/brand, while the local organization is connected through `parentOrganization` and `brand`.
 - Contact points are present.
-- Local address exists.
+- Local address, phone, email and hours are present and confirmed as current business facts on `2026-05-07`.
 
 Risks / improvements:
 
 - Full organization graph repeats on every page. Google recommends organization markup on home/about-style pages; repeating is not required.
-- Local organization uses Kyiv address and geo. Verify legal/business accuracy before production if this address is not a public customer-facing location.
 - If this is effectively an online catalog/store, consider `OnlineStore` for the local entity, but only if merchant facts are visible and accurate.
 
 ## WebSite / SearchAction Audit

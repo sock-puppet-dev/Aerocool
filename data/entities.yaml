@@ -1,0 +1,1132 @@
+aerocool-brand:
+  name:
+    en: "Aerocool"
+    uk: "Aerocool"
+    ru: "Aerocool"
+  entity_class: "Brand"
+  schema_candidate: "Brand"
+  current_jsonld_id: "https://aerocool.io/#brand"
+  entity_home: "/about/"
+  owner: "Global Aerocool + Aerocool Ukraine"
+  status: "confirmed"
+  same_as:
+    - "https://www.facebook.com/AeroCoolGlobal/"
+    - "https://www.instagram.com/aerocool_global"
+    - "https://x.com/AerocoolGlobal"
+    - "https://www.linkedin.com/company/aerocool-advanced-technologies-corp./"
+    - "https://www.youtube.com/@AeroCoolGlobal"
+
+aerocool-global-organization:
+  name:
+    en: "Aerocool Advanced Technologies Corp."
+    uk: "Aerocool Advanced Technologies Corp."
+    ru: "Aerocool Advanced Technologies Corp."
+  entity_class: "Organization"
+  schema_candidate: "Organization"
+  current_jsonld_id: "https://aerocool.io/#organization"
+  entity_home: "https://aerocool.io/"
+  owner: "Global Aerocool"
+  status: "confirmed"
+  same_as:
+    - "https://www.facebook.com/AeroCoolGlobal/"
+    - "https://www.instagram.com/aerocool_global"
+    - "https://x.com/AerocoolGlobal"
+    - "https://www.linkedin.com/company/aerocool-advanced-technologies-corp./"
+    - "https://www.youtube.com/@AeroCoolGlobal"
+
+aerocool-ukraine:
+  name:
+    en: "Aerocool Ukraine"
+    uk: "Aerocool Україна"
+    ru: "Aerocool Украина"
+  entity_class: "Organization"
+  schema_candidate: "Organization"
+  current_jsonld_id: "https://aerocool.ua/#organization"
+  entity_home: "/about/"
+  owner: "Aerocool Ukraine"
+  status: "confirmed"
+  parent: "aerocool-global-organization"
+  related:
+    - "aerocool-brand"
+    - "contact-page"
+    - "faq-page"
+
+aerocool-website:
+  name:
+    en: "Aerocool Ukraine website"
+    uk: "Сайт Aerocool Україна"
+    ru: "Сайт Aerocool Украина"
+  entity_class: "WebSite"
+  schema_candidate: "WebSite"
+  current_jsonld_id: "https://aerocool.ua/#website"
+  entity_home: "/"
+  owner: "Aerocool Ukraine"
+  status: "confirmed"
+
+aerocool-logo:
+  name:
+    en: "Aerocool logo"
+    uk: "Логотип Aerocool"
+    ru: "Логотип Aerocool"
+  entity_class: "ImageObject"
+  schema_candidate: "ImageObject"
+  current_jsonld_id: "https://aerocool.ua/#logo"
+  entity_home: "/"
+  owner: "Aerocool Ukraine"
+  status: "confirmed"
+
+home-page:
+  name:
+    en: "Homepage"
+    uk: "Головна"
+    ru: "Главная"
+  entity_class: "WebPage"
+  schema_candidate: "WebPage"
+  current_jsonld_id: "https://aerocool.ua/#webpage"
+  entity_home: "/"
+  status: "confirmed"
+  about_entities:
+    - "aerocool-brand"
+    - "aerocool-ukraine"
+    - "aerocool-catalog"
+
+about-page:
+  name:
+    en: "About Aerocool Ukraine"
+    uk: "Про Aerocool Україна"
+    ru: "Об Aerocool Украина"
+  entity_class: "AboutPage"
+  schema_candidate: "AboutPage"
+  current_jsonld_id: "https://aerocool.ua/about/#webpage"
+  entity_home: "/about/"
+  status: "confirmed"
+  about_entities:
+    - "aerocool-brand"
+    - "aerocool-ukraine"
+    - "aerocool-global-organization"
+
+contact-page:
+  name:
+    en: "Contacts"
+    uk: "Контакти"
+    ru: "Контакты"
+  entity_class: "ContactPage"
+  schema_candidate: "ContactPage"
+  current_jsonld_id: "https://aerocool.ua/contact/#webpage"
+  entity_home: "/contact/"
+  status: "confirmed"
+  about_entities:
+    - "aerocool-ukraine"
+
+faq-page:
+  name:
+    en: "FAQ"
+    uk: "FAQ"
+    ru: "FAQ"
+  entity_class: "FAQPage"
+  schema_candidate: "FAQPage"
+  current_jsonld_id: "https://aerocool.ua/faq/#faq"
+  entity_home: "/faq/"
+  status: "confirmed"
+  about_entities:
+    - "delivery-policy"
+    - "payment-policy"
+    - "return-policy"
+    - "warranty-policy"
+
+products-collection:
+  name:
+    en: "Aerocool chairs catalog"
+    uk: "Каталог крісел Aerocool"
+    ru: "Каталог кресел Aerocool"
+  entity_class: "Collection"
+  schema_candidate: "CollectionPage"
+  current_jsonld_id: "https://aerocool.ua/products/#collection"
+  entity_home: "/products/"
+  owner: "Aerocool Ukraine"
+  status: "confirmed"
+  related:
+    - "sky-series"
+    - "wing-series"
+    - "xtal-series"
+    - "gaming-chair"
+    - "office-chair"
+    - "computer-chair"
+
+aerocool-catalog:
+  name:
+    en: "Aerocool chairs catalog"
+    uk: "Каталог крісел Aerocool"
+    ru: "Каталог кресел Aerocool"
+  entity_class: "Collection"
+  schema_candidate: "CollectionPage"
+  current_jsonld_id: "https://aerocool.ua/products/#collection"
+  entity_home: "/products/"
+  owner: "Aerocool Ukraine"
+  status: "confirmed"
+  related:
+    - "sky-series"
+    - "wing-series"
+    - "xtal-series"
+
+articles-collection:
+  name:
+    en: "Aerocool articles"
+    uk: "Статті Aerocool"
+    ru: "Статьи Aerocool"
+  entity_class: "Collection"
+  schema_candidate: "CollectionPage"
+  current_jsonld_id: "https://aerocool.ua/articles/#collection"
+  entity_home: "/articles/"
+  status: "confirmed"
+  related:
+    - "chair-selection"
+    - "ergonomic-chair"
+    - "aerocool-catalog"
+
+news-collection:
+  name:
+    en: "Aerocool news"
+    uk: "Новини Aerocool"
+    ru: "Новости Aerocool"
+  entity_class: "Collection"
+  schema_candidate: "CollectionPage"
+  current_jsonld_id: "https://aerocool.ua/news/#collection"
+  entity_home: "/news/"
+  status: "confirmed"
+  related:
+    - "aerocool-brand"
+    - "aerocool-catalog"
+
+sky-series:
+  name:
+    en: "Aerocool SKY"
+    uk: "Aerocool SKY"
+    ru: "Aerocool SKY"
+  entity_class: "ProductSeries"
+  schema_candidate: "CollectionPage"
+  current_jsonld_id: "https://aerocool.ua/products/sky/#collection"
+  entity_home: "/products/sky/"
+  parent: "aerocool-catalog"
+  status: "confirmed"
+  variants:
+    - "sky-lite"
+    - "sky-360"
+  related:
+    - "mesh-material"
+    - "sync4-mechanism"
+    - "sync5-mechanism"
+    - "office-chair"
+    - "computer-chair"
+    - "home-office"
+
+wing-series:
+  name:
+    en: "Aerocool WING"
+    uk: "Aerocool WING"
+    ru: "Aerocool WING"
+  entity_class: "ProductSeries"
+  schema_candidate: "CollectionPage"
+  current_jsonld_id: "https://aerocool.ua/products/wing/#collection"
+  entity_home: "/products/wing/"
+  parent: "aerocool-catalog"
+  status: "confirmed"
+  variants:
+    - "wing-racer-black"
+    - "wing-racer-dark-grey"
+    - "wing-loft-air-light-grey"
+    - "wing-loft-air-dark-grey"
+    - "wing-mesh-black"
+  related:
+    - "racer-material"
+    - "loft-air-material"
+    - "mesh-material"
+    - "11d-adjustment"
+    - "dual-backrest"
+    - "gaming-chair"
+    - "home-office"
+
+xtal-series:
+  name:
+    en: "Aerocool XTAL"
+    uk: "Aerocool XTAL"
+    ru: "Aerocool XTAL"
+  entity_class: "ProductSeries"
+  schema_candidate: "CollectionPage"
+  current_jsonld_id: "https://aerocool.ua/products/xtal/#collection"
+  entity_home: "/products/xtal/"
+  parent: "aerocool-catalog"
+  status: "confirmed"
+  variants:
+    - "xtal-racer-black"
+    - "xtal-racer-dark-grey"
+    - "xtal-loft-air-light-grey"
+    - "xtal-loft-air-dark-grey"
+    - "xtal-mesh-black"
+  related:
+    - "racer-material"
+    - "loft-air-material"
+    - "mesh-material"
+    - "7d-adjustment"
+    - "replaceable-elements"
+    - "computer-chair"
+    - "home-office"
+
+sky-lite-product-group:
+  name:
+    en: "Aerocool SKY Lite"
+    uk: "Aerocool SKY Lite"
+    ru: "Aerocool SKY Lite"
+  entity_class: "ProductGroup"
+  schema_candidate: "ProductGroup"
+  future_jsonld_id: "https://aerocool.ua/products/sky/#sky-lite-product-group"
+  entity_home: "/products/sky/"
+  status: "planned"
+  variants:
+    - "sky-lite"
+  varies_by:
+    - "model"
+
+sky-360-product-group:
+  name:
+    en: "Aerocool SKY 360"
+    uk: "Aerocool SKY 360"
+    ru: "Aerocool SKY 360"
+  entity_class: "ProductGroup"
+  schema_candidate: "ProductGroup"
+  future_jsonld_id: "https://aerocool.ua/products/sky/#sky-360-product-group"
+  entity_home: "/products/sky/"
+  status: "planned"
+  variants:
+    - "sky-360"
+  varies_by:
+    - "model"
+
+wing-racer-product-group:
+  name:
+    en: "Aerocool WING Racer"
+    uk: "Aerocool WING Racer"
+    ru: "Aerocool WING Racer"
+  entity_class: "ProductGroup"
+  schema_candidate: "ProductGroup"
+  future_jsonld_id: "https://aerocool.ua/products/wing/#wing-racer-product-group"
+  entity_home: "/products/wing/"
+  status: "planned"
+  variants:
+    - "wing-racer-black"
+    - "wing-racer-dark-grey"
+  varies_by:
+    - "color"
+
+wing-loft-air-product-group:
+  name:
+    en: "Aerocool WING Loft Air"
+    uk: "Aerocool WING Loft Air"
+    ru: "Aerocool WING Loft Air"
+  entity_class: "ProductGroup"
+  schema_candidate: "ProductGroup"
+  future_jsonld_id: "https://aerocool.ua/products/wing/#wing-loft-air-product-group"
+  entity_home: "/products/wing/"
+  status: "planned"
+  variants:
+    - "wing-loft-air-light-grey"
+    - "wing-loft-air-dark-grey"
+  varies_by:
+    - "color"
+
+wing-mesh-product-group:
+  name:
+    en: "Aerocool WING Mesh"
+    uk: "Aerocool WING Mesh"
+    ru: "Aerocool WING Mesh"
+  entity_class: "ProductGroup"
+  schema_candidate: "ProductGroup"
+  future_jsonld_id: "https://aerocool.ua/products/wing/#wing-mesh-product-group"
+  entity_home: "/products/wing/"
+  status: "planned"
+  variants:
+    - "wing-mesh-black"
+  varies_by:
+    - "material"
+    - "color"
+
+xtal-racer-product-group:
+  name:
+    en: "Aerocool XTAL Racer"
+    uk: "Aerocool XTAL Racer"
+    ru: "Aerocool XTAL Racer"
+  entity_class: "ProductGroup"
+  schema_candidate: "ProductGroup"
+  future_jsonld_id: "https://aerocool.ua/products/xtal/#xtal-racer-product-group"
+  entity_home: "/products/xtal/"
+  status: "planned"
+  variants:
+    - "xtal-racer-black"
+    - "xtal-racer-dark-grey"
+  varies_by:
+    - "color"
+
+xtal-loft-air-product-group:
+  name:
+    en: "Aerocool XTAL Loft Air"
+    uk: "Aerocool XTAL Loft Air"
+    ru: "Aerocool XTAL Loft Air"
+  entity_class: "ProductGroup"
+  schema_candidate: "ProductGroup"
+  future_jsonld_id: "https://aerocool.ua/products/xtal/#xtal-loft-air-product-group"
+  entity_home: "/products/xtal/"
+  status: "planned"
+  variants:
+    - "xtal-loft-air-light-grey"
+    - "xtal-loft-air-dark-grey"
+  varies_by:
+    - "color"
+
+xtal-mesh-product-group:
+  name:
+    en: "Aerocool XTAL Mesh"
+    uk: "Aerocool XTAL Mesh"
+    ru: "Aerocool XTAL Mesh"
+  entity_class: "ProductGroup"
+  schema_candidate: "ProductGroup"
+  future_jsonld_id: "https://aerocool.ua/products/xtal/#xtal-mesh-product-group"
+  entity_home: "/products/xtal/"
+  status: "planned"
+  variants:
+    - "xtal-mesh-black"
+  varies_by:
+    - "material"
+    - "color"
+
+sky-360:
+  name:
+    en: "Aerocool SKY 360"
+    uk: "Aerocool SKY 360"
+    ru: "Aerocool SKY 360"
+  entity_class: "ProductVariant"
+  schema_candidate: "Product"
+  current_jsonld_id: "https://aerocool.ua/products/sky/360/#product"
+  entity_home: "/products/sky/360/"
+  parent: "sky-360-product-group"
+  series: "sky-series"
+  sku: "SKY-360-001"
+  material: "mesh-material"
+  color: "not-specified"
+  adjustability: "11d-adjustment"
+  mechanism: "sync5-mechanism"
+  status: "confirmed"
+  related:
+    - "sky-series"
+    - "mesh-material"
+    - "11d-adjustment"
+    - "sync5-mechanism"
+    - "synchronous-tilt"
+    - "home-office"
+
+sky-lite:
+  name:
+    en: "Aerocool SKY Lite"
+    uk: "Aerocool SKY Lite"
+    ru: "Aerocool SKY Lite"
+  entity_class: "ProductVariant"
+  schema_candidate: "Product"
+  current_jsonld_id: "https://aerocool.ua/products/sky/lite/#product"
+  entity_home: "/products/sky/lite/"
+  parent: "sky-lite-product-group"
+  series: "sky-series"
+  sku: "SKY-LITE-001"
+  material: "mesh-material"
+  color: "not-specified"
+  adjustability: "8d-adjustment"
+  mechanism: "sync4-mechanism"
+  status: "confirmed"
+  related:
+    - "sky-series"
+    - "mesh-material"
+    - "8d-adjustment"
+    - "sync4-mechanism"
+    - "synchronous-tilt"
+    - "office-chair"
+    - "home-office"
+
+wing-loft-air-dark-grey:
+  name:
+    en: "Aerocool WING Loft Air Dark Grey"
+    uk: "Aerocool WING Loft Air Dark Grey"
+    ru: "Aerocool WING Loft Air Dark Grey"
+  entity_class: "ProductVariant"
+  schema_candidate: "Product"
+  current_jsonld_id: "https://aerocool.ua/products/wing/loft-air-dark-grey/#product"
+  entity_home: "/products/wing/loft-air-dark-grey/"
+  parent: "wing-loft-air-product-group"
+  series: "wing-series"
+  sku: "WING-LADG-001"
+  mpn: "TEGC-309700Z.Z1"
+  gtin13: "4711530966501"
+  material: "loft-air-material"
+  color: "dark-grey"
+  adjustability: "11d-adjustment"
+  mechanism: "sync5-mechanism"
+  status: "confirmed"
+  related:
+    - "wing-series"
+    - "loft-air-material"
+    - "11d-adjustment"
+    - "sync5-mechanism"
+    - "dual-backrest"
+    - "home-office"
+
+wing-loft-air-light-grey:
+  name:
+    en: "Aerocool WING Loft Air Light Grey"
+    uk: "Aerocool WING Loft Air Light Grey"
+    ru: "Aerocool WING Loft Air Light Grey"
+  entity_class: "ProductVariant"
+  schema_candidate: "Product"
+  current_jsonld_id: "https://aerocool.ua/products/wing/loft-air-light-grey/#product"
+  entity_home: "/products/wing/loft-air-light-grey/"
+  parent: "wing-loft-air-product-group"
+  series: "wing-series"
+  sku: "WING-LALG-001"
+  mpn: "TEGC-3097004.41"
+  gtin13: "4711530966518"
+  material: "loft-air-material"
+  color: "light-grey"
+  adjustability: "11d-adjustment"
+  mechanism: "sync5-mechanism"
+  status: "confirmed"
+  related:
+    - "wing-series"
+    - "loft-air-material"
+    - "11d-adjustment"
+    - "sync5-mechanism"
+    - "dual-backrest"
+    - "home-office"
+
+wing-mesh-black:
+  name:
+    en: "Aerocool WING Mesh Black"
+    uk: "Aerocool WING Mesh Black"
+    ru: "Aerocool WING Mesh Black"
+  entity_class: "ProductVariant"
+  schema_candidate: "Product"
+  current_jsonld_id: "https://aerocool.ua/products/wing/mesh-black/#product"
+  entity_home: "/products/wing/mesh-black/"
+  parent: "wing-mesh-product-group"
+  series: "wing-series"
+  sku: "WING-MB-001"
+  mpn: "TEGC-3098001.11"
+  gtin13: "4711530966525"
+  material: "mesh-material"
+  color: "black"
+  adjustability: "11d-adjustment"
+  mechanism: "sync5-mechanism"
+  status: "confirmed"
+  related:
+    - "wing-series"
+    - "mesh-material"
+    - "11d-adjustment"
+    - "sync5-mechanism"
+    - "dual-backrest"
+    - "hot-room"
+
+wing-racer-black:
+  name:
+    en: "Aerocool WING Racer Black"
+    uk: "Aerocool WING Racer Black"
+    ru: "Aerocool WING Racer Black"
+  entity_class: "ProductVariant"
+  schema_candidate: "Product"
+  current_jsonld_id: "https://aerocool.ua/products/wing/racer-black/#product"
+  entity_home: "/products/wing/racer-black/"
+  parent: "wing-racer-product-group"
+  series: "wing-series"
+  sku: "WING-RB-001"
+  mpn: "TEGC-3096001.11"
+  gtin13: "4711530966488"
+  material: "racer-material"
+  color: "black"
+  adjustability: "11d-adjustment"
+  mechanism: "sync5-mechanism"
+  status: "confirmed"
+  related:
+    - "wing-series"
+    - "racer-material"
+    - "11d-adjustment"
+    - "sync5-mechanism"
+    - "dual-backrest"
+    - "gaming-chair"
+
+wing-racer-dark-grey:
+  name:
+    en: "Aerocool WING Racer Dark Grey"
+    uk: "Aerocool WING Racer Dark Grey"
+    ru: "Aerocool WING Racer Dark Grey"
+  entity_class: "ProductVariant"
+  schema_candidate: "Product"
+  current_jsonld_id: "https://aerocool.ua/products/wing/racer-dark-grey/#product"
+  entity_home: "/products/wing/racer-dark-grey/"
+  parent: "wing-racer-product-group"
+  series: "wing-series"
+  sku: "WING-RDG-001"
+  mpn: "TEGC-309600Z.Z1"
+  gtin13: "4711530966495"
+  material: "racer-material"
+  color: "dark-grey"
+  adjustability: "11d-adjustment"
+  mechanism: "sync5-mechanism"
+  status: "confirmed"
+  related:
+    - "wing-series"
+    - "racer-material"
+    - "11d-adjustment"
+    - "sync5-mechanism"
+    - "dual-backrest"
+    - "gaming-chair"
+
+xtal-loft-air-dark-grey:
+  name:
+    en: "Aerocool XTAL Loft Air Dark Grey"
+    uk: "Aerocool XTAL Loft Air Dark Grey"
+    ru: "Aerocool XTAL Loft Air Dark Grey"
+  entity_class: "ProductVariant"
+  schema_candidate: "Product"
+  current_jsonld_id: "https://aerocool.ua/products/xtal/loft-air-dark-grey/#product"
+  entity_home: "/products/xtal/loft-air-dark-grey/"
+  parent: "xtal-loft-air-product-group"
+  series: "xtal-series"
+  sku: "XTAL-LADG-001"
+  mpn: "TEGC-210010Z.Z1"
+  gtin13: "4711530966792"
+  material: "loft-air-material"
+  color: "dark-grey"
+  adjustability: "7d-adjustment"
+  mechanism: "sync5-mechanism"
+  status: "confirmed"
+  related:
+    - "xtal-series"
+    - "loft-air-material"
+    - "7d-adjustment"
+    - "sync5-mechanism"
+    - "replaceable-elements"
+    - "home-office"
+
+xtal-loft-air-light-grey:
+  name:
+    en: "Aerocool XTAL Loft Air Light Grey"
+    uk: "Aerocool XTAL Loft Air Light Grey"
+    ru: "Aerocool XTAL Loft Air Light Grey"
+  entity_class: "ProductVariant"
+  schema_candidate: "Product"
+  current_jsonld_id: "https://aerocool.ua/products/xtal/loft-air-light-grey/#product"
+  entity_home: "/products/xtal/loft-air-light-grey/"
+  parent: "xtal-loft-air-product-group"
+  series: "xtal-series"
+  sku: "XTAL-LALG-001"
+  mpn: "TEGC-2100104.41"
+  gtin13: "4711530966808"
+  material: "loft-air-material"
+  color: "light-grey"
+  adjustability: "7d-adjustment"
+  mechanism: "sync5-mechanism"
+  status: "confirmed"
+  related:
+    - "xtal-series"
+    - "loft-air-material"
+    - "7d-adjustment"
+    - "sync5-mechanism"
+    - "replaceable-elements"
+    - "home-office"
+
+xtal-mesh-black:
+  name:
+    en: "Aerocool XTAL Mesh Black"
+    uk: "Aerocool XTAL Mesh Black"
+    ru: "Aerocool XTAL Mesh Black"
+  entity_class: "ProductVariant"
+  schema_candidate: "Product"
+  current_jsonld_id: "https://aerocool.ua/products/xtal/mesh-black/#product"
+  entity_home: "/products/xtal/mesh-black/"
+  parent: "xtal-mesh-product-group"
+  series: "xtal-series"
+  sku: "XTAL-MB-001"
+  mpn: "TEGC-2101101.11"
+  gtin13: "4711530966815"
+  material: "mesh-material"
+  color: "black"
+  adjustability: "7d-adjustment"
+  mechanism: "sync5-mechanism"
+  status: "confirmed"
+  related:
+    - "xtal-series"
+    - "mesh-material"
+    - "7d-adjustment"
+    - "sync5-mechanism"
+    - "replaceable-elements"
+    - "hot-room"
+
+xtal-racer-black:
+  name:
+    en: "Aerocool XTAL Racer Black"
+    uk: "Aerocool XTAL Racer Black"
+    ru: "Aerocool XTAL Racer Black"
+  entity_class: "ProductVariant"
+  schema_candidate: "Product"
+  current_jsonld_id: "https://aerocool.ua/products/xtal/racer-black/#product"
+  entity_home: "/products/xtal/racer-black/"
+  parent: "xtal-racer-product-group"
+  series: "xtal-series"
+  sku: "XTAL-RB-001"
+  mpn: "TEGC-2099101.11"
+  gtin13: "4711530966778"
+  material: "racer-material"
+  color: "black"
+  adjustability: "7d-adjustment"
+  mechanism: "sync5-mechanism"
+  status: "confirmed"
+  related:
+    - "xtal-series"
+    - "racer-material"
+    - "7d-adjustment"
+    - "sync5-mechanism"
+    - "replaceable-elements"
+    - "gaming-chair"
+
+xtal-racer-dark-grey:
+  name:
+    en: "Aerocool XTAL Racer Dark Grey"
+    uk: "Aerocool XTAL Racer Dark Grey"
+    ru: "Aerocool XTAL Racer Dark Grey"
+  entity_class: "ProductVariant"
+  schema_candidate: "Product"
+  current_jsonld_id: "https://aerocool.ua/products/xtal/racer-dark-grey/#product"
+  entity_home: "/products/xtal/racer-dark-grey/"
+  parent: "xtal-racer-product-group"
+  series: "xtal-series"
+  sku: "XTAL-RDG-001"
+  mpn: "TEGC-210010Z.Z1"
+  gtin13: "4711530966792"
+  material: "racer-material"
+  color: "dark-grey"
+  adjustability: "7d-adjustment"
+  mechanism: "sync5-mechanism"
+  status: "confirmed"
+  related:
+    - "xtal-series"
+    - "racer-material"
+    - "7d-adjustment"
+    - "sync5-mechanism"
+    - "replaceable-elements"
+    - "gaming-chair"
+
+racer-material:
+  name:
+    en: "Racer"
+    uk: "Racer"
+    ru: "Racer"
+  entity_class: "Material"
+  schema_candidate: "DefinedTerm"
+  future_jsonld_id: "https://aerocool.ua/articles/racer-vs-loft-air-vs-mesh-materials/#racer-material"
+  entity_home: "/articles/racer-vs-loft-air-vs-mesh-materials/"
+  status: "confirmed"
+  related:
+    - "leatherette-material"
+    - "gaming-chair"
+
+loft-air-material:
+  name:
+    en: "Loft Air"
+    uk: "Loft Air"
+    ru: "Loft Air"
+  entity_class: "Material"
+  schema_candidate: "DefinedTerm"
+  future_jsonld_id: "https://aerocool.ua/articles/racer-vs-loft-air-vs-mesh-materials/#loft-air-material"
+  entity_home: "/articles/racer-vs-loft-air-vs-mesh-materials/"
+  status: "confirmed"
+  related:
+    - "fabric-material"
+    - "home-office"
+    - "hot-room"
+
+mesh-material:
+  name:
+    en: "Mesh"
+    uk: "Mesh"
+    ru: "Mesh"
+  entity_class: "Material"
+  schema_candidate: "DefinedTerm"
+  future_jsonld_id: "https://aerocool.ua/articles/racer-vs-loft-air-vs-mesh-materials/#mesh-material"
+  entity_home: "/articles/racer-vs-loft-air-vs-mesh-materials/"
+  status: "confirmed"
+  related:
+    - "hot-room"
+    - "office-chair"
+    - "computer-chair"
+
+leatherette-material:
+  name:
+    en: "Leatherette"
+    uk: "екошкіра / Leatherette"
+    ru: "экокожа / Leatherette"
+  entity_class: "Material"
+  schema_candidate: "DefinedTerm"
+  future_jsonld_id: "https://aerocool.ua/articles/racer-vs-loft-air-vs-mesh-materials/#leatherette-material"
+  entity_home: "/articles/racer-vs-loft-air-vs-mesh-materials/"
+  status: "planned"
+  related:
+    - "racer-material"
+
+fabric-material:
+  name:
+    en: "Fabric"
+    uk: "тканина"
+    ru: "ткань"
+  entity_class: "Material"
+  schema_candidate: "DefinedTerm"
+  future_jsonld_id: "https://aerocool.ua/articles/racer-vs-loft-air-vs-mesh-materials/#fabric-material"
+  entity_home: "/articles/racer-vs-loft-air-vs-mesh-materials/"
+  status: "planned"
+  related:
+    - "loft-air-material"
+
+synchronous-tilt:
+  name:
+    en: "Synchronous Tilt"
+    uk: "Synchronous Tilt"
+    ru: "Synchronous Tilt"
+  entity_class: "Mechanism"
+  schema_candidate: "DefinedTerm"
+  future_jsonld_id: "https://aerocool.ua/articles/what-is-synchronous-tilt-guide/#synchronous-tilt"
+  entity_home: "/articles/what-is-synchronous-tilt-guide/"
+  status: "confirmed"
+  related:
+    - "sync4-mechanism"
+    - "sync5-mechanism"
+
+sync4-mechanism:
+  name:
+    en: "SYNC4"
+    uk: "SYNC4"
+    ru: "SYNC4"
+  entity_class: "Mechanism"
+  schema_candidate: "DefinedTerm"
+  future_jsonld_id: "https://aerocool.ua/articles/sync4-sync5-mechanism-guide/#sync4-mechanism"
+  entity_home: "/articles/sync4-sync5-mechanism-guide/"
+  status: "confirmed"
+  related:
+    - "synchronous-tilt"
+    - "sky-lite"
+
+sync5-mechanism:
+  name:
+    en: "SYNC5"
+    uk: "SYNC5"
+    ru: "SYNC5"
+  entity_class: "Mechanism"
+  schema_candidate: "DefinedTerm"
+  future_jsonld_id: "https://aerocool.ua/articles/sync4-sync5-mechanism-guide/#sync5-mechanism"
+  entity_home: "/articles/sync4-sync5-mechanism-guide/"
+  status: "confirmed"
+  related:
+    - "synchronous-tilt"
+    - "sky-360"
+    - "wing-series"
+    - "xtal-series"
+
+7d-adjustment:
+  name:
+    en: "7D adjustment"
+    uk: "7D регулювання"
+    ru: "7D регулировка"
+  entity_class: "Feature"
+  schema_candidate: "DefinedTerm"
+  future_jsonld_id: "https://aerocool.ua/articles/how-to-choose-chair-by-adjustability/#7d-adjustment"
+  entity_home: "/articles/how-to-choose-chair-by-adjustability/"
+  status: "confirmed"
+  related:
+    - "xtal-series"
+
+8d-adjustment:
+  name:
+    en: "8D adjustment"
+    uk: "8D регулювання"
+    ru: "8D регулировка"
+  entity_class: "Feature"
+  schema_candidate: "DefinedTerm"
+  future_jsonld_id: "https://aerocool.ua/articles/how-to-choose-chair-by-adjustability/#8d-adjustment"
+  entity_home: "/articles/how-to-choose-chair-by-adjustability/"
+  status: "confirmed"
+  related:
+    - "sky-lite"
+
+11d-adjustment:
+  name:
+    en: "11D adjustment"
+    uk: "11D регулювання"
+    ru: "11D регулировка"
+  entity_class: "Feature"
+  schema_candidate: "DefinedTerm"
+  future_jsonld_id: "https://aerocool.ua/articles/how-to-choose-chair-by-adjustability/#11d-adjustment"
+  entity_home: "/articles/how-to-choose-chair-by-adjustability/"
+  status: "confirmed"
+  related:
+    - "sky-360"
+    - "wing-series"
+
+dual-backrest:
+  name:
+    en: "Dual backrest"
+    uk: "подвійна спинка"
+    ru: "двойная спинка"
+  entity_class: "Feature"
+  schema_candidate: "DefinedTerm"
+  future_jsonld_id: "https://aerocool.ua/products/wing/#dual-backrest"
+  entity_home: "/products/wing/"
+  status: "planned"
+  related:
+    - "wing-series"
+
+replaceable-elements:
+  name:
+    en: "Replaceable elements"
+    uk: "змінні елементи"
+    ru: "сменные элементы"
+  entity_class: "Feature"
+  schema_candidate: "DefinedTerm"
+  future_jsonld_id: "https://aerocool.ua/products/xtal/#replaceable-elements"
+  entity_home: "/products/xtal/"
+  status: "planned"
+  related:
+    - "xtal-series"
+
+lumbar-support:
+  name:
+    en: "Lumbar support"
+    uk: "поперекова підтримка"
+    ru: "поясничная поддержка"
+  entity_class: "Feature"
+  schema_candidate: "DefinedTerm"
+  future_jsonld_id: "https://aerocool.ua/products/#lumbar-support"
+  entity_home: "/products/"
+  status: "planned"
+
+armrests-4d-x-360:
+  name:
+    en: "4D X 360 armrests"
+    uk: "підлокітники 4D X 360"
+    ru: "подлокотники 4D X 360"
+  entity_class: "Feature"
+  schema_candidate: "DefinedTerm"
+  future_jsonld_id: "https://aerocool.ua/products/wing/#armrests-4d-x-360"
+  entity_home: "/products/wing/"
+  status: "planned"
+
+armrests-3d-x-360:
+  name:
+    en: "3D X 360 armrests"
+    uk: "підлокітники 3D X 360"
+    ru: "подлокотники 3D X 360"
+  entity_class: "Feature"
+  schema_candidate: "DefinedTerm"
+  future_jsonld_id: "https://aerocool.ua/products/sky/#armrests-3d-x-360"
+  entity_home: "/products/sky/"
+  status: "planned"
+
+gaming-chair:
+  name:
+    en: "gaming chair"
+    uk: "ігрове крісло"
+    ru: "игровое кресло"
+  entity_class: "UseCase"
+  schema_candidate: "DefinedTerm"
+  future_jsonld_id: "https://aerocool.ua/products/#gaming-chair"
+  entity_home: "/products/"
+  status: "confirmed"
+  related:
+    - "wing-series"
+    - "xtal-series"
+    - "racer-material"
+
+office-chair:
+  name:
+    en: "office chair"
+    uk: "офісне крісло"
+    ru: "офисное кресло"
+  entity_class: "UseCase"
+  schema_candidate: "DefinedTerm"
+  future_jsonld_id: "https://aerocool.ua/products/#office-chair"
+  entity_home: "/products/"
+  status: "confirmed"
+  related:
+    - "sky-series"
+    - "loft-air-material"
+    - "mesh-material"
+
+computer-chair:
+  name:
+    en: "computer chair"
+    uk: "комп'ютерне крісло"
+    ru: "компьютерное кресло"
+  entity_class: "UseCase"
+  schema_candidate: "DefinedTerm"
+  future_jsonld_id: "https://aerocool.ua/products/#computer-chair"
+  entity_home: "/products/"
+  status: "confirmed"
+  related:
+    - "sky-series"
+    - "wing-series"
+    - "xtal-series"
+
+ergonomic-chair:
+  name:
+    en: "ergonomic chair"
+    uk: "ергономічне крісло"
+    ru: "эргономичное кресло"
+  entity_class: "UseCase"
+  schema_candidate: "DefinedTerm"
+  future_jsonld_id: "https://aerocool.ua/products/#ergonomic-chair"
+  entity_home: "/products/"
+  status: "confirmed"
+  related:
+    - "chair-selection"
+
+home-office:
+  name:
+    en: "home office"
+    uk: "home office"
+    ru: "home office"
+  entity_class: "UseCase"
+  schema_candidate: "DefinedTerm"
+  future_jsonld_id: "https://aerocool.ua/articles/how-to-choose-aerocool-chair/#home-office"
+  entity_home: "/articles/how-to-choose-aerocool-chair/"
+  status: "confirmed"
+  related:
+    - "office-chair"
+    - "long-sitting"
+
+long-sitting:
+  name:
+    en: "long sitting"
+    uk: "довгі сесії"
+    ru: "долгие сессии"
+  entity_class: "UseCase"
+  schema_candidate: "DefinedTerm"
+  future_jsonld_id: "https://aerocool.ua/articles/how-to-choose-aerocool-chair/#long-sitting"
+  entity_home: "/articles/how-to-choose-aerocool-chair/"
+  status: "planned"
+  related:
+    - "home-office"
+    - "ergonomic-chair"
+
+hot-room:
+  name:
+    en: "hot room"
+    uk: "жарке приміщення"
+    ru: "жаркое помещение"
+  entity_class: "UseCase"
+  schema_candidate: "DefinedTerm"
+  future_jsonld_id: "https://aerocool.ua/articles/racer-vs-loft-air-vs-mesh-materials/#hot-room"
+  entity_home: "/articles/racer-vs-loft-air-vs-mesh-materials/"
+  status: "planned"
+  related:
+    - "mesh-material"
+    - "loft-air-material"
+
+chair-selection:
+  name:
+    en: "chair selection"
+    uk: "вибір крісла"
+    ru: "выбор кресла"
+  entity_class: "ContentTopic"
+  schema_candidate: "DefinedTerm"
+  future_jsonld_id: "https://aerocool.ua/articles/how-to-choose-aerocool-chair/#chair-selection"
+  entity_home: "/articles/how-to-choose-aerocool-chair/"
+  status: "confirmed"
+  related:
+    - "aerocool-catalog"
+    - "ergonomic-chair"
+
+delivery-policy:
+  name:
+    en: "Delivery"
+    uk: "Доставка"
+    ru: "Доставка"
+  entity_class: "Policy"
+  schema_candidate: "OfferShippingDetails"
+  future_jsonld_id: "https://aerocool.ua/faq/#delivery-policy"
+  entity_home: "/faq/"
+  source_of_truth: "product front matter"
+  owner: "Aerocool Ukraine"
+  status: "confirmed"
+
+payment-policy:
+  name:
+    en: "Payment"
+    uk: "Оплата"
+    ru: "Оплата"
+  entity_class: "Policy"
+  schema_candidate: "Thing"
+  future_jsonld_id: "https://aerocool.ua/faq/#payment-policy"
+  entity_home: "/faq/"
+  source_of_truth: "product front matter"
+  owner: "Aerocool Ukraine"
+  status: "confirmed"
+
+return-policy:
+  name:
+    en: "Returns"
+    uk: "Повернення"
+    ru: "Возврат"
+  entity_class: "Policy"
+  schema_candidate: "MerchantReturnPolicy"
+  future_jsonld_id: "https://aerocool.ua/faq/#return-policy"
+  entity_home: "/faq/"
+  source_of_truth: "product front matter"
+  owner: "Aerocool Ukraine"
+  status: "confirmed"
+
+warranty-policy:
+  name:
+    en: "Warranty"
+    uk: "Гарантія"
+    ru: "Гарантия"
+  entity_class: "Policy"
+  schema_candidate: "WarrantyPromise"
+  future_jsonld_id: "https://aerocool.ua/faq/#warranty-policy"
+  entity_home: "/faq/"
+  source_of_truth: "product front matter"
+  owner: "Aerocool Ukraine"
+  status: "confirmed"
+
+price-validity-policy:
+  name:
+    en: "Price validity"
+    uk: "Актуальність ціни"
+    ru: "Актуальность цены"
+  entity_class: "Policy"
+  schema_candidate: "Thing"
+  future_jsonld_id: "https://aerocool.ua/faq/#price-validity-policy"
+  entity_home: "/faq/"
+  source_of_truth: "product front matter"
+  owner: "Aerocool Ukraine"
+  status: "confirmed"
+
+online-store:
+  name:
+    en: "Online store"
+    uk: "Онлайн-магазин"
+    ru: "Онлайн-магазин"
+  entity_class: "BusinessModel"
+  schema_candidate: "OnlineStore"
+  status: "do-not-markup"
+  notes: "Requires confirmed merchant/checkout scenario."
+
+review-layer:
+  name:
+    en: "Review layer"
+    uk: "Відгуки"
+    ru: "Отзывы"
+  entity_class: "Review"
+  schema_candidate: "Review"
+  status: "do-not-markup"
+  notes: "Rating source and individual review evidence are not confirmed."

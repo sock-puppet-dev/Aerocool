@@ -5,6 +5,23 @@ summary: "Aerocool XTAL Racer Black — ігрове та комп'ютерне 
 date: 2026-03-19
 lastmod: 2026-05-07
 schema_types: ["website", "product", "organization", "breadcrumbs"]
+about_entities:
+  - "xtal-racer-black"
+  - "xtal-series"
+  - "gaming-chair"
+  - "computer-chair"
+  - "home-office"
+mentions_entities:
+  - "aerocool-brand"
+  - "racer-material"
+  - "synchronous-tilt"
+  - "7d-adjustment"
+  - "office-chair"
+  - "delivery-policy"
+  - "payment-policy"
+  - "return-policy"
+  - "warranty-policy"
+product_group_id: "xtal-racer-product-group"
 slug: "racer-black"
 categories: ["xtal"]
 tags: ["aerocool", "ергономічне крісло", "ігрове крісло", "комп'ютерне крісло", "xtal", "racer black"]

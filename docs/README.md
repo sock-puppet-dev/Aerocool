@@ -52,8 +52,9 @@
 
 1. [seo/ai-search-entity-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/ai-search-entity-map-2026.md)
 2. [seo/entities-knowledge-graph-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entities-knowledge-graph-playbook-2026.md)
-3. [seo/seo-keyword-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/seo-keyword-map-2026.md)
-4. [audits/2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md), если нужен порядок внедрения
+3. [seo/entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entity-registry-2026.md)
+4. [seo/seo-keyword-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/seo-keyword-map-2026.md)
+5. [audits/2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md), если нужен порядок внедрения
 
 ## Architecture
 
@@ -78,6 +79,8 @@
 - [seo/seo-keyword-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/seo-keyword-map-2026.md) — карта ключевых слов.
 - [seo/schema-types-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/schema-types-reference.md) — поле `schema_types`.
 - [seo/ai-search-entity-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/ai-search-entity-map-2026.md) — карта сущностей, AI Search-аудит и prompt-наборы.
+- [seo/entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entity-registry-2026.md) — реестр сущностей, entity home, `@id`, статусы и управляемые связи.
+- [seo/entity-registry-beginner-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entity-registry-beginner-guide-2026.md) — гайд для новичка по Entity Registry и entity-полям front matter.
 - [seo/entities-knowledge-graph-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entities-knowledge-graph-playbook-2026.md) — правила entities, `@id`, semantic triples и knowledge graph.
 - [seo/schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/schema-markup-quality-checklist-2026.md) — QA-чеклист schema.org-графа.
 - [seo/ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/ecommerce-structured-data-playbook-2026.md) — правила e-commerce structured data для каталога.

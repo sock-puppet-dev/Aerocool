@@ -41,7 +41,7 @@
 - возврат;
 - гарантия.
 
-Status `2026-05-07`: product front matter зафиксирован как единый источник правды для price, availability, SKU, MPN, GTIN, warranty, shipping, returns и payment methods. Видимый коммерческий блок на product pages и merchant-факты в `/faq/` теперь должны служить синхронным подтверждением этих значений. До `10/10` остается подтвердить источник рейтингов/отзывов или убрать `aggregateRating`, а также перепроверить rich-results eligibility после production-перехода, потому что текущий Netlify-режим остается `development/noindex`.
+Status `2026-05-07`: product front matter зафиксирован как единый источник правды для price, `priceValidUntil`, availability, SKU, MPN, GTIN, warranty, shipping, returns и payment methods; владелец бизнес-значений — команда Aerocool Украина. Значение `priceValidUntil: 2027-12-31` подтверждено как актуальный срок действия товарных цен. Видимый коммерческий блок на product pages и merchant-факты в `/faq/` теперь должны служить синхронным подтверждением этих значений. До `10/10` остается подтвердить источник рейтингов/отзывов или убрать `aggregateRating`, а также перепроверить rich-results eligibility после production-перехода, потому что текущий Netlify-режим остается `development/noindex`.
 
 ## 2. Почему Это Важно Для Google
 

@@ -1,0 +1,28 @@
+{{- $site := site -}}
+{{- $entities := index hugo.Data "entities" -}}
+{{- $id := "" -}}
+{{- $allowPlanned := false -}}
+{{- if reflect.IsMap . -}}
+  {{- with .site -}}
+    {{- $site = . -}}
+  {{- end -}}
+  {{- with .id -}}
+    {{- $id = printf "%s" . -}}
+  {{- end -}}
+  {{- with .allow_planned -}}
+    {{- $allowPlanned = . -}}
+  {{- end -}}
+{{- else -}}
+  {{- $id = printf "%s" . -}}
+{{- end -}}
+{{- $result := false -}}
+{{- with index $entities $id -}}
+  {{- $status := .status | default "planned" -}}
+  {{- if or (eq $status "confirmed") (and $allowPlanned (eq $status "planned")) -}}
+    {{- $jsonldID := .current_jsonld_id | default .future_jsonld_id -}}
+    {{- with $jsonldID -}}
+      {{- $result = dict "@id" . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $result -}}

@@ -28,7 +28,7 @@ schema_types: ["website", "product", "organization", "breadcrumbs"]
 - Для `product` source of truth по коммерческим фактам — front matter товарной страницы; schema partial читает эти поля, а видимый товарный блок и `/faq/` должны подтверждать их.
 - Текущий roadmap усиления графа и rich-results качества хранится в [json-ld-graph-audit-roadmap-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/json-ld-graph-audit-roadmap-2026.md).
 - QA-правила schema.org-графа, schema drift и ownership описаны в [schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/schema-markup-quality-checklist-2026.md).
-- Entity strategy, `@id`, `sameAs`, `about` и `mentions` проектируются через [entities-knowledge-graph-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entities-knowledge-graph-playbook-2026.md) и [ai-search-entity-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/ai-search-entity-map-2026.md).
+- Entity strategy, `@id`, `sameAs`, `about` и `mentions` проектируются через [entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entity-registry-2026.md), [entity-registry-beginner-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entity-registry-beginner-guide-2026.md), [entities-knowledge-graph-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entities-knowledge-graph-playbook-2026.md) и [ai-search-entity-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/ai-search-entity-map-2026.md).
 - Product/Offer/rating/variant/image policy для каталога описана в [ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/ecommerce-structured-data-playbook-2026.md).
 
 Главная `content/_index.md`

@@ -5,6 +5,24 @@ summary: "Aerocool WING Mesh Black — компьютерное и офисно�
 date: 2026-03-19
 lastmod: 2026-05-07
 schema_types: ["website", "product", "organization", "breadcrumbs"]
+about_entities:
+  - "wing-mesh-black"
+  - "wing-series"
+  - "computer-chair"
+  - "office-chair"
+  - "home-office"
+mentions_entities:
+  - "aerocool-brand"
+  - "mesh-material"
+  - "synchronous-tilt"
+  - "sync5-mechanism"
+  - "11d-adjustment"
+  - "gaming-chair"
+  - "delivery-policy"
+  - "payment-policy"
+  - "return-policy"
+  - "warranty-policy"
+product_group_id: "wing-mesh-product-group"
 slug: "mesh-black"
 categories: ["wing"]
 tags: ["aerocool", "эргономичное кресло", "компьютерное кресло", "офисное кресло", "wing", "mesh black"]

@@ -12,7 +12,29 @@
 4. Не добавляй поля “на всякий случай”, если шаблоны проекта их не используют.
 5. После правки запусти `npm run build`.
 
-Практический план будущих entity/product fields (`about_entities`, `mentions_entities`, `product_group_id`, `variant_attributes`, `rating_source`) описан в [2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md). До появления entity registry и поддержки в Hugo templates эти поля не добавлять в `content/`.
+Практический план entity/product fields (`about_entities`, `mentions_entities`, `product_group_id`, `variant_attributes`, `rating_source`) описан в [2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md). Entity IDs и entity homes зафиксированы в [entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entity-registry-2026.md), а структурированный источник для шаблонов — [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml). Для первого знакомства с этим слоем читайте [entity-registry-beginner-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entity-registry-beginner-guide-2026.md). Hugo templates уже безопасно читают `about_entities`, `mentions_entities` и `product_group_id`, но добавлять их в `content/` нужно только точечно: значение должно существовать в registry и быть видимо раскрыто на странице. Для JSON-LD resolver выводит только `confirmed` сущности; `product_group_id` может быть подготовлен заранее, но `isVariantOf` появится только после подтверждения ProductGroup.
+
+## Entity-Поля Front Matter
+
+`about_entities` — главные сущности страницы. Для статьи это тема, для серии — сама серия и ключевой сценарий, для товара — конкретная модель, серия и основной тип кресла.
+
+`mentions_entities` — важные связанные сущности, которые заметно раскрыты в тексте, ссылках, FAQ, характеристиках или коммерческих условиях.
+
+`product_group_id` — только для товарных вариантов. Значение указывает на группу вариантов товара, например `wing-racer-product-group`. Пока ProductGroup entity имеет статус `planned`, поле остается подготовленным front matter и не выводит `isVariantOf` в JSON-LD.
+
+Пример:
+
+```yaml
+about_entities:
+  - "wing-racer-black"
+  - "wing-series"
+  - "gaming-chair"
+mentions_entities:
+  - "racer-material"
+  - "sync5-mechanism"
+  - "11d-adjustment"
+product_group_id: "wing-racer-product-group"
+```
 
 ## Главное Правило По Заголовкам
 
@@ -251,6 +273,8 @@ rating:
 Параметр `jsonld` в shortcode `seo-image` больше не нужен: `ImageObject` собирается централизованно из front matter `image`.
 
 Для товарных страниц единый источник правды по product facts — front matter конкретной страницы. Это относится к `price`, `sku`, `mpn`, `gtin13`, `availability`, `priceValidUntil`, `warranty`, `return_days`, `return_method`, `return_fees`, `shipping_country`, `shipping_rate`, `shipping_currency`, `shipping_handling_min`, `shipping_handling_max`, `shipping_transit_min`, `shipping_transit_max`, `payment_methods`, `rating.value` и `rating.count`.
+
+Владелец бизнес-значений — команда Aerocool Украина. Она подтверждает цену, наличие, гарантию, доставку, возврат, оплату, SKU, MPN, GTIN и срок актуальности цены. Контент-редактор или Codex вносит подтвержденные значения в front matter и синхронизирует видимый товарный текст. По состоянию на `2026-05-07` значение `priceValidUntil: 2027-12-31` подтверждено для текущих товарных цен.
 
 [layouts/_partials/_schema/product.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/product.html) читает merchant facts из front matter и строит `Offer`, `OfferShippingDetails`, `MerchantReturnPolicy`, `acceptedPaymentMethod`, `WarrantyPromise` и `AggregateRating`. Видимый коммерческий блок товарной страницы и `/faq/` должны подтверждать эти же значения, но не являются первичным источником. Если меняется цена, наличие, SKU, GTIN, гарантия, доставка, возврат или оплата, сначала обновлять product front matter, затем в том же изменении синхронизировать видимый product copy и `/faq/`, если это изменение policy-wide. Сам partial менять нужно только при изменении schema mapping или добавлении новых полей.
 

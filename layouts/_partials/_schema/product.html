@@ -25,6 +25,10 @@
 {{- $shippingTransitMin := .Params.shipping_transit_min | default 1 -}}
 {{- $shippingTransitMax := .Params.shipping_transit_max | default 3 -}}
 {{- $paymentMethods := .Params.payment_methods | default (slice "https://schema.org/Cash" "https://schema.org/CreditCard") -}}
+{{- $productGroupRef := false -}}
+{{- with .Params.product_group_id -}}
+  {{- $productGroupRef = partial "_schema/entity-ref.html" (dict "site" $.Site "id" .) -}}
+{{- end -}}
 {{- $offer := dict
   "@type" "Offer"
   "url" $pageURL
@@ -117,6 +121,12 @@
       "reviewCount" .count
     )) -}}
   {{- end -}}
+{{- end -}}
+{{- with $productGroupRef -}}
+  {{- $product = merge $product (dict
+    "isVariantOf" .
+    "inProductGroupWithID" $.Params.product_group_id
+  ) -}}
 {{- end -}}
 {{- $product | jsonify -}}
 {{- end -}}

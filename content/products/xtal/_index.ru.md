@@ -2,10 +2,28 @@
 title: "Aerocool XTAL — эргономичные игровые и компьютерные кресла"
 description: "Серия Aerocool XTAL: игровые и компьютерные кресла Racer, Loft Air и Mesh с конструкцией со сменными элементами, Synchronous Tilt и 3D подлокотниками с подушками."
 date: 2026-03-19
-lastmod: 2026-05-06
+lastmod: 2026-05-07
 summary: "XTAL — серия с конструкцией со сменными элементами, 7D регулировкой и тремя вариантами поверхности: Racer, Loft Air и Mesh."
 slug: "xtal"
 schema_types: ["website", "collection", "organization", "breadcrumbs"]
+about_entities:
+  - "xtal-series"
+  - "gaming-chair"
+  - "computer-chair"
+  - "office-chair"
+mentions_entities:
+  - "aerocool-brand"
+  - "xtal-racer-black"
+  - "xtal-racer-dark-grey"
+  - "xtal-loft-air-dark-grey"
+  - "xtal-loft-air-light-grey"
+  - "xtal-mesh-black"
+  - "racer-material"
+  - "loft-air-material"
+  - "mesh-material"
+  - "synchronous-tilt"
+  - "7d-adjustment"
+  - "home-office"
 image: "cover.webp"
 cover:
   image: "cover.webp"

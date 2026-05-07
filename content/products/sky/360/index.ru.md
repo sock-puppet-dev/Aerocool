@@ -5,6 +5,23 @@ summary: "Aerocool SKY 360 — компьютерное и офисное кре
 date: 2026-03-19
 lastmod: 2026-05-07
 schema_types: ["website", "product", "organization", "breadcrumbs"]
+about_entities:
+  - "sky-360"
+  - "sky-series"
+  - "computer-chair"
+  - "office-chair"
+  - "home-office"
+mentions_entities:
+  - "aerocool-brand"
+  - "mesh-material"
+  - "synchronous-tilt"
+  - "sync5-mechanism"
+  - "11d-adjustment"
+  - "delivery-policy"
+  - "payment-policy"
+  - "return-policy"
+  - "warranty-policy"
+product_group_id: "sky-360-product-group"
 slug: "360"
 categories: ["sky"]
 tags: ["aerocool", "эргономичное кресло", "компьютерное кресло", "офисное кресло", "sky", "sky 360", "home office"]

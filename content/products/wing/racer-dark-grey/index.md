@@ -5,6 +5,24 @@ summary: "Aerocool WING Racer Dark Grey — ігрове та комп'ютер�
 date: 2026-03-19
 lastmod: 2026-05-07
 schema_types: ["website", "product", "organization", "breadcrumbs"]
+about_entities:
+  - "wing-racer-dark-grey"
+  - "wing-series"
+  - "gaming-chair"
+  - "computer-chair"
+  - "home-office"
+mentions_entities:
+  - "aerocool-brand"
+  - "racer-material"
+  - "synchronous-tilt"
+  - "sync5-mechanism"
+  - "11d-adjustment"
+  - "office-chair"
+  - "delivery-policy"
+  - "payment-policy"
+  - "return-policy"
+  - "warranty-policy"
+product_group_id: "wing-racer-product-group"
 slug: "racer-dark-grey"
 categories: ["wing"]
 tags: ["aerocool", "ергономічне крісло", "ігрове крісло", "комп'ютерне крісло", "wing", "racer dark grey"]
