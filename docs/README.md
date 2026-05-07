@@ -117,5 +117,5 @@
 - поменял product schema, варианты, rating, delivery или return policy — проверь `seo/ecommerce-structured-data-playbook-2026.md`, `content/front-matter-reference.md` и `/faq/`;
 - поменял entity strategy, `about`, `mentions`, `sameAs` или `@id` — проверь `seo/entities-knowledge-graph-playbook-2026.md` и `seo/ai-search-entity-map-2026.md`;
 - поменял Unlighthouse конфиг — проверь `quality/unlighthouse-site-audit.md`;
-- поменял версии Hugo/Node — проверь `deploy/local-tooling-mise.md`, `README.md` и `netlify.toml`.
-- поменял `static/_redirects`, `layouts/404.html` или fallback в `netlify.toml` — проверь `deploy/netlify-routing.md`, `README.md` и `AGENTS.md`.
+- поменял версии Hugo/Node — проверь `deploy/local-tooling-mise.md`, `README.md` и `netlify.toml`;
+- поменял `static/_redirects`, `layouts/404.html` или routing/headers в `netlify.toml` — проверь `deploy/netlify-routing.md`, `README.md` и `AGENTS.md`.

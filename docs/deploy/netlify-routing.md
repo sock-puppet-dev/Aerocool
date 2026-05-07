@@ -1,6 +1,6 @@
 # Netlify Routing И Forced 404
 
-Обновлено: 2026-05-06.
+Обновлено: 2026-05-07.
 
 Этот документ описывает, как в проекте устроены Netlify redirects, HTTP headers и кастомная `404`.
 
@@ -8,8 +8,8 @@
 
 В проекте есть два слоя routing-настроек:
 
-- `static/_redirects` — plain text `_redirects` для Netlify. Hugo копирует его в `public/_redirects` как статический файл.
-- `netlify.toml` — основной Netlify config со сборкой, headers и общим fallback на `404`.
+- `static/_redirects` — plain text `_redirects` для Netlify. Hugo копирует его в `public/_redirects` как статический файл. Здесь живет явный root rewrite `/ -> /index.html` и forced `404!` для scanner URL.
+- `netlify.toml` — основной Netlify config со сборкой и headers. Общий fallback на `404` не нужен: Netlify автоматически использует `public/404.html`.
 
 Netlify обрабатывает `_redirects` раньше правил из `netlify.toml`. Внутри файла первое совпавшее правило выигрывает, поэтому более конкретные правила должны стоять выше более общих.
 
@@ -17,9 +17,16 @@ Netlify обрабатывает `_redirects` раньше правил из `ne
 
 Текущий `static/_redirects` не является SEO-картой старых URL.
 
-Его задача — принудительно отдавать кастомную `404` для типовых bot/scanner запросов:
+Его задачи:
+
+- явно переписать корневой `/` на `/index.html` со статусом `200`;
+- принудительно отдавать кастомную `404` для типовых bot/scanner запросов.
+
+Основные группы scanner/sensitive правил:
 
 - WordPress scanner URL: `/wp-login.php`, `/wp-admin/*`, `/xmlrpc.php`;
+- WordPress API probes: `/wp-json/*`;
+- duplicated leading slash WordPress probes: `//blog/wp-includes/wlwmanifest.xml`;
 - sensitive files: `/.env`, `/.git/*`, `/.aws/*`;
 - common backup/config probes: `/config.php`, `/database.sql`, `/backup.sql`;
 - cPanel/OpenID probes: `/cpanel/*`, `/openid_connect/*`.
@@ -66,20 +73,32 @@ Netlify обрабатывает `_redirects` раньше правил из `ne
 /cpanel/*                               /404.html  404!
 ```
 
-Текущие `/:prefix/...` правила покрывают один уровень вложенности, например `/ru/wp-login.php`. Более глубокие scanner URL обычно перехватываются общим fallback из `netlify.toml`.
+Для scanner URL с двойным начальным slash использовать явный двойной slash и placeholder:
 
-## 5. Общий Fallback 404
+```text
+//:prefix/wp-includes/*                 /404.html  404!
+```
 
-Общий fallback находится в `netlify.toml`:
+Текущие `/:prefix/...` правила покрывают один уровень вложенности, например `/ru/wp-login.php`. Более глубокие scanner URL обычно доходят до автоматической Netlify `404`.
+
+## 5. Контентные 301 И Автоматическая 404
+
+Если Netlify Analytics показывает старый или ошибочный пользовательский URL, который явно относится к существующему контентному intent, его можно вести `301` на новую страницу только при наличии реальной замены.
+
+Если статья или страница удалена без замены и возвращаться не будет, оставляем обычную `404`. Не нужно отправлять такой URL на примерно похожую статью: это создает неверный SEO-сигнал и плохое ожидание для пользователя.
+
+Такие правила живут в `netlify.toml`. Пример ниже — схема, а не текущий redirect проекта:
 
 ```toml
 [[redirects]]
-  from = "/*"
-  to = "/404.html"
-  status = 404
+  from = "/ru/articles/old-guide/"
+  to = "/ru/articles/new-guide/"
+  status = 301
 ```
 
-Он нужен, чтобы все несуществующие URL получали кастомную `404`. Отдельные правила в `static/_redirects` нужны только там, где важен forced `404!` или более явная обработка scanner-noise.
+Не смешивать такие пользовательские redirects со scanner-noise в `static/_redirects`.
+
+Для всех несуществующих URL Netlify сам использует корневой `public/404.html`. Отдельные правила в `static/_redirects` нужны только там, где важен forced `404!` или более явная обработка scanner-noise.
 
 ## 6. `layouts/404.html`
 
@@ -125,6 +144,10 @@ assets/js/site.js
 
 Не добавлять `Cross-Origin-Embedder-Policy` автоматически вместе с COOP. COEP может ломать кросс-ориджин ресурсы, если они не отдают нужные CORS/CORP headers. Для текущего PageSpeed warning достаточно COOP.
 
+Для cache rules не использовать brace glob в `for`, например `/*.{css,js,woff2}`. Netlify CLI трактует такие значения как route pattern и может вернуть ошибку `invalid regular expression: incomplete {} quantifier`. Вместо этого держать явные правила вроде `/assets/*`, `/images/*`, `/*.svg`, `/*.webmanifest`.
+
+Общие security headers должны оставаться в `for = "/*"`, а asset-cache правила должны стоять выше них. Если меняется кеширование, проверить итоговые headers на Deploy Preview: локальный Netlify Dev может отдавать служебный `cache-control: public, max-age=0` для некоторых статических файлов.
+
 ## 8. Проверка После Правок
 
 Минимальная проверка:
@@ -142,8 +165,35 @@ find static public -name '.DS_Store' -print
 - scanner/sensitive правила используют `404!`;
 - файл заканчивается newline;
 - `.DS_Store` не попал в `static/` и `public/`;
-- `public/404.html` и `public/ru/404.html` содержат `noindex,nofollow`.
+- `public/404.html` и `public/ru/404.html` содержат `noindex,nofollow`;
 - после изменения `Content-Security-Policy` опубликованный Deploy Preview не пишет CSP/Trusted Types errors в console;
 - service worker регистрируется и контролирует `start_url` из `manifest.webmanifest`.
 
-Для полной проверки redirect engine и headers лучше использовать Netlify Deploy Preview или Netlify CLI, потому что локальная Hugo-сборка проверяет генерацию файлов, но не полностью эмулирует Netlify routing и HTTP headers.
+Для полной проверки redirect engine и headers использовать Netlify Deploy Preview или Netlify CLI, потому что локальная Hugo-сборка проверяет генерацию файлов, но не полностью эмулирует Netlify routing и HTTP headers.
+
+Локальная Netlify CLI проверка после `npm run build`:
+
+```bash
+npm exec --yes --package=netlify-cli netlify -- build --dry --offline
+npm exec --yes --package=netlify-cli netlify -- dev -d public --offline --skip-gitignore --no-open --port 8899
+```
+
+В отдельном терминале проверить:
+
+```bash
+curl -sS -I http://localhost:8899/
+curl -sS -I http://localhost:8899/about/
+curl -sS -I http://localhost:8899/wp-login.php
+curl -sS -I http://localhost:8899//blog/wp-includes/wlwmanifest.xml
+curl -sS -I http://localhost:8899/ru/articles/how-to-choose-office-desk-2025/
+curl -sS -I http://localhost:8899/ads.txt
+```
+
+Ожидаемый результат:
+
+- `/` и реальные страницы вроде `/about/` отдают `200`;
+- scanner/sensitive URL отдают `404`;
+- удаленные без замены материалы, например `/ru/articles/how-to-choose-office-desk-2025/`, остаются `404`;
+- несуществующие обычные URL, например `/ads.txt`, отдают автоматическую кастомную `404`.
+
+Netlify CLI может создать локальные артефакты `.netlify/` и `deno.lock`; они должны оставаться в `.gitignore` и не попадать в коммит.

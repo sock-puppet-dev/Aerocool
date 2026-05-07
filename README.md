@@ -93,7 +93,7 @@ layouts/_shortcodes/     локальные shortcodes
 assets/css/main.css      Tailwind CSS и локальный visual layer
 assets/js/site.js        общий внешний JS сайта без inline-скриптов
 static/                  статические файлы
-static/_redirects        forced 404 для scanner/sensitive URL на Netlify
+static/_redirects        root rewrite и forced 404 для scanner/sensitive URL на Netlify
 unlighthouse/            аудит Lighthouse/Unlighthouse
 hugo.yaml                конфигурация Hugo
 netlify.toml             сборка Netlify и HTTP headers
@@ -272,14 +272,16 @@ JSON-LD генерируется централизованно через `layo
 
 `static/_redirects` копируется Hugo в `public/_redirects` и обрабатывается Netlify раньше правил из `netlify.toml`.
 
-В текущем проекте этот файл не используется для SEO-переадресаций. Его назначение — принудительно отдавать кастомную `404` для типовых bot/scanner URL вроде `/wp-login.php`, `/.env`, `/.git/*`, `/cpanel/*`.
+В текущем проекте этот файл не используется для SEO-переадресаций. Он явно переписывает корневой `/` на `/index.html` со статусом `200` и принудительно отдает кастомную `404` для типовых bot/scanner URL вроде `/wp-login.php`, `/wp-json/*`, `//blog/wp-includes/*`, `/.env`, `/.git/*`, `/cpanel/*`.
 
 Правила поддержки:
 
+- корневое правило `/ -> /index.html 200` не убирать без проверки через Netlify CLI: оно защищает `/` от ложной `404` в Netlify routing/dev-сценариях;
 - для таких scanner/sensitive путей использовать статус `404!`, чтобы правило сработало даже при случайном наличии файла;
 - не использовать `*` в середине path, например `/*/wp-login.php`; для одного сегмента использовать placeholder `/:prefix/wp-login.php`;
-- общий fallback `/* -> /404.html 404` остается в `netlify.toml`;
-- после правок проверять, что `public/_redirects` обновился после сборки и что `/404.html` остается `noindex,nofollow`.
+- для подтвержденных старых пользовательских URL использовать `301` в `netlify.toml` только если есть реальная замена; удаленный без замены контент должен оставаться обычной `404`;
+- общий fallback `/* -> /404.html 404` не нужен: Netlify автоматически использует `public/404.html` для несуществующих URL;
+- после правок проверять, что `public/_redirects` обновился после сборки, `/` отдает `200`, scanner URL отдают `404`, а `/404.html` остается `noindex,nofollow`.
 
 Подробно смотри [docs/deploy/netlify-routing.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/netlify-routing.md).
 
@@ -357,6 +359,7 @@ npm run audit:ci:technical
 - `/search/` и `/ru/search/`;
 - `/404.html`;
 - `public/_redirects`, если менялись `static/_redirects` или 404/routing;
+- Netlify CLI routing check, если менялись `static/_redirects`, `netlify.toml` headers или 404/routing;
 - sitemap index и языковые sitemap.
 
 ## 16. Карта документации

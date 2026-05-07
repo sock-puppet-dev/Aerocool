@@ -2,11 +2,15 @@
 # Format:
 # FROM_PATH                             TO_PATH    STATUS_CODE
 
+# Root index rewrite for Netlify Dev and root probes
+/                                      /index.html 200
+
 # WordPress scanner URLs in root
 /wp-login.php                           /404.html  404!
 /wp-admin/*                             /404.html  404!
 /wp-includes/*                          /404.html  404!
 /wp-content/*                           /404.html  404!
+/wp-json/*                              /404.html  404!
 /xmlrpc.php                             /404.html  404!
 /wlwmanifest.xml                        /404.html  404!
 
@@ -15,8 +19,18 @@
 /:prefix/wp-admin/*                     /404.html  404!
 /:prefix/wp-includes/*                  /404.html  404!
 /:prefix/wp-content/*                   /404.html  404!
+/:prefix/wp-json/*                      /404.html  404!
 /:prefix/xmlrpc.php                     /404.html  404!
 /:prefix/wlwmanifest.xml                /404.html  404!
+
+# WordPress scanner URLs with duplicated leading slash, such as //blog/wp-includes/wlwmanifest.xml
+//:prefix/wp-login.php                  /404.html  404!
+//:prefix/wp-admin/*                    /404.html  404!
+//:prefix/wp-includes/*                 /404.html  404!
+//:prefix/wp-content/*                  /404.html  404!
+//:prefix/wp-json/*                     /404.html  404!
+//:prefix/xmlrpc.php                    /404.html  404!
+//:prefix/wlwmanifest.xml               /404.html  404!
 
 # Sensitive files/directories scanners
 /.git                                   /404.html  404!

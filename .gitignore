@@ -22,3 +22,6 @@ unlighthouse/.unlighthouse/
 unlighthouse/lighthouse/
 # Node dependencies inside Unlighthouse audit folder
 unlighthouse/node_modules/
+# Netlify CLI local state
+.netlify/
+deno.lock
