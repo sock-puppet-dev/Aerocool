@@ -241,7 +241,7 @@ body.list {
     border-bottom: 0;
     box-shadow: none;
     text-decoration: none;
-    transition: color 180ms ease, transform 400ms ease;
+    transition: color 180ms ease;
 }
 
 /* Многоцветный link-эффект для обычных ссылок сайта.
@@ -276,21 +276,6 @@ body.list {
     .color-link
 ) {
     display: inline-block;
-}
-
-:where(
-    .post-content a,
-    .related-links a,
-    .footer a,
-    .breadcrumbs a,
-    .home-hero a:not(.home-hero__cta),
-    .entry-cover a,
-    .pagination a,
-    .paginav a,
-    .entry-title-link,
-    .color-link
-):hover {
-    transform: scale(1.08);
 }
 
 .post-content a:hover,
@@ -364,20 +349,6 @@ body.list {
         animation: none;
     }
 
-    :where(
-        .post-content a,
-        .related-links a,
-        .footer a,
-        .breadcrumbs a,
-        .home-hero a:not(.home-hero__cta),
-        .entry-cover a,
-        .pagination a,
-        .paginav a,
-        .entry-title-link,
-        .color-link
-    ):hover {
-        transform: none;
-    }
 }
 
 /* Карточки и вспомогательные поверхности строим по одному принципу:
