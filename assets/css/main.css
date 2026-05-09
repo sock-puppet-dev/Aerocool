@@ -329,7 +329,7 @@ body.list {
     }
 
     100% {
-        color: var(--color-link-rose);
+        color: var(--color-link-blue);
     }
 }
 
