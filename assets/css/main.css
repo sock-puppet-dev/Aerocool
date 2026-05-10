@@ -371,6 +371,16 @@ body.list {
     box-shadow: var(--shadow-card);
 }
 
+.pagination a,
+.paginav a,
+.post-tags a,
+.share-buttons a,
+.top-link,
+.copy-code,
+.button {
+    border-radius: 9999px;
+}
+
 /* У pagination в теме нет явного border, поэтому одного border-color
    недостаточно. Добавляем рамку, чтобы пагинация жила в той же
    surface-системе, что и TOC, paginav и post-tags. */
@@ -645,7 +655,7 @@ body.list {
 
 .post-content > .relative.isolate.bg-white button[type="submit"] {
     border: 0;
-    border-radius: var(--radius-md);
+    border-radius: 9999px;
     background: var(--color-indigo-600);
     padding: calc(var(--spacing) * 2.5) calc(var(--spacing) * 3.5);
     color: var(--color-white);
