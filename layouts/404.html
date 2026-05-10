@@ -17,10 +17,10 @@
         {{- end -}}
       </p>
       <div class="mt-10 flex items-center justify-center gap-x-6">
-        <a href="{{ site.Home.RelPermalink }}" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold !text-white shadow-sm transition hover:bg-indigo-500 hover:!text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+        <a href="{{ site.Home.RelPermalink }}" class="rounded-full bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold !text-white shadow-xs transition hover:bg-indigo-500 hover:!text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
           {{- if $isRu -}}На главную{{- else -}}На головну{{- end -}}
         </a>
-        <a href="{{ with $contactPage }}{{ .RelPermalink }}{{ else }}{{ site.Home.RelPermalink }}{{ end }}" class="text-sm font-semibold text-gray-900 transition hover:text-indigo-600">
+        <a href="{{ with $contactPage }}{{ .RelPermalink }}{{ else }}{{ site.Home.RelPermalink }}{{ end }}" class="rounded-full bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold !text-white shadow-xs transition hover:bg-indigo-500 hover:!text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
           {{- if $isRu -}}Контакты{{- else -}}Контакти{{- end -}} <span aria-hidden="true">&rarr;</span>
         </a>
       </div>

@@ -440,32 +440,7 @@ body.list {
 }
 
 .home-hero__cta {
-    border-radius: var(--radius);
-    transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease,
-        box-shadow 180ms ease, transform 180ms ease;
-}
-
-.home-hero__cta:hover {
-    transform: translateY(-1px);
-}
-
-.home-hero__cta--primary {
-    background: var(--accent);
-    box-shadow: var(--shadow-card);
-}
-
-.home-hero__cta--primary:hover {
-    background: var(--accent-hover);
-    box-shadow: var(--shadow-soft);
-}
-
-.home-hero__cta--secondary {
-    background: #fff;
-    border-color: var(--border-strong);
-}
-
-.home-hero__cta--secondary:hover {
-    background: var(--bg-soft);
+    text-decoration: none;
 }
 
 .home-hero__image {
