@@ -388,19 +388,16 @@ body.list {
     border: 1px solid var(--border);
 }
 
-/* Карточки в списках получают более "живой" hover, но без aggressive motion. */
 .post-entry {
-    transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    transition: border-color 180ms ease;
 }
 
 .post-entry:hover {
-    transform: translateY(-2px);
     border-color: var(--border-strong);
-    box-shadow: var(--shadow-soft);
 }
 
 .post-entry:active {
-    transform: translateY(0) scale(0.99);
+    transform: none;
 }
 
 /* Пагинация и маленькие навигационные карточки используют свой hover-state.
