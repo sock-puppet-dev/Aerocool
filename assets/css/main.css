@@ -845,3 +845,7 @@ body.list {
         white-space: nowrap;
     }
 }
+
+/* убираем тени home-hero image*/
+.home-hero { box-shadow: none !important; }
+.home-hero__image { box-shadow: none !important; }
