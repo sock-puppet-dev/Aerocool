@@ -28,6 +28,9 @@ Netlify обрабатывает `_redirects` раньше правил из `ne
 - WordPress API probes: `/wp-json/*`;
 - duplicated leading slash WordPress probes: `//blog/wp-includes/wlwmanifest.xml`;
 - sensitive files: `/.env`, `/.git/*`, `/.aws/*`;
+- framework/cloud config probes: `/_nuxt/*`, `/.vite/*`, `/__/firebase/*`, `/runtime-config.js`, `/openapi.json`;
+- Joomla/filemanager probes: `/media/system/js/*`, `/filemanager/*`, `/assets/plugins/filemanager/*`;
+- PHP/debug/backup probes: `/info.php`, `/test.php`, `/dev/phpinfo.php`, `/wp-config.php.backup`, `/license.txt`;
 - common backup/config probes: `/config.php`, `/database.sql`, `/backup.sql`;
 - cPanel/OpenID probes: `/cpanel/*`, `/openid_connect/*`.
 
@@ -86,6 +89,8 @@ Netlify обрабатывает `_redirects` раньше правил из `ne
 Если Netlify Analytics показывает старый или ошибочный пользовательский URL, который явно относится к существующему контентному intent, его можно вести `301` на новую страницу только при наличии реальной замены.
 
 Если статья или страница удалена без замены и возвращаться не будет, оставляем обычную `404`. Не нужно отправлять такой URL на примерно похожую статью: это создает неверный SEO-сигнал и плохое ожидание для пользователя.
+
+Если URL выглядит человекопохожим, но не является реальной старой страницей и не имеет подтвержденной точной замены, оставляем обычную `404`. Текущие parser/noise URL из логов `/aboutus`, `/about-us`, `/company`, `/company-profile`, `/profile` и `/contactus` не редиректим.
 
 Такие правила живут в `netlify.toml`. Пример ниже — схема, а не текущий redirect проекта:
 

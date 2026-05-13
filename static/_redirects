@@ -13,6 +13,10 @@
 /wp-json/*                              /404.html  404!
 /xmlrpc.php                             /404.html  404!
 /wlwmanifest.xml                        /404.html  404!
+/license.txt                            /404.html  404!
+/wp-config.php                          /404.html  404!
+/wp-config.php.backup                   /404.html  404!
+/wp-config.php.bak                      /404.html  404!
 
 # WordPress scanner URLs one level inside folders, such as /ru/wp-login.php
 /:prefix/wp-login.php                   /404.html  404!
@@ -48,12 +52,44 @@
 /.aws                                   /404.html  404!
 /.aws/*                                 /404.html  404!
 
+/.docker                                /404.html  404!
+/.docker/*                              /404.html  404!
+
 # Common config/backup scanner URLs
 /config.php                             /404.html  404!
 /config.json                            /404.html  404!
+/config.env                             /404.html  404!
+/config/secrets.yml                     /404.html  404!
+/config/secrets.yaml                    /404.html  404!
+/config/secrets.json                    /404.html  404!
 /database.sql                           /404.html  404!
 /backup.sql                             /404.html  404!
 /db.sql                                 /404.html  404!
+/info.php                               /404.html  404!
+/old_phpinfo.php                        /404.html  404!
+/phpinfo.php                            /404.html  404!
+/test.php                               /404.html  404!
+/:prefix/info.php                       /404.html  404!
+/:prefix/old_phpinfo.php                /404.html  404!
+/:prefix/phpinfo.php                    /404.html  404!
+/:prefix/test.php                       /404.html  404!
+
+# Framework/cloud config scanner URLs
+/assets/manifest.json                   /404.html  404!
+/_nuxt/*                                /404.html  404!
+/.vite/*                                /404.html  404!
+/__/firebase/*                          /404.html  404!
+/.well-known/jwks.json                  /404.html  404!
+/openapi.json                           /404.html  404!
+/runtime-config.js                      /404.html  404!
+
+# Joomla/filemanager scanner URLs
+/media/system/js/*                      /404.html  404!
+/filemanager/*                          /404.html  404!
+/admin/filemanager/*                    /404.html  404!
+/assets/filemanager/*                   /404.html  404!
+/plugins/filemanager/*                  /404.html  404!
+/assets/plugins/filemanager/*           /404.html  404!
 
 # cPanel/OpenID scanner URLs
 /openid_connect/*                       /404.html  404!
