@@ -55,7 +55,7 @@ Local PaperMod cover override.
         {{- if not (in $candidateWidths $fallback.Width) }}
             {{- $srcset = $srcset | append (printf "%s %dw" $fallback.RelPermalink $fallback.Width) }}
         {{- end }}
-        {{- $sizes := cond $.IsSingle "(min-width: 768px) 720px, 100vw" "(min-width: 768px) 360px, 100vw" }}
+        {{- $sizes := cond $.IsSingle "(min-width: 768px) 720px, calc(100vw - 28px)" "(min-width: 768px) 360px, calc(100vw - 28px)" }}
         <img
             loading="{{ $loading }}"
             decoding="async"

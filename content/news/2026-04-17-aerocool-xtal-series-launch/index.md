@@ -39,7 +39,7 @@ cover:
   preload=true
   fetchpriority=high
   class="w-full rounded-2xl"
-  sizes="100vw"
+  sizes="(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
 />}}
 
 

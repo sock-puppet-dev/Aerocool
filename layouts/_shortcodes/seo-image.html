@@ -1,33 +1,85 @@
+{{- $pagePath := .Page.Path -}}
+{{- with .Page.File }}{{- $pagePath = .Path -}}{{- end -}}
+
 {{- $src := .Get "src" -}}
-{{- $alt := .Get "alt" | default "" -}}
+{{- if not $src -}}
+  {{- errorf "seo-image: missing required src (%s)" $pagePath -}}
+{{- end -}}
+
+{{- $alt := .Get "alt" -}}
+{{- if not $alt -}}
+  {{- errorf "seo-image: missing required alt for '%s' (%s)" $src $pagePath -}}
+{{- end -}}
+
 {{- $title := .Get "title" | default "" -}}
 {{- $class := .Get "class" | default "" -}}
 {{- $loading := .Get "loading" | default "lazy" -}}
-{{- $fetchpriority := .Get "fetchpriority" | default "auto" -}}
-{{- $sizes := .Get "sizes" | default "" -}}
+{{- if not (in (slice "lazy" "eager") $loading) -}}
+  {{- errorf "seo-image: loading for '%s' must be lazy or eager, got '%s' (%s)" $src $loading $pagePath -}}
+{{- end -}}
+
+{{- $fetchpriority := .Get "fetchpriority" | default (cond (eq $loading "eager") "high" "auto") -}}
+{{- if not (in (slice "auto" "high" "low") $fetchpriority) -}}
+  {{- errorf "seo-image: fetchpriority for '%s' must be auto, high, or low, got '%s' (%s)" $src $fetchpriority $pagePath -}}
+{{- end -}}
+
+{{- $defaultSizes := "(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)" -}}
+{{- $sizes := .Get "sizes" | default $defaultSizes -}}
 {{- $preload := eq (printf "%v" (.Get "preload" | default false)) "true" -}}
-{{- $targetWidth := 0 -}}
-{{- with .Get "width" }}{{ $targetWidth = int . }}{{ end -}}
-{{- $targetHeight := 0 -}}
-{{- with .Get "height" }}{{ $targetHeight = int . }}{{ end -}}
+{{- if and $preload (ne $loading "eager") -}}
+  {{- errorf "seo-image: preload=true requires loading=\"eager\" for '%s' (%s)" $src $pagePath -}}
+{{- end -}}
+{{- if and $preload (ne $fetchpriority "high") -}}
+  {{- errorf "seo-image: preload=true requires fetchpriority=high for '%s' (%s)" $src $pagePath -}}
+{{- end -}}
+{{- if and (eq $loading "lazy") (eq $fetchpriority "high") -}}
+  {{- errorf "seo-image: lazy images must not use fetchpriority=high for '%s' (%s)" $src $pagePath -}}
+{{- end -}}
+
+{{- $targetWidthParam := .Get "width" -}}
+{{- if not $targetWidthParam -}}
+  {{- errorf "seo-image: missing required width for '%s' (%s)" $src $pagePath -}}
+{{- end -}}
+{{- $targetWidth := int $targetWidthParam -}}
+{{- if le $targetWidth 0 -}}
+  {{- errorf "seo-image: width for '%s' must be greater than 0 (%s)" $src $pagePath -}}
+{{- end -}}
+
+{{- $targetHeightParam := .Get "height" -}}
+{{- if not $targetHeightParam -}}
+  {{- errorf "seo-image: missing required height for '%s' (%s)" $src $pagePath -}}
+{{- end -}}
+{{- $targetHeight := int $targetHeightParam -}}
+{{- if le $targetHeight 0 -}}
+  {{- errorf "seo-image: height for '%s' must be greater than 0 (%s)" $src $pagePath -}}
+{{- end -}}
 
 {{- $img := .Page.Resources.GetMatch $src -}}
 {{- if not $img }}
-  {{- errorf "Image '%s' not found (%s)" $src .Page.File.Path -}}
+  {{- errorf "seo-image: image '%s' not found in page bundle (%s)" $src $pagePath -}}
 {{- end -}}
 
+{{- $processableFormats := slice "jpg" "jpeg" "png" "webp" -}}
+{{- $isProcessable := in $processableFormats $img.MediaType.SubType -}}
+{{- $schemaTypes := .Page.Params.schema_types | default (slice) -}}
+{{- $isPrimaryContentPage := and .Page.IsPage (or (in $schemaTypes "article") (in $schemaTypes "news") (in $schemaTypes "product")) -}}
+{{- $headPreloadExpected := and $preload $isPrimaryContentPage ((.Page.Param "cover.hiddenInSingle") | default false) (eq $src (.Page.Params.image | default "")) -}}
+
 {{- if eq $img.MediaType.SubType "svg" }}
-  {{- if $preload }}
-  <link rel="preload" as="image" href="{{ $img.RelPermalink }}">
+  {{- if and $preload (not $headPreloadExpected) }}
+  <link rel="preload" as="image" href="{{ $img.RelPermalink }}" fetchpriority="{{ $fetchpriority }}">
   {{- end }}
   <figure class="{{ $class }}">
     <img
       src="{{ $img.RelPermalink }}"
+      width="{{ $targetWidth }}"
+      height="{{ $targetHeight }}"
       alt="{{ $alt }}"
       {{ with $title }}title="{{ . }}"{{ end }}
       loading="{{ $loading }}"
       decoding="async"
       fetchpriority="{{ $fetchpriority }}"
+      style="aspect-ratio: {{ $targetWidth }} / {{ $targetHeight }};"
     >
 
     {{ with .Inner }}
@@ -36,59 +88,61 @@
     </figcaption>
     {{ end }}
   </figure>
-{{- else }}
+{{- else if $isProcessable }}
 
-{{- $rendered := $img -}}
-{{- if and (gt $targetWidth 0) (gt $targetHeight 0) -}}
-  {{- $rendered = $img.Fill (printf "%dx%d" $targetWidth $targetHeight) -}}
-{{- else if gt $targetWidth 0 -}}
-  {{- $rendered = $img.Resize (printf "%dx" $targetWidth) -}}
-{{- else if gt $targetHeight 0 -}}
-  {{- $rendered = $img.Resize (printf "x%d" $targetHeight) -}}
-{{- end -}}
+{{- $fallback := $img.Fill (printf "%dx%d" $targetWidth $targetHeight) -}}
+{{- $webp := $img.Fill (printf "%dx%d webp q82" $targetWidth $targetHeight) -}}
 
-{{- $srcset := slice -}}
-{{- $candidateWidths := slice 480 768 1024 1280 1600 1920 -}}
-{{- $exactFrame := and (gt $targetWidth 0) (gt $targetHeight 0) -}}
+{{- $fallbackSrcset := slice -}}
+{{- $webpSrcset := slice -}}
+{{- $candidateWidths := slice 360 480 640 768 1024 1280 1536 1920 -}}
 {{- range $candidateWidths -}}
-  {{- if lt . $rendered.Width -}}
-    {{- $variant := $img -}}
-    {{- if $exactFrame -}}
-      {{- $candidateHeight := div (mul . $targetHeight) $targetWidth -}}
-      {{- $variant = $img.Fill (printf "%dx%d" . $candidateHeight) -}}
-    {{- else -}}
-      {{- $variant = $img.Resize (printf "%dx" .) -}}
-    {{- end -}}
-    {{- $srcset = $srcset | append (printf "%s %dw" $variant.RelPermalink $variant.Width) -}}
+  {{- if lt . $fallback.Width -}}
+    {{- $candidateHeight := div (mul . $targetHeight) $targetWidth -}}
+    {{- $fallbackVariant := $img.Fill (printf "%dx%d" . $candidateHeight) -}}
+    {{- $webpVariant := $img.Fill (printf "%dx%d webp q82" . $candidateHeight) -}}
+    {{- $fallbackSrcset = $fallbackSrcset | append (printf "%s %dw" $fallbackVariant.RelPermalink $fallbackVariant.Width) -}}
+    {{- $webpSrcset = $webpSrcset | append (printf "%s %dw" $webpVariant.RelPermalink $webpVariant.Width) -}}
   {{- end -}}
 {{- end -}}
-{{- $srcset = $srcset | append (printf "%s %dw" $rendered.RelPermalink $rendered.Width) -}}
-{{- $srcsetAttr := delimit $srcset ", " -}}
+{{- $fallbackSrcset = $fallbackSrcset | append (printf "%s %dw" $fallback.RelPermalink $fallback.Width) -}}
+{{- $webpSrcset = $webpSrcset | append (printf "%s %dw" $webp.RelPermalink $webp.Width) -}}
+{{- $fallbackSrcsetAttr := delimit $fallbackSrcset ", " -}}
+{{- $webpSrcsetAttr := delimit $webpSrcset ", " -}}
 
-{{- if $preload }}
+{{- if and $preload (not $headPreloadExpected) }}
 <link
   rel="preload"
   as="image"
-  href="{{ $rendered.RelPermalink }}"
-  {{ printf "imagesrcset=%q" $srcsetAttr | safeHTMLAttr }}
-  {{ with $sizes }}{{ printf "imagesizes=%q" . | safeHTMLAttr }}{{ end }}
+  href="{{ $webp.RelPermalink }}"
+  type="image/webp"
+  fetchpriority="{{ $fetchpriority }}"
+  {{ printf "imagesrcset=%q" $webpSrcsetAttr | safeHTMLAttr }}
+  {{ printf "imagesizes=%q" $sizes | safeHTMLAttr }}
 >
 {{- end }}
 
 <figure class="{{ $class }}">
-  <img
-    src="{{ $rendered.RelPermalink }}"
-    {{ with $sizes }}sizes="{{ . }}"{{ end }}
-    srcset="{{ $srcsetAttr }}"
-    width="{{ $rendered.Width }}"
-    height="{{ $rendered.Height }}"
-    alt="{{ $alt }}"
-    {{ with $title }}title="{{ . }}"{{ end }}
-    loading="{{ $loading }}"
-    decoding="async"
-    fetchpriority="{{ $fetchpriority }}"
-    style="aspect-ratio: {{ $rendered.Width }} / {{ $rendered.Height }};"
-  >
+  <picture>
+    <source
+      type="image/webp"
+      srcset="{{ $webpSrcsetAttr }}"
+      sizes="{{ $sizes }}"
+    >
+    <img
+      src="{{ $fallback.RelPermalink }}"
+      sizes="{{ $sizes }}"
+      srcset="{{ $fallbackSrcsetAttr }}"
+      width="{{ $fallback.Width }}"
+      height="{{ $fallback.Height }}"
+      alt="{{ $alt }}"
+      {{ with $title }}title="{{ . }}"{{ end }}
+      loading="{{ $loading }}"
+      decoding="async"
+      fetchpriority="{{ $fetchpriority }}"
+      style="aspect-ratio: {{ $fallback.Width }} / {{ $fallback.Height }};"
+    >
+  </picture>
 
   {{ with .Inner }}
   <figcaption class="text-sm text-center">
@@ -98,5 +152,29 @@
 </figure>
 
 {{- /* JSON-LD for the primary page image is emitted centrally in layouts/_partials/_seo/jsonld.html. */ -}}
+
+{{- else }}
+  {{- if and $preload (not $headPreloadExpected) }}
+  <link rel="preload" as="image" href="{{ $img.RelPermalink }}" fetchpriority="{{ $fetchpriority }}">
+  {{- end }}
+  <figure class="{{ $class }}">
+    <img
+      src="{{ $img.RelPermalink }}"
+      width="{{ $targetWidth }}"
+      height="{{ $targetHeight }}"
+      alt="{{ $alt }}"
+      {{ with $title }}title="{{ . }}"{{ end }}
+      loading="{{ $loading }}"
+      decoding="async"
+      fetchpriority="{{ $fetchpriority }}"
+      style="aspect-ratio: {{ $targetWidth }} / {{ $targetHeight }};"
+    >
+
+    {{ with .Inner }}
+    <figcaption class="text-sm text-center">
+      {{ . | markdownify }}
+    </figcaption>
+    {{ end }}
+  </figure>
 
 {{- end }}

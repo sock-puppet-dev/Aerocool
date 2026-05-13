@@ -9,7 +9,7 @@
 Документ синхронизирован с текущими Google structured data guidelines: JSON-LD должен описывать видимый контент страницы, не вводить пользователя в заблуждение, не скрывать размеченные факты и проходить не только validator, но и quality-проверку соответствия интенту страницы.
 
 Текущий порядок внедрения P0/P1/P2 описан в [2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md).
-Текущий sync-аудит документации: [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
+Базовый sync-аудит документации: [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
 
 ## 1. Семь Проверок Schema Markup
 

@@ -2,7 +2,7 @@
 
 Обновлено: 2026-05-13.
 
-Текущая синхронизация документации с лучшими практиками 2026 зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
+Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
 
 Этот гайд объясняет `Entity Registry` простым языком. Его задача — помочь человеку, который впервые открыл проект `Aerocool Ukraine`, понять, зачем нужен реестр сущностей, где он живет и как аккуратно добавлять `about_entities`, `mentions_entities` и `product_group_id` в страницы сайта.
 

@@ -40,7 +40,7 @@ schema_types: ["website", "news", "organization", "breadcrumbs"]
   preload=true
   fetchpriority=high
   class="w-full rounded-2xl"
-  sizes="100vw"
+  sizes="(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
 />}}
 ```
 
@@ -93,6 +93,8 @@ schema_types: ["website", "news", "organization", "breadcrumbs"]
 - Не превращать новость в пустой пресс-релиз; даже при объеме `5000+` знаков материал должен объяснять контекст, сценарии и следующий шаг.
 - Обязательно вести пользователя в соответствующую серию, модель или каталог.
 - Текущий рекомендуемый стандарт для news bundle в проекте: `image + cover.image + seo-image` с локальным `01-front.png`.
-- Для русской версии использовать тот же локальный файл и локализованные `alt` / `title`. Параметр `jsonld` в shortcode больше не использовать.
+- Для русской версии использовать тот же локальный файл и локализованные `alt` / `title`. `jsonld` в shortcode не добавлять.
+- Для первого изображения использовать полный LCP-набор из шаблона: `loading="eager"`, `preload=true`, `fetchpriority=high` и проектный `sizes` под `.main`. Shortcode сам создаст WebP `srcset` и fallback.
+- Если первое изображение использует нестандартный `sizes`, добавить такой же `seo_image_sizes` во front matter.
 - Если у новости нет собственного изображения в папке страницы, допустим fallback `image: "images/default-news.jpg"`, но это уже запасной сценарий, а не основной стандарт.
 - Новость должна усиливать не только брендовые запросы, но и широкие коммерческие кластеры, если инфоповод действительно это позволяет.

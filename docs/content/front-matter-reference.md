@@ -1,6 +1,6 @@
 # Руководство По Полям Метаданных Страницы
 
-Обновлено: 2026-05-13.
+Обновлено: 2026-05-14.
 
 В проекте `Aerocool` использовать только поле `schema_types`. Поле `schema_type` не используется.
 
@@ -14,7 +14,7 @@
 4. Не добавляй поля “на всякий случай”, если шаблоны проекта их не используют.
 5. После правки запусти `npm run build`.
 
-Практический план entity/product fields (`about_entities`, `mentions_entities`, `product_group_id`, `variant_attributes`, `rating_source`) описан в [2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md). Текущая синхронизация документации с лучшими практиками 2026 зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md). Entity IDs и entity homes зафиксированы в [entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entity-registry-2026.md), а структурированный источник для шаблонов — [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml). Для первого знакомства с этим слоем читайте [entity-registry-beginner-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entity-registry-beginner-guide-2026.md). Hugo templates уже безопасно читают `about_entities`, `mentions_entities` и `product_group_id`, но добавлять их в `content/` нужно только точечно: значение должно существовать в registry и быть видимо раскрыто на странице. Для JSON-LD resolver выводит только `confirmed` сущности; `product_group_id` может быть подготовлен заранее, но `isVariantOf` появится только после подтверждения ProductGroup.
+Практический план entity/product fields (`about_entities`, `mentions_entities`, `product_group_id`, `variant_attributes`, `rating_source`) описан в [2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md). Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md). Entity IDs и entity homes зафиксированы в [entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entity-registry-2026.md), а структурированный источник для шаблонов — [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml). Для первого знакомства с этим слоем читайте [entity-registry-beginner-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entity-registry-beginner-guide-2026.md). Hugo templates уже безопасно читают `about_entities`, `mentions_entities` и `product_group_id`, но добавлять их в `content/` нужно только точечно: значение должно существовать в registry и быть видимо раскрыто на странице. Для JSON-LD resolver выводит только `confirmed` сущности; `product_group_id` может быть подготовлен заранее, но `isVariantOf` появится только после подтверждения ProductGroup.
 
 ## Entity-Поля Front Matter
 
@@ -56,6 +56,8 @@ product_group_id: "wing-racer-product-group"
 
 `cover.alt` — локализованное описание темы или объекта изображения. Не писать пустой `alt`, не использовать keyword list и не начинать формулировку с “Обложка/Обкладинка”, если можно назвать саму сущность: модель, серию, раздел, FAQ, поиск или тему статьи.
 
+`seo_image_sizes` — необязательный override для head-preload главного контентного изображения. Поле нужно только тогда, когда первое видимое `seo-image` на странице использует нестандартный `sizes`. Если его не задать, [lcp-image-preload.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/lcp-image-preload.html) использует проектный default для `.main`: `(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)`.
+
 Если у служебной, taxonomy или иной системной страницы нет собственного `image`, helper `page-image.html` использует root `cover.webp` как общий meaningful fallback.
 
 Для page bundle и section bundle использовать относительный путь:
@@ -67,6 +69,12 @@ cover:
   alt: "Каталог крісел Aerocool в Україні"
   relative: true
   hiddenInSingle: true
+```
+
+Если первое видимое `seo-image` не использует проектный default `sizes`, добавить отдельное поле на верхнем уровне front matter:
+
+```yaml
+seo_image_sizes: "(min-width: 848px) 800px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
 ```
 
 Для служебных страниц, которые переиспользуют чужую или root-картинку, использовать абсолютный site path и `relative: false`:
@@ -252,7 +260,7 @@ schema_types: ["website", "article", "organization", "breadcrumbs"]
 ---
 ```
 
-Текущий стандарт для статей — локальная обложка `01-front.png` в папке страницы, `image + cover.image` во front matter и вывод изображения через shortcode `seo-image` в начале тела. Fallback на `images/default-article.jpg` допустим только как запасной сценарий, если локальной обложки действительно нет.
+Текущий стандарт для статей — локальная обложка `01-front.png` в папке страницы, `image + cover.image` во front matter и вывод изображения через shortcode `seo-image` в начале тела. Если `image`, `cover.image` и `seo-image src` совпадают, а `cover.hiddenInSingle: true`, главный image preload выводится в `<head>`. Если первое `seo-image` использует нестандартный `sizes`, добавить такой же `seo_image_sizes` во front matter. Fallback на `images/default-article.jpg` допустим только как запасной сценарий, если локальной обложки действительно нет.
 Для проекта `Aerocool` основная постоянно актуальная статья обычно должна иметь `10000+` знаков основного текста на каждую языковую версию.
 Добор до `10000+` знаков должен быть редакционным, а не механическим: добавлять сценарии выбора, критерии, сравнения, практические проверки, FAQ и полезные внутренние ссылки.
 `description` и `summary` у статьи должны помогать покрывать не только бренд, но и релевантный широкий кластер: `игровое кресло`, `офисное кресло`, `компьютерное кресло`, `кресло для работы`, `home office`.
@@ -281,7 +289,7 @@ schema_types: ["website", "news", "organization", "breadcrumbs"]
 Для проекта `Aerocool` новость, которая поддерживает ранжирование, обычно должна иметь `5000+` знаков тела на каждую языковую версию.
 Добор до `5000+` знаков должен раскрывать инфоповод, сценарии выбора, модели, материалы, коммерческую значимость и следующий шаг, а не превращать новость в псевдостатейный SEO-текст.
 Если новость используется как SEO-посадочная страница для серии, модели или запуска, поле `summary` нужно заполнять обязательно.
-Если у новости есть локальная обложка в папке страницы, текущий стандарт проекта — использовать ее как `image`, дублировать в `cover.image` для preview и выводить в начале тела через shortcode `seo-image`.
+Если у новости есть локальная обложка в папке страницы, текущий стандарт проекта — использовать ее как `image`, дублировать в `cover.image` для preview и выводить в начале тела через shortcode `seo-image`. Если `image`, `cover.image` и `seo-image src` совпадают, а `cover.hiddenInSingle: true`, главный image preload выводится в `<head>`. Если первое `seo-image` использует нестандартный `sizes`, добавить такой же `seo_image_sizes` во front matter.
 
 ## 9. Товар `content/products/<series>/<model>/index.md` и `index.ru.md`
 
@@ -329,11 +337,11 @@ rating:
 ---
 ```
 
-`image` отвечает за SEO/OG/schema, а `cover.image` — за preview-карточки в листингах. Для большинства product pages в текущем проекте нужны оба поля сразу.
+`image` отвечает за SEO/OG/schema, а `cover.image` — за preview-карточки в листингах. Для большинства product pages в текущем проекте нужны оба поля сразу. Если `image`, `cover.image` и `seo-image src` совпадают, а `cover.hiddenInSingle: true`, главный product image preload выводится в `<head>`. Если первое `seo-image` использует нестандартный `sizes`, добавить такой же `seo_image_sizes` во front matter.
 
 Для проекта `Aerocool` товарная страница обычно должна иметь `6000+` знаков основного текста на каждую языковую версию. Добор объема должен объяснять назначение модели, сценарии использования, материалы, регулировки, отличия от альтернатив, FAQ, сервисные условия и следующий коммерческий шаг.
 
-Параметр `jsonld` в shortcode `seo-image` больше не нужен: `ImageObject` собирается централизованно из front matter `image`.
+Не добавлять параметр `jsonld` в shortcode `seo-image`: `ImageObject` собирается централизованно из front matter `image`.
 
 Для товарных страниц единый источник правды по product facts — front matter конкретной страницы. Это относится к `price`, `sku`, `mpn`, `gtin13`, `availability`, `priceValidUntil`, `warranty`, `return_days`, `return_method`, `return_fees`, `shipping_country`, `shipping_rate`, `shipping_currency`, `shipping_handling_min`, `shipping_handling_max`, `shipping_transit_min`, `shipping_transit_max`, `payment_methods`, `rating.value` и `rating.count`.
 

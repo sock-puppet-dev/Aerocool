@@ -1,12 +1,12 @@
 # Hugo Template Helpers Guide
 
-Обновлено: 2026-05-13.
+Обновлено: 2026-05-14.
 
 ## Зачем Нужен Этот Гайд
 
 Этот документ объясняет логику локальных `helpers` и `partials` проекта `Aerocool` так, чтобы в ней мог быстро разобраться новичок.
 
-Текущая синхронизация документации с Hugo 0.161, Tailwind CSS 4, SEO/schema и CWV-практиками 2026 зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
+Базовая синхронизация документации с Hugo 0.161, Tailwind CSS 4, SEO/schema и CWV-практиками 2026 зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
 
 Главная цель:
 
@@ -487,6 +487,26 @@
 Когда идти сюда:
 
 - если Twitter/X показывает неправильную карточку страницы.
+
+### `_seo/lcp-image-preload.html`
+
+Файл: [lcp-image-preload.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/lcp-image-preload.html)
+
+Что делает:
+
+- выводит ранний responsive preload для главного изображения первого экрана;
+- работает только для типовых `article`, `news` и `product` страниц;
+- использует `image` из front matter, если `cover.hiddenInSingle: true` и первое видимое `seo-image` использует тот же файл;
+- генерирует WebP `imagesrcset`, `imagesizes`, `type="image/webp"` и `fetchpriority="high"`;
+- берет `imagesizes` из `seo_image_sizes`, если поле задано во front matter, иначе использует проектный default для `.main`;
+- дополняет shortcode `seo-image`, который в этом сценарии не дублирует body-level preload.
+
+Когда идти сюда:
+
+- если LCP-картинка не начинает грузиться из `<head>`;
+- если нужно изменить общий `sizes` для первого контентного изображения;
+- если у первого `seo-image` нестандартный `sizes` и нужно синхронизировать его с `seo_image_sizes`;
+- если меняется стандарт `image + cover.hiddenInSingle + seo-image`.
 
 ### `_seo/jsonld.html`
 

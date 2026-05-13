@@ -1,6 +1,6 @@
 # Aerocool Ukraine
 
-Обновлено: 2026-05-13.
+Обновлено: 2026-05-14.
 
 `Aerocool Ukraine` — двуязычный маркетинговый и каталоговый сайт на `Hugo` для кресел Aerocool в Украине. Основной язык — украинский (`uk`), второй язык — русский (`ru`). Сайт собирается статически, деплоится через `Netlify`, использует локальные Hugo overrides поверх темы `PaperMod` и отдельный Unlighthouse-набор для технического аудита качества.
 
@@ -173,7 +173,7 @@ cover:
 
 - ищет картинку в page bundle рядом с `index.md` / `index.ru.md`;
 - если может обработать изображение, генерирует WebP-версии;
-- выводит `srcset` и `sizes`;
+- выводит `srcset` и `sizes` под фактическую ширину cover/listing-блока, без завышенного `100vw` для страниц с внутренними отступами;
 - добавляет `width` и `height`, чтобы не было CLS;
 - для одиночной страницы ставит `loading="eager"` и `fetchpriority="high"`;
 - для карточек в списках ставит `loading="lazy"`;
@@ -200,7 +200,18 @@ cover:
 Для контентного изображения в markdown использовать shortcode:
 
 ```go-html-template
-{{</* seo-image src="01-front.png" alt="Кресло Aerocool SKY 360" loading="eager" */>}}
+{{</* seo-image
+  src="01-front.png"
+  width="2000"
+  height="2000"
+  alt="Кресло Aerocool SKY 360"
+  title="Aerocool SKY 360"
+  loading="eager"
+  preload=true
+  fetchpriority=high
+  class="w-full rounded-2xl"
+  sizes="(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
+*/>}}
 ```
 
 Для карточки/cover использовать front matter:
@@ -215,6 +226,8 @@ cover:
 ```
 
 `image` идет в SEO/OG/schema, `cover.image` — в визуальный preview.
+`seo-image` для processable-изображений выводит WebP `srcset` через `<picture>`, fallback `<img>`, размеры и приоритет загрузки. Для типовых статей, новостей и товаров главный `preload=true` попадает в `<head>`, если `image` совпадает с `src` shortcode и `cover.hiddenInSingle: true`.
+Если первое контентное изображение использует нестандартный `sizes`, такое же значение нужно задать во front matter как `seo_image_sizes`, иначе head preload и `<picture>` могут выбрать разные responsive candidates.
 Для всех `content/**/*.md` в проекте нужен служебный `cover`-блок. `cover.alt` должен описывать тему или объект изображения на языке страницы; не оставляйте пустой `alt` и не превращайте его в список ключевых слов.
 Для служебных, taxonomy и других страниц без собственного `image` fallback теперь идет в root `cover.webp`, а не в `images/logo.svg`.
 
@@ -404,7 +417,8 @@ npm run audit:ci:technical
 - [docs/audits/2026-05-06-project-readiness-assessment.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-06-project-readiness-assessment.md) — итоговая оценка готовности проекта.
 - [docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md) — текущий план действий после обновления документации и SchemaApp/AI Search интеграции.
 - [docs/audits/2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md) — выводы из 126 статей SchemaApp за 2016-2026 для текущего проекта.
-- [docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md) — текущая синхронизация всей документации с лучшими практиками 2026.
+- [docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md) — базовая синхронизация всей документации с лучшими практиками 2026.
+- [docs/audits/2026-05-14-seo-image-documentation-cleanup.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-14-seo-image-documentation-cleanup.md) — очистка image-документации после обновления `seo-image` и LCP preload.
 - [docs/content/content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/content-seo-checklist-2026.md) — SEO-проверка контента.
 - [docs/seo/seo-keyword-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/seo-keyword-map-2026.md) — карта ключей.
 - `docs/content/templates/` — шаблоны статей, новостей, товаров и серий.

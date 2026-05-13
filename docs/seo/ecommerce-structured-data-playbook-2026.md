@@ -19,7 +19,7 @@
 - `docs/content/content-seo-checklist-2026.md` — требования к видимому контенту;
 - `docs/content/front-matter-reference.md` — источники product metadata;
 - `docs/content/seo-image-shortcode.md` — правила видимых изображений.
-- `docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md` — текущая синхронизация документации с лучшими практиками 2026.
+- `docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md` — базовая синхронизация документации с лучшими практиками 2026.
 
 Практическая граница:
 

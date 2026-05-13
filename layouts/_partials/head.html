@@ -77,6 +77,8 @@
     {{ partial "css.html" . }}
 {{- end }}
 
+{{- partial "_seo/lcp-image-preload.html" . }}
+
 <!-- SEO Partials: Open Graph and Twitter Cards. JSON-LD is emitted near the end of body. -->
 {{- if not $is404 }}
 {{ partial "_seo/opengraph.html" . }}

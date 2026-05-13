@@ -1,6 +1,6 @@
 # Документация Aerocool
 
-Обновлено: 2026-05-13.
+Обновлено: 2026-05-14.
 
 Это оглавление всей проектной документации. В корне репозитория остались только два входных документа:
 
@@ -92,7 +92,7 @@
 - [seo/schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/schema-markup-quality-checklist-2026.md) — QA-чеклист schema.org-графа.
 - [seo/ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/ecommerce-structured-data-playbook-2026.md) — правила e-commerce structured data для каталога.
 - [seo/json-ld-graph-audit-roadmap-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/json-ld-graph-audit-roadmap-2026.md) — аудит и roadmap JSON-LD graph.
-- [seo/google-seo-audit-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/google-seo-audit-checklist-2026.md) — полный SEO-аудит для Google.
+- [seo/google-seo-audit-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/google-seo-audit-checklist-2026.md) — полный SEO-аудит для сильного ранжирования в Google.
 - [seo/ssg-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/ssg-seo-checklist-2026.md) — общий SSG SEO-чеклист.
 
 ## Quality
@@ -115,7 +115,8 @@
 - [audits/2026-05-06-project-readiness-assessment.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-06-project-readiness-assessment.md) — итоговая оценка готовности проекта после обновления документации и аудита.
 - [audits/2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md) — актуальный P0/P1/P2/P3 план действий для production, schema, entities и AI Search.
 - [audits/2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md) — corpus-анализ 126 статей SchemaApp за 2016-2026.
-- [audits/2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md) — текущая синхронизация документации с лучшими практиками 2026.
+- [audits/2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md) — базовая синхронизация документации с лучшими практиками 2026.
+- [audits/2026-05-14-seo-image-documentation-cleanup.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-14-seo-image-documentation-cleanup.md) — очистка устаревшей информации по `seo-image`, LCP preload, `sizes`, AVIF, WebP и SEO-обещаниям.
 
 ## Правило Поддержки
 

@@ -1,0 +1,44 @@
+{{- /*
+Preload the page's primary visible image when the project convention makes it
+safe to infer that the front matter image is also the first content image.
+
+The matching seo-image shortcode skips its inline preload for these pages, so
+the browser discovers one responsive WebP preload from <head> instead of a
+late duplicate next to the <img>.
+*/ -}}
+{{- $schemaTypes := .Params.schema_types | default (slice) -}}
+{{- $isPrimaryContentPage := and .IsPage (or (in $schemaTypes "article") (in $schemaTypes "news") (in $schemaTypes "product")) -}}
+{{- $coverHiddenInSingle := (.Param "cover.hiddenInSingle") | default false -}}
+{{- $src := .Params.image | default "" -}}
+{{- $sizes := .Params.seo_image_sizes | default "(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)" -}}
+{{- if and $isPrimaryContentPage $coverHiddenInSingle $src -}}
+  {{- with .Resources.GetMatch $src -}}
+    {{- $img := . -}}
+    {{- $processableFormats := slice "jpg" "jpeg" "png" "webp" -}}
+    {{- if in $processableFormats $img.MediaType.SubType -}}
+      {{- $webp := $img.Fill (printf "%dx%d webp q82" $img.Width $img.Height) -}}
+      {{- $webpSrcset := slice -}}
+      {{- $candidateWidths := slice 360 480 640 768 1024 1280 1536 1920 -}}
+      {{- range $candidateWidths -}}
+        {{- if lt . $img.Width -}}
+          {{- $candidateHeight := div (mul . $img.Height) $img.Width -}}
+          {{- $variant := $img.Fill (printf "%dx%d webp q82" . $candidateHeight) -}}
+          {{- $webpSrcset = $webpSrcset | append (printf "%s %dw" $variant.RelPermalink $variant.Width) -}}
+        {{- end -}}
+      {{- end -}}
+      {{- $webpSrcset = $webpSrcset | append (printf "%s %dw" $webp.RelPermalink $webp.Width) -}}
+      {{- $webpSrcsetAttr := delimit $webpSrcset ", " -}}
+<link
+  rel="preload"
+  as="image"
+  href="{{ $webp.RelPermalink }}"
+  type="image/webp"
+  fetchpriority="high"
+  {{ printf "imagesrcset=%q" $webpSrcsetAttr | safeHTMLAttr }}
+  {{ printf "imagesizes=%q" $sizes | safeHTMLAttr }}
+>
+    {{- else if eq $img.MediaType.SubType "svg" -}}
+<link rel="preload" as="image" href="{{ $img.RelPermalink }}" fetchpriority="high">
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

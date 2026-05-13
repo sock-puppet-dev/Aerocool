@@ -5,7 +5,7 @@
 Lighthouse — одиночный аудит конкретной страницы. Unlighthouse — массовый запуск Lighthouse по набору URL. Для этого проекта основной ежедневный инструмент — Unlighthouse, а Lighthouse полезен для точечной диагностики одной страницы.
 
 Для полного Core Web Vitals workflow смотри [core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/core-web-vitals-guide-2026.md).
-Текущий sync-аудит документации: [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
+Базовый sync-аудит документации: [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
 
 ## Что проверяет Lighthouse
 

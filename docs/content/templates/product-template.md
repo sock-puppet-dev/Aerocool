@@ -65,7 +65,7 @@ rating:
   preload=true
   fetchpriority=high
   class="w-full rounded-2xl"
-  sizes="100vw"
+  sizes="(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
 />}}
 
 **Aerocool <MODEL>** — это ...
@@ -157,13 +157,16 @@ rating:
 ...
 ```
 
-Для `index.md` использовать локальные URL вида `/products/...`, `/contact/`. Для `index.ru.md` использовать `/ru/products/...`, `/ru/contact/`. Если shortcode `seo-image` вставляется и в перевод, локализовать `alt` и `title`; параметр `jsonld` больше не использовать.
+Для `index.md` использовать локальные URL вида `/products/...`, `/contact/`. Для `index.ru.md` использовать `/ru/products/...`, `/ru/contact/`. Если shortcode `seo-image` вставляется и в перевод, локализовать `alt` и `title`; параметр `jsonld` не добавлять.
 
 Текущий рабочий паттерн для product pages:
 
 - `image` — для SEO, OG, Twitter и schema;
 - `cover.image` — для preview в листингах;
 - `seo-image` — для основного изображения в теле страницы.
+
+Для первого товарного изображения сохранять полный LCP-набор из шаблона: `loading="eager"`, `preload=true`, `fetchpriority=high` и проектный `sizes` под `.main`. Shortcode сам создаст WebP `srcset` и fallback; отдельный `jsonld` в shortcode не добавлять.
+Если первое изображение использует нестандартный `sizes`, добавить такой же `seo_image_sizes` во front matter.
 
 ## Редакционные Правила
 

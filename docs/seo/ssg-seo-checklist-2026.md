@@ -1,6 +1,8 @@
 # Финальный SEO-чеклист для SSG-сайта в 2026 году
 
-Этот файл — финальный список элементов для построения SSG-сайта уровня **top SEO**: Hugo, техническое SEO, schema.org, Core Web Vitals, контентная стратегия, entity SEO, E-E-A-T, мониторинг и развитие сайта.
+Актуально на `2026-05-14`.
+
+Этот файл — финальный список элементов для построения технически сильного SSG-сайта: Hugo, техническое SEO, schema.org, Core Web Vitals, контентная стратегия, entity SEO, E-E-A-T, мониторинг и развитие сайта. Он не обещает конкретную позицию в Google; он фиксирует, что должно быть сделано, чтобы сайт не проигрывал по технической базе и качеству сигналов.
 
 Синхронизировано с текущей проектной документацией и лучшими практиками 2026: [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
 
@@ -180,8 +182,8 @@
 | Lazy loading images | Да |
 | Preload hero image | Да |
 | Responsive images | Да |
-| AVIF output | Да |
-| WebP fallback | Да |
+| WebP output | Да |
+| AVIF output | Да, если есть отдельный pipeline |
 | Correct image dimensions | Да |
 | Font optimization | Да |
 | Font preload | Да |
@@ -202,8 +204,8 @@
 |---|---|
 | Source images в хорошем качестве | Да |
 | JPEG / PNG / WebP source | Да |
-| AVIF output | Да |
 | WebP output | Да |
+| AVIF output | Да, если есть отдельный pipeline |
 | JPEG fallback | Да |
 | Responsive sizes | Да |
 | Width / height attributes | Да |
@@ -430,7 +432,7 @@ Hugo / Astro
 
 ---
 
-## Абсолютный минимум для топового проекта
+## Абсолютный минимум для сильного SEO-проекта
 
 ```text
 1. Hugo / Astro
@@ -464,7 +466,8 @@ Hugo
 + Netlify
 + Tailwind CSS
 + локальная search-страница
-+ AVIF/WebP
++ WebP output
++ AVIF, если есть отдельный pipeline
 + PWA
 + schema.org @graph
 + hreflang UA/RU

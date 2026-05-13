@@ -40,7 +40,7 @@ schema_types: ["website", "article", "organization", "breadcrumbs"]
   preload=true
   fetchpriority=high
   class="w-full rounded-2xl"
-  sizes="100vw"
+  sizes="(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
 />}}
 ```
 
@@ -106,6 +106,8 @@ schema_types: ["website", "article", "organization", "breadcrumbs"]
 - По возможности использовать цифры и характеристики производителя.
 - Не превращать статью в новость, если тема остается актуальной надолго.
 - Текущий рекомендуемый стандарт для article bundle в проекте: `image + cover.image + seo-image` с локальным `01-front.png`.
+- Для первого изображения использовать полный LCP-набор из шаблона: `loading="eager"`, `preload=true`, `fetchpriority=high` и проектный `sizes` под `.main`. Shortcode сам создаст WebP `srcset` и fallback.
+- Если первое изображение использует нестандартный `sizes`, добавить такой же `seo_image_sizes` во front matter.
 - Если у статьи нет собственной обложки в папке страницы, допустим fallback `image: "images/default-article.jpg"`, но это запасной сценарий, а не основной стандарт.
 - Для `index.md` и `index.ru.md` держать факты синхронно, меняя только язык и локальные ссылки.
 - В статье желательно иметь 3-8 осмысленных внутренних ссылок: серия, товар, FAQ, контакты, связанные гайды.

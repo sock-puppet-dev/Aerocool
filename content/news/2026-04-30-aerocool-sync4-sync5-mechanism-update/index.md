@@ -36,7 +36,7 @@ cover:
   preload=true
   fetchpriority=high
   class="w-full rounded-2xl"
-  sizes="100vw"
+  sizes="(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
 />}}
 
 Aerocool Україна публікує окреме уточнення щодо механізмів **SYNC4** і **SYNC5 multi-adjustable** у кріслах серій **SKY**, **WING** та **XTAL**. Це оновлення допомагає дивитися на моделі не лише через дизайн, матеріал або кількість регулювань, а й через те, як працює механіка нахилу, фіксації та налаштування сидіння.

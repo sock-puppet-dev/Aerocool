@@ -4,7 +4,7 @@
 
 `mise` — это менеджер версий инструментов. В этом проекте он нужен, чтобы локально запускать те же версии `Hugo` и `Node`, которые используются в `Netlify`.
 
-Текущая синхронизация tooling-документации с Hugo 0.161-era Node permission model и Tailwind CSS 4 зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
+Базовая синхронизация tooling-документации с Hugo 0.161-era Node permission model и Tailwind CSS 4 зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
 
 Проще говоря:
 

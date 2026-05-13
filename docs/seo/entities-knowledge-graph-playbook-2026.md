@@ -2,7 +2,7 @@
 
 Актуально на `2026-05-13`.
 
-Текущая синхронизация документации с лучшими практиками 2026 зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
+Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
 
 Этот документ переводит `Guide to Entities & Knowledge Graphs for SEO` от SchemaApp в локальные правила для проекта `Aerocool Ukraine`.
 

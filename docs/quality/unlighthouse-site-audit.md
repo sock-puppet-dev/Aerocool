@@ -1,11 +1,11 @@
 # Unlighthouse Site Audit Guide
 
-Обновлено: 2026-05-13.
+Обновлено: 2026-05-14.
 
 Этот документ объясняет папку `unlighthouse/` простым языком: что это такое, зачем она нужна, как запускать проверки, как читать отчеты и почему это связано с `Netlify`, `Hugo`, SEO, изображениями и файлами проекта.
 
 Для полного Core Web Vitals workflow смотри [core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/core-web-vitals-guide-2026.md).
-Текущий sync-аудит документации: [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
+Базовый sync-аудит документации: [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
 
 Главная мысль:
 
@@ -1031,7 +1031,7 @@ technical                = noindex-страницы без SEO-бюджета
 - ищет cover-картинку в page bundle;
 - создает WebP-варианты;
 - добавляет `srcset`;
-- добавляет `sizes`;
+- добавляет `sizes` под реальную ширину cover/listing-блока, а не завышенный `100vw`;
 - добавляет `width` и `height`;
 - ставит `loading="lazy"` в списках;
 - ставит `loading="eager"` на одиночной странице;
@@ -1064,6 +1064,9 @@ cover:
 - можно централизованно контролировать alt;
 - можно управлять lazy/eager loading;
 - можно задавать размеры;
+- для processable-изображений shortcode создает WebP `srcset` и fallback;
+- для главного article/news/product изображения preload выводится в `<head>`, если соблюден стандарт `image + cover.hiddenInSingle + seo-image`;
+- если у первого `seo-image` нестандартный `sizes`, такое же значение нужно задать во front matter как `seo_image_sizes`;
 - проще держать SEO-качество.
 
 Для товарных страниц текущая логика такая:

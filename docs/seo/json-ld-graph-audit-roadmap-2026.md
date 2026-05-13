@@ -7,7 +7,7 @@
 Важно: JSON-LD не является кнопкой `топ-1`. Он помогает Google понять сущности, связи, товарные данные, организацию, хлебные крошки, FAQ и изображения, а также повышает eligibility для rich results. Но позиция в Google зависит от интента, качества страницы, доверия, внутренней архитектуры, ссылок, UX, индексации и конкуренции.
 
 Текущий практический план внедрения roadmap-задач описан в [2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md).
-Текущий sync-аудит документации и 2026 best-practices alignment описан в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
+Базовый sync-аудит документации и 2026 best-practices alignment описан в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
 
 Простыми словами для новичка: JSON-LD — это машинное описание страницы для поисковика. Оно должно подтверждать то, что человек реально видит на странице. Если в JSON-LD указать цену, рейтинг или наличие, но не показать их пользователю, это становится риском для Google rich results.
 

@@ -4,7 +4,7 @@
 
 Этот документ описывает, как в проекте устроены Netlify redirects, HTTP headers и кастомная `404`.
 
-Текущая синхронизация с Netlify redirects, headers и caching docs зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
+Базовая синхронизация с Netlify redirects, headers и caching docs зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
 
 ## 1. Где Живут Правила
 
