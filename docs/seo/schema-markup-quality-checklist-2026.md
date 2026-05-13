@@ -1,12 +1,15 @@
 # Schema Markup Quality Checklist 2026
 
-Актуально на `2026-05-07`.
+Актуально на `2026-05-13`.
 
 Этот документ переводит `Schema Markup Checklist` и универсальные выводы из `Definitive Guide to Healthcare Structured Data in SEO` от SchemaApp в локальный QA-чеклист для `Aerocool Ukraine`. Его задача — проверять не только валидность JSON-LD, но и качество schema.org-графа: правильные типы, полезные свойства, связи между сущностями, устойчивые `@id`, отсутствие schema drift и соответствие schema-стратегии реальной цели страницы.
 
 Важно: этот чеклист не требует использовать SchemaApp как сервис. В проекте уже есть собственный Hugo-слой в `layouts/_partials/_schema` и единый JSON-LD graph через `layouts/_partials/_seo/jsonld.html`.
 
+Документ синхронизирован с текущими Google structured data guidelines: JSON-LD должен описывать видимый контент страницы, не вводить пользователя в заблуждение, не скрывать размеченные факты и проходить не только validator, но и quality-проверку соответствия интенту страницы.
+
 Текущий порядок внедрения P0/P1/P2 описан в [2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md).
+Текущий sync-аудит документации: [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
 
 ## 1. Семь Проверок Schema Markup
 

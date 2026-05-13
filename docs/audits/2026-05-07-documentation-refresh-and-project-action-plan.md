@@ -4,6 +4,8 @@
 
 Главная идея: документация уже описывает сильный SEO/schema/AI Search-фундамент. Следующий этап — не добавлять новые schema-типы “для красоты”, а закрыть реальные риски перед production, затем последовательно развивать entity graph, ProductGroup, AI Search-аудит и reusable content components.
 
+Текущая синхронизация всей документации с лучшими практиками 2026 от `2026-05-13` хранится в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md). Этот файл остается практическим action plan, а новый audit — свежим контрольным снимком документации.
+
 Дополнительный corpus-анализ 126 статей SchemaApp за `2016-2026` хранится в [2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md). Он подтверждает этот порядок работ.
 
 ## 1. Текущее Состояние

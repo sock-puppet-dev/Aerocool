@@ -1,10 +1,12 @@
 # E-Commerce Structured Data Playbook 2026
 
-Актуально на `2026-05-07`.
+Актуально на `2026-05-13`.
 
 Этот документ переводит `Guide to E-Commerce Structured Data` от SchemaApp в локальные правила для товарного каталога `Aerocool Ukraine`.
 
 Главная мысль: e-commerce structured data нужна не только для синтаксически валидного `Product`, а для полного пути покупателя в поиске: товар, цена, наличие, изображения, рейтинг, FAQ, инструкции, хлебные крошки, варианты и доверие.
+
+Документ синхронизирован с текущими Google Search Central правилами для `Product`, merchant listings и product variants. Внешние SchemaApp материалы используются как стратегический слой, но eligibility для Google rich results всегда проверять по официальной документации Google.
 
 Текущий порядок внедрения для ratings, product facts, `ProductGroup` и production gate описан в [2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md).
 
@@ -17,6 +19,7 @@
 - `docs/content/content-seo-checklist-2026.md` — требования к видимому контенту;
 - `docs/content/front-matter-reference.md` — источники product metadata;
 - `docs/content/seo-image-shortcode.md` — правила видимых изображений.
+- `docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md` — текущая синхронизация документации с лучшими практиками 2026.
 
 Практическая граница:
 

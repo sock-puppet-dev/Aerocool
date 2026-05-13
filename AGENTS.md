@@ -63,13 +63,15 @@
 - `docs/seo/ssg-seo-checklist-2026.md`
 - `docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md`
 - `docs/audits/2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md`
+- `docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md`
 - `docs/architecture/browser-view-transitions.md`
 - `docs/deploy/local-tooling-mise.md`
 - `docs/deploy/netlify-routing.md`
+- `docs/quality/core-web-vitals-guide-2026.md`
 - `docs/quality/lighthouse-single-page-audit.md`
 - `docs/quality/unlighthouse-site-audit.md`
 
-Для новичка порядок чтения такой: сначала `README.md`, затем `docs/README.md`, затем `docs/content/front-matter-reference.md`, затем `docs/architecture/hugo-template-helpers.md`, затем `docs/quality/unlighthouse-site-audit.md`. Для SEO/schema-задач после этого читать `docs/seo/schema-types-reference.md`, `docs/seo/schema-markup-quality-checklist-2026.md`, `docs/seo/entities-knowledge-graph-playbook-2026.md` и профильный playbook по задаче. Остальные гайды подключать по задаче.
+Для новичка порядок чтения такой: сначала `README.md`, затем `docs/README.md`, затем `docs/content/front-matter-reference.md`, затем `docs/architecture/hugo-template-helpers.md`, затем `docs/quality/unlighthouse-site-audit.md`. Для SEO/schema-задач после этого читать `docs/seo/schema-types-reference.md`, `docs/seo/schema-markup-quality-checklist-2026.md`, `docs/seo/entities-knowledge-graph-playbook-2026.md` и профильный playbook по задаче. Для performance/Core Web Vitals-задач читать `docs/quality/core-web-vitals-guide-2026.md`. Остальные гайды подключать по задаче.
 
 ## Контентные Правила
 

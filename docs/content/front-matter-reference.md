@@ -1,5 +1,7 @@
 # Руководство По Полям Метаданных Страницы
 
+Обновлено: 2026-05-13.
+
 В проекте `Aerocool` использовать только поле `schema_types`. Поле `schema_type` не используется.
 
 Этот гайд нужен для работы с файлами `content/**/*.md`. Front matter — это YAML-блок между `---` в начале markdown-файла. В нем задаются SEO-заголовок, описание, дата, slug, картинка, schema.org типы и другие данные, которые потом читают Hugo-шаблоны.
@@ -12,7 +14,7 @@
 4. Не добавляй поля “на всякий случай”, если шаблоны проекта их не используют.
 5. После правки запусти `npm run build`.
 
-Практический план entity/product fields (`about_entities`, `mentions_entities`, `product_group_id`, `variant_attributes`, `rating_source`) описан в [2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md). Entity IDs и entity homes зафиксированы в [entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entity-registry-2026.md), а структурированный источник для шаблонов — [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml). Для первого знакомства с этим слоем читайте [entity-registry-beginner-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entity-registry-beginner-guide-2026.md). Hugo templates уже безопасно читают `about_entities`, `mentions_entities` и `product_group_id`, но добавлять их в `content/` нужно только точечно: значение должно существовать в registry и быть видимо раскрыто на странице. Для JSON-LD resolver выводит только `confirmed` сущности; `product_group_id` может быть подготовлен заранее, но `isVariantOf` появится только после подтверждения ProductGroup.
+Практический план entity/product fields (`about_entities`, `mentions_entities`, `product_group_id`, `variant_attributes`, `rating_source`) описан в [2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md). Текущая синхронизация документации с лучшими практиками 2026 зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md). Entity IDs и entity homes зафиксированы в [entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entity-registry-2026.md), а структурированный источник для шаблонов — [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml). Для первого знакомства с этим слоем читайте [entity-registry-beginner-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entity-registry-beginner-guide-2026.md). Hugo templates уже безопасно читают `about_entities`, `mentions_entities` и `product_group_id`, но добавлять их в `content/` нужно только точечно: значение должно существовать в registry и быть видимо раскрыто на странице. Для JSON-LD resolver выводит только `confirmed` сущности; `product_group_id` может быть подготовлен заранее, но `isVariantOf` появится только после подтверждения ProductGroup.
 
 ## Entity-Поля Front Matter
 

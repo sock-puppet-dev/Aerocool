@@ -1,12 +1,15 @@
 # AI Search Entity Map 2026
 
-Актуально на `2026-05-07`.
+Актуально на `2026-05-13`.
 
 Этот документ переводит идеи из `Mastering AI Search`, `Schema Markup and AI Search`, `Designing Content for Humans and Machines` и `How to Prepare Your Content for Generative AI Search` от SchemaApp в практическую систему для проекта `Aerocool Ukraine`: какие сущности нужно закрепить на сайте, какие AI Search-метрики отслеживать, какие prompt-наборы проверять и как развивать JSON-LD graph без переспама.
 
 Главная мысль: для AI Search недостаточно просто иметь много SEO-текста. Сайт должен давать машинам полную, связанную и проверяемую картину бренда, товаров, серий, материалов, механизмов, сценариев использования и коммерческих условий.
 
 Текущий порядок внедрения зафиксирован в [2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md).
+Текущая синхронизация всей документации с лучшими практиками 2026 зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
+
+Важно: AI Search-слой не заменяет Google Search Essentials, people-first content, Core Web Vitals и structured data quality. До production-запуска и индексации AI Search считать мониторинговым и entity-governance слоем, а не причиной внедрять chatbot, NLWeb, MCP или `llms.txt` как P0.
 
 ## 1. Зачем Это Нужно
 

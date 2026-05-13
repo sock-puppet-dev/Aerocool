@@ -1,6 +1,6 @@
 # Aerocool Ukraine
 
-Обновлено: 2026-05-07.
+Обновлено: 2026-05-13.
 
 `Aerocool Ukraine` — двуязычный маркетинговый и каталоговый сайт на `Hugo` для кресел Aerocool в Украине. Основной язык — украинский (`uk`), второй язык — русский (`ru`). Сайт собирается статически, деплоится через `Netlify`, использует локальные Hugo overrides поверх темы `PaperMod` и отдельный Unlighthouse-набор для технического аудита качества.
 
@@ -372,6 +372,7 @@ npm run audit:ci:technical
 - [docs/README.md](/Users/stadnyk/MEGA/Aerocool/docs/README.md) — оглавление всей документации.
 - [docs/quality/unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/unlighthouse-site-audit.md) — Unlighthouse, бюджеты, отчеты, порядок аудита.
 - [docs/quality/lighthouse-single-page-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/lighthouse-single-page-audit.md) — одиночный Lighthouse и PageSpeed-подход.
+- [docs/quality/core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/core-web-vitals-guide-2026.md) — полный Core Web Vitals гайд для Hugo/Netlify/Tailwind сайта.
 - [docs/content/seo-image-shortcode.md](/Users/stadnyk/MEGA/Aerocool/docs/content/seo-image-shortcode.md) — shortcode изображений в теле контента.
 - [docs/seo/schema-types-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/schema-types-reference.md) — schema.org типы.
 - [docs/seo/schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/schema-markup-quality-checklist-2026.md) — QA schema.org-графа, schema drift, ownership и vertical-specific запреты.
@@ -394,6 +395,7 @@ npm run audit:ci:technical
 - [docs/audits/2026-05-06-project-readiness-assessment.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-06-project-readiness-assessment.md) — итоговая оценка готовности проекта.
 - [docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md) — текущий план действий после обновления документации и SchemaApp/AI Search интеграции.
 - [docs/audits/2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md) — выводы из 126 статей SchemaApp за 2016-2026 для текущего проекта.
+- [docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md) — текущая синхронизация всей документации с лучшими практиками 2026.
 - [docs/content/content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/content-seo-checklist-2026.md) — SEO-проверка контента.
 - [docs/seo/seo-keyword-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/seo-keyword-map-2026.md) — карта ключей.
 - `docs/content/templates/` — шаблоны статей, новостей, товаров и серий.

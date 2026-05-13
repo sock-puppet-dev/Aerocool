@@ -1,8 +1,10 @@
 # Netlify Routing И Forced 404
 
-Обновлено: 2026-05-07.
+Обновлено: 2026-05-13.
 
 Этот документ описывает, как в проекте устроены Netlify redirects, HTTP headers и кастомная `404`.
+
+Текущая синхронизация с Netlify redirects, headers и caching docs зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
 
 ## 1. Где Живут Правила
 
@@ -152,6 +154,8 @@ assets/js/site.js
 Для cache rules не использовать brace glob в `for`, например `/*.{css,js,woff2}`. Netlify CLI трактует такие значения как route pattern и может вернуть ошибку `invalid regular expression: incomplete {} quantifier`. Вместо этого держать явные правила вроде `/assets/*`, `/images/*`, `/*.svg`, `/*.webmanifest`.
 
 Общие security headers должны оставаться в `for = "/*"`, а asset-cache правила должны стоять выше них. Если меняется кеширование, проверить итоговые headers на Deploy Preview: локальный Netlify Dev может отдавать служебный `cache-control: public, max-age=0` для некоторых статических файлов.
+
+Netlify автоматически инвалидирует статические assets при atomic deploy. Поэтому длинный `Cache-Control` с `immutable` допустим только для файлов, которые меняются через новый deploy и имеют стабильную стратегию инвалидации; для HTML-страниц не добавлять такой же долгий browser cache без отдельной проверки.
 
 ## 8. Проверка После Правок
 

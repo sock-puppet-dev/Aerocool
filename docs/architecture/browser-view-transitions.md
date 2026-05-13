@@ -1,8 +1,10 @@
 # Руководство По View Transitions
 
-Обновлено: 2026-05-05.
+Обновлено: 2026-05-13.
 
 View Transitions — это мягкая анимация между страницами при переходе по внутренним ссылкам. В проекте `Aerocool` эта логика вынесена во внешний JavaScript-файл, чтобы не использовать inline scripts и не ослаблять `Content-Security-Policy`.
+
+Так как view transitions могут влиять на `INP`, любые изменения этого слоя дополнительно проверять по [core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/core-web-vitals-guide-2026.md).
 
 Проще говоря:
 

@@ -1,8 +1,11 @@
 # Lighthouse Single Page Audit Guide
 
-Обновлено: 2026-05-05.
+Обновлено: 2026-05-13.
 
 Lighthouse — одиночный аудит конкретной страницы. Unlighthouse — массовый запуск Lighthouse по набору URL. Для этого проекта основной ежедневный инструмент — Unlighthouse, а Lighthouse полезен для точечной диагностики одной страницы.
+
+Для полного Core Web Vitals workflow смотри [core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/core-web-vitals-guide-2026.md).
+Текущий sync-аудит документации: [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
 
 ## Что проверяет Lighthouse
 
@@ -56,6 +59,7 @@ JSON + HTML отчет:
 ## Lab data и field data
 
 Lighthouse показывает lab data: тест “здесь и сейчас” в контролируемых условиях.
+Для `INP` Lighthouse использует lab-подсказки вроде `TBT`; настоящий `INP` нужно подтверждать field data.
 
 Для SEO и Core Web Vitals нужны также field data:
 

@@ -1,5 +1,7 @@
 # Руководство По Shortcode `seo-image`
 
+Обновлено: 2026-05-13.
+
 Короткое руководство по shortcode `seo-image` в текущем проекте `Aerocool`.
 
 Shortcode `seo-image` находится в `layouts/_shortcodes/seo-image.html` и работает только с изображениями, которые лежат внутри папки страницы (`page bundle` в терминологии Hugo). Если файла нет рядом со страницей, сборка упадет с ошибкой.
@@ -7,6 +9,8 @@ Shortcode `seo-image` находится в `layouts/_shortcodes/seo-image.html`
 Текущее hero-изображение главной страницы — отдельное исключение: оно живет в едином shortcode `layouts/_shortcodes/home-hero.html` и сейчас не проходит через `seo-image`. Этот shortcode сам переключает текст по языку страницы.
 
 Простыми словами для новичка: `seo-image` нужен, когда ты вставляешь изображение прямо в текст страницы. Он помогает Hugo собрать правильный HTML для картинки, чтобы Lighthouse не ругался на размеры, загрузку и адаптивность.
+
+Для полного Core Web Vitals workflow смотри [core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/core-web-vitals-guide-2026.md).
 
 JSON-LD для основного изображения страницы собирается централизованно через `layouts/_partials/_schema/page-image-object.html` и попадает в общий `@graph`. Источник URL изображения - поле `image` во front matter через helper `page-image.html`.
 

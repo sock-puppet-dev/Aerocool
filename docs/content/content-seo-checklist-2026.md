@@ -1,10 +1,12 @@
 # SEO-Чек-Лист Контента Aerocool 2026
 
-Актуально на `2026-05-07`.
+Актуально на `2026-05-13`.
 
 Этот документ — единый редакционный и SEO-регламент для всего проекта `Aerocool`. Он адаптирован под текущую структуру сайта на `Hugo` с разделами `home`, `products`, `articles`, `news`, `faq`, `about`, `contact`, `search`, а также под двуязычную архитектуру `uk` + `ru`.
 
 Важно: ни один чек-лист не гарантирует `топ-1` в Google. По официальным рекомендациям Google, даже если страница соблюдает Search Essentials и лучшие практики, это не означает гарантированный обход, индексирование или ранжирование. Цель этого документа — максимально повысить вероятность сильного ранжирования, высокого CTR и коммерческой полезности.
+
+Синхронизация всей документации с лучшими практиками 2026 зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
 
 Текущий практический порядок работ после обновления документации описан в [2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md).
 
@@ -369,6 +371,7 @@
 ## 28. Что Мониторить После Публикации
 
 - [ ] Индексация в Search Console.
+- [ ] Core Web Vitals field data в Search Console и PageSpeed Insights после production-запуска.
 - [ ] Поисковые запросы, показы, клики, CTR и средняя позиция.
 - [ ] Внешний вид в поиске по rich results, если они применимы.
 - [ ] Страницы с высокими показами и низким CTR.
@@ -397,6 +400,7 @@
 - [ ] Title Links: https://developers.google.com/search/docs/appearance/title-link
 - [ ] Snippets / Meta Descriptions: https://developers.google.com/search/docs/appearance/snippet
 - [ ] Page Experience: https://developers.google.com/search/docs/appearance/page-experience
+- [ ] Core Web Vitals: https://developers.google.com/search/docs/appearance/core-web-vitals
 - [ ] Localized Versions / hreflang: https://developers.google.com/search/docs/specialty/international/localized-versions
 - [ ] Google Images SEO Best Practices: https://developers.google.com/search/docs/appearance/google-images
 - [ ] Article Structured Data: https://developers.google.com/search/docs/appearance/structured-data/article

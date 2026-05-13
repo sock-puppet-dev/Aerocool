@@ -1,8 +1,12 @@
 # Hugo Template Helpers Guide
 
+Обновлено: 2026-05-13.
+
 ## Зачем Нужен Этот Гайд
 
 Этот документ объясняет логику локальных `helpers` и `partials` проекта `Aerocool` так, чтобы в ней мог быстро разобраться новичок.
+
+Текущая синхронизация документации с Hugo 0.161, Tailwind CSS 4, SEO/schema и CWV-практиками 2026 зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
 
 Главная цель:
 

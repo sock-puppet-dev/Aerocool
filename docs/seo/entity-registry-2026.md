@@ -1,6 +1,8 @@
 # Entity Registry Aerocool 2026
 
-Обновлено: 2026-05-07.
+Обновлено: 2026-05-13.
+
+Текущая синхронизация документации с лучшими практиками 2026 зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md). Реестр остается governance-документом: `confirmed` сущности можно использовать в JSON-LD, staged/planned сущности не должны становиться сильными связями без видимого подтверждения на странице.
 
 Этот документ — канонический реестр сущностей проекта `Aerocool Ukraine`. Он нужен для управляемого Entity SEO, AI Search, `about_entities`, `mentions_entities`, `ProductGroup`, будущих `additionalProperty`, `llms.txt` и структурированного [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml).
 

@@ -1,6 +1,6 @@
 # Документация Aerocool
 
-Обновлено: 2026-05-07.
+Обновлено: 2026-05-13.
 
 Это оглавление всей проектной документации. В корне репозитория остались только два входных документа:
 
@@ -56,6 +56,13 @@
 4. [seo/seo-keyword-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/seo-keyword-map-2026.md)
 5. [audits/2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md), если нужен порядок внедрения
 
+Для Core Web Vitals и performance:
+
+1. [quality/core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/core-web-vitals-guide-2026.md)
+2. [quality/unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/unlighthouse-site-audit.md)
+3. [quality/lighthouse-single-page-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/lighthouse-single-page-audit.md)
+4. [content/seo-image-shortcode.md](/Users/stadnyk/MEGA/Aerocool/docs/content/seo-image-shortcode.md), если задача касается изображений
+
 ## Architecture
 
 - [architecture/hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/hugo-template-helpers.md) — локальные Hugo partials/helpers, SEO helpers и schema helpers.
@@ -90,6 +97,7 @@
 
 ## Quality
 
+- [quality/core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/core-web-vitals-guide-2026.md) — полный Core Web Vitals playbook для Hugo/Netlify/Tailwind сайта.
 - [quality/lighthouse-single-page-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/lighthouse-single-page-audit.md) — одиночный Lighthouse-аудит.
 - [quality/unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/unlighthouse-site-audit.md) — массовый Unlighthouse-аудит.
 
@@ -107,6 +115,7 @@
 - [audits/2026-05-06-project-readiness-assessment.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-06-project-readiness-assessment.md) — итоговая оценка готовности проекта после обновления документации и аудита.
 - [audits/2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md) — актуальный P0/P1/P2/P3 план действий для production, schema, entities и AI Search.
 - [audits/2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md) — corpus-анализ 126 статей SchemaApp за 2016-2026.
+- [audits/2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md) — текущая синхронизация документации с лучшими практиками 2026.
 
 ## Правило Поддержки
 
@@ -120,6 +129,7 @@
 - поменял schema.org partials — проверь `seo/schema-types-reference.md`, `seo/schema-markup-quality-checklist-2026.md` и `seo/json-ld-graph-audit-roadmap-2026.md`;
 - поменял product schema, варианты, rating, delivery или return policy — проверь `content/front-matter-reference.md`, `seo/ecommerce-structured-data-playbook-2026.md`, product front matter, видимый товарный текст и `/faq/` как policy-зеркало;
 - поменял entity strategy, `about`, `mentions`, `sameAs` или `@id` — проверь `seo/entities-knowledge-graph-playbook-2026.md` и `seo/ai-search-entity-map-2026.md`;
+- поменял hero, изображения первого экрана, CSS, JS или performance-sensitive layout — проверь `quality/core-web-vitals-guide-2026.md`;
 - поменял Unlighthouse конфиг — проверь `quality/unlighthouse-site-audit.md`;
 - поменял версии Hugo/Node — проверь `deploy/local-tooling-mise.md`, `README.md` и `netlify.toml`;
 - поменял `static/_redirects`, `layouts/404.html` или routing/headers в `netlify.toml` — проверь `deploy/netlify-routing.md`, `README.md` и `AGENTS.md`.

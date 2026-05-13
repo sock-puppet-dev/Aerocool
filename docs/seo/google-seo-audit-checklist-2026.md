@@ -2,10 +2,21 @@
 
 > Контекст: сайт на Hugo / Netlify, уже используется Unlighthouse.
 > Цель: не просто получить 100/100 в Lighthouse, а пройти полный SEO-контур: индексация, Core Web Vitals, structured data, контент, доверие, UX, конкуренты, ссылки и постоянный мониторинг.
+> Синхронизировано с документацией и лучшими практиками 2026: 2026-05-13.
 
 > Примечание для текущего проекта Aerocool: Netlify сейчас намеренно собирает сайт в `development/noindex`, поэтому финальную проверку индексируемости нужно делать только после отдельного production-переключения. Unlighthouse в этом проекте запускается локально из папки `unlighthouse/`, а GitHub Actions gate сейчас не используется.
 
 > Практический порядок внедрения для текущего проекта: [2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md).
+> Текущий sync-аудит документации: [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
+
+Официальная база для этого чек-листа:
+
+- Google Search Essentials: https://developers.google.com/search/docs/essentials
+- Helpful, reliable, people-first content: https://developers.google.com/search/docs/fundamentals/creating-helpful-content
+- Google page experience: https://developers.google.com/search/docs/appearance/page-experience
+- Core Web Vitals: https://developers.google.com/search/docs/appearance/core-web-vitals
+- General structured data guidelines: https://developers.google.com/search/docs/appearance/structured-data/sd-policies
+- Product structured data: https://developers.google.com/search/docs/appearance/structured-data/product
 
 ---
 
@@ -89,6 +100,8 @@ Google Search Console — обязательный инструмент. Без 
 ## 4. Core Web Vitals audit
 
 Для ТОП‑1 цель — не просто 100 в Lighthouse, а хорошие полевые данные у реальных пользователей.
+
+Подробный локальный playbook для проекта: [core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/core-web-vitals-guide-2026.md).
 
 Проверять:
 

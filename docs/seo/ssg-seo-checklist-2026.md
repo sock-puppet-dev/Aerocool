@@ -2,6 +2,8 @@
 
 Этот файл — финальный список элементов для построения SSG-сайта уровня **top SEO**: Hugo, техническое SEO, schema.org, Core Web Vitals, контентная стратегия, entity SEO, E-E-A-T, мониторинг и развитие сайта.
 
+Синхронизировано с текущей проектной документацией и лучшими практиками 2026: [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
+
 Примечание для новичка: это общий стратегический чеклист, а не список файлов, которые нужно сразу менять. Для текущего проекта Aerocool фактические правила лежат в [README.md](/Users/stadnyk/MEGA/Aerocool/README.md), [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md), [content/content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/content-seo-checklist-2026.md), [content/front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/front-matter-reference.md), [seo/schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/schema-markup-quality-checklist-2026.md), [seo/entities-knowledge-graph-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entities-knowledge-graph-playbook-2026.md), [quality/unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/unlighthouse-site-audit.md) и [2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md).
 
 ---
@@ -167,6 +169,8 @@
 ---
 
 ## 8. Performance / Core Web Vitals
+
+Подробный локальный playbook для проекта: [core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/core-web-vitals-guide-2026.md).
 
 | Элемент | Обязательно |
 |---|---|

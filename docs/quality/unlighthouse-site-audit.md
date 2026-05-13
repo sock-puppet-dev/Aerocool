@@ -1,8 +1,11 @@
 # Unlighthouse Site Audit Guide
 
-Обновлено: 2026-05-05.
+Обновлено: 2026-05-13.
 
 Этот документ объясняет папку `unlighthouse/` простым языком: что это такое, зачем она нужна, как запускать проверки, как читать отчеты и почему это связано с `Netlify`, `Hugo`, SEO, изображениями и файлами проекта.
+
+Для полного Core Web Vitals workflow смотри [core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/core-web-vitals-guide-2026.md).
+Текущий sync-аудит документации: [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
 
 Главная мысль:
 
@@ -1201,9 +1204,7 @@ cd /Users/stadnyk/MEGA/Aerocool/unlighthouse
 
 Подробно смотри:
 
-```text
-[lighthouse.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/lighthouse-single-page-audit.md)
-```
+[lighthouse-single-page-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/lighthouse-single-page-audit.md)
 
 ## 29. Безопасное удаление старых отчетов
 
