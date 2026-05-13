@@ -164,7 +164,9 @@ index.ru.md   русская версия
 ```yaml
 cover:
   image: "01-front.png"
-  alt: "Описательное alt на языке страницы"
+  alt: "Кресло Aerocool SKY 360"
+  relative: true
+  hiddenInSingle: true
 ```
 
 Что делает override:
@@ -185,19 +187,20 @@ cover:
 
 Когда не трогать:
 
-- при обычном добавлении товара, статьи или новости. Там достаточно правильно заполнить `cover.image` и `cover.alt`.
+- при обычном добавлении страницы в `content/`. Там достаточно правильно заполнить `image`, `cover.image`, `cover.alt`, `cover.relative` и `cover.hiddenInSingle`.
 
 ## 9. Изображения
 
-Есть два разных сценария:
+Есть три разных сценария:
 
 1. `seo-image` — изображение внутри тела страницы.
 2. `cover.image` — обложка для листингов и одиночной страницы.
+3. `image` — основная картинка для SEO/OG/Twitter/schema.
 
 Для контентного изображения в markdown использовать shortcode:
 
 ```go-html-template
-{{</* seo-image src="01-front.png" alt="Описательный alt" loading="eager" */>}}
+{{</* seo-image src="01-front.png" alt="Кресло Aerocool SKY 360" loading="eager" */>}}
 ```
 
 Для карточки/cover использовать front matter:
@@ -206,10 +209,14 @@ cover:
 image: "01-front.png"
 cover:
   image: "01-front.png"
-  alt: "Описательный alt"
+  alt: "Кресло Aerocool SKY 360"
+  relative: true
+  hiddenInSingle: true
 ```
 
 `image` идет в SEO/OG/schema, `cover.image` — в визуальный preview.
+Для всех `content/**/*.md` в проекте нужен служебный `cover`-блок. `cover.alt` должен описывать тему или объект изображения на языке страницы; не оставляйте пустой `alt` и не превращайте его в список ключевых слов.
+Для служебных, taxonomy и других страниц без собственного `image` fallback теперь идет в root `cover.webp`, а не в `images/logo.svg`.
 
 ## 10. JavaScript и CSP
 

@@ -1052,7 +1052,7 @@ technical                = noindex-страницы без SEO-бюджета
 ```yaml
 cover:
   image: "01-front.png"
-  alt: "Описательный alt"
+  alt: "Кресло Aerocool SKY 360"
 ```
 
 ## 22. Как это связано с `seo-image`

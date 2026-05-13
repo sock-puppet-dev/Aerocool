@@ -7,7 +7,12 @@ summary: "Поиск по сайту Aerocool"
 slug: "search"
 placeholder: "Поиск по сайту"
 schema_types: ["website", "organization", "breadcrumbs"]
-image: "cover.webp"
+image: "/cover.webp"
+cover:
+  image: "/cover.webp"
+  alt: "Поиск по сайту Aerocool"
+  relative: false
+  hiddenInSingle: true
 robotsNoIndex: true
-lastmod: 2026-04-21
+lastmod: 2026-05-13
 ---

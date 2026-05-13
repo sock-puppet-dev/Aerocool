@@ -20,7 +20,7 @@ summary: "Одно предложение о том, что пользовате
 image: "01-front.png"
 cover:
   image: "01-front.png"
-  alt: "Обложка статьи Aerocool <TOPIC>"
+  alt: "Статья Aerocool о <TOPIC>"
   relative: true
   hiddenInSingle: true
 schema_types: ["website", "article", "organization", "breadcrumbs"]
@@ -34,7 +34,7 @@ schema_types: ["website", "article", "organization", "breadcrumbs"]
   src="01-front.png"
   width="1536"
   height="1024"
-  alt="Обложка статьи Aerocool <TOPIC>"
+  alt="Статья Aerocool о <TOPIC>"
   title="Aerocool <TITLE>"
   loading="eager"
   preload=true

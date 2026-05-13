@@ -102,11 +102,12 @@
 ## Изображения И SEO
 
 - Для контентных изображений по возможности использовать shortcode `seo-image`, а не сырые `<img>`.
+- Для каждого файла `content/**/*.md` поддерживать связку `image` + полный служебный `cover`-блок: `cover.image`, `cover.alt`, `cover.relative`, `cover.hiddenInSingle`.
 - Для товарных карточек текущий стандарт такой: `image` во front matter для SEO/OG/schema, `cover.image` для preview в листингах и `seo-image` в теле страницы для основного изображения.
 - Для главных изображений первого экрана (LCP) обычно нужен `eager loading`; для второстепенных изображений — `lazy loading`.
 - Для hero-изображения главной страницы сейчас используется обычный `<img>` внутри `layouts/_shortcodes/home-hero.html`; там сохранять локальный путь через `relURL`, `loading="eager"` и `fetchpriority="high"`.
 - Параметр `jsonld` в shortcode `seo-image` больше не использовать: schema для primary image собирается централизованно из `image` во front matter.
-- `alt` должен быть описательным и соответствовать языку страницы.
+- `alt` и `cover.alt` должны быть описательными и соответствовать языку страницы. Для `cover.alt` лучше называть сущность или тему изображения, а не начинать с общей формулы вроде `Обложка` / `Обкладинка`.
 - В проекте уже есть шаблоны schema.org-разметки для `website`, `organization`, `brand`, `collection`, `article`, `news`, `product`, `faq` и `breadcrumbs`.
 
 ## Шаблоны И Стили

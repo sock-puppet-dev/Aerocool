@@ -20,7 +20,7 @@ slug: "<series>"
 image: "cover.webp"
 cover:
   image: "cover.webp"
-  alt: "Обложка серии Aerocool <SERIES>"
+  alt: "Серия Aerocool <SERIES> с эргономичными креслами"
   relative: true
   hiddenInSingle: true
 schema_types: ["website", "collection", "organization", "breadcrumbs"]

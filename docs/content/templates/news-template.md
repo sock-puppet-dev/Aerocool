@@ -20,7 +20,7 @@ slug: "<slug>"
 image: "01-front.png"
 cover:
   image: "01-front.png"
-  alt: "Обкладинка новини про Aerocool <MODEL/SERIES>"
+  alt: "Новость Aerocool о <MODEL/SERIES>"
   relative: true
   hiddenInSingle: true
 schema_types: ["website", "news", "organization", "breadcrumbs"]
@@ -34,7 +34,7 @@ schema_types: ["website", "news", "organization", "breadcrumbs"]
   src="01-front.png"
   width="1536"
   height="1024"
-  alt="Обкладинка новини про Aerocool <MODEL/SERIES>"
+  alt="Новость Aerocool о <MODEL/SERIES>"
   title="Aerocool <TITLE>"
   loading="eager"
   preload=true

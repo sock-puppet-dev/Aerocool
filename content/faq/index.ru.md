@@ -4,7 +4,7 @@ slug: "faq"
 date: 2025-08-05T10:00:00+03:00
 description: "FAQ Aerocool в Украине: серии SKY, WING и XTAL, материалы Racer, Loft Air и Mesh, 7D, 8D, 11D, Synchronous Tilt, гарантия, доставка, оплата, возврат, сборка и помощь в выборе кресла для работы и гейминга."
 summary: "Практичный FAQ о креслах Aerocool: серии, материалы, настройки, сервис и помощь с выбором."
-lastmod: 2026-05-07
+lastmod: 2026-05-13
 schema_types: ["website", "faq", "organization", "breadcrumbs"]
 about_entities:
   - "faq-page"
@@ -30,6 +30,11 @@ mentions_entities:
   - "computer-chair"
   - "home-office"
 image: "cover.webp"
+cover:
+  image: "cover.webp"
+  alt: "FAQ Aerocool в Украине о сериях, доставке, оплате и гарантии"
+  relative: true
+  hiddenInSingle: true
 faq:
   - question: "Aerocool.ua — это официальный сайт бренда в Украине?"
     answer: >-

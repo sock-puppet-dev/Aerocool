@@ -2,7 +2,7 @@
 title: "Контакты Aerocool Украина"
 description: "Контакты Aerocool Украина: консультации по игровым, офисным и компьютерным креслам серий SKY, WING и XTAL, подбор по сценарию, доставка, гарантия и сервис."
 date: 2025-08-05T10:00:00+03:00
-lastmod: 2026-05-07
+lastmod: 2026-05-13
 summary: "Контакты Aerocool Украина: телефон, email, адрес офиса и консультации по подбору игровых, офисных и компьютерных кресел."
 slug: "contact"
 schema_types: ["website", "organization", "contact-page", "breadcrumbs"]
@@ -14,6 +14,11 @@ mentions_entities:
   - "return-policy"
   - "warranty-policy"
 image: "cover.webp"
+cover:
+  image: "cover.webp"
+  alt: "Контакты Aerocool Украина для консультации по выбору кресла"
+  relative: true
+  hiddenInSingle: true
 ---
 
 {{< contact >}}
