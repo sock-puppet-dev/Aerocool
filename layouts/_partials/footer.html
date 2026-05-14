@@ -29,7 +29,14 @@
       <div class="site-footer__brand space-y-8">
         <a href="{{ "" | absLangURL }}" class="site-footer__logo inline-flex">
           <span class="sr-only">{{ site.Title }}</span>
-          <img src="{{ "/images/logo.svg" | relURL }}" alt="{{ site.Title }}" class="h-9 w-auto brightness-0 invert" />
+          <img
+            src="{{ "/images/logo.svg" | relURL }}"
+            alt=""
+            aria-hidden="true"
+            width="512"
+            height="279"
+            class="h-9 w-auto brightness-0 invert"
+          />
         </a>
         <p class="site-footer__description text-sm/6 text-balance text-gray-400">{{ $footerText }}</p>
         <div class="site-footer__social flex gap-x-6">

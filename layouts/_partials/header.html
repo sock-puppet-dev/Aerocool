@@ -58,6 +58,8 @@
           src="{{ $logo_src }}"
           alt=""
           aria-hidden="true"
+          width="{{ $logo_width | default 512 }}"
+          height="{{ $logo_height }}"
           style="{{ $logo_style | safeCSS }}"
           decoding="async"
         >
@@ -240,6 +242,8 @@
             {{- if $logo_src }}
             <img
               src="{{ $logo_src }}"
+              width="{{ $logo_width | default 512 }}"
+              height="{{ $logo_height }}"
               style="{{ $logo_style | safeCSS }}"
               decoding="async"
               alt=""
