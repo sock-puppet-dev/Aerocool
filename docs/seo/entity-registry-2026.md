@@ -1,6 +1,6 @@
 # Entity Registry Aerocool 2026
 
-Обновлено: 2026-05-13.
+Обновлено: 2026-05-14.
 
 Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md). Реестр остается governance-документом: `confirmed` сущности можно использовать в JSON-LD, staged/planned сущности не должны становиться сильными связями без видимого подтверждения на странице.
 
@@ -29,6 +29,8 @@
 - Product facts canonical source — product front matter; владелец business values — команда Aerocool Украина.
 - Не добавлять entity fields в `content/`, пока Hugo templates не умеют безопасно читать эти поля.
 - Не создавать новые schema nodes, если человек не видит соответствующий факт на странице.
+- Hugo генерирует отдельные registry-based JSON-LD nodes для `confirmed` сущностей классов `Material`, `Mechanism`, `Feature`, `UseCase`, `ContentTopic` и `Policy`, если они используются в `about_entities` или `mentions_entities`. Product, Organization, Brand, WebPage и Collection nodes не дублируются, потому что для них уже есть отдельные schema partials.
+- Registry-based nodes должны оставаться объяснительными: они называют сущность, дают стабильный `@id`, `entity_home`, localized `name`, `alternateName`, `identifier` и связи `isRelatedTo`, но не заменяют Product/Offer/FAQ/Article schema.
 
 ## 3. Entity Statuses
 
@@ -48,7 +50,7 @@
 | `entity_class` | Brand, Organization, ProductSeries, ProductGroup, ProductVariant, Material, Mechanism, UseCase, Policy, ContentHub |
 | `schema_candidate` | Schema.org type to consider, not always active today |
 | `current_jsonld_id` | Existing `@id` emitted by current Hugo templates |
-| `future_jsonld_id` | Proposed `@id` for future graph nodes |
+| `future_jsonld_id` | Stable `@id` for registry-managed nodes that are not emitted by core Product/Organization/Page partials |
 | `entity_home` | Best URL on `aerocool.ua` for the entity |
 | `owner` | Who owns factual accuracy |
 | `status` | Registry status |
@@ -151,17 +153,17 @@ Only these global profiles are currently approved as exact identity links for gl
 
 | entity_id | name_en | name_uk | name_ru | entity_class | schema_candidate | entity_home | status | Current Strong Pages | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `racer-material` | Racer | Racer | Racer | Material | `DefinedTerm` or `Thing` | `/articles/racer-vs-loft-air-vs-mesh-materials/` | `confirmed` | material comparison article; Racer product pages | Leatherette-like dense contact and easier care. |
-| `loft-air-material` | Loft Air | Loft Air | Loft Air | Material | `DefinedTerm` or `Thing` | `/articles/racer-vs-loft-air-vs-mesh-materials/` | `confirmed` | material comparison article; Loft Air product pages | Ventilated multilayer textile feel. |
-| `mesh-material` | Mesh | Mesh / сітка | Mesh / сетка | Material | `DefinedTerm` or `Thing` | `/articles/racer-vs-loft-air-vs-mesh-materials/` | `confirmed` | material comparison article; SKY and Mesh product pages | Maximum ventilation entity. |
-| `leatherette-material` | Leatherette | екошкіра / Leatherette | экокожа / Leatherette | Material | `DefinedTerm` or `Thing` | `/articles/racer-vs-loft-air-vs-mesh-materials/` | `planned` | Racer pages | Treat as material behind Racer, not as separate page topic yet. |
-| `fabric-material` | Fabric | тканина | ткань | Material | `DefinedTerm` or `Thing` | `/articles/racer-vs-loft-air-vs-mesh-materials/` | `planned` | Loft Air pages | Treat as generic material until glossary is stronger. |
+| `racer-material` | Racer | Racer | Racer | Material | `DefinedTerm` or `Thing` | `/articles/racer-vs-loft-air-vs-mesh/` | `confirmed` | material comparison article; Racer product pages | Leatherette-like dense contact and easier care. |
+| `loft-air-material` | Loft Air | Loft Air | Loft Air | Material | `DefinedTerm` or `Thing` | `/articles/racer-vs-loft-air-vs-mesh/` | `confirmed` | material comparison article; Loft Air product pages | Ventilated multilayer textile feel. |
+| `mesh-material` | Mesh | Mesh / сітка | Mesh / сетка | Material | `DefinedTerm` or `Thing` | `/articles/racer-vs-loft-air-vs-mesh/` | `confirmed` | material comparison article; SKY and Mesh product pages | Maximum ventilation entity. |
+| `leatherette-material` | Leatherette | екошкіра / Leatherette | экокожа / Leatherette | Material | `DefinedTerm` or `Thing` | `/articles/racer-vs-loft-air-vs-mesh/` | `planned` | Racer pages | Treat as material behind Racer, not as separate page topic yet. |
+| `fabric-material` | Fabric | тканина | ткань | Material | `DefinedTerm` or `Thing` | `/articles/racer-vs-loft-air-vs-mesh/` | `planned` | Loft Air pages | Treat as generic material until glossary is stronger. |
 
 ## 13. Mechanism And Feature Entities
 
 | entity_id | name_en | name_uk | name_ru | entity_class | schema_candidate | entity_home | status | Strong Pages | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `synchronous-tilt` | Synchronous Tilt | Synchronous Tilt | Synchronous Tilt | Mechanism | `DefinedTerm` or `Thing` | `/articles/what-is-synchronous-tilt-guide/` | `confirmed` | sync tilt guide; product pages | Main tilt concept. |
+| `synchronous-tilt` | Synchronous Tilt | Synchronous Tilt | Synchronous Tilt | Mechanism | `DefinedTerm` or `Thing` | `/articles/what-is-synchronous-tilt/` | `confirmed` | sync tilt guide; product pages | Main tilt concept. |
 | `sync4-mechanism` | SYNC4 | SYNC4 | SYNC4 | Mechanism | `DefinedTerm` or `Thing` | `/articles/sync4-sync5-mechanism-guide/` | `confirmed` | SYNC4/SYNC5 guide; SKY Lite | Use where product content visibly says SYNC4. |
 | `sync5-mechanism` | SYNC5 | SYNC5 | SYNC5 | Mechanism | `DefinedTerm` or `Thing` | `/articles/sync4-sync5-mechanism-guide/` | `confirmed` | SYNC4/SYNC5 guide; SKY 360, WING, XTAL | Use where product content visibly says SYNC5. |
 | `7d-adjustment` | 7D adjustment | 7D регулювання | 7D регулировка | Feature | `DefinedTerm` or `Thing` | `/articles/how-to-choose-chair-by-adjustability/` | `confirmed` | adjustability guide; XTAL pages | Candidate for `additionalProperty`. |
@@ -183,7 +185,7 @@ Only these global profiles are currently approved as exact identity links for gl
 | `ergonomic-chair` | ergonomic chair | ергономічне крісло | эргономичное кресло | UseCase / ProductCategory | `Thing` or `DefinedTerm` | `/products/` | `confirmed` | Parent concept for selection articles. |
 | `home-office` | home office | home office | home office | UseCase | `Thing` or `DefinedTerm` | `/articles/how-to-choose-aerocool-chair/` | `confirmed` | Important for AI Search prompts and product copy. |
 | `long-sitting` | long sitting | довгі сесії | долгие сессии | UseCase | `Thing` or `DefinedTerm` | `/articles/how-to-choose-aerocool-chair/` | `planned` | Useful for ergonomic comparisons. |
-| `hot-room` | hot room | жарке приміщення | жаркое помещение | UseCase | `Thing` or `DefinedTerm` | `/articles/racer-vs-loft-air-vs-mesh-materials/` | `planned` | Connected to Mesh and Loft Air material decisions. |
+| `hot-room` | hot room | жарке приміщення | жаркое помещение | UseCase | `Thing` or `DefinedTerm` | `/articles/racer-vs-loft-air-vs-mesh/` | `planned` | Connected to Mesh and Loft Air material decisions. |
 | `chair-selection` | chair selection | вибір крісла | выбор кресла | ContentTopic | `Thing` or `DefinedTerm` | `/articles/how-to-choose-aerocool-chair/` | `confirmed` | Main editorial support topic. |
 
 ## 15. Service Policy Entities
@@ -206,10 +208,10 @@ This section maps existing article pages to primary and secondary entities. It i
 | --- | --- | --- | --- |
 | `/articles/how-to-choose-aerocool-chair/` | `chair-selection`, `aerocool-catalog` | `sky-series`, `wing-series`, `xtal-series`, `gaming-chair`, `office-chair`, `computer-chair`, `home-office`, `racer-material`, `loft-air-material`, `mesh-material` | `confirmed` |
 | `/articles/how-to-choose-chair-by-adjustability/` | `7d-adjustment`, `8d-adjustment`, `11d-adjustment` | `sky-series`, `wing-series`, `xtal-series`, `sky-lite`, `sky-360`, `synchronous-tilt` | `confirmed` |
-| `/articles/racer-vs-loft-air-vs-mesh-materials/` | `racer-material`, `loft-air-material`, `mesh-material` | `leatherette-material`, `fabric-material`, `hot-room`, `gaming-chair`, `office-chair`, `home-office` | `confirmed` |
+| `/articles/racer-vs-loft-air-vs-mesh/` | `racer-material`, `loft-air-material`, `mesh-material` | `leatherette-material`, `fabric-material`, `hot-room`, `gaming-chair`, `office-chair`, `home-office` | `confirmed` |
 | `/articles/sky-lite-vs-sky-360-guide/` | `sky-series` | `sky-lite`, `sky-360`, `8d-adjustment`, `11d-adjustment`, `sync4-mechanism`, `sync5-mechanism`, `home-office` | `confirmed` |
 | `/articles/sync4-sync5-mechanism-guide/` | `sync4-mechanism`, `sync5-mechanism` | `synchronous-tilt`, `sky-lite`, `sky-360`, `wing-series`, `xtal-series` | `confirmed` |
-| `/articles/what-is-synchronous-tilt-guide/` | `synchronous-tilt` | `sync4-mechanism`, `sync5-mechanism`, `office-chair`, `home-office`, `long-sitting` | `confirmed` |
+| `/articles/what-is-synchronous-tilt/` | `synchronous-tilt` | `sync4-mechanism`, `sync5-mechanism`, `office-chair`, `home-office`, `long-sitting` | `confirmed` |
 | `/articles/wing-vs-xtal-comparison/` | `wing-series`, `xtal-series` | `11d-adjustment`, `7d-adjustment`, `dual-backrest`, `replaceable-elements`, `racer-material`, `loft-air-material`, `mesh-material`, `gaming-chair`, `computer-chair`, `home-office` | `confirmed` |
 
 ## 17. News Entity Mapping
@@ -327,6 +329,7 @@ Resolver requirements:
 - fail or warn on unknown ID;
 - filter `planned`, `needs-review` and `do-not-markup` entities from JSON-LD by default;
 - support `about`, `mentions`, `isVariantOf` and `inProductGroupWithID`;
+- generate registry-based nodes for confirmed dictionary/policy entities used in `about_entities` and `mentions_entities`;
 - keep `additionalProperty` for a later pass after visible specification tables exist.
 
 ## 21. QA Rules

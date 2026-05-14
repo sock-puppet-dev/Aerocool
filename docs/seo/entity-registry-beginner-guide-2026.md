@@ -76,6 +76,8 @@ product_group_id: "wing-racer-product-group"
 
 Шаблоны в `layouts/_partials/_schema/` читают front matter, проверяют `entity_id` через [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml) и выводят JSON-LD только для безопасных сущностей.
 
+Для части `confirmed` сущностей шаблоны теперь создают не только ссылку вида `{ "@id": "..." }`, но и отдельный небольшой JSON-LD node. Это касается материалов, механизмов, фич, сценариев, тем и service policy сущностей. Например `gaming-chair` может стать `DefinedTerm`, а `delivery-policy` — объяснительным `Thing` с `name`, `url`, `identifier` и связями. Product, Brand, Organization и WebPage так не дублируются, потому что для них уже есть отдельные schema partials.
+
 ## 4. Главное Правило
 
 Не добавляй entity-поле “на всякий случай”.
@@ -292,6 +294,7 @@ about_entities:
 
 - Entity IDs есть в [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml).
 - Для JSON-LD используются только `confirmed` сущности.
+- Для `confirmed` materials/mechanisms/features/use cases/topics/policies registry node появляется только если сущность реально используется в `about_entities` или `mentions_entities`.
 - `product_group_id` заполнен только на товарных страницах.
 - ProductGroup не переводится в `confirmed` без видимой навигации вариантов.
 - Украинская и русская версии страницы синхронны.

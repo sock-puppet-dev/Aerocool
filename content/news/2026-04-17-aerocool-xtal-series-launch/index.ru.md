@@ -3,7 +3,7 @@ title: "Aerocool представляет XTAL: серию со сменными
 description: "Официальный анонс серии Aerocool XTAL: конструкция со сменными элементами, возможность отдельно заменить подушки, 3D подлокотники с подушками и Synchronous Tilt."
 summary: "Запуск серии XTAL: эргономичные и игровые кресла с конструкцией со сменными элементами, Synchronous Tilt и вариантами Racer, Loft Air, Mesh."
 date: 2026-04-17T10:00:00+03:00
-lastmod: 2026-05-13
+lastmod: 2026-05-14
 slug: "xtal-series-launch"
 schema_types: ["website", "news", "organization", "breadcrumbs"]
 about_entities:
@@ -115,7 +115,7 @@ XTAL прежде всего заинтересует:
 
 Если вас интересует XTAL как серия, переходите в [всю линейку XTAL](/ru/products/xtal/). Если нужен более плотный gaming-характер — смотрите Racer. Если важен баланс между вентиляцией и более мягким контактом — открывайте Loft Air. Если же приоритетом является воздухообмен — обратите внимание на Mesh.
 
-Для более широкого выбора внутри проекта также полезно сравнить [XTAL и WING](/ru/articles/wing-vs-xtal/) и общий гид [как выбрать кресло Aerocool](/ru/articles/how-to-choose-aerocool-chair/).
+Для более широкого выбора также полезно сравнить [XTAL и WING](/ru/articles/wing-vs-xtal/) и общий гид [как выбрать кресло Aerocool](/ru/articles/how-to-choose-aerocool-chair/).
 
 ## Как XTAL дополняет каталог Aerocool
 

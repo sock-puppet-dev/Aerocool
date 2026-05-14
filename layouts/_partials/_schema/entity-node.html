@@ -1,0 +1,95 @@
+{{- $site := site -}}
+{{- $page := .page -}}
+{{- $id := "" -}}
+{{- if reflect.IsMap . -}}
+  {{- with .site -}}
+    {{- $site = . -}}
+  {{- end -}}
+  {{- with .page -}}
+    {{- $page = . -}}
+  {{- end -}}
+  {{- with .id -}}
+    {{- $id = printf "%s" . -}}
+  {{- end -}}
+{{- else -}}
+  {{- $id = printf "%s" . -}}
+{{- end -}}
+
+{{- $entities := index hugo.Data "entities" -}}
+{{- $node := false -}}
+{{- $eligibleClasses := slice "Material" "Mechanism" "Feature" "UseCase" "ContentTopic" "Policy" -}}
+{{- with index $entities $id -}}
+  {{- $entity := . -}}
+  {{- $status := .status | default "planned" -}}
+  {{- $entityClass := .entity_class | default "" -}}
+  {{- if and (eq $status "confirmed") (in $eligibleClasses $entityClass) -}}
+    {{- $jsonldID := .current_jsonld_id | default .future_jsonld_id -}}
+    {{- with $jsonldID -}}
+      {{- $schemaCandidate := $entity.schema_candidate | default "Thing" -}}
+      {{- $nodeType := "DefinedTerm" -}}
+      {{- if eq $entityClass "Policy" -}}
+        {{- $nodeType = "Thing" -}}
+      {{- else if eq $schemaCandidate "Thing" -}}
+        {{- $nodeType = "Thing" -}}
+      {{- end -}}
+
+      {{- $lang := "en" -}}
+      {{- with $page.Language.Name -}}
+        {{- $lang = . -}}
+      {{- end -}}
+      {{- $names := $entity.name | default dict -}}
+      {{- $name := index $names $lang | default (index $names "en") | default $id -}}
+      {{- $alternateNames := slice -}}
+      {{- $seenNames := dict (printf "%s" $name) true -}}
+      {{- range $nameLang, $nameValue := $names -}}
+        {{- $nameValue = printf "%s" $nameValue -}}
+        {{- if and $nameValue (not (index $seenNames $nameValue)) -}}
+          {{- $alternateNames = $alternateNames | append $nameValue -}}
+          {{- $seenNames = merge $seenNames (dict $nameValue true) -}}
+        {{- end -}}
+      {{- end -}}
+
+      {{- $entityHome := $entity.entity_home | default "" -}}
+      {{- $homeURL := "" -}}
+      {{- with $entityHome -}}
+        {{- if or (hasPrefix . "http://") (hasPrefix . "https://") -}}
+          {{- $homeURL = . -}}
+        {{- else -}}
+          {{- $homeURL = . | absURL -}}
+        {{- end -}}
+      {{- end -}}
+
+      {{- $node = dict
+        "@type" $nodeType
+        "@id" .
+        "name" $name
+        "identifier" $id
+      -}}
+      {{- with partial "page-language.html" $page -}}
+        {{- $node = merge $node (dict "inLanguage" .) -}}
+      {{- end -}}
+      {{- if gt (len $alternateNames) 0 -}}
+        {{- $node = merge $node (dict "alternateName" $alternateNames) -}}
+      {{- end -}}
+      {{- with $homeURL -}}
+        {{- $node = merge $node (dict
+          "url" .
+          "subjectOf" (dict "@id" (printf "%s#webpage" .))
+        ) -}}
+      {{- end -}}
+      {{- if eq $nodeType "DefinedTerm" -}}
+        {{- $node = merge $node (dict "termCode" $id) -}}
+      {{- end -}}
+      {{- if and (eq $entityClass "Policy") (ne $schemaCandidate "Thing") -}}
+        {{- $node = merge $node (dict "additionalType" (printf "https://schema.org/%s" $schemaCandidate)) -}}
+      {{- end -}}
+      {{- with $entity.related -}}
+        {{- $relatedRefs := partial "_schema/entity-ref-list.html" (dict "site" $site "ids" .) -}}
+        {{- if gt (len $relatedRefs) 0 -}}
+          {{- $node = merge $node (dict "isRelatedTo" $relatedRefs) -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $node -}}

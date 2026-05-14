@@ -1,0 +1,29 @@
+{{- $site := site -}}
+{{- $page := .page -}}
+{{- $ids := slice -}}
+{{- if reflect.IsMap . -}}
+  {{- with .site -}}
+    {{- $site = . -}}
+  {{- end -}}
+  {{- with .page -}}
+    {{- $page = . -}}
+  {{- end -}}
+  {{- with .ids -}}
+    {{- $ids = . -}}
+  {{- end -}}
+{{- else -}}
+  {{- $ids = . -}}
+{{- end -}}
+
+{{- $nodes := slice -}}
+{{- $seen := dict -}}
+{{- range $ids -}}
+  {{- $id := printf "%s" . -}}
+  {{- if not (index $seen $id) -}}
+    {{- $seen = merge $seen (dict $id true) -}}
+    {{- with partial "_schema/entity-node.html" (dict "site" $site "page" $page "id" $id) -}}
+      {{- $nodes = $nodes | append . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $nodes -}}

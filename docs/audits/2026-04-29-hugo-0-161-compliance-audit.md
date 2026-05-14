@@ -102,7 +102,7 @@ allowworker = ['tailwindcss']
 Проверка локальных шаблонов:
 
 - Deprecated `.Language.Lang`, `.Language.LanguageCode`, `.Language.LanguageDirection`, `.Language.LanguageName` в локальных `layouts/` не найдены.
-- Старые обращения к language API в `layouts/_shortcodes/contact.html`, `layouts/_shortcodes/home-hero.html` и `layouts/404.html` заменены на `.Page.Language.Name` / `.Site.Language.Name`.
+- Старые обращения к language API в `layouts/_shortcodes/contact.html`, `layouts/_shortcodes/home-hero.html`, `layouts/404.html` и `layouts/_partials/_schema/entity-node.html` заменены на `.Page.Language.Name` / `.Site.Language.Name`.
 - `layouts/baseof.html` использует `.Language.Direction`.
 - `layouts/_partials/page-language.html` использует `.Language.Locale` с fallback на `.Language.Name`.
 - `layouts/rss.xml` использует `site.Language.Locale | default site.Language.Name`.

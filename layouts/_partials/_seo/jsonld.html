@@ -94,6 +94,29 @@
   {{- end -}}
 {{- end -}}
 
+{{/* REGISTRY ENTITY NODES */}}
+{{- $existingIDs := dict -}}
+{{- range $graph -}}
+  {{- with index . "@id" -}}
+    {{- $existingIDs = merge $existingIDs (dict . true) -}}
+  {{- end -}}
+{{- end -}}
+{{- $entityNodeIDs := slice -}}
+{{- range (.Params.about_entities | default (slice)) -}}
+  {{- $entityNodeIDs = $entityNodeIDs | append . -}}
+{{- end -}}
+{{- range (.Params.mentions_entities | default (slice)) -}}
+  {{- $entityNodeIDs = $entityNodeIDs | append . -}}
+{{- end -}}
+{{- range $entityNode := partial "_schema/entity-node-list.html" (dict "site" .Site "page" . "ids" $entityNodeIDs) -}}
+  {{- with index $entityNode "@id" -}}
+    {{- if not (index $existingIDs .) -}}
+      {{- $graph = $graph | append $entityNode -}}
+      {{- $existingIDs = merge $existingIDs (dict . true) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
 {{/* ======================== ФИНАЛЬНЫЙ ВЫВОД ======================== */}}
 
 {{- if gt (len $graph) 0 -}}

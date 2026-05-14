@@ -21,6 +21,7 @@ schema_types: ["website", "product", "organization", "breadcrumbs"]
 - `schema_types` определяет, какие schema.org-сущности включает шаблонный слой.
 - `website`, `organization`, `brand`, `collection`, `article`, `news`, `product`, `faq`, `breadcrumbs`, `about-page`, `contact-page` являются рабочими флагами.
 - Опорные узлы вроде `logo` и `brand` могут подключаться автоматически как зависимости выбранных сущностей, чтобы в графе не было висячих `@id`-ссылок.
+- Registry-based узлы для `confirmed` materials, mechanisms, features, use cases, topics и policies подключаются автоматически из `about_entities` и `mentions_entities`. Они усиливают graph как `DefinedTerm` или объяснительные `Thing` nodes и не заменяют основные Product/Offer/Article/Page partials.
 - `schema_types` не управляет индексацией страницы. Для служебных страниц вроде `search` это решается через `robotsNoIndex` и `layouts/_partials/head.html`.
 - Для страниц с `layout: "search"` JSON-LD не рендерится, даже если в front matter есть `schema_types`.
 - `404` и служебные alias-страницы не описываются через метаданные в `content/`; для них используются отдельные шаблонные файлы.
