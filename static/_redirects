@@ -65,6 +65,10 @@
 /database.sql                           /404.html  404!
 /backup.sql                             /404.html  404!
 /db.sql                                 /404.html  404!
+/backup.*                               /404.html  404!
+/release.*                              /404.html  404!
+/web.*                                  /404.html  404!
+/dist.*                                 /404.html  404!
 /info.php                               /404.html  404!
 /old_phpinfo.php                        /404.html  404!
 /phpinfo.php                            /404.html  404!
