@@ -46,6 +46,7 @@
 
 - `README.md`
 - `docs/README.md`
+- `docs/architecture/documentation-style-guide.md`
 - `docs/seo/seo-keyword-map-2026.md`
 - `docs/content/content-seo-checklist-2026.md`
 - `docs/content/front-matter-reference.md`
@@ -63,7 +64,10 @@
 - `docs/seo/ssg-seo-checklist-2026.md`
 - `docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md`
 - `docs/audits/2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md`
+- `docs/audits/2026-05-13-content-image-cover-alt-audit.md`
 - `docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md`
+- `docs/audits/2026-05-14-seo-image-documentation-cleanup.md`
+- `docs/audits/2026-05-15-documentation-full-audit.md`
 - `docs/architecture/browser-view-transitions.md`
 - `docs/deploy/local-tooling-mise.md`
 - `docs/deploy/netlify-routing.md`
@@ -74,6 +78,8 @@
 Для новичка порядок чтения такой: сначала `README.md`, затем `docs/README.md`, затем `docs/content/front-matter-reference.md`, затем `docs/architecture/hugo-template-helpers.md`, затем `docs/quality/unlighthouse-site-audit.md`. Для SEO/schema-задач после этого читать `docs/seo/schema-types-reference.md`, `docs/seo/schema-markup-quality-checklist-2026.md`, `docs/seo/entities-knowledge-graph-playbook-2026.md` и профильный playbook по задаче. Для performance/Core Web Vitals-задач читать `docs/quality/core-web-vitals-guide-2026.md`. Остальные гайды подключать по задаче.
 
 ## Контентные Правила
+
+- Вся проектная документация должна быть написана на русском языке, с пояснениями для новичка и строгой структурой. Английские термины оставлять только для названий технологий, файлов, команд, полей и официальных SEO/schema/CWV-терминов. Подробный стандарт — `docs/architecture/documentation-style-guide.md`.
 
 - Украинская и русская версии должны оставаться синхронными, если задача явно не ограничена одним языком.
 - Текущий локализационный паттерн: `index.md` для украинской версии и `index.ru.md` для русской внутри одной папки страницы (`page bundle`).

@@ -1,6 +1,6 @@
 # SEO-Чек-Лист Контента Aerocool 2026
 
-Актуально на `2026-05-14`.
+Актуально на `2026-05-15`.
 
 Этот документ — единый редакционный и SEO-регламент для всего проекта `Aerocool`. Он адаптирован под текущую структуру сайта на `Hugo` с разделами `home`, `products`, `articles`, `news`, `faq`, `about`, `contact`, `search`, а также под двуязычную архитектуру `uk` + `ru`.
 
@@ -10,7 +10,7 @@
 
 Текущий практический порядок работ после обновления документации описан в [2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md).
 
-Как пользоваться новичку: перед публикацией страницы бери нужный раздел этого чек-листа, проходи пункты сверху вниз и отмечай только то, что действительно выполнено в тексте, front matter, изображениях, ссылках и schema.org. Если пункт непонятен, сначала смотри [README.md](/Users/stadnyk/MEGA/Aerocool/README.md), [front-matter.md](/Users/stadnyk/MEGA/Aerocool/docs/content/front-matter-reference.md) и [helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/hugo-template-helpers.md).
+Как пользоваться новичку: перед публикацией страницы бери нужный раздел этого чек-листа, проходи пункты сверху вниз и отмечай только то, что действительно выполнено в тексте, front matter, изображениях, ссылках и schema.org. Если пункт непонятен, сначала смотри [README.md](/Users/stadnyk/MEGA/Aerocool/README.md), [front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/front-matter-reference.md) и [hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/hugo-template-helpers.md).
 
 ## 1. Что Уже Есть В Проекте
 

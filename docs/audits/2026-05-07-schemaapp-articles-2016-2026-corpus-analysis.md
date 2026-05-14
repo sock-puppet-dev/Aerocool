@@ -1,4 +1,4 @@
-# SchemaApp Articles Corpus Analysis 2016-2026
+# Анализ Корпуса Статей SchemaApp 2016-2026
 
 Дата анализа: `2026-05-07`.
 
@@ -28,7 +28,7 @@
 
 ## 2. Самое Новое И Важное Для Aerocool
 
-### 2.1. AI Search Требует Четкости, Уникальности И Структуры
+### 2.1. Поиск С AI Требует Четкости, Уникальности И Структуры
 
 Самый свежий материал: [Google Search Central Live: What Actually Matters in AI Search](https://www.schemaapp.com/schema-markup/google-search-central-live-toronto-what-actually-matters-in-ai-search/) от `2026-05-04`.
 
@@ -44,7 +44,7 @@
 - усиливать существующие страницы ясными блоками: короткий ответ, факты выбора, таблицы, FAQ, сравнения, product facts;
 - каждый новый блок сверять с schema.org и entity map.
 
-### 2.2. Structured Data Должна Стать Системой, А Не Page-Level Tactic
+### 2.2. Структурированные Данные Должны Стать Системой, А Не Тактикой На Уровне Одной Страницы
 
 Ключевые статьи:
 
@@ -64,7 +64,7 @@
 - поддерживать `entity home` для бренда, локальной организации, серий, моделей, материалов, механизмов и service policies;
 - поддерживать `about_entities`, `mentions_entities`, `product_group_id` только там, где связь подтверждена видимым контентом.
 
-### 2.3. AI-Generated Schema Markup Недостаточно
+### 2.3. Сгенерированной AI Schema-Разметки Недостаточно
 
 Ключевые статьи:
 
@@ -84,7 +84,7 @@
 - не добавлять поля без документации в `front-matter-reference.md`;
 - контролировать schema drift при каждом изменении product facts.
 
-### 2.4. Entity-Based Topics Лучше Topic Clusters
+### 2.4. Темы На Основе Сущностей Лучше Простых Тематических Кластеров
 
 Ключевые статьи:
 
@@ -104,7 +104,7 @@
 - для каждой сущности определить главную страницу, поддерживающие статьи и товарные связи;
 - не создавать новую статью, если она конкурирует с существующим entity home.
 
-### 2.5. Entity Linking Повышает AIO/AI Visibility
+### 2.5. Связывание Сущностей Повышает Видимость В AIO И Поиске С AI
 
 Ключевые статьи:
 
@@ -125,7 +125,7 @@
 - держать глобальные соцсети Aerocool как `sameAs` глобального бренда/global organization, а local organization связывать через `parentOrganization` и `brand`;
 - добавлять `about` и `mentions` через safe resolver только для confirmed entities.
 
-### 2.6. Agentic Web, MCP, NLWeb И Graph-Vector RAG — P3, Не P0
+### 2.6. Agentic Web, MCP, NLWeb И Graph-Vector RAG — Приоритет P3, Не P0
 
 Ключевые статьи:
 
@@ -149,7 +149,7 @@
 
 ## 3. Самое Полезное Из 2024-2023 Evergreen
 
-### 3.1. Product Variants И `ProductGroup`
+### 3.1. Варианты Товаров И `ProductGroup`
 
 Ключевые статьи:
 
@@ -164,7 +164,7 @@
 - внедрять только после видимой навигации вариантов;
 - не размечать скрытую вариантность, которую пользователь не видит.
 
-### 3.2. `@id`, Nesting, RDF И Relationships
+### 3.2. `@id`, Вложенность, RDF И Связи
 
 Ключевые статьи:
 
@@ -180,7 +180,7 @@
 - связывать `WebPage.mainEntity`, `Product.brand`, `Article.author`, `BreadcrumbList`, `ImageObject`;
 - добавлять `about` и `mentions` через registry только после visible content QA.
 
-### 3.3. Multilingual Schema Markup
+### 3.3. Мультиязычная Schema-Разметка
 
 Ключевая статья:
 

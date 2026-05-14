@@ -1,4 +1,4 @@
-# Hugo v0.161.0 compliance audit
+# Аудит Совместимости С Hugo v0.161.0
 
 Дата аудита: 2026-04-29
 Актуализировано: 2026-05-05
@@ -31,7 +31,7 @@
 
 ## Что изменилось в Hugo 0.161.0 и влияние на проект
 
-### 1. Node tools теперь запускаются с Node `--permission`
+### 1. Node-Инструменты Теперь Запускаются С Node `--permission`
 
 В `0.161.0` Hugo hardened execution для Node-инструментов PostCSS, Babel и TailwindCSS. Теперь они запускаются через Node permission model, а разрешения берутся из `security.node.permissions`.
 
@@ -47,7 +47,7 @@
 
 Вывод: риска блокировки Tailwind из-за Node permission model нет.
 
-### 2. Новые default security settings
+### 2. Новые Настройки Безопасности По Умолчанию
 
 Эффективный конфиг Hugo `0.161.0` показал:
 
@@ -90,7 +90,7 @@ allowworker = ['tailwindcss']
 
 Вывод: CSS pipeline соответствует документации Hugo `0.161.0`.
 
-### 4. Языки и deprecated language API
+### 4. Языки И Устаревший Language API
 
 Актуальная документация Hugo считает deprecated:
 
@@ -145,7 +145,7 @@ allowworker = ['tailwindcss']
 
 Вывод: этот блок соответствует актуальной документации.
 
-### 7. Permalinks
+### 7. Постоянные Ссылки
 
 В Hugo `0.161.0` появился slice-based internal representation для permalink config с PageMatcher target.
 
@@ -157,7 +157,7 @@ allowworker = ['tailwindcss']
 
 Вывод: миграция синтаксиса permalinks не требуется.
 
-### 8. Content model
+### 8. Модель Контента
 
 Проверка:
 
@@ -201,7 +201,7 @@ allowworker = ['tailwindcss']
 
 Вывод: sitemap/RSS слой совместим.
 
-### 11. Theme PaperMod
+### 11. Тема PaperMod
 
 Проверка:
 
@@ -260,9 +260,9 @@ git diff --check
 - `git diff --check`: clean.
 - Template metrics подтверждают использование `rss.xml`, `search.html` и `_partials/translation-list.html`.
 
-## Findings
+## Замечания
 
-### Resolved - Hugo pins point to 0.161.0
+### Закрыто: Версии Hugo Указывают На 0.161.0
 
 Files:
 
@@ -278,7 +278,7 @@ HUGO_VERSION = "0.161.0"
 
 Impact: local/default tooling and Netlify build use Hugo `0.161.0`.
 
-### Intentional - Netlify build still uses development environment
+### Намеренно: Сборка Netlify Пока Использует Development-Окружение
 
 File: `netlify.toml:12`
 
@@ -296,7 +296,7 @@ Build command:
 command = "git submodule update --init --recursive && hugo --environment development --gc --minify"
 ```
 
-### Intentional - `params.env` remains `development`
+### Намеренно: `params.env` Остается `development`
 
 File: `hugo.yaml:110`
 
@@ -309,7 +309,7 @@ params:
 
 Impact: this is a theme/project param, not the same as Hugo's build environment. For the current project phase it intentionally stays `development`, matching `HUGO_ENVIRONMENT = "development"` and the temporary noindex behavior. Do not switch it to `production` until the separate production-readiness check is approved.
 
-### Resolved - RSS no longer references deprecated `site.Author`
+### Закрыто: RSS Больше Не Использует Устаревший `site.Author`
 
 File: `layouts/rss.xml`
 
@@ -317,11 +317,11 @@ The local RSS template uses only `site.Params.author` for author metadata. Fallb
 
 Impact: local RSS output no longer depends on deprecated author configuration keys.
 
-### P3 - PaperMod submodule still contains deprecated language API
+### P3: Подмодуль PaperMod Все Еще Содержит Устаревший Language API
 
 Files in `themes/PaperMod/layouts/` still reference deprecated language fields. Active project output is safe because local overrides replace those paths. Keep this on the checklist for future theme updates.
 
-## Current Hugo 0.161.0 checklist
+## Текущий Чек-Лист Hugo 0.161.0
 
 1. Expected `mise.toml`:
 
@@ -356,6 +356,6 @@ mise x hugo@0.161.0 node@24 -- hugo --environment development --gc --minify --pr
 mise x hugo@0.161.0 node@24 -- npm run build
 ```
 
-## Final assessment
+## Итоговая Оценка
 
 Hugo `0.161.0` is adopted in project tooling and Netlify configuration. The project code, local templates, i18n, Tailwind pipeline, SEO/schema templates, sitemap/RSS output and multilingual content model are compatible. The build environment remains `development` by design until production mode is approved.

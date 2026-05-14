@@ -1,4 +1,4 @@
-# JSON-LD Graph Audit And Roadmap 2026
+# Аудит И План Развития JSON-LD Графа 2026
 
 Актуально на `2026-05-14`.
 
@@ -13,7 +13,7 @@
 
 ## 1. Текущая Оценка
 
-### Schema.org / JSON-LD Graph: `10/10`
+### Schema.org / JSON-LD Граф: `10/10`
 
 Текущий граф технически чистый:
 
@@ -28,7 +28,7 @@
 
 Фактическая актуальная сборка в `development` содержит `86` HTML-страниц с JSON-LD: `24` `Product`, `14` `Article`, `14` `NewsArticle`, `74` `BreadcrumbList`, `2` `FAQPage`, `16` `CollectionPage`, `2` `AboutPage`, `2` `ContactPage`, а также registry-based nodes для подтвержденных сущностей: `DefinedTerm` и объяснительные `Thing` nodes из `about_entities` и `mentions_entities`. Из-за временного `HUGO_ENVIRONMENT = "development"` эти страницы сейчас получают `noindex,nofollow`; rich-results eligibility нужно перепроверить после production-перехода.
 
-### Google rich-results quality: `9/10`
+### Качество Google Rich Results: `9/10`
 
 Минус один балл не за синтаксис и не за schema.org Validator. После контентных обновлений `2026-05-06` цена, SKU, гарантия, наличие, merchant facts и rating value/count, когда rating есть во front matter, выводятся видимо. Оставшийся риск — источник рейтингов и индивидуальные review evidence пока не документированы как полноценный пользовательский слой.
 
@@ -63,7 +63,7 @@ Status `2026-05-07`: merchant-условия `Product` JSON-LD читаются 
 
 ## 3. Что Нужно Доделать Для `10/10` По Google Rich Results
 
-### P0. Видимый коммерческий блок на Product pages
+### P0. Видимый Коммерческий Блок На Товарных Страницах
 
 Status `2026-05-07`: базовый visible product facts block добавлен в контент, а product front matter зафиксирован как source of truth для тех же фактов, которые есть в JSON-LD:
 
@@ -79,7 +79,7 @@ Status `2026-05-07`: базовый visible product facts block добавлен
 
 Если рейтинг и отзывы пока не являются реальным пользовательским сигналом, лучше убрать `aggregateRating` или не усиливать review-layer.
 
-### P0. Синхронизация видимого UI и schema
+### P0. Синхронизация Видимого Интерфейса И Schema-Разметки
 
 Любое быстро меняющееся поле должно обновляться одновременно в UI и JSON-LD:
 
@@ -109,7 +109,7 @@ Status `2026-05-07`: базовый visible product facts block добавлен
 
 Важное условие: на странице должен быть видимый variant selector или хотя бы понятные ссылки на другие варианты.
 
-### P1. Product Properties
+### P1. Свойства Товара
 
 После появления видимых характеристик можно усилить `Product`:
 
@@ -140,7 +140,7 @@ Status `2026-05-07`: базовый visible product facts block добавлен
 
 Не добавлять это заранее, если на сайте еще нет видимых страниц или блоков с этими условиями.
 
-### P2. Author / Reviewer Layer Для Статей
+### P2. Слой Авторов И Проверяющих Для Статей
 
 Сейчас `Article` и `NewsArticle` используют организацию как `author` и `publisher`. Это безопасно.
 
@@ -154,7 +154,7 @@ Status `2026-05-07`: базовый visible product facts block добавлен
 
 Не добавлять фиктивных авторов или reviewer-сущности только ради E-E-A-T.
 
-### P2. About / Mentions Для Контентных Материалов
+### P2. Поля `about` И `mentions` Для Контентных Материалов
 
 Для статей и новостей можно добавить более явные связи:
 
@@ -164,7 +164,7 @@ Status `2026-05-07`: базовый visible product facts block добавлен
 
 Это имеет смысл после появления устойчивого front matter для связанных товаров/серий, чтобы не парсить связи из текста случайно.
 
-### P2. ImageObject Gallery
+### P2. Галерея `ImageObject`
 
 Сейчас есть единый `primaryImageOfPage`. Для товарных страниц позже можно расширить изображения:
 

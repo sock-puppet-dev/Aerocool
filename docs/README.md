@@ -1,6 +1,6 @@
 # Документация Aerocool
 
-Обновлено: 2026-05-14.
+Обновлено: 2026-05-15.
 
 Это оглавление всей проектной документации. В корне репозитория остались только два входных документа:
 
@@ -8,6 +8,18 @@
 - [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md) — правила работы для Codex/агентов.
 
 Все подробные гайды, чеклисты, шаблоны и аудиты лежат здесь, в `docs/`.
+
+## Стандарт Документации
+
+Вся документация проекта должна быть написана на русском языке и быть понятной новичку.
+
+Базовые правила:
+
+- заголовки и поясняющий текст пишутся по-русски;
+- английские слова оставляем только для названий технологий, файлов, команд, полей и официальных терминов;
+- у длинного документа должен быть понятный вход: зачем он нужен, как им пользоваться и что проверять после правок;
+- новые документы обязательно добавляются в это оглавление;
+- подробные правила стиля описаны в [architecture/documentation-style-guide.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/documentation-style-guide.md).
 
 ## Правило Имен Файлов
 
@@ -63,12 +75,13 @@
 3. [quality/lighthouse-single-page-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/lighthouse-single-page-audit.md)
 4. [content/seo-image-shortcode.md](/Users/stadnyk/MEGA/Aerocool/docs/content/seo-image-shortcode.md), если задача касается изображений
 
-## Architecture
+## Архитектура
 
+- [architecture/documentation-style-guide.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/documentation-style-guide.md) — единый стиль документации: русский язык, структура, пояснения для новичка и правила обновления.
 - [architecture/hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/hugo-template-helpers.md) — локальные Hugo partials/helpers, SEO helpers и schema helpers.
 - [architecture/browser-view-transitions.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/browser-view-transitions.md) — View Transitions и внешний `assets/js/site.js`.
 
-## Content
+## Контент
 
 - [content/front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/front-matter-reference.md) — все front matter поля для страниц.
 - [content/seo-image-shortcode.md](/Users/stadnyk/MEGA/Aerocool/docs/content/seo-image-shortcode.md) — shortcode `seo-image`.
@@ -95,18 +108,18 @@
 - [seo/google-seo-audit-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/google-seo-audit-checklist-2026.md) — полный SEO-аудит для сильного ранжирования в Google.
 - [seo/ssg-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/ssg-seo-checklist-2026.md) — общий SSG SEO-чеклист.
 
-## Quality
+## Качество
 
 - [quality/core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/core-web-vitals-guide-2026.md) — полный Core Web Vitals playbook для Hugo/Netlify/Tailwind сайта.
 - [quality/lighthouse-single-page-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/lighthouse-single-page-audit.md) — одиночный Lighthouse-аудит.
 - [quality/unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/unlighthouse-site-audit.md) — массовый Unlighthouse-аудит.
 
-## Deploy
+## Деплой
 
 - [deploy/local-tooling-mise.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/local-tooling-mise.md) — локальные версии Hugo/Node через `mise`.
 - [deploy/netlify-routing.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/netlify-routing.md) — Netlify `_redirects`, forced 404 и служебная 404-страница.
 
-## Audits
+## Аудиты
 
 - [audits/2026-04-29-hugo-0-161-compliance-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-04-29-hugo-0-161-compliance-audit.md) — аудит совместимости с Hugo 0.161.0.
 - [audits/2026-04-29-google-rich-results-quality-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-04-29-google-rich-results-quality-audit.md) — аудит Google rich results качества.
@@ -115,8 +128,10 @@
 - [audits/2026-05-06-project-readiness-assessment.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-06-project-readiness-assessment.md) — итоговая оценка готовности проекта после обновления документации и аудита.
 - [audits/2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md) — актуальный P0/P1/P2/P3 план действий для production, schema, entities и AI Search.
 - [audits/2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md) — corpus-анализ 126 статей SchemaApp за 2016-2026.
+- [audits/2026-05-13-content-image-cover-alt-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-content-image-cover-alt-audit.md) — аудит `image`, `cover`, `cover.alt`, markdown H1, inline-code и content image consistency.
 - [audits/2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md) — базовая синхронизация документации с лучшими практиками 2026.
 - [audits/2026-05-14-seo-image-documentation-cleanup.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-14-seo-image-documentation-cleanup.md) — очистка устаревшей информации по `seo-image`, LCP preload, `sizes`, AVIF, WebP и SEO-обещаниям.
+- [audits/2026-05-15-documentation-full-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-15-documentation-full-audit.md) — полный аудит документационного слоя, перекрестных ссылок, entity URL, оглавлений и открытых production-gate рисков.
 
 ## Правило Поддержки
 

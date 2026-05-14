@@ -1,10 +1,10 @@
-# Documentation 2026 Best Practices Sync Audit
+# Аудит Синхронизации Документации С Практиками 2026
 
 Дата аудита: 2026-05-13.
 
 Этот документ фиксирует проверку всей проектной документации `Aerocool Ukraine` на актуальность, взаимную согласованность и соответствие лучшим практикам 2026 года для Hugo / Netlify / Tailwind, Google SEO, Core Web Vitals, structured data, e-commerce, multilingual SEO и AI Search readiness.
 
-## 1. Scope
+## 1. Область Проверки
 
 Проверены:
 
@@ -16,7 +16,7 @@
 
 Исторические audit-файлы не переписывались задним числом. Их даты оставлены как даты фактических проверок; текущий документ является свежим синхронизационным снимком.
 
-## 2. External Sources Checked
+## 2. Проверенные Внешние Источники
 
 Официальные источники, с которыми сверены правила:
 
@@ -39,7 +39,7 @@
 - Netlify custom headers: https://docs.netlify.com/manage/routing/headers/
 - Netlify caching: https://docs.netlify.com/build/caching/caching-overview/
 
-## 3. Current Project State
+## 3. Текущее Состояние Проекта
 
 | Area | Current state | Status |
 |---|---|---|
@@ -54,9 +54,9 @@
 | Redirects/404 | Netlify `_redirects` and forced `404!` rules documented | OK |
 | AI Search | Covered as monitoring/entity layer, not as replacement for classic SEO | OK |
 
-## 4. Findings
+## 4. Замечания
 
-### Fixed In This Sync
+### Исправлено В Этой Синхронизации
 
 - Added standalone Core Web Vitals guide for Hugo / Netlify / Tailwind.
 - Linked CWV guide from `README.md`, `AGENTS.md`, `docs/README.md`, Lighthouse, Unlighthouse and SEO checklists.
@@ -65,7 +65,7 @@
 - Fixed stale `lighthouse.md` reference in the Unlighthouse guide.
 - Added current-source notes for Google Search Essentials, people-first content, page experience, structured data, product/merchant listing docs, Hugo Node security, Tailwind source detection and Netlify routing/cache/header behavior.
 
-### Still Intentionally Open
+### Намеренно Оставлено Открытым
 
 | Item | Why open | Required next step |
 |---|---|---|
@@ -76,7 +76,7 @@
 | AI Search baseline | Needs production index and real prompt monitoring | Start monthly baseline after launch |
 | Hugo `0.161.1`+ | Project pins `0.161.0` for reproducibility | Evaluate upgrade separately, do not drift silently |
 
-## 5. Best-Practice Alignment
+## 5. Соответствие Лучшим Практикам
 
 ### Google SEO
 
@@ -89,7 +89,7 @@ The documentation is aligned with 2026 Google guidance:
 - page experience and CWV matter, but are not a single magic ranking switch;
 - Search Console monitoring is required after production.
 
-### Structured Data
+### Структурированные Данные
 
 The documentation is aligned with current Google structured data guidance:
 
@@ -127,7 +127,7 @@ The documentation is aligned with Netlify behavior:
 - no broad `/* -> /404.html 404` fallback is used;
 - header and cache rules are documented as deploy-level behavior that must be verified on Deploy Preview or production.
 
-## 6. Recommended Reading Order After This Sync
+## 6. Рекомендуемый Порядок Чтения После Этой Синхронизации
 
 For a new contributor:
 
@@ -152,7 +152,7 @@ For performance/CWV work:
 3. [docs/quality/lighthouse-single-page-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/lighthouse-single-page-audit.md)
 4. [docs/content/seo-image-shortcode.md](/Users/stadnyk/MEGA/Aerocool/docs/content/seo-image-shortcode.md)
 
-## 7. Final Assessment
+## 7. Итоговая Оценка
 
 Documentation state after this sync:
 

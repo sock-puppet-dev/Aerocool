@@ -1,10 +1,10 @@
-# Google Rich Results Quality Audit
+# Аудит Качества Google Rich Results
 
 Дата аудита: 2026-04-29
 Актуализировано: 2026-05-06
 Проект: `Aerocool Ukraine` / Hugo / двуязычный сайт `uk` + `ru`
 
-## Scope
+## Область Проверки
 
 Проверено:
 
@@ -34,7 +34,7 @@
 - Organization: https://developers.google.com/search/docs/appearance/structured-data/organization
 - Sitelinks search box removal: https://developers.google.com/search/blog/2024/10/sitelinks-search-box
 
-## Build Result
+## Результат Сборки
 
 Примечание: проект временно собирается с `HUGO_ENVIRONMENT = "development"`, поэтому текущий generated HTML получает `noindex,nofollow`. Rich Results eligibility нужно перепроверить после включения production-режима, когда индексируемые страницы снова будут отдавать `index,follow`.
 
@@ -55,7 +55,7 @@ npm run build
 - Processed images: `296`
 - Build: успешный
 
-## Inventory
+## Инвентаризация
 
 Фактически найдено 88 HTML-страниц с JSON-LD.
 
@@ -77,7 +77,7 @@ npm run build
 
 Так как сборка сейчас намеренно идет в `development`, все 88 HTML-страниц с JSON-LD получают `noindex,nofollow`. Это временное состояние проекта. Служебные `search`, `404` и alias-страницы JSON-LD не рендерят.
 
-## Executive Summary
+## Краткое Резюме
 
 Техническая база хорошая: JSON-LD валиден, граф централизован, обязательные поля основных типов в целом присутствуют. После обновлений `2026-05-06` основной риск hidden product facts заметно снижен: price, availability, SKU, warranty, merchant facts и rating value/count выводятся видимо там, где эти поля есть во front matter. Главный оставшийся риск — не синтаксис, а quality evidence для рейтингов/отзывов и финальная проверка на production URL.
 
@@ -91,7 +91,7 @@ npm run build
 6. `WebSite.SearchAction` больше не дает sitelinks search box: Google удалил этот визуальный элемент с 2024-11-21.
 7. `Organization` размечается на каждой странице. Google рекомендует размещать organization information на главной или отдельной странице об организации; это не критично, но можно упростить.
 
-## Rich Result Eligibility By Feature
+## Возможность Получения Rich Results По Типам Разметки
 
 | Feature | Current state | Eligibility | Quality risk |
 |---|---|---|---|
@@ -106,9 +106,9 @@ npm run build
 | WebSite/SearchAction | 86 nodes | Не дает sitelinks search box | Низкий |
 | CollectionPage | 16 nodes | Не отдельный Google rich result | Низкий |
 
-## Critical Findings
+## Критические Замечания
 
-### P1: Product commercial data is not visible
+### P1: Коммерческие Данные Товара Не Видны
 
 Status update `2026-05-06`: mitigated in content. All product pages now include a visible commercial data block with price, SKU, warranty, availability wording and rating value/count when rating is present in front matter. MPN and GTIN are also visible where they exist.
 
@@ -145,7 +145,7 @@ Recommended fix:
   - delivery/return summary;
   - rating only if real reviews exist and are shown.
 
-### P1: AggregateRating is high risk
+### P1: `AggregateRating` Имеет Высокий Риск
 
 Status update `2026-05-06`: partially mitigated. Rating value and count are now visible on product pages, but the source and individual review evidence are still not documented in the page body.
 
@@ -162,7 +162,7 @@ Recommended fix:
 - If ratings are real: show rating, count, source, and ideally individual reviews or review summary on the product page.
 - If ratings are placeholders/editorial: remove `rating` from front matter and suppress `aggregateRating`.
 
-### P1: Merchant listing promise may exceed page reality
+### P1: Merchant Listing Может Обещать Больше, Чем Видно На Странице
 
 Affected:
 
@@ -186,7 +186,7 @@ Recommended fix:
 - Either make product pages merchant-ready with visible price, availability, purchase/contact CTA, delivery/return/payment facts;
 - or keep schema conservative and focus on Product snippet rather than full Merchant listing.
 
-### P2: Article/NewsArticle image quality can be improved
+### P2: Качество Изображений `Article` И `NewsArticle` Можно Улучшить
 
 Affected:
 
@@ -208,7 +208,7 @@ Recommended fix:
   - `16x9`;
 - update `Article.image` / `NewsArticle.image` to an array of crawlable absolute URLs or `ImageObject`s.
 
-### P2: Author node is resolved indirectly
+### P2: Узел Автора Определяется Косвенно
 
 Affected:
 
@@ -234,7 +234,7 @@ Quality improvement:
 
 This aligns more closely with Google author markup best practices.
 
-### P2: Organization nodes are duplicated everywhere
+### P2: Узлы Organization Дублируются На Многих Страницах
 
 Affected:
 
@@ -248,7 +248,7 @@ Recommended fix:
 - Keep full `Organization` graph on home/about/contact.
 - On other pages, reference `publisher` by `@id` only or keep a smaller stable node.
 
-### P3: SearchAction is obsolete as a rich result lever
+### P3: `SearchAction` Устарел Как Рычаг Rich Results
 
 Affected:
 
@@ -256,7 +256,7 @@ Affected:
 
 Google removed the sitelinks search box visual element starting 2024-11-21. The `SearchAction` node is not harmful, but it should not be treated as a rich-result opportunity.
 
-## Product Element Audit
+## Аудит Элементов Product
 
 Legend:
 
@@ -290,7 +290,7 @@ Legend:
 | `/ru/products/xtal/racer-black/` | ru | 12000 | ok | no | P1 |
 | `/ru/products/xtal/racer-dark-grey/` | ru | 12000 | ok | no | P1 |
 
-### Product Node
+### Узел Product
 
 Current fields:
 
@@ -318,7 +318,7 @@ Improvement:
 
 - Change `brand` from only `{"@id": "https://aerocool.io/#brand"}` to an object that includes `@type` and `name`, or ensure Rich Results Test resolves the referenced Brand cleanly.
 
-### Offer Node
+### Узел Offer
 
 Current fields:
 
@@ -345,7 +345,7 @@ Status update `2026-05-07`:
 - Product front matter is now the source of truth for merchant facts; `/faq/` visibly confirms delivery by `Нова Пошта`, delivery cost `0 грн`, handling `0-1 day`, transit `1-3 days`, return window `14 days`, `FreeReturn`, and cash/card payment support.
 - If these business rules change later, update product front matter first, then synchronize product page copy, `/faq/` and rendered `Product` JSON-LD together.
 
-### AggregateRating Node
+### Узел AggregateRating
 
 Current:
 
@@ -361,7 +361,7 @@ Recommended:
 
 - Display ratings or remove them.
 
-## Article And NewsArticle Audit
+## Аудит Article И NewsArticle
 
 All articles/news have:
 
@@ -417,7 +417,7 @@ Note:
 
 - At the time of this audit, local content rules targeted 10000 characters for evergreen articles and 5000 characters for news. The current 2026-05-06 documentation also defines 6000 characters for product pages, 6000 for series pages, 7000 for `/products/`, `/articles/` and `/news/` hubs, and 10000 for `/about/`. These are content-depth SEO targets rather than structured-data eligibility requirements.
 
-## Breadcrumb Audit
+## Аудит Breadcrumb
 
 Current:
 
@@ -434,7 +434,7 @@ Recommendation:
 - Keep current logic.
 - Optionally shorten very long breadcrumb names for search presentation quality, especially section titles.
 
-## FAQ Audit
+## Аудит FAQ
 
 | URL | Questions | Visible Q/A | Google FAQ rich-result expectation |
 |---|---:|---|---|
@@ -452,7 +452,7 @@ Recommendation:
 - Keep FAQPage if it helps semantic clarity.
 - Do not treat FAQPage as a key traffic/rich-result lever.
 
-## CollectionPage Audit
+## Аудит CollectionPage
 
 Current:
 
@@ -485,7 +485,7 @@ Recommendation:
 - Keep as supporting graph.
 - For product series pages, consider adding stronger visible introductory copy and internal links, but this is not a rich-result requirement.
 
-## Organization / Brand / Logo Audit
+## Аудит Organization, Brand И Logo
 
 Current:
 
@@ -507,7 +507,7 @@ Risks / improvements:
 - Full organization graph repeats on every page. Google recommends organization markup on home/about-style pages; repeating is not required.
 - If this is effectively an online catalog/store, consider `OnlineStore` for the local entity, but only if merchant facts are visible and accurate.
 
-## WebSite / SearchAction Audit
+## Аудит WebSite / SearchAction
 
 Current:
 
@@ -524,7 +524,7 @@ Recommendation:
 - Optional: keep for semantic completeness.
 - Do not optimize around this as a Search rich-result opportunity.
 
-## ImageObject Audit
+## Аудит ImageObject
 
 Current:
 
@@ -539,7 +539,7 @@ Recommendations:
 - Article/news: generate and expose 1:1, 4:3, 16:9 variants.
 - Organization logo: consider a crawlable PNG fallback in addition to SVG if Rich Results Test ever warns about logo.
 
-## WebPage / AboutPage / ContactPage Audit
+## Аудит WebPage / AboutPage / ContactPage
 
 Current:
 
@@ -559,9 +559,9 @@ Recommendation:
 - Keep.
 - For contact/about, ensure all organization contact data in schema matches visible page content.
 
-## Prioritized Fix Plan
+## Приоритетный План Исправлений
 
-### Phase 1: Protect Product rich results
+### Этап 1: Защитить Product Rich Results
 
 1. Done on `2026-05-06`: add visible product facts block to product content:
    - price;
@@ -574,19 +574,19 @@ Recommendation:
 3. Done on `2026-05-06`: confirm merchant delivery/return/payment conditions visibly in `/faq/`.
 4. Add MPN/GTIN for SKY Lite and SKY 360 if official identifiers exist; otherwise leave omitted.
 
-### Phase 2: Improve Article/News rich-result quality
+### Этап 2: Улучшить Качество Rich Results Для Article И News
 
 1. Update `Article` and `NewsArticle` image output to include 1:1, 4:3, 16:9 variants.
 2. Inline author `Organization` data with `@type`, `name`, `url`.
 3. Keep `datePublished` and `dateModified` synchronized with actual editorial changes.
 
-### Phase 3: Clean global graph weight
+### Этап 3: Очистить Вес Глобального Графа
 
 1. Emit full `Organization` graph only on home/about/contact or keep a reduced global reference elsewhere.
 2. Keep `WebSite` on home; use references elsewhere if desired.
 3. Keep FAQ schema, but do not over-invest in FAQ rich result expectations.
 
-## Current Risk Rating
+## Текущая Оценка Рисков
 
 | Area | Rating |
 |---|---|

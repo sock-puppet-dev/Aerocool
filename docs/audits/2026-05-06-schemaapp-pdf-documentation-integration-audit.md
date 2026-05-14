@@ -1,4 +1,4 @@
-# SchemaApp PDF Documentation Integration Audit 2026-05-06
+# Аудит Интеграции PDF-Документации SchemaApp 2026-05-06
 
 Этот аудит фиксирует, как внешние PDF-материалы SchemaApp были использованы для актуализации документации проекта `Aerocool Ukraine`.
 

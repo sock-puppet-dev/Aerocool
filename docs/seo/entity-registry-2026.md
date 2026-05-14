@@ -1,6 +1,6 @@
-# Entity Registry Aerocool 2026
+# Реестр Сущностей Aerocool 2026
 
-Обновлено: 2026-05-14.
+Обновлено: 2026-05-15.
 
 Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md). Реестр остается governance-документом: `confirmed` сущности можно использовать в JSON-LD, staged/planned сущности не должны становиться сильными связями без видимого подтверждения на странице.
 
@@ -18,7 +18,7 @@
 - Если сущность имеет статус `planned`, ее можно использовать для планирования контента, но не стоит выводить как сильный JSON-LD relationship без видимого объяснения.
 - Если сущность имеет статус `do-not-markup`, ее не размечать и не использовать как `sameAs`.
 
-## 2. Core Rules
+## 2. Основные Правила
 
 - `entity_id` должен быть стабильным, коротким, lower-case и `kebab-case`.
 - `entity_home` — собственный URL сайта, который лучше всего объясняет сущность человеку.
@@ -32,7 +32,7 @@
 - Hugo генерирует отдельные registry-based JSON-LD nodes для `confirmed` сущностей классов `Material`, `Mechanism`, `Feature`, `UseCase`, `ContentTopic` и `Policy`, если они используются в `about_entities` или `mentions_entities`. Product, Organization, Brand, WebPage и Collection nodes не дублируются, потому что для них уже есть отдельные schema partials.
 - Registry-based nodes должны оставаться объяснительными: они называют сущность, дают стабильный `@id`, `entity_home`, localized `name`, `alternateName`, `identifier` и связи `isRelatedTo`, но не заменяют Product/Offer/FAQ/Article schema.
 
-## 3. Entity Statuses
+## 3. Статусы Сущностей
 
 | Status | Meaning | Can Use In Planning | Can Use In JSON-LD Now |
 | --- | --- | --- | --- |
@@ -41,7 +41,7 @@
 | `needs-review` | Сущность есть в контенте, но факты, `@id` или entity home нужно уточнить | Yes | No |
 | `do-not-markup` | Сущность не стоит размечать отдельно на текущем этапе | No | No |
 
-## 4. Field Reference
+## 4. Справочник Полей
 
 | Field | Meaning |
 | --- | --- |
@@ -58,7 +58,7 @@
 | `parent` | Parent entity in the graph |
 | `related` | Useful related entities for future `mentions` |
 
-## 5. ID Conventions
+## 5. Правила Для ID
 
 | Entity Class | `entity_id` Pattern | Current / Future `@id` Pattern |
 | --- | --- | --- |
@@ -74,7 +74,7 @@
 | Use case | `<intent-name>` | Future glossary/entity node or content hub |
 | Policy | `<policy>-policy` | `/faq/` now; future policy pages if split |
 
-## 6. Core Brand, Site And Organization Entities
+## 6. Базовые Сущности Бренда, Сайта И Организации
 
 | entity_id | name_en | name_uk | name_ru | entity_class | schema_candidate | current_jsonld_id | entity_home | owner | status | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -84,7 +84,7 @@
 | `aerocool-website` | Aerocool Ukraine website | Сайт Aerocool Україна | Сайт Aerocool Украина | WebSite | `WebSite` | `https://aerocool.ua/#website` | `/` | Aerocool Ukraine | `confirmed` | Site-level entity for search, publisher and page graph. |
 | `aerocool-logo` | Aerocool logo | Логотип Aerocool | Логотип Aerocool | ImageObject | `ImageObject` | `https://aerocool.ua/#logo` | `/` | Aerocool Ukraine | `confirmed` | Shared visual identity node. |
 
-## 7. Official `sameAs` Registry
+## 7. Официальный Реестр `sameAs`
 
 Only these global profiles are currently approved as exact identity links for global Aerocool entities.
 
@@ -97,7 +97,7 @@ Only these global profiles are currently approved as exact identity links for gl
 | `aerocool-brand`, `aerocool-global-organization` | `https://www.youtube.com/@AeroCoolGlobal` | `confirmed` | Global official profile. |
 | `aerocool-ukraine` | none | `confirmed` | Local entity uses `parentOrganization` and `brand`, not local `sameAs`. |
 
-## 8. Page And Content Hub Entities
+## 8. Сущности Страниц И Контентных Хабов
 
 | entity_id | name_en | name_uk | name_ru | entity_class | schema_candidate | current_jsonld_id | entity_home | status | Suggested `about_entities` |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -109,7 +109,7 @@ Only these global profiles are currently approved as exact identity links for gl
 | `articles-collection` | Aerocool articles | Статті Aerocool | Статьи Aerocool | Collection | `CollectionPage` | `https://aerocool.ua/articles/#collection` | `/articles/` | `confirmed` | `chair-selection`, `ergonomic-chair`, `aerocool-catalog` |
 | `news-collection` | Aerocool news | Новини Aerocool | Новости Aerocool | Collection | `CollectionPage` | `https://aerocool.ua/news/#collection` | `/news/` | `confirmed` | `aerocool-brand`, `aerocool-catalog` |
 
-## 9. Product Series Entities
+## 9. Сущности Товарных Серий
 
 | entity_id | name_en | name_uk | name_ru | entity_class | current_schema | future_schema | current_jsonld_id | entity_home | status | Main Relations |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -117,7 +117,7 @@ Only these global profiles are currently approved as exact identity links for gl
 | `wing-series` | Aerocool WING | Aerocool WING | Aerocool WING | ProductSeries | `CollectionPage` | `ProductGroup` where useful | `https://aerocool.ua/products/wing/#collection` | `/products/wing/` | `confirmed` | parent `aerocool-catalog`; variants WING products; mentions `racer-material`, `loft-air-material`, `mesh-material`, `11d-adjustment`, `dual-backrest` |
 | `xtal-series` | Aerocool XTAL | Aerocool XTAL | Aerocool XTAL | ProductSeries | `CollectionPage` | `ProductGroup` where useful | `https://aerocool.ua/products/xtal/#collection` | `/products/xtal/` | `confirmed` | parent `aerocool-catalog`; variants XTAL products; mentions `racer-material`, `loft-air-material`, `mesh-material`, `7d-adjustment`, `replaceable-elements` |
 
-## 10. ProductGroup Entities Planned For Variants
+## 10. Сущности `ProductGroup`, Запланированные Для Вариантов
 
 `ProductGroup` should not render in JSON-LD until product pages show visible variant navigation. The IDs below are stable planning IDs.
 
@@ -132,7 +132,7 @@ Only these global profiles are currently approved as exact identity links for gl
 | `xtal-loft-air-product-group` | Aerocool XTAL Loft Air | `https://aerocool.ua/products/xtal/#xtal-loft-air-product-group` | `/products/xtal/` | color | `xtal-loft-air-light-grey`, `xtal-loft-air-dark-grey` | `planned` | Add visible color navigation between variants. |
 | `xtal-mesh-product-group` | Aerocool XTAL Mesh | `https://aerocool.ua/products/xtal/#xtal-mesh-product-group` | `/products/xtal/` | material/color | `xtal-mesh-black` | `planned` | Single current variant. |
 
-## 11. Product Variant Entities
+## 11. Сущности Товарных Вариантов
 
 | entity_id | name_en | SKU | MPN | GTIN-13 | series | material | color | adjustability | mechanism | current_jsonld_id | entity_home | planned_group |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -149,7 +149,7 @@ Only these global profiles are currently approved as exact identity links for gl
 | `xtal-racer-black` | Aerocool XTAL Racer Black | `XTAL-RB-001` | `TEGC-2099101.11` | `4711530966778` | `xtal-series` | `racer-material` | black | `7d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/xtal/racer-black/#product` | `/products/xtal/racer-black/` | `xtal-racer-product-group` |
 | `xtal-racer-dark-grey` | Aerocool XTAL Racer Dark Grey | `XTAL-RDG-001` | `TEGC-209910Z.Z1` | `4711530966785` | `xtal-series` | `racer-material` | dark-grey | `7d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/xtal/racer-dark-grey/#product` | `/products/xtal/racer-dark-grey/` | `xtal-racer-product-group` |
 
-## 12. Material And Upholstery Entities
+## 12. Сущности Материалов И Поверхностей
 
 | entity_id | name_en | name_uk | name_ru | entity_class | schema_candidate | entity_home | status | Current Strong Pages | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -159,7 +159,7 @@ Only these global profiles are currently approved as exact identity links for gl
 | `leatherette-material` | Leatherette | екошкіра / Leatherette | экокожа / Leatherette | Material | `DefinedTerm` or `Thing` | `/articles/racer-vs-loft-air-vs-mesh/` | `planned` | Racer pages | Treat as material behind Racer, not as separate page topic yet. |
 | `fabric-material` | Fabric | тканина | ткань | Material | `DefinedTerm` or `Thing` | `/articles/racer-vs-loft-air-vs-mesh/` | `planned` | Loft Air pages | Treat as generic material until glossary is stronger. |
 
-## 13. Mechanism And Feature Entities
+## 13. Сущности Механизмов И Функций
 
 | entity_id | name_en | name_uk | name_ru | entity_class | schema_candidate | entity_home | status | Strong Pages | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -175,7 +175,7 @@ Only these global profiles are currently approved as exact identity links for gl
 | `armrests-4d-x-360` | 4D X 360 armrests | підлокітники 4D X 360 | подлокотники 4D X 360 | Feature | `DefinedTerm` or `Thing` | `/products/wing/` | `planned` | WING pages | Candidate for `additionalProperty`. |
 | `armrests-3d-x-360` | 3D X 360 armrests | підлокітники 3D X 360 | подлокотники 3D X 360 | Feature | `DefinedTerm` or `Thing` | `/products/sky/` | `planned` | SKY 360 pages | Candidate for `additionalProperty`. |
 
-## 14. Use Case And Search Intent Entities
+## 14. Сущности Сценариев Использования И Поисковых Интентов
 
 | entity_id | name_en | name_uk | name_ru | entity_class | schema_candidate | entity_home | status | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -188,7 +188,7 @@ Only these global profiles are currently approved as exact identity links for gl
 | `hot-room` | hot room | жарке приміщення | жаркое помещение | UseCase | `Thing` or `DefinedTerm` | `/articles/racer-vs-loft-air-vs-mesh/` | `planned` | Connected to Mesh and Loft Air material decisions. |
 | `chair-selection` | chair selection | вибір крісла | выбор кресла | ContentTopic | `Thing` or `DefinedTerm` | `/articles/how-to-choose-aerocool-chair/` | `confirmed` | Main editorial support topic. |
 
-## 15. Service Policy Entities
+## 15. Сущности Сервисных Политик
 
 The current entity home for service policies is `/faq/`. Do not create separate policy schema until visible policy pages or anchors are stable.
 
@@ -200,7 +200,7 @@ The current entity home for service policies is `/faq/`. Do not create separate 
 | `warranty-policy` | Warranty | Гарантія | Гарантия | `WarrantyPromise` / policy reference | `/faq/` | product front matter | Aerocool Ukraine | `confirmed` | Uses `warranty`. |
 | `price-validity-policy` | Price validity | Актуальність ціни | Актуальность цены | Offer validity reference | product front matter | product front matter | Aerocool Ukraine | `confirmed` | `priceValidUntil: 2027-12-31` confirmed `2026-05-07`. |
 
-## 16. Editorial Content Entity Mapping
+## 16. Карта Сущностей Для Редакционного Контента
 
 This section maps existing article pages to primary and secondary entities. It is the planning source for page-by-page `about_entities` and `mentions_entities`.
 
@@ -209,24 +209,24 @@ This section maps existing article pages to primary and secondary entities. It i
 | `/articles/how-to-choose-aerocool-chair/` | `chair-selection`, `aerocool-catalog` | `sky-series`, `wing-series`, `xtal-series`, `gaming-chair`, `office-chair`, `computer-chair`, `home-office`, `racer-material`, `loft-air-material`, `mesh-material` | `confirmed` |
 | `/articles/how-to-choose-chair-by-adjustability/` | `7d-adjustment`, `8d-adjustment`, `11d-adjustment` | `sky-series`, `wing-series`, `xtal-series`, `sky-lite`, `sky-360`, `synchronous-tilt` | `confirmed` |
 | `/articles/racer-vs-loft-air-vs-mesh/` | `racer-material`, `loft-air-material`, `mesh-material` | `leatherette-material`, `fabric-material`, `hot-room`, `gaming-chair`, `office-chair`, `home-office` | `confirmed` |
-| `/articles/sky-lite-vs-sky-360-guide/` | `sky-series` | `sky-lite`, `sky-360`, `8d-adjustment`, `11d-adjustment`, `sync4-mechanism`, `sync5-mechanism`, `home-office` | `confirmed` |
+| `/articles/sky-lite-vs-sky-360/` | `sky-series` | `sky-lite`, `sky-360`, `8d-adjustment`, `11d-adjustment`, `sync4-mechanism`, `sync5-mechanism`, `home-office` | `confirmed` |
 | `/articles/sync4-sync5-mechanism-guide/` | `sync4-mechanism`, `sync5-mechanism` | `synchronous-tilt`, `sky-lite`, `sky-360`, `wing-series`, `xtal-series` | `confirmed` |
 | `/articles/what-is-synchronous-tilt/` | `synchronous-tilt` | `sync4-mechanism`, `sync5-mechanism`, `office-chair`, `home-office`, `long-sitting` | `confirmed` |
-| `/articles/wing-vs-xtal-comparison/` | `wing-series`, `xtal-series` | `11d-adjustment`, `7d-adjustment`, `dual-backrest`, `replaceable-elements`, `racer-material`, `loft-air-material`, `mesh-material`, `gaming-chair`, `computer-chair`, `home-office` | `confirmed` |
+| `/articles/wing-vs-xtal/` | `wing-series`, `xtal-series` | `11d-adjustment`, `7d-adjustment`, `dual-backrest`, `replaceable-elements`, `racer-material`, `loft-air-material`, `mesh-material`, `gaming-chair`, `computer-chair`, `home-office` | `confirmed` |
 
-## 17. News Entity Mapping
+## 17. Карта Сущностей Для Новостей
 
 | Page | Primary `about_entities` | Candidate `mentions_entities` | Status |
 | --- | --- | --- | --- |
-| `/news/2026-04-15-aerocool-sky-series-launch/` | `sky-series` | `sky-lite`, `sky-360`, `office-chair`, `computer-chair`, `home-office` | `confirmed` |
-| `/news/2026-04-16-aerocool-wing-series-launch/` | `wing-series` | `wing-racer-product-group`, `wing-loft-air-product-group`, `wing-mesh-product-group`, `11d-adjustment`, `dual-backrest` | `confirmed` |
-| `/news/2026-04-17-aerocool-xtal-series-launch/` | `xtal-series` | `xtal-racer-product-group`, `xtal-loft-air-product-group`, `xtal-mesh-product-group`, `7d-adjustment`, `replaceable-elements` | `confirmed` |
-| `/news/2026-04-18-aerocool-sky-360-launch/` | `sky-360` | `sky-series`, `11d-adjustment`, `sync5-mechanism`, `synchronous-tilt`, `home-office` | `confirmed` |
-| `/news/2026-04-19-aerocool-sky-lite-launch/` | `sky-lite` | `sky-series`, `8d-adjustment`, `sync4-mechanism`, `synchronous-tilt`, `office-chair` | `confirmed` |
-| `/news/2026-04-20-aerocool-loft-air-and-mesh-focus/` | `loft-air-material`, `mesh-material` | `wing-loft-air-product-group`, `xtal-loft-air-product-group`, `wing-mesh-product-group`, `xtal-mesh-product-group`, `hot-room` | `confirmed` |
-| `/news/2026-04-30-aerocool-sync4-sync5-mechanism-update/` | `sync4-mechanism`, `sync5-mechanism` | `synchronous-tilt`, `sky-series`, `wing-series`, `xtal-series` | `confirmed` |
+| `/news/sky-series-launch/` | `sky-series` | `sky-lite`, `sky-360`, `office-chair`, `computer-chair`, `home-office` | `confirmed` |
+| `/news/wing-series-launch/` | `wing-series` | `wing-racer-product-group`, `wing-loft-air-product-group`, `wing-mesh-product-group`, `11d-adjustment`, `dual-backrest` | `confirmed` |
+| `/news/xtal-series-launch/` | `xtal-series` | `xtal-racer-product-group`, `xtal-loft-air-product-group`, `xtal-mesh-product-group`, `7d-adjustment`, `replaceable-elements` | `confirmed` |
+| `/news/sky-360-launch/` | `sky-360` | `sky-series`, `11d-adjustment`, `sync5-mechanism`, `synchronous-tilt`, `home-office` | `confirmed` |
+| `/news/sky-lite-launch/` | `sky-lite` | `sky-series`, `8d-adjustment`, `sync4-mechanism`, `synchronous-tilt`, `office-chair` | `confirmed` |
+| `/news/loft-air-and-mesh-focus/` | `loft-air-material`, `mesh-material` | `wing-loft-air-product-group`, `xtal-loft-air-product-group`, `wing-mesh-product-group`, `xtal-mesh-product-group`, `hot-room` | `confirmed` |
+| `/news/sync4-sync5-mechanism-update/` | `sync4-mechanism`, `sync5-mechanism` | `synchronous-tilt`, `sky-series`, `wing-series`, `xtal-series` | `confirmed` |
 
-## 18. Relationship Triples
+## 18. Тройки Связей Между Сущностями
 
 Use these as the semantic backbone for future JSON-LD relationships.
 
@@ -251,7 +251,7 @@ Use these as the semantic backbone for future JSON-LD relationships.
 | `return-policy` | `appliesTo` | Product offers | product front matter and `/faq/` |
 | `warranty-policy` | `appliesTo` | Product offers | product front matter and `/faq/` |
 
-## 19. Front Matter Mapping
+## 19. Связь С Front Matter Страницы
 
 Template support exists for `about_entities`, `mentions_entities` and `product_group_id`. On `2026-05-07`, these fields were filled on priority pages: home, about, contact, FAQ, product/article/news hubs, series pages, current articles, current news and product pages.
 
@@ -299,7 +299,7 @@ Rules:
 - Unknown `entity_id` values should fail QA before production.
 - Entity values should be stable IDs, not display labels.
 
-## 20. `data/entities.yaml` Shape
+## 20. Структура `data/entities.yaml`
 
 The structured resolver source now lives in [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml). Its shape follows this pattern:
 
@@ -332,7 +332,7 @@ Resolver requirements:
 - generate registry-based nodes for confirmed dictionary/policy entities used in `about_entities` and `mentions_entities`;
 - keep `additionalProperty` for a later pass after visible specification tables exist.
 
-## 21. QA Rules
+## 21. Правила Проверки Качества
 
 - Every `about_entities` value must exist in this registry.
 - Every `mentions_entities` value must exist in this registry.
@@ -344,7 +344,7 @@ Resolver requirements:
 - Do not add `sameAs` to marketplaces, random reviews or non-official pages.
 - If an entity changes entity home, update internal links, registry, future front matter and schema tests together.
 
-## 22. Do Not Mark Up Yet
+## 22. Что Пока Не Размечать
 
 | Candidate | Status | Why |
 | --- | --- | --- |
@@ -355,7 +355,7 @@ Resolver requirements:
 | Random product reviews as `sameAs` | `do-not-markup` | Not exact identity. |
 | MCP/NLWeb/chatbot entities | `do-not-markup` | P3 only after production and stable knowledge graph. |
 
-## 23. Implementation Roadmap
+## 23. План Внедрения
 
 1. Keep this markdown file as the canonical registry during the first implementation pass.
 2. Add visible variant navigation for product groups with multiple variants.

@@ -1,4 +1,4 @@
-# AI Search Entity Map 2026
+# Карта Сущностей Для Поиска С AI 2026
 
 Актуально на `2026-05-13`.
 
@@ -39,7 +39,7 @@ AI-поиск меняет SEO-логику:
 - JSON-LD roadmap отвечает: `как размечать видимый контент`;
 - этот документ отвечает: `как сделать бренд и товары понятными для AI-ответов`.
 
-## 3. AI Search Метрики
+## 3. Метрики Поиска С AI
 
 Отслеживать нужно не только Google Search Console.
 
@@ -57,7 +57,7 @@ AI-поиск меняет SEO-логику:
 | Citation ownership | Какие URL и домены владеют цитированием по теме | AI-ответы, source links, GSC/SEO tools | AI не всегда показывает источники |
 | AI crawler traffic | Приходят ли AI-боты и агенты | Server logs / Netlify logs при наличии | GA4 это обычно не показывает |
 
-## 4. Ежемесячный AI Search Аудит
+## 4. Ежемесячный Аудит Поиска С AI
 
 Периодичность: `1` раз в месяц после production-запуска и индексации.
 
@@ -84,7 +84,7 @@ Follow-up вопросы после основного prompt:
 - `Aerocool является надежным вариантом для этого сценария?`
 - `Какая серия Aerocool лучше подходит для этого сценария?`
 
-## 5. Prompt-Банк
+## 5. Банк Prompts
 
 Проверять нужно брендовые, коммерческие и entity-запросы на украинском и русском. Английские prompts полезны для международных AI-моделей, но приоритет для сайта — `uk` и `ru`.
 
@@ -148,7 +148,7 @@ Follow-up вопросы после основного prompt:
 - `Aerocool SKY или XTAL`
 - `кресло для осанки и долгой работы`
 
-### Persona × Funnel Prompt Matrix
+### Матрица Persona × Funnel Для Prompts
 
 `Schema Markup and AI Search` полезен тем, что предлагает мыслить не только ключами, а пересечением `persona × intent stage`. Для Aerocool это важнее, чем простой список запросов, потому что AI Search отвечает на длинные разговорные prompts.
 
@@ -163,7 +163,7 @@ Follow-up вопросы после основного prompt:
 
 AI follow-up вопросы не равны обычному Google `People Also Ask`. В AI snapshot и conversational search цепочка вопросов зависит от context window пользователя, поэтому при аудите нужно сохранять не только первый prompt, но и последующие вопросы, которые предлагает или принимает AI-система.
 
-## 6. Entity Operations: Identify, Connect, Manage
+## 6. Работа С Сущностями: Найти, Связать, Управлять
 
 Вебинар формулирует простой операционный цикл для данных, которые будут потреблять AI-агенты.
 
@@ -177,7 +177,7 @@ AI follow-up вопросы не равны обычному Google `People Also
 
 Практический вывод: entity map — не разовый документ. Это слой данных, который нужно поддерживать вместе с контентом и JSON-LD.
 
-### Semantic Search Principles
+### Принципы Семантического Поиска
 
 `How to Prepare Your Content for Generative AI Search` добавляет важную рамку: поиск движется от lexical matching к semantic search. Значит, Aerocool нужно оптимизировать не только exact-match фразы, а близость смыслов, атрибутов и отношений между сущностями.
 
@@ -189,7 +189,7 @@ AI follow-up вопросы не равны обычному Google `People Also
 - держать Aerocool в consideration set для follow-up вопросов, а не только для первого запроса;
 - проверять фактическую согласованность, потому что связка LLM + knowledge graph усиливает значение противоречий.
 
-### Entity Home And Maturity Scale
+### Страница Сущности И Шкала Зрелости
 
 Для каждой важной сущности нужен `entity home`: страница, которая лучше всего определяет эту сущность на сайте. Внешний источник может уточнять или дезамбигуировать сущность, но не должен быть главным определением вместо собственного URL.
 
@@ -205,7 +205,7 @@ AI follow-up вопросы не равны обычному Google `People Also
 
 Цель проекта — двигаться к уровню `5`, но только через видимый контент и реальные связи.
 
-### Semantic Triples
+### Семантические Тройки
 
 Для проектирования связей удобно думать в формате `subject -> predicate -> object`.
 
@@ -221,7 +221,7 @@ AI follow-up вопросы не равны обычному Google `People Also
 
 Такая запись помогает выбирать точные Schema.org properties, а не использовать общий `mentions` там, где подходит `brand`, `seller`, `about`, `mainEntity` или `isVariantOf`.
 
-## 7. Entity Map
+## 7. Карта Сущностей
 
 Эта карта нужна для управляемых `about`, `mentions`, `ProductGroup`, будущих `additionalProperty` и внутренних ссылок. Канонический список entity IDs и entity homes находится в [entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entity-registry-2026.md), а структурированный источник для schema resolver — в [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml).
 
@@ -249,7 +249,7 @@ AI follow-up вопросы не равны обычному Google `People Also
 | Возврат | `MerchantReturnPolicy` | product front matter + `/faq/` | Product, FAQ | Front matter — source of truth; UI и FAQ подтверждают |
 | Гарантия | `WarrantyPromise` / `PropertyValue` | product front matter + products + `/faq/` | Product pages | Показывать видимо перед расширением schema |
 
-## 8. Schema Roadmap Для AI Search
+## 8. План Развития Schema Для Поиска С AI
 
 Не добавлять новые свойства только ради количества. Сначала видимый контент и источник правды, затем JSON-LD.
 
@@ -319,7 +319,7 @@ AI-friendly контент не должен быть короче или бед
 
 Эти блоки должны быть локализованы отдельно для `uk` и `ru`, а не машинно скопированы без редакторской проверки.
 
-## 11. Agentic Web Readiness
+## 11. Готовность К Agentic Web
 
 `Designing Content for Humans and Machines` отдельно подчеркивает: контент становится строительным материалом для агентских интерфейсов. Для Aerocool это пока не задача немедленной разработки, но уже влияет на контент и данные.
 
@@ -333,7 +333,7 @@ AI-friendly контент не должен быть короче или бед
 
 На текущем этапе не внедрять agentic commerce или NLWeb “на всякий случай”. Сначала нужна production-индексация, чистый schema graph, стабильные товарные данные и понятная entity map.
 
-## 12. GA4 AI Referral Monitoring
+## 12. Мониторинг AI Referral В GA4
 
 После production-запуска нужно создать отдельный сегмент или отчет для AI referrals.
 
@@ -374,7 +374,7 @@ AI-friendly контент не должен быть короче или бед
 - не подменять AI Search-аудит общим Lighthouse-аудитом.
 - не внедрять agentic commerce или NLWeb без реальной бизнес-задачи и стабильного источника товарных данных.
 
-## 14. Backlog
+## 14. Очередь Работ
 
 ### P0
 

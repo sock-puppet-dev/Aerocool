@@ -1,4 +1,4 @@
-# Content Image, Cover And Alt Audit
+# Аудит Контентных Изображений, Cover И Alt
 
 Дата: 2026-05-13.
 

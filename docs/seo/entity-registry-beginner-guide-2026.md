@@ -1,4 +1,4 @@
-# Entity Registry: Гайд Для Новичка
+# Реестр Сущностей: Гайд Для Новичка
 
 Обновлено: 2026-05-13.
 
@@ -6,7 +6,7 @@
 
 Этот гайд объясняет `Entity Registry` простым языком. Его задача — помочь человеку, который впервые открыл проект `Aerocool Ukraine`, понять, зачем нужен реестр сущностей, где он живет и как аккуратно добавлять `about_entities`, `mentions_entities` и `product_group_id` в страницы сайта.
 
-## 1. Коротко: Что Такое Entity
+## 1. Коротко: Что Такое Сущность
 
 Entity — это не просто слово из текста. Это конкретная сущность, о которой сайт говорит как о самостоятельном объекте.
 
@@ -48,13 +48,13 @@ Entity Registry решает эту проблему. Он говорит:
 
 Это человеческая карта. Здесь объяснены правила, статусы, связи, entity homes, ProductGroup, service policies и roadmap.
 
-### Структурированный data layer
+### Структурированный Слой Данных
 
 [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml)
 
 Это машинный источник для Hugo-шаблонов. Если `entity_id` отсутствует здесь, шаблон не сможет превратить его в JSON-LD reference.
 
-### Front matter страниц
+### Front Matter Страниц
 
 Файлы в `content/`, например:
 
@@ -72,7 +72,7 @@ mentions_entities:
 product_group_id: "wing-racer-product-group"
 ```
 
-### Hugo schema partials
+### Schema-Partial-Файлы Hugo
 
 Шаблоны в `layouts/_partials/_schema/` читают front matter, проверяют `entity_id` через [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml) и выводят JSON-LD только для безопасных сущностей.
 
@@ -169,7 +169,7 @@ product_group_id: "wing-racer-product-group"
 
 Так мы заранее готовим данные, но не создаем скрытую связь раньше, чем ее увидит пользователь.
 
-## 9. Как Выбрать Правильные Entity IDs
+## 9. Как Выбрать Правильные ID Сущностей
 
 Сначала открой [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml).
 
@@ -187,7 +187,7 @@ product_group_id: "wing-racer-product-group"
 
 Не придумывай новый id, если похожий уже есть. Лучше использовать существующий, чем создать вторую версию той же сущности.
 
-## 10. Как Добавить Entity-Поля В Страницу
+## 10. Как Добавить Поля Сущностей В Страницу
 
 1. Открой нужный файл в `content/`.
 2. Найди front matter между первыми `---`.
