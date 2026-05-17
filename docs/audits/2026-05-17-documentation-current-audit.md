@@ -22,22 +22,26 @@
 
 - Google FAQ structured data: `https://developers.google.com/search/docs/appearance/structured-data/faqpage`
 - Google Product snippet structured data: `https://developers.google.com/search/docs/appearance/structured-data/product-snippet`
+- Google Review Snippet structured data: `https://developers.google.com/search/docs/appearance/structured-data/review-snippet`
 - Hugo `css.TailwindCSS`: `https://gohugo.io/functions/css/tailwindcss/`
 - Netlify build environment variables: `https://docs.netlify.com/build/configure-builds/environment-variables/`
 - Netlify Hugo framework docs: `https://docs.netlify.com/frameworks/hugo/`
+- Netlify Database CLI: `https://docs.netlify.com/build/data-and-storage/netlify-database/cli/`
+- Netlify Database API: `https://docs.netlify.com/build/data-and-storage/netlify-database/api/`
 - Tailwind CSS v4.0: `https://tailwindcss.com/blog/tailwindcss-v4`
 
 ## 3. Что Проверено Машинно
 
 Проверки:
 
-- `46` markdown-файлов в `README.md`, `AGENTS.md` и `docs/`;
-- `44` markdown-файла внутри `docs/`;
+- `47` markdown-файлов в `README.md`, `AGENTS.md` и `docs/`;
+- `45` markdown-файлов внутри `docs/`;
 - покрытие `docs/README.md`: все документы из `docs/` перечислены в оглавлении;
 - отсутствие служебных англоязычных заголовков вроде `Scope`, `Findings`, `Current Status`, `Implementation Backlog`, `Executive Summary`, `Prioritized Fix Plan`;
 - явные даты есть у всех рабочих документов и audit-снимков, кроме шаблонов в `docs/content/templates/`, где дата не нужна;
 - [hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/hugo-template-helpers.md) упоминает все `55` текущих файлов из `layouts/`;
 - root [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) и [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md) синхронизированы с новыми audit-снимками `2026-05-17`;
+- review-документация синхронизирована с текущим Netlify Database и Google Review Snippet слоем;
 - локальные markdown-ссылки на файлы проекта;
 - сборка Hugo через `npm run build`.
 
@@ -92,6 +96,12 @@
 - [README.md](/Users/stadnyk/MEGA/Aerocool/README.md);
 - [docs/README.md](/Users/stadnyk/MEGA/Aerocool/docs/README.md);
 - [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md).
+
+### P2. Review-Слой Требовал Синхронизации С Новым Netlify Database Документом
+
+После добавления [netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/netlify-database-reviews.md) проверены связанные документы по `AggregateRating`, `Review`, `review_target_id`, `data/generated/reviews.json` и moderation flow.
+
+Текущий стандарт: `rating.value` и `rating.count` во front matter считать legacy-риском. Целевая схема — `Netlify Database` -> approved reviews -> build-time export -> видимые отзывы -> `Product` JSON-LD.
 
 ## 6. Что Осталось Намеренно
 

@@ -93,6 +93,9 @@ content/                 контент сайта
 content/products/        каталог, серии и варианты товаров
 content/articles/        evergreen-статьи
 content/news/            новости и запусковые материалы
+data/                    структурированные данные Hugo
+data/entities.yaml       реестр сущностей для schema.org-связей
+data/generated/          будущие build-time exports, например approved reviews snapshot
 layouts/                 локальные Hugo-шаблоны и overrides
 layouts/_partials/       локальные partials
 layouts/_shortcodes/     локальные shortcodes
@@ -100,6 +103,7 @@ assets/css/main.css      Tailwind CSS и локальный visual layer
 assets/js/site.js        общий внешний JS сайта без inline-скриптов
 static/                  статические файлы
 static/_redirects        root rewrite и forced 404 для scanner/sensitive URL на Netlify
+netlify/database/migrations/ будущие SQL-миграции Netlify Database
 unlighthouse/            аудит Lighthouse/Unlighthouse
 hugo.yaml                конфигурация Hugo
 netlify.toml             сборка Netlify и HTTP headers
@@ -114,7 +118,9 @@ package.json             npm-команды корневого Hugo-проект
 - `node_modules/` — установленные npm-пакеты;
 - `unlighthouse/reports/` — временные отчеты аудита.
 
-Если нужно изменить страницу, почти всегда начинай с `content/`, `layouts/` или `assets/`, а не с `public/`.
+Если нужно изменить страницу, почти всегда начинай с `content/`, `layouts/`, `assets/` или `data/`, а не с `public/`.
+
+Папки `data/generated/` и `netlify/database/migrations/` относятся к будущей review-системе. Если их еще нет в рабочем дереве, это нормально: они появятся после реализации build-time export approved отзывов и первой SQL-миграции.
 
 ## 6. Контент и языки
 

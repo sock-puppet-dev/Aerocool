@@ -133,6 +133,8 @@ netlify/database/migrations/
 netlify database migrations apply
 ```
 
+На deploy Netlify применяет миграции автоматически в рамках deploy lifecycle. Локально `migrations apply` нужен, чтобы проверить SQL до pull request или синхронизировать локальную базу после получения новых миграций.
+
 Проверить, какие миграции применены:
 
 ```bash
@@ -291,6 +293,8 @@ export const config: Config = {
 };
 ```
 
+Если функция пишется на TypeScript и проект начинает проверять типы функций локально, добавить `@netlify/functions` как dev dependency. Для обычной Hugo-сборки этот пакет сейчас не нужен, пока функции физически не добавлены.
+
 ## 9. Правила SEO Для Отзывов
 
 `AggregateRating` в `Product` JSON-LD можно выводить только если:
@@ -347,7 +351,14 @@ netlify dev
 - не разрешать HTML в тексте отзыва без жесткой очистки;
 - не хранить секреты в `netlify.toml`.
 
-## 12. Связанные Документы
+## 12. Официальная База
+
+- Netlify Database: `https://docs.netlify.com/build/data-and-storage/netlify-database/`
+- Netlify Database CLI: `https://docs.netlify.com/build/data-and-storage/netlify-database/cli/`
+- Netlify Database API: `https://docs.netlify.com/build/data-and-storage/netlify-database/api/`
+- Google Review Snippet structured data: `https://developers.google.com/search/docs/appearance/structured-data/review-snippet`
+
+## 13. Связанные Документы
 
 - [docs/content/front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/front-matter-reference.md)
 - [docs/seo/ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/ecommerce-structured-data-playbook-2026.md)
