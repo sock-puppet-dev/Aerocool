@@ -134,6 +134,7 @@
 - [audits/2026-05-15-documentation-full-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-15-documentation-full-audit.md) — полный аудит документационного слоя, перекрестных ссылок, entity URL, оглавлений и открытых production-gate рисков.
 - [audits/2026-05-17-documentation-current-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-documentation-current-audit.md) — текущий аудит русскоязычности, структуры, новичковой понятности, ссылок, helper-карты и актуальности внешних SEO/Hugo/Netlify/Tailwind правил.
 - [audits/2026-05-17-core-web-vitals-project-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-core-web-vitals-project-audit.md) — текущий Core Web Vitals аудит проекта, Lighthouse baseline и исправления `prefetch`/search preload.
+- [audits/2026-05-17-schemaapp-support-knowledge-base-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-schemaapp-support-knowledge-base-audit.md) — аудит 9 support-статей Schema App по `sameAs`, primary entity, `additionalType`, `about`, `mentions`, breadcrumbs и image license metadata.
 
 ## Правило Поддержки
 

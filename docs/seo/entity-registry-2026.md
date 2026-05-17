@@ -1,6 +1,6 @@
 # Реестр Сущностей Aerocool 2026
 
-Обновлено: 2026-05-15.
+Обновлено: 2026-05-17.
 
 Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md). Реестр остается governance-документом: `confirmed` сущности можно использовать в JSON-LD, staged/planned сущности не должны становиться сильными связями без видимого подтверждения на странице.
 
@@ -26,6 +26,8 @@
 - `sameAs` — только для точного совпадения сущности, не для “похожих” или “связанных” ссылок.
 - Local organization `Aerocool Ukraine` не получает global social `sameAs`; она связана с global organization через `parentOrganization` и с global brand через `brand`.
 - Внешние профили Aerocool остаются у `https://aerocool.io/#brand` и `https://aerocool.io/#organization`.
+- Официальный реестр `sameAs` проверять раз в квартал: URL должен быть живым, стабильным и по-прежнему представлять ту же global Aerocool entity.
+- `additionalType` не является заменой `sameAs`. Его можно рассматривать только для уточнения типа через внешний словарь, если внешний термин является более узким типом текущей сущности.
 - Product facts canonical source — product front matter; владелец business values — команда Aerocool Украина.
 - Не добавлять entity fields в `content/`, пока Hugo templates не умеют безопасно читать эти поля.
 - Не создавать новые schema nodes, если человек не видит соответствующий факт на странице.

@@ -177,6 +177,19 @@ Status `2026-05-07`: базовый visible product facts block добавлен
 
 Для Google это полезнее, если изображения реально присутствуют в HTML-странице, а не только в JSON-LD.
 
+### P2. Image License Metadata
+
+Schema App support-документация и Google Image License Metadata подтверждают полезность `license` и `acquireLicensePage` для Google Images. Для Aerocool это не внедрять до подтверждения прав.
+
+Порядок:
+
+1. Подтвердить владельца и права использования product/brand images.
+2. Создать или выбрать видимую страницу с условиями использования изображений.
+3. Документировать поля в front matter или data layer.
+4. Расширить `page-image-object.html` только после этого.
+
+Не добавлять `license`, `creator`, `creditText`, `copyrightNotice` или `acquireLicensePage` как неподтвержденные юридические утверждения.
+
 ## 4. Что Не Нужно Добавлять Сейчас
 
 Не добавлять:
@@ -200,7 +213,8 @@ Status `2026-05-07`: базовый visible product facts block добавлен
 5. Спроектировать `ProductGroup` для вариантов по серии/модели/материалу/цвету.
 6. Добавить отдельные видимые страницы или блоки для доставки, оплаты, возврата и гарантии.
 7. После этого переносить общие merchant policy данные на уровень Organization или отдельной policy-сущности.
-8. Вести entity/schema изменения через [schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/schema-markup-quality-checklist-2026.md), [entities-knowledge-graph-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entities-knowledge-graph-playbook-2026.md) и [ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/ecommerce-structured-data-playbook-2026.md).
+8. Подготовить image license metadata только после подтверждения прав на изображения.
+9. Вести entity/schema изменения через [schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/schema-markup-quality-checklist-2026.md), [entities-knowledge-graph-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/entities-knowledge-graph-playbook-2026.md) и [ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/ecommerce-structured-data-playbook-2026.md).
 
 ## 6. Контроль Перед Деплоем
 
