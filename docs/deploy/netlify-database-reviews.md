@@ -11,13 +11,14 @@
 Если ты раньше не работал с `Netlify Database`, читай документ в таком порядке:
 
 1. Раздел 1 объясняет, что уже подключено.
-2. Раздел 2 объясняет, зачем нужна база.
-3. Раздел 3 показывает команды запуска.
-4. Раздел 4 объясняет миграции.
-5. Раздел 5 фиксирует целевую таблицу отзывов.
-6. Раздел 6 объясняет `review_target_id`.
-7. Раздел 7 объясняет SEO-first pipeline.
-8. Раздел 9 показывает, что проверять после изменений.
+2. Раздел 2 дает актуальный алгоритм работ.
+3. Раздел 3 объясняет, зачем нужна база.
+4. Раздел 4 показывает команды запуска.
+5. Раздел 5 объясняет миграции.
+6. Раздел 6 фиксирует целевую таблицу отзывов.
+7. Раздел 7 объясняет `review_target_id`.
+8. Раздел 8 объясняет SEO-first pipeline.
+9. Раздел 11 показывает, что проверять после изменений.
 
 Не начинай с формы на сайте. Для SEO сначала нужно зафиксировать данные, модерацию и build-time экспорт approved отзывов.
 
@@ -41,7 +42,80 @@
 https://app.netlify.com/projects/hugo-aerocool/database
 ```
 
-## 2. Что Такое Netlify Database
+## 2. Актуальный Алгоритм Работ
+
+Это текущий порядок внедрения review-системы после подключения `Netlify Database`.
+
+### Уже Сделано
+
+1. Установлен `Netlify CLI 26.0.2`.
+2. Выполнен `netlify login`.
+3. Выполнен `netlify link`.
+4. Локальная папка связана с проектом `hugo-aerocool`.
+5. Выполнен `netlify database init`.
+6. Выбран режим `Direct SQL`.
+7. Sample data не создавались.
+8. Установлен пакет `@netlify/database`.
+
+### Следующий Шаг
+
+Создать первую миграцию:
+
+```bash
+netlify database migrations new --description "create reviews table" --scheme timestamp
+```
+
+После создания миграции вставить SQL из раздела 6 в созданный файл миграции.
+
+### Полный Алгоритм V1
+
+1. Создать миграцию `reviews`.
+2. Вставить SQL таблицы отзывов.
+3. Запустить локальное окружение:
+
+   ```bash
+   netlify dev
+   ```
+
+4. В другом терминале применить миграции:
+
+   ```bash
+   netlify database migrations apply
+   ```
+
+5. Проверить состояние базы:
+
+   ```bash
+   netlify database status
+   ```
+
+6. Добавить `review_target_id` и `reviews_enabled` только в один тестовый товар, например `SKY Lite`, в обе языковые версии.
+7. Сделать `POST /api/reviews`, который создает только `pending` отзыв.
+8. Сделать минимальный admin endpoint для перевода отзыва в `approved`, `rejected` или `spam`.
+9. Сделать build-time export approved отзывов в `data/generated/reviews.json`.
+10. Подключить Hugo partial отзывов только на тестовом товаре.
+11. Переключить `Product.aggregateRating` на generated reviews snapshot.
+12. Проверить два состояния:
+
+    ```text
+    нет approved отзывов -> нет AggregateRating
+    есть approved отзыв -> visible review block + AggregateRating
+    ```
+
+13. После успешной проверки масштабировать `review_target_id` на остальные товары.
+14. Статьи подключать вторым этапом, без `AggregateRating` в `Article` JSON-LD.
+
+### Что Не Делать В Первом Проходе
+
+Не делать:
+
+- не начинать с красивой админки;
+- не подключать отзывы сразу ко всем товарам;
+- не подключать статьи до проверки товарного pipeline;
+- не добавлять `Review` JSON-LD раньше visible approved отзывов;
+- не оставлять front matter `rating.value` / `rating.count` источником `Product.aggregateRating`.
+
+## 3. Что Такое Netlify Database
 
 `Netlify Database` — это управляемая `PostgreSQL`-база, встроенная в Netlify workflow.
 
@@ -67,7 +141,7 @@ https://app.netlify.com/projects/hugo-aerocool/database
 -> visible review + Product JSON-LD
 ```
 
-## 3. Базовые Команды
+## 4. Базовые Команды
 
 Все команды выполнять из корня проекта:
 
@@ -107,7 +181,7 @@ netlify database connect --query "SELECT 1"
 netlify database connect
 ```
 
-## 4. Миграции
+## 5. Миграции
 
 Миграция — это SQL-файл, который меняет структуру базы.
 
@@ -143,7 +217,7 @@ netlify database status
 
 Важное правило: если миграция уже применена, ее нельзя редактировать задним числом. Новое изменение схемы нужно делать новой миграцией.
 
-## 5. Целевая Таблица `reviews`
+## 6. Целевая Таблица `reviews`
 
 Минимальная таблица для v1:
 
@@ -181,7 +255,7 @@ ON reviews (target_type, target_id, language, status, created_at DESC);
 - `author_email_hash` нужен для дедупликации и антиспама без публичного email;
 - `status` управляет модерацией.
 
-## 6. `review_target_id` Для Товаров
+## 7. `review_target_id` Для Товаров
 
 Для товаров нельзя привязывать отзывы только к URL. У товара есть украинская и русская версии, а URL может измениться.
 
@@ -201,7 +275,7 @@ reviews_enabled: true
 
 Для v1 лучше показывать на каждой языковой странице отзывы только ее языка. Позже можно добавить видимый переключатель отзывов на другом языке.
 
-## 7. SEO-First Pipeline
+## 8. SEO-First Pipeline
 
 Для максимального SEO нельзя полагаться только на клиентский `fetch`.
 
@@ -245,7 +319,7 @@ data/generated/reviews.json
 }
 ```
 
-## 8. Netlify Functions
+## 9. Netlify Functions
 
 Для review-системы нужны функции:
 
@@ -295,7 +369,7 @@ export const config: Config = {
 
 Если функция пишется на TypeScript и проект начинает проверять типы функций локально, добавить `@netlify/functions` как dev dependency. Для обычной Hugo-сборки этот пакет сейчас не нужен, пока функции физически не добавлены.
 
-## 9. Правила SEO Для Отзывов
+## 10. Правила SEO Для Отзывов
 
 `AggregateRating` в `Product` JSON-LD можно выводить только если:
 
@@ -310,7 +384,7 @@ export const config: Config = {
 
 Для статей в v1 отзывы можно показывать как публичный UGC-блок, но не добавлять `AggregateRating` в `Article` JSON-LD. Основной SEO-сценарий review rich results для проекта — товарные страницы.
 
-## 10. Что Проверять После Изменений
+## 11. Что Проверять После Изменений
 
 После добавления миграции:
 
@@ -337,7 +411,7 @@ netlify dev
 - Hugo выводит `AggregateRating`, если approved отзывы есть и видны на странице;
 - `npm run build` проходит без ошибок.
 
-## 11. Чего Не Делать
+## 12. Чего Не Делать
 
 Не делать:
 
@@ -351,14 +425,14 @@ netlify dev
 - не разрешать HTML в тексте отзыва без жесткой очистки;
 - не хранить секреты в `netlify.toml`.
 
-## 12. Официальная База
+## 13. Официальная База
 
 - Netlify Database: `https://docs.netlify.com/build/data-and-storage/netlify-database/`
 - Netlify Database CLI: `https://docs.netlify.com/build/data-and-storage/netlify-database/cli/`
 - Netlify Database API: `https://docs.netlify.com/build/data-and-storage/netlify-database/api/`
 - Google Review Snippet structured data: `https://developers.google.com/search/docs/appearance/structured-data/review-snippet`
 
-## 13. Связанные Документы
+## 14. Связанные Документы
 
 - [docs/content/front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/front-matter-reference.md)
 - [docs/seo/ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/ecommerce-structured-data-playbook-2026.md)

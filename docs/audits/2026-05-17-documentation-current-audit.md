@@ -42,6 +42,7 @@
 - [hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/hugo-template-helpers.md) упоминает все `55` текущих файлов из `layouts/`;
 - root [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) и [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md) синхронизированы с новыми audit-снимками `2026-05-17`;
 - review-документация синхронизирована с текущим Netlify Database и Google Review Snippet слоем;
+- актуальный алгоритм полного обновления документации закреплен в [documentation-style-guide.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/documentation-style-guide.md);
 - локальные markdown-ссылки на файлы проекта;
 - сборка Hugo через `npm run build`.
 

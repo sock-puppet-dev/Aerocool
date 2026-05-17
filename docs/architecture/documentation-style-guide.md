@@ -140,7 +140,61 @@ npm run build
 - проверить, что новые правила не противоречат `AGENTS.md`;
 - проверить, что кодовые имена полей совпадают с реальными шаблонами.
 
-## 9. Чего Не Делать
+## 9. Актуальный Алгоритм Обновления Документации
+
+Этот алгоритм использовать при полном обновлении документации проекта.
+
+1. Проверить рабочее дерево:
+
+```bash
+git status --short
+```
+
+2. Получить полный список документации:
+
+```bash
+rg --files README.md AGENTS.md docs
+```
+
+3. Проверить, что у всех рабочих документов есть дата. Исключение — шаблоны в `docs/content/templates/`.
+
+4. Проверить, что [docs/README.md](/Users/stadnyk/MEGA/Aerocool/docs/README.md) перечисляет все документы внутри `docs/`.
+
+5. Проверить, что root [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) и [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md) перечисляют все важные audit-снимки из `docs/audits/`.
+
+6. Сверить документацию с фактическими файлами проекта:
+
+- `layouts/` и [hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/hugo-template-helpers.md);
+- `content/` и [front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/front-matter-reference.md);
+- `data/`, `data/entities.yaml` и entity-документы;
+- `package.json`, `mise.toml`, `netlify.toml` и deploy-документы;
+- `unlighthouse/` и quality-документы.
+
+7. Для нестабильных тем свериться с официальными источниками. Это обязательно для `Google Search`, `structured data`, `Core Web Vitals`, `Hugo`, `Netlify`, `Tailwind CSS`, `Netlify Database` и review/rating правил.
+
+8. Исправить только найденные расхождения. Не переписывать исторический audit задним числом, если достаточно добавить свежий статус в активный документ или новый audit-снимок.
+
+9. После правок проверить локальные markdown-ссылки, служебные англоязычные заголовки и пробельные ошибки:
+
+```bash
+git diff --check
+```
+
+10. Запустить сборку:
+
+```bash
+npm run build
+```
+
+11. Обновить текущий audit-снимок, если изменились счетчики документов, список проверенных источников, открытые риски или правила поддержки.
+
+12. В итоговом сообщении указать:
+
+- какие документы изменены;
+- какие проверки прошли;
+- какие project-gates остаются открытыми.
+
+## 10. Чего Не Делать
 
 Не делать:
 
@@ -151,7 +205,7 @@ npm run build
 - не добавлять SEO/schema-правило без указания, где оно реализуется в проекте;
 - не смешивать историческую оценку и текущий статус без даты.
 
-## 10. Короткая Памятка
+## 11. Короткая Памятка
 
 Документация Aerocool должна быть:
 

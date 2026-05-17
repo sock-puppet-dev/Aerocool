@@ -18,6 +18,7 @@
 - заголовки и поясняющий текст пишутся по-русски;
 - английские слова оставляем только для названий технологий, файлов, команд, полей и официальных терминов;
 - у длинного документа должен быть понятный вход: зачем он нужен, как им пользоваться и что проверять после правок;
+- полный алгоритм обновления документации описан в [architecture/documentation-style-guide.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/documentation-style-guide.md);
 - новые документы обязательно добавляются в это оглавление;
 - подробные правила стиля описаны в [architecture/documentation-style-guide.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/documentation-style-guide.md).
 
