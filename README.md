@@ -33,6 +33,8 @@
 - `Tailwind CSS 4`
 - `themes/PaperMod` как git-подмодуль
 - `Netlify` для сборки и публикации
+- `Netlify Functions` для будущих API-эндпоинтов отзывов
+- `Netlify Database` / `PostgreSQL` для будущей SEO-first review-системы
 - `Unlighthouse` для массового Lighthouse-аудита
 
 Локальные версии инструментов фиксируются в `mise.toml`. В Netlify версии фиксируются в `netlify.toml`.
@@ -74,6 +76,8 @@ npm run build:production
 - собирать Hugo;
 - публиковать сайт;
 - создавать Deploy Preview.
+
+Для будущей системы отзывов подключен `Netlify Database`. Целевая архитектура описана в [docs/deploy/netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/netlify-database-reviews.md): отзывы хранятся в PostgreSQL, проходят модерацию, выгружаются в `data/generated/reviews.json` на этапе build и только после этого попадают в видимый HTML и `Product` JSON-LD.
 
 Текущий правильный workflow такой:
 
@@ -129,7 +133,9 @@ index.ru.md   русская версия
 
 Во front matter использовать `schema_types`.
 
-Для товарных страниц product facts хранятся в front matter конкретного `content/products/<series>/<model>/index*.md`. Это единый источник правды для цены, наличия, SKU, MPN, GTIN, гарантии, доставки, возврата, способов оплаты и rating. Владелец бизнес-значений — команда Aerocool Украина; `Product` JSON-LD, видимый товарный блок и `/faq/` должны быть синхронизированы с front matter.
+Для товарных страниц product facts хранятся в front matter конкретного `content/products/<series>/<model>/index*.md`. Это единый источник правды для цены, наличия, SKU, MPN, GTIN, гарантии, доставки, возврата и способов оплаты. Владелец бизнес-значений — команда Aerocool Украина; `Product` JSON-LD, видимый товарный блок и `/faq/` должны быть синхронизированы с front matter.
+
+Для отзывов и рейтингов целевой источник правды другой: `Netlify Database` с approved отзывами и build-time export в Hugo data. Поля `rating.value` и `rating.count` во front matter считаются legacy-риском до переключения `Product` JSON-LD на реальные публичные отзывы.
 
 Редакционные ориентиры объема для SEO-посадочных страниц:
 

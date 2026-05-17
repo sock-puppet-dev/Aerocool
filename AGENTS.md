@@ -13,6 +13,7 @@
 - В `Netlify` зафиксирована версия `Node 24`.
 - Локальные версии инструментов зафиксированы в `mise.toml`.
 - Для стилизации используется `Tailwind CSS 4`.
+- Для будущей review-системы подключены `Netlify Functions` и `Netlify Database` / `PostgreSQL`.
 - В Hugo 0.161.0 Node-инструменты запускаются через Node permission model; Tailwind должен оставаться npm-зависимостью проекта, standalone Tailwind CLI не использовать.
 - Локальные SEO-шаблоны и шаблоны schema.org-разметки находятся в `layouts/_partials/_seo` и `layouts/_partials/_schema`.
 
@@ -37,6 +38,7 @@
 - `static/_redirects` — Netlify `_redirects` для явного root rewrite `/ -> /index.html 200` и forced `404!` по bot/scanner и sensitive URL: WordPress, `.env`, `.git`, framework manifests, filemanager, PHP/debug probes вроде `/phpinfo.php`, `/test.php` и `/:prefix/phpinfo.php`. SEO-переадресации сюда не добавлять; общий fallback `/* -> /404.html 404` не использовать, потому что Netlify автоматически берет `public/404.html`.
 - `hugo.yaml` — основная конфигурация сайта: языки, постоянные ссылки, меню и настройки сборки.
 - `netlify.toml` — сборка и заголовки ответа; временно используется `HUGO_ENVIRONMENT = "development"`, production включать только после финальной проверки.
+- `netlify/database/migrations` — SQL-миграции Netlify Database. Появляется после первой миграции; для review-системы использовать Direct SQL, а не Drizzle ORM.
 - `mise.toml` — локальные версии `Hugo 0.161.0` и `Node 24` для `mise`.
 - `unlighthouse/` — локальный набор конфигов для массового Lighthouse-аудита. Он не деплоит сайт, а проверяет уже опубликованный URL или Netlify Deploy Preview.
 
@@ -60,6 +62,7 @@
 - `docs/seo/entities-knowledge-graph-playbook-2026.md`
 - `docs/seo/ecommerce-structured-data-playbook-2026.md`
 - `docs/seo/json-ld-graph-audit-roadmap-2026.md`
+- `docs/deploy/netlify-database-reviews.md`
 - `docs/seo/google-seo-audit-checklist-2026.md`
 - `docs/seo/ssg-seo-checklist-2026.md`
 - `docs/audits/2026-04-29-hugo-0-161-compliance-audit.md`
@@ -99,7 +102,8 @@
 - Варианты товаров сознательно разделены по модели и цвету. Для каждого варианта — отдельная папка и отдельный `slug`.
 - Во front matter использовать только `schema_types`. Шаблоны читают `.Params.schema_types`; не переходить на `schema_type`.
 - Entity-поля `about_entities`, `mentions_entities` и `product_group_id` можно добавлять только точечно: каждое значение должно существовать в `data/entities.yaml` и быть раскрыто видимым контентом страницы. Для `about_entities` и `mentions_entities` использовать только `confirmed` сущности; `product_group_id` может быть staged, но JSON-LD `isVariantOf` появится только после перевода ProductGroup в `confirmed`.
-- Для товарных страниц единый источник правды по product facts — front matter конкретного `content/products/<series>/<model>/index*.md`: цена, наличие, SKU, MPN, GTIN, гарантия, доставка, возврат, способы оплаты и rating. Владелец бизнес-значений — команда Aerocool Украина. Видимый товарный текст и `/faq/` должны подтверждать эти значения, а не заменять их.
+- Для товарных страниц единый источник правды по merchant product facts — front matter конкретного `content/products/<series>/<model>/index*.md`: цена, наличие, SKU, MPN, GTIN, гарантия, доставка, возврат и способы оплаты. Владелец бизнес-значений — команда Aerocool Украина. Видимый товарный текст и `/faq/` должны подтверждать эти значения, а не заменять их.
+- Для отзывов и рейтингов целевой источник правды — `Netlify Database` с approved отзывами и build-time export в `data/generated/reviews.json`. `AggregateRating` и `Review` в `Product` JSON-LD можно выводить только если отзывы реальные, approved, публично видимые на этой же товарной странице и относятся к ее `review_target_id`.
 - Для большинства страниц видимый `H1` рендерится шаблонным слоем через `layouts/_partials/page-h1.html` по правилу `.Params.h1 | default .Title`.
 - Текущая главная страница — исключение: ее hero и видимый `H1` задаются единым shortcode `layouts/_shortcodes/home-hero.html`, который сам переключает украинский/русский текст по языку страницы.
 - Home hero использует namespaced CSS-хуки `home-hero__*`; их визуальный слой держим в `assets/css/main.css`, а не размазываем по теме.
@@ -154,6 +158,7 @@
 - При добавлении новых разделов сохранять текущую двуязычную структуру папок и файлов.
 - При изменении меню, языков, permalink-логики или SEO-дефолтов осторожно редактировать `hugo.yaml`, потому что это влияет на весь сайт.
 - При изменении `static/_redirects` использовать синтаксис Netlify: корневой rewrite держать выше scanner-правил, `*` применять только как splat в конце path segment, placeholder `/:prefix/...` использовать для одного сегмента, scanner/sensitive правила оставлять со статусом `404!`. Человекопохожие parser URL из логов без подтвержденной замены, например `/aboutus`, `/contactus`, `/company` или `/profile`, не редиректить; они должны оставаться обычной `404`.
+- При изменении review-системы, `Netlify Database` migrations, `review_target_id`, moderation flow или build-time export отзывов проверять `docs/deploy/netlify-database-reviews.md`, `docs/content/front-matter-reference.md`, `docs/seo/ecommerce-structured-data-playbook-2026.md` и `docs/seo/schema-markup-quality-checklist-2026.md`.
 
 ## Проверки
 

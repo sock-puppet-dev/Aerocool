@@ -42,12 +42,14 @@
 - `hasMerchantReturnPolicy`;
 - `acceptedPaymentMethod`;
 - `WarrantyPromise`, если заполнено в front matter;
-- `AggregateRating`, если заполнены `rating.value` и `rating.count`;
+- `AggregateRating` сейчас технически может выводиться из legacy `rating.value` и `rating.count` во front matter;
 - `BreadcrumbList`;
 - `FAQPage` для канонического `/faq/`;
 - единый `ImageObject` для primary image страницы.
 
-Главный риск: данные e-commerce schema должны совпадать с видимым контентом и единым источником правды. Для Aerocool таким источником является product front matter; владелец бизнес-значений — команда Aerocool Украина. Видимый commercial block и `/faq/` подтверждают те же значения. Особенно это касается цены, `priceValidUntil`, наличия, рейтинга, количества отзывов, доставки, возврата и гарантии. Текущее значение `priceValidUntil: 2027-12-31` подтверждено командой Aerocool Украина `2026-05-07`.
+Главный риск: данные e-commerce schema должны совпадать с видимым контентом и единым источником правды. Для merchant facts таким источником является product front matter; владелец бизнес-значений — команда Aerocool Украина. Видимый commercial block и `/faq/` подтверждают те же значения. Это касается цены, `priceValidUntil`, наличия, доставки, возврата и гарантии. Текущее значение `priceValidUntil: 2027-12-31` подтверждено командой Aerocool Украина `2026-05-07`.
+
+Для рейтингов и отзывов целевой источник правды другой: `Netlify Database` с approved отзывами и build-time export в `data/generated/reviews.json`. Это решение зафиксировано `2026-05-17` в [netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/netlify-database-reviews.md). До переключения `Product` JSON-LD на этот snapshot текущие front matter ratings остаются открытым quality risk.
 
 ## 3. Обязательные И Важные Свойства Товара
 
@@ -90,15 +92,32 @@
 
 PDF подчеркивает коммерческую пользу reviews и aggregate rating, но для Aerocool это зона повышенного риска.
 
+Целевая архитектура для максимального SEO:
+
+```text
+Netlify Database
+-> approved reviews
+-> build-time export в data/generated/reviews.json
+-> Hugo HTML
+-> visible reviews
+-> Product JSON-LD AggregateRating / Review
+```
+
 Правила:
 
 - не добавлять `Review`, если на странице нет реальных видимых отзывов;
-- не добавлять дополнительные `AggregateRating`, если источник рейтинга не подтвержден;
+- не добавлять `AggregateRating`, если источник рейтинга не подтвержден approved отзывами;
 - не использовать вымышленные отзывы или “маркетинговые” звезды;
-- если рейтинг остается в Product JSON-LD, должен быть видимый блок с `ratingValue`, `reviewCount` и понятным источником;
-- если источник рейтинга нельзя подтвердить, удалить `aggregateRating` из schema и front matter.
+- если рейтинг остается в `Product` JSON-LD, должен быть видимый блок с `ratingValue`, `reviewCount` и публичными approved отзывами;
+- `ratingValue` и `reviewCount` должны считаться из той же выборки, которая видна пользователю;
+- `Review` в JSON-LD допустим только для отзывов, которые реально видны в HTML;
+- украинская и русская версии одного товара должны использовать один `review_target_id`, но язык отзыва хранится отдельно;
+- отзывы серии, категории или другой модели нельзя агрегировать в рейтинг конкретного товара;
+- если источник рейтинга нельзя подтвердить, удалить `aggregateRating` из schema и не усиливать front matter rating.
 
 Лучше временно не иметь review rich result, чем потерять доверие к product structured data.
+
+Для статей можно внедрять публичные moderated comments/reviews как пользовательский контент, но не добавлять `AggregateRating` в `Article` JSON-LD в v1. Основная SEO-цель review rich results для Aerocool — конкретные product pages.
 
 ## 6. FAQ, HowTo И Поддерживающий Контент
 
@@ -183,9 +202,13 @@ Schema помогает E-E-A-T только тогда, когда усилив
 ### P0
 
 1. Проверить источник `aggregateRating` и решить: подтвердить или убрать.
-2. Поддерживать product front matter как единый источник правды для Product schema.
-3. Держать видимый commercial block, `/faq/` и `Product` JSON-LD синхронными с front matter по доставке, возврату, оплате и гарантии.
-4. При каждом изменении product facts брать подтверждение у команды Aerocool Украина.
+2. Внедрить `review_target_id` и `reviews_enabled` как подготовительный front matter слой для review-системы.
+3. Создать миграцию `reviews` в `Netlify Database` через Direct SQL.
+4. Сделать build-time export approved отзывов в `data/generated/reviews.json`.
+5. Переключить `Product` JSON-LD с legacy front matter rating на generated reviews snapshot.
+6. Поддерживать product front matter как единый источник правды для merchant facts.
+7. Держать видимый commercial block, `/faq/` и `Product` JSON-LD синхронными с front matter по доставке, возврату, оплате и гарантии.
+8. При каждом изменении product facts брать подтверждение у команды Aerocool Украина.
 
 ### P1
 
@@ -197,7 +220,7 @@ Schema помогает E-E-A-T только тогда, когда усилив
 
 ### P2
 
-1. Добавить `Review` только после появления реальных видимых отзывов.
+1. Добавить `Review` в JSON-LD только после появления реальных видимых approved отзывов.
 2. Добавить `VideoObject` только после появления реальных product videos.
 3. Рассмотреть отдельные страницы доставки, оплаты, возврата и гарантии, если FAQ станет слишком перегруженным.
 4. Вынести merchant policy на уровень Organization или отдельной policy-сущности после стабилизации видимых policy pages.

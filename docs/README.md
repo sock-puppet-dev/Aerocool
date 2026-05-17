@@ -59,6 +59,7 @@
 2. [seo/schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/schema-markup-quality-checklist-2026.md)
 3. [seo/json-ld-graph-audit-roadmap-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/json-ld-graph-audit-roadmap-2026.md)
 4. [seo/ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/ecommerce-structured-data-playbook-2026.md), если задача касается каталога или товаров
+5. [deploy/netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/netlify-database-reviews.md), если задача касается отзывов, рейтингов, модерации или `AggregateRating`
 
 Для AI Search и entity SEO:
 
@@ -118,6 +119,7 @@
 
 - [deploy/local-tooling-mise.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/local-tooling-mise.md) — локальные версии Hugo/Node через `mise`.
 - [deploy/netlify-routing.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/netlify-routing.md) — Netlify `_redirects`, forced 404 и служебная 404-страница.
+- [deploy/netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/netlify-database-reviews.md) — Netlify Database, Direct SQL, миграции, Functions и SEO-first pipeline для отзывов.
 
 ## Аудиты
 
@@ -150,6 +152,7 @@
 - поменял `seo-image` — проверь `content/seo-image-shortcode.md`;
 - поменял schema.org partials — проверь `seo/schema-types-reference.md`, `seo/schema-markup-quality-checklist-2026.md` и `seo/json-ld-graph-audit-roadmap-2026.md`;
 - поменял product schema, варианты, rating, delivery или return policy — проверь `content/front-matter-reference.md`, `seo/ecommerce-structured-data-playbook-2026.md`, product front matter, видимый товарный текст и `/faq/` как policy-зеркало;
+- поменял review-систему, Netlify Database migrations, `review_target_id`, moderation flow или build-time export отзывов — проверь `deploy/netlify-database-reviews.md`, `content/front-matter-reference.md`, `seo/ecommerce-structured-data-playbook-2026.md` и `seo/schema-markup-quality-checklist-2026.md`;
 - поменял entity strategy, `about`, `mentions`, `sameAs` или `@id` — проверь `seo/entities-knowledge-graph-playbook-2026.md` и `seo/ai-search-entity-map-2026.md`;
 - поменял hero, изображения первого экрана, CSS, JS или performance-sensitive layout — проверь `quality/core-web-vitals-guide-2026.md`;
 - поменял Unlighthouse конфиг — проверь `quality/unlighthouse-site-audit.md`;

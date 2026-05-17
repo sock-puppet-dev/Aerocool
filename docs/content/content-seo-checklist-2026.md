@@ -16,7 +16,7 @@
 
 - [ ] В проекте уже реализованы `robots`, `canonical`, `hreflang`, Open Graph и Twitter Cards через [layouts/_partials/head.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/head.html#L14), а JSON-LD выводится через [layouts/_partials/footer.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/footer.html#L30) и [layouts/_partials/_seo/jsonld.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/jsonld.html#L1).
 - [ ] Для сайта уже есть `WebSite` schema с `SearchAction` через [layouts/_partials/_schema/website.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/website.html#L1).
-- [ ] Для товарных страниц уже есть `Product`, `Offer`, данные по доставке, политике возврата и рейтингам через [layouts/_partials/_schema/product.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/product.html#L1).
+- [ ] Для товарных страниц уже есть `Product`, `Offer`, данные по доставке и политике возврата через [layouts/_partials/_schema/product.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/product.html#L1). Рейтинги остаются отдельным SEO-риском до переключения на approved отзывы из Netlify Database.
 - [ ] Для статей уже есть `Article` schema через [layouts/_partials/_schema/article.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/article.html#L1).
 - [ ] Для бренда и локальной организации уже есть отдельные schema partials через [layouts/_partials/_schema/brand.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/brand.html#L1) и [layouts/_partials/_schema/local-organization.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/local-organization.html#L1).
 - [ ] Это означает, что главный резерв роста сейчас не в “базовом техническом SEO”, а в качестве контента, полноте товарных страниц, внутренней перелинковке, покрытии изображениями, доверии к авторам и доработке после публикации.
@@ -130,8 +130,10 @@
 - [ ] Есть CTA на покупку или консультацию.
 - [ ] У карточки есть реальная коммерческая завершенность, а не “картинка + 2 абзаца”.
 - [ ] На странице должны быть реальные данные в front matter: `price`, `sku`, `mpn`, `gtin13`, `availability`, `warranty`, `return_days`, `return_method`, `return_fees`, `shipping_country`, `shipping_rate`, `shipping_currency`, сроки доставки и `payment_methods`.
-- [ ] Цена, наличие, гарантия, доставка, возврат, рейтинг и количество отзывов должны быть видимыми на странице, если эти же данные выводятся в `Product` JSON-LD.
+- [ ] Цена, наличие, гарантия, доставка и возврат должны быть видимыми на странице, если эти же данные выводятся в `Product` JSON-LD.
+- [ ] Рейтинг и количество отзывов можно выводить в `Product` JSON-LD только из approved отзывов, которые публично видны на этой же товарной странице.
 - [ ] Product front matter является единым источником правды для `Product` JSON-LD; видимый commercial block и `/faq/` должны подтверждать те же merchant-условия.
+- [ ] Для будущей review-системы товар должен иметь стабильный `review_target_id`, одинаковый для `uk` и `ru` версии одного товара.
 - [ ] Если данные меняются быстро, обновление контента и schema должно идти синхронно.
 - [ ] Для product image в текущем проекте использовать связку `image + cover.image + seo-image`, а не только один shortcode или только одно поле front matter.
 - [ ] Для product schema в P2 желательно поддерживать не одно изображение, а набор `16:9`, `4:3`, `1:1`, если команда подготовит реальные изображения этих пропорций.
@@ -314,7 +316,8 @@
 - [ ] Поле `h1` в метаданных страницы необязательно и используется только тогда, когда видимый заголовок должен отличаться от SEO `title`.
 - [ ] Для `collection`-страниц желательно иметь и `summary`, если шаблон использует краткое описание в списках и сниппетах.
 - [ ] Для товарных страниц обязательно заполнять `title`, `description`, `summary`, `date`, `lastmod`, `slug`, `categories`, `tags`, `image`, `schema_types`, `price`, `sku`, `availability`, `priceValidUntil`.
-- [ ] Для товарных страниц желательно заполнять `mpn`, `gtin13`, `warranty`, `rating.value`, `rating.count`, `return_days`, `return_method`, `return_fees`, `shipping_country`, `shipping_rate`, `shipping_currency`, `shipping_handling_min`, `shipping_handling_max`, `shipping_transit_min`, `shipping_transit_max`, `payment_methods`, если эти данные доступны.
+- [ ] Для товарных страниц желательно заполнять `mpn`, `gtin13`, `warranty`, `review_target_id`, `reviews_enabled`, `return_days`, `return_method`, `return_fees`, `shipping_country`, `shipping_rate`, `shipping_currency`, `shipping_handling_min`, `shipping_handling_max`, `shipping_transit_min`, `shipping_transit_max`, `payment_methods`, если эти данные доступны.
+- [ ] Поля `rating.value` и `rating.count` считать legacy-риском: новые SEO-рейтинги должны приходить из approved отзывов, а не из ручного front matter.
 - [ ] Бизнес-значения product facts должны быть подтверждены командой Aerocool Украина перед изменением front matter.
 - [ ] Если меняются доставка, возврат или способы оплаты, сначала обновлять product front matter, затем синхронно проверять `Product` JSON-LD, видимый коммерческий блок товарных страниц и `/faq/`.
 - [ ] Для статей обязательно заполнять `title`, `description`, `summary`, `date`, `lastmod`, `slug`, `image`, `schema_types`.

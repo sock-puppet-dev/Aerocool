@@ -313,6 +313,8 @@ cover:
 schema_types: ["website", "product", "organization", "breadcrumbs"]
 price: 0
 sku: "<SKU>"
+review_target_id: "<stable-review-id>" # одинаковый для uk/ru версии одного товара
+reviews_enabled: false                  # включать true только после подключения review partials
 availability: InStock
 priceValidUntil: 2027-12-31
 warranty: 12
@@ -333,7 +335,7 @@ payment_methods:             # необязательно
   - "https://schema.org/CreditCard"
 rating:
   value: 4.8
-  count: 10
+  count: 10       # legacy-поле: не использовать как долгосрочный источник Product JSON-LD
 ---
 ```
 
@@ -343,13 +345,19 @@ rating:
 
 Не добавлять параметр `jsonld` в shortcode `seo-image`: `ImageObject` собирается централизованно из front matter `image`.
 
-Для товарных страниц единый источник правды по product facts — front matter конкретной страницы. Это относится к `price`, `sku`, `mpn`, `gtin13`, `availability`, `priceValidUntil`, `warranty`, `return_days`, `return_method`, `return_fees`, `shipping_country`, `shipping_rate`, `shipping_currency`, `shipping_handling_min`, `shipping_handling_max`, `shipping_transit_min`, `shipping_transit_max`, `payment_methods`, `rating.value` и `rating.count`.
+Для товарных страниц единый источник правды по merchant product facts — front matter конкретной страницы. Это относится к `price`, `sku`, `mpn`, `gtin13`, `availability`, `priceValidUntil`, `warranty`, `return_days`, `return_method`, `return_fees`, `shipping_country`, `shipping_rate`, `shipping_currency`, `shipping_handling_min`, `shipping_handling_max`, `shipping_transit_min`, `shipping_transit_max` и `payment_methods`.
 
 Владелец бизнес-значений — команда Aerocool Украина. Она подтверждает цену, наличие, гарантию, доставку, возврат, оплату, SKU, MPN, GTIN и срок актуальности цены. Контент-редактор или Codex вносит подтвержденные значения в front matter и синхронизирует видимый товарный текст. По состоянию на `2026-05-07` значение `priceValidUntil: 2027-12-31` подтверждено для текущих товарных цен.
 
-[layouts/_partials/_schema/product.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/product.html) читает merchant facts из front matter и строит `Offer`, `OfferShippingDetails`, `MerchantReturnPolicy`, `acceptedPaymentMethod`, `WarrantyPromise` и `AggregateRating`. Видимый коммерческий блок товарной страницы и `/faq/` должны подтверждать эти же значения, но не являются первичным источником. Если меняется цена, наличие, SKU, GTIN, гарантия, доставка, возврат или оплата, сначала обновлять product front matter, затем в том же изменении синхронизировать видимый product copy и `/faq/`, если это изменение policy-wide. Сам partial менять нужно только при изменении schema mapping или добавлении новых полей.
+[layouts/_partials/_schema/product.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/product.html) читает merchant facts из front matter и строит `Offer`, `OfferShippingDetails`, `MerchantReturnPolicy`, `acceptedPaymentMethod` и `WarrantyPromise`. Видимый коммерческий блок товарной страницы и `/faq/` должны подтверждать эти же значения, но не являются первичным источником. Если меняется цена, наличие, SKU, GTIN, гарантия, доставка, возврат или оплата, сначала обновлять product front matter, затем в том же изменении синхронизировать видимый product copy и `/faq/`, если это изменение policy-wide. Сам partial менять нужно только при изменении schema mapping или добавлении новых полей.
 
-Если рейтинг или количество отзывов не подтверждены реальными видимыми данными, их нельзя усиливать дополнительной `Review`-разметкой.
+`review_target_id` — стабильный ID объекта отзывов. Для украинской и русской версии одного товара он должен быть одинаковым. Лучше использовать человекочитаемый slug модели, например `sky-lite`, а не URL. Это защищает отзывы от потери связи при изменении адреса страницы.
+
+`reviews_enabled` включает будущий видимый блок отзывов на странице. Пока review partials и build-time export не подключены, поле можно подготовить как `false`. Включать `true` нужно только тогда, когда страница уже умеет показывать approved отзывы из `data/generated/reviews.json`.
+
+Поля `rating.value` и `rating.count` остаются legacy-риском текущего этапа. Целевая SEO-first архитектура описана в [netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/netlify-database-reviews.md): рейтинг должен приходить не из front matter, а из approved отзывов в `Netlify Database`, выгруженных на build в `data/generated/reviews.json` и видимо показанных на странице.
+
+Если рейтинг или количество отзывов не подтверждены реальными approved отзывами, их нельзя выводить в `AggregateRating` и нельзя усиливать дополнительной `Review`-разметкой.
 
 ## 10. FAQ `content/faq/index.md` и `index.ru.md`
 
