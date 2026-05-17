@@ -137,6 +137,7 @@
 - [audits/2026-05-17-schemaapp-support-knowledge-base-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-schemaapp-support-knowledge-base-audit.md) — аудит 9 support-статей Schema App по `sameAs`, primary entity, `additionalType`, `about`, `mentions`, breadcrumbs и image license metadata.
 - [audits/2026-05-17-json-ld-entity-full-audit-after-schemaapp-support.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-json-ld-entity-full-audit-after-schemaapp-support.md) — полный контрольный аудит JSON-LD, Entity Registry, rendered graph, ProductGroup, `sameAs`, `additionalType`, breadcrumbs и image metadata после новых данных Schema App.
 - [audits/2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md) — анализ 4 новых PDF Schema App про connected schema, content knowledge graphs, impact of schema markup и Agentic Web.
+- [audits/2026-05-17-json-ld-entity-full-audit-after-schemaapp-pdf-data.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-json-ld-entity-full-audit-after-schemaapp-pdf-data.md) — полный аудит rendered JSON-LD, Entity Registry, Product graph, connected schema и актуальных P0/P1/P2/P3 задач после анализа новых PDF Schema App.
 
 ## Правило Поддержки
 
