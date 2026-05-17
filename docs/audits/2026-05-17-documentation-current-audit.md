@@ -31,12 +31,13 @@
 
 Проверки:
 
-- `43` markdown-файла в `README.md`, `AGENTS.md` и `docs/`;
-- `41` markdown-файл внутри `docs/`;
+- `46` markdown-файлов в `README.md`, `AGENTS.md` и `docs/`;
+- `44` markdown-файла внутри `docs/`;
 - покрытие `docs/README.md`: все документы из `docs/` перечислены в оглавлении;
 - отсутствие служебных англоязычных заголовков вроде `Scope`, `Findings`, `Current Status`, `Implementation Backlog`, `Executive Summary`, `Prioritized Fix Plan`;
 - явные даты есть у всех рабочих документов и audit-снимков, кроме шаблонов в `docs/content/templates/`, где дата не нужна;
 - [hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/hugo-template-helpers.md) упоминает все `55` текущих файлов из `layouts/`;
+- root [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) и [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md) синхронизированы с новыми audit-снимками `2026-05-17`;
 - локальные markdown-ссылки на файлы проекта;
 - сборка Hugo через `npm run build`.
 

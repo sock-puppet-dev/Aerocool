@@ -62,6 +62,11 @@
 - `docs/seo/json-ld-graph-audit-roadmap-2026.md`
 - `docs/seo/google-seo-audit-checklist-2026.md`
 - `docs/seo/ssg-seo-checklist-2026.md`
+- `docs/audits/2026-04-29-hugo-0-161-compliance-audit.md`
+- `docs/audits/2026-04-29-google-rich-results-quality-audit.md`
+- `docs/audits/2026-05-06-content-depth-literary-audit.md`
+- `docs/audits/2026-05-06-schemaapp-pdf-documentation-integration-audit.md`
+- `docs/audits/2026-05-06-project-readiness-assessment.md`
 - `docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md`
 - `docs/audits/2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md`
 - `docs/audits/2026-05-13-content-image-cover-alt-audit.md`
@@ -70,6 +75,10 @@
 - `docs/audits/2026-05-15-documentation-full-audit.md`
 - `docs/audits/2026-05-17-documentation-current-audit.md`
 - `docs/audits/2026-05-17-core-web-vitals-project-audit.md`
+- `docs/audits/2026-05-17-schemaapp-support-knowledge-base-audit.md`
+- `docs/audits/2026-05-17-json-ld-entity-full-audit-after-schemaapp-support.md`
+- `docs/audits/2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md`
+- `docs/audits/2026-05-17-json-ld-entity-full-audit-after-schemaapp-pdf-data.md`
 - `docs/architecture/browser-view-transitions.md`
 - `docs/deploy/local-tooling-mise.md`
 - `docs/deploy/netlify-routing.md`
