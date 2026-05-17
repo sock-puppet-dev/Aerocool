@@ -11,5 +11,8 @@
     "build:production": "hugo --environment production --gc --minify",
     "predev": "git submodule update --init --recursive",
     "dev": "hugo server"
+  },
+  "dependencies": {
+    "@netlify/database": "^1.0.0"
   }
 }
