@@ -1,6 +1,6 @@
 # Документация Aerocool
 
-Обновлено: 2026-05-15.
+Обновлено: 2026-05-17.
 
 Это оглавление всей проектной документации. В корне репозитория остались только два входных документа:
 
@@ -132,6 +132,8 @@
 - [audits/2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md) — базовая синхронизация документации с лучшими практиками 2026.
 - [audits/2026-05-14-seo-image-documentation-cleanup.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-14-seo-image-documentation-cleanup.md) — очистка устаревшей информации по `seo-image`, LCP preload, `sizes`, AVIF, WebP и SEO-обещаниям.
 - [audits/2026-05-15-documentation-full-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-15-documentation-full-audit.md) — полный аудит документационного слоя, перекрестных ссылок, entity URL, оглавлений и открытых production-gate рисков.
+- [audits/2026-05-17-documentation-current-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-documentation-current-audit.md) — текущий аудит русскоязычности, структуры, новичковой понятности, ссылок, helper-карты и актуальности внешних SEO/Hugo/Netlify/Tailwind правил.
+- [audits/2026-05-17-core-web-vitals-project-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-core-web-vitals-project-audit.md) — текущий Core Web Vitals аудит проекта, Lighthouse baseline и исправления `prefetch`/search preload.
 
 ## Правило Поддержки
 

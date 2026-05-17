@@ -1,7 +1,7 @@
 # Аудит Качества Google Rich Results
 
-Дата аудита: 2026-04-29
-Актуализировано: 2026-05-06
+Дата аудита: 2026-04-29.
+Актуализировано: 2026-05-17.
 Проект: `Aerocool Ukraine` / Hugo / двуязычный сайт `uk` + `ru`
 
 ## Область Проверки
@@ -65,7 +65,7 @@ npm run build
 | `BreadcrumbList` | 76 | Да: Breadcrumb rich result |
 | `Article` | 14 | Да, как Article structured data / enhanced understanding |
 | `NewsArticle` | 14 | Да, как Article structured data / enhanced understanding |
-| `FAQPage` | 2 | Формально да, но eligibility сильно ограничена |
+| `FAQPage` | 2 | Не Google rich result цель после `2026-05-07`; полезно как семантика и видимый FAQ |
 | `Organization` | 172 | Да, organization information / logo / knowledge signals |
 | `WebSite` | 86 | Поддерживающая сущность; SearchAction больше не дает sitelinks search box |
 | `Brand` | 86 | Поддерживающая сущность |
@@ -86,7 +86,7 @@ npm run build
 1. Все 24 `Product` nodes содержат `price`, `availability`, `aggregateRating`, `sku`, часто `mpn` и `gtin13`; после обновлений `2026-05-06` эти данные в целом подтверждены видимым product facts block. Оставшийся риск — источник рейтингов и review evidence.
 2. Все 24 `aggregateRating` nodes теперь имеют видимое значение/count на странице, но источник рейтинга и индивидуальные отзывы пока не оформлены как полноценный пользовательский слой.
 3. Merchant listing eligibility под вопросом, если товар нельзя купить прямо на странице. После появления visible facts и коммерческого CTA риск ниже, но страницы всё ещё нужно проверять как каталог/маркетинговые карточки, а не полноценный checkout-ready merchant flow.
-4. `FAQPage` технически корректен и видим, но Google ограничивает FAQ rich results well-known authoritative government/health сайтами. Для коммерческого сайта это почти нулевая ставка на видимый FAQ rich result.
+4. `FAQPage` технически корректен и видим, но после официального обновления Google от `2026-05-08` FAQ rich results больше не показываются в Google Search. Для коммерческого сайта это не SERP-цель, а вспомогательная семантика и пользовательский FAQ.
 5. Все `Article` и `NewsArticle` используют одно primary image `1536x1024` с ratio `1.5`. Google рекомендует несколько high-resolution images в ratio `16x9`, `4x3`, `1x1`.
 6. `WebSite.SearchAction` больше не дает sitelinks search box: Google удалил этот визуальный элемент с 2024-11-21.
 7. `Organization` размечается на каждой странице. Google рекомендует размещать organization information на главной или отдельной странице об организации; это не критично, но можно упростить.
@@ -99,7 +99,7 @@ npm run build
 | Merchant listing | Есть Offer, shipping, return policy | Условно, если страница реально продает товар | Средний: есть visible facts/CTA, но нет checkout flow |
 | Review snippet | Есть `aggregateRating` на 24 товарах | Сомнительно | Средний/высокий: rating виден, источник отзывов не ясен |
 | Breadcrumb | 76 nodes, positions/items ok | Хорошая eligible-зона | Низкий |
-| FAQ rich result | 2 pages, 33 Q/A видимы | Низкая для коммерческого сайта | Низкий технически, высокий ожиданиями |
+| FAQ rich result | 2 pages, 33 Q/A видимы | Не использовать как Google SERP-цель после `2026-05-07` | Низкий технически, высокий ожиданиями |
 | Article | 14 nodes | Хорошая семантика | Средний: image ratios, author inline data |
 | NewsArticle | 14 nodes | Хорошая семантика | Средний: image ratios, author inline data |
 | Organization | 172 nodes | Поддерживающая eligible-зона | Средний: слишком широко дублируется |
@@ -445,12 +445,12 @@ Status:
 
 - Technical: OK.
 - Content visibility: OK.
-- Rich result: low probability because Google restricts FAQ rich results to well-known authoritative government/health sites.
+- Rich result: не считать целью для Google Search; с `2026-05-07` FAQ rich results больше не показываются.
 
 Recommendation:
 
 - Keep FAQPage if it helps semantic clarity.
-- Do not treat FAQPage as a key traffic/rich-result lever.
+- Do not treat FAQPage as a Google traffic/rich-result lever.
 
 ## Аудит CollectionPage
 
@@ -584,7 +584,7 @@ Recommendation:
 
 1. Emit full `Organization` graph only on home/about/contact or keep a reduced global reference elsewhere.
 2. Keep `WebSite` on home; use references elsewhere if desired.
-3. Keep FAQ schema, but do not over-invest in FAQ rich result expectations.
+3. Keep FAQ schema for semantics and visible FAQ consistency, but do not invest in Google FAQ rich result expectations.
 
 ## Текущая Оценка Рисков
 
@@ -596,7 +596,7 @@ Recommendation:
 | Product rich-result quality | Improved; monitor evidence |
 | Merchant listing eligibility | Improved; FAQ now confirms merchant conditions |
 | Review snippet eligibility | Medium risk until rating source is documented |
-| FAQ rich-result expectation | Low probability |
+| FAQ rich-result expectation | Not a Google Search target after 2026-05-07 |
 | Article/News schema quality | Medium |
 | Organization graph | Medium cleanup |
 

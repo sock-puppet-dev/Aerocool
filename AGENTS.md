@@ -68,6 +68,8 @@
 - `docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md`
 - `docs/audits/2026-05-14-seo-image-documentation-cleanup.md`
 - `docs/audits/2026-05-15-documentation-full-audit.md`
+- `docs/audits/2026-05-17-documentation-current-audit.md`
+- `docs/audits/2026-05-17-core-web-vitals-project-audit.md`
 - `docs/architecture/browser-view-transitions.md`
 - `docs/deploy/local-tooling-mise.md`
 - `docs/deploy/netlify-routing.md`

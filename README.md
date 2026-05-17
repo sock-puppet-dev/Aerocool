@@ -1,6 +1,6 @@
 # Aerocool Ukraine
 
-Обновлено: 2026-05-15.
+Обновлено: 2026-05-17.
 
 `Aerocool Ukraine` — двуязычный маркетинговый и каталоговый сайт на `Hugo` для кресел Aerocool в Украине. Основной язык — украинский (`uk`), второй язык — русский (`ru`). Сайт собирается статически, деплоится через `Netlify`, использует локальные Hugo overrides поверх темы `PaperMod` и отдельный Unlighthouse-набор для технического аудита качества.
 
@@ -425,6 +425,8 @@ npm run audit:ci:technical
 - [docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md) — базовая синхронизация всей документации с лучшими практиками 2026.
 - [docs/audits/2026-05-14-seo-image-documentation-cleanup.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-14-seo-image-documentation-cleanup.md) — очистка image-документации после обновления `seo-image` и LCP preload.
 - [docs/audits/2026-05-15-documentation-full-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-15-documentation-full-audit.md) — полный аудит документационного слоя и открытых документационных рисков.
+- [docs/audits/2026-05-17-documentation-current-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-documentation-current-audit.md) — текущая проверка документации на русский язык, понятность для новичка, структуру, ссылки и актуальность внешних SEO/Hugo/Netlify/Tailwind правил.
+- [docs/audits/2026-05-17-core-web-vitals-project-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-core-web-vitals-project-audit.md) — текущий Core Web Vitals аудит проекта, Lighthouse baseline и исправления `prefetch`/search preload.
 - [docs/content/content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/content-seo-checklist-2026.md) — SEO-проверка контента.
 - [docs/seo/seo-keyword-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/seo-keyword-map-2026.md) — карта ключей.
 - `docs/content/templates/` — шаблоны статей, новостей, товаров и серий.

@@ -1,6 +1,6 @@
 # Руководство по шаблонным helper-файлам Hugo
 
-Обновлено: 2026-05-15.
+Обновлено: 2026-05-17.
 
 ## Зачем Нужен Этот Документ
 
@@ -109,9 +109,31 @@
    - `news.html`
    - `faq.html`
    - `breadcrumbs.html`
-	   - и других
+   - и других
 
-Верхнеуровневые шаблоны `layouts/search.html` и `layouts/rss.xml` тоже считаются локальными overrides проекта. Папки `layouts/_default` в текущей структуре нет.
+Верхнеуровневые шаблоны `layouts/search.html`, `layouts/rss.xml`, `layouts/sitemap.xml`, `layouts/sitemapindex.xml`, `layouts/404.html`, `layouts/alias.html`, `layouts/list.html` и `layouts/single.html` тоже считаются локальными overrides проекта. Папки `layouts/_default` в текущей структуре нет.
+
+## Быстрая Карта Верхнеуровневых Layout-Файлов
+
+Эта карта нужна новичку, чтобы не искать точку входа по всему проекту.
+
+- [layouts/baseof.html](/Users/stadnyk/MEGA/Aerocool/layouts/baseof.html) — общий HTML-каркас.
+- [layouts/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/single.html) — обычная детальная страница.
+- [layouts/list.html](/Users/stadnyk/MEGA/Aerocool/layouts/list.html) — списковые страницы и хабы.
+- [layouts/search.html](/Users/stadnyk/MEGA/Aerocool/layouts/search.html) — страница поиска; должна оставаться `noindex,nofollow`.
+- [layouts/404.html](/Users/stadnyk/MEGA/Aerocool/layouts/404.html) — кастомная 404; должна оставаться `noindex,nofollow`.
+- [layouts/alias.html](/Users/stadnyk/MEGA/Aerocool/layouts/alias.html) — служебные alias-страницы; не использовать как SEO-посадочные.
+- [layouts/rss.xml](/Users/stadnyk/MEGA/Aerocool/layouts/rss.xml) — RSS.
+- [layouts/sitemap.xml](/Users/stadnyk/MEGA/Aerocool/layouts/sitemap.xml) — языковые sitemap-файлы.
+- [layouts/sitemapindex.xml](/Users/stadnyk/MEGA/Aerocool/layouts/sitemapindex.xml) — корневой sitemap index.
+- [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html) — детальная страница FAQ с видимым выводом вопросов.
+
+## Быстрая Карта Shortcode-Файлов
+
+- [layouts/_shortcodes/home-hero.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero.html) — hero главной страницы и ее H1.
+- [layouts/_shortcodes/seo-image.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/seo-image.html) — контентные изображения с контролем LCP/lazy loading.
+- [layouts/_shortcodes/faq-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq-list.html) — видимый список FAQ из front matter.
+- [layouts/_shortcodes/contact.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/contact.html) — контактный блок.
 
 ## Группа 1. Helper-Файлы Данных Страницы
 
@@ -202,6 +224,24 @@
 - если на странице неправильная социальная картинка;
 - если OG/Twitter/schema берут не то изображение;
 - если нужно изменить дефолтные fallback-картинки.
+
+### `cover.html`
+
+Файл: [cover.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/cover.html)
+
+Что делает:
+
+- переопределяет стандартный PaperMod cover partial локально;
+- берет `cover.image` из front matter;
+- корректно ищет изображения внутри page bundle;
+- генерирует WebP-версии, `srcset`, `sizes`, `width` и `height`;
+- помогает снижать CLS и контролировать LCP для главного изображения страницы.
+
+Когда идти сюда:
+
+- если preview-картинка в листинге или cover одиночной страницы рендерится неправильно;
+- если нужно изменить стратегию responsive images для cover;
+- если меняется стандарт `cover.image`, `cover.relative` или `cover.hiddenInSingle`.
 
 ### `page-language.html`
 
@@ -676,6 +716,26 @@
 - возвращает JSON-LD reference вида `{"@id": "..."}`;
 - по умолчанию выводит только сущности со статусом `confirmed`;
 - игнорирует неизвестные, `planned`, `needs-review` и `do-not-markup` сущности, чтобы front matter не ломал сборку.
+
+### `entity-node.html`
+
+Файл: [entity-node.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/entity-node.html)
+
+Что делает:
+
+- строит полноценный JSON-LD узел сущности из [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml);
+- используется для подтвержденных сущностей, которые нужно вывести как часть общего graph;
+- не заменяет видимый контент страницы: сущность должна быть раскрыта на странице или в связанном контенте.
+
+### `entity-node-list.html`
+
+Файл: [entity-node-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/entity-node-list.html)
+
+Что делает:
+
+- собирает список JSON-LD узлов сущностей;
+- удаляет дубли;
+- помогает держать `about_entities`, `mentions_entities` и registry-based nodes управляемыми через один источник данных.
 
 ### `entity-ref-list.html`
 
