@@ -135,6 +135,8 @@
 - [audits/2026-05-17-documentation-current-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-documentation-current-audit.md) — текущий аудит русскоязычности, структуры, новичковой понятности, ссылок, helper-карты и актуальности внешних SEO/Hugo/Netlify/Tailwind правил.
 - [audits/2026-05-17-core-web-vitals-project-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-core-web-vitals-project-audit.md) — текущий Core Web Vitals аудит проекта, Lighthouse baseline и исправления `prefetch`/search preload.
 - [audits/2026-05-17-schemaapp-support-knowledge-base-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-schemaapp-support-knowledge-base-audit.md) — аудит 9 support-статей Schema App по `sameAs`, primary entity, `additionalType`, `about`, `mentions`, breadcrumbs и image license metadata.
+- [audits/2026-05-17-json-ld-entity-full-audit-after-schemaapp-support.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-json-ld-entity-full-audit-after-schemaapp-support.md) — полный контрольный аудит JSON-LD, Entity Registry, rendered graph, ProductGroup, `sameAs`, `additionalType`, breadcrumbs и image metadata после новых данных Schema App.
+- [audits/2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md) — анализ 4 новых PDF Schema App про connected schema, content knowledge graphs, impact of schema markup и Agentic Web.
 
 ## Правило Поддержки
 

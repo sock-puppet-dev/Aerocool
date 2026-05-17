@@ -1,13 +1,14 @@
 # Карта Сущностей Для Поиска С AI 2026
 
-Актуально на `2026-05-13`.
+Актуально на `2026-05-17`.
 
-Этот документ переводит идеи из `Mastering AI Search`, `Schema Markup and AI Search`, `Designing Content for Humans and Machines` и `How to Prepare Your Content for Generative AI Search` от SchemaApp в практическую систему для проекта `Aerocool Ukraine`: какие сущности нужно закрепить на сайте, какие AI Search-метрики отслеживать, какие prompt-наборы проверять и как развивать JSON-LD graph без переспама.
+Этот документ переводит идеи из `Mastering AI Search`, `Schema Markup and AI Search`, `Designing Content for Humans and Machines`, `How to Prepare Your Content for Generative AI Search`, `Impact of Schema Markup` и `How Marketers Can Prepare Their Organization for the Agentic Web` от SchemaApp в практическую систему для проекта `Aerocool Ukraine`: какие сущности нужно закрепить на сайте, какие AI Search-метрики отслеживать, какие prompt-наборы проверять и как развивать JSON-LD graph без переспама.
 
 Главная мысль: для AI Search недостаточно просто иметь много SEO-текста. Сайт должен давать машинам полную, связанную и проверяемую картину бренда, товаров, серий, материалов, механизмов, сценариев использования и коммерческих условий.
 
 Текущий порядок внедрения зафиксирован в [2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md).
 Базовая синхронизация всей документации с лучшими практиками 2026 зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
+Новый PDF-аудит Schema App по connected graph, Content Knowledge Graphs, impact и Agentic Web зафиксирован в [2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md).
 
 Важно: AI Search-слой не заменяет Google Search Essentials, people-first content, Core Web Vitals и structured data quality. До production-запуска и индексации AI Search считать мониторинговым и entity-governance слоем, а не причиной внедрять chatbot, NLWeb, MCP или `llms.txt` как P0.
 
@@ -56,6 +57,20 @@ AI-поиск меняет SEO-логику:
 | Brand sentiment | В каком тоне AI описывает Aerocool | Ручной аудит формулировок и сравнений | Ответы меняются по платформам |
 | Citation ownership | Какие URL и домены владеют цитированием по теме | AI-ответы, source links, GSC/SEO tools | AI не всегда показывает источники |
 | AI crawler traffic | Приходят ли AI-боты и агенты | Server logs / Netlify logs при наличии | GA4 это обычно не показывает |
+| Entity-level performance | Какие сущности дают видимость, переходы и действия | Сопоставить entity registry, URL, GSC, GA4 и AI-аудит | Требует стабильных entity homes и production baseline |
+| Qualified organic traffic | Растет ли полезный трафик, а не просто показы | GA4 events, contact actions, product/catalog visits | Нужны корректные события |
+
+### Entity-Level Performance Baseline
+
+После production-запуска нужен отдельный baseline не только по URL, но и по сущностям.
+
+Минимальная таблица:
+
+| Entity | Entity Home | URL Cluster | GSC Queries | Clicks/CTR | AI Citations | Business Actions | Next Action |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `mesh-material` | `/articles/racer-vs-loft-air-vs-mesh/` | material article + product pages | mesh / сетка / сітка | значение после production | да/нет | переходы в каталог | усилить или оставить |
+
+Это нужно для Content Knowledge Graph: проект должен видеть, какие сущности уже работают как сильные смысловые узлы, а какие только присутствуют в registry, но не дают видимости или полезных действий.
 
 ## 4. Ежемесячный Аудит Поиска С AI
 
@@ -331,7 +346,20 @@ AI-friendly контент не должен быть короче или бед
 - если рынок начнет использовать Agentic Commerce Protocol или похожие commerce-стандарты, проекту понадобится надежный источник товарной правды;
 - если появится задача conversational-интерфейса на сайте, NLWeb-подход логично рассматривать поверх уже опубликованных semi-structured данных: schema.org, RSS, sitemap, FAQ и каталог.
 
-На текущем этапе не внедрять agentic commerce или NLWeb “на всякий случай”. Сначала нужна production-индексация, чистый schema graph, стабильные товарные данные и понятная entity map.
+Новый PDF `How Marketers Can Prepare Their Organization for the Agentic Web` добавляет важную границу: Agentic Web требует не просто страниц и schema, а управляемых действий. Для Aerocool это будущий P3-слой, а не текущая разработка.
+
+Будущий `Callable Actions Registry` может описывать только реальные действия:
+
+| Action | Когда Допустимо | Что Должно Быть Определено |
+| --- | --- | --- |
+| Compare chairs | После стабильной product/entity map | входные серии/модели, правила сравнения, URL результата |
+| Check availability | После операционного процесса наличия | источник правды, частота обновления, ответ при отсутствии товара |
+| Request consultation | Если команда реально обрабатывает такие заявки | обязательные поля, форма, ответственный владелец |
+| Submit contact form | Если форма и обработка стабильны | validation, success/failure states, spam protection |
+| Buy product | Только при реальном checkout или официальном purchase endpoint | цена, наличие, доставка, оплата, возврат, подтверждение заказа |
+| Schedule consultation | Только при реальном расписании | календарь, доступные слоты, владелец процесса |
+
+На текущем этапе не внедрять agentic commerce, MCP или NLWeb “на всякий случай”. Сначала нужна production-индексация, чистый schema graph, стабильные товарные данные, понятная entity map и владелец каждого business action.
 
 ## 12. Мониторинг AI Referral В GA4
 
@@ -394,6 +422,7 @@ AI-friendly контент не должен быть короче или бед
 5. Проверить, какие текущие статьи лучше всего подходят как entity pages.
 6. Расширить prompt-аудит до матрицы `persona × intent stage`.
 7. Описать компонентные паттерны для product, series, article, news и FAQ страниц.
+8. Добавить entity-level performance baseline после production-индексации.
 
 ### P2
 
@@ -404,6 +433,7 @@ AI-friendly контент не должен быть короче или бед
 5. Подключить AI referral monitoring к регулярному SEO-отчету.
 6. При наличии логов добавить AI crawler traffic в регулярный отчет.
 7. Рассмотреть `llms.txt`, NLWeb или agentic commerce-требования только после production-стабилизации и появления понятной бизнес-задачи.
+8. Подготовить черновой `Callable Actions Registry` как документацию, без JSON-LD/API-вывода.
 
 ## 15. Контрольный Вывод
 

@@ -2,9 +2,9 @@
 
 Актуально на `2026-05-17`.
 
-Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
+Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md). Дополнительный PDF-аудит Schema App по connected schema, Content Knowledge Graphs, impact и Agentic Web зафиксирован в [2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md).
 
-Этот документ переводит `Guide to Entities & Knowledge Graphs for SEO` от SchemaApp в локальные правила для проекта `Aerocool Ukraine`.
+Этот документ переводит `Guide to Entities & Knowledge Graphs for SEO`, `Guide to Connected Schema Markup` и `How to Drive Your Content Marketing Strategy Using Content Knowledge Graphs` от SchemaApp в локальные правила для проекта `Aerocool Ukraine`.
 
 Главная мысль: SEO больше не держится только на совпадении слов. Поиск и AI-системы пытаются понять сущности, их атрибуты и связи. Поэтому сайт Aerocool должен не просто покрывать ключевые слова, а строить понятный reusable knowledge graph из бренда, организации, серий, товаров, материалов, механизмов, сценариев и коммерческих условий.
 
@@ -55,6 +55,21 @@ Knowledge graph — это сеть отношений между сущност
 | 3. Link entities | Связывать внутренние entities и точные внешние knowledge bases | Снижается неоднозначность, появляется reusable graph |
 
 Эти шаги должны быть частью редакционного процесса, а не только технического SEO.
+
+### Lifecycle Content Knowledge Graph
+
+Новые материалы Schema App уточняют: Content Knowledge Graph — это не только JSON-LD на страницах, а reusable data layer, который нужно создавать, размещать, поддерживать и переиспользовать.
+
+Для Aerocool lifecycle такой:
+
+| Этап | Что Значит В Проекте | Практический Результат |
+| --- | --- | --- |
+| Creation | Определить сущности, entity home, `@id`, связи и видимый контент | `data/entities.yaml`, front matter, страницы сущностей |
+| Hosting | Опубликовать graph в crawlable HTML через JSON-LD | централизованный `@graph` из Hugo partials |
+| Curation | Регулярно проверять факты, статусы, `sameAs`, product facts и schema drift | меньше дублей, битых `@id` и устаревших коммерческих данных |
+| Deployment / Reuse | Использовать graph для SEO, AI Search, отчетности, будущего `llms.txt` или agentic surfaces | entity coverage reports, AI citation audits, будущие data endpoints при необходимости |
+
+Не внедрять triplestore, SPARQL или отдельный graph database сейчас. Для текущего масштаба проекта достаточно качественного registry, rendered JSON-LD и регулярной отчетности.
 
 ## 4. Страница Сущности
 
@@ -198,6 +213,23 @@ Aerocool уже находится выше уровня keyword/topics благ
 
 Результат аудита должен превращаться в контентные задачи, а не только в schema-задачи.
 
+### Entity Coverage Report
+
+Раз в месяц после production-запуска готовить простую таблицу покрытия сущностей.
+
+Минимальная структура:
+
+| Entity | Status | Entity Home | Pages About | Pages Mentions | Rendered Node | AI/GSC Signal | Gap |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `sync5-mechanism` | `confirmed` | `/articles/sync4-sync5-mechanism-guide/` | URL count | URL count | yes/no | есть/нет | усилить product specs |
+
+Как читать отчет:
+
+- если entity `confirmed`, но нет `Pages About`, статус завышен или не хватает entity home;
+- если entity часто попадает в `mentions`, но редко в `about`, возможно нужен сильный объясняющий материал;
+- если важная коммерческая сущность не имеет AI/GSC signal после индексации, нужен контентный или внутренний linking-аудит;
+- если rendered node отсутствует для confirmed dictionary/policy entity, проверить resolver и статус в [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml).
+
 ## 11. Что Дает Knowledge Graph Кроме SEO
 
 Knowledge graph может быть переиспользован за пределами классического SEO:
@@ -231,6 +263,7 @@ Knowledge graph может быть переиспользован за пред
 6. Done `2026-05-07`: priority pages получили `about_entities`, `mentions_entities` и staged `product_group_id`.
 7. Добавить видимые характеристики как источник для `additionalProperty`.
 8. Провести content gap audit по entity map.
+9. Добавить entity coverage report и graph inventory после production-запуска.
 
 ### P2
 
@@ -238,6 +271,7 @@ Knowledge graph может быть переиспользован за пред
 2. Рассмотреть author/reviewer entities только при реальной редакционной модели.
 3. Использовать knowledge graph как источник для будущего `llms.txt`.
 4. Подготовить данные для AI-chatbot только после production-стабилизации и актуализации product facts.
+5. Рассмотреть queryable graph или export только если появится реальная задача для internal tools, AI grounding или аналитики.
 
 ## 13. Что Не Делать
 
@@ -264,3 +298,4 @@ Knowledge graph может быть переиспользован за пред
 - internal + external entity linking;
 - content gap audit по entities;
 - reusable knowledge graph для SEO и будущих AI-сценариев.
+- lifecycle поддержки graph: creation, hosting, curation, deployment/reuse.

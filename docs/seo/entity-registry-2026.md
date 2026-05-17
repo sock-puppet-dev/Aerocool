@@ -2,9 +2,9 @@
 
 Обновлено: 2026-05-17.
 
-Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md). Реестр остается governance-документом: `confirmed` сущности можно использовать в JSON-LD, staged/planned сущности не должны становиться сильными связями без видимого подтверждения на странице.
+Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md). PDF-аудит Schema App по connected graph, Content Knowledge Graphs, impact и Agentic Web зафиксирован в [2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md). Реестр остается governance-документом: `confirmed` сущности можно использовать в JSON-LD, staged/planned сущности не должны становиться сильными связями без видимого подтверждения на странице.
 
-Этот документ — канонический реестр сущностей проекта `Aerocool Ukraine`. Он нужен для управляемого Entity SEO, AI Search, `about_entities`, `mentions_entities`, `ProductGroup`, будущих `additionalProperty`, `llms.txt` и структурированного [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml).
+Этот документ — канонический реестр сущностей проекта `Aerocool Ukraine`. Он нужен для управляемого Entity SEO, AI Search, `about_entities`, `mentions_entities`, `ProductGroup`, будущих `additionalProperty`, `llms.txt`, будущего `Callable Actions Registry` и структурированного [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml).
 
 Если вы впервые работаете с entity-полями, сначала прочитайте [Entity Registry: гайд для новичка](/Users/stadnyk/MEGA/Aerocool/docs/seo/entity-registry-beginner-guide-2026.md).
 
@@ -33,6 +33,7 @@
 - Не создавать новые schema nodes, если человек не видит соответствующий факт на странице.
 - Hugo генерирует отдельные registry-based JSON-LD nodes для `confirmed` сущностей классов `Material`, `Mechanism`, `Feature`, `UseCase`, `ContentTopic` и `Policy`, если они используются в `about_entities` или `mentions_entities`. Product, Organization, Brand, WebPage и Collection nodes не дублируются, потому что для них уже есть отдельные schema partials.
 - Registry-based nodes должны оставаться объяснительными: они называют сущность, дают стабильный `@id`, `entity_home`, localized `name`, `alternateName`, `identifier` и связи `isRelatedTo`, но не заменяют Product/Offer/FAQ/Article schema.
+- Agentic actions не добавлять в JSON-LD, пока нет реального business endpoint, owner, input validation, success/failure states и видимого процесса для пользователя.
 
 ## 3. Статусы Сущностей
 
@@ -334,7 +335,33 @@ Resolver requirements:
 - generate registry-based nodes for confirmed dictionary/policy entities used in `about_entities` and `mentions_entities`;
 - keep `additionalProperty` for a later pass after visible specification tables exist.
 
-## 21. Правила Проверки Качества
+## 21. Будущий `Callable Actions Registry`
+
+`How Marketers Can Prepare Their Organization for the Agentic Web` добавляет будущий слой: AI agents должны понимать не только сущности, но и допустимые действия. Для Aerocool это P3-документация, а не текущий JSON-LD/API-вывод.
+
+Action нельзя создавать как “идею”. Он должен соответствовать реальному бизнес-процессу.
+
+| Action ID | Человеческое Действие | Возможная Сущность/Endpoint | Минимальные Входные Данные | Owner | Status | Блокер |
+| --- | --- | --- | --- | --- | --- | --- |
+| `compare-chairs` | Сравнить кресла | product/series comparison page | series/model IDs, язык, сценарий | Aerocool Ukraine + content owner | `planned` | Нужны стабильные comparison rules и visible comparison pages |
+| `check-availability` | Проверить наличие | product front matter или будущий inventory endpoint | product ID, регион при необходимости | Aerocool Ukraine | `planned` | Нужен операционный процесс обновления наличия |
+| `request-consultation` | Запросить консультацию | contact form | имя, контакт, интересующий товар/сценарий, язык | Aerocool Ukraine | `planned` | Нужен подтвержденный процесс обработки заявок |
+| `submit-contact-form` | Отправить форму контакта | contact form | имя, email/phone, сообщение, consent где нужно | Aerocool Ukraine | `planned` | Нужны validation, anti-spam и success/failure states |
+| `buy-product` | Купить товар | checkout или официальный purchase endpoint | product ID, цена, доставка, оплата, контакт | Aerocool Ukraine | `do-not-markup` | Нет подтвержденного checkout/purchase endpoint |
+| `schedule-consultation` | Записаться на консультацию | календарь/слоты | тема, контакт, дата/время, язык | Aerocool Ukraine | `do-not-markup` | Нет подтвержденного расписания и владельца слотов |
+
+Правила для будущих actions:
+
+- action должен опираться на `confirmed` entities и актуальные product facts;
+- action должен иметь понятный source of truth;
+- action должен иметь владельца в команде;
+- action должен иметь обязательные поля, validation rules и состояния ошибки;
+- action нельзя публиковать, если пользователь не может выполнить его на сайте или через официальный процесс;
+- `BuyAction` и `ScheduleAction` запрещены до появления реального checkout или расписания.
+
+До production-стабилизации этот раздел использовать только как roadmap.
+
+## 22. Правила Проверки Качества
 
 - Every `about_entities` value must exist in this registry.
 - Every `mentions_entities` value must exist in this registry.
@@ -346,7 +373,7 @@ Resolver requirements:
 - Do not add `sameAs` to marketplaces, random reviews or non-official pages.
 - If an entity changes entity home, update internal links, registry, future front matter and schema tests together.
 
-## 22. Что Пока Не Размечать
+## 23. Что Пока Не Размечать
 
 | Candidate | Status | Why |
 | --- | --- | --- |
@@ -356,8 +383,9 @@ Resolver requirements:
 | Marketplace pages as `sameAs` | `do-not-markup` | Not exact identity. |
 | Random product reviews as `sameAs` | `do-not-markup` | Not exact identity. |
 | MCP/NLWeb/chatbot entities | `do-not-markup` | P3 only after production and stable knowledge graph. |
+| `BuyAction` / `ScheduleAction` | `do-not-markup` | Requires real checkout, official purchase endpoint or scheduling workflow. |
 
-## 23. План Внедрения
+## 24. План Внедрения
 
 1. Keep this markdown file as the canonical registry during the first implementation pass.
 2. Add visible variant navigation for product groups with multiple variants.
@@ -369,4 +397,5 @@ Resolver requirements:
 8. Done `2026-05-07`: fill `about_entities`, `mentions_entities` and staged `product_group_id` on priority pages.
 9. Render `ProductGroup` only after visible variant navigation exists and group entities become `confirmed`.
 10. Render `additionalProperty` only after visible specs tables exist.
-9. Use this registry as input for `llms.txt` after production stabilization.
+11. Use this registry as input for `llms.txt` after production stabilization.
+12. Keep `Callable Actions Registry` as P3 documentation until real business endpoints and owners exist.
