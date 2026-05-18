@@ -1,5 +1,7 @@
 # AGENTS.md
 
+Обновлено: 2026-05-18.
+
 ## Обзор Проекта
 
 - `Aerocool Ukraine` — маркетинговый и каталоговый сайт на `Hugo`.
@@ -47,56 +49,60 @@
 Перед тем как придумывать новые метаданные страницы, SEO-паттерн или контентную структуру, сначала сверяйтесь с локальными документами:
 
 - `README.md`
-- `docs/README.md`
-- `docs/architecture/documentation-style-guide.md`
-- `docs/seo/seo-keyword-map-2026.md`
-- `docs/content/content-seo-checklist-2026.md`
-- `docs/content/front-matter-reference.md`
-- `docs/architecture/hugo-template-helpers.md`
-- `docs/content/seo-image-shortcode.md`
-- `docs/seo/schema-types-reference.md`
-- `docs/seo/entity-registry-2026.md`
-- `docs/seo/entity-registry-beginner-guide-2026.md`
-- `docs/seo/schema-markup-quality-checklist-2026.md`
-- `docs/seo/ai-search-entity-map-2026.md`
-- `docs/seo/entities-knowledge-graph-playbook-2026.md`
-- `docs/seo/ecommerce-structured-data-playbook-2026.md`
-- `docs/seo/json-ld-graph-audit-roadmap-2026.md`
-- `docs/deploy/netlify-database-reviews.md`
-- `docs/seo/google-seo-audit-checklist-2026.md`
-- `docs/seo/ssg-seo-checklist-2026.md`
-- `docs/audits/2026-04-29-hugo-0-161-compliance-audit.md`
-- `docs/audits/2026-04-29-google-rich-results-quality-audit.md`
-- `docs/audits/2026-05-06-content-depth-literary-audit.md`
-- `docs/audits/2026-05-06-schemaapp-pdf-documentation-integration-audit.md`
-- `docs/audits/2026-05-06-project-readiness-assessment.md`
-- `docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md`
-- `docs/audits/2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md`
-- `docs/audits/2026-05-13-content-image-cover-alt-audit.md`
-- `docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md`
-- `docs/audits/2026-05-14-seo-image-documentation-cleanup.md`
-- `docs/audits/2026-05-15-documentation-full-audit.md`
-- `docs/audits/2026-05-17-documentation-current-audit.md`
-- `docs/audits/2026-05-17-core-web-vitals-project-audit.md`
-- `docs/audits/2026-05-17-schemaapp-support-knowledge-base-audit.md`
-- `docs/audits/2026-05-17-json-ld-entity-full-audit-after-schemaapp-support.md`
-- `docs/audits/2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md`
-- `docs/audits/2026-05-17-json-ld-entity-full-audit-after-schemaapp-pdf-data.md`
-- `docs/audits/2026-05-18-schemaapp-customer-stories-case-studies-audit.md`
-- `docs/audits/2026-05-18-json-ld-entity-full-audit-after-customer-stories.md`
-- `docs/audits/2026-05-18-documentation-current-audit.md`
-- `docs/architecture/browser-view-transitions.md`
-- `docs/deploy/local-tooling-mise.md`
-- `docs/deploy/netlify-routing.md`
-- `docs/quality/core-web-vitals-guide-2026.md`
-- `docs/quality/lighthouse-single-page-audit.md`
-- `docs/quality/unlighthouse-site-audit.md`
+- `docs/01-documentation-map.md`
+- `docs/architecture/02-documentation-style-guide.md`
+- `docs/architecture/03-hugo-template-helpers.md`
+- `docs/architecture/04-browser-view-transitions.md`
+- `docs/content/05-front-matter-reference.md`
+- `docs/content/06-seo-image-shortcode.md`
+- `docs/content/07-content-seo-checklist-2026.md`
+- `docs/content/templates/08-article-template.md`
+- `docs/content/templates/09-news-template.md`
+- `docs/content/templates/10-product-template.md`
+- `docs/content/templates/11-series-template.md`
+- `docs/quality/12-core-web-vitals-guide-2026.md`
+- `docs/quality/13-unlighthouse-site-audit.md`
+- `docs/quality/14-lighthouse-single-page-audit.md`
+- `docs/deploy/15-local-tooling-mise.md`
+- `docs/deploy/16-netlify-routing.md`
+- `docs/deploy/17-netlify-database-reviews.md`
+- `docs/seo/18-seo-keyword-map-2026.md`
+- `docs/seo/19-schema-types-reference.md`
+- `docs/seo/20-schema-markup-quality-checklist-2026.md`
+- `docs/seo/21-ecommerce-structured-data-playbook-2026.md`
+- `docs/seo/22-entity-registry-beginner-guide-2026.md`
+- `docs/seo/23-entity-registry-2026.md`
+- `docs/seo/24-entities-knowledge-graph-playbook-2026.md`
+- `docs/seo/25-ai-search-entity-map-2026.md`
+- `docs/seo/26-json-ld-graph-audit-roadmap-2026.md`
+- `docs/seo/27-google-seo-audit-checklist-2026.md`
+- `docs/seo/28-ssg-seo-checklist-2026.md`
+- `docs/audits/29-2026-04-29-hugo-0-161-compliance-audit.md`
+- `docs/audits/30-2026-04-29-google-rich-results-quality-audit.md`
+- `docs/audits/31-2026-05-06-content-depth-literary-audit.md`
+- `docs/audits/32-2026-05-06-schemaapp-pdf-documentation-integration-audit.md`
+- `docs/audits/33-2026-05-06-project-readiness-assessment.md`
+- `docs/audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md`
+- `docs/audits/35-2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md`
+- `docs/audits/36-2026-05-13-content-image-cover-alt-audit.md`
+- `docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md`
+- `docs/audits/38-2026-05-14-seo-image-documentation-cleanup.md`
+- `docs/audits/39-2026-05-15-documentation-full-audit.md`
+- `docs/audits/40-2026-05-17-documentation-current-audit.md`
+- `docs/audits/41-2026-05-17-core-web-vitals-project-audit.md`
+- `docs/audits/42-2026-05-17-schemaapp-support-knowledge-base-audit.md`
+- `docs/audits/43-2026-05-17-json-ld-entity-full-audit-after-schemaapp-support.md`
+- `docs/audits/44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md`
+- `docs/audits/45-2026-05-17-json-ld-entity-full-audit-after-schemaapp-pdf-data.md`
+- `docs/audits/46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md`
+- `docs/audits/47-2026-05-18-json-ld-entity-full-audit-after-customer-stories.md`
+- `docs/audits/48-2026-05-18-documentation-current-audit.md`
 
-Для новичка порядок чтения такой: сначала `README.md`, затем `docs/README.md`, затем `docs/content/front-matter-reference.md`, затем `docs/architecture/hugo-template-helpers.md`, затем `docs/quality/unlighthouse-site-audit.md`. Для SEO/schema-задач после этого читать `docs/seo/schema-types-reference.md`, `docs/seo/schema-markup-quality-checklist-2026.md`, `docs/seo/entities-knowledge-graph-playbook-2026.md` и профильный playbook по задаче. Для performance/Core Web Vitals-задач читать `docs/quality/core-web-vitals-guide-2026.md`. Остальные гайды подключать по задаче.
+Для новичка порядок чтения такой: сначала `README.md`, затем `AGENTS.md`, затем `docs/01-documentation-map.md`, затем `docs/architecture/02-documentation-style-guide.md`, затем `docs/architecture/03-hugo-template-helpers.md`, затем `docs/content/05-front-matter-reference.md`, затем `docs/quality/13-unlighthouse-site-audit.md`. Для SEO/schema-задач после этого читать `docs/seo/19-schema-types-reference.md`, `docs/seo/20-schema-markup-quality-checklist-2026.md`, `docs/seo/24-entities-knowledge-graph-playbook-2026.md` и профильный playbook по задаче. Для performance/Core Web Vitals-задач читать `docs/quality/12-core-web-vitals-guide-2026.md`. Остальные гайды подключать по задаче.
 
 ## Контентные Правила
 
-- Вся проектная документация должна быть написана на русском языке, с пояснениями для новичка и строгой структурой. Английские термины оставлять только для названий технологий, файлов, команд, полей и официальных SEO/schema/CWV-терминов. Подробный стандарт — `docs/architecture/documentation-style-guide.md`.
+- Вся проектная документация должна быть написана на русском языке, с пояснениями для новичка и строгой структурой. Английские термины оставлять только для названий технологий, файлов, команд, полей и официальных SEO/schema/CWV-терминов. Подробный стандарт — `docs/architecture/02-documentation-style-guide.md`.
 
 - Украинская и русская версии должны оставаться синхронными, если задача явно не ограничена одним языком.
 - Текущий локализационный паттерн: `index.md` для украинской версии и `index.ru.md` для русской внутри одной папки страницы (`page bundle`).
@@ -161,7 +167,7 @@
 - При добавлении новых разделов сохранять текущую двуязычную структуру папок и файлов.
 - При изменении меню, языков, permalink-логики или SEO-дефолтов осторожно редактировать `hugo.yaml`, потому что это влияет на весь сайт.
 - При изменении `static/_redirects` использовать синтаксис Netlify: корневой rewrite держать выше scanner-правил, `*` применять только как splat в конце path segment, placeholder `/:prefix/...` использовать для одного сегмента, scanner/sensitive правила оставлять со статусом `404!`. Человекопохожие parser URL из логов без подтвержденной замены, например `/aboutus`, `/contactus`, `/company` или `/profile`, не редиректить; они должны оставаться обычной `404`.
-- При изменении review-системы, `Netlify Database` migrations, `review_target_id`, moderation flow или build-time export отзывов проверять `docs/deploy/netlify-database-reviews.md`, `docs/content/front-matter-reference.md`, `docs/seo/ecommerce-structured-data-playbook-2026.md` и `docs/seo/schema-markup-quality-checklist-2026.md`.
+- При изменении review-системы, `Netlify Database` migrations, `review_target_id`, moderation flow или build-time export отзывов проверять `docs/deploy/17-netlify-database-reviews.md`, `docs/content/05-front-matter-reference.md`, `docs/seo/21-ecommerce-structured-data-playbook-2026.md` и `docs/seo/20-schema-markup-quality-checklist-2026.md`.
 
 ## Проверки
 
