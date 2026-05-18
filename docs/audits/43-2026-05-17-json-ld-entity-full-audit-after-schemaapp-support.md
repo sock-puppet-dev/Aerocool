@@ -67,7 +67,7 @@ Rendered HTML:
 
 `data/entities.yaml` содержит `67` сущностей:
 
-| Status | Count |
+| Статус | Количество |
 | --- | ---: |
 | `confirmed` | `48` |
 | `planned` | `17` |

@@ -249,9 +249,9 @@ Corpus подтверждает текущие документы:
 
 1. Production gate.
 2. Rating source или removal of `aggregateRating`.
-3. Done `2026-05-07`: local organization facts и `sameAs`.
-4. Done `2026-05-07`: product facts source of truth, owner and `priceValidUntil` are fixed; product front matter is canonical, команда Aerocool Украина owns business values, `priceValidUntil: 2027-12-31` is confirmed, UI, `/faq/` and `Product` JSON-LD mirror it.
-5. Done `2026-05-07`: entity registry, entity homes, `data/entities.yaml` and safe resolver.
+3. Выполнено `2026-05-07`: local organization facts и `sameAs`.
+4. Выполнено `2026-05-07`: product facts source of truth, owner and `priceValidUntil` are fixed; product front matter is canonical, команда Aerocool Украина owns business values, `priceValidUntil: 2027-12-31` is confirmed, UI, `/faq/` and `Product` JSON-LD mirror it.
+5. Выполнено `2026-05-07`: entity registry, entity homes, `data/entities.yaml` and safe resolver.
 
 ### Сделать Далее
 

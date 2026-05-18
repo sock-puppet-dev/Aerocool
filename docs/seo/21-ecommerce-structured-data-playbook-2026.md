@@ -62,7 +62,7 @@
 | --- | --- | --- |
 | Product name | `title` / visible H1 | Обязательно |
 | Product description | `description`, summary, visible body | Обязательно |
-| Price | front matter + visible commercial block | Обязательно для rich result |
+| Цена | front matter + visible commercial block | Обязательно для rich result |
 | Currency | `UAH` | Обязательно |
 | Availability | front matter + visible commercial block | Обязательно |
 | Brand | schema `Brand @id` | Обязательно |

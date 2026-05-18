@@ -41,7 +41,7 @@
 
 ## 3. Текущее Состояние Проекта
 
-| Area | Current state | Status |
+| Область | Текущее Состояние | Статус |
 |---|---|---|
 | Hugo | `0.161.0` pinned in `mise.toml` and `netlify.toml` | OK; keep pinned until explicit upgrade task |
 | Node | `24` pinned locally and on Netlify | OK |
@@ -67,7 +67,7 @@
 
 ### Намеренно Оставлено Открытым
 
-| Item | Why open | Required next step |
+| Пункт | Почему Открыто | Следующий Шаг |
 |---|---|---|
 | Netlify production switch | Site intentionally remains `development/noindex` | Switch only after final production approval |
 | Search Console field data | Requires production indexing and traffic | Monitor after production |
@@ -167,6 +167,6 @@ The remaining `0.5` is not a documentation gap. It is the pre-production boundar
 - rich result eligibility must be rechecked on production URLs;
 - rating/review source still needs a business decision.
 
-Current conclusion:
+Текущий вывод:
 
 > The documentation is current for May 13, 2026 and aligned with 2026 best practices for a Hugo / Netlify / Tailwind static SEO site. The next decisive step is not more documentation, but the controlled production switch and post-launch Search Console / PageSpeed / rich results monitoring.

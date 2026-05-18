@@ -116,10 +116,10 @@
 | Category SEO text | Да |
 | FAQ для каждой категории | Да |
 | FAQ для каждого товара | Да |
-| Comparison content | Да |
+| Сравнительный контент | Да |
 | Buying guides | Да |
 | Problem-solving articles | Да |
-| Supporting articles | Да |
+| Поддерживающие статьи | Да |
 | Content refresh system | Да |
 | Content pruning | Да |
 | Проверка duplicate content | Да |
@@ -161,7 +161,7 @@
 | Article → category links | Да |
 | FAQ → guide links | Да |
 | Guide → comparison links | Да |
-| Comparison → product links | Да |
+| Ссылки из сравнений на товары | Да |
 | Footer links | Да |
 | Contextual anchors | Да |
 | HTML sitemap | Желательно |
@@ -246,13 +246,13 @@
 | Category pages | Да |
 | Product schema | Да |
 | Offer schema | Да |
-| Price | Да |
+| Цена | Да |
 | Availability | Да |
 | SKU / MPN / GTIN, если есть | Да |
 | Brand | Да |
 | Reviews | Да, если реальные |
 | AggregateRating | Да, если реальные |
-| Comparison tables | Да |
+| Сравнительные таблицы | Да |
 | Pros / cons | Да |
 | FAQ | Да |
 | Delivery info | Да |
@@ -261,7 +261,7 @@
 | Merchant Center | Да, если есть продажи |
 | Product feed | Да, если есть продажи |
 | Availability monitoring | Да |
-| Price update system | Да |
+| Система обновления цен | Да |
 
 ---
 
@@ -318,7 +318,7 @@
 | Sticky header | Желательно |
 | Быстрый поиск | Да |
 | Фильтры товаров | Да |
-| Comparison tables | Да |
+| Сравнительные таблицы | Да |
 | Чёткие CTA | Да |
 | Кнопка “Купить” / “Узнать цену” | Да |
 | FAQ рядом с решением | Да |

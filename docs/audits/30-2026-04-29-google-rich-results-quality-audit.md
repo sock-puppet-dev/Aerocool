@@ -263,7 +263,7 @@ Google удалил визуальный элемент sitelinks search box с 
 - `Visible commercial fields`: видны ли цена, наличие, рейтинг и SKU-подобные факты в отрендеренном тексте страницы.
 - `ID completeness`: покрытие MPN и GTIN.
 
-| URL | Lang | Price | ID completeness | Visible commercial fields | Risk |
+| URL | Язык | Цена | Полнота ID | Видимые Коммерческие Поля | Риск |
 |---|---|---:|---|---|---|
 | `/products/sky/360/` | uk | 12400 | missing MPN, GTIN | no | P1 |
 | `/products/sky/lite/` | uk | 8500 | missing MPN, GTIN | no | P1 |
@@ -382,7 +382,7 @@ Common warnings:
 - primary image ratio `1.5`, not recommended `1:1`, `4:3`, `16:9`;
 - author is referenced by `@id`, not inline with `name` / `url`.
 
-| URL | Type | Words | Image | Published | Modified | Risk |
+| URL | Тип | Слова | Изображение | Опубликовано | Изменено | Риск |
 |---|---|---:|---|---|---|---|
 | `/articles/how-to-choose-aerocool-chair/` | Article | 1833 | 1536x1024 | 2026-04-14 | 2026-04-30 | P2 image/author |
 | `/articles/how-to-choose-chair-by-adjustability/` | Article | 1789 | 1536x1024 | 2026-04-12 | 2026-04-30 | P2 image/author |

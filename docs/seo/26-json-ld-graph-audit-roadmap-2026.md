@@ -44,9 +44,9 @@
 - возврат;
 - гарантия.
 
-Status `2026-05-07`: product front matter зафиксирован как единый источник правды для price, `priceValidUntil`, availability, SKU, MPN, GTIN, warranty, shipping, returns и payment methods; владелец бизнес-значений — команда Aerocool Украина. Значение `priceValidUntil: 2027-12-31` подтверждено как актуальный срок действия товарных цен. Видимый коммерческий блок на product pages и merchant-факты в `/faq/` теперь должны служить синхронным подтверждением этих значений.
+Статус `2026-05-07`: product front matter зафиксирован как единый источник правды для price, `priceValidUntil`, availability, SKU, MPN, GTIN, warranty, shipping, returns и payment methods; владелец бизнес-значений — команда Aerocool Украина. Значение `priceValidUntil: 2027-12-31` подтверждено как актуальный срок действия товарных цен. Видимый коммерческий блок на product pages и merchant-факты в `/faq/` теперь должны служить синхронным подтверждением этих значений.
 
-Status `2026-05-17`: для рейтингов принято целевое решение `Netlify Database -> approved reviews -> build-time export -> data/generated/reviews.json -> visible reviews -> Product JSON-LD`. До внедрения этого pipeline `aggregateRating` остается quality risk, потому что текущие рейтинги не связаны с moderated public reviews.
+Статус `2026-05-17`: для рейтингов принято целевое решение `Netlify Database -> approved reviews -> build-time export -> data/generated/reviews.json -> visible reviews -> Product JSON-LD`. До внедрения этого pipeline `aggregateRating` остается quality risk, потому что текущие рейтинги не связаны с moderated public reviews.
 
 ## 2. Почему Это Важно Для Google
 
@@ -63,15 +63,15 @@ Google отличает технически валидную structured data о
 - `FAQPage` должен совпадать с видимым FAQ; при этом FAQ не считать Google rich result целью после обновления Google от `2026-05-08`;
 - `Article` и `NewsArticle` должны соответствовать видимому материалу, авторству, датам и изображению.
 
-Status `2026-05-07`: merchant-условия `Product` JSON-LD читаются из product front matter и подтверждаются видимым FAQ: доставка по Украине `Новой Почтой`, доставка `0 грн`, передача в отправку `0-1 день`, транзит `1-3 дня`, возврат `14 дней`, бесплатный возврат, оплата наличными/картой.
+Статус `2026-05-07`: merchant-условия `Product` JSON-LD читаются из product front matter и подтверждаются видимым FAQ: доставка по Украине `Новой Почтой`, доставка `0 грн`, передача в отправку `0-1 день`, транзит `1-3 дня`, возврат `14 дней`, бесплатный возврат, оплата наличными/картой.
 
-Status `2026-05-17`: источник рейтингов должен быть не front matter, а approved reviews snapshot из `Netlify Database`. Документ внедрения: [17-netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/17-netlify-database-reviews.md).
+Статус `2026-05-17`: источник рейтингов должен быть не front matter, а approved reviews snapshot из `Netlify Database`. Документ внедрения: [17-netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/17-netlify-database-reviews.md).
 
 ## 3. Что Нужно Доделать Для `10/10` По Google Rich Results
 
 ### P0. Видимый Коммерческий Блок На Товарных Страницах
 
-Status `2026-05-07`: базовый visible product facts block добавлен в контент, а product front matter зафиксирован как source of truth для тех же фактов, которые есть в JSON-LD:
+Статус `2026-05-07`: базовый visible product facts block добавлен в контент, а product front matter зафиксирован как source of truth для тех же фактов, которые есть в JSON-LD:
 
 - цена;
 - валюта `UAH`;

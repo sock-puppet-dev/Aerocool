@@ -269,7 +269,7 @@ Files:
 - `mise.toml:2`
 - `netlify.toml:10`
 
-Current values:
+Текущие значения:
 
 ```toml
 hugo = "0.161.0"
@@ -282,7 +282,7 @@ Impact: local/default tooling and Netlify build use Hugo `0.161.0`.
 
 File: `netlify.toml:12`
 
-Current value:
+Текущее значение:
 
 ```toml
 HUGO_ENVIRONMENT = "development"
@@ -300,7 +300,7 @@ command = "git submodule update --init --recursive && hugo --environment develop
 
 File: `hugo.yaml:110`
 
-Current value:
+Текущее значение:
 
 ```yaml
 params:

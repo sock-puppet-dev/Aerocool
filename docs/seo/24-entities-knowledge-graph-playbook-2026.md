@@ -221,7 +221,7 @@ Aerocool уже находится выше уровня keyword/topics благ
 
 Минимальная структура:
 
-| Entity | Status | Entity Home | Pages About | Pages Mentions | Rendered Node | AI/GSC Signal | Gap |
+| Сущность | Статус | Entity Home | Страницы About | Страницы Mentions | Отрендеренный Узел | AI/GSC Сигнал | Пробел |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `sync5-mechanism` | `confirmed` | `/articles/sync4-sync5-mechanism-guide/` | URL count | URL count | yes/no | есть/нет | усилить product specs |
 
@@ -257,12 +257,12 @@ Knowledge graph может быть переиспользован за пред
 
 ### P1
 
-1. Done `2026-05-07`: initial entity registry создан в [23-entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/23-entity-registry-2026.md).
-2. Done `2026-05-07`: entity home для `Synchronous Tilt`, `SYNC4`, `SYNC5`, `Mesh`, `Racer`, `Loft Air`, `Dual backrest` зафиксированы.
-3. Done `2026-05-07`: front matter для `about_entities` и `mentions_entities` спроектирован и подключен к safe resolver.
-4. Done `2026-05-07`: `ProductGroup` и `product_group_id` спроектированы; ProductGroup выводится только для confirmed entity.
-5. Done `2026-05-07`: beginner-гайд по Entity Registry добавлен.
-6. Done `2026-05-07`: priority pages получили `about_entities`, `mentions_entities` и staged `product_group_id`.
+1. Выполнено `2026-05-07`: initial entity registry создан в [23-entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/23-entity-registry-2026.md).
+2. Выполнено `2026-05-07`: entity home для `Synchronous Tilt`, `SYNC4`, `SYNC5`, `Mesh`, `Racer`, `Loft Air`, `Dual backrest` зафиксированы.
+3. Выполнено `2026-05-07`: front matter для `about_entities` и `mentions_entities` спроектирован и подключен к safe resolver.
+4. Выполнено `2026-05-07`: `ProductGroup` и `product_group_id` спроектированы; ProductGroup выводится только для confirmed entity.
+5. Выполнено `2026-05-07`: beginner-гайд по Entity Registry добавлен.
+6. Выполнено `2026-05-07`: priority pages получили `about_entities`, `mentions_entities` и staged `product_group_id`.
 7. Добавить видимые характеристики как источник для `additionalProperty`.
 8. Провести content gap audit по entity map.
 9. Добавить entity coverage report и graph inventory после production-запуска.
