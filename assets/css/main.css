@@ -232,7 +232,7 @@ body.list {
    - это слой именно для inline/text links;
    - CTA-кнопки и card/surface links ниже живут отдельно;
    - так проект не смешивает обычные текстовые ссылки с кнопками. */
-.post-content a,
+.post-content a:not(.home-hero__cta):not([class*="bg-indigo-600"]),
 .related-links a,
 .footer a,
 .breadcrumbs a,
@@ -248,7 +248,7 @@ body.list {
    Размер и padding не задаем глобально, чтобы ссылки внутри меню,
    футера, хлебных крошек и абзацев не превратились в большие CTA. */
 :where(
-    .post-content a,
+    .post-content a:not(.home-hero__cta):not([class*="bg-indigo-600"]),
     .related-links a,
     .footer a,
     .breadcrumbs a,
@@ -264,7 +264,7 @@ body.list {
 }
 
 :where(
-    .post-content a,
+    .post-content a:not(.home-hero__cta):not([class*="bg-indigo-600"]),
     .related-links a,
     .footer a,
     .breadcrumbs a,
@@ -278,7 +278,7 @@ body.list {
     display: inline-block;
 }
 
-.post-content a:hover,
+.post-content a:not(.home-hero__cta):not([class*="bg-indigo-600"]):hover,
 .related-links a:hover,
 .footer a:hover,
 .breadcrumbs a:hover,
@@ -406,6 +406,13 @@ body.list {
 .paginav a,
 .post-tags a {
     transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+a[class*="bg-indigo-600"],
+button[class*="bg-indigo-600"],
+.home-hero__cta {
+    animation: none;
+    color: #fff;
 }
 
 .pagination a:hover,
