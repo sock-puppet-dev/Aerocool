@@ -2,7 +2,7 @@
 
 Дата аудита: 2026-05-18.
 
-Этот audit-снимок фиксирует актуальное состояние документации проекта `Aerocool Ukraine` после добавления новых материалов `2026-05-18`, обновления порядка чтения `01-48` и контрольного JSON-LD/entity graph аудита.
+Этот audit-снимок фиксирует актуальное состояние документации проекта `Aerocool Ukraine` после добавления новых материалов `2026-05-18`, обновления порядка чтения `01-48`, контрольного JSON-LD/entity graph аудита и повторной проверки шаблонов документации.
 
 ## 1. Область Проверки
 
@@ -42,12 +42,14 @@
 
 Контроль:
 
-- все рабочие документы имеют явную дату, кроме шаблонов в `docs/content/templates/`;
+- все рабочие документы имеют явную дату или явную дату аудита;
 - [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md) перечисляет все документы внутри `docs/` в порядке чтения `01-48`;
 - [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) ведет к полной карте документации, а [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md) перечисляет все `48` файлов из `docs/`;
 - [03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md) упоминает все `55` текущих layout-файлов;
 - служебные англоязычные заголовки вроде `Scope`, `Findings`, `Current Status`, `Implementation Backlog`, `Executive Summary`, `Prioritized Fix Plan` не найдены;
 - локальные markdown-ссылки проверены;
+- ссылочные заглушки с троеточием вместо URL не найдены;
+- лишние активные `# H1` вне code block не найдены;
 - `git diff --check` проходит;
 - `npm run build` проходит.
 
@@ -93,6 +95,14 @@
 - [20-schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/20-schema-markup-quality-checklist-2026.md);
 - [21-ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/21-ecommerce-structured-data-playbook-2026.md).
 
+### P2. Шаблоны Контента И Финальный SEO-Чеклист Очищены
+
+В повторной проверке исправлены мелкие дефекты структуры:
+
+- в [08-article-template.md](/Users/stadnyk/MEGA/Aerocool/docs/content/templates/08-article-template.md), [09-news-template.md](/Users/stadnyk/MEGA/Aerocool/docs/content/templates/09-news-template.md), [10-product-template.md](/Users/stadnyk/MEGA/Aerocool/docs/content/templates/10-product-template.md) и [11-series-template.md](/Users/stadnyk/MEGA/Aerocool/docs/content/templates/11-series-template.md) добавлена явная дата обновления;
+- ссылочные заглушки `(...)` в шаблонах статьи и новости заменены на понятные site-path примеры;
+- в [28-ssg-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/28-ssg-seo-checklist-2026.md) второй активный `# H1` заменен на обычный раздел `## 19. Финальная Формула`.
+
 ## 5. Текущий Вывод
 
 На `2026-05-18` документация проекта синхронизирована:
@@ -102,6 +112,8 @@
 - новые audit-снимки включены в главные карты;
 - внешние правила по Google structured data, Hugo Tailwind pipeline, Netlify Database и Tailwind CSS v4 сверены с официальными источниками;
 - открытые риски явно зафиксированы.
+
+Текущая оценка качества документации: `9.7/10`.
 
 Открытые project gates не закрывались в этом проходе:
 
