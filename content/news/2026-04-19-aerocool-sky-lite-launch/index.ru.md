@@ -1,9 +1,10 @@
 ---
 title: "Aerocool SKY Lite: 8D-модель для ежедневного комфорта"
+linkTitle: "SKY Lite"
 description: "Обзор Aerocool SKY Lite: 8D регулировка, 1D подлокотники, 1D сиденье, breathable mesh, нейлоновая база и логика ежедневного эргономичного использования."
 summary: "Обзор SKY Lite как базового офисного и home office кресла серии SKY с 8D и вентилируемой поверхностью."
 date: 2026-04-19T10:00:00+03:00
-lastmod: 2026-05-14
+lastmod: 2026-05-18
 slug: "sky-lite-launch"
 schema_types: ["website", "news", "organization", "breadcrumbs"]
 about_entities:

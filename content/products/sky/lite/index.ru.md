@@ -1,9 +1,10 @@
 ---
 title: "Эргономичное офисное кресло Aerocool SKY Lite"
+linkTitle: "SKY Lite"
 description: "Купить Aerocool SKY Lite в Украине — эргономичное офисное и компьютерное кресло с Synchronous Tilt, вентилируемой сеткой, 2D поясничной поддержкой и 8D регулировкой."
 summary: "Aerocool SKY Lite — офисное и компьютерное кресло серии SKY с 8D регулировкой, Synchronous Tilt и вентилируемой поверхностью для работы и home office."
 date: 2026-03-19
-lastmod: 2026-05-14
+lastmod: 2026-05-18
 schema_types: ["website", "product", "organization", "breadcrumbs"]
 about_entities:
   - "sky-lite"

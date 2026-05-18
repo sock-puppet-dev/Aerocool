@@ -1,9 +1,10 @@
 ---
 title: "Aerocool WING: запуск серії з 11D і подвійною спинкою"
+linkTitle: "Старт WING"
 description: "Офіційний запуск серії Aerocool WING: подвійна спинка, 11D регулювання, підлокітники 4D X 360 та моделі Racer, Loft Air, Mesh."
 summary: "Запуск серії WING: ігрові та комп'ютерні крісла з 11D, подвійна спинка і трьома форматами поверхні."
 date: 2026-04-16T10:00:00+03:00
-lastmod: 2026-05-14
+lastmod: 2026-05-18
 slug: "wing-series-launch"
 schema_types: ["website", "news", "organization", "breadcrumbs"]
 about_entities:

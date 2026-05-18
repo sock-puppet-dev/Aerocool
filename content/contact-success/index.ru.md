@@ -1,8 +1,9 @@
 ---
 title: "Спасибо за обращение"
+linkTitle: "Спасибо"
 description: "Страница подтверждения отправки формы Aerocool Украина."
 date: 2026-04-29
-lastmod: 2026-05-13
+lastmod: 2026-05-18
 url: "/ru/contact/success/"
 robotsNoIndex: true
 searchHidden: true

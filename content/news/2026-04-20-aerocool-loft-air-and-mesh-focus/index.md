@@ -1,9 +1,10 @@
 ---
 title: "Aerocool Loft Air і Mesh: фокус на вентильованих поверхнях"
+linkTitle: "Loft Air і Mesh"
 description: "Aerocool підкреслює відмінності між Loft Air і Mesh у серіях WING та XTAL та пояснює, кому підійде кожен формат поверхні."
 summary: "Пояснення різниці між Loft Air і Mesh у WING та XTAL для вибору офісного, комп'ютерного чи home office крісла."
 date: 2026-04-20T10:00:00+03:00
-lastmod: 2026-05-14
+lastmod: 2026-05-18
 slug: "loft-air-and-mesh-focus"
 schema_types: ["website", "news", "organization", "breadcrumbs"]
 about_entities:

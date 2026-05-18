@@ -1,0 +1,71 @@
+{{- if and (.Param "ShowBreadCrumbs") (not .IsHome) -}}
+{{- $homeName := cond (eq .Site.Language.Lang "ru") "Главная" "Головна" -}}
+{{- $items := slice (dict
+  "url" ("" | absLangURL)
+  "label" $homeName
+  "isHome" true
+  "isCurrent" false
+) -}}
+{{- $sections := slice -}}
+{{- with .CurrentSection -}}
+  {{- $section := . -}}
+  {{- range $section.Ancestors.Reverse -}}
+    {{- if not .IsHome -}}
+      {{- $sections = $sections | append . -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if not $section.IsHome -}}
+    {{- $sections = $sections | append $section -}}
+  {{- end -}}
+{{- end -}}
+{{- range $sections -}}
+  {{- $items = $items | append (dict
+    "url" .Permalink
+    "label" (partial "breadcrumb-label.html" .)
+    "isHome" false
+    "isCurrent" (eq .Permalink $.Permalink)
+  ) -}}
+{{- end -}}
+{{- if and (not .IsHome) (or (not .CurrentSection) (ne .CurrentSection.Permalink .Permalink)) -}}
+  {{- $items = $items | append (dict
+    "url" .Permalink
+    "label" (partial "breadcrumb-label.html" .)
+    "isHome" false
+    "isCurrent" true
+  ) -}}
+{{- end -}}
+
+<nav aria-label="Breadcrumb" class="site-breadcrumbs mb-3 flex min-w-0 max-w-full text-sm/5 text-gray-500">
+  <ol role="list" class="m-0 flex min-w-0 max-w-full list-none items-center space-x-3 overflow-hidden p-0 sm:space-x-4">
+    {{- range $items }}
+    <li class="min-w-0 shrink-0 list-none first:shrink-0 last:shrink">
+      {{- if .isHome }}
+      <div>
+        <a href="{{ .url }}" class="inline-flex text-gray-400 no-underline shadow-none transition-colors hover:text-gray-500 hover:no-underline">
+          <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-5 shrink-0">
+            <path d="M9.293 2.293a1 1 0 0 1 1.414 0l7 7A1 1 0 0 1 17 11h-1v6a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6H3a1 1 0 0 1-.707-1.707l7-7Z" clip-rule="evenodd" fill-rule="evenodd" />
+          </svg>
+          <span class="sr-only">{{ .label }}</span>
+        </a>
+      </div>
+      {{- else }}
+      <div class="flex min-w-0 items-center">
+        <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="size-5 shrink-0 text-gray-300">
+          <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
+        </svg>
+        {{- if .isCurrent }}
+        <span aria-current="page" class="ml-3 min-w-0 truncate text-sm/5 font-medium text-gray-500 sm:ml-4">
+          {{- .label -}}
+        </span>
+        {{- else }}
+        <a href="{{ .url }}" class="ml-3 min-w-0 truncate text-sm/5 font-medium text-gray-500 no-underline shadow-none transition-colors hover:text-gray-700 hover:no-underline sm:ml-4">
+          {{- .label -}}
+        </a>
+        {{- end }}
+      </div>
+      {{- end }}
+    </li>
+    {{- end }}
+  </ol>
+</nav>
+{{- end -}}

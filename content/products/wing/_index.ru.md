@@ -1,8 +1,9 @@
 ---
 title: "Aerocool WING — эргономичные игровые и офисные кресла"
+linkTitle: "WING"
 description: "Серия Aerocool WING: игровые и офисные кресла Racer, Loft Air и Mesh с двойной спинкой, 11D регулировкой и подлокотниками 4D X 360."
 date: 2026-03-19
-lastmod: 2026-05-13
+lastmod: 2026-05-18
 summary: "WING — серия с двойной спинкой, 11D регулировкой и тремя форматами поверхности: Racer, Loft Air и Mesh."
 slug: "wing"
 schema_types: ["website", "collection", "organization", "breadcrumbs"]
