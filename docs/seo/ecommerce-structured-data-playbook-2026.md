@@ -1,6 +1,6 @@
 # Практическое Руководство По Структурированным Данным Для E-Commerce 2026
 
-Актуально на `2026-05-17`.
+Актуально на `2026-05-18`.
 
 Этот документ переводит `Guide to E-Commerce Structured Data` от SchemaApp в локальные правила для товарного каталога `Aerocool Ukraine`.
 
@@ -9,6 +9,7 @@
 Документ синхронизирован с текущими Google Search Central правилами для `Product`, merchant listings и product variants. Внешние SchemaApp материалы используются как стратегический слой, но eligibility для Google rich results всегда проверять по официальной документации Google.
 
 Текущий порядок внедрения для ratings, product facts, `ProductGroup` и production gate описан в [2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md).
+Реальные e-commerce customer stories Schema App по InSinkErator, Avid, CAPREIT, KEEN и Home Hardware разобраны в [2026-05-18-schemaapp-customer-stories-case-studies-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-18-schemaapp-customer-stories-case-studies-audit.md).
 
 ## 1. Связь С Текущими Документами
 
@@ -25,6 +26,8 @@
 
 - JSON-LD roadmap отвечает, что уже есть и что внедрять в шаблонах;
 - этот документ отвечает, какие e-commerce rich result возможности использовать, а какие откладывать или запрещать.
+
+Главный вывод из customer stories для Aerocool: Product rich results зависят от согласованного product data layer. Нельзя считать `Product` schema качественной, если цена, наличие, SKU/MPN/GTIN, гарантия, доставка, возврат, варианты или ratings расходятся между front matter, видимым блоком, FAQ, review snapshot и JSON-LD.
 
 ## 2. Текущий Статус Aerocool
 

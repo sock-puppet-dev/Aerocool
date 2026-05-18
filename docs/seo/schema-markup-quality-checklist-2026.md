@@ -1,6 +1,6 @@
 # Чек-Лист Качества Schema-Разметки 2026
 
-Актуально на `2026-05-17`.
+Актуально на `2026-05-18`.
 
 Этот документ переводит `Schema Markup Checklist` и универсальные выводы из `Definitive Guide to Healthcare Structured Data in SEO` от SchemaApp в локальный QA-чеклист для `Aerocool Ukraine`. Его задача — проверять не только валидность JSON-LD, но и качество schema.org-графа: правильные типы, полезные свойства, связи между сущностями, устойчивые `@id`, отсутствие schema drift и соответствие schema-стратегии реальной цели страницы.
 
@@ -12,6 +12,7 @@
 Базовый sync-аудит документации: [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
 Дополнительный аудит support-статей Schema App по `sameAs`, primary entity, `additionalType`, breadcrumbs и image license metadata: [2026-05-17-schemaapp-support-knowledge-base-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-schemaapp-support-knowledge-base-audit.md).
 Анализ 4 PDF Schema App про connected schema, Content Knowledge Graphs, impact и Agentic Web: [2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md).
+Анализ 21 Schema App customer stories/case studies по real-world внедрениям: [2026-05-18-schemaapp-customer-stories-case-studies-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-18-schemaapp-customer-stories-case-studies-audit.md).
 
 ## 1. Семь Проверок Schema-Разметки
 
@@ -330,6 +331,8 @@ Schema strategy — это ongoing process. После production-запуска
 - qualified traffic и конверсии, а не только общий organic traffic.
 
 До production и индексации эти метрики не являются основанием для новых schema-типов. Сначала нужен чистый граф, затем baseline, затем улучшения.
+
+Customer stories Schema App подтверждают ту же логику на реальных внедрениях: сильный эффект дают не добавленные свойства сами по себе, а связка `visible content -> reliable source of truth -> structured data -> measurement`. Для Aerocool это означает, что Product rich results, entity linking и AI Search readiness нельзя оценивать без источника product facts, source для ratings и post-production reporting.
 
 ### Операционная Поддержка И Владение Данными
 

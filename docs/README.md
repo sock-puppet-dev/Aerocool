@@ -1,6 +1,6 @@
 # Документация Aerocool
 
-Обновлено: 2026-05-17.
+Обновлено: 2026-05-18.
 
 Это оглавление всей проектной документации. В корне репозитория остались только два входных документа:
 
@@ -141,6 +141,8 @@
 - [audits/2026-05-17-json-ld-entity-full-audit-after-schemaapp-support.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-json-ld-entity-full-audit-after-schemaapp-support.md) — полный контрольный аудит JSON-LD, Entity Registry, rendered graph, ProductGroup, `sameAs`, `additionalType`, breadcrumbs и image metadata после новых данных Schema App.
 - [audits/2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md) — анализ 4 новых PDF Schema App про connected schema, content knowledge graphs, impact of schema markup и Agentic Web.
 - [audits/2026-05-17-json-ld-entity-full-audit-after-schemaapp-pdf-data.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-json-ld-entity-full-audit-after-schemaapp-pdf-data.md) — полный аудит rendered JSON-LD, Entity Registry, Product graph, connected schema и актуальных P0/P1/P2/P3 задач после анализа новых PDF Schema App.
+- [audits/2026-05-18-schemaapp-customer-stories-case-studies-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-18-schemaapp-customer-stories-case-studies-audit.md) — анализ 21 Schema App customer stories/case studies по entity linking, Product rich results, AI hallucination defense, schema drift, migrations, multilingual consistency и применимости к Aerocool.
+- [audits/2026-05-18-json-ld-entity-full-audit-after-customer-stories.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-18-json-ld-entity-full-audit-after-customer-stories.md) — полный контрольный аудит JSON-LD, Entity Registry, Product graph, ratings/reviews, ProductGroup, AI Search readiness и актуальных P0/P1/P2/P3 задач после customer stories Schema App.
 
 ## Правило Поддержки
 

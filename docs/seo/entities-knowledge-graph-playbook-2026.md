@@ -1,8 +1,8 @@
 # Практическое Руководство По Сущностям И Knowledge Graph 2026
 
-Актуально на `2026-05-17`.
+Актуально на `2026-05-18`.
 
-Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md). Дополнительный PDF-аудит Schema App по connected schema, Content Knowledge Graphs, impact и Agentic Web зафиксирован в [2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md).
+Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md). Дополнительный PDF-аудит Schema App по connected schema, Content Knowledge Graphs, impact и Agentic Web зафиксирован в [2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md). Customer stories/case studies Schema App по real-world entity linking, migrations и product visibility зафиксированы в [2026-05-18-schemaapp-customer-stories-case-studies-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-18-schemaapp-customer-stories-case-studies-audit.md).
 
 Этот документ переводит `Guide to Entities & Knowledge Graphs for SEO`, `Guide to Connected Schema Markup` и `How to Drive Your Content Marketing Strategy Using Content Knowledge Graphs` от SchemaApp в локальные правила для проекта `Aerocool Ukraine`.
 
@@ -55,6 +55,8 @@ Knowledge graph — это сеть отношений между сущност
 | 3. Link entities | Связывать внутренние entities и точные внешние knowledge bases | Снижается неоднозначность, появляется reusable graph |
 
 Эти шаги должны быть частью редакционного процесса, а не только технического SEO.
+
+Customer stories Schema App подтверждают практическую сторону этой модели: knowledge graph должен быть измеримым. Для Aerocool это означает регулярный отчет `entity -> entity home -> pages about -> pages mentions -> rendered node -> GSC/AI/business signal`, а не только наличие `data/entities.yaml`.
 
 ### Lifecycle Content Knowledge Graph
 

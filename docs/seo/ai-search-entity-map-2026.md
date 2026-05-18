@@ -1,6 +1,6 @@
 # Карта Сущностей Для Поиска С AI 2026
 
-Актуально на `2026-05-17`.
+Актуально на `2026-05-18`.
 
 Этот документ переводит идеи из `Mastering AI Search`, `Schema Markup and AI Search`, `Designing Content for Humans and Machines`, `How to Prepare Your Content for Generative AI Search`, `Impact of Schema Markup` и `How Marketers Can Prepare Their Organization for the Agentic Web` от SchemaApp в практическую систему для проекта `Aerocool Ukraine`: какие сущности нужно закрепить на сайте, какие AI Search-метрики отслеживать, какие prompt-наборы проверять и как развивать JSON-LD graph без переспама.
 
@@ -9,6 +9,7 @@
 Текущий порядок внедрения зафиксирован в [2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-07-documentation-refresh-and-project-action-plan.md).
 Базовая синхронизация всей документации с лучшими практиками 2026 зафиксирована в [2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-13-documentation-2026-best-practices-sync-audit.md).
 Новый PDF-аудит Schema App по connected graph, Content Knowledge Graphs, impact и Agentic Web зафиксирован в [2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md).
+Customer stories/case studies Schema App по AI hallucinations, entity linking и product visibility зафиксированы в [2026-05-18-schemaapp-customer-stories-case-studies-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-18-schemaapp-customer-stories-case-studies-audit.md).
 
 Важно: AI Search-слой не заменяет Google Search Essentials, people-first content, Core Web Vitals и structured data quality. До production-запуска и индексации AI Search считать мониторинговым и entity-governance слоем, а не причиной внедрять chatbot, NLWeb, MCP или `llms.txt` как P0.
 
@@ -22,6 +23,8 @@ AI-поиск меняет SEO-логику:
 - LLM и AI search-системы сильнее опираются на сущности, связи, структурированные данные, ясные ответы и доверительные сигналы.
 
 Для Aerocool это означает: текущий SEO-фундамент уже сильный, но нужен отдельный слой `AI Search visibility`.
+
+Customer stories Wells Fargo, Henry Ford Health и MasterControl усиливают отдельную цель: AI Search-аудит должен искать не только наличие цитирования, но и ошибки представления. Проверять нужно, правильно ли AI описывает `Aerocool Ukraine`, связь с global Aerocool, официальность сайта, серии, товары, доставку, гарантию и наличие.
 
 ## 2. Связь С Текущей Документацией
 
