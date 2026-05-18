@@ -143,6 +143,7 @@
 - [audits/2026-05-17-json-ld-entity-full-audit-after-schemaapp-pdf-data.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-json-ld-entity-full-audit-after-schemaapp-pdf-data.md) — полный аудит rendered JSON-LD, Entity Registry, Product graph, connected schema и актуальных P0/P1/P2/P3 задач после анализа новых PDF Schema App.
 - [audits/2026-05-18-schemaapp-customer-stories-case-studies-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-18-schemaapp-customer-stories-case-studies-audit.md) — анализ 21 Schema App customer stories/case studies по entity linking, Product rich results, AI hallucination defense, schema drift, migrations, multilingual consistency и применимости к Aerocool.
 - [audits/2026-05-18-json-ld-entity-full-audit-after-customer-stories.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-18-json-ld-entity-full-audit-after-customer-stories.md) — полный контрольный аудит JSON-LD, Entity Registry, Product graph, ratings/reviews, ProductGroup, AI Search readiness и актуальных P0/P1/P2/P3 задач после customer stories Schema App.
+- [audits/2026-05-18-documentation-current-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-18-documentation-current-audit.md) — текущий аудит всей документации проекта на 2026-05-18: структура, даты, ссылки, оглавления, audit-карты и актуальность официальных SEO/Hugo/Netlify/Tailwind правил.
 
 ## Правило Поддержки
 

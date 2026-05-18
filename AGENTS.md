@@ -82,6 +82,9 @@
 - `docs/audits/2026-05-17-json-ld-entity-full-audit-after-schemaapp-support.md`
 - `docs/audits/2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md`
 - `docs/audits/2026-05-17-json-ld-entity-full-audit-after-schemaapp-pdf-data.md`
+- `docs/audits/2026-05-18-schemaapp-customer-stories-case-studies-audit.md`
+- `docs/audits/2026-05-18-json-ld-entity-full-audit-after-customer-stories.md`
+- `docs/audits/2026-05-18-documentation-current-audit.md`
 - `docs/architecture/browser-view-transitions.md`
 - `docs/deploy/local-tooling-mise.md`
 - `docs/deploy/netlify-routing.md`

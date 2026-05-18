@@ -1,6 +1,6 @@
 # Анализ Schema App Customer Stories И Case Studies
 
-Дата анализа: `2026-05-18`.
+Дата анализа: 2026-05-18.
 
 Источник: 21 customer story URL из списка пользователя. Все 21 страницы были открыты, прочитаны и сопоставлены с текущим состоянием проекта `Aerocool Ukraine`: JSON-LD graph, Entity Registry, Product schema, ProductGroup roadmap, AI Search readiness и schema governance.
 

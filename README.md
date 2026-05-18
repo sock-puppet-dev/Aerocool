@@ -1,6 +1,6 @@
 # Aerocool Ukraine
 
-Обновлено: 2026-05-17.
+Обновлено: 2026-05-18.
 
 `Aerocool Ukraine` — двуязычный маркетинговый и каталоговый сайт на `Hugo` для кресел Aerocool в Украине. Основной язык — украинский (`uk`), второй язык — русский (`ru`). Сайт собирается статически, деплоится через `Netlify`, использует локальные Hugo overrides поверх темы `PaperMod` и отдельный Unlighthouse-набор для технического аудита качества.
 
@@ -443,6 +443,9 @@ npm run audit:ci:technical
 - [docs/audits/2026-05-17-json-ld-entity-full-audit-after-schemaapp-support.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-json-ld-entity-full-audit-after-schemaapp-support.md) — контрольный аудит JSON-LD и Entity Registry после новых support-данных Schema App.
 - [docs/audits/2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md) — анализ PDF Schema App про connected schema, content knowledge graphs, impact of schema markup и Agentic Web.
 - [docs/audits/2026-05-17-json-ld-entity-full-audit-after-schemaapp-pdf-data.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-17-json-ld-entity-full-audit-after-schemaapp-pdf-data.md) — полный аудит rendered JSON-LD, Product graph, Entity Registry и задач после анализа новых PDF Schema App.
+- [docs/audits/2026-05-18-schemaapp-customer-stories-case-studies-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-18-schemaapp-customer-stories-case-studies-audit.md) — анализ Schema App customer stories/case studies по entity linking, Product rich results, AI hallucination defense и schema drift.
+- [docs/audits/2026-05-18-json-ld-entity-full-audit-after-customer-stories.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-18-json-ld-entity-full-audit-after-customer-stories.md) — контрольный аудит JSON-LD, Entity Registry, Product graph и актуальных P0/P1/P2/P3 задач после customer stories.
+- [docs/audits/2026-05-18-documentation-current-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-18-documentation-current-audit.md) — текущий аудит всей документации проекта на 2026-05-18.
 - [docs/content/content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/content-seo-checklist-2026.md) — SEO-проверка контента.
 - [docs/seo/seo-keyword-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/seo-keyword-map-2026.md) — карта ключей.
 - `docs/content/templates/` — шаблоны статей, новостей, товаров и серий.

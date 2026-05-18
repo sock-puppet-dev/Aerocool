@@ -1,6 +1,6 @@
 # Полный Аудит JSON-LD И Entity Graph После Customer Stories Schema App
 
-Дата аудита: `2026-05-18`.
+Дата аудита: 2026-05-18.
 
 Контекст: аудит выполнен после анализа `21` Schema App customer stories/case studies. Базовый разбор источников зафиксирован в [2026-05-18-schemaapp-customer-stories-case-studies-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/2026-05-18-schemaapp-customer-stories-case-studies-audit.md).
 
