@@ -134,7 +134,15 @@
 - [layouts/_shortcodes/home-hero.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero.html) — hero главной страницы и ее H1.
 - [layouts/_shortcodes/seo-image.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/seo-image.html) — контентные изображения с контролем LCP/lazy loading.
 - [layouts/_shortcodes/faq-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq-list.html) — видимый список FAQ из front matter.
-- [layouts/_shortcodes/contact.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/contact.html) — контактный блок.
+- [layouts/_shortcodes/contact.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/contact.html) — контактная `side-by-side` секция для `/contact/` и `/ru/contact/`.
+
+Важно по `contact.html`:
+
+- shortcode сам переключает украинский и русский текст по языку страницы;
+- левая колонка содержит заголовок, краткое объяснение, блок “когда обращаться”, адрес, телефон, `support@aerocool.ua`, `sales@aerocool.ua`, быстрые ссылки на каталог, FAQ и серии, а также график `09:00 — 18:00` с понедельника по воскресенье;
+- правая колонка содержит Netlify form с honeypot, обязательными полями и локализованным success URL;
+- markdown-файлы `content/contact/index.md` и `content/contact/index.ru.md` обычно должны содержать только вызов `{{< contact >}}`, чтобы не дублировать контактные данные ниже формы;
+- отдельный markdown-раздел соцсетей на `/contact/` не используется; глобальные социальные ссылки остаются в footer и в schema global organization/brand.
 
 ## Группа 1. Helper-Файлы Данных Страницы
 
@@ -731,6 +739,7 @@
 
 - описывает `Aerocool Ukraine` как локальную организацию/представительство;
 - связывает локальную сущность с глобальной компанией через `parentOrganization` и с глобальным брендом через `brand`;
+- хранит публичные контактные факты: адрес, телефон, `support@aerocool.ua`, `sales@aerocool.ua` и часы работы `Monday-Sunday 09:00-18:00`;
 - не содержит `sameAs` на глобальные соцсети, потому что эти профили едины для всех представительств и принадлежат глобальным сущностям.
 
 ### `global-organization.html`

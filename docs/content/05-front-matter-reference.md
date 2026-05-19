@@ -205,6 +205,14 @@ schema_types: ["website", "organization", "contact-page", "breadcrumbs"]
 
 Для `/contact/` видимая meta-строка не выводится. Контакты должны сразу вести к способам связи, консультации, доставке, гарантии и сервису, а не показывать блоговые признаки вроде даты публикации, времени чтения, количества слов или автора.
 
+Текущий видимый контактный интерфейс рендерится через [layouts/_shortcodes/contact.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/contact.html), поэтому тело `content/contact/index.md` и `content/contact/index.ru.md` обычно содержит только:
+
+```gohtml
+{{< contact >}}
+```
+
+Не дублировать в markdown адрес, телефоны, email, сценарии обращения, график работы, быстрые ссылки или отдельный список соцсетей. Эти данные уже находятся в shortcode и должны оставаться согласованными с JSON-LD `Organization` в [local-organization.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/local-organization.html). Если меняется график работы, телефон, email или адрес, нужно обновить и видимый shortcode, и schema partial.
+
 ## 4. Поиск `content/search.md` и `content/search.ru.md`
 
 ```yaml
