@@ -3,7 +3,7 @@ title: "Дякуємо за звернення"
 linkTitle: "Дякуємо"
 description: "Сторінка підтвердження відправлення форми Aerocool Україна."
 date: 2026-04-29
-lastmod: 2026-05-18
+lastmod: 2026-05-19
 url: "/contact/success/"
 robotsNoIndex: true
 searchHidden: true
@@ -18,6 +18,4 @@ cover:
   hiddenInSingle: true
 ---
 
-Дякуємо! Ми отримали ваше повідомлення і зв'яжемося з вами найближчим часом.
-
-Поки ми опрацьовуємо звернення, ви можете повернутися на [сторінку контактів](/contact/) або перейти до [каталогу Aerocool](/products/).
+{{< contact-success-alert >}}
