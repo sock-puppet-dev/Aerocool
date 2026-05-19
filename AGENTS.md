@@ -35,8 +35,9 @@
 - `layouts/sitemapindex.xml` — шаблон корневого мультиязычного sitemap index.
 - `layouts/_partials/breadcrumbs.html` — видимые хлебные крошки для обычных страниц и листингов.
 - `layouts/_partials/breadcrumb-label.html` — единый helper короткого названия страницы для видимых breadcrumbs и schema.org `BreadcrumbList`.
+- `layouts/_partials/page-meta.html` — единый helper видимой meta-строки под `H1` и в карточках листингов: статьи получают дату и время чтения, новости — только дату, остальные типы страниц не получают блоговую meta-строку.
 - Папки `layouts/_default` в локальном слое больше нет; не возвращать туда новые overrides без отдельной причины.
-- Partial списка переводов — `layouts/_partials/translation-list.html`; старое имя `translation_list.html` не использовать.
+- Partial списка переводов — `layouts/_partials/translation-list.html`; старое имя `translation_list.html` не использовать. Обычные страницы сейчас не выводят список переводов в контентной зоне под `H1`; переключение языка остается в шапке сайта.
 - `assets/css/main.css` — главный источник Tailwind и кастомного CSS; здесь же живут локальные design tokens, белый page canvas, базовый текстовый слой и component-layer проекта.
 - `static/` — статические файлы, которые копируются как есть.
 - `static/_redirects` — Netlify `_redirects` для явного root rewrite `/ -> /index.html 200` и forced `404!` по bot/scanner и sensitive URL: WordPress, `.env`, `.git`, framework manifests, filemanager, PHP/debug probes вроде `/phpinfo.php`, `/test.php` и `/:prefix/phpinfo.php`. SEO-переадресации сюда не добавлять; общий fallback `/* -> /404.html 404` не использовать, потому что Netlify автоматически берет `public/404.html`.
@@ -100,6 +101,7 @@
 - `docs/audits/47-2026-05-18-json-ld-entity-full-audit-after-customer-stories.md`
 - `docs/audits/48-2026-05-18-documentation-current-audit.md`
 - `docs/audits/49-2026-05-19-documentation-current-audit.md`
+- `docs/audits/50-2026-05-19-visible-page-meta-policy-audit.md`
 
 Для новичка порядок чтения такой: сначала `README.md`, затем `AGENTS.md`, затем `docs/01-documentation-map.md`, затем `docs/architecture/02-documentation-style-guide.md`, затем `docs/architecture/03-hugo-template-helpers.md`, затем `docs/content/05-front-matter-reference.md`, затем `docs/quality/13-unlighthouse-site-audit.md`. Для SEO/schema-задач после этого читать `docs/seo/19-schema-types-reference.md`, `docs/seo/20-schema-markup-quality-checklist-2026.md`, `docs/seo/24-entities-knowledge-graph-playbook-2026.md` и профильный playbook по задаче. Для performance/Core Web Vitals-задач читать `docs/quality/12-core-web-vitals-guide-2026.md`. Остальные гайды подключать по задаче.
 
@@ -123,6 +125,7 @@
 - Поле `h1` в метаданных страницы использовать только тогда, когда видимый заголовок должен отличаться от SEO-заголовка документа `title`.
 - Поле `linkTitle` использовать для короткого навигационного имени, если `title` слишком длинный для хлебных крошек или внутренних списков. Видимые breadcrumbs и `BreadcrumbList` должны получать одно и то же имя через `layouts/_partials/breadcrumb-label.html`.
 - При редактировании сохранять `date` и `lastmod`. `lastmod` обновлять при любом содержательном изменении.
+- Видимая meta-строка управляется `layouts/_partials/page-meta.html`: для статей выводятся дата публикации и время чтения, для новостей — только дата публикации, для contact, FAQ, about, products, серий, товаров, поиска и служебных страниц meta-строка скрыта. Количество слов, автор организации и список переводов под `H1` не возвращать без отдельного решения.
 - В видимом markdown-контенте `content/**/*.md` не использовать обратные кавычки для inline-code. Точные технические обозначения, характеристики, SKU/MPN/GTIN, размеры, рейтинги и значения из таблиц выделять обычным жирным форматом: `**11D**`, `**SYNC5 multi-adjustable**`, `**75 мм**`. Широкие коммерческие SEO-фразы вроде `игровое кресло`, `офисное кресло`, `компьютерное кресло`, `кресло для работы`, `home office` писать обычным текстом или, если нужен акцент, обычным жирным выделением. Это правило не относится к Hugo/JS-коду в `layouts/` и к документационным примерам вне `content/`.
 - Сайт должен покрывать не только брендовые запросы, но и широкие коммерческие кластеры: `игровое кресло`, `офисное кресло`, `компьютерное кресло`, `кресло для работы`, `home office`.
 - Постоянно актуальные статьи в `content/articles` обычно должны целиться минимум в `10000` знаков основного текста на каждую языковую версию.
@@ -180,6 +183,7 @@
 - Проверять, что локализованные ссылки корректно работают и под `/`, и под `/ru/`.
 - Проверять, что изображения из папок страниц берутся из правильной директории.
 - Проверять, что метаданные страницы, связанные со schema.org, используют `schema_types` и соответствуют текущим шаблонам.
+- Проверять видимую meta-строку после правок `layouts/single.html`, `layouts/list.html`, `layouts/faq/single.html`, `layouts/search.html` или `layouts/_partials/page-meta.html`: contact/FAQ/about/products без meta, article с датой и временем чтения, news только с датой, без списка переводов под `H1`.
 - Проверять, что `search` остается `noindex,nofollow`. Пока проект намеренно собирается с `HUGO_ENVIRONMENT = "development"`, все HTML-страницы остаются `noindex,nofollow`; перед production-переходом отдельно проверить возврат `index,follow` для индексируемых URL.
 - Проверять, что `404` и служебные alias-страницы остаются `noindex,nofollow`.
 - При правках `static/_redirects` проверять, что `public/_redirects` обновился после сборки, `/` отдает `200`, а кастомная 404 продолжает отдаваться для scanner/sensitive URL. Для финальной проверки routing/headers использовать Netlify CLI или Deploy Preview.

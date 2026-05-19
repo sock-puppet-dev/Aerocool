@@ -79,9 +79,9 @@
     <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
   </div>
   {{- end }}
-  {{- if not (.Param "hideMeta") }}
+  {{- with partial "page-meta.html" . }}
   <footer class="entry-footer">
-    {{- partial "post_meta.html" . -}}
+    {{- . -}}
   </footer>
   {{- end }}
 </article>

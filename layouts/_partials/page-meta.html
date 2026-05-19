@@ -1,0 +1,22 @@
+{{- /*
+Политика видимой meta-строки:
+- статьи: дата публикации + время чтения;
+- новости: только дата публикации;
+- товары, серии, каталоги, FAQ, контакты, about и служебные страницы: без видимой meta-строки.
+Переключение языка остается в шапке сайта, а не в контентной зоне под H1.
+*/ -}}
+{{- if not (.Param "hideMeta") -}}
+  {{- $schemaTypes := .Params.schema_types | default (slice) -}}
+  {{- $isArticle := in $schemaTypes "article" -}}
+  {{- $isNews := in $schemaTypes "news" -}}
+  {{- $meta := slice -}}
+  {{- if and (or $isArticle $isNews) (not .Date.IsZero) -}}
+    {{- $meta = $meta | append (printf "<span title='%s'>%s</span>" (.Date) (.Date | time.Format (default "January 2, 2006" site.Params.DateFormat))) -}}
+  {{- end -}}
+  {{- if and $isArticle (.Param "ShowReadingTime") -}}
+    {{- $meta = $meta | append (i18n "read_time" .ReadingTime | default (printf "%d min" .ReadingTime)) -}}
+  {{- end -}}
+  {{- with $meta -}}
+    {{- delimit . "&nbsp;·&nbsp;" | safeHTML -}}
+  {{- end -}}
+{{- end -}}

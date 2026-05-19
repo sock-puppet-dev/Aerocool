@@ -1,6 +1,6 @@
 # Руководство По `schema_types`
 
-Обновлено: 2026-05-17.
+Обновлено: 2026-05-19.
 
 В проекте `Aerocool` используется только поле `schema_types`.
 
@@ -19,10 +19,12 @@ schema_types: ["website", "product", "organization", "breadcrumbs"]
 Важно:
 
 - `schema_types` определяет, какие schema.org-сущности включает шаблонный слой.
+- `schema_types` также используется локальным helper [page-meta.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-meta.html) для видимой meta-строки: `article` показывает дату и время чтения, `news` показывает только дату, остальные типы страниц meta-строку не получают.
 - `website`, `organization`, `brand`, `collection`, `article`, `news`, `product`, `faq`, `breadcrumbs`, `about-page`, `contact-page` являются рабочими флагами.
 - Опорные узлы вроде `logo` и `brand` могут подключаться автоматически как зависимости выбранных сущностей, чтобы в графе не было висячих `@id`-ссылок.
 - Registry-based узлы для `confirmed` materials, mechanisms, features, use cases, topics и policies подключаются автоматически из `about_entities` и `mentions_entities`. Они усиливают graph как `DefinedTerm` или объяснительные `Thing` nodes и не заменяют основные Product/Offer/Article/Page partials.
 - `schema_types` не управляет индексацией страницы. Для служебных страниц вроде `search` это решается через `robotsNoIndex` и `layouts/_partials/head.html`.
+- `schema_types` не заменяет `date` и `lastmod`: даты все равно должны быть во front matter, даже если page meta скрыта в интерфейсе.
 - Для страниц с `layout: "search"` JSON-LD не рендерится, даже если в front matter есть `schema_types`.
 - `404` и служебные alias-страницы не описываются через метаданные в `content/`; для них используются отдельные шаблонные файлы.
 - Основное изображение страницы теперь описывается через единый `ImageObject` в общем `@graph`, а не через отдельный JSON-LD-скрипт из `seo-image`.
@@ -45,11 +47,17 @@ schema_types: ["website", "product", "organization", "breadcrumbs"]
 Товар `content/products/<series>/<model>/index.md`
 `schema_types: ["website", "product", "organization", "breadcrumbs"]`
 
+Видимая meta-строка товара не выводится.
+
 Серия и каталоги `content/products/_index.md`, `content/products/<series>/_index.md`
 `schema_types: ["website", "collection", "organization", "breadcrumbs"]`
 
+Видимая meta-строка серии или каталога не выводится.
+
 Новости `content/news/<slug>/index.md`
 `schema_types: ["website", "news", "organization", "breadcrumbs"]`
+
+Видимая meta-строка новости: только дата публикации.
 
 Листинг новостей `content/news/_index.md`
 `schema_types: ["website", "collection", "organization", "breadcrumbs"]`
@@ -57,17 +65,27 @@ schema_types: ["website", "product", "organization", "breadcrumbs"]
 Статьи `content/articles/<slug>/index.md`
 `schema_types: ["website", "article", "organization", "breadcrumbs"]`
 
+Видимая meta-строка статьи: дата публикации и время чтения.
+
 Листинг статей `content/articles/_index.md`
 `schema_types: ["website", "collection", "organization", "breadcrumbs"]`
 
 FAQ `content/faq/index.md`
 `schema_types: ["website", "faq", "organization", "breadcrumbs"]`
 
+Видимая meta-строка FAQ не выводится.
+
 Страница о бренде `content/about/index.md`
 `schema_types: ["website", "organization", "brand", "about-page", "breadcrumbs"]`
+
+Видимая meta-строка страницы о бренде не выводится.
 
 Контакты `content/contact/index.md`
 `schema_types: ["website", "organization", "contact-page", "breadcrumbs"]`
 
+Видимая meta-строка контактов не выводится.
+
 Поиск `content/search.md`
 `schema_types: ["website", "organization", "breadcrumbs"]`
+
+Видимая meta-строка поиска не выводится.

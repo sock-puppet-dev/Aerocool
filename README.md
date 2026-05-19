@@ -139,6 +139,18 @@ index.ru.md   русская версия
 
 Во front matter использовать `schema_types`.
 
+Видимая meta-строка управляется локальным helper [layouts/_partials/page-meta.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-meta.html), а не прямым выводом PaperMod `post_meta.html`.
+
+Текущая политика:
+
+- статьи показывают дату публикации и время чтения;
+- новости показывают только дату публикации;
+- `/contact/`, `/faq/`, `/about/`, `/products/`, серии, товары, поиск и служебные страницы не показывают блоговую meta-строку под `H1`;
+- количество слов, автор организации и список переводов не выводятся в контентной meta-строке;
+- переключатель языка остается в шапке сайта.
+
+`date` и `lastmod` при этом не удаляются из front matter: они нужны для сортировки, RSS, head/schema-слоя и редакционного блока статей/новостей.
+
 Для товарных страниц product facts хранятся в front matter конкретного `content/products/<series>/<model>/index*.md`. Это единый источник правды для цены, наличия, SKU, MPN, GTIN, гарантии, доставки, возврата и способов оплаты. Владелец бизнес-значений — команда Aerocool Украина; `Product` JSON-LD, видимый товарный блок и `/faq/` должны быть синхронизированы с front matter.
 
 Для отзывов и рейтингов целевой источник правды другой: `Netlify Database` с approved отзывами и build-time export в Hugo data. Поля `rating.value` и `rating.count` во front matter считаются legacy-риском до переключения `Product` JSON-LD на реальные публичные отзывы.
@@ -161,6 +173,7 @@ index.ru.md   русская версия
 - `layouts/baseof.html` — общий HTML-каркас.
 - `layouts/_partials/head.html` — meta, canonical, OG/Twitter, CSS, search JS.
 - `layouts/_partials/header.html` — шапка, логотип, меню, переключатель языка.
+- `layouts/_partials/page-meta.html` — видимая meta-строка для статей и новостей.
 - `layouts/_partials/footer.html` — footer, JSON-LD внизу body, внешний `site.js`.
 - `layouts/single.html` — одиночные страницы.
 - `layouts/list.html` — листинги.
@@ -409,7 +422,7 @@ npm run audit:ci:technical
 
 1. `README.md` — главный вход в проект.
 2. `AGENTS.md` — правила безопасной работы для Codex/агентов.
-3. [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-49`.
+3. [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-50`.
 4. [docs/architecture/02-documentation-style-guide.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/02-documentation-style-guide.md) — стандарт русскоязычной, понятной и структурированной документации.
 5. [docs/architecture/03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md) — локальные Hugo helpers и partials.
 6. [docs/content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md) — поля front matter для страниц.
@@ -423,6 +436,6 @@ npm run audit:ci:technical
 - `12-14` — Core Web Vitals, Lighthouse и Unlighthouse.
 - `15-17` — локальные инструменты, Netlify routing и review-инфраструктура.
 - `18-28` — SEO, schema.org, Entity Registry и structured data.
-- `29-49` — audit-снимки и исторические оценки.
+- `29-50` — audit-снимки и исторические оценки.
 
 Весь полный список файлов и их порядок чтения поддерживается в [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md). Если добавляется новый документ, сначала выбирается следующий свободный номер, затем обновляются `docs/01-documentation-map.md`, `README.md`, `AGENTS.md` и локальные ссылки.

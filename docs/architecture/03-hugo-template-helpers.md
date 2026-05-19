@@ -216,6 +216,60 @@
 - если нужно изменить единое правило выбора названия для хлебных крошек;
 - если нужно добавить дополнительную очистку или fallback для breadcrumb label.
 
+### `page-meta.html`
+
+Файл: [page-meta.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-meta.html)
+
+Что делает:
+
+- управляет видимой meta-строкой под `H1` и в карточках листингов;
+- читает `.Params.schema_types`, `.Date`, `.ReadingTime`, `.Param "ShowReadingTime"` и `.Param "hideMeta"`;
+- для страниц со `schema_types: ["article", ...]` выводит дату публикации и время чтения;
+- для страниц со `schema_types: ["news", ...]` выводит только дату публикации;
+- для контактов, FAQ, страницы о бренде, каталога, серий, товаров, хабов, поиска и служебных страниц ничего не выводит;
+- не выводит количество слов, автора и список переводов.
+
+Где используется:
+
+- [layouts/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/single.html) — обычные одиночные страницы;
+- [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html) — FAQ-страница;
+- [layouts/list.html](/Users/stadnyk/MEGA/Aerocool/layouts/list.html) — footer карточек в листингах.
+
+Текущая политика видимого вывода:
+
+| Тип страницы | Условие | Что видно пользователю |
+|---|---|---|
+| Статья | `schema_types` содержит `article` | дата публикации + время чтения |
+| Новость | `schema_types` содержит `news` | дата публикации |
+| Контакты | `schema_types` содержит `contact-page` | ничего |
+| FAQ | `schema_types` содержит `faq` | ничего |
+| About | `schema_types` содержит `about-page` | ничего |
+| Каталог, серия, товар | `collection` или `product` без `article/news` | ничего |
+| Поиск и служебные страницы | `layout: "search"` или отдельный служебный шаблон | ничего |
+
+Важно:
+
+- `date` и `lastmod` остаются во front matter и используются SEO/schema-слоем, даже если дата не показана в интерфейсе;
+- `lastmod` для статей и новостей видимо выводится редакционным блоком [editorial-note.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/editorial-note.html), а не `page-meta.html`;
+- `ShowWordCount: true` может оставаться в [hugo.yaml](/Users/stadnyk/MEGA/Aerocool/hugo.yaml), но локальный `page-meta.html` намеренно не показывает количество слов;
+- `author` может оставаться в head/schema-слое, но не должен возвращаться в видимую meta-строку без отдельного решения по реальным авторам или редакторам;
+- переключатель языка остается в шапке сайта через [header.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/header.html), а не в контентной meta-строке;
+- `hideMeta: true` остается ручным override для страниц, где нужно принудительно скрыть meta-строку.
+
+Что не делать:
+
+- не возвращать `post_meta.html` в [layouts/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/single.html) и [layouts/list.html](/Users/stadnyk/MEGA/Aerocool/layouts/list.html), потому что он снова выведет глобальные PaperMod-поля вроде автора, времени чтения и количества слов;
+- не вставлять [translation-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/translation-list.html) под `H1`;
+- не решать задачу через массовое `hideMeta: true` в контенте, если поведение относится к типу страницы.
+
+Как проверять после изменения:
+
+- `npm run build`;
+- проверить `/contact/`, `/faq/`, `/about/`, `/products/` и товарную страницу: видимой `post-meta` быть не должно;
+- проверить статью: должна быть дата публикации и время чтения, без количества слов, автора и списка переводов;
+- проверить новость: должна быть только дата публикации;
+- проверить `/ru/`-версии тех же URL.
+
 ### `page-image.html`
 
 Файл: [page-image.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-image.html)
@@ -413,12 +467,13 @@
 
 - выводит список переводов текущей страницы;
 - использует актуальные Hugo language fields `.Language.Name` и `.Language.Label`;
-- вызывается из [layouts/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/single.html), [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html) и [layouts/search.html](/Users/stadnyk/MEGA/Aerocool/layouts/search.html).
+- оставлен как локальный helper для совместимости, но обычные страницы сейчас используют языковой переключатель в [header.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/header.html), а не список переводов под `H1`.
 
 Важно:
 
 - старое имя `translation_list.html` не использовать в локальных шаблонах;
-- в теме PaperMod оно еще встречается, поэтому локальный `search.html` нужен как override.
+- в теме PaperMod оно еще встречается, поэтому локальный `search.html` нужен как override;
+- на `2026-05-19` обычные локальные шаблоны `single`, `faq/single`, `list` и `search` не вызывают этот helper в контентной зоне.
 
 ### `post-footer-navigation.html`
 
@@ -827,6 +882,7 @@
 - плохой `description` -> [page-description.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-description.html)
 - странный `H1` на большинстве страниц -> [page-h1.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-h1.html)
 - странный `H1` или hero на главной -> [home-hero.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero.html)
+- лишняя дата, время чтения, количество слов или автор под `H1` -> [page-meta.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-meta.html)
 - проблема с видимым FAQ на `/faq/` -> [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html) и [faq-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq-list.html)
 - нет редакционного trust-блока на статье или новости -> [editorial-note.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/editorial-note.html) и вызов в [single.html](/Users/stadnyk/MEGA/Aerocool/layouts/single.html)
 - не та картинка в соцсетях -> [page-image.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-image.html), [opengraph.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/opengraph.html), [twitter_cards.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/twitter_cards.html)

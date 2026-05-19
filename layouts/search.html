@@ -13,11 +13,6 @@
         {{ .Description }}
     </div>
     {{- end }}
-    {{- if not (.Param "hideMeta") }}
-    <div class="post-meta">
-        {{- partial "translation-list.html" . -}}
-    </div>
-    {{- end }}
 </header>
 
 <div id="searchbox">

@@ -19,12 +19,9 @@
       {{ .Description }}
     </div>
     {{- end }}
-    {{- if not (.Param "hideMeta") }}
+    {{- with partial "page-meta.html" . }}
     <div class="post-meta">
-      {{- partial "post_meta.html" . -}}
-      {{- partial "translation-list.html" . -}}
-      {{- partial "edit_post.html" . -}}
-      {{- partial "post_canonical.html" . -}}
+      {{- . -}}
     </div>
     {{- end }}
   </header>
