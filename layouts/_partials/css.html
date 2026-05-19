@@ -8,14 +8,10 @@
     {{- /* Настройки для Tailwind: минификация отключается в режиме разработки (IsDevelopment) для удобства отладки. */ -}}
     {{ $opts := dict "minify" (not hugo.IsDevelopment) }}
     {{ with . | css.TailwindCSS $opts }}
-        {{ if hugo.IsDevelopment }}
-            {{- /* В разработке подключаем обычный файл для быстрой перезагрузки. */ -}}
-            <link rel="stylesheet" href="{{ .RelPermalink }}">
-        {{ else }}
-            {{- /* В продакшене добавляем отпечаток (fingerprint) для сброса кэша и integrity для безопасности (SRI). */ -}}
-            {{ with . | fingerprint }}
-                <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
-            {{ end }}
+        {{- /* Fingerprint нужен и в development: без него браузер может держать старый /css/main.css,
+             из-за чего новые Tailwind utilities и локальные component-классы визуально "не работают". */ -}}
+        {{ with . | fingerprint }}
+            <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
         {{ end }}
     {{ end }}
 {{ end }}

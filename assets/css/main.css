@@ -847,6 +847,81 @@ button[class*="bg-indigo-600"],
     }
 }
 
+/* Каталог товаров: локальный слой для layouts/products/list.html.
+   Он дублирует критичную сетку поверх Tailwind utilities, чтобы страницы
+   /products/ и /products/<series>/ не зависели от нюансов JIT-сборки классов. */
+.products-list {
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
+}
+
+.products-list__inner {
+    max-width: 80rem;
+}
+
+.products-list__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3rem;
+}
+
+.products-list__grid > * {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.products-list__card {
+    display: block;
+    border-bottom: 0;
+    box-shadow: none;
+    text-decoration: none;
+}
+
+.products-list__image {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    transition: opacity 150ms ease;
+}
+
+.products-list__card:hover .products-list__image {
+    opacity: 0.75;
+}
+
+.products-list__title {
+    margin-top: 1rem;
+    color: #111827;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0;
+}
+
+.products-list__summary {
+    margin-top: 0.5rem;
+    color: #6b7280;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+    .products-list__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .products-list__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .products-list__image {
+        aspect-ratio: 5 / 6;
+    }
+}
+
 /* убираем тени home-hero image*/
 .home-hero { box-shadow: none !important; }
 .home-hero__image { box-shadow: none !important; }

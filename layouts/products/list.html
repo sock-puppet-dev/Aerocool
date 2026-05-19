@@ -1,0 +1,90 @@
+{{- define "main" }}
+
+{{- $pageDescription := .Description | default (partial "page-description.html" .) }}
+{{- $pages := .Pages.ByWeight }}
+
+<div class="products-list bg-white">
+  <div class="products-list__inner mx-auto max-w-xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+    <header>
+      {{- partial "breadcrumbs.html" . }}
+      <h1 class="text-2xl font-bold tracking-tight text-gray-900">
+        {{ partial "page-h1.html" . }}
+      </h1>
+      {{- with $pageDescription }}
+      <p class="mt-4 text-base text-gray-500">{{ . | markdownify }}</p>
+      {{- end }}
+    </header>
+
+    {{- if $pages }}
+    <div class="products-list__grid mt-10 space-y-12 lg:grid lg:grid-cols-3 lg:space-y-0 lg:gap-x-8">
+      {{- range $pages }}
+      {{- $page := . }}
+      {{- $cardTitle := partial "breadcrumb-label.html" . }}
+      {{- $cardSummary := .Summary | default .Description | plainify | htmlUnescape }}
+      {{- $coverImage := .Params.cover.image | default .Params.image }}
+      {{- $coverAlt := .Params.cover.alt | default $cardTitle }}
+      {{- $imageSrc := "" }}
+      {{- $imageSrcset := slice }}
+      {{- $imageWidth := 720 }}
+      {{- $imageHeight := 480 }}
+      {{- with $coverImage }}
+        {{- $cardImage := ($page.Resources.ByType "image").GetMatch (printf "*%s*" .) }}
+        {{- $globalImage := (resources.ByType "image").GetMatch (printf "*%s*" .) }}
+        {{- $image := or $cardImage $globalImage }}
+        {{- if and $image (in (slice "jpg" "jpeg" "png" "webp") $image.MediaType.SubType) }}
+          {{- $fallbackWidth := 720 }}
+          {{- if lt $image.Width $fallbackWidth }}
+            {{- $fallbackWidth = $image.Width }}
+          {{- end }}
+          {{- $fallback := $image.Resize (printf "%dx webp q82" $fallbackWidth) }}
+          {{- $imageSrc = $fallback.RelPermalink }}
+          {{- $imageWidth = $fallback.Width }}
+          {{- $imageHeight = $fallback.Height }}
+          {{- range slice 360 480 720 1080 }}
+            {{- if le . $image.Width }}
+              {{- $variant := $image.Resize (printf "%dx webp q82" .) }}
+              {{- $imageSrcset = $imageSrcset | append (printf "%s %dw" $variant.RelPermalink $variant.Width) }}
+            {{- end }}
+          {{- end }}
+          {{- if not (in $imageSrcset (printf "%s %dw" $fallback.RelPermalink $fallback.Width)) }}
+            {{- $imageSrcset = $imageSrcset | append (printf "%s %dw" $fallback.RelPermalink $fallback.Width) }}
+          {{- end }}
+        {{- else }}
+          {{- $imageSrc = . | relURL }}
+        {{- end }}
+      {{- end }}
+      <a href="{{ .RelPermalink }}" class="products-list__card group block">
+        {{- with $imageSrc }}
+        <img
+          src="{{ . }}"
+          {{- if $imageSrcset }}
+          srcset="{{ delimit $imageSrcset ", " }}"
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, calc(100vw - 2rem)"
+          {{- end }}
+          width="{{ $imageWidth }}"
+          height="{{ $imageHeight }}"
+          loading="lazy"
+          decoding="async"
+          alt="{{ $coverAlt }}"
+          class="products-list__image aspect-3/2 w-full rounded-lg object-cover group-hover:opacity-75 lg:aspect-5/6" />
+        {{- end }}
+        <h2 class="products-list__title mt-4 text-base font-semibold text-gray-900">{{ $cardTitle }}</h2>
+        {{- with $cardSummary }}
+        <p class="products-list__summary mt-2 text-sm text-gray-500">{{ . }}</p>
+        {{- end }}
+      </a>
+      {{- end }}
+    </div>
+    {{- end }}
+
+    {{- if .Content }}
+    <div class="post-content mt-16">
+      {{- if not (.Param "disableAnchoredHeadings") }}
+      {{- partial "anchored_headings.html" .Content -}}
+      {{- else }}{{ .Content }}{{ end }}
+    </div>
+    {{- end }}
+  </div>
+</div>
+
+{{- end }}{{- /* end main */ -}}
