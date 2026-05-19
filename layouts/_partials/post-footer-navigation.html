@@ -76,7 +76,7 @@
           <li><a href="{{ .RelPermalink }}">{{ $catalogLabel }}</a></li>
           {{- end }}
           {{- range first 3 $seriesPages }}
-          <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
           {{- end }}
           {{- if ne $section "articles" -}}
             {{- with $articlesPage }}
@@ -96,7 +96,7 @@
         <h3>{{ $productsTitle }}</h3>
         <ul>
           {{- range first 3 $productPages }}
-          <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
           {{- end }}
         </ul>
       </div>
@@ -107,7 +107,7 @@
         <h3>{{ $materialsTitle }}</h3>
         <ul>
           {{- range first 4 $materialPages }}
-          <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
           {{- end }}
         </ul>
       </div>

@@ -73,7 +73,7 @@
           <ul role="list" class="site-footer__list mt-6 space-y-4">
             {{- range $pagesScratch.GetSortedMapValues "sections" }}
             <li>
-              <a href="{{ .RelPermalink }}" class="text-sm/6 text-gray-400 hover:text-gray-300">{{ .LinkTitle }}</a>
+              <a href="{{ .RelPermalink }}" class="text-sm/6 text-gray-400 hover:text-gray-300">{{ .Title }}</a>
             </li>
             {{- end }}
           </ul>
@@ -83,7 +83,7 @@
           <ul role="list" class="site-footer__list mt-6 space-y-4">
             {{- range $seriesScratch.GetSortedMapValues "pages" }}
             <li>
-              <a href="{{ .RelPermalink }}" class="text-sm/6 text-gray-400 hover:text-gray-300">{{ .LinkTitle }}</a>
+              <a href="{{ .RelPermalink }}" class="text-sm/6 text-gray-400 hover:text-gray-300">{{ .Title }}</a>
             </li>
             {{- end }}
           </ul>
