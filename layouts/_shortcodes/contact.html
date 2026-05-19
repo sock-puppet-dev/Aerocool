@@ -64,6 +64,29 @@
             <dd><a href="mailto:support@aerocool.ua" class="hover:text-gray-900">support@aerocool.ua</a></dd>
           </div>
         </dl>
+
+        <nav class="mt-10" aria-label="{{ cond $isRu "Быстрые ссылки перед обращением" "Швидкі посилання перед зверненням" }}">
+          <p class="text-sm/6 font-semibold text-gray-900">
+            {{ cond $isRu "Перед обращением" "Перед зверненням" }}
+          </p>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <a href="{{ cond $isRu "/ru/products/" "/products/" }}" class="rounded-full bg-white px-3.5 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50">
+              {{ cond $isRu "Каталог" "Каталог" }}
+            </a>
+            <a href="{{ cond $isRu "/ru/faq/" "/faq/" }}" class="rounded-full bg-white px-3.5 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50">
+              FAQ
+            </a>
+            <a href="{{ cond $isRu "/ru/products/sky/" "/products/sky/" }}" class="rounded-full bg-white px-3.5 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50">
+              SKY
+            </a>
+            <a href="{{ cond $isRu "/ru/products/wing/" "/products/wing/" }}" class="rounded-full bg-white px-3.5 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50">
+              WING
+            </a>
+            <a href="{{ cond $isRu "/ru/products/xtal/" "/products/xtal/" }}" class="rounded-full bg-white px-3.5 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50">
+              XTAL
+            </a>
+          </div>
+        </nav>
       </div>
     </div>
 
