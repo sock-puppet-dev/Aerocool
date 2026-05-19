@@ -89,26 +89,26 @@ npm run build:production
 ## 5. Основная структура
 
 ```text
-content/                 контент сайта
-content/products/        каталог, серии и варианты товаров
-content/articles/        evergreen-статьи
-content/news/            новости и запусковые материалы
-data/                    структурированные данные Hugo
-data/entities.yaml       реестр сущностей для schema.org-связей
-data/generated/          будущие build-time exports, например approved reviews snapshot
-layouts/                 локальные Hugo-шаблоны и overrides
-layouts/_partials/       локальные partials
-layouts/_shortcodes/     локальные shortcodes
-assets/css/main.css      Tailwind CSS и локальный visual layer
-assets/js/site.js        общий внешний JS сайта без inline-скриптов
-static/                  статические файлы
-static/_redirects        root rewrite и forced 404 для scanner/sensitive URL на Netlify
-netlify/database/migrations/ будущие SQL-миграции Netlify Database
-unlighthouse/            аудит Lighthouse/Unlighthouse
-hugo.yaml                конфигурация Hugo
-netlify.toml             сборка Netlify и HTTP headers
-mise.toml                локальные версии Hugo и Node для mise
-package.json             npm-команды корневого Hugo-проекта
+content/                        контент сайта
+content/products/               каталог, серии и варианты товаров
+content/articles/               evergreen-статьи
+content/news/                   новости и запусковые материалы
+data/                           структурированные данные Hugo
+data/entities.yaml              реестр сущностей для schema.org-связей
+data/generated/                 будущие build-time exports, например approved reviews snapshot
+layouts/                        локальные Hugo-шаблоны и overrides
+layouts/_partials/              локальные partials
+layouts/_shortcodes/            локальные shortcodes
+assets/css/main.css             Tailwind CSS и локальный visual layer
+assets/js/site.js               общий внешний JS сайта без inline-скриптов
+static/                         статические файлы
+static/_redirects               root rewrite и forced 404 для scanner/sensitive URL на Netlify
+netlify/database/migrations/    будущие SQL-миграции Netlify Database
+unlighthouse/                   аудит Lighthouse/Unlighthouse
+hugo.yaml                       конфигурация Hugo
+netlify.toml                    сборка Netlify и HTTP headers
+mise.toml                       локальные версии Hugo и Node для mise
+package.json                    npm-команды корневого Hugo-проекта
 ```
 
 Что не нужно редактировать вручную:
