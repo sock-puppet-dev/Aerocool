@@ -851,12 +851,14 @@ button[class*="bg-indigo-600"],
    Он дублирует критичную сетку поверх Tailwind utilities, чтобы страницы
    /products/ и /products/<series>/ не зависели от нюансов JIT-сборки классов. */
 .products-list {
-    width: 100vw;
-    margin-inline: calc(50% - 50vw);
+    width: 100%;
+    margin-inline: 0;
 }
 
 .products-list__inner {
-    max-width: 80rem;
+    max-width: var(--main-width);
+    padding-right: 0;
+    padding-left: 0;
 }
 
 .products-list__grid {
