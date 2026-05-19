@@ -102,6 +102,7 @@
 - `docs/audits/48-2026-05-18-documentation-current-audit.md`
 - `docs/audits/49-2026-05-19-documentation-current-audit.md`
 - `docs/audits/50-2026-05-19-visible-page-meta-policy-audit.md`
+- `docs/architecture/51-tailwind-plus-ui-section-map-2026.md`
 
 Для новичка порядок чтения такой: сначала `README.md`, затем `AGENTS.md`, затем `docs/01-documentation-map.md`, затем `docs/architecture/02-documentation-style-guide.md`, затем `docs/architecture/03-hugo-template-helpers.md`, затем `docs/content/05-front-matter-reference.md`, затем `docs/quality/13-unlighthouse-site-audit.md`. Для SEO/schema-задач после этого читать `docs/seo/19-schema-types-reference.md`, `docs/seo/20-schema-markup-quality-checklist-2026.md`, `docs/seo/24-entities-knowledge-graph-playbook-2026.md` и профильный playbook по задаче. Для performance/Core Web Vitals-задач читать `docs/quality/12-core-web-vitals-guide-2026.md`. Остальные гайды подключать по задаче.
 

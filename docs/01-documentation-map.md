@@ -9,7 +9,7 @@
 - [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) — краткая карта проекта, стека, структуры и основных команд.
 - [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md) — правила безопасной работы для Codex/агентов.
 
-Все файлы внутри `docs/` пронумерованы глобально от `01` до `50`. Номер в начале имени показывает рекомендуемый порядок чтения.
+Все файлы внутри `docs/` пронумерованы глобально от `01` до `51`. Номер в начале имени показывает рекомендуемый порядок чтения.
 
 ## Как Пользоваться Новичку
 
@@ -35,7 +35,8 @@
 - `12-14` — качество, Core Web Vitals, Lighthouse и Unlighthouse;
 - `15-17` — локальные инструменты, Netlify routing и Netlify Database reviews;
 - `18-28` — SEO, schema.org, entity registry и structured data;
-- `29-50` — исторические и текущие audit-снимки.
+- `29-50` — исторические и текущие audit-снимки;
+- `51+` — прикладные карты UI/UX-внедрения.
 
 Для новых файлов выбирать следующий свободный номер и сразу обновлять эту карту, `README.md`, `AGENTS.md` и все локальные ссылки.
 
@@ -114,6 +115,10 @@
 49. [audits/49-2026-05-19-documentation-current-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/49-2026-05-19-documentation-current-audit.md) — текущий аудит всей документации на 2026-05-19.
 50. [audits/50-2026-05-19-visible-page-meta-policy-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/50-2026-05-19-visible-page-meta-policy-audit.md) — аудит новой политики видимой meta-строки страниц.
 
+### UI/UX Карты
+
+51. [architecture/51-tailwind-plus-ui-section-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/51-tailwind-plus-ui-section-map-2026.md) — карта внедрения Tailwind Plus UI-секций для главной, каталога, серий, товаров, FAQ, контактов, форм и footer.
+
 ## Маршруты По Задачам
 
 Для контентной правки читать:
@@ -142,6 +147,12 @@
 1. [quality/12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md)
 2. [quality/13-unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-unlighthouse-site-audit.md)
 3. [quality/14-lighthouse-single-page-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/14-lighthouse-single-page-audit.md)
+
+Для UI-блоков, Tailwind Plus и визуальной структуры страниц читать:
+
+1. [architecture/51-tailwind-plus-ui-section-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/51-tailwind-plus-ui-section-map-2026.md)
+2. [architecture/03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md)
+3. [content/07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md)
 
 ## Правило Поддержки
 
