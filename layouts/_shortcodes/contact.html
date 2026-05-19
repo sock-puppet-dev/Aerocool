@@ -63,6 +63,16 @@
             </dt>
             <dd><a href="mailto:support@aerocool.ua" class="hover:text-gray-900">support@aerocool.ua</a></dd>
           </div>
+
+          <div class="flex gap-x-4">
+            <dt class="flex-none">
+              <span class="sr-only">{{ cond $isRu "Email для продаж" "Email для продажів" }}</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="h-7 w-6 text-gray-400">
+                <path d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.125-.504 1.125-1.125V11.25a3 3 0 0 0-3-3h-1.5V6A2.25 2.25 0 0 0 15 3.75H5.25A2.25 2.25 0 0 0 3 6v8.25m15-6h-3.75m3.75 0 1.5 3h2.25" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </dt>
+            <dd><a href="mailto:sales@aerocool.ua" class="hover:text-gray-900">sales@aerocool.ua</a></dd>
+          </div>
         </dl>
 
         <nav class="mt-10" aria-label="{{ cond $isRu "Быстрые ссылки перед обращением" "Швидкі посилання перед зверненням" }}">
@@ -87,6 +97,34 @@
             </a>
           </div>
         </nav>
+
+        <div class="mt-10">
+          <h3 class="text-sm/6 font-semibold text-gray-900">
+            {{ cond $isRu "Когда обращаться" "Коли звертатися" }}
+          </h3>
+          <ul class="mt-4 space-y-3 text-base/7 text-gray-600">
+            <li>{{ cond $isRu "если вы не знаете, что лучше: SKY Lite, SKY 360, WING или XTAL;" "якщо не знаєте, що краще: SKY Lite, SKY 360, WING чи XTAL;" }}</li>
+            <li>{{ cond $isRu "если нужно понять разницу между Racer, Loft Air и Mesh;" "якщо потрібно зрозуміти різницю між Racer, Loft Air і Mesh;" }}</li>
+            <li>{{ cond $isRu "если хотите подобрать кресло под работу, home office или гейминг;" "якщо хочете підібрати крісло під роботу, home office або геймінг;" }}</li>
+            <li>{{ cond $isRu "если нужно уточнить гарантию, наличие, доставку или сервисные вопросы." "якщо потрібно уточнити гарантію, наявність, доставку чи сервісні питання." }}</li>
+          </ul>
+        </div>
+
+        <div class="mt-10">
+          <h3 class="text-sm/6 font-semibold text-gray-900">
+            {{ cond $isRu "График работы" "Графік роботи" }}
+          </h3>
+          <dl class="mt-4 space-y-3 text-base/7 text-gray-600">
+            <div>
+              <dt class="font-semibold text-gray-900">{{ cond $isRu "Понедельник — Пятница" "Понеділок — П'ятниця" }}</dt>
+              <dd>09:00 — 18:00</dd>
+            </div>
+            <div>
+              <dt class="font-semibold text-gray-900">{{ cond $isRu "Суббота, Воскресенье" "Субота, Неділя" }}</dt>
+              <dd>{{ cond $isRu "выходные" "вихідні" }}</dd>
+            </div>
+          </dl>
+        </div>
       </div>
     </div>
 
