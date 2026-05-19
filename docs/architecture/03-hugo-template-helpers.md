@@ -121,6 +121,7 @@
 - [layouts/baseof.html](/Users/stadnyk/MEGA/Aerocool/layouts/baseof.html) — общий HTML-каркас.
 - [layouts/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/single.html) — обычная детальная страница.
 - [layouts/list.html](/Users/stadnyk/MEGA/Aerocool/layouts/list.html) — списковые страницы и хабы.
+- [layouts/products/list.html](/Users/stadnyk/MEGA/Aerocool/layouts/products/list.html) — специализированный листинг каталога и серий товаров с каталоговой сеткой карточек.
 - [layouts/search.html](/Users/stadnyk/MEGA/Aerocool/layouts/search.html) — страница поиска; должна оставаться `noindex,nofollow`.
 - [layouts/404.html](/Users/stadnyk/MEGA/Aerocool/layouts/404.html) — кастомная 404; должна оставаться `noindex,nofollow`.
 - [layouts/alias.html](/Users/stadnyk/MEGA/Aerocool/layouts/alias.html) — служебные alias-страницы; не использовать как SEO-посадочные.
@@ -135,6 +136,7 @@
 - [layouts/_shortcodes/seo-image.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/seo-image.html) — контентные изображения с контролем LCP/lazy loading.
 - [layouts/_shortcodes/faq-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq-list.html) — видимый список FAQ из front matter.
 - [layouts/_shortcodes/contact.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/contact.html) — контактная `side-by-side` секция для `/contact/` и `/ru/contact/`.
+- [layouts/_shortcodes/contact-success-alert.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/contact-success-alert.html) — success alert после отправки контактной формы на `/contact/success/` и `/ru/contact/success/`.
 
 Важно по `contact.html`:
 
@@ -143,6 +145,13 @@
 - правая колонка содержит Netlify form с honeypot, обязательными полями и локализованным success URL;
 - markdown-файлы `content/contact/index.md` и `content/contact/index.ru.md` обычно должны содержать только вызов `{{< contact >}}`, чтобы не дублировать контактные данные ниже формы;
 - отдельный markdown-раздел соцсетей на `/contact/` не используется; глобальные социальные ссылки остаются в footer и в schema global organization/brand.
+
+Важно по `contact-success-alert.html`:
+
+- shortcode сам переключает украинский и русский текст по языку страницы;
+- используется в `content/contact-success/index.md` и `content/contact-success/index.ru.md`;
+- показывает подтверждение отправки формы, ожидаемое время ответа и быстрые ссылки назад к контактам и в каталог;
+- не должен заменять native validation формы: ошибки заполнения остаются на стороне браузера и Netlify form flow.
 
 ## Группа 1. Helper-Файлы Данных Страницы
 
@@ -893,6 +902,7 @@
 - странный `H1` или hero на главной -> [home-hero.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero.html)
 - лишняя дата, время чтения, количество слов или автор под `H1` -> [page-meta.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-meta.html)
 - проблема с видимым FAQ на `/faq/` -> [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html) и [faq-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq-list.html)
+- проблема с success-сообщением после контактной формы -> [contact-success-alert.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/contact-success-alert.html)
 - нет редакционного trust-блока на статье или новости -> [editorial-note.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/editorial-note.html) и вызов в [single.html](/Users/stadnyk/MEGA/Aerocool/layouts/single.html)
 - не та картинка в соцсетях -> [page-image.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-image.html), [opengraph.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/opengraph.html), [twitter_cards.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/twitter_cards.html)
 - canonical / robots / hreflang -> [head.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/head.html)

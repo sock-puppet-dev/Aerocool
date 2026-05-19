@@ -2,7 +2,7 @@
 
 Дата аудита: 2026-05-19.
 
-Этот аудит-снимок фиксирует состояние документации проекта `Aerocool Ukraine` на `2026-05-19` после синхронизации правил `linkTitle`, видимых хлебных крошек, `BreadcrumbList` и обновленной карты чтения `01-49`.
+Этот аудит-снимок фиксирует состояние документации проекта `Aerocool Ukraine` на `2026-05-19` после синхронизации правил `linkTitle`, видимых хлебных крошек, `BreadcrumbList`, политики видимой meta-строки страниц, карты Tailwind Plus UI-секций и обновленной карты чтения `01-51`.
 
 ## 1. Область Проверки
 
@@ -35,18 +35,18 @@
 
 Проверено:
 
-- `51` markdown-файл в `README.md`, `AGENTS.md` и `docs/`;
-- `49` markdown-файлов внутри `docs/`;
-- `21` audit-файл внутри `docs/audits/`;
-- `57` layout-файлов внутри `layouts/`;
+- `53` markdown-файла в `README.md`, `AGENTS.md` и `docs/`;
+- `51` markdown-файл внутри `docs/`;
+- `22` audit-файла внутри `docs/audits/`;
+- `60` layout-файлов внутри `layouts/`;
 - `76` content markdown-файлов внутри `content/`.
 
 Контроль:
 
-- все файлы внутри `docs/` имеют глобальный числовой префикс `01-49`;
-- [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md) перечисляет все документы внутри `docs/` в порядке чтения `01-49`;
-- [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) ведет к полной карте документации, а [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md) перечисляет все `49` файлов из `docs/`;
-- [03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md) упоминает все `57` текущих layout-файлов;
+- все файлы внутри `docs/` имеют глобальный числовой префикс `01-51`;
+- [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md) перечисляет все документы внутри `docs/` в порядке чтения `01-51`;
+- [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) ведет к полной карте документации, а [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md) перечисляет все `51` файлов из `docs/`;
+- [03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md) упоминает все `60` текущих layout-файлов;
 - локальные markdown-ссылки проверены;
 - активные англоязычные служебные заголовки не найдены;
 - ссылочные заглушки с троеточием вместо URL не найдены;
@@ -56,13 +56,15 @@
 
 ## 4. Что Синхронизировано В Этом Проходе
 
-### P1. Карта Чтения Обновлена До `01-49`
+### P1. Карта Чтения Обновлена До `01-51`
 
-В документацию добавлен сегодняшний аудит-снимок:
+В документацию добавлены документы текущего прохода:
 
 - [49-2026-05-19-documentation-current-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/49-2026-05-19-documentation-current-audit.md).
+- [50-2026-05-19-visible-page-meta-policy-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/50-2026-05-19-visible-page-meta-policy-audit.md).
+- [51-tailwind-plus-ui-section-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/51-tailwind-plus-ui-section-map-2026.md).
 
-Диапазон audit-документов изменен с `29-48` на `29-49`. Главная карта документации, `README.md` и `AGENTS.md` должны вести новичка к актуальному порядку чтения.
+Диапазон audit-документов изменен с `29-48` на `29-50`, а прикладные UI/UX-карты начинаются с `51+`. Главная карта документации, `README.md` и `AGENTS.md` должны вести новичка к актуальному порядку чтения.
 
 ### P1. Breadcrumbs И `linkTitle` Сведены В Единое Правило
 
@@ -89,7 +91,7 @@
 
 - структура понятна новичку;
 - основная документация написана на русском языке;
-- порядок чтения обновлен до `01-49`;
+- порядок чтения обновлен до `01-51`;
 - новые правила `linkTitle` и breadcrumbs описаны в справочнике front matter, helper-документации и шаблонах контента;
 - внешние правила по Google structured data, Hugo Tailwind pipeline, Netlify Database и Tailwind CSS v4 сверены с официальными источниками;
 - открытые риски явно зафиксированы.
