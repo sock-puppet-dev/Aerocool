@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Обновлено: 2026-05-18.
+Обновлено: 2026-05-19.
 
 ## Обзор Проекта
 
@@ -33,6 +33,8 @@
 - `layouts/rss.xml` — локальный RSS-шаблон.
 - `layouts/sitemap.xml` — шаблон языковых sitemap-файлов.
 - `layouts/sitemapindex.xml` — шаблон корневого мультиязычного sitemap index.
+- `layouts/_partials/breadcrumbs.html` — видимые хлебные крошки для обычных страниц и листингов.
+- `layouts/_partials/breadcrumb-label.html` — единый helper короткого названия страницы для видимых breadcrumbs и schema.org `BreadcrumbList`.
 - Папки `layouts/_default` в локальном слое больше нет; не возвращать туда новые overrides без отдельной причины.
 - Partial списка переводов — `layouts/_partials/translation-list.html`; старое имя `translation_list.html` не использовать.
 - `assets/css/main.css` — главный источник Tailwind и кастомного CSS; здесь же живут локальные design tokens, белый page canvas, базовый текстовый слой и component-layer проекта.
@@ -97,6 +99,7 @@
 - `docs/audits/46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md`
 - `docs/audits/47-2026-05-18-json-ld-entity-full-audit-after-customer-stories.md`
 - `docs/audits/48-2026-05-18-documentation-current-audit.md`
+- `docs/audits/49-2026-05-19-documentation-current-audit.md`
 
 Для новичка порядок чтения такой: сначала `README.md`, затем `AGENTS.md`, затем `docs/01-documentation-map.md`, затем `docs/architecture/02-documentation-style-guide.md`, затем `docs/architecture/03-hugo-template-helpers.md`, затем `docs/content/05-front-matter-reference.md`, затем `docs/quality/13-unlighthouse-site-audit.md`. Для SEO/schema-задач после этого читать `docs/seo/19-schema-types-reference.md`, `docs/seo/20-schema-markup-quality-checklist-2026.md`, `docs/seo/24-entities-knowledge-graph-playbook-2026.md` и профильный playbook по задаче. Для performance/Core Web Vitals-задач читать `docs/quality/12-core-web-vitals-guide-2026.md`. Остальные гайды подключать по задаче.
 
@@ -118,6 +121,7 @@
 - Home hero использует namespaced CSS-хуки `home-hero__*`; их визуальный слой держим в `assets/css/main.css`, а не размазываем по теме.
 - Не добавлять markdown `# H1` внутрь `content/`. Тело страницы должно начинаться с вводного абзаца или с `##`.
 - Поле `h1` в метаданных страницы использовать только тогда, когда видимый заголовок должен отличаться от SEO-заголовка документа `title`.
+- Поле `linkTitle` использовать для короткого навигационного имени, если `title` слишком длинный для хлебных крошек или внутренних списков. Видимые breadcrumbs и `BreadcrumbList` должны получать одно и то же имя через `layouts/_partials/breadcrumb-label.html`.
 - При редактировании сохранять `date` и `lastmod`. `lastmod` обновлять при любом содержательном изменении.
 - В видимом markdown-контенте `content/**/*.md` не использовать обратные кавычки для inline-code. Точные технические обозначения, характеристики, SKU/MPN/GTIN, размеры, рейтинги и значения из таблиц выделять обычным жирным форматом: `**11D**`, `**SYNC5 multi-adjustable**`, `**75 мм**`. Широкие коммерческие SEO-фразы вроде `игровое кресло`, `офисное кресло`, `компьютерное кресло`, `кресло для работы`, `home office` писать обычным текстом или, если нужен акцент, обычным жирным выделением. Это правило не относится к Hugo/JS-коду в `layouts/` и к документационным примерам вне `content/`.
 - Сайт должен покрывать не только брендовые запросы, но и широкие коммерческие кластеры: `игровое кресло`, `офисное кресло`, `компьютерное кресло`, `кресло для работы`, `home office`.

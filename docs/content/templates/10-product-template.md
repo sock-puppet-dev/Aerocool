@@ -1,6 +1,6 @@
 # Шаблон Страницы Товара
 
-Обновлено: 2026-05-18.
+Обновлено: 2026-05-19.
 
 Использовать для новых карточек товаров в `content/products/<series>/<model>/index.md` и `index.ru.md`.
 
@@ -13,6 +13,7 @@
 ```yaml
 ---
 title: "Эргономичное кресло Aerocool <MODEL>"
+linkTitle: "Aerocool <MODEL>" # необязательно: короткое имя для breadcrumbs
 h1: "Aerocool <MODEL>"      # необязательно
 description: "Купить Aerocool <MODEL> в Украине — эргономичное кресло серии <SERIES> с <KEY_FEATURE_1>, <KEY_FEATURE_2> и <CORE_USE_CASE>."
 summary: "Aerocool <MODEL> — кресло серии <SERIES> с <ADJUSTABILITY>, <SURFACE_TYPE> и эргономикой для <USE_CASE>."

@@ -1,6 +1,6 @@
 # Руководство по шаблонным helper-файлам Hugo
 
-Обновлено: 2026-05-17.
+Обновлено: 2026-05-19.
 
 ## Зачем Нужен Этот Документ
 
@@ -94,6 +94,7 @@
    - `_seo/twitter_cards.html`
 4. В теле страницы рендерятся:
    - `header.html`
+   - `breadcrumbs.html`
    - основной контент
    - `footer.html`
 5. В `footer.html` после основного контента вызывается `_seo/jsonld.html`, чтобы JSON-LD не задерживал первый экран.
@@ -198,6 +199,22 @@
 - если нужно поменять общую стратегию `H1`;
 - если нужно изменить правило fallback;
 - если команда хочет по-другому разделять `title` и `h1`.
+
+### `breadcrumb-label.html`
+
+Файл: [breadcrumb-label.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/breadcrumb-label.html)
+
+Что делает:
+
+- возвращает короткое имя страницы для хлебных крошек;
+- сначала берет `.LinkTitle`, если поле `linkTitle` задано во front matter;
+- если `linkTitle` не задан, использует `.Title`;
+- применяется и в видимых breadcrumbs, и в `BreadcrumbList`, чтобы HTML и JSON-LD не расходились по названиям.
+
+Когда идти сюда:
+
+- если нужно изменить единое правило выбора названия для хлебных крошек;
+- если нужно добавить дополнительную очистку или fallback для breadcrumb label.
 
 ### `page-image.html`
 
@@ -783,11 +800,23 @@
 
 ### `breadcrumbs.html`
 
-Файл: [breadcrumbs.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/breadcrumbs.html)
+Файл видимых хлебных крошек: [breadcrumbs.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/breadcrumbs.html)
 
 Что делает:
 
-- строит `BreadcrumbList` для schema-графа.
+- рендерит видимый навигационный блок `<nav>` с классом `site-breadcrumbs`;
+- не рендерится на главной странице;
+- строит путь через `.CurrentSection` и добавляет текущую страницу последней крошкой;
+- использует `breadcrumb-label.html` для коротких названий;
+- задает локализованный `aria-label`: `Хлібні крихти` для `uk` и `Хлебные крошки` для `ru`;
+- защищает длинные названия через Tailwind-классы `min-w-0`, `overflow-hidden` и `truncate`.
+
+Файл schema-разметки: [breadcrumbs.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/breadcrumbs.html)
+
+Что делает:
+
+- строит `BreadcrumbList` для schema-графа;
+- использует `breadcrumb-label.html` для тех же коротких названий, что и видимый HTML;
 - не рендерится на главной странице, чтобы не создавать одноэлементную хлебную крошку.
 
 ## Как Быстро Понять, Куда Идти

@@ -1,6 +1,6 @@
 # Документация Aerocool
 
-Обновлено: 2026-05-18.
+Обновлено: 2026-05-19.
 
 Этот файл — главная карта всей документации проекта. Его задача простая: показать новичку, что читать сначала, что читать потом и какие документы нужны только для профильных задач.
 
@@ -9,7 +9,7 @@
 - [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) — краткая карта проекта, стека, структуры и основных команд.
 - [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md) — правила безопасной работы для Codex/агентов.
 
-Все файлы внутри `docs/` пронумерованы глобально от `01` до `48`. Номер в начале имени показывает рекомендуемый порядок чтения.
+Все файлы внутри `docs/` пронумерованы глобально от `01` до `49`. Номер в начале имени показывает рекомендуемый порядок чтения.
 
 ## Как Пользоваться Новичку
 
@@ -35,7 +35,7 @@
 - `12-14` — качество, Core Web Vitals, Lighthouse и Unlighthouse;
 - `15-17` — локальные инструменты, Netlify routing и Netlify Database reviews;
 - `18-28` — SEO, schema.org, entity registry и structured data;
-- `29-48` — исторические и текущие audit-снимки.
+- `29-49` — исторические и текущие audit-снимки.
 
 Для новых файлов выбирать следующий свободный номер и сразу обновлять эту карту, `README.md`, `AGENTS.md` и все локальные ссылки.
 
@@ -110,7 +110,8 @@
 45. [audits/45-2026-05-17-json-ld-entity-full-audit-after-schemaapp-pdf-data.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/45-2026-05-17-json-ld-entity-full-audit-after-schemaapp-pdf-data.md) — контрольный аудит после PDF Schema App.
 46. [audits/46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md) — анализ Schema App customer stories/case studies.
 47. [audits/47-2026-05-18-json-ld-entity-full-audit-after-customer-stories.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/47-2026-05-18-json-ld-entity-full-audit-after-customer-stories.md) — контрольный JSON-LD/entity audit после customer stories.
-48. [audits/48-2026-05-18-documentation-current-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/48-2026-05-18-documentation-current-audit.md) — текущий аудит всей документации на 2026-05-18.
+48. [audits/48-2026-05-18-documentation-current-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/48-2026-05-18-documentation-current-audit.md) — аудит всей документации на 2026-05-18.
+49. [audits/49-2026-05-19-documentation-current-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/49-2026-05-19-documentation-current-audit.md) — текущий аудит всей документации на 2026-05-19.
 
 ## Маршруты По Задачам
 

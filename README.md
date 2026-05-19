@@ -1,6 +1,6 @@
 # Aerocool Ukraine
 
-Обновлено: 2026-05-18.
+Обновлено: 2026-05-19.
 
 `Aerocool Ukraine` — двуязычный маркетинговый и каталоговый сайт на `Hugo` для кресел Aerocool в Украине. Основной язык — украинский (`uk`), второй язык — русский (`ru`). Сайт собирается статически, деплоится через `Netlify`, использует локальные Hugo overrides поверх темы `PaperMod` и отдельный Unlighthouse-набор для технического аудита качества.
 
@@ -409,7 +409,7 @@ npm run audit:ci:technical
 
 1. `README.md` — главный вход в проект.
 2. `AGENTS.md` — правила безопасной работы для Codex/агентов.
-3. [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-48`.
+3. [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-49`.
 4. [docs/architecture/02-documentation-style-guide.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/02-documentation-style-guide.md) — стандарт русскоязычной, понятной и структурированной документации.
 5. [docs/architecture/03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md) — локальные Hugo helpers и partials.
 6. [docs/content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md) — поля front matter для страниц.
@@ -423,6 +423,6 @@ npm run audit:ci:technical
 - `12-14` — Core Web Vitals, Lighthouse и Unlighthouse.
 - `15-17` — локальные инструменты, Netlify routing и review-инфраструктура.
 - `18-28` — SEO, schema.org, Entity Registry и structured data.
-- `29-48` — audit-снимки и исторические оценки.
+- `29-49` — audit-снимки и исторические оценки.
 
 Весь полный список файлов и их порядок чтения поддерживается в [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md). Если добавляется новый документ, сначала выбирается следующий свободный номер, затем обновляются `docs/01-documentation-map.md`, `README.md`, `AGENTS.md` и локальные ссылки.

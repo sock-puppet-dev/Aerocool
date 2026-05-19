@@ -1,6 +1,6 @@
 # Руководство По Полям Метаданных Страницы
 
-Обновлено: 2026-05-14.
+Обновлено: 2026-05-19.
 
 В проекте `Aerocool` использовать только поле `schema_types`. Поле `schema_type` не используется.
 
@@ -41,8 +41,10 @@ product_group_id: "wing-racer-product-group"
 ## Главное Правило По Заголовкам
 
 - `title` обязателен и отвечает за SEO-заголовок документа.
+- `linkTitle` задает короткое навигационное имя для хлебных крошек и внутренних списков, если полный `title` слишком длинный.
 - `h1` необязателен и нужен только тогда, когда видимый заголовок страницы должен отличаться от `title`.
 - Для большинства страниц видимый `H1` рендерит шаблонный слой по правилу `.Params.h1 | default .Title`.
+- Видимые хлебные крошки и `BreadcrumbList` используют единый helper `breadcrumb-label.html`: сначала берется `linkTitle`, а если его нет — `title`.
 - Исключение на текущий момент — главная страница: ее hero и видимый `H1` задаются единым shortcode `layouts/_shortcodes/home-hero.html`, который сам выбирает украинский или русский текст по языку страницы.
 - В теле markdown не добавлять `# H1`; контент начинается с лида или с `##`.
 
@@ -127,6 +129,7 @@ schema_types: ["website", "organization", "brand"]
 ```yaml
 ---
 title: ""
+linkTitle: ""
 h1: ""          # необязательно
 description: ""
 summary: ""     # желательно
@@ -150,6 +153,7 @@ schema_types: ["website", "organization", "brand", "about-page", "breadcrumbs"]
 ```yaml
 ---
 title: ""
+linkTitle: ""
 h1: ""          # необязательно
 description: ""
 summary: ""
@@ -197,6 +201,7 @@ robotsNoIndex: true
 ```yaml
 ---
 title: ""
+linkTitle: ""
 h1: ""          # необязательно
 description: ""
 date: 2026-03-19
@@ -219,6 +224,7 @@ schema_types: ["website", "collection", "organization", "breadcrumbs"]
 ```yaml
 ---
 title: ""
+linkTitle: ""
 h1: ""          # необязательно
 description: ""
 date: 2026-03-19
@@ -244,6 +250,7 @@ schema_types: ["website", "collection", "organization", "breadcrumbs"]
 ```yaml
 ---
 title: ""
+linkTitle: ""
 h1: ""          # необязательно
 description: ""
 summary: ""
@@ -270,6 +277,7 @@ schema_types: ["website", "article", "organization", "breadcrumbs"]
 ```yaml
 ---
 title: ""
+linkTitle: ""
 h1: ""          # необязательно
 description: ""
 summary: ""
@@ -296,6 +304,7 @@ schema_types: ["website", "news", "organization", "breadcrumbs"]
 ```yaml
 ---
 title: ""
+linkTitle: ""
 h1: ""          # необязательно
 description: ""
 summary: ""
@@ -364,6 +373,7 @@ rating:
 ```yaml
 ---
 title: "Часто задаваемые вопросы (FAQ) — Aerocool"
+linkTitle: "FAQ"
 h1: ""          # необязательно
 description: "FAQ Aerocool в Украине: серии SKY, WING и XTAL, материалы Racer, Loft Air и Mesh, 7D, 8D, 11D, Synchronous Tilt, гарантия, доставка, оплата, возврат, сборка и выбор кресла для работы и гейминга."
 summary: "Практичный FAQ о креслах Aerocool: серии, материалы, настройки, сервис и помощь с выбором."
@@ -416,4 +426,5 @@ FAQ в проекте должен читаться как нормальный 
 7. Для FAQ-страницы канонический массив вопросов и ответов хранится в `faq:`; layout и schema читают его напрямую.
 8. `404` и служебные alias-страницы — это служебные страницы шаблонного слоя, а не типы контента в `content/`.
 9. Если `h1` не нужен, поле можно не заполнять: шаблонный слой автоматически возьмет `title`.
-10. Для страниц с JSON-LD обычно указывать `website`, чтобы `WebSite` и связи `isPartOf` оставались явными в графе.
+10. Если `title` длинный, добавлять короткий `linkTitle`, чтобы видимые breadcrumbs и `BreadcrumbList` оставались навигационными, а не повторяли SEO-заголовок.
+11. Для страниц с JSON-LD обычно указывать `website`, чтобы `WebSite` и связи `isPartOf` оставались явными в графе.
