@@ -30,8 +30,23 @@
         </h2>
 
         <p class="mt-6 text-lg/8 text-gray-600">
-          {{ cond $isRu "Поможем подобрать игровое, офисное или компьютерное кресло Aerocool под ваш сценарий работы, home office или гейминга." "Допоможемо підібрати ігрове, офісне або комп'ютерне крісло Aerocool під ваш сценарій роботи, home office чи геймінгу." }}
+          {{ cond $isRu "Подскажем, какое кресло Aerocool лучше подойдет для работы, home office или гейминга, и поможем быстро разобраться в сериях, материалах и условиях покупки." "Підкажемо, яке крісло Aerocool краще підійде для роботи, home office чи геймінгу, і допоможемо швидко зорієнтуватися в серіях, матеріалах та умовах покупки." }}
         </p>
+
+        <section class="mt-8 border-l-2 border-indigo-600 pl-5">
+          <h3 class="text-sm/6 font-semibold text-gray-900">
+            {{ cond $isRu "Когда обращаться" "Коли звертатися" }}
+          </h3>
+          <p class="mt-3 text-base/7 text-gray-600">
+            {{ cond $isRu "Напишите нам, если нужно сравнить SKY Lite, SKY 360, WING и XTAL, выбрать между Racer, Loft Air и Mesh или уточнить наличие, доставку, гарантию либо сервис." "Напишіть нам, якщо потрібно порівняти SKY Lite, SKY 360, WING і XTAL, вибрати між Racer, Loft Air та Mesh або уточнити наявність, доставку, гарантію чи сервіс." }}
+          </p>
+          <ul class="mt-4 space-y-2 text-base/7 text-gray-600">
+            <li>{{ cond $isRu "подобрать серию или модель под работу, home office или гейминг;" "підібрати серію або модель під роботу, home office чи геймінг;" }}</li>
+            <li>{{ cond $isRu "понять разницу между материалами Racer, Loft Air и Mesh;" "зрозуміти різницю між матеріалами Racer, Loft Air і Mesh;" }}</li>
+            <li>{{ cond $isRu "проверить характеристики, регулировки, механизм наклона и поясничную поддержку;" "перевірити характеристики, регулювання, механізм нахилу та поперекову підтримку;" }}</li>
+            <li>{{ cond $isRu "уточнить наличие, доставку, гарантию или сервис." "уточнити наявність, доставку, гарантію або сервіс." }}</li>
+          </ul>
+        </section>
 
         <dl class="mt-10 space-y-4 text-base/7 text-gray-600">
           <div class="flex gap-x-4">
@@ -77,7 +92,7 @@
 
         <nav class="mt-10" aria-label="{{ cond $isRu "Быстрые ссылки перед обращением" "Швидкі посилання перед зверненням" }}">
           <p class="text-sm/6 font-semibold text-gray-900">
-            {{ cond $isRu "Перед обращением" "Перед зверненням" }}
+            {{ cond $isRu "Перед обращением ознакомьтесь:" "Перед зверненням ознайомтеся:" }}
           </p>
           <div class="mt-4 flex flex-wrap gap-3">
             <a href="{{ cond $isRu "/ru/products/" "/products/" }}" class="rounded-full bg-white px-3.5 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50">
@@ -100,28 +115,12 @@
 
         <div class="mt-10">
           <h3 class="text-sm/6 font-semibold text-gray-900">
-            {{ cond $isRu "Когда обращаться" "Коли звертатися" }}
-          </h3>
-          <ul class="mt-4 space-y-3 text-base/7 text-gray-600">
-            <li>{{ cond $isRu "если вы не знаете, что лучше: SKY Lite, SKY 360, WING или XTAL;" "якщо не знаєте, що краще: SKY Lite, SKY 360, WING чи XTAL;" }}</li>
-            <li>{{ cond $isRu "если нужно понять разницу между Racer, Loft Air и Mesh;" "якщо потрібно зрозуміти різницю між Racer, Loft Air і Mesh;" }}</li>
-            <li>{{ cond $isRu "если хотите подобрать кресло под работу, home office или гейминг;" "якщо хочете підібрати крісло під роботу, home office або геймінг;" }}</li>
-            <li>{{ cond $isRu "если нужно уточнить гарантию, наличие, доставку или сервисные вопросы." "якщо потрібно уточнити гарантію, наявність, доставку чи сервісні питання." }}</li>
-          </ul>
-        </div>
-
-        <div class="mt-10">
-          <h3 class="text-sm/6 font-semibold text-gray-900">
             {{ cond $isRu "График работы" "Графік роботи" }}
           </h3>
           <dl class="mt-4 space-y-3 text-base/7 text-gray-600">
             <div>
-              <dt class="font-semibold text-gray-900">{{ cond $isRu "Понедельник — Пятница" "Понеділок — П'ятниця" }}</dt>
+              <dt class="font-semibold text-gray-900">{{ cond $isRu "Понедельник — Воскресенье" "Понеділок — Неділя" }}</dt>
               <dd>09:00 — 18:00</dd>
-            </div>
-            <div>
-              <dt class="font-semibold text-gray-900">{{ cond $isRu "Суббота, Воскресенье" "Субота, Неділя" }}</dt>
-              <dd>{{ cond $isRu "выходные" "вихідні" }}</dd>
             </div>
           </dl>
         </div>
