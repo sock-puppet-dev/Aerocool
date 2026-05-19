@@ -841,8 +841,8 @@
 
 Что делает:
 
-- рендерит `FAQPage` на основе `.Params.faq`, если в `schema_types` есть `faq`.
-- Для самой страницы `/faq/` видимый FAQ выводится через shortcode [layouts/_shortcodes/faq-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq-list.html), а layout [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html) задает место его вывода в контентном потоке.
+- рендерит `FAQPage` на основе `.Params.faq_groups` или fallback `.Params.faq`, если в `schema_types` есть `faq`.
+- Предпочтительный источник для страницы `/faq/` — `.Params.faq_groups`: видимый FAQ выводится тематическими группами через shortcode [layouts/_shortcodes/faq-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq-list.html), а schema flatten-ит все `items` в единый `FAQPage.mainEntity`. Старый `.Params.faq` остается fallback для плоских FAQ-массивов.
 
 ### `collection.html`
 

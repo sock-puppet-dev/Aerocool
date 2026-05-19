@@ -54,7 +54,7 @@
 {{/* ======================== СПЕЦИАЛЬНЫЕ СУЩНОСТИ ======================== */}}
 
 {{/* FAQ */}}
-{{- if and (in $schemaTypes "faq") .Params.faq -}}
+{{- if and (in $schemaTypes "faq") (or .Params.faq .Params.faq_groups) -}}
   {{- with partial "_schema/faq.html" . -}}
     {{- $graph = $graph | append (transform.Unmarshal .) -}}
   {{- end -}}
