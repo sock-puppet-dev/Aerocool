@@ -199,7 +199,6 @@ body.list {
 
 /* Meta-информация должна быть заметной, но вторичной относительно контента. */
 .post-meta,
-.breadcrumbs,
 .entry-footer,
 .entry-hint {
     color: var(--secondary);
@@ -235,7 +234,6 @@ body.list {
 .post-content a:not(.home-hero__cta):not([class*="bg-indigo-600"]),
 .related-links a,
 .footer a,
-.breadcrumbs a,
 .home-hero a:not(.home-hero__cta),
 .entry-cover a {
     border-bottom: 0;
@@ -246,12 +244,11 @@ body.list {
 
 /* Многоцветный link-эффект для обычных ссылок сайта.
    Размер и padding не задаем глобально, чтобы ссылки внутри меню,
-   футера, хлебных крошек и абзацев не превратились в большие CTA. */
+   футера и абзацев не превратились в большие CTA. */
 :where(
     .post-content a:not(.home-hero__cta):not([class*="bg-indigo-600"]),
     .related-links a,
     .footer a,
-    .breadcrumbs a,
     .home-hero a:not(.home-hero__cta),
     .entry-cover a,
     .pagination a,
@@ -267,7 +264,6 @@ body.list {
     .post-content a:not(.home-hero__cta):not([class*="bg-indigo-600"]),
     .related-links a,
     .footer a,
-    .breadcrumbs a,
     .home-hero a:not(.home-hero__cta),
     .entry-cover a,
     .pagination a,
@@ -281,7 +277,6 @@ body.list {
 .post-content a:not(.home-hero__cta):not([class*="bg-indigo-600"]):hover,
 .related-links a:hover,
 .footer a:hover,
-.breadcrumbs a:hover,
 .home-hero a:not(.home-hero__cta):hover,
 .entry-cover a:hover {
     text-decoration: none;
@@ -338,7 +333,6 @@ body.list {
         .post-content a,
         .related-links a,
         .footer a,
-        .breadcrumbs a,
         .home-hero a:not(.home-hero__cta),
         .entry-cover a,
         .pagination a,
