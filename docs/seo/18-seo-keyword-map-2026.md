@@ -1,6 +1,6 @@
 # Карта Ключевых Слов 2026
 
-Актуально на 2026-05-13.
+Актуально на 2026-05-21.
 
 Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md). Карта ключей остается редакционным инструментом: она помогает покрывать интенты, но не заменяет people-first content, Search Essentials, Core Web Vitals и production-мониторинг.
 
@@ -329,6 +329,24 @@
 | `content/articles/wing-vs-xtal-comparison/index.ru.md` | сравнение | `wing или xtal`, `какое игровое кресло выбрать` | `gaming`, `dual backrest`, `fully replaceable design` |
 | `content/articles/sync4-sync5-mechanism-guide/index.md` | информационный / коммерческий | `SYNC4`, `SYNC5`, `SYNC5 multi-adjustable`, `механізм крісла Aerocool` | `Synchronous Tilt`, `XTAL`, `WING`, `SKY 360`, `SKY Lite`, `регулювання сидіння` |
 | `content/articles/sync4-sync5-mechanism-guide/index.ru.md` | информационный / коммерческий | `SYNC4`, `SYNC5`, `SYNC5 multi-adjustable`, `механизм кресла Aerocool` | `Synchronous Tilt`, `XTAL`, `WING`, `SKY 360`, `SKY Lite`, `регулировка сиденья` |
+| `content/articles/chair-for-computer-work/index.md` | рабочий сценарий | `крісло для роботи за комп'ютером`, `офісне крісло для повного дня` | `SKY`, `WING`, `XTAL`, `підлокітники`, `матеріал` |
+| `content/articles/chair-for-computer-work/index.ru.md` | рабочий сценарий | `кресло для работы за компьютером`, `офисное кресло для полного дня` | `SKY`, `WING`, `XTAL`, `подлокотники`, `материал` |
+| `content/articles/best-chair-for-home-office/index.md` | home office | `крісло для home office`, `найкраще крісло для home office` | `SKY Lite`, `SKY 360`, `WING`, `XTAL`, `відеодзвінки` |
+| `content/articles/best-chair-for-home-office/index.ru.md` | home office | `кресло для home office`, `лучшее кресло для home office` | `SKY Lite`, `SKY 360`, `WING`, `XTAL`, `видеозвонки` |
+| `content/articles/gaming-chair-long-sessions/index.md` | длительные игровые сессии | `ігрове крісло для тривалих сесій`, `крісло для геймінгу` | `WING`, `XTAL`, `Racer`, `Mesh`, `Synchronous Tilt` |
+| `content/articles/gaming-chair-long-sessions/index.ru.md` | длительные игровые сессии | `игровое кресло для длительных сессий`, `кресло для гейминга` | `WING`, `XTAL`, `Racer`, `Mesh`, `Synchronous Tilt` |
+| `content/articles/sky-vs-wing-vs-xtal/index.md` | сравнение всех серий | `SKY WING чи XTAL`, `яку серію Aerocool обрати` | `офісне крісло`, `ігрове крісло`, `home office`, `регулювання` |
+| `content/articles/sky-vs-wing-vs-xtal/index.ru.md` | сравнение всех серий | `SKY WING или XTAL`, `какую серию Aerocool выбрать` | `офисное кресло`, `игровое кресло`, `home office`, `регулировки` |
+| `content/articles/what-is-dual-backrest/index.md` | объяснение WING | `що таке dual backrest`, `подвійна спинка WING` | `WING`, `підтримка спини`, `11D`, `4D X 360` |
+| `content/articles/what-is-dual-backrest/index.ru.md` | объяснение WING | `dual backrest что это`, `двойная спинка WING` | `WING`, `поддержка спины`, `11D`, `4D X 360` |
+| `content/articles/what-is-fully-replaceable-design/index.md` | объяснение XTAL | `fully replaceable design`, `крісло зі змінними елементами` | `XTAL`, `змінні подушки`, `Racer`, `Loft Air`, `Mesh` |
+| `content/articles/what-is-fully-replaceable-design/index.ru.md` | объяснение XTAL | `fully replaceable design chair`, `кресло со сменными элементами` | `XTAL`, `сменные подушки`, `Racer`, `Loft Air`, `Mesh` |
+| `content/articles/chair-for-posture-and-long-work/index.md` | посадка и долгая работа | `крісло для постави`, `крісло для довгої роботи` | `спинка`, `підлокітники`, `Synchronous Tilt`, `без медичних обіцянок` |
+| `content/articles/chair-for-posture-and-long-work/index.ru.md` | посадка и долгая работа | `кресло для осанки`, `кресло для долгой работы` | `спинка`, `подлокотники`, `Synchronous Tilt`, `без медицинских обещаний` |
+| `content/articles/chair-setup-after-purchase/index.md` | post-purchase инструкция | `як налаштувати крісло`, `налаштування крісла після покупки` | `висота`, `сидіння`, `підлокітники`, `нахил` |
+| `content/articles/chair-setup-after-purchase/index.ru.md` | post-purchase инструкция | `как настроить кресло`, `настройка кресла после покупки` | `высота`, `сиденье`, `подлокотники`, `наклон` |
+| `content/articles/chairs-for-office-team/index.md` | офисная команда | `крісла для офісної команди`, `як вибрати крісла для офісу` | `робочі місця`, `закупка`, `SKY`, `WING`, `XTAL` |
+| `content/articles/chairs-for-office-team/index.ru.md` | офисная команда | `кресла для офисной команды`, `как выбрать кресла для офиса` | `рабочие места`, `закупка`, `SKY`, `WING`, `XTAL` |
 
 ### Новости
 
@@ -348,6 +366,10 @@
 | `content/news/2026-04-20-aerocool-loft-air-and-mesh-focus/index.ru.md` | материал и выбор | `Aerocool Loft Air`, `Aerocool Mesh`, `вентилируемая поверхность` | `WING`, `XTAL`, `офисное кресло`, `компьютерное кресло` |
 | `content/news/2026-04-30-aerocool-sync4-sync5-mechanism-update/index.md` | новостное уточнение спецификаций | `Aerocool SYNC5`, `SYNC4 і SYNC5`, `механізм крісла Aerocool` | `XTAL`, `WING`, `SKY 360`, `SKY Lite`, `Synchronous Tilt` |
 | `content/news/2026-04-30-aerocool-sync4-sync5-mechanism-update/index.ru.md` | новостное уточнение спецификаций | `Aerocool SYNC5`, `SYNC4 и SYNC5`, `механизм кресла Aerocool` | `XTAL`, `WING`, `SKY 360`, `SKY Lite`, `Synchronous Tilt` |
+| `content/news/2026-05-21-aerocool-chair-selection-guides-update/index.md` | новость о гидах выбора | `Aerocool гіди з вибору крісел`, `робота`, `home office`, `геймінг` | `chair-for-computer-work`, `best-chair-for-home-office`, `gaming-chair-long-sessions`, `sky-vs-wing-vs-xtal` |
+| `content/news/2026-05-21-aerocool-chair-selection-guides-update/index.ru.md` | новость о гидах выбора | `Aerocool гиды по выбору кресел`, `работа`, `home office`, `гейминг` | `chair-for-computer-work`, `best-chair-for-home-office`, `gaming-chair-long-sessions`, `sky-vs-wing-vs-xtal` |
+| `content/news/2026-05-21-aerocool-practical-chair-guides-update/index.md` | новость о практических гайдах | `Aerocool практичні гіди про крісла`, `посадка`, `налаштування`, `офісна команда` | `chair-for-posture-and-long-work`, `chair-setup-after-purchase`, `chairs-for-office-team` |
+| `content/news/2026-05-21-aerocool-practical-chair-guides-update/index.ru.md` | новость о практических гайдах | `Aerocool практические гиды по креслам`, `посадка`, `настройка`, `офисная команда` | `chair-for-posture-and-long-work`, `chair-setup-after-purchase`, `chairs-for-office-team` |
 
 ### Поддерживающие Разделы
 
@@ -375,8 +397,8 @@
 
 Дополнительно в этом проходе:
 
-- все 7 основных постоянно актуальных статей расширены до формата `10000+` знаков на язык
-- все 7 ключевых новостей расширены до формата `5000+` знаков на язык
+- все 16 основных постоянно актуальных статей заведены в карту ключей
+- все 9 ключевых новостей заведены в карту ключей
 - слой статей и новостей усилен под широкое коммерческое покрытие, а не только под брендовые запросы о запусках
 
 Главная цель этого обновления: убрать перекос только в брендовые запросы и запросы по функциям, а также добавить системное покрытие широких коммерческих кластеров:
@@ -398,18 +420,18 @@
 
 ## Следующие Возможности Роста
 
-Самые перспективные новые кластеры для роста после этой доработки:
+Самые перспективные следующие кластеры для роста после текущего расширения:
 
-- `кресло для работы за компьютером`
-- `лучшее кресло для home office`
-- `игровое кресло для длительных сессий`
-- `какое кресло выбрать для осанки`
-- `mesh vs leatherette chair`
-- `какой материал кресла лучше`
-- `11d регулировка кресла`
-- `Synchronous Tilt что это`
-- `dual backrest что это`
-- `fully replaceable design chair`
+- `цена кресла Aerocool`
+- `наличие кресла Aerocool`
+- `доставка кресла Aerocool`
+- `гарантия на кресло Aerocool`
+- `уход за Leatherette`
+- `уход за Mesh`
+- `WING Mesh или WING Loft Air`
+- `XTAL Racer или XTAL Mesh`
+- `кресла для переговорной`
+- `кресла для команды разработчиков`
 
 Под эти кластеры лучше всего делать:
 
