@@ -1,6 +1,6 @@
 # Документация Aerocool
 
-Обновлено: 2026-05-19.
+Обновлено: 2026-05-20.
 
 Этот файл — главная карта всей документации проекта. Его задача простая: показать новичку, что читать сначала, что читать потом и какие документы нужны только для профильных задач.
 
@@ -9,7 +9,7 @@
 - [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) — краткая карта проекта, стека, структуры и основных команд.
 - [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md) — правила безопасной работы для Codex/агентов.
 
-Все файлы внутри `docs/` пронумерованы глобально от `01` до `51`. Номер в начале имени показывает рекомендуемый порядок чтения.
+Все файлы внутри `docs/` пронумерованы глобально от `01` до `52`. Номер в начале имени показывает рекомендуемый порядок чтения.
 
 ## Как Пользоваться Новичку
 
@@ -35,8 +35,9 @@
 - `12-14` — качество, Core Web Vitals, Lighthouse и Unlighthouse;
 - `15-17` — локальные инструменты, Netlify routing и Netlify Database reviews;
 - `18-28` — SEO, schema.org, entity registry и structured data;
-- `29-50` — исторические и текущие audit-снимки;
-- `51+` — прикладные карты UI/UX-внедрения.
+- `29-50` — исторические и текущие audit-снимки до UI-карты;
+- `51` — прикладная карта UI/UX-внедрения;
+- `52+` — новые audit-снимки и последующие проектные документы.
 
 Для новых файлов выбирать следующий свободный номер и сразу обновлять эту карту, `README.md`, `AGENTS.md` и все локальные ссылки.
 
@@ -118,6 +119,10 @@
 ### UI/UX Карты
 
 51. [architecture/51-tailwind-plus-ui-section-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/51-tailwind-plus-ui-section-map-2026.md) — карта внедрения Tailwind Plus UI-секций для главной, каталога, серий, товаров, FAQ, контактов, форм и footer.
+
+### Свежие Аудиты После UI/UX Карты
+
+52. [audits/52-2026-05-20-json-ld-entity-full-audit-current.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/52-2026-05-20-json-ld-entity-full-audit-current.md) — свежий полный аудит JSON-LD, Entity Registry, Product graph, breadcrumbs, ratings/reviews, ProductGroup и актуальных P0/P1/P2/P3 задач на 2026-05-20.
 
 ## Маршруты По Задачам
 

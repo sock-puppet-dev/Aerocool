@@ -1,6 +1,6 @@
 # Aerocool Ukraine
 
-Обновлено: 2026-05-19.
+Обновлено: 2026-05-20.
 
 `Aerocool Ukraine` — двуязычный маркетинговый и каталоговый сайт на `Hugo` для кресел Aerocool в Украине. Основной язык — украинский (`uk`), второй язык — русский (`ru`). Сайт собирается статически, деплоится через `Netlify`, использует локальные Hugo overrides поверх темы `PaperMod` и отдельный Unlighthouse-набор для технического аудита качества.
 
@@ -368,7 +368,7 @@ npm run audit:ci:technical
 
 Подробно смотри [docs/quality/13-unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-unlighthouse-site-audit.md).
 
-## 14. Основные команды разработки
+## 14. Основные команды и helper-скрипты
 
 ```bash
 mise install
@@ -386,15 +386,58 @@ npm run build:production
 - `npm run build` — development-сборка, безопасная для noindex.
 - `npm run build:production` — локальная production-сборка для финальной проверки index/follow.
 
+Для ежедневной работы удобнее использовать root helper-скрипты. Они находятся в корне проекта, запускаются из любой текущей папки и содержат комментарии с назначением и инструкцией.
+
+Карта всех скриптов:
+
+```bash
+./script_help.sh
+```
+
+Основной набор:
+
+| Скрипт | Когда запускать | Что делает |
+| --- | --- | --- |
+| `./script_setup.sh` | После первого клонирования или переноса проекта | Подтягивает git-подмодули, запускает `mise install`, ставит npm-зависимости корня и `unlighthouse/`. |
+| `./script_start.sh` | Для ежедневной разработки | Запускает `hugo server` со встроенным Hugo/Tailwind pipeline. |
+| `./script_build.sh` | После правок и перед ручной проверкой | Запускает `npm run build`. |
+| `./script_build_production.sh` | Перед финальной SEO/indexability-проверкой | Запускает `npm run build:production`. |
+| `./script_check.sh` | Перед коммитом | Собирает сайт и проверяет `_redirects`, `.DS_Store`, markdown `# H1`, inline-code в `content/`, `schema_type` и noindex для служебных страниц. |
+| `./script_netlify_dev.sh` | После правок `static/_redirects`, `netlify.toml`, 404, headers или CSP | Собирает `public/` и запускает Netlify Dev на `http://localhost:8899`. |
+| `./script_check_routes.sh` | После запуска `script_netlify_dev.sh` | Проверяет ключевые `200` и scanner/sensitive `404` через `curl`. |
+| `./script_audit_urls.sh` | После крупных SEO/CSS/layout/image-правок | Запускает Unlighthouse-аудит критических URL. |
+| `./script_clean.sh` | Когда нужна безопасная очистка Hugo-кэша | Удаляет только `public`, `resources`, `.hugo_build.lock`, `hugo_stats.json`. |
+| `./script_reset_full.sh` | Когда сломались зависимости и мягкой очистки недостаточно | Удаляет Hugo-артефакты, `node_modules` и `.cache`, затем запускает `npm install`, сохраняя `package-lock.json`. |
+| `./script_reset_full.sh --with-lockfile` | Только если lock-файл действительно нужно пересоздать | Дополнительно удаляет `package-lock.json` перед `npm install`. |
+
+Обычный короткий цикл:
+
+```bash
+./script_start.sh
+./script_check.sh
+```
+
+После изменений Netlify routing или headers:
+
+```bash
+./script_netlify_dev.sh
+./script_check_routes.sh
+```
+
 ## 15. Перед важным deploy
 
 Минимальный чек:
 
 ```bash
-npm run build
-npm run build:production
+./script_check.sh
+./script_build_production.sh
+./script_audit_urls.sh
+```
+
+Для строгого Unlighthouse-прогона с budget и exit code:
+
+```bash
 cd unlighthouse
-npm run check:types
 npm run audit:ci:urls
 npm run audit:ci:technical
 ```
@@ -422,7 +465,7 @@ npm run audit:ci:technical
 
 1. `README.md` — главный вход в проект.
 2. `AGENTS.md` — правила безопасной работы для Codex/агентов.
-3. [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-51`.
+3. [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-52`.
 4. [docs/architecture/02-documentation-style-guide.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/02-documentation-style-guide.md) — стандарт русскоязычной, понятной и структурированной документации.
 5. [docs/architecture/03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md) — локальные Hugo helpers и partials.
 6. [docs/content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md) — поля front matter для страниц.
@@ -436,7 +479,8 @@ npm run audit:ci:technical
 - `12-14` — Core Web Vitals, Lighthouse и Unlighthouse.
 - `15-17` — локальные инструменты, Netlify routing и review-инфраструктура.
 - `18-28` — SEO, schema.org, Entity Registry и structured data.
-- `29-50` — audit-снимки и исторические оценки.
-- `51+` — прикладные карты UI/UX-внедрения, включая Tailwind Plus.
+- `29-50` — audit-снимки и исторические оценки до UI-карты.
+- `51` — прикладная карта UI/UX-внедрения Tailwind Plus.
+- `52+` — новые audit-снимки и последующие проектные документы.
 
 Весь полный список файлов и их порядок чтения поддерживается в [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md). Если добавляется новый документ, сначала выбирается следующий свободный номер, затем обновляются `docs/01-documentation-map.md`, `README.md`, `AGENTS.md` и локальные ссылки.
