@@ -1,6 +1,6 @@
 # Документация Aerocool
 
-Обновлено: 2026-05-20.
+Обновлено: 2026-05-21.
 
 Этот файл — главная карта всей документации проекта. Его задача простая: показать новичку, что читать сначала, что читать потом и какие документы нужны только для профильных задач.
 
@@ -9,7 +9,7 @@
 - [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) — краткая карта проекта, стека, структуры и основных команд.
 - [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md) — правила безопасной работы для Codex/агентов.
 
-Все файлы внутри `docs/` пронумерованы глобально от `01` до `52`. Номер в начале имени показывает рекомендуемый порядок чтения.
+Все файлы внутри `docs/` пронумерованы глобально от `01` до `53`. Номер в начале имени показывает рекомендуемый порядок чтения.
 
 ## Как Пользоваться Новичку
 
@@ -37,7 +37,7 @@
 - `18-28` — SEO, schema.org, entity registry и structured data;
 - `29-50` — исторические и текущие audit-снимки до UI-карты;
 - `51` — прикладная карта UI/UX-внедрения;
-- `52+` — новые audit-снимки и последующие проектные документы.
+- `52+` — новые audit-снимки, SEO-базы и последующие проектные документы.
 
 Для новых файлов выбирать следующий свободный номер и сразу обновлять эту карту, `README.md`, `AGENTS.md` и все локальные ссылки.
 
@@ -124,6 +124,10 @@
 
 52. [audits/52-2026-05-20-json-ld-entity-full-audit-current.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/52-2026-05-20-json-ld-entity-full-audit-current.md) — свежий полный аудит JSON-LD, Entity Registry, Product graph, breadcrumbs, ratings/reviews, ProductGroup и актуальных P0/P1/P2/P3 задач на 2026-05-20.
 
+### SEO Базы После Аудитов
+
+53. [seo/53-keyword-database-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/53-keyword-database-2026.md) — рабочая база ключевых слов проекта и ссылка на CSV-файл для аналитики, развития контента и проверки каннибализации.
+
 ## Маршруты По Задачам
 
 Для контентной правки читать:
@@ -146,6 +150,12 @@
 2. [seo/23-entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/23-entity-registry-2026.md)
 3. [seo/24-entities-knowledge-graph-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/24-entities-knowledge-graph-playbook-2026.md)
 4. [seo/25-ai-search-entity-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/25-ai-search-entity-map-2026.md)
+
+Для SEO-ключей, семантики и планирования новых посадочных страниц читать:
+
+1. [seo/18-seo-keyword-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/18-seo-keyword-map-2026.md)
+2. [seo/53-keyword-database-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/53-keyword-database-2026.md)
+3. [content/07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md)
 
 Для performance/Core Web Vitals читать:
 

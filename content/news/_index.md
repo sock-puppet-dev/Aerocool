@@ -19,7 +19,7 @@ cover:
   alt: "Новини Aerocool в Україні про серії SKY, WING і XTAL"
   relative: true
   hiddenInSingle: true
-lastmod: 2026-05-18
+lastmod: 2026-05-21
 summary: "Офіційні новини Aerocool про запуск серій, окремі моделі та оновлення каталогу в Україні."
 ---
 
@@ -35,7 +35,8 @@ summary: "Офіційні новини Aerocool про запуск серій,
 - запуск серії **XTAL**;
 - окремі матеріали про **SKY Lite** і **SKY 360**;
 - акцент на вентильованих форматах **Loft Air** і **Mesh**;
-- уточнення щодо механізмів **SYNC4** і **SYNC5 multi-adjustable**.
+- уточнення щодо механізмів **SYNC4** і **SYNC5 multi-adjustable**;
+- оновлення розділу статей новими гайдами з вибору крісел для роботи, home office та геймінгу.
 
 ## Рекомендуємо переглянути
 
@@ -46,6 +47,7 @@ summary: "Офіційні новини Aerocool про запуск серій,
 - [Aerocool додає SKY Lite](/news/sky-lite-launch/)
 - [Aerocool робить акцент на Loft Air і Mesh](/news/loft-air-and-mesh-focus/)
 - [Aerocool уточнює механізми SYNC4 і SYNC5](/news/sync4-sync5-mechanism-update/)
+- [Aerocool розширює гіди з вибору крісел](/news/aerocool-chair-selection-guides-update/)
 
 ## Як поєднувати новини з каталогом
 

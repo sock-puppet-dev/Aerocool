@@ -5,7 +5,7 @@ slug: "articles"
 date: 2025-08-01T00:00:00+03:00
 description: "Статті Aerocool про серії SKY, WING і XTAL, вибір ігрового, офісного та комп'ютерного крісла, Synchronous Tilt, 7D/8D/11D регулювання, матеріали Racer, Loft Air і Mesh."
 summary: "Практичні гіди Aerocool про вибір серії, механіки, матеріалів і сценаріїв використання крісел."
-lastmod: 2026-05-18
+lastmod: 2026-05-21
 schema_types: ["website", "collection", "organization", "breadcrumbs"]
 about_entities:
   - "articles-collection"
@@ -48,8 +48,14 @@ cover:
 ## Рекомендуємо почати з цих матеріалів
 
 - [Як обрати крісло Aerocool для роботи, home office та геймінгу](/articles/how-to-choose-aerocool-chair/)
+- [Aerocool SKY, WING чи XTAL: повне порівняння серій](/articles/sky-vs-wing-vs-xtal/)
+- [Крісло для роботи за комп'ютером: як вибрати Aerocool](/articles/chair-for-computer-work/)
+- [Як вибрати крісло для home office](/articles/best-chair-for-home-office/)
+- [Ігрове крісло для довгих сесій](/articles/gaming-chair-long-sessions/)
 - [Aerocool SKY Lite чи SKY 360: яке крісло обрати](/articles/sky-lite-vs-sky-360/)
 - [Aerocool WING чи XTAL: яку серію обрати](/articles/wing-vs-xtal/)
+- [Dual backrest у Aerocool WING: що таке подвійна спинка](/articles/what-is-dual-backrest/)
+- [Fully replaceable design у Aerocool XTAL: що означають змінні елементи](/articles/what-is-fully-replaceable-design/)
 - [Racer, Loft Air чи Mesh: яку поверхню крісла Aerocool обрати](/articles/racer-vs-loft-air-vs-mesh/)
 - [Що таке Synchronous Tilt у кріслах Aerocool](/articles/what-is-synchronous-tilt/)
 - [SYNC4 і SYNC5 multi-adjustable у кріслах Aerocool](/articles/sync4-sync5-mechanism-guide/)
@@ -79,7 +85,7 @@ cover:
 
 ## Маршрути читання
 
-Для офісного сценарію почніть із загального гіда, потім відкрийте порівняння SKY Lite і SKY 360, а після цього перейдіть у [серію SKY](/products/sky/). Для геймінгу й довгих сесій логічніше читати порівняння WING і XTAL, потім матеріал про поверхні, а вже далі відкривати [WING](/products/wing/) або [XTAL](/products/xtal/).
+Для офісного сценарію почніть із матеріалу про [крісло для роботи за комп'ютером](/articles/chair-for-computer-work/), потім відкрийте порівняння SKY Lite і SKY 360, а після цього перейдіть у [серію SKY](/products/sky/). Для home office починайте з окремого [гайда про крісло для роботи вдома](/articles/best-chair-for-home-office/), а потім порівнюйте SKY, WING і XTAL. Для геймінгу й довгих сесій логічніше читати матеріал про [ігрове крісло для довгих сесій](/articles/gaming-chair-long-sessions/), порівняння WING і XTAL, потім матеріал про поверхні, а вже далі відкривати [WING](/products/wing/) або [XTAL](/products/xtal/).
 
 Якщо ви підбираєте крісло не для себе, а для офісу, команди або подарунка, краще починати з нейтральних критеріїв: вентиляція, кількість регулювань, простота догляду, гарантія і можливість швидко пояснити людині, як налаштувати посадку. У такому сценарії статті допомагають не “вгадати”, а звузити вибір до 2-3 моделей.
 
@@ -91,7 +97,7 @@ cover:
 
 ## Якщо потрібно вибрати швидко
 
-Не всі користувачі хочуть читати всі матеріали поспіль. Якщо потрібне швидке рішення, рухайтеся так: для роботи й home office відкрийте статтю про вибір крісла Aerocool, потім порівняння SKY Lite і SKY 360. Для геймінгу або активнішої підтримки — порівняння WING і XTAL. Для вибору поверхні — Racer, Loft Air і Mesh. Для технічних позначень — матеріал про **7D**, **8D**, **11D** і окремий гайд про механізми.
+Не всі користувачі хочуть читати всі матеріали поспіль. Якщо потрібне швидке рішення, рухайтеся так: для роботи відкрийте статтю про крісло для роботи за комп'ютером, для home office — окремий home office гайд, для повного порівняння серій — матеріал SKY, WING чи XTAL. Для геймінгу або активнішої підтримки відкрийте гайд про довгі сесії та порівняння WING і XTAL. Для вибору поверхні — Racer, Loft Air і Mesh. Для технічних позначень — матеріал про **7D**, **8D**, **11D** і окремий гайд про механізми.
 
 Після цього не потрібно знову починати вибір з нуля. Достатньо перейти в потрібну серію, відкрити 2-3 картки товарів і звірити сценарій, матеріал, регулювання, ціну та гарантію. Саме так статті повинні працювати разом із каталогом.
 
