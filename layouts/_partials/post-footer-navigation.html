@@ -65,6 +65,75 @@
   {{- $productPages := $productsScratch.GetSortedMapValues "pages" | default (slice) -}}
   {{- $materialPages := $materialsScratch.GetSortedMapValues "pages" | default (slice) -}}
 
+  {{- $explicitMaterialPages := slice -}}
+  {{- $explicitMaterialPermalinks := slice -}}
+  {{- range (slice (.Params.related_articles | default (slice)) (.Params.related_news | default (slice))) -}}
+    {{- range . -}}
+      {{- $targetPath := printf "%s" . | replaceRE "^/ru/" "" | replaceRE "^/" "" | replaceRE "/$" "" -}}
+      {{- with site.GetPage (printf "/%s" $targetPath) -}}
+        {{- if and (ne .RelPermalink $.RelPermalink) (not (in $explicitMaterialPermalinks .RelPermalink)) -}}
+          {{- $explicitMaterialPages = $explicitMaterialPages | append . -}}
+          {{- $explicitMaterialPermalinks = $explicitMaterialPermalinks | append .RelPermalink -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if gt (len $explicitMaterialPages) 0 -}}
+    {{- $combinedMaterialPages := $explicitMaterialPages -}}
+    {{- range $materialPages -}}
+      {{- if not (in $explicitMaterialPermalinks .RelPermalink) -}}
+        {{- $combinedMaterialPages = $combinedMaterialPages | append . -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $materialPages = $combinedMaterialPages -}}
+  {{- end -}}
+
+  {{- $explicitProductPages := slice -}}
+  {{- $explicitProductPermalinks := slice -}}
+  {{- with .Params.related_products -}}
+    {{- range . -}}
+      {{- $targetPath := printf "%s" . | replaceRE "^/ru/" "" | replaceRE "^/" "" | replaceRE "/$" "" -}}
+      {{- with site.GetPage (printf "/%s" $targetPath) -}}
+        {{- if and (ne .RelPermalink $.RelPermalink) (not (in $explicitProductPermalinks .RelPermalink)) -}}
+          {{- $explicitProductPages = $explicitProductPages | append . -}}
+          {{- $explicitProductPermalinks = $explicitProductPermalinks | append .RelPermalink -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if gt (len $explicitProductPages) 0 -}}
+    {{- $combinedProductPages := $explicitProductPages -}}
+    {{- range $productPages -}}
+      {{- if not (in $explicitProductPermalinks .RelPermalink) -}}
+        {{- $combinedProductPages = $combinedProductPages | append . -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $productPages = $combinedProductPages -}}
+  {{- else if and (gt (len $productPages) 0) (gt (len $seriesSlugs) 1) -}}
+    {{- $diverseProductPages := slice -}}
+    {{- $diverseProductPermalinks := slice -}}
+    {{- range $seriesSlugs -}}
+      {{- $seriesSlug := . -}}
+      {{- $pickedForSeries := false -}}
+      {{- range $productPages -}}
+        {{- $pageSeriesSlugs := partial "page-series-slugs.html" . -}}
+        {{- if and (not $pickedForSeries) (in $pageSeriesSlugs $seriesSlug) (not (in $diverseProductPermalinks .RelPermalink)) -}}
+          {{- $diverseProductPages = $diverseProductPages | append . -}}
+          {{- $diverseProductPermalinks = $diverseProductPermalinks | append .RelPermalink -}}
+          {{- $pickedForSeries = true -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- range $productPages -}}
+      {{- if not (in $diverseProductPermalinks .RelPermalink) -}}
+        {{- $diverseProductPages = $diverseProductPages | append . -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $productPages = $diverseProductPages -}}
+  {{- end -}}
+
   {{- if or $catalogPage $articlesPage $newsPage (gt (len $seriesPages) 0) (gt (len $productPages) 0) (gt (len $materialPages) 0) -}}
   <section class="related-links" aria-labelledby="related-links-title">
     <h2 id="related-links-title" class="related-links__title">{{ $blockTitle }}</h2>

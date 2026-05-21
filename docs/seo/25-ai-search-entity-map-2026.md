@@ -1,6 +1,6 @@
 # Карта Сущностей Для Поиска С AI 2026
 
-Актуально на 2026-05-18.
+Актуально на 2026-05-21.
 
 Этот документ переводит идеи из `Mastering AI Search`, `Schema Markup and AI Search`, `Designing Content for Humans and Machines`, `How to Prepare Your Content for Generative AI Search`, `Impact of Schema Markup` и `How Marketers Can Prepare Their Organization for the Agentic Web` от SchemaApp в практическую систему для проекта `Aerocool Ukraine`: какие сущности нужно закрепить на сайте, какие AI Search-метрики отслеживать, какие prompt-наборы проверять и как развивать JSON-LD graph без переспама.
 
@@ -295,10 +295,17 @@ AI follow-up вопросы не равны обычному Google `People Also
 
 На `2026-05-07` эти поля точечно заполнены на priority pages. Новые значения не добавлять массово: каждое значение должно существовать в [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml), иметь статус `confirmed` для JSON-LD и быть видимо раскрыто в тексте, ссылках, навигации или характеристиках страницы. `product_group_id` может быть подготовлен как staged field, но `isVariantOf` появится только после подтверждения ProductGroup.
 
-Поля, которые пока остаются проектными и требуют отдельного решения:
+Поля управляемой перелинковки уже используются шаблонным блоком “Что посмотреть дальше”:
 
 - `related_products`;
 - `related_series`;
+- `related_articles`;
+- `related_news`.
+
+Их добавлять точечно, когда нужно уточнить редакционный приоритет related-блока. `related_series` принимает только `sky`, `wing`, `xtal`; `related_products`, `related_articles` и `related_news` хранят языконезависимые пути страниц без начального `/` и без `/ru/`, например `products/wing/racer-black` или `articles/what-is-dual-backrest`. Эти поля не заменяют видимые ссылки и не участвуют напрямую в JSON-LD.
+
+Поля, которые пока остаются проектными и требуют отдельного решения:
+
 - `varies_by`;
 - `product_properties`;
 - `same_as`.

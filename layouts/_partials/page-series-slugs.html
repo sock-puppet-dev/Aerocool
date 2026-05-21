@@ -1,24 +1,68 @@
-{{- $seriesSlugs := slice -}}
+{{- $primarySeriesSlugs := slice -}}
+{{- $fallbackSeriesSlugs := slice -}}
 
 {{- with .Params.related_series -}}
   {{- range . -}}
-    {{- $seriesSlugs = $seriesSlugs | append (lower .) -}}
+    {{- $primarySeriesSlugs = $primarySeriesSlugs | append (lower .) -}}
   {{- end -}}
 {{- end -}}
 
 {{- with .Params.category -}}
-  {{- $seriesSlugs = $seriesSlugs | append (lower .) -}}
+  {{- $primarySeriesSlugs = $primarySeriesSlugs | append (lower .) -}}
 {{- end -}}
 
 {{- with .Params.categories -}}
   {{- range . -}}
-    {{- $seriesSlugs = $seriesSlugs | append (lower .) -}}
+    {{- $primarySeriesSlugs = $primarySeriesSlugs | append (lower .) -}}
   {{- end -}}
 {{- end -}}
 
 {{- with .Params.tags -}}
   {{- range . -}}
-    {{- $seriesSlugs = $seriesSlugs | append (lower .) -}}
+    {{- $primarySeriesSlugs = $primarySeriesSlugs | append (lower .) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- with .Params.product_group_id -}}
+  {{- $entity := lower . -}}
+  {{- if or (eq $entity "sky-series") (hasPrefix $entity "sky-") (in $entity "-sky-") -}}
+    {{- $primarySeriesSlugs = $primarySeriesSlugs | append "sky" -}}
+  {{- end -}}
+  {{- if or (eq $entity "wing-series") (hasPrefix $entity "wing-") (in $entity "-wing-") -}}
+    {{- $primarySeriesSlugs = $primarySeriesSlugs | append "wing" -}}
+  {{- end -}}
+  {{- if or (eq $entity "xtal-series") (hasPrefix $entity "xtal-") (in $entity "-xtal-") -}}
+    {{- $primarySeriesSlugs = $primarySeriesSlugs | append "xtal" -}}
+  {{- end -}}
+{{- end -}}
+
+{{- with .Params.about_entities -}}
+  {{- range . -}}
+    {{- $entity := lower . -}}
+    {{- if or (eq $entity "sky-series") (hasPrefix $entity "sky-") (in $entity "-sky-") -}}
+      {{- $primarySeriesSlugs = $primarySeriesSlugs | append "sky" -}}
+    {{- end -}}
+    {{- if or (eq $entity "wing-series") (hasPrefix $entity "wing-") (in $entity "-wing-") -}}
+      {{- $primarySeriesSlugs = $primarySeriesSlugs | append "wing" -}}
+    {{- end -}}
+    {{- if or (eq $entity "xtal-series") (hasPrefix $entity "xtal-") (in $entity "-xtal-") -}}
+      {{- $primarySeriesSlugs = $primarySeriesSlugs | append "xtal" -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- with .Params.mentions_entities -}}
+  {{- range . -}}
+    {{- $entity := lower . -}}
+    {{- if or (eq $entity "sky-series") (hasPrefix $entity "sky-") (in $entity "-sky-") -}}
+      {{- $fallbackSeriesSlugs = $fallbackSeriesSlugs | append "sky" -}}
+    {{- end -}}
+    {{- if or (eq $entity "wing-series") (hasPrefix $entity "wing-") (in $entity "-wing-") -}}
+      {{- $fallbackSeriesSlugs = $fallbackSeriesSlugs | append "wing" -}}
+    {{- end -}}
+    {{- if or (eq $entity "xtal-series") (hasPrefix $entity "xtal-") (in $entity "-xtal-") -}}
+      {{- $fallbackSeriesSlugs = $fallbackSeriesSlugs | append "xtal" -}}
+    {{- end -}}
   {{- end -}}
 {{- end -}}
 
@@ -26,13 +70,18 @@
 {{- $haystack := upper $structuredText -}}
 
 {{- if in $haystack "SKY" -}}
-  {{- $seriesSlugs = $seriesSlugs | append "sky" -}}
+  {{- $fallbackSeriesSlugs = $fallbackSeriesSlugs | append "sky" -}}
 {{- end -}}
 {{- if in $haystack "WING" -}}
-  {{- $seriesSlugs = $seriesSlugs | append "wing" -}}
+  {{- $fallbackSeriesSlugs = $fallbackSeriesSlugs | append "wing" -}}
 {{- end -}}
 {{- if in $haystack "XTAL" -}}
-  {{- $seriesSlugs = $seriesSlugs | append "xtal" -}}
+  {{- $fallbackSeriesSlugs = $fallbackSeriesSlugs | append "xtal" -}}
+{{- end -}}
+
+{{- $seriesSlugs := $fallbackSeriesSlugs -}}
+{{- if gt (len $primarySeriesSlugs) 0 -}}
+  {{- $seriesSlugs = $primarySeriesSlugs -}}
 {{- end -}}
 
 {{- $allowedSeries := slice "sky" "wing" "xtal" -}}

@@ -7,6 +7,11 @@ slug: "chair-setup-after-purchase"
 description: "Пошаговый гид по настройке кресла Aerocool после покупки: высота, глубина сиденья, подлокотники, спинка, Synchronous Tilt, материалы и проверка посадки."
 summary: "Практическая инструкция, как настроить кресло Aerocool под рабочий стол, руки, спину и долгий день после покупки."
 schema_types: ["website", "article", "organization", "breadcrumbs"]
+related_series: ["sky", "wing", "xtal"]
+related_products:
+  - "products/sky/lite"
+  - "products/wing/racer-dark-grey"
+  - "products/xtal/loft-air-light-grey"
 about_entities:
   - "chair-selection"
   - "ergonomic-chair"

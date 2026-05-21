@@ -7,6 +7,11 @@ slug: "gaming-chair-long-sessions"
 description: "Гайд Aerocool про вибір ігрового крісла для довгих сесій: подвійна спинка, 11D, Synchronous Tilt, матеріали Racer, Loft Air і Mesh, сценарії WING та XTAL."
 summary: "Пояснюємо, як вибирати ігрове крісло Aerocool для тривалих сесій за підтримкою спини, руками, матеріалом і реальним сценарієм використання."
 schema_types: ["website", "article", "organization", "breadcrumbs"]
+related_articles:
+  - "articles/what-is-dual-backrest"
+  - "articles/wing-vs-xtal-comparison"
+  - "articles/racer-vs-loft-air-vs-mesh-materials"
+  - "articles/how-to-choose-chair-by-adjustability"
 about_entities:
   - "gaming-chair"
   - "chair-selection"

@@ -7,6 +7,11 @@ slug: "sky-vs-wing-vs-xtal"
 description: "Сравниваем серии кресел Aerocool SKY, WING и XTAL по сценариям работы, home office, гейминга, регулировкам, материалам и конструкционной логике."
 summary: "Помогаем выбрать между Aerocool SKY, WING и XTAL: какая серия лучше подходит для офиса, home office, долгих сессий и практичного использования."
 schema_types: ["website", "article", "organization", "breadcrumbs"]
+related_articles:
+  - "articles/what-is-dual-backrest"
+  - "articles/what-is-fully-replaceable-design"
+  - "articles/how-to-choose-chair-by-adjustability"
+  - "articles/racer-vs-loft-air-vs-mesh-materials"
 about_entities:
   - "aerocool-catalog"
   - "sky-series"
@@ -51,7 +56,7 @@ cover:
   sizes="(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
 />}}
 
-Выбор между [Aerocool SKY](/ru/products/sky/), [Aerocool WING](/ru/products/wing/) и [Aerocool XTAL](/ru/products/xtal/) лучше начинать не с цвета и не с количества моделей, а со сценария. Все три серии принадлежат к каталогу кресел Aerocool, но отвечают на разные задачи. SKY - это воздушная офисная и компьютерная логика. WING - более активная платформа с двойной спинкой и **11D**. XTAL - практичная серия со сменными элементами, **7D** и тремя типами поверхности.
+Выбор между [Aerocool SKY](/ru/products/sky/), [Aerocool WING](/ru/products/wing/) и [Aerocool XTAL](/ru/products/xtal/) лучше начинать не с цвета и не с количества моделей, а со сценария. Все три серии принадлежат к каталогу кресел Aerocool, но отвечают на разные задачи. SKY - это воздушная офисная и компьютерная логика. WING - более активная платформа с [двойной спинкой](/ru/articles/what-is-dual-backrest/) и **11D**. XTAL - практичная серия со [сменными элементами](/ru/articles/what-is-fully-replaceable-design/), **7D** и тремя типами поверхности.
 
 Этот материал нужен как центральная карта выбора. Если вы еще не знаете, с какой серии начать, прочитайте его полностью. Если уже сомневаетесь между двумя направлениями, переходите к отдельным гидам: [SKY Lite или SKY 360](/ru/articles/sky-lite-vs-sky-360/), [WING или XTAL](/ru/articles/wing-vs-xtal/), [Racer, Loft Air или Mesh](/ru/articles/racer-vs-loft-air-vs-mesh/) и [7D, 8D или 11D](/ru/articles/how-to-choose-chair-by-adjustability/).
 
@@ -131,7 +136,7 @@ XTAL не является компромиссом между SKY и WING. Эт
 
 Если главный сценарий - **home office**, выбор зависит от пространства. Для небольшой комнаты и воздушной посадки подходит SKY. Для смешанного сценария работа плюс gaming - WING. Для практичной длительной эксплуатации с более мягкими контактными зонами - XTAL.
 
-Если главный сценарий - **долгие игровые сессии**, начинайте с WING. Если хотите более спокойную альтернативу с **SYNC5** и сменными элементами, сравните ее с XTAL. Если gaming второстепенный, а работа основная, SKY 360 тоже может быть логичной.
+Если главный сценарий - [**долгие игровые сессии**](/ru/articles/gaming-chair-long-sessions/), начинайте с WING. Если хотите более спокойную альтернативу с **SYNC5** и сменными элементами, сравните ее с XTAL. Если gaming второстепенный, а работа основная, SKY 360 тоже может быть логичной.
 
 Если главный сценарий - **учеба или компактное рабочее место**, часто достаточно SKY Lite или одной из более спокойных XTAL-конфигураций. Важно не покупать чрезмерно сложную модель, если вы не будете пользоваться всеми регулировками.
 

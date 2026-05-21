@@ -2,11 +2,16 @@
 title: "7D, 8D чи 11D: як кількість регулювань впливає на вибір крісла Aerocool"
 linkTitle: "7D, 8D чи 11D"
 date: 2026-04-12T10:00:00+03:00
-lastmod: 2026-05-18
+lastmod: 2026-05-21
 slug: "how-to-choose-chair-by-adjustability"
 description: "Розбираємо, що означають 7D, 8D і 11D у кріслах Aerocool та як правильно вибирати модель за кількістю регулювань."
 summary: "Пояснюємо, коли достатньо 7D або 8D, а коли є сенс переходити на 11D."
 schema_types: ["website", "article", "organization", "breadcrumbs"]
+related_series: ["sky", "wing", "xtal"]
+related_products:
+  - "products/xtal/racer-black"
+  - "products/sky/lite"
+  - "products/wing/racer-dark-grey"
 about_entities:
   - "7d-adjustment"
   - "8d-adjustment"

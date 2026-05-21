@@ -7,6 +7,11 @@ slug: "what-is-dual-backrest"
 description: "Объясняем, что означает dual backrest в креслах Aerocool WING, как двойная спинка связана с поддержкой посадки, 11D регулировкой и долгой работой за компьютером."
 summary: "Гид по двойной спинке Aerocool WING: для чего она нужна, кому подходит и как сравнивать ее с SKY и XTAL."
 schema_types: ["website", "article", "organization", "breadcrumbs"]
+related_series: ["wing"]
+related_products:
+  - "products/wing/racer-black"
+  - "products/wing/loft-air-dark-grey"
+  - "products/wing/mesh-black"
 about_entities:
   - "wing-series"
 mentions_entities:
