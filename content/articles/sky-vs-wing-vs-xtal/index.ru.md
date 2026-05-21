@@ -12,6 +12,9 @@ related_articles:
   - "articles/what-is-fully-replaceable-design"
   - "articles/how-to-choose-chair-by-adjustability"
   - "articles/racer-vs-loft-air-vs-mesh-materials"
+related_news:
+  - "news/2026-04-15-aerocool-sky-series-launch"
+  - "news/2026-04-19-aerocool-sky-lite-launch"
 about_entities:
   - "aerocool-catalog"
   - "sky-series"
@@ -194,6 +197,6 @@ WING - более активная поддержка, двойная спинк
 
 ## Куда перейти дальше
 
-Для быстрого старта откройте [каталог Aerocool](/ru/products/), затем страницы [SKY](/ru/products/sky/), [WING](/ru/products/wing/) и [XTAL](/ru/products/xtal/). Если вы уже склоняетесь к SKY, прочитайте [SKY Lite или SKY 360](/ru/articles/sky-lite-vs-sky-360/). Если выбор между WING и XTAL, откройте [отдельное сравнение](/ru/articles/wing-vs-xtal/). Если главный вопрос - работа дома, читайте [кресло для home office](/ru/articles/best-chair-for-home-office/). Если нужен полный рабочий сценарий, перейдите к материалу [кресло для работы за компьютером](/ru/articles/chair-for-computer-work/).
+Для быстрого старта откройте [каталог Aerocool](/ru/products/), затем страницы [SKY](/ru/products/sky/), [WING](/ru/products/wing/) и [XTAL](/ru/products/xtal/). Если вы уже склоняетесь к SKY, прочитайте [SKY Lite или SKY 360](/ru/articles/sky-lite-vs-sky-360/) и новостной контекст [запуска серии SKY](/ru/news/sky-series-launch/). Если выбор между WING и XTAL, откройте [отдельное сравнение](/ru/articles/wing-vs-xtal/). Если главный вопрос - работа дома, читайте [кресло для home office](/ru/articles/best-chair-for-home-office/). Если нужен полный рабочий сценарий, перейдите к материалу [кресло для работы за компьютером](/ru/articles/chair-for-computer-work/). Если подбираете модели не для одного человека, а для отдела или гибридной команды, отдельно откройте [гайд для офисной команды](/ru/articles/chairs-for-office-team/).
 
 Практический вывод: SKY, WING и XTAL не конкурируют как три версии одного кресла. Они закрывают разные способы сидеть за компьютером. Правильный выбор начинается со сценария, затем переходит к регулировкам, материалу и конкретной модели.

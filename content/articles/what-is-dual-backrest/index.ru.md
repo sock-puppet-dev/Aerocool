@@ -9,8 +9,8 @@ summary: "Гид по двойной спинке Aerocool WING: для чего
 schema_types: ["website", "article", "organization", "breadcrumbs"]
 related_series: ["wing"]
 related_products:
-  - "products/wing/racer-black"
-  - "products/wing/loft-air-dark-grey"
+  - "products/wing/racer-dark-grey"
+  - "products/wing/loft-air-light-grey"
   - "products/wing/mesh-black"
 about_entities:
   - "wing-series"

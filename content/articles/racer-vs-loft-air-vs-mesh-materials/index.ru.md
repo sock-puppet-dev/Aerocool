@@ -10,8 +10,8 @@ schema_types: ["website", "article", "organization", "breadcrumbs"]
 related_series: ["wing", "xtal"]
 related_products:
   - "products/wing/racer-dark-grey"
-  - "products/xtal/loft-air-light-grey"
-  - "products/xtal/mesh-black"
+  - "products/xtal/racer-dark-grey"
+  - "products/xtal/racer-black"
 about_entities:
   - "racer-material"
   - "loft-air-material"

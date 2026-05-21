@@ -12,6 +12,9 @@ related_articles:
   - "articles/what-is-fully-replaceable-design"
   - "articles/how-to-choose-chair-by-adjustability"
   - "articles/racer-vs-loft-air-vs-mesh-materials"
+related_news:
+  - "news/2026-04-15-aerocool-sky-series-launch"
+  - "news/2026-04-19-aerocool-sky-lite-launch"
 about_entities:
   - "aerocool-catalog"
   - "sky-series"
@@ -194,6 +197,6 @@ WING - активніша підтримка, подвійна спинка й *
 
 ## Куди перейти далі
 
-Для швидкого старту відкрийте [каталог Aerocool](/products/), потім сторінки [SKY](/products/sky/), [WING](/products/wing/) і [XTAL](/products/xtal/). Якщо ви вже схиляєтеся до SKY, прочитайте [SKY Lite чи SKY 360](/articles/sky-lite-vs-sky-360/). Якщо вибір між WING і XTAL, відкрийте [окреме порівняння](/articles/wing-vs-xtal/). Якщо головне питання - робота вдома, читайте [крісло для home office](/articles/best-chair-for-home-office/). Якщо потрібен повний робочий сценарій, перейдіть до матеріалу [крісло для роботи за комп'ютером](/articles/chair-for-computer-work/).
+Для швидкого старту відкрийте [каталог Aerocool](/products/), потім сторінки [SKY](/products/sky/), [WING](/products/wing/) і [XTAL](/products/xtal/). Якщо ви вже схиляєтеся до SKY, прочитайте [SKY Lite чи SKY 360](/articles/sky-lite-vs-sky-360/) і новинний контекст [запуску серії SKY](/news/sky-series-launch/). Якщо вибір між WING і XTAL, відкрийте [окреме порівняння](/articles/wing-vs-xtal/). Якщо головне питання - робота вдома, читайте [крісло для home office](/articles/best-chair-for-home-office/). Якщо потрібен повний робочий сценарій, перейдіть до матеріалу [крісло для роботи за комп'ютером](/articles/chair-for-computer-work/). Якщо підбираєте моделі не для однієї людини, а для відділу або гібридної команди, окремо відкрийте [гайд для офісної команди](/articles/chairs-for-office-team/).
 
 Практичний висновок: SKY, WING і XTAL не конкурують як три версії одного крісла. Вони закривають різні способи сидіти за комп'ютером. Правильний вибір починається зі сценарію, потім переходить до регулювань, матеріалу й конкретної моделі.
