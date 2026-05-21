@@ -528,6 +528,20 @@ button[class*="bg-indigo-600"],
     text-decoration: none;
 }
 
+/* Блоки section-highlights на News и Articles построены по паттерну
+   Tailwind Plus Marketing -> Feature Sections.
+   PaperMod должен воспринимать их как UI-компоненты, а не markdown-списки. */
+.post-content :where(.section-highlights-news, .section-highlights-articles) ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.post-content :where(.section-highlights-news, .section-highlights-articles) li {
+    margin: 0;
+    padding-left: 0;
+}
+
 /* =========================================================
    6. RELATED-LINKS И FOOTER-LINKS
    ---------------------------------------------------------

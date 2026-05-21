@@ -1,0 +1,52 @@
+{{- $isRu := eq .Page.Language.Lang "ru" -}}
+{{- $heading := cond $isRu "Что уже обновлено" "Що вже оновлено" -}}
+{{- $items := slice -}}
+{{- $items = $items | append (dict
+  "badge" "SKY"
+  "title" (cond $isRu "Запуск серии SKY" "Запуск серії SKY")
+  "description" (cond $isRu "Базовый старт офисной и home office линейки Aerocool." "Базовий старт офісної та home office лінійки Aerocool.")
+) -}}
+{{- $items = $items | append (dict
+  "badge" "WING"
+  "title" (cond $isRu "Запуск серии WING" "Запуск серії WING")
+  "description" (cond $isRu "Более активная эргономика, 11D регулировки и материалы Racer, Loft Air, Mesh." "Активніша ергономіка, 11D регулювання і матеріали Racer, Loft Air, Mesh.")
+) -}}
+{{- $items = $items | append (dict
+  "badge" "XTAL"
+  "title" (cond $isRu "Запуск серии XTAL" "Запуск серії XTAL")
+  "description" (cond $isRu "Практичная платформа со сменными элементами и Synchronous Tilt." "Практична платформа зі змінними елементами й Synchronous Tilt.")
+) -}}
+{{- $items = $items | append (dict
+  "badge" "360"
+  "title" (cond $isRu "SKY Lite и SKY 360" "SKY Lite і SKY 360")
+  "description" (cond $isRu "Отдельные обновления о базовой и более глубоко настраиваемой моделях SKY." "Окремі оновлення про базову й глибше налаштовану моделі SKY.")
+) -}}
+{{- $items = $items | append (dict
+  "badge" "Mesh"
+  "title" (cond $isRu "Loft Air и Mesh" "Loft Air і Mesh")
+  "description" (cond $isRu "Акцент на вентилируемых форматах для долгой посадки." "Акцент на вентильованих форматах для довгої посадки.")
+) -}}
+{{- $items = $items | append (dict
+  "badge" "SYNC"
+  "title" (cond $isRu "SYNC4 и SYNC5" "SYNC4 і SYNC5")
+  "description" (cond $isRu "Уточнение по механизмам multi-adjustable в разных сериях." "Уточнення щодо механізмів multi-adjustable у різних серіях.")
+) -}}
+
+<section class="section-highlights-news mt-10" aria-labelledby="section-highlights-news-title">
+  <h2 id="section-highlights-news-title">{{ $heading }}</h2>
+  <div class="mt-8">
+    <ul role="list" class="grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+      {{- range $items }}
+      <li class="flex gap-x-3">
+        <div class="mt-1 flex h-7 min-w-10 flex-none items-center justify-center rounded-md bg-red-50 px-1.5 text-xs font-semibold text-red-700 ring-1 ring-red-100">
+          {{ .badge }}
+        </div>
+        <div>
+          <h3 class="text-sm/6 font-semibold text-gray-900">{{ .title }}</h3>
+          <p class="mt-1 text-sm/6 text-gray-600">{{ .description }}</p>
+        </div>
+      </li>
+      {{- end }}
+    </ul>
+  </div>
+</section>

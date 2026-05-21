@@ -137,9 +137,20 @@
 - [layouts/_shortcodes/faq-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq-list.html) — видимый список FAQ из front matter.
 - [layouts/_shortcodes/contact.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/contact.html) — контактная `side-by-side` секция для `/contact/` и `/ru/contact/`.
 - [layouts/_shortcodes/contact-success-alert.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/contact-success-alert.html) — success alert после отправки контактной формы на `/contact/success/` и `/ru/contact/success/`.
+- [layouts/_shortcodes/section-highlights-articles.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/section-highlights-articles.html) — краткий feature-блок “Что вы найдете в этом разделе” на `/articles/` и `/ru/articles/`.
+- [layouts/_shortcodes/section-highlights-news.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/section-highlights-news.html) — краткий feature-блок “Что уже обновлено” на `/news/` и `/ru/news/`.
 - [layouts/_shortcodes/recommended-links-articles.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/recommended-links-articles.html) — управляемый блок стартовых материалов на `/articles/` и `/ru/articles/`.
 - [layouts/_shortcodes/recommended-links-news.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/recommended-links-news.html) — управляемый блок рекомендованных новостей на `/news/` и `/ru/news/`.
 - [layouts/_shortcodes/recommended-links-faq.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/recommended-links-faq.html) — блок следующих шагов после FAQ на `/faq/` и `/ru/faq/`.
+
+Важно по `section-highlights-*`:
+
+- эти shortcodes заменяют вводные markdown-списки на компактные feature-блоки;
+- каждый shortcode сам переключает украинский и русский текст по языку страницы;
+- `section-highlights-news.html` соответствует Tailwind Plus `Marketing -> Feature Sections -> Simple 3x2 grid`;
+- `section-highlights-articles.html` соответствует Tailwind Plus `Marketing -> Feature Sections -> Simple three column with small icons`;
+- визуальные сбросы для списков держатся в [assets/css/main.css](/Users/stadnyk/MEGA/Aerocool/assets/css/main.css) через CSS-хуки `.section-highlights-news` и `.section-highlights-articles`;
+- если нужно изменить состав пунктов “Что уже обновлено” или “Что вы найдете в этом разделе”, сначала идти в соответствующий shortcode, а не возвращать markdown-список в content-файл.
 
 Важно по `recommended-links-*`:
 
@@ -925,6 +936,8 @@
 - странный `H1` или hero на главной -> [home-hero.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero.html)
 - лишняя дата, время чтения, количество слов или автор под `H1` -> [page-meta.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-meta.html)
 - проблема с видимым FAQ на `/faq/` -> [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html) и [faq-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq-list.html)
+- проблема с feature-блоком “Что вы найдете” на `/articles/` -> [section-highlights-articles.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/section-highlights-articles.html)
+- проблема с feature-блоком “Что уже обновлено” на `/news/` -> [section-highlights-news.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/section-highlights-news.html)
 - проблема с блоком стартовых статей на `/articles/` -> [recommended-links-articles.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/recommended-links-articles.html)
 - проблема с блоком рекомендованных новостей на `/news/` -> [recommended-links-news.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/recommended-links-news.html)
 - проблема с блоком следующих шагов на `/faq/` -> [recommended-links-faq.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/recommended-links-faq.html)
