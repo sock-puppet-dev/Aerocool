@@ -1,0 +1,94 @@
+{{- $isRu := eq .Page.Language.Lang "ru" -}}
+{{- $heading := cond $isRu "Рекомендуем посмотреть" "Рекомендуємо переглянути" -}}
+{{- $items := slice -}}
+{{- $items = $items | append (dict
+  "badge" "SKY"
+  "url" (cond $isRu "/ru/news/sky-series-launch/" "/news/sky-series-launch/")
+  "title" (cond $isRu "Aerocool представляет серию SKY в Украине" "Aerocool представляє серію SKY в Україні")
+  "description" (cond $isRu "Старт серии SKY, модели SKY Lite и SKY 360, Synchronous Tilt и вентилируемая поверхность." "Старт серії SKY, моделі SKY Lite і SKY 360, Synchronous Tilt і вентильована поверхня.")
+  "type" (cond $isRu "Анонс серии" "Анонс серії")
+  "action" (cond $isRu "Читать новость" "Читати новину")
+) -}}
+{{- $items = $items | append (dict
+  "badge" "WING"
+  "url" (cond $isRu "/ru/news/wing-series-launch/" "/news/wing-series-launch/")
+  "title" (cond $isRu "Aerocool запускает серию WING" "Aerocool запускає серію WING")
+  "description" (cond $isRu "Двойная спинка, 11D регулировка, 4D X 360 подлокотники и варианты Racer, Loft Air, Mesh." "Подвійна спинка, 11D регулювання, 4D X 360 підлокітники та варіанти Racer, Loft Air, Mesh.")
+  "type" (cond $isRu "Запуск серии" "Запуск серії")
+  "action" (cond $isRu "Открыть WING" "Відкрити WING")
+) -}}
+{{- $items = $items | append (dict
+  "badge" "XTAL"
+  "url" (cond $isRu "/ru/news/xtal-series-launch/" "/news/xtal-series-launch/")
+  "title" (cond $isRu "Aerocool представляет XTAL" "Aerocool представляє XTAL")
+  "description" (cond $isRu "Серия со сменными элементами, 3D подлокотниками с подушками и Synchronous Tilt." "Серія зі змінними елементами, 3D підлокітниками з подушками та Synchronous Tilt.")
+  "type" (cond $isRu "Анонс серии" "Анонс серії")
+  "action" (cond $isRu "Открыть XTAL" "Відкрити XTAL")
+) -}}
+{{- $items = $items | append (dict
+  "badge" "360"
+  "url" (cond $isRu "/ru/news/sky-360-launch/" "/news/sky-360-launch/")
+  "title" (cond $isRu "Aerocool акцентирует внимание на SKY 360" "Aerocool акцентує увагу на SKY 360")
+  "description" (cond $isRu "11D регулировка, 3D X 360 подлокотники, 2D сиденье, стальная база и ролики TX3." "11D регулювання, 3D X 360 підлокітники, 2D сидіння, сталева база і ролики TX3.")
+  "type" (cond $isRu "Модель" "Модель")
+  "action" (cond $isRu "Смотреть SKY 360" "Дивитися SKY 360")
+) -}}
+{{- $items = $items | append (dict
+  "badge" "Lite"
+  "url" (cond $isRu "/ru/news/sky-lite-launch/" "/news/sky-lite-launch/")
+  "title" (cond $isRu "Aerocool добавляет SKY Lite" "Aerocool додає SKY Lite")
+  "description" (cond $isRu "8D-модель для ежедневной работы, учебы и home office." "8D-модель для щоденної роботи, навчання та home office.")
+  "type" (cond $isRu "Модель" "Модель")
+  "action" (cond $isRu "Смотреть SKY Lite" "Дивитися SKY Lite")
+) -}}
+{{- $items = $items | append (dict
+  "badge" "Mesh"
+  "url" (cond $isRu "/ru/news/loft-air-and-mesh-focus/" "/news/loft-air-and-mesh-focus/")
+  "title" (cond $isRu "Aerocool делает акцент на Loft Air и Mesh" "Aerocool робить акцент на Loft Air і Mesh")
+  "description" (cond $isRu "Различия между вентилируемыми поверхностями Loft Air и Mesh в сериях WING и XTAL." "Відмінності між вентильованими поверхнями Loft Air і Mesh у серіях WING та XTAL.")
+  "type" (cond $isRu "Материалы" "Матеріали")
+  "action" (cond $isRu "Сравнить материалы" "Порівняти матеріали")
+) -}}
+{{- $items = $items | append (dict
+  "badge" "SYNC"
+  "url" (cond $isRu "/ru/news/sync4-sync5-mechanism-update/" "/news/sync4-sync5-mechanism-update/")
+  "title" (cond $isRu "Aerocool уточняет механизмы SYNC4 и SYNC5" "Aerocool уточнює механізми SYNC4 і SYNC5")
+  "description" (cond $isRu "Какие кресла используют SYNC4 multi-adjustable и SYNC5 multi-adjustable." "Які крісла використовують SYNC4 multi-adjustable і SYNC5 multi-adjustable.")
+  "type" (cond $isRu "Механизмы" "Механізми")
+  "action" (cond $isRu "Разобраться" "Розібратися")
+) -}}
+
+<section class="recommended-links-news mt-12" aria-labelledby="recommended-links-news-title">
+  <h2 id="recommended-links-news-title">{{ $heading }}</h2>
+  <ul role="list" class="divide-y divide-gray-100">
+    {{- range $items }}
+    <li class="relative flex justify-between py-5">
+      <div class="flex gap-x-4 pr-6 sm:w-1/2 sm:flex-none">
+        <div class="flex h-10 min-w-12 flex-none items-center justify-center rounded-full bg-gray-50 px-2 text-xs font-semibold text-gray-700 ring-1 ring-gray-200 ring-inset">
+          {{ .badge }}
+        </div>
+        <div class="min-w-0 flex-auto">
+          <div class="text-sm/6 font-semibold text-gray-900">
+            <a href="{{ .url }}">
+              <span class="absolute inset-x-0 -top-px bottom-0"></span>
+              {{ .title }}
+            </a>
+          </div>
+          <div class="mt-1 text-xs/5 text-gray-500">
+            {{ .description }}
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center justify-between gap-x-4 sm:w-1/2 sm:flex-none">
+        <div class="hidden sm:block">
+          <div class="text-sm/6 text-gray-900">{{ .type }}</div>
+          <div class="mt-1 text-xs/5 text-gray-500">{{ .action }}</div>
+        </div>
+        <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-5 flex-none text-gray-400">
+          <path d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
+        </svg>
+      </div>
+    </li>
+    {{- end }}
+  </ul>
+</section>

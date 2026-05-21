@@ -45,24 +45,7 @@ cover:
 - отдельные разборы механики **Synchronous Tilt**;
 - практические сценарии выбора кресла для работы, home office, гейминга, долгой посадки, настройки после покупки и командного выбора.
 
-## Рекомендуем начать с этих материалов
-
-- [Как выбрать кресло Aerocool для работы, home office и гейминга](/ru/articles/how-to-choose-aerocool-chair/)
-- [Aerocool SKY, WING или XTAL: полное сравнение серий](/ru/articles/sky-vs-wing-vs-xtal/)
-- [Кресло для работы за компьютером: как выбрать Aerocool](/ru/articles/chair-for-computer-work/)
-- [Кресло для осанки и долгой работы: как выбрать Aerocool](/ru/articles/chair-for-posture-and-long-work/)
-- [Как настроить кресло Aerocool после покупки](/ru/articles/chair-setup-after-purchase/)
-- [Кресла Aerocool для офисной команды](/ru/articles/chairs-for-office-team/)
-- [Как выбрать кресло для home office](/ru/articles/best-chair-for-home-office/)
-- [Игровое кресло для долгих сессий](/ru/articles/gaming-chair-long-sessions/)
-- [Aerocool SKY Lite или SKY 360: какое кресло выбрать](/ru/articles/sky-lite-vs-sky-360/)
-- [Aerocool WING или XTAL: какую серию выбрать](/ru/articles/wing-vs-xtal/)
-- [Dual backrest в Aerocool WING: что такое двойная спинка](/ru/articles/what-is-dual-backrest/)
-- [Fully replaceable design в Aerocool XTAL: что означают сменные элементы](/ru/articles/what-is-fully-replaceable-design/)
-- [Racer, Loft Air или Mesh: какую поверхность кресла Aerocool выбрать](/ru/articles/racer-vs-loft-air-vs-mesh/)
-- [Что такое Synchronous Tilt в креслах Aerocool](/ru/articles/what-is-synchronous-tilt/)
-- [SYNC4 и SYNC5 multi-adjustable в креслах Aerocool](/ru/articles/sync4-sync5-mechanism-guide/)
-- [7D, 8D или 11D: как количество регулировок влияет на выбор](/ru/articles/how-to-choose-chair-by-adjustability/)
+{{< recommended-links-articles >}}
 
 ## Как использовать статьи вместе с каталогом
 

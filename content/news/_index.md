@@ -39,17 +39,7 @@ summary: "Офіційні новини Aerocool про запуск серій,
 - оновлення розділу статей новими гайдами з вибору крісел для роботи, home office та геймінгу;
 - практичний блок про посадку, налаштування крісла після покупки та вибір моделей для офісної команди.
 
-## Рекомендуємо переглянути
-
-- [Aerocool представляє серію SKY в Україні](/news/sky-series-launch/)
-- [Aerocool запускає серію WING](/news/wing-series-launch/)
-- [Aerocool представляє XTAL](/news/xtal-series-launch/)
-- [Aerocool акцентує увагу на SKY 360](/news/sky-360-launch/)
-- [Aerocool додає SKY Lite](/news/sky-lite-launch/)
-- [Aerocool робить акцент на Loft Air і Mesh](/news/loft-air-and-mesh-focus/)
-- [Aerocool уточнює механізми SYNC4 і SYNC5](/news/sync4-sync5-mechanism-update/)
-- [Aerocool розширює гіди з вибору крісел](/news/aerocool-chair-selection-guides-update/)
-- [Aerocool додає практичні гіди про посадку та налаштування крісел](/news/aerocool-practical-chair-guides-update/)
+{{< recommended-links-news >}}
 
 ## Як поєднувати новини з каталогом
 

@@ -1,6 +1,9 @@
 # Текущий Аудит Документации 2026-05-17
 
 Дата аудита: 2026-05-17.
+Актуализировано: 2026-05-21.
+
+Примечание от 2026-05-21: это исторический audit-снимок состояния на 2026-05-17. Текущий порядок документации, актуальные счетчики файлов и последнюю оценку нужно смотреть в [01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md), [03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md), [52-2026-05-20-json-ld-entity-full-audit-current.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/52-2026-05-20-json-ld-entity-full-audit-current.md) и [53-keyword-database-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/53-keyword-database-2026.md). Старые счетчики ниже оставлены как значение исторического среза, а не как текущая инструкция.
 
 Этот документ фиксирует проверку текущей документации проекта `Aerocool Ukraine` на понятность для новичка, русский язык, строгую структуру, полноту оглавления, актуальность по фактическим файлам проекта и внешним SEO/Hugo/Netlify/Tailwind правилам.
 

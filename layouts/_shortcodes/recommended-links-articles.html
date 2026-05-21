@@ -1,0 +1,94 @@
+{{- $isRu := eq .Page.Language.Lang "ru" -}}
+{{- $heading := cond $isRu "Рекомендуем начать с этих материалов" "Рекомендуємо почати з цих матеріалів" -}}
+{{- $items := slice -}}
+{{- $items = $items | append (dict
+  "badge" (cond $isRu "Start" "Start")
+  "url" (cond $isRu "/ru/articles/how-to-choose-aerocool-chair/" "/articles/how-to-choose-aerocool-chair/")
+  "title" (cond $isRu "Как выбрать кресло Aerocool для работы, home office и гейминга" "Як обрати крісло Aerocool для роботи, home office та геймінгу")
+  "description" (cond $isRu "Базовый маршрут выбора серии, материала и уровня регулировок." "Базовий маршрут вибору серії, матеріалу й рівня регулювань.")
+  "type" (cond $isRu "Стартовый гид" "Стартовий гайд")
+  "action" (cond $isRu "Начать выбор" "Почати вибір")
+) -}}
+{{- $items = $items | append (dict
+  "badge" "SKY"
+  "url" (cond $isRu "/ru/articles/sky-lite-vs-sky-360/" "/articles/sky-lite-vs-sky-360/")
+  "title" (cond $isRu "Aerocool SKY Lite или SKY 360: какое кресло выбрать" "Aerocool SKY Lite чи SKY 360: яке крісло обрати")
+  "description" (cond $isRu "Сравнение двух моделей SKY для работы, учебы и home office." "Порівняння двох моделей SKY для роботи, навчання та home office.")
+  "type" (cond $isRu "Сравнение" "Порівняння")
+  "action" (cond $isRu "Сравнить SKY" "Порівняти SKY")
+) -}}
+{{- $items = $items | append (dict
+  "badge" "W/XT"
+  "url" (cond $isRu "/ru/articles/wing-vs-xtal/" "/articles/wing-vs-xtal/")
+  "title" (cond $isRu "Aerocool WING или XTAL: какую серию выбрать" "Aerocool WING чи XTAL: яку серію обрати")
+  "description" (cond $isRu "Разница между активной поддержкой WING и практичной платформой XTAL." "Різниця між активною підтримкою WING і практичною платформою XTAL.")
+  "type" (cond $isRu "Сравнение серий" "Порівняння серій")
+  "action" (cond $isRu "Выбрать серию" "Обрати серію")
+) -}}
+{{- $items = $items | append (dict
+  "badge" "Mesh"
+  "url" (cond $isRu "/ru/articles/racer-vs-loft-air-vs-mesh/" "/articles/racer-vs-loft-air-vs-mesh/")
+  "title" (cond $isRu "Racer, Loft Air или Mesh: какую поверхность кресла Aerocool выбрать" "Racer, Loft Air чи Mesh: яку поверхню крісла Aerocool обрати")
+  "description" (cond $isRu "Контакт, вентиляция, уход и сценарии для разных поверхностей." "Контакт, вентиляція, догляд і сценарії для різних поверхонь.")
+  "type" (cond $isRu "Материалы" "Матеріали")
+  "action" (cond $isRu "Выбрать поверхность" "Обрати поверхню")
+) -}}
+{{- $items = $items | append (dict
+  "badge" "Tilt"
+  "url" (cond $isRu "/ru/articles/what-is-synchronous-tilt/" "/articles/what-is-synchronous-tilt/")
+  "title" (cond $isRu "Что такое Synchronous Tilt в креслах Aerocool" "Що таке Synchronous Tilt у кріслах Aerocool")
+  "description" (cond $isRu "Как согласованное движение спинки и сиденья влияет на посадку." "Як узгоджений рух спинки й сидіння впливає на посадку.")
+  "type" (cond $isRu "Механика" "Механіка")
+  "action" (cond $isRu "Понять Tilt" "Зрозуміти Tilt")
+) -}}
+{{- $items = $items | append (dict
+  "badge" "SYNC"
+  "url" (cond $isRu "/ru/articles/sync4-sync5-mechanism-guide/" "/articles/sync4-sync5-mechanism-guide/")
+  "title" (cond $isRu "SYNC4 и SYNC5 multi-adjustable в креслах Aerocool" "SYNC4 і SYNC5 multi-adjustable у кріслах Aerocool")
+  "description" (cond $isRu "Какие модели используют SYNC4, а какие работают на SYNC5." "Які моделі використовують SYNC4, а які працюють на SYNC5.")
+  "type" (cond $isRu "Механизмы" "Механізми")
+  "action" (cond $isRu "Разобраться" "Розібратися")
+) -}}
+{{- $items = $items | append (dict
+  "badge" "7D"
+  "url" (cond $isRu "/ru/articles/how-to-choose-chair-by-adjustability/" "/articles/how-to-choose-chair-by-adjustability/")
+  "title" (cond $isRu "7D, 8D или 11D: как количество регулировок влияет на выбор" "7D, 8D чи 11D: як кількість регулювань впливає на вибір")
+  "description" (cond $isRu "Как не перепутать количество регулировок с реальной глубиной посадки." "Як не переплутати кількість регулювань із реальною глибиною посадки.")
+  "type" (cond $isRu "Регулировки" "Регулювання")
+  "action" (cond $isRu "Сравнить D" "Порівняти D")
+) -}}
+
+<section class="recommended-links-articles mt-12" aria-labelledby="recommended-links-articles-title">
+  <h2 id="recommended-links-articles-title">{{ $heading }}</h2>
+  <ul role="list" class="divide-y divide-gray-100">
+    {{- range $items }}
+    <li class="relative flex justify-between py-5">
+      <div class="flex gap-x-4 pr-6 sm:w-1/2 sm:flex-none">
+        <div class="flex h-10 min-w-12 flex-none items-center justify-center rounded-full bg-gray-50 px-2 text-xs font-semibold text-gray-700 ring-1 ring-gray-200 ring-inset">
+          {{ .badge }}
+        </div>
+        <div class="min-w-0 flex-auto">
+          <div class="text-sm/6 font-semibold text-gray-900">
+            <a href="{{ .url }}">
+              <span class="absolute inset-x-0 -top-px bottom-0"></span>
+              {{ .title }}
+            </a>
+          </div>
+          <div class="mt-1 text-xs/5 text-gray-500">
+            {{ .description }}
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center justify-between gap-x-4 sm:w-1/2 sm:flex-none">
+        <div class="hidden sm:block">
+          <div class="text-sm/6 text-gray-900">{{ .type }}</div>
+          <div class="mt-1 text-xs/5 text-gray-500">{{ .action }}</div>
+        </div>
+        <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-5 flex-none text-gray-400">
+          <path d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
+        </svg>
+      </div>
+    </li>
+    {{- end }}
+  </ul>
+</section>

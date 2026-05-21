@@ -276,11 +276,4 @@ faq_groups:
 
 {{< faq-list >}}
 
-## Що ще подивитися
-
-- [Каталог Aerocool](/products/)
-- [Серія SKY](/products/sky/)
-- [Серія WING](/products/wing/)
-- [Серія XTAL](/products/xtal/)
-- [Як вибрати крісло Aerocool під свій сценарій](/articles/how-to-choose-aerocool-chair/)
-- [Контакти для консультації](/contact/)
+{{< recommended-links-faq >}}

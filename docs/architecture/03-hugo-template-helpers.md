@@ -137,6 +137,17 @@
 - [layouts/_shortcodes/faq-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq-list.html) — видимый список FAQ из front matter.
 - [layouts/_shortcodes/contact.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/contact.html) — контактная `side-by-side` секция для `/contact/` и `/ru/contact/`.
 - [layouts/_shortcodes/contact-success-alert.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/contact-success-alert.html) — success alert после отправки контактной формы на `/contact/success/` и `/ru/contact/success/`.
+- [layouts/_shortcodes/recommended-links-articles.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/recommended-links-articles.html) — управляемый блок стартовых материалов на `/articles/` и `/ru/articles/`.
+- [layouts/_shortcodes/recommended-links-news.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/recommended-links-news.html) — управляемый блок рекомендованных новостей на `/news/` и `/ru/news/`.
+- [layouts/_shortcodes/recommended-links-faq.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/recommended-links-faq.html) — блок следующих шагов после FAQ на `/faq/` и `/ru/faq/`.
+
+Важно по `recommended-links-*`:
+
+- эти shortcodes заменяют длинные markdown-списки на управляемые UI-блоки;
+- каждый shortcode сам переключает украинский и русский текст по языку страницы;
+- URL внутри shortcode должны оставаться локализованными: обычные страницы ведут на `/.../`, русские страницы — на `/ru/.../`;
+- визуальные стили этих блоков держатся в [assets/css/main.css](/Users/stadnyk/MEGA/Aerocool/assets/css/main.css) через CSS-хуки `.recommended-links-articles`, `.recommended-links-news` и `.recommended-links-faq`;
+- если нужно изменить состав ссылок на хабе статей, новостей или FAQ, сначала идти в соответствующий shortcode, а не возвращать большой markdown-список в content-файл.
 
 Важно по `contact.html`:
 
@@ -914,6 +925,9 @@
 - странный `H1` или hero на главной -> [home-hero.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero.html)
 - лишняя дата, время чтения, количество слов или автор под `H1` -> [page-meta.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-meta.html)
 - проблема с видимым FAQ на `/faq/` -> [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html) и [faq-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq-list.html)
+- проблема с блоком стартовых статей на `/articles/` -> [recommended-links-articles.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/recommended-links-articles.html)
+- проблема с блоком рекомендованных новостей на `/news/` -> [recommended-links-news.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/recommended-links-news.html)
+- проблема с блоком следующих шагов на `/faq/` -> [recommended-links-faq.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/recommended-links-faq.html)
 - проблема с success-сообщением после контактной формы -> [contact-success-alert.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/contact-success-alert.html)
 - нет редакционного trust-блока на статье или новости -> [editorial-note.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/editorial-note.html) и вызов в [single.html](/Users/stadnyk/MEGA/Aerocool/layouts/single.html)
 - не та картинка в соцсетях -> [page-image.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-image.html), [opengraph.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/opengraph.html), [twitter_cards.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/twitter_cards.html)
