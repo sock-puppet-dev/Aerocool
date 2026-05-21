@@ -1,252 +1,256 @@
-id,lang,keyword,cluster,subcluster,intent,priority,target_url,status,notes
-kw-001,uk,aerocool,brand,core brand,navigation,P0,/,current,"Главный брендовый запрос, покрыт всеми ключевыми страницами."
-kw-002,uk,aerocool ukraine,brand,country modifier,navigation,P0,/,current,Англоязычный бренд + страна; полезен для брендовой навигации.
-kw-003,uk,aerocool україна,brand,country modifier,navigation,P0,/,current,Локальный брендовый запрос под официальный сайт в Украине.
-kw-004,uk,офіційний сайт aerocool,brand,official site,navigation,P0,/,current,"Усилять через главную, About и Organization/schema, без чрезмерных обещаний."
-kw-005,uk,крісла aerocool,brand,chairs brand,commercial,P0,/,current,Базовая брендовая категория.
-kw-006,uk,ігрові крісла aerocool,brand,gaming brand,commercial,P0,/products/,current,Держать связку home -> catalog -> WING/XTAL.
-kw-007,uk,офісні крісла aerocool,brand,office brand,commercial,P0,/products/,current,Держать связку home -> catalog -> SKY/Loft Air/Mesh.
-kw-008,uk,комп'ютерні крісла aerocool,brand,computer brand,commercial,P0,/products/,current,Широкий брендовый commercial cluster.
-kw-009,uk,ергономічні крісла aerocool,brand,ergonomic brand,commercial investigation,P1,/about/,current,"Поддерживать через About, каталог и статьи."
-kw-010,uk,каталог крісел aerocool,brand,catalog,commercial,P0,/products/,current,Основной каталоговый запрос.
-kw-011,ru,aerocool,brand,core brand,navigation,P0,/ru/,current,"Главный брендовый запрос, покрыт всеми ключевыми страницами."
-kw-012,ru,aerocool ukraine,brand,country modifier,navigation,P0,/ru/,current,Англоязычный бренд + страна; полезен для брендовой навигации.
-kw-013,ru,aerocool украина,brand,country modifier,navigation,P0,/ru/,current,Локальный брендовый запрос под официальный сайт в Украине.
-kw-014,ru,официальный сайт aerocool,brand,official site,navigation,P0,/ru/,current,"Усилять через главную, About и Organization/schema, без чрезмерных обещаний."
-kw-015,ru,кресла aerocool,brand,chairs brand,commercial,P0,/ru/,current,Базовая брендовая категория.
-kw-016,ru,игровые кресла aerocool,brand,gaming brand,commercial,P0,/ru/products/,current,Держать связку home -> catalog -> WING/XTAL.
-kw-017,ru,офисные кресла aerocool,brand,office brand,commercial,P0,/ru/products/,current,Держать связку home -> catalog -> SKY/Loft Air/Mesh.
-kw-018,ru,компьютерные кресла aerocool,brand,computer brand,commercial,P0,/ru/products/,current,Широкий брендовый commercial cluster.
-kw-019,ru,эргономичные кресла aerocool,brand,ergonomic brand,commercial investigation,P1,/ru/about/,current,"Поддерживать через About, каталог и статьи."
-kw-020,ru,каталог кресел aerocool,brand,catalog,commercial,P0,/ru/products/,current,Основной каталоговый запрос.
-kw-021,uk,ігрове крісло,commercial category,gaming chair,commercial investigation,P0,/products/,current,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
-kw-022,ru,игровое кресло,commercial category,gaming chair,commercial investigation,P0,/ru/products/,current,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
-kw-023,uk,ігрові крісла,commercial category,gaming chairs,commercial investigation,P0,/products/,current,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
-kw-024,ru,игровые кресла,commercial category,gaming chairs,commercial investigation,P0,/ru/products/,current,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
-kw-025,uk,офісне крісло,commercial category,office chair,commercial investigation,P0,/products/,current,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
-kw-026,ru,офисное кресло,commercial category,office chair,commercial investigation,P0,/ru/products/,current,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
-kw-027,uk,офісні крісла,commercial category,office chairs,commercial investigation,P0,/products/,current,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
-kw-028,ru,офисные кресла,commercial category,office chairs,commercial investigation,P0,/ru/products/,current,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
-kw-029,uk,комп'ютерне крісло,commercial category,computer chair,commercial investigation,P0,/products/,current,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
-kw-030,ru,компьютерное кресло,commercial category,computer chair,commercial investigation,P0,/ru/products/,current,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
-kw-031,uk,комп'ютерні крісла,commercial category,computer chairs,commercial investigation,P0,/products/,current,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
-kw-032,ru,компьютерные кресла,commercial category,computer chairs,commercial investigation,P0,/ru/products/,current,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
-kw-033,uk,ергономічне крісло,commercial category,ergonomic chair,commercial investigation,P0,/articles/how-to-choose-aerocool-chair/,current,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
-kw-034,ru,эргономичное кресло,commercial category,ergonomic chair,commercial investigation,P0,/ru/articles/how-to-choose-aerocool-chair/,current,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
-kw-035,uk,ергономічні крісла,commercial category,ergonomic chairs,commercial investigation,P1,/products/,current,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
-kw-036,ru,эргономичные кресла,commercial category,ergonomic chairs,commercial investigation,P1,/ru/products/,current,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
-kw-037,uk,крісло для роботи,commercial category,work chair,commercial investigation,P0,/articles/how-to-choose-aerocool-chair/,current,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
-kw-038,ru,кресло для работы,commercial category,work chair,commercial investigation,P0,/ru/articles/how-to-choose-aerocool-chair/,current,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
-kw-039,uk,крісло для роботи за комп'ютером,commercial category,computer work chair,commercial investigation,P1,/articles/chair-for-computer-work/,current,Безбрендовый спрос; локальный draft уже выделяет отдельную посадочную под полный рабочий день.
-kw-040,ru,кресло для работы за компьютером,commercial category,computer work chair,commercial investigation,P1,/ru/articles/chair-for-computer-work/,current,Безбрендовый спрос; локальный draft уже выделяет отдельную посадочную под полный рабочий день.
-kw-041,uk,крісло для home office,commercial category,home office chair,commercial investigation,P0,/articles/how-to-choose-aerocool-chair/,current,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
-kw-042,ru,кресло для home office,commercial category,home office chair,commercial investigation,P0,/ru/articles/how-to-choose-aerocool-chair/,current,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
-kw-043,uk,крісло для геймінгу,commercial category,gaming use,commercial investigation,P1,/articles/how-to-choose-aerocool-chair/,current,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
-kw-044,ru,кресло для гейминга,commercial category,gaming use,commercial investigation,P1,/ru/articles/how-to-choose-aerocool-chair/,current,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
-kw-045,uk,крісло для тривалої роботи,commercial category,long work,commercial investigation,P1,/articles/chair-for-posture-and-long-work/,current,Основной запрос для статьи о длительной работе и посадке без медицинских обещаний.
-kw-046,ru,кресло для долгой работы,commercial category,long work,commercial investigation,P1,/ru/articles/chair-for-posture-and-long-work/,current,Основной запрос для статьи о длительной работе и посадке без медицинских обещаний.
-kw-047,uk,крісло для постави,commercial category,posture,commercial investigation,P1,/articles/chair-for-posture-and-long-work/,current,Основной короткий запрос страницы о посадке и длительной работе без медицинских обещаний.
-kw-048,ru,кресло для осанки,commercial category,posture,commercial investigation,P1,/ru/articles/chair-for-posture-and-long-work/,current,Основной короткий запрос страницы о посадке и длительной работе без медицинских обещаний.
-kw-049,uk,зручне крісло для дому,commercial category,home comfort,commercial investigation,P2,/products/sky/,growth,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
-kw-050,ru,удобное кресло для дома,commercial category,home comfort,commercial investigation,P2,/ru/products/sky/,growth,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
-kw-051,uk,крісло для навчання,commercial category,study chair,commercial investigation,P3,/products/sky/,growth,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
-kw-052,ru,кресло для учебы,commercial category,study chair,commercial investigation,P3,/ru/products/sky/,growth,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
-kw-053,uk,aerocool sky,series,SKY,commercial investigation,P0,/products/sky/,current,Entity home серии SKY.
-kw-054,ru,aerocool sky,series,SKY,commercial investigation,P0,/ru/products/sky/,current,Entity home серии SKY.
-kw-055,uk,офісне крісло aerocool sky,series,SKY office,commercial,P0,/products/sky/,current,Средний коммерческий интент серии.
-kw-056,ru,офисное кресло aerocool sky,series,SKY office,commercial,P0,/ru/products/sky/,current,Средний коммерческий интент серии.
-kw-057,uk,комп'ютерне крісло aerocool sky,series,SKY computer,commercial,P0,/products/sky/,current,Средний коммерческий интент серии.
-kw-058,ru,компьютерное кресло aerocool sky,series,SKY computer,commercial,P0,/ru/products/sky/,current,Средний коммерческий интент серии.
-kw-059,uk,aerocool wing,series,WING,commercial investigation,P0,/products/wing/,current,Entity home серии WING.
-kw-060,ru,aerocool wing,series,WING,commercial investigation,P0,/ru/products/wing/,current,Entity home серии WING.
-kw-061,uk,ігрове крісло aerocool wing,series,WING gaming,commercial,P0,/products/wing/,current,Главный commercial cluster серии WING.
-kw-062,ru,игровое кресло aerocool wing,series,WING gaming,commercial,P0,/ru/products/wing/,current,Главный commercial cluster серии WING.
-kw-063,uk,офісне крісло aerocool wing,series,WING office,commercial,P1,/products/wing/,current,Поддерживающий сценарий WING для работы/home office.
-kw-064,ru,офисное кресло aerocool wing,series,WING office,commercial,P1,/ru/products/wing/,current,Поддерживающий сценарий WING для работы/home office.
-kw-065,uk,aerocool xtal,series,XTAL,commercial investigation,P0,/products/xtal/,current,Entity home серии XTAL.
-kw-066,ru,aerocool xtal,series,XTAL,commercial investigation,P0,/ru/products/xtal/,current,Entity home серии XTAL.
-kw-067,uk,ігрове крісло aerocool xtal,series,XTAL gaming,commercial,P0,/products/xtal/,current,Главный gaming/computer cluster серии XTAL.
-kw-068,ru,игровое кресло aerocool xtal,series,XTAL gaming,commercial,P0,/ru/products/xtal/,current,Главный gaming/computer cluster серии XTAL.
-kw-069,uk,комп'ютерне крісло aerocool xtal,series,XTAL computer,commercial,P0,/products/xtal/,current,Средний commercial cluster серии XTAL.
-kw-070,ru,компьютерное кресло aerocool xtal,series,XTAL computer,commercial,P0,/ru/products/xtal/,current,Средний commercial cluster серии XTAL.
-kw-071,any,aerocool sky lite,product model,sky lite,commercial,P1,/products/sky/lite/ | /ru/products/sky/lite/,current,Модельный запрос; отслеживать отдельно от серии.
-kw-072,uk,купити aerocool sky lite,product transaction,sky lite,transactional,P0,/products/sky/lite/,current,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
-kw-073,ru,купить aerocool sky lite,product transaction,sky lite,transactional,P0,/ru/products/sky/lite/,current,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
-kw-074,uk,офісне крісло aerocool sky lite,product type modifier,sky lite,commercial,P1,/products/sky/lite/,current,Основной типовой модификатор товарной страницы.
-kw-075,ru,офисное кресло aerocool sky lite,product type modifier,sky lite,commercial,P1,/ru/products/sky/lite/,current,Основной типовой модификатор товарной страницы.
-kw-076,any,aerocool sky 360,product model,sky 360,commercial,P1,/products/sky/360/ | /ru/products/sky/360/,current,Модельный запрос; отслеживать отдельно от серии.
-kw-077,uk,купити aerocool sky 360,product transaction,sky 360,transactional,P0,/products/sky/360/,current,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
-kw-078,ru,купить aerocool sky 360,product transaction,sky 360,transactional,P0,/ru/products/sky/360/,current,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
-kw-079,uk,комп'ютерне крісло aerocool sky 360,product type modifier,sky 360,commercial,P1,/products/sky/360/,current,Основной типовой модификатор товарной страницы.
-kw-080,ru,компьютерное кресло aerocool sky 360,product type modifier,sky 360,commercial,P1,/ru/products/sky/360/,current,Основной типовой модификатор товарной страницы.
-kw-081,any,aerocool wing racer black,product model,wing racer black,commercial,P1,/products/wing/racer-black/ | /ru/products/wing/racer-black/,current,Модельный запрос; отслеживать отдельно от серии.
-kw-082,uk,купити aerocool wing racer black,product transaction,wing racer black,transactional,P0,/products/wing/racer-black/,current,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
-kw-083,ru,купить aerocool wing racer black,product transaction,wing racer black,transactional,P0,/ru/products/wing/racer-black/,current,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
-kw-084,uk,ігрове крісло aerocool wing racer black,product type modifier,wing racer black,commercial,P1,/products/wing/racer-black/,current,Основной типовой модификатор товарной страницы.
-kw-085,ru,игровое кресло aerocool wing racer black,product type modifier,wing racer black,commercial,P1,/ru/products/wing/racer-black/,current,Основной типовой модификатор товарной страницы.
-kw-086,any,aerocool wing racer dark grey,product model,wing racer dark grey,commercial,P1,/products/wing/racer-dark-grey/ | /ru/products/wing/racer-dark-grey/,current,Модельный запрос; отслеживать отдельно от серии.
-kw-087,uk,купити aerocool wing racer dark grey,product transaction,wing racer dark grey,transactional,P0,/products/wing/racer-dark-grey/,current,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
-kw-088,ru,купить aerocool wing racer dark grey,product transaction,wing racer dark grey,transactional,P0,/ru/products/wing/racer-dark-grey/,current,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
-kw-089,uk,ігрове крісло aerocool wing racer dark grey,product type modifier,wing racer dark grey,commercial,P1,/products/wing/racer-dark-grey/,current,Основной типовой модификатор товарной страницы.
-kw-090,ru,игровое кресло aerocool wing racer dark grey,product type modifier,wing racer dark grey,commercial,P1,/ru/products/wing/racer-dark-grey/,current,Основной типовой модификатор товарной страницы.
-kw-091,any,aerocool wing loft air dark grey,product model,wing loft air dark grey,commercial,P1,/products/wing/loft-air-dark-grey/ | /ru/products/wing/loft-air-dark-grey/,current,Модельный запрос; отслеживать отдельно от серии.
-kw-092,uk,купити aerocool wing loft air dark grey,product transaction,wing loft air dark grey,transactional,P0,/products/wing/loft-air-dark-grey/,current,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
-kw-093,ru,купить aerocool wing loft air dark grey,product transaction,wing loft air dark grey,transactional,P0,/ru/products/wing/loft-air-dark-grey/,current,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
-kw-094,uk,офісне крісло aerocool wing loft air dark grey,product type modifier,wing loft air dark grey,commercial,P1,/products/wing/loft-air-dark-grey/,current,Основной типовой модификатор товарной страницы.
-kw-095,ru,офисное кресло aerocool wing loft air dark grey,product type modifier,wing loft air dark grey,commercial,P1,/ru/products/wing/loft-air-dark-grey/,current,Основной типовой модификатор товарной страницы.
-kw-096,any,aerocool wing loft air light grey,product model,wing loft air light grey,commercial,P1,/products/wing/loft-air-light-grey/ | /ru/products/wing/loft-air-light-grey/,current,Модельный запрос; отслеживать отдельно от серии.
-kw-097,uk,купити aerocool wing loft air light grey,product transaction,wing loft air light grey,transactional,P0,/products/wing/loft-air-light-grey/,current,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
-kw-098,ru,купить aerocool wing loft air light grey,product transaction,wing loft air light grey,transactional,P0,/ru/products/wing/loft-air-light-grey/,current,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
-kw-099,uk,офісне крісло aerocool wing loft air light grey,product type modifier,wing loft air light grey,commercial,P1,/products/wing/loft-air-light-grey/,current,Основной типовой модификатор товарной страницы.
-kw-100,ru,офисное кресло aerocool wing loft air light grey,product type modifier,wing loft air light grey,commercial,P1,/ru/products/wing/loft-air-light-grey/,current,Основной типовой модификатор товарной страницы.
-kw-101,any,aerocool wing mesh black,product model,wing mesh black,commercial,P1,/products/wing/mesh-black/ | /ru/products/wing/mesh-black/,current,Модельный запрос; отслеживать отдельно от серии.
-kw-102,uk,купити aerocool wing mesh black,product transaction,wing mesh black,transactional,P0,/products/wing/mesh-black/,current,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
-kw-103,ru,купить aerocool wing mesh black,product transaction,wing mesh black,transactional,P0,/ru/products/wing/mesh-black/,current,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
-kw-104,uk,комп'ютерне крісло aerocool wing mesh black,product type modifier,wing mesh black,commercial,P1,/products/wing/mesh-black/,current,Основной типовой модификатор товарной страницы.
-kw-105,ru,компьютерное кресло aerocool wing mesh black,product type modifier,wing mesh black,commercial,P1,/ru/products/wing/mesh-black/,current,Основной типовой модификатор товарной страницы.
-kw-106,any,aerocool xtal racer black,product model,xtal racer black,commercial,P1,/products/xtal/racer-black/ | /ru/products/xtal/racer-black/,current,Модельный запрос; отслеживать отдельно от серии.
-kw-107,uk,купити aerocool xtal racer black,product transaction,xtal racer black,transactional,P0,/products/xtal/racer-black/,current,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
-kw-108,ru,купить aerocool xtal racer black,product transaction,xtal racer black,transactional,P0,/ru/products/xtal/racer-black/,current,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
-kw-109,uk,ігрове крісло aerocool xtal racer black,product type modifier,xtal racer black,commercial,P1,/products/xtal/racer-black/,current,Основной типовой модификатор товарной страницы.
-kw-110,ru,игровое кресло aerocool xtal racer black,product type modifier,xtal racer black,commercial,P1,/ru/products/xtal/racer-black/,current,Основной типовой модификатор товарной страницы.
-kw-111,any,aerocool xtal racer dark grey,product model,xtal racer dark grey,commercial,P1,/products/xtal/racer-dark-grey/ | /ru/products/xtal/racer-dark-grey/,current,Модельный запрос; отслеживать отдельно от серии.
-kw-112,uk,купити aerocool xtal racer dark grey,product transaction,xtal racer dark grey,transactional,P0,/products/xtal/racer-dark-grey/,current,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
-kw-113,ru,купить aerocool xtal racer dark grey,product transaction,xtal racer dark grey,transactional,P0,/ru/products/xtal/racer-dark-grey/,current,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
-kw-114,uk,ігрове крісло aerocool xtal racer dark grey,product type modifier,xtal racer dark grey,commercial,P1,/products/xtal/racer-dark-grey/,current,Основной типовой модификатор товарной страницы.
-kw-115,ru,игровое кресло aerocool xtal racer dark grey,product type modifier,xtal racer dark grey,commercial,P1,/ru/products/xtal/racer-dark-grey/,current,Основной типовой модификатор товарной страницы.
-kw-116,any,aerocool xtal loft air dark grey,product model,xtal loft air dark grey,commercial,P1,/products/xtal/loft-air-dark-grey/ | /ru/products/xtal/loft-air-dark-grey/,current,Модельный запрос; отслеживать отдельно от серии.
-kw-117,uk,купити aerocool xtal loft air dark grey,product transaction,xtal loft air dark grey,transactional,P0,/products/xtal/loft-air-dark-grey/,current,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
-kw-118,ru,купить aerocool xtal loft air dark grey,product transaction,xtal loft air dark grey,transactional,P0,/ru/products/xtal/loft-air-dark-grey/,current,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
-kw-119,uk,офісне крісло aerocool xtal loft air dark grey,product type modifier,xtal loft air dark grey,commercial,P1,/products/xtal/loft-air-dark-grey/,current,Основной типовой модификатор товарной страницы.
-kw-120,ru,офисное кресло aerocool xtal loft air dark grey,product type modifier,xtal loft air dark grey,commercial,P1,/ru/products/xtal/loft-air-dark-grey/,current,Основной типовой модификатор товарной страницы.
-kw-121,any,aerocool xtal loft air light grey,product model,xtal loft air light grey,commercial,P1,/products/xtal/loft-air-light-grey/ | /ru/products/xtal/loft-air-light-grey/,current,Модельный запрос; отслеживать отдельно от серии.
-kw-122,uk,купити aerocool xtal loft air light grey,product transaction,xtal loft air light grey,transactional,P0,/products/xtal/loft-air-light-grey/,current,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
-kw-123,ru,купить aerocool xtal loft air light grey,product transaction,xtal loft air light grey,transactional,P0,/ru/products/xtal/loft-air-light-grey/,current,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
-kw-124,uk,офісне крісло aerocool xtal loft air light grey,product type modifier,xtal loft air light grey,commercial,P1,/products/xtal/loft-air-light-grey/,current,Основной типовой модификатор товарной страницы.
-kw-125,ru,офисное кресло aerocool xtal loft air light grey,product type modifier,xtal loft air light grey,commercial,P1,/ru/products/xtal/loft-air-light-grey/,current,Основной типовой модификатор товарной страницы.
-kw-126,any,aerocool xtal mesh black,product model,xtal mesh black,commercial,P1,/products/xtal/mesh-black/ | /ru/products/xtal/mesh-black/,current,Модельный запрос; отслеживать отдельно от серии.
-kw-127,uk,купити aerocool xtal mesh black,product transaction,xtal mesh black,transactional,P0,/products/xtal/mesh-black/,current,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
-kw-128,ru,купить aerocool xtal mesh black,product transaction,xtal mesh black,transactional,P0,/ru/products/xtal/mesh-black/,current,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
-kw-129,uk,комп'ютерне крісло aerocool xtal mesh black,product type modifier,xtal mesh black,commercial,P1,/products/xtal/mesh-black/,current,Основной типовой модификатор товарной страницы.
-kw-130,ru,компьютерное кресло aerocool xtal mesh black,product type modifier,xtal mesh black,commercial,P1,/ru/products/xtal/mesh-black/,current,Основной типовой модификатор товарной страницы.
-kw-131,any,racer,material,Racer,commercial investigation,P1,/articles/racer-vs-loft-air-vs-mesh/ | /ru/articles/racer-vs-loft-air-vs-mesh/,current,Формат поверхности; поддерживает WING и XTAL.
-kw-132,any,loft air,material,Loft Air,commercial investigation,P1,/articles/racer-vs-loft-air-vs-mesh/ | /ru/articles/racer-vs-loft-air-vs-mesh/,current,Формат поверхности; поддерживает WING и XTAL.
-kw-133,any,mesh,material,Mesh,commercial investigation,P1,/articles/racer-vs-loft-air-vs-mesh/ | /ru/articles/racer-vs-loft-air-vs-mesh/,current,Формат поверхности и вентиляции.
-kw-134,any,leatherette,material,Leatherette,commercial investigation,P1,/articles/racer-vs-loft-air-vs-mesh/ | /ru/articles/racer-vs-loft-air-vs-mesh/,current,"Материал Racer; сравнивать с вентиляцией, а не продавать как универсально лучший."
-kw-135,any,breathable mesh,material,breathable mesh,commercial investigation,P1,/products/sky/ | /ru/products/sky/,current,Англоязычный технотермин в спецификациях и описаниях.
-kw-136,uk,вентильована сітка,material,mesh uk,commercial investigation,P1,/products/sky/,current,Украинский запрос по сетке и вентиляции.
-kw-137,ru,вентилируемая сетка,material,mesh ru,commercial investigation,P1,/ru/products/sky/,current,Русский запрос по сетке и вентиляции.
-kw-138,uk,вентильована поверхня,material,ventilation uk,commercial investigation,P1,/news/loft-air-and-mesh-focus/,current,Поддерживается новостью и материалами.
-kw-139,ru,вентилируемая поверхность,material,ventilation ru,commercial investigation,P1,/ru/news/loft-air-and-mesh-focus/,current,Поддерживается новостью и материалами.
-kw-140,uk,який матеріал крісла кращий,material,material choice uk,informational,P1,/articles/racer-vs-loft-air-vs-mesh/,current,Сравнительный информационный запрос.
-kw-141,ru,какой материал кресла лучше,material,material choice ru,informational,P1,/ru/articles/racer-vs-loft-air-vs-mesh/,current,Сравнительный информационный запрос.
-kw-142,any,mesh vs leatherette chair,material,english comparison,informational,P2,/articles/racer-vs-loft-air-vs-mesh/ | /ru/articles/racer-vs-loft-air-vs-mesh/,growth,Английский long-tail; можно раскрыть в FAQ/таблице сравнения.
-kw-143,any,dark grey,color,dark grey,commercial,P1,product pages,current,Цветовой модификатор для WING/XTAL.
-kw-144,any,light grey,color,light grey,commercial,P1,product pages,current,Цветовой модификатор для WING/XTAL Loft Air.
-kw-145,any,black,color,black,commercial,P1,product pages,current,Цветовой модификатор для Racer/Mesh.
-kw-146,any,Synchronous Tilt,mechanic,tilt,informational,P0,/articles/what-is-synchronous-tilt/ | /ru/articles/what-is-synchronous-tilt/,current,Стандарт написания проекта; не переводить в нижний регистр.
-kw-147,uk,що таке Synchronous Tilt,mechanic,tilt question uk,informational,P0,/articles/what-is-synchronous-tilt/,current,Главный вопросный запрос по механизму.
-kw-148,ru,что такое Synchronous Tilt,mechanic,tilt question ru,informational,P0,/ru/articles/what-is-synchronous-tilt/,current,Главный вопросный запрос по механизму.
-kw-149,uk,синхронний нахил крісла,mechanic,tilt local uk,informational,P1,/articles/what-is-synchronous-tilt/,current,Локализованная формулировка рядом с брендовым термином.
-kw-150,ru,синхронный наклон кресла,mechanic,tilt local ru,informational,P1,/ru/articles/what-is-synchronous-tilt/,current,Локализованная формулировка рядом с брендовым термином.
-kw-151,any,SYNC4,mechanic,SYNC4,informational,P0,/articles/sync4-sync5-mechanism-guide/ | /ru/articles/sync4-sync5-mechanism-guide/,current,Механизм SKY Lite.
-kw-152,any,SYNC5,mechanic,SYNC5,informational,P0,/articles/sync4-sync5-mechanism-guide/ | /ru/articles/sync4-sync5-mechanism-guide/,current,"Механизм SKY 360, WING и XTAL."
-kw-153,any,SYNC4 multi-adjustable,mechanic,SYNC4 exact,informational,P0,/articles/sync4-sync5-mechanism-guide/ | /ru/articles/sync4-sync5-mechanism-guide/,current,Точное написание в характеристиках.
-kw-154,any,SYNC5 multi-adjustable,mechanic,SYNC5 exact,informational,P0,/articles/sync4-sync5-mechanism-guide/ | /ru/articles/sync4-sync5-mechanism-guide/,current,Точное написание в характеристиках.
-kw-155,any,7D,adjustment,7D,commercial investigation,P0,/articles/how-to-choose-chair-by-adjustability/ | /ru/articles/how-to-choose-chair-by-adjustability/,current,XTAL и общий гайд по регулировкам.
-kw-156,any,8D,adjustment,8D,commercial investigation,P0,/articles/how-to-choose-chair-by-adjustability/ | /ru/articles/how-to-choose-chair-by-adjustability/,current,SKY Lite и общий гайд.
-kw-157,any,11D,adjustment,11D,commercial investigation,P0,/articles/how-to-choose-chair-by-adjustability/ | /ru/articles/how-to-choose-chair-by-adjustability/,current,SKY 360/WING и общий гайд.
-kw-158,uk,7D 8D 11D регулювання,adjustment,range uk,informational,P0,/articles/how-to-choose-chair-by-adjustability/,current,Ключевая формула статьи по регулировкам.
-kw-159,ru,7D 8D 11D регулировки,adjustment,range ru,informational,P0,/ru/articles/how-to-choose-chair-by-adjustability/,current,Ключевая формула статьи по регулировкам.
-kw-160,uk,регулювання крісла,adjustment,chair adjustment uk,informational,P1,/articles/how-to-choose-chair-by-adjustability/,current,Широкий запрос статьи по регулировкам.
-kw-161,ru,регулировки кресла,adjustment,chair adjustment ru,informational,P1,/ru/articles/how-to-choose-chair-by-adjustability/,current,Широкий запрос статьи по регулировкам.
-kw-162,any,3D X 360 armrest,adjustment,armrest,commercial investigation,P1,/products/sky/360/ | /ru/products/sky/360/,current,Точный атрибут SKY 360.
-kw-163,any,4D X 360 armrest,adjustment,armrest,commercial investigation,P1,/products/wing/ | /ru/products/wing/,current,Точный атрибут WING.
-kw-164,uk,поперекова підтримка,adjustment,lumbar uk,commercial investigation,P1,/products/sky/,current,Поддерживает SKY и гайды по посадке.
-kw-165,ru,поясничная поддержка,adjustment,lumbar ru,commercial investigation,P1,/ru/products/sky/,current,Поддерживает SKY и гайды по посадке.
-kw-166,any,dual backrest,mechanic,WING backrest,informational,P1,/articles/wing-vs-xtal/ | /ru/articles/wing-vs-xtal/,current,Термин WING; можно расширять отдельным FAQ-блоком.
-kw-167,ru,двойная спинка,mechanic,WING backrest ru,informational,P1,/ru/articles/wing-vs-xtal/,current,Локализованный термин WING.
-kw-168,uk,подвійна спинка,mechanic,WING backrest uk,informational,P1,/articles/wing-vs-xtal/,current,Локализованный термин WING.
-kw-169,any,fully replaceable design,mechanic,XTAL replaceable,informational,P1,/products/xtal/ | /ru/products/xtal/,current,Термин XTAL; требует видимого подтверждения на страницах.
-kw-170,ru,конструкция со сменными элементами,mechanic,XTAL replaceable ru,informational,P1,/ru/products/xtal/,current,Локализованный термин XTAL.
-kw-171,uk,конструкція зі змінними елементами,mechanic,XTAL replaceable uk,informational,P1,/products/xtal/,current,Локализованный термин XTAL.
-kw-172,any,multi-angle lock,mechanic,tilt lock,informational,P2,/articles/what-is-synchronous-tilt/ | /ru/articles/what-is-synchronous-tilt/,supporting,"Технический long-tail; держать как атрибут, не отдельную посадочную."
-kw-173,any,weight sensitive,mechanic,tilt resistance,informational,P2,/articles/what-is-synchronous-tilt/ | /ru/articles/what-is-synchronous-tilt/,supporting,"Технический long-tail; держать как атрибут, не отдельную посадочную."
-kw-174,any,BIFMA tested class 4,spec,gas lift,informational,P2,product pages,supporting,"Указывать только там, где факт подтвержден в product front matter/спецификации."
-kw-175,uk,як вибрати крісло aerocool,guide,general chooser,informational,P0,/articles/how-to-choose-aerocool-chair/,current,Главный evergreen-гайд.
-kw-176,ru,как выбрать кресло aerocool,guide,general chooser,informational,P0,/ru/articles/how-to-choose-aerocool-chair/,current,Главный evergreen-гайд.
-kw-177,uk,як вибрати ігрове крісло,guide,gaming chooser,informational,P0,/articles/how-to-choose-aerocool-chair/,current,Поддерживает широкий gaming cluster.
-kw-178,ru,как выбрать игровое кресло,guide,gaming chooser,informational,P0,/ru/articles/how-to-choose-aerocool-chair/,current,Поддерживает широкий gaming cluster.
-kw-179,uk,як вибрати офісне крісло,guide,office chooser,informational,P0,/articles/how-to-choose-aerocool-chair/,current,Поддерживает широкий office cluster.
-kw-180,ru,как выбрать офисное кресло,guide,office chooser,informational,P0,/ru/articles/how-to-choose-aerocool-chair/,current,Поддерживает широкий office cluster.
-kw-181,uk,як вибрати комп'ютерне крісло,guide,computer chooser,informational,P0,/articles/how-to-choose-aerocool-chair/,current,Поддерживает широкий computer cluster.
-kw-182,ru,как выбрать компьютерное кресло,guide,computer chooser,informational,P0,/ru/articles/how-to-choose-aerocool-chair/,current,Поддерживает широкий computer cluster.
-kw-183,uk,sky lite чи sky 360,comparison,SKY models,commercial investigation,P1,/articles/sky-lite-vs-sky-360/,current,Сравнение двух моделей SKY.
-kw-184,ru,sky lite или sky 360,comparison,SKY models,commercial investigation,P1,/ru/articles/sky-lite-vs-sky-360/,current,Сравнение двух моделей SKY.
-kw-185,uk,wing чи xtal,comparison,WING vs XTAL,commercial investigation,P1,/articles/wing-vs-xtal/,current,Сравнение двух серий.
-kw-186,ru,wing или xtal,comparison,WING vs XTAL,commercial investigation,P1,/ru/articles/wing-vs-xtal/,current,Сравнение двух серий.
-kw-187,any,racer loft air mesh,comparison,surface formats,commercial investigation,P1,/articles/racer-vs-loft-air-vs-mesh/ | /ru/articles/racer-vs-loft-air-vs-mesh/,current,Сравнение материалов/поверхностей.
-kw-188,uk,racer loft air чи mesh,comparison,surface formats uk,commercial investigation,P1,/articles/racer-vs-loft-air-vs-mesh/,current,Украинская формула сравнения поверхностей.
-kw-189,ru,racer loft air или mesh,comparison,surface formats ru,commercial investigation,P1,/ru/articles/racer-vs-loft-air-vs-mesh/,current,Русская формула сравнения поверхностей.
-kw-190,uk,яке крісло для роботи обрати,guide,work chooser uk,commercial investigation,P1,/articles/sky-lite-vs-sky-360/,current,"Рабочий сценарий, связанный с SKY и общим гайдом."
-kw-191,ru,какое кресло для работы выбрать,guide,work chooser ru,commercial investigation,P1,/ru/articles/sky-lite-vs-sky-360/,current,"Рабочий сценарий, связанный с SKY и общим гайдом."
-kw-192,uk,яке ігрове крісло обрати,guide,gaming chooser uk,commercial investigation,P1,/articles/wing-vs-xtal/,current,Поддерживает WING/XTAL comparison.
-kw-193,ru,какое игровое кресло выбрать,guide,gaming chooser ru,commercial investigation,P1,/ru/articles/wing-vs-xtal/,current,Поддерживает WING/XTAL comparison.
-kw-194,uk,яке крісло обрати для постави,guide,posture chooser uk,informational,P1,/articles/chair-for-posture-and-long-work/,current,"Запрос раскрывается через посадку, поддержку, подлокотники и движение без медицинских обещаний."
-kw-195,ru,какое кресло выбрать для осанки,guide,posture chooser ru,informational,P1,/ru/articles/chair-for-posture-and-long-work/,current,"Запрос раскрывается через посадку, поддержку, подлокотники и движение без медицинских обещаний."
-kw-196,uk,найкраще крісло для home office,guide,best home office uk,commercial investigation,P1,/articles/best-chair-for-home-office/,current,Страница опубликована; использовать только с объясненными критериями “лучшее”.
-kw-197,ru,лучшее кресло для home office,guide,best home office ru,commercial investigation,P1,/ru/articles/best-chair-for-home-office/,current,Страница опубликована; использовать только с объясненными критериями “лучшее”.
-kw-198,uk,ігрове крісло для тривалих сесій,guide,long gaming uk,commercial investigation,P1,/articles/gaming-chair-long-sessions/,current,Страница опубликована; раскрывать через сценарии WING/XTAL и перерывы без медицинских обещаний.
-kw-199,ru,игровое кресло для длительных сессий,guide,long gaming ru,commercial investigation,P1,/ru/articles/gaming-chair-long-sessions/,current,Страница опубликована; раскрывать через сценарии WING/XTAL и перерывы без медицинских обещаний.
-kw-200,ru,dual backrest что это,guide,WING explainer ru,informational,P1,/ru/articles/what-is-dual-backrest/,current,Страница опубликована; объясняет WING dual backrest без дублирования WING vs XTAL.
-kw-201,uk,що таке dual backrest,guide,WING explainer uk,informational,P1,/articles/what-is-dual-backrest/,current,Страница опубликована; объясняет WING dual backrest без дублирования WING vs XTAL.
-kw-202,ru,fully replaceable design chair,guide,XTAL explainer,informational,P1,/articles/what-is-fully-replaceable-design/ | /ru/articles/what-is-fully-replaceable-design/,current,Страница опубликована; объясняет XTAL fully replaceable design и сменные элементы.
-kw-203,uk,крісло зі змінними елементами,guide,XTAL replaceable uk,commercial investigation,P1,/articles/what-is-fully-replaceable-design/,current,Страница опубликована; раскрывает XTAL и сменные элементы через практические примеры.
-kw-204,ru,кресло со сменными элементами,guide,XTAL replaceable ru,commercial investigation,P1,/ru/articles/what-is-fully-replaceable-design/,current,Страница опубликована; раскрывает XTAL и сменные элементы через практические примеры.
-kw-205,uk,купити крісло aerocool,transaction,buy brand uk,transactional,P0,/contact/,current,"Коммерческий переход; не обещать условия, не подтвержденные командой."
-kw-206,ru,купить кресло aerocool,transaction,buy brand ru,transactional,P0,/ru/contact/,current,"Коммерческий переход; не обещать условия, не подтвержденные командой."
-kw-207,uk,ціна крісла aerocool,transaction,price uk,transactional,P1,product pages,supporting,Использовать только при актуальных price facts во front matter.
-kw-208,ru,цена кресла aerocool,transaction,price ru,transactional,P1,product pages,supporting,Использовать только при актуальных price facts во front matter.
-kw-209,uk,наявність крісла aerocool,transaction,availability uk,transactional,P1,product pages,supporting,Зависит от product front matter и бизнес-процесса.
-kw-210,ru,наличие кресла aerocool,transaction,availability ru,transactional,P1,product pages,supporting,Зависит от product front matter и бизнес-процесса.
-kw-211,uk,доставка aerocool,support,delivery uk,support,P1,/faq/,current,Поддерживающий доверительный запрос.
-kw-212,ru,доставка aerocool,support,delivery ru,support,P1,/ru/faq/,current,Поддерживающий доверительный запрос.
-kw-213,uk,гарантія aerocool,support,warranty uk,support,P1,/faq/,current,Поддерживающий доверительный запрос.
-kw-214,ru,гарантия aerocool,support,warranty ru,support,P1,/ru/faq/,current,Поддерживающий доверительный запрос.
-kw-215,uk,оплата aerocool,support,payment uk,support,P2,/faq/,current,Поддерживать только фактическими условиями.
-kw-216,ru,оплата aerocool,support,payment ru,support,P2,/ru/faq/,current,Поддерживать только фактическими условиями.
-kw-217,uk,повернення aerocool,support,returns uk,support,P2,/faq/,current,Поддерживать только фактическими условиями.
-kw-218,ru,возврат aerocool,support,returns ru,support,P2,/ru/faq/,current,Поддерживать только фактическими условиями.
-kw-219,uk,контакти aerocool,support,contacts uk,navigation,P1,/contact/,current,Навигационный запрос контактов.
-kw-220,ru,контакты aerocool,support,contacts ru,navigation,P1,/ru/contact/,current,Навигационный запрос контактов.
-kw-221,uk,faq aerocool,support,FAQ uk,support,P1,/faq/,current,"FAQ остается полезным для пользователей, не как ставка на FAQ rich result."
-kw-222,ru,faq aerocool,support,FAQ ru,support,P1,/ru/faq/,current,"FAQ остается полезным для пользователей, не как ставка на FAQ rich result."
-kw-223,uk,питання про крісла aerocool,support,FAQ uk,support,P1,/faq/,current,Естественный украинский FAQ-запрос.
-kw-224,ru,вопросы о креслах aerocool,support,FAQ ru,support,P1,/ru/faq/,current,Естественный русский FAQ-запрос.
-kw-225,uk,про бренд aerocool,brand trust,about uk,navigation,P1,/about/,current,Доверительный брендовый запрос.
-kw-226,ru,о бренде aerocool,brand trust,about ru,navigation,P1,/ru/about/,current,Доверительный брендовый запрос.
-kw-227,any,aerocool sky launch,news,SKY launch,news,P2,/news/sky-series-launch/ | /ru/news/sky-series-launch/,current,Брендовая новость/запуск.
-kw-228,any,aerocool wing series,news,WING launch,news,P2,/news/wing-series-launch/ | /ru/news/wing-series-launch/,current,Брендовая новость/запуск.
-kw-229,any,aerocool xtal,news,XTAL launch,news,P2,/news/xtal-series-launch/ | /ru/news/xtal-series-launch/,current,Брендовая новость/запуск и серия.
-kw-230,any,sky lite 8D,news,SKY Lite launch,news,P2,/news/sky-lite-launch/ | /ru/news/sky-lite-launch/,current,Новостной и модельный long-tail.
-kw-231,any,sky 360 11D,news,SKY 360 launch,news,P2,/news/sky-360-launch/ | /ru/news/sky-360-launch/,current,Новостной и модельный long-tail.
-kw-232,any,aerocool sync5,news,mechanism update,news,P2,/news/sync4-sync5-mechanism-update/ | /ru/news/sync4-sync5-mechanism-update/,current,Новость о механизмах и спецификациях.
-kw-233,any,sync4 sync5 aerocool,news,mechanism update,news,P2,/news/sync4-sync5-mechanism-update/ | /ru/news/sync4-sync5-mechanism-update/,current,Новость о механизмах и спецификациях.
-kw-234,uk,SKY WING чи XTAL,comparison,all series uk,commercial investigation,P1,/articles/sky-vs-wing-vs-xtal/,current,Страница опубликована; сравнение всех трех серий не должно дублировать WING vs XTAL и SKY Lite vs SKY 360.
-kw-235,ru,SKY WING или XTAL,comparison,all series ru,commercial investigation,P1,/ru/articles/sky-vs-wing-vs-xtal/,current,Страница опубликована; сравнение всех трех серий не должно дублировать WING vs XTAL и SKY Lite vs SKY 360.
-kw-236,any,sky vs wing vs xtal,comparison,all series english,commercial investigation,P1,/articles/sky-vs-wing-vs-xtal/ | /ru/articles/sky-vs-wing-vs-xtal/,current,"Страница опубликована; англоязычная формула сравнения серий для сниппетов, якорей и FAQ."
-kw-237,ru,сравнение серий Aerocool SKY WING XTAL,comparison,all series ru,commercial investigation,P1,/ru/articles/sky-vs-wing-vs-xtal/,current,Страница опубликована; русский long-tail под выбор между всеми сериями.
-kw-238,uk,як вибрати крісло для довгої роботи,guide,posture and long work uk,informational,P1,/articles/chair-for-posture-and-long-work/,current,"Поддерживающий запрос про длительную работу, посадку и рабочее место."
-kw-239,ru,как выбрать кресло для долгой работы,guide,posture and long work ru,informational,P1,/ru/articles/chair-for-posture-and-long-work/,current,"Поддерживающий запрос про длительную работу, посадку и рабочее место."
-kw-240,uk,як налаштувати крісло,guide,chair setup uk,informational,P1,/articles/chair-setup-after-purchase/,current,Главный инструкционный запрос страницы настройки кресла после покупки.
-kw-241,ru,как настроить кресло,guide,chair setup ru,informational,P1,/ru/articles/chair-setup-after-purchase/,current,Главный инструкционный запрос страницы настройки кресла после покупки.
-kw-242,uk,налаштування крісла після покупки,guide,chair setup uk,informational,P1,/articles/chair-setup-after-purchase/,current,"Long-tail после покупки: высота, сиденье, подлокотники, спинка и Synchronous Tilt."
-kw-243,ru,настройка кресла после покупки,guide,chair setup ru,informational,P1,/ru/articles/chair-setup-after-purchase/,current,"Long-tail после покупки: высота, сиденье, подлокотники, спинка и Synchronous Tilt."
-kw-244,uk,крісла для офісної команди,guide,office team uk,commercial investigation,P1,/articles/chairs-for-office-team/,current,B2B/командный сценарий выбора моделей под разные рабочие места.
-kw-245,ru,кресла для офисной команды,guide,office team ru,commercial investigation,P1,/ru/articles/chairs-for-office-team/,current,B2B/командный сценарий выбора моделей под разные рабочие места.
-kw-246,uk,як вибрати крісла для офісу,guide,office team uk,commercial investigation,P1,/articles/chairs-for-office-team/,current,"Запрос для офисного выбора, закупки и распределения моделей между сотрудниками."
-kw-247,ru,как выбрать кресла для офиса,guide,office team ru,commercial investigation,P1,/ru/articles/chairs-for-office-team/,current,"Запрос для офисного выбора, закупки и распределения моделей между сотрудниками."
-kw-248,uk,Aerocool гіди з вибору крісел,news,chair selection guides update uk,news,P2,/news/aerocool-chair-selection-guides-update/,current,Новостной запрос про расширение кластера гидов по выбору кресел.
-kw-249,ru,Aerocool гиды по выбору кресел,news,chair selection guides update ru,news,P2,/ru/news/aerocool-chair-selection-guides-update/,current,Новостной запрос про расширение кластера гидов по выбору кресел.
-kw-250,uk,Aerocool практичні гіди про крісла,news,practical guides update uk,news,P2,/news/aerocool-practical-chair-guides-update/,current,"Новостной запрос про практические гайды по посадке, настройке и командному выбору."
-kw-251,ru,Aerocool практические гиды по креслам,news,practical guides update ru,news,P2,/ru/news/aerocool-practical-chair-guides-update/,current,"Новостной запрос про практические гайды по посадке, настройке и командному выбору."
+id,lang,keyword,cluster,subcluster,intent,priority,target_url,target_scope,status,funnel_stage,business_value,gsc_impressions,gsc_clicks,gsc_ctr,gsc_avg_position,country,device,last_checked,notes
+kw-001,uk,aerocool,brand,core brand,navigation,P0,/,single_url,current,navigation,high,,,,,,,,"Главный брендовый запрос, покрыт всеми ключевыми страницами."
+kw-002,uk,aerocool ukraine,brand,country modifier,navigation,P0,/,single_url,current,navigation,high,,,,,,,,Англоязычный бренд + страна; полезен для брендовой навигации.
+kw-003,uk,aerocool україна,brand,country modifier,navigation,P0,/,single_url,current,navigation,high,,,,,,,,Локальный брендовый запрос под официальный сайт в Украине.
+kw-004,uk,офіційний сайт aerocool,brand,official site,navigation,P0,/,single_url,current,navigation,high,,,,,,,,"Усилять через главную, About и Organization/schema, без чрезмерных обещаний."
+kw-005,uk,крісла aerocool,brand,chairs brand,commercial,P0,/,single_url,current,consideration,high,,,,,,,,Базовая брендовая категория.
+kw-006,uk,ігрові крісла aerocool,brand,gaming brand,commercial,P0,/products/,single_url,current,consideration,high,,,,,,,,Держать связку home -> catalog -> WING/XTAL.
+kw-007,uk,офісні крісла aerocool,brand,office brand,commercial,P0,/products/,single_url,current,consideration,high,,,,,,,,Держать связку home -> catalog -> SKY/Loft Air/Mesh.
+kw-008,uk,комп'ютерні крісла aerocool,brand,computer brand,commercial,P0,/products/,single_url,current,consideration,high,,,,,,,,Широкий брендовый commercial cluster.
+kw-009,uk,ергономічні крісла aerocool,brand,ergonomic brand,commercial investigation,P1,/about/,single_url,current,consideration,medium,,,,,,,,"Поддерживать через About, каталог и статьи."
+kw-010,uk,каталог крісел aerocool,brand,catalog,commercial,P0,/products/,single_url,current,consideration,high,,,,,,,,Основной каталоговый запрос.
+kw-011,ru,aerocool,brand,core brand,navigation,P0,/ru/,single_url,current,navigation,high,,,,,,,,"Главный брендовый запрос, покрыт всеми ключевыми страницами."
+kw-012,ru,aerocool ukraine,brand,country modifier,navigation,P0,/ru/,single_url,current,navigation,high,,,,,,,,Англоязычный бренд + страна; полезен для брендовой навигации.
+kw-013,ru,aerocool украина,brand,country modifier,navigation,P0,/ru/,single_url,current,navigation,high,,,,,,,,Локальный брендовый запрос под официальный сайт в Украине.
+kw-014,ru,официальный сайт aerocool,brand,official site,navigation,P0,/ru/,single_url,current,navigation,high,,,,,,,,"Усилять через главную, About и Organization/schema, без чрезмерных обещаний."
+kw-015,ru,кресла aerocool,brand,chairs brand,commercial,P0,/ru/,single_url,current,consideration,high,,,,,,,,Базовая брендовая категория.
+kw-016,ru,игровые кресла aerocool,brand,gaming brand,commercial,P0,/ru/products/,single_url,current,consideration,high,,,,,,,,Держать связку home -> catalog -> WING/XTAL.
+kw-017,ru,офисные кресла aerocool,brand,office brand,commercial,P0,/ru/products/,single_url,current,consideration,high,,,,,,,,Держать связку home -> catalog -> SKY/Loft Air/Mesh.
+kw-018,ru,компьютерные кресла aerocool,brand,computer brand,commercial,P0,/ru/products/,single_url,current,consideration,high,,,,,,,,Широкий брендовый commercial cluster.
+kw-019,ru,эргономичные кресла aerocool,brand,ergonomic brand,commercial investigation,P1,/ru/about/,single_url,current,consideration,medium,,,,,,,,"Поддерживать через About, каталог и статьи."
+kw-020,ru,каталог кресел aerocool,brand,catalog,commercial,P0,/ru/products/,single_url,current,consideration,high,,,,,,,,Основной каталоговый запрос.
+kw-021,uk,ігрове крісло,commercial category,gaming chair,commercial investigation,P0,/products/,single_url,current,consideration,high,,,,,,,,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
+kw-022,ru,игровое кресло,commercial category,gaming chair,commercial investigation,P0,/ru/products/,single_url,current,consideration,high,,,,,,,,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
+kw-023,uk,ігрові крісла,commercial category,gaming chairs,commercial investigation,P0,/products/,single_url,current,consideration,high,,,,,,,,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
+kw-024,ru,игровые кресла,commercial category,gaming chairs,commercial investigation,P0,/ru/products/,single_url,current,consideration,high,,,,,,,,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
+kw-025,uk,офісне крісло,commercial category,office chair,commercial investigation,P0,/products/,single_url,current,consideration,high,,,,,,,,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
+kw-026,ru,офисное кресло,commercial category,office chair,commercial investigation,P0,/ru/products/,single_url,current,consideration,high,,,,,,,,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
+kw-027,uk,офісні крісла,commercial category,office chairs,commercial investigation,P0,/products/,single_url,current,consideration,high,,,,,,,,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
+kw-028,ru,офисные кресла,commercial category,office chairs,commercial investigation,P0,/ru/products/,single_url,current,consideration,high,,,,,,,,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
+kw-029,uk,комп'ютерне крісло,commercial category,computer chair,commercial investigation,P0,/products/,single_url,current,consideration,high,,,,,,,,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
+kw-030,ru,компьютерное кресло,commercial category,computer chair,commercial investigation,P0,/ru/products/,single_url,current,consideration,high,,,,,,,,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
+kw-031,uk,комп'ютерні крісла,commercial category,computer chairs,commercial investigation,P0,/products/,single_url,current,consideration,high,,,,,,,,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
+kw-032,ru,компьютерные кресла,commercial category,computer chairs,commercial investigation,P0,/ru/products/,single_url,current,consideration,high,,,,,,,,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
+kw-033,uk,ергономічне крісло,commercial category,ergonomic chair,commercial investigation,P0,/articles/how-to-choose-aerocool-chair/,single_url,current,consideration,high,,,,,,,,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
+kw-034,ru,эргономичное кресло,commercial category,ergonomic chair,commercial investigation,P0,/ru/articles/how-to-choose-aerocool-chair/,single_url,current,consideration,high,,,,,,,,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
+kw-035,uk,ергономічні крісла,commercial category,ergonomic chairs,commercial investigation,P1,/products/,single_url,current,consideration,medium,,,,,,,,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
+kw-036,ru,эргономичные кресла,commercial category,ergonomic chairs,commercial investigation,P1,/ru/products/,single_url,current,consideration,medium,,,,,,,,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
+kw-037,uk,крісло для роботи,commercial category,work chair,commercial investigation,P0,/articles/how-to-choose-aerocool-chair/,single_url,current,consideration,high,,,,,,,,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
+kw-038,ru,кресло для работы,commercial category,work chair,commercial investigation,P0,/ru/articles/how-to-choose-aerocool-chair/,single_url,current,consideration,high,,,,,,,,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
+kw-039,uk,крісло для роботи за комп'ютером,commercial category,computer work chair,commercial investigation,P1,/articles/chair-for-computer-work/,single_url,current,consideration,medium,,,,,,,,Безбрендовый спрос; локальный draft уже выделяет отдельную посадочную под полный рабочий день.
+kw-040,ru,кресло для работы за компьютером,commercial category,computer work chair,commercial investigation,P1,/ru/articles/chair-for-computer-work/,single_url,current,consideration,medium,,,,,,,,Безбрендовый спрос; локальный draft уже выделяет отдельную посадочную под полный рабочий день.
+kw-041,uk,крісло для home office,commercial category,home office chair,commercial investigation,P0,/articles/how-to-choose-aerocool-chair/,single_url,current,consideration,high,,,,,,,,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
+kw-042,ru,кресло для home office,commercial category,home office chair,commercial investigation,P0,/ru/articles/how-to-choose-aerocool-chair/,single_url,current,consideration,high,,,,,,,,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
+kw-043,uk,крісло для геймінгу,commercial category,gaming use,commercial investigation,P1,/articles/how-to-choose-aerocool-chair/,single_url,current,consideration,medium,,,,,,,,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
+kw-044,ru,кресло для гейминга,commercial category,gaming use,commercial investigation,P1,/ru/articles/how-to-choose-aerocool-chair/,single_url,current,consideration,medium,,,,,,,,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
+kw-045,uk,крісло для тривалої роботи,commercial category,long work,commercial investigation,P1,/articles/chair-for-posture-and-long-work/,single_url,current,consideration,medium,,,,,,,,Основной запрос для статьи о длительной работе и посадке без медицинских обещаний.
+kw-046,ru,кресло для долгой работы,commercial category,long work,commercial investigation,P1,/ru/articles/chair-for-posture-and-long-work/,single_url,current,consideration,medium,,,,,,,,Основной запрос для статьи о длительной работе и посадке без медицинских обещаний.
+kw-047,uk,крісло для постави,commercial category,posture,commercial investigation,P1,/articles/chair-for-posture-and-long-work/,single_url,current,consideration,medium,,,,,,,,Основной короткий запрос страницы о посадке и длительной работе без медицинских обещаний.
+kw-048,ru,кресло для осанки,commercial category,posture,commercial investigation,P1,/ru/articles/chair-for-posture-and-long-work/,single_url,current,consideration,medium,,,,,,,,Основной короткий запрос страницы о посадке и длительной работе без медицинских обещаний.
+kw-049,uk,зручне крісло для дому,commercial category,home comfort,commercial investigation,P2,/products/sky/,single_url,growth,consideration,low,,,,,,,,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
+kw-050,ru,удобное кресло для дома,commercial category,home comfort,commercial investigation,P2,/ru/products/sky/,single_url,growth,consideration,low,,,,,,,,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
+kw-051,uk,крісло для навчання,commercial category,study chair,commercial investigation,P3,/products/sky/,single_url,growth,consideration,low,,,,,,,,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
+kw-052,ru,кресло для учебы,commercial category,study chair,commercial investigation,P3,/ru/products/sky/,single_url,growth,consideration,low,,,,,,,,Безбрендовый спрос; важно не каннибализировать каталог и статьи.
+kw-053,uk,aerocool sky,series,SKY,commercial investigation,P0,/products/sky/,single_url,current,consideration,high,,,,,,,,Entity home серии SKY.
+kw-054,ru,aerocool sky,series,SKY,commercial investigation,P0,/ru/products/sky/,single_url,current,consideration,high,,,,,,,,Entity home серии SKY.
+kw-055,uk,офісне крісло aerocool sky,series,SKY office,commercial,P0,/products/sky/,single_url,current,consideration,high,,,,,,,,Средний коммерческий интент серии.
+kw-056,ru,офисное кресло aerocool sky,series,SKY office,commercial,P0,/ru/products/sky/,single_url,current,consideration,high,,,,,,,,Средний коммерческий интент серии.
+kw-057,uk,комп'ютерне крісло aerocool sky,series,SKY computer,commercial,P0,/products/sky/,single_url,current,consideration,high,,,,,,,,Средний коммерческий интент серии.
+kw-058,ru,компьютерное кресло aerocool sky,series,SKY computer,commercial,P0,/ru/products/sky/,single_url,current,consideration,high,,,,,,,,Средний коммерческий интент серии.
+kw-059,uk,aerocool wing,series,WING,commercial investigation,P0,/products/wing/,single_url,current,consideration,high,,,,,,,,Entity home серии WING.
+kw-060,ru,aerocool wing,series,WING,commercial investigation,P0,/ru/products/wing/,single_url,current,consideration,high,,,,,,,,Entity home серии WING.
+kw-061,uk,ігрове крісло aerocool wing,series,WING gaming,commercial,P0,/products/wing/,single_url,current,consideration,high,,,,,,,,Главный commercial cluster серии WING.
+kw-062,ru,игровое кресло aerocool wing,series,WING gaming,commercial,P0,/ru/products/wing/,single_url,current,consideration,high,,,,,,,,Главный commercial cluster серии WING.
+kw-063,uk,офісне крісло aerocool wing,series,WING office,commercial,P1,/products/wing/,single_url,current,consideration,medium,,,,,,,,Поддерживающий сценарий WING для работы/home office.
+kw-064,ru,офисное кресло aerocool wing,series,WING office,commercial,P1,/ru/products/wing/,single_url,current,consideration,medium,,,,,,,,Поддерживающий сценарий WING для работы/home office.
+kw-065,uk,aerocool xtal,series,XTAL,commercial investigation,P0,/products/xtal/,single_url,current,consideration,high,,,,,,,,Entity home серии XTAL.
+kw-066,ru,aerocool xtal,series,XTAL,commercial investigation,P0,/ru/products/xtal/,single_url,current,consideration,high,,,,,,,,Entity home серии XTAL.
+kw-067,uk,ігрове крісло aerocool xtal,series,XTAL gaming,commercial,P0,/products/xtal/,single_url,current,consideration,high,,,,,,,,Главный gaming/computer cluster серии XTAL.
+kw-068,ru,игровое кресло aerocool xtal,series,XTAL gaming,commercial,P0,/ru/products/xtal/,single_url,current,consideration,high,,,,,,,,Главный gaming/computer cluster серии XTAL.
+kw-069,uk,комп'ютерне крісло aerocool xtal,series,XTAL computer,commercial,P0,/products/xtal/,single_url,current,consideration,high,,,,,,,,Средний commercial cluster серии XTAL.
+kw-070,ru,компьютерное кресло aerocool xtal,series,XTAL computer,commercial,P0,/ru/products/xtal/,single_url,current,consideration,high,,,,,,,,Средний commercial cluster серии XTAL.
+kw-071,any,aerocool sky lite,product model,sky lite,commercial,P1,/products/sky/lite/ | /ru/products/sky/lite/,url_group,current,consideration,medium,,,,,,,,Модельный запрос; отслеживать отдельно от серии.
+kw-072,uk,купити aerocool sky lite,product transaction,sky lite,transactional,P0,/products/sky/lite/,single_url,current,purchase,high,,,,,,,,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
+kw-073,ru,купить aerocool sky lite,product transaction,sky lite,transactional,P0,/ru/products/sky/lite/,single_url,current,purchase,high,,,,,,,,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
+kw-074,uk,офісне крісло aerocool sky lite,product type modifier,sky lite,commercial,P1,/products/sky/lite/,single_url,current,consideration,medium,,,,,,,,Основной типовой модификатор товарной страницы.
+kw-075,ru,офисное кресло aerocool sky lite,product type modifier,sky lite,commercial,P1,/ru/products/sky/lite/,single_url,current,consideration,medium,,,,,,,,Основной типовой модификатор товарной страницы.
+kw-076,any,aerocool sky 360,product model,sky 360,commercial,P1,/products/sky/360/ | /ru/products/sky/360/,url_group,current,consideration,medium,,,,,,,,Модельный запрос; отслеживать отдельно от серии.
+kw-077,uk,купити aerocool sky 360,product transaction,sky 360,transactional,P0,/products/sky/360/,single_url,current,purchase,high,,,,,,,,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
+kw-078,ru,купить aerocool sky 360,product transaction,sky 360,transactional,P0,/ru/products/sky/360/,single_url,current,purchase,high,,,,,,,,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
+kw-079,uk,комп'ютерне крісло aerocool sky 360,product type modifier,sky 360,commercial,P1,/products/sky/360/,single_url,current,consideration,medium,,,,,,,,Основной типовой модификатор товарной страницы.
+kw-080,ru,компьютерное кресло aerocool sky 360,product type modifier,sky 360,commercial,P1,/ru/products/sky/360/,single_url,current,consideration,medium,,,,,,,,Основной типовой модификатор товарной страницы.
+kw-081,any,aerocool wing racer black,product model,wing racer black,commercial,P1,/products/wing/racer-black/ | /ru/products/wing/racer-black/,url_group,current,consideration,medium,,,,,,,,Модельный запрос; отслеживать отдельно от серии.
+kw-082,uk,купити aerocool wing racer black,product transaction,wing racer black,transactional,P0,/products/wing/racer-black/,single_url,current,purchase,high,,,,,,,,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
+kw-083,ru,купить aerocool wing racer black,product transaction,wing racer black,transactional,P0,/ru/products/wing/racer-black/,single_url,current,purchase,high,,,,,,,,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
+kw-084,uk,ігрове крісло aerocool wing racer black,product type modifier,wing racer black,commercial,P1,/products/wing/racer-black/,single_url,current,consideration,medium,,,,,,,,Основной типовой модификатор товарной страницы.
+kw-085,ru,игровое кресло aerocool wing racer black,product type modifier,wing racer black,commercial,P1,/ru/products/wing/racer-black/,single_url,current,consideration,medium,,,,,,,,Основной типовой модификатор товарной страницы.
+kw-086,any,aerocool wing racer dark grey,product model,wing racer dark grey,commercial,P1,/products/wing/racer-dark-grey/ | /ru/products/wing/racer-dark-grey/,url_group,current,consideration,medium,,,,,,,,Модельный запрос; отслеживать отдельно от серии.
+kw-087,uk,купити aerocool wing racer dark grey,product transaction,wing racer dark grey,transactional,P0,/products/wing/racer-dark-grey/,single_url,current,purchase,high,,,,,,,,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
+kw-088,ru,купить aerocool wing racer dark grey,product transaction,wing racer dark grey,transactional,P0,/ru/products/wing/racer-dark-grey/,single_url,current,purchase,high,,,,,,,,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
+kw-089,uk,ігрове крісло aerocool wing racer dark grey,product type modifier,wing racer dark grey,commercial,P1,/products/wing/racer-dark-grey/,single_url,current,consideration,medium,,,,,,,,Основной типовой модификатор товарной страницы.
+kw-090,ru,игровое кресло aerocool wing racer dark grey,product type modifier,wing racer dark grey,commercial,P1,/ru/products/wing/racer-dark-grey/,single_url,current,consideration,medium,,,,,,,,Основной типовой модификатор товарной страницы.
+kw-091,any,aerocool wing loft air dark grey,product model,wing loft air dark grey,commercial,P1,/products/wing/loft-air-dark-grey/ | /ru/products/wing/loft-air-dark-grey/,url_group,current,consideration,medium,,,,,,,,Модельный запрос; отслеживать отдельно от серии.
+kw-092,uk,купити aerocool wing loft air dark grey,product transaction,wing loft air dark grey,transactional,P0,/products/wing/loft-air-dark-grey/,single_url,current,purchase,high,,,,,,,,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
+kw-093,ru,купить aerocool wing loft air dark grey,product transaction,wing loft air dark grey,transactional,P0,/ru/products/wing/loft-air-dark-grey/,single_url,current,purchase,high,,,,,,,,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
+kw-094,uk,офісне крісло aerocool wing loft air dark grey,product type modifier,wing loft air dark grey,commercial,P1,/products/wing/loft-air-dark-grey/,single_url,current,consideration,medium,,,,,,,,Основной типовой модификатор товарной страницы.
+kw-095,ru,офисное кресло aerocool wing loft air dark grey,product type modifier,wing loft air dark grey,commercial,P1,/ru/products/wing/loft-air-dark-grey/,single_url,current,consideration,medium,,,,,,,,Основной типовой модификатор товарной страницы.
+kw-096,any,aerocool wing loft air light grey,product model,wing loft air light grey,commercial,P1,/products/wing/loft-air-light-grey/ | /ru/products/wing/loft-air-light-grey/,url_group,current,consideration,medium,,,,,,,,Модельный запрос; отслеживать отдельно от серии.
+kw-097,uk,купити aerocool wing loft air light grey,product transaction,wing loft air light grey,transactional,P0,/products/wing/loft-air-light-grey/,single_url,current,purchase,high,,,,,,,,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
+kw-098,ru,купить aerocool wing loft air light grey,product transaction,wing loft air light grey,transactional,P0,/ru/products/wing/loft-air-light-grey/,single_url,current,purchase,high,,,,,,,,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
+kw-099,uk,офісне крісло aerocool wing loft air light grey,product type modifier,wing loft air light grey,commercial,P1,/products/wing/loft-air-light-grey/,single_url,current,consideration,medium,,,,,,,,Основной типовой модификатор товарной страницы.
+kw-100,ru,офисное кресло aerocool wing loft air light grey,product type modifier,wing loft air light grey,commercial,P1,/ru/products/wing/loft-air-light-grey/,single_url,current,consideration,medium,,,,,,,,Основной типовой модификатор товарной страницы.
+kw-101,any,aerocool wing mesh black,product model,wing mesh black,commercial,P1,/products/wing/mesh-black/ | /ru/products/wing/mesh-black/,url_group,current,consideration,medium,,,,,,,,Модельный запрос; отслеживать отдельно от серии.
+kw-102,uk,купити aerocool wing mesh black,product transaction,wing mesh black,transactional,P0,/products/wing/mesh-black/,single_url,current,purchase,high,,,,,,,,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
+kw-103,ru,купить aerocool wing mesh black,product transaction,wing mesh black,transactional,P0,/ru/products/wing/mesh-black/,single_url,current,purchase,high,,,,,,,,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
+kw-104,uk,комп'ютерне крісло aerocool wing mesh black,product type modifier,wing mesh black,commercial,P1,/products/wing/mesh-black/,single_url,current,consideration,medium,,,,,,,,Основной типовой модификатор товарной страницы.
+kw-105,ru,компьютерное кресло aerocool wing mesh black,product type modifier,wing mesh black,commercial,P1,/ru/products/wing/mesh-black/,single_url,current,consideration,medium,,,,,,,,Основной типовой модификатор товарной страницы.
+kw-106,any,aerocool xtal racer black,product model,xtal racer black,commercial,P1,/products/xtal/racer-black/ | /ru/products/xtal/racer-black/,url_group,current,consideration,medium,,,,,,,,Модельный запрос; отслеживать отдельно от серии.
+kw-107,uk,купити aerocool xtal racer black,product transaction,xtal racer black,transactional,P0,/products/xtal/racer-black/,single_url,current,purchase,high,,,,,,,,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
+kw-108,ru,купить aerocool xtal racer black,product transaction,xtal racer black,transactional,P0,/ru/products/xtal/racer-black/,single_url,current,purchase,high,,,,,,,,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
+kw-109,uk,ігрове крісло aerocool xtal racer black,product type modifier,xtal racer black,commercial,P1,/products/xtal/racer-black/,single_url,current,consideration,medium,,,,,,,,Основной типовой модификатор товарной страницы.
+kw-110,ru,игровое кресло aerocool xtal racer black,product type modifier,xtal racer black,commercial,P1,/ru/products/xtal/racer-black/,single_url,current,consideration,medium,,,,,,,,Основной типовой модификатор товарной страницы.
+kw-111,any,aerocool xtal racer dark grey,product model,xtal racer dark grey,commercial,P1,/products/xtal/racer-dark-grey/ | /ru/products/xtal/racer-dark-grey/,url_group,current,consideration,medium,,,,,,,,Модельный запрос; отслеживать отдельно от серии.
+kw-112,uk,купити aerocool xtal racer dark grey,product transaction,xtal racer dark grey,transactional,P0,/products/xtal/racer-dark-grey/,single_url,current,purchase,high,,,,,,,,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
+kw-113,ru,купить aerocool xtal racer dark grey,product transaction,xtal racer dark grey,transactional,P0,/ru/products/xtal/racer-dark-grey/,single_url,current,purchase,high,,,,,,,,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
+kw-114,uk,ігрове крісло aerocool xtal racer dark grey,product type modifier,xtal racer dark grey,commercial,P1,/products/xtal/racer-dark-grey/,single_url,current,consideration,medium,,,,,,,,Основной типовой модификатор товарной страницы.
+kw-115,ru,игровое кресло aerocool xtal racer dark grey,product type modifier,xtal racer dark grey,commercial,P1,/ru/products/xtal/racer-dark-grey/,single_url,current,consideration,medium,,,,,,,,Основной типовой модификатор товарной страницы.
+kw-116,any,aerocool xtal loft air dark grey,product model,xtal loft air dark grey,commercial,P1,/products/xtal/loft-air-dark-grey/ | /ru/products/xtal/loft-air-dark-grey/,url_group,current,consideration,medium,,,,,,,,Модельный запрос; отслеживать отдельно от серии.
+kw-117,uk,купити aerocool xtal loft air dark grey,product transaction,xtal loft air dark grey,transactional,P0,/products/xtal/loft-air-dark-grey/,single_url,current,purchase,high,,,,,,,,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
+kw-118,ru,купить aerocool xtal loft air dark grey,product transaction,xtal loft air dark grey,transactional,P0,/ru/products/xtal/loft-air-dark-grey/,single_url,current,purchase,high,,,,,,,,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
+kw-119,uk,офісне крісло aerocool xtal loft air dark grey,product type modifier,xtal loft air dark grey,commercial,P1,/products/xtal/loft-air-dark-grey/,single_url,current,consideration,medium,,,,,,,,Основной типовой модификатор товарной страницы.
+kw-120,ru,офисное кресло aerocool xtal loft air dark grey,product type modifier,xtal loft air dark grey,commercial,P1,/ru/products/xtal/loft-air-dark-grey/,single_url,current,consideration,medium,,,,,,,,Основной типовой модификатор товарной страницы.
+kw-121,any,aerocool xtal loft air light grey,product model,xtal loft air light grey,commercial,P1,/products/xtal/loft-air-light-grey/ | /ru/products/xtal/loft-air-light-grey/,url_group,current,consideration,medium,,,,,,,,Модельный запрос; отслеживать отдельно от серии.
+kw-122,uk,купити aerocool xtal loft air light grey,product transaction,xtal loft air light grey,transactional,P0,/products/xtal/loft-air-light-grey/,single_url,current,purchase,high,,,,,,,,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
+kw-123,ru,купить aerocool xtal loft air light grey,product transaction,xtal loft air light grey,transactional,P0,/ru/products/xtal/loft-air-light-grey/,single_url,current,purchase,high,,,,,,,,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
+kw-124,uk,офісне крісло aerocool xtal loft air light grey,product type modifier,xtal loft air light grey,commercial,P1,/products/xtal/loft-air-light-grey/,single_url,current,consideration,medium,,,,,,,,Основной типовой модификатор товарной страницы.
+kw-125,ru,офисное кресло aerocool xtal loft air light grey,product type modifier,xtal loft air light grey,commercial,P1,/ru/products/xtal/loft-air-light-grey/,single_url,current,consideration,medium,,,,,,,,Основной типовой модификатор товарной страницы.
+kw-126,any,aerocool xtal mesh black,product model,xtal mesh black,commercial,P1,/products/xtal/mesh-black/ | /ru/products/xtal/mesh-black/,url_group,current,consideration,medium,,,,,,,,Модельный запрос; отслеживать отдельно от серии.
+kw-127,uk,купити aerocool xtal mesh black,product transaction,xtal mesh black,transactional,P0,/products/xtal/mesh-black/,single_url,current,purchase,high,,,,,,,,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
+kw-128,ru,купить aerocool xtal mesh black,product transaction,xtal mesh black,transactional,P0,/ru/products/xtal/mesh-black/,single_url,current,purchase,high,,,,,,,,Транзакционный SKU-запрос; факты покупки должны совпадать с front matter.
+kw-129,uk,комп'ютерне крісло aerocool xtal mesh black,product type modifier,xtal mesh black,commercial,P1,/products/xtal/mesh-black/,single_url,current,consideration,medium,,,,,,,,Основной типовой модификатор товарной страницы.
+kw-130,ru,компьютерное кресло aerocool xtal mesh black,product type modifier,xtal mesh black,commercial,P1,/ru/products/xtal/mesh-black/,single_url,current,consideration,medium,,,,,,,,Основной типовой модификатор товарной страницы.
+kw-131,any,racer,material,Racer,commercial investigation,P1,/articles/racer-vs-loft-air-vs-mesh/ | /ru/articles/racer-vs-loft-air-vs-mesh/,url_group,current,consideration,medium,,,,,,,,Формат поверхности; поддерживает WING и XTAL.
+kw-132,any,loft air,material,Loft Air,commercial investigation,P1,/articles/racer-vs-loft-air-vs-mesh/ | /ru/articles/racer-vs-loft-air-vs-mesh/,url_group,current,consideration,medium,,,,,,,,Формат поверхности; поддерживает WING и XTAL.
+kw-133,any,mesh,material,Mesh,commercial investigation,P1,/articles/racer-vs-loft-air-vs-mesh/ | /ru/articles/racer-vs-loft-air-vs-mesh/,url_group,current,consideration,medium,,,,,,,,Формат поверхности и вентиляции.
+kw-134,any,leatherette,material,Leatherette,commercial investigation,P1,/articles/racer-vs-loft-air-vs-mesh/ | /ru/articles/racer-vs-loft-air-vs-mesh/,url_group,current,consideration,medium,,,,,,,,"Материал Racer; сравнивать с вентиляцией, а не продавать как универсально лучший."
+kw-135,any,breathable mesh,material,breathable mesh,commercial investigation,P1,/products/sky/ | /ru/products/sky/,url_group,current,consideration,medium,,,,,,,,Англоязычный технотермин в спецификациях и описаниях.
+kw-136,uk,вентильована сітка,material,mesh uk,commercial investigation,P1,/products/sky/,single_url,current,consideration,medium,,,,,,,,Украинский запрос по сетке и вентиляции.
+kw-137,ru,вентилируемая сетка,material,mesh ru,commercial investigation,P1,/ru/products/sky/,single_url,current,consideration,medium,,,,,,,,Русский запрос по сетке и вентиляции.
+kw-138,uk,вентильована поверхня,material,ventilation uk,commercial investigation,P1,/news/loft-air-and-mesh-focus/,single_url,current,consideration,medium,,,,,,,,Поддерживается новостью и материалами.
+kw-139,ru,вентилируемая поверхность,material,ventilation ru,commercial investigation,P1,/ru/news/loft-air-and-mesh-focus/,single_url,current,consideration,medium,,,,,,,,Поддерживается новостью и материалами.
+kw-140,uk,який матеріал крісла кращий,material,material choice uk,informational,P1,/articles/racer-vs-loft-air-vs-mesh/,single_url,current,awareness,medium,,,,,,,,Сравнительный информационный запрос.
+kw-141,ru,какой материал кресла лучше,material,material choice ru,informational,P1,/ru/articles/racer-vs-loft-air-vs-mesh/,single_url,current,awareness,medium,,,,,,,,Сравнительный информационный запрос.
+kw-142,any,mesh vs leatherette chair,material,english comparison,informational,P2,/articles/racer-vs-loft-air-vs-mesh/ | /ru/articles/racer-vs-loft-air-vs-mesh/,url_group,growth,awareness,low,,,,,,,,Английский long-tail; можно раскрыть в FAQ/таблице сравнения.
+kw-143,any,dark grey,color,dark grey,commercial,P1,/products/wing/racer-dark-grey/ | /ru/products/wing/racer-dark-grey/ | /products/wing/loft-air-dark-grey/ | /ru/products/wing/loft-air-dark-grey/ | /products/xtal/racer-dark-grey/ | /ru/products/xtal/racer-dark-grey/ | /products/xtal/loft-air-dark-grey/ | /ru/products/xtal/loft-air-dark-grey/,url_group,current,consideration,medium,,,,,,,,Цветовой модификатор для WING/XTAL. Цель уточнена до конкретных цветовых вариантов.
+kw-144,any,light grey,color,light grey,commercial,P1,/products/wing/loft-air-light-grey/ | /ru/products/wing/loft-air-light-grey/ | /products/xtal/loft-air-light-grey/ | /ru/products/xtal/loft-air-light-grey/,url_group,current,consideration,medium,,,,,,,,Цветовой модификатор для WING/XTAL Loft Air. Цель уточнена до конкретных цветовых вариантов.
+kw-145,any,black,color,black,commercial,P1,/products/wing/racer-black/ | /ru/products/wing/racer-black/ | /products/wing/mesh-black/ | /ru/products/wing/mesh-black/ | /products/xtal/racer-black/ | /ru/products/xtal/racer-black/ | /products/xtal/mesh-black/ | /ru/products/xtal/mesh-black/,url_group,current,consideration,medium,,,,,,,,Цветовой модификатор для Racer/Mesh. Цель уточнена до конкретных цветовых вариантов.
+kw-146,any,Synchronous Tilt,mechanic,tilt,informational,P0,/articles/what-is-synchronous-tilt/ | /ru/articles/what-is-synchronous-tilt/,url_group,current,awareness,high,,,,,,,,Стандарт написания проекта; не переводить в нижний регистр.
+kw-147,uk,що таке Synchronous Tilt,mechanic,tilt question uk,informational,P0,/articles/what-is-synchronous-tilt/,single_url,current,awareness,high,,,,,,,,Главный вопросный запрос по механизму.
+kw-148,ru,что такое Synchronous Tilt,mechanic,tilt question ru,informational,P0,/ru/articles/what-is-synchronous-tilt/,single_url,current,awareness,high,,,,,,,,Главный вопросный запрос по механизму.
+kw-149,uk,синхронний нахил крісла,mechanic,tilt local uk,informational,P1,/articles/what-is-synchronous-tilt/,single_url,current,awareness,medium,,,,,,,,Локализованная формулировка рядом с брендовым термином.
+kw-150,ru,синхронный наклон кресла,mechanic,tilt local ru,informational,P1,/ru/articles/what-is-synchronous-tilt/,single_url,current,awareness,medium,,,,,,,,Локализованная формулировка рядом с брендовым термином.
+kw-151,any,SYNC4,mechanic,SYNC4,informational,P0,/articles/sync4-sync5-mechanism-guide/ | /ru/articles/sync4-sync5-mechanism-guide/,url_group,current,awareness,high,,,,,,,,Механизм SKY Lite.
+kw-152,any,SYNC5,mechanic,SYNC5,informational,P0,/articles/sync4-sync5-mechanism-guide/ | /ru/articles/sync4-sync5-mechanism-guide/,url_group,current,awareness,high,,,,,,,,"Механизм SKY 360, WING и XTAL."
+kw-153,any,SYNC4 multi-adjustable,mechanic,SYNC4 exact,informational,P0,/articles/sync4-sync5-mechanism-guide/ | /ru/articles/sync4-sync5-mechanism-guide/,url_group,current,awareness,high,,,,,,,,Точное написание в характеристиках.
+kw-154,any,SYNC5 multi-adjustable,mechanic,SYNC5 exact,informational,P0,/articles/sync4-sync5-mechanism-guide/ | /ru/articles/sync4-sync5-mechanism-guide/,url_group,current,awareness,high,,,,,,,,Точное написание в характеристиках.
+kw-155,any,7D,adjustment,7D,commercial investigation,P0,/articles/how-to-choose-chair-by-adjustability/ | /ru/articles/how-to-choose-chair-by-adjustability/,url_group,current,consideration,high,,,,,,,,XTAL и общий гайд по регулировкам.
+kw-156,any,8D,adjustment,8D,commercial investigation,P0,/articles/how-to-choose-chair-by-adjustability/ | /ru/articles/how-to-choose-chair-by-adjustability/,url_group,current,consideration,high,,,,,,,,SKY Lite и общий гайд.
+kw-157,any,11D,adjustment,11D,commercial investigation,P0,/articles/how-to-choose-chair-by-adjustability/ | /ru/articles/how-to-choose-chair-by-adjustability/,url_group,current,consideration,high,,,,,,,,SKY 360/WING и общий гайд.
+kw-158,uk,7D 8D 11D регулювання,adjustment,range uk,informational,P0,/articles/how-to-choose-chair-by-adjustability/,single_url,current,awareness,high,,,,,,,,Ключевая формула статьи по регулировкам.
+kw-159,ru,7D 8D 11D регулировки,adjustment,range ru,informational,P0,/ru/articles/how-to-choose-chair-by-adjustability/,single_url,current,awareness,high,,,,,,,,Ключевая формула статьи по регулировкам.
+kw-160,uk,регулювання крісла,adjustment,chair adjustment uk,informational,P1,/articles/how-to-choose-chair-by-adjustability/,single_url,current,awareness,medium,,,,,,,,Широкий запрос статьи по регулировкам.
+kw-161,ru,регулировки кресла,adjustment,chair adjustment ru,informational,P1,/ru/articles/how-to-choose-chair-by-adjustability/,single_url,current,awareness,medium,,,,,,,,Широкий запрос статьи по регулировкам.
+kw-162,any,3D X 360 armrest,adjustment,armrest,commercial investigation,P1,/products/sky/360/ | /ru/products/sky/360/,url_group,current,consideration,medium,,,,,,,,Точный атрибут SKY 360.
+kw-163,any,4D X 360 armrest,adjustment,armrest,commercial investigation,P1,/products/wing/ | /ru/products/wing/,url_group,current,consideration,medium,,,,,,,,Точный атрибут WING.
+kw-164,uk,поперекова підтримка,adjustment,lumbar uk,commercial investigation,P1,/products/sky/,single_url,current,consideration,medium,,,,,,,,Поддерживает SKY и гайды по посадке.
+kw-165,ru,поясничная поддержка,adjustment,lumbar ru,commercial investigation,P1,/ru/products/sky/,single_url,current,consideration,medium,,,,,,,,Поддерживает SKY и гайды по посадке.
+kw-166,any,dual backrest,mechanic,WING backrest,informational,P1,/articles/wing-vs-xtal/ | /ru/articles/wing-vs-xtal/,url_group,current,awareness,medium,,,,,,,,Термин WING; можно расширять отдельным FAQ-блоком.
+kw-167,ru,двойная спинка,mechanic,WING backrest ru,informational,P1,/ru/articles/wing-vs-xtal/,single_url,current,awareness,medium,,,,,,,,Локализованный термин WING.
+kw-168,uk,подвійна спинка,mechanic,WING backrest uk,informational,P1,/articles/wing-vs-xtal/,single_url,current,awareness,medium,,,,,,,,Локализованный термин WING.
+kw-169,any,fully replaceable design,mechanic,XTAL replaceable,informational,P1,/products/xtal/ | /ru/products/xtal/,url_group,current,awareness,medium,,,,,,,,Термин XTAL; требует видимого подтверждения на страницах.
+kw-170,ru,конструкция со сменными элементами,mechanic,XTAL replaceable ru,informational,P1,/ru/products/xtal/,single_url,current,awareness,medium,,,,,,,,Локализованный термин XTAL.
+kw-171,uk,конструкція зі змінними елементами,mechanic,XTAL replaceable uk,informational,P1,/products/xtal/,single_url,current,awareness,medium,,,,,,,,Локализованный термин XTAL.
+kw-172,any,multi-angle lock,mechanic,tilt lock,informational,P2,/articles/what-is-synchronous-tilt/ | /ru/articles/what-is-synchronous-tilt/,url_group,supporting,awareness,low,,,,,,,,"Технический long-tail; держать как атрибут, не отдельную посадочную."
+kw-173,any,weight sensitive,mechanic,tilt resistance,informational,P2,/articles/what-is-synchronous-tilt/ | /ru/articles/what-is-synchronous-tilt/,url_group,supporting,awareness,low,,,,,,,,"Технический long-tail; держать как атрибут, не отдельную посадочную."
+kw-174,any,BIFMA tested class 4,spec,gas lift,informational,P2,/products/sky/lite/ | /ru/products/sky/lite/ | /products/sky/360/ | /ru/products/sky/360/ | /products/wing/racer-black/ | /ru/products/wing/racer-black/ | /products/wing/racer-dark-grey/ | /ru/products/wing/racer-dark-grey/ | /products/wing/loft-air-dark-grey/ | /ru/products/wing/loft-air-dark-grey/ | /products/wing/loft-air-light-grey/ | /ru/products/wing/loft-air-light-grey/ | /products/wing/mesh-black/ | /ru/products/wing/mesh-black/ | /products/xtal/racer-black/ | /ru/products/xtal/racer-black/ | /products/xtal/racer-dark-grey/ | /ru/products/xtal/racer-dark-grey/ | /products/xtal/loft-air-dark-grey/ | /ru/products/xtal/loft-air-dark-grey/ | /products/xtal/loft-air-light-grey/ | /ru/products/xtal/loft-air-light-grey/ | /products/xtal/mesh-black/ | /ru/products/xtal/mesh-black/,url_group,supporting,awareness,low,,,,,,,,"Указывать только там, где факт подтвержден в product front matter/спецификации. Цель уточнена до всех текущих товарных вариантов с видимым упоминанием BIFMA."
+kw-175,uk,як вибрати крісло aerocool,guide,general chooser,informational,P0,/articles/how-to-choose-aerocool-chair/,single_url,current,awareness,high,,,,,,,,Главный evergreen-гайд.
+kw-176,ru,как выбрать кресло aerocool,guide,general chooser,informational,P0,/ru/articles/how-to-choose-aerocool-chair/,single_url,current,awareness,high,,,,,,,,Главный evergreen-гайд.
+kw-177,uk,як вибрати ігрове крісло,guide,gaming chooser,informational,P0,/articles/how-to-choose-aerocool-chair/,single_url,current,awareness,high,,,,,,,,Поддерживает широкий gaming cluster.
+kw-178,ru,как выбрать игровое кресло,guide,gaming chooser,informational,P0,/ru/articles/how-to-choose-aerocool-chair/,single_url,current,awareness,high,,,,,,,,Поддерживает широкий gaming cluster.
+kw-179,uk,як вибрати офісне крісло,guide,office chooser,informational,P0,/articles/how-to-choose-aerocool-chair/,single_url,current,awareness,high,,,,,,,,Поддерживает широкий office cluster.
+kw-180,ru,как выбрать офисное кресло,guide,office chooser,informational,P0,/ru/articles/how-to-choose-aerocool-chair/,single_url,current,awareness,high,,,,,,,,Поддерживает широкий office cluster.
+kw-181,uk,як вибрати комп'ютерне крісло,guide,computer chooser,informational,P0,/articles/how-to-choose-aerocool-chair/,single_url,current,awareness,high,,,,,,,,Поддерживает широкий computer cluster.
+kw-182,ru,как выбрать компьютерное кресло,guide,computer chooser,informational,P0,/ru/articles/how-to-choose-aerocool-chair/,single_url,current,awareness,high,,,,,,,,Поддерживает широкий computer cluster.
+kw-183,uk,sky lite чи sky 360,comparison,SKY models,commercial investigation,P1,/articles/sky-lite-vs-sky-360/,single_url,current,consideration,medium,,,,,,,,Сравнение двух моделей SKY.
+kw-184,ru,sky lite или sky 360,comparison,SKY models,commercial investigation,P1,/ru/articles/sky-lite-vs-sky-360/,single_url,current,consideration,medium,,,,,,,,Сравнение двух моделей SKY.
+kw-185,uk,wing чи xtal,comparison,WING vs XTAL,commercial investigation,P1,/articles/wing-vs-xtal/,single_url,current,consideration,medium,,,,,,,,Сравнение двух серий.
+kw-186,ru,wing или xtal,comparison,WING vs XTAL,commercial investigation,P1,/ru/articles/wing-vs-xtal/,single_url,current,consideration,medium,,,,,,,,Сравнение двух серий.
+kw-187,any,racer loft air mesh,comparison,surface formats,commercial investigation,P1,/articles/racer-vs-loft-air-vs-mesh/ | /ru/articles/racer-vs-loft-air-vs-mesh/,url_group,current,consideration,medium,,,,,,,,Сравнение материалов/поверхностей.
+kw-188,uk,racer loft air чи mesh,comparison,surface formats uk,commercial investigation,P1,/articles/racer-vs-loft-air-vs-mesh/,single_url,current,consideration,medium,,,,,,,,Украинская формула сравнения поверхностей.
+kw-189,ru,racer loft air или mesh,comparison,surface formats ru,commercial investigation,P1,/ru/articles/racer-vs-loft-air-vs-mesh/,single_url,current,consideration,medium,,,,,,,,Русская формула сравнения поверхностей.
+kw-190,uk,яке крісло для роботи обрати,guide,work chooser uk,commercial investigation,P1,/articles/sky-lite-vs-sky-360/,single_url,current,consideration,medium,,,,,,,,"Рабочий сценарий, связанный с SKY и общим гайдом."
+kw-191,ru,какое кресло для работы выбрать,guide,work chooser ru,commercial investigation,P1,/ru/articles/sky-lite-vs-sky-360/,single_url,current,consideration,medium,,,,,,,,"Рабочий сценарий, связанный с SKY и общим гайдом."
+kw-192,uk,яке ігрове крісло обрати,guide,gaming chooser uk,commercial investigation,P1,/articles/wing-vs-xtal/,single_url,current,consideration,medium,,,,,,,,Поддерживает WING/XTAL comparison.
+kw-193,ru,какое игровое кресло выбрать,guide,gaming chooser ru,commercial investigation,P1,/ru/articles/wing-vs-xtal/,single_url,current,consideration,medium,,,,,,,,Поддерживает WING/XTAL comparison.
+kw-194,uk,яке крісло обрати для постави,guide,posture chooser uk,informational,P1,/articles/chair-for-posture-and-long-work/,single_url,current,awareness,medium,,,,,,,,"Запрос раскрывается через посадку, поддержку, подлокотники и движение без медицинских обещаний."
+kw-195,ru,какое кресло выбрать для осанки,guide,posture chooser ru,informational,P1,/ru/articles/chair-for-posture-and-long-work/,single_url,current,awareness,medium,,,,,,,,"Запрос раскрывается через посадку, поддержку, подлокотники и движение без медицинских обещаний."
+kw-196,uk,найкраще крісло для home office,guide,best home office uk,commercial investigation,P1,/articles/best-chair-for-home-office/,single_url,current,consideration,medium,,,,,,,,Страница опубликована; использовать только с объясненными критериями “лучшее”.
+kw-197,ru,лучшее кресло для home office,guide,best home office ru,commercial investigation,P1,/ru/articles/best-chair-for-home-office/,single_url,current,consideration,medium,,,,,,,,Страница опубликована; использовать только с объясненными критериями “лучшее”.
+kw-198,uk,ігрове крісло для тривалих сесій,guide,long gaming uk,commercial investigation,P1,/articles/gaming-chair-long-sessions/,single_url,current,consideration,medium,,,,,,,,Страница опубликована; раскрывать через сценарии WING/XTAL и перерывы без медицинских обещаний.
+kw-199,ru,игровое кресло для длительных сессий,guide,long gaming ru,commercial investigation,P1,/ru/articles/gaming-chair-long-sessions/,single_url,current,consideration,medium,,,,,,,,Страница опубликована; раскрывать через сценарии WING/XTAL и перерывы без медицинских обещаний.
+kw-200,ru,dual backrest что это,guide,WING explainer ru,informational,P1,/ru/articles/what-is-dual-backrest/,single_url,current,awareness,medium,,,,,,,,Страница опубликована; объясняет WING dual backrest без дублирования WING vs XTAL.
+kw-201,uk,що таке dual backrest,guide,WING explainer uk,informational,P1,/articles/what-is-dual-backrest/,single_url,current,awareness,medium,,,,,,,,Страница опубликована; объясняет WING dual backrest без дублирования WING vs XTAL.
+kw-202,ru,fully replaceable design chair,guide,XTAL explainer,informational,P1,/articles/what-is-fully-replaceable-design/ | /ru/articles/what-is-fully-replaceable-design/,url_group,current,awareness,medium,,,,,,,,Страница опубликована; объясняет XTAL fully replaceable design и сменные элементы.
+kw-203,uk,крісло зі змінними елементами,guide,XTAL replaceable uk,commercial investigation,P1,/articles/what-is-fully-replaceable-design/,single_url,current,consideration,medium,,,,,,,,Страница опубликована; раскрывает XTAL и сменные элементы через практические примеры.
+kw-204,ru,кресло со сменными элементами,guide,XTAL replaceable ru,commercial investigation,P1,/ru/articles/what-is-fully-replaceable-design/,single_url,current,consideration,medium,,,,,,,,Страница опубликована; раскрывает XTAL и сменные элементы через практические примеры.
+kw-205,uk,купити крісло aerocool,transaction,buy brand uk,transactional,P0,/contact/,single_url,current,purchase,high,,,,,,,,"Коммерческий переход; не обещать условия, не подтвержденные командой."
+kw-206,ru,купить кресло aerocool,transaction,buy brand ru,transactional,P0,/ru/contact/,single_url,current,purchase,high,,,,,,,,"Коммерческий переход; не обещать условия, не подтвержденные командой."
+kw-207,uk,ціна крісла aerocool,transaction,price uk,transactional,P1,/products/ | /contact/,url_group,supporting,purchase,high,,,,,,,,Использовать только при актуальных price facts во front matter. Цель уточнена как связка каталога и контактов до появления точных коммерческих данных.
+kw-208,ru,цена кресла aerocool,transaction,price ru,transactional,P1,/ru/products/ | /ru/contact/,url_group,supporting,purchase,high,,,,,,,,Использовать только при актуальных price facts во front matter. Цель уточнена как связка каталога и контактов до появления точных коммерческих данных.
+kw-209,uk,наявність крісла aerocool,transaction,availability uk,transactional,P1,/products/ | /contact/,url_group,supporting,purchase,high,,,,,,,,Зависит от product front matter и бизнес-процесса. Цель уточнена как связка каталога и контактов до появления точных коммерческих данных.
+kw-210,ru,наличие кресла aerocool,transaction,availability ru,transactional,P1,/ru/products/ | /ru/contact/,url_group,supporting,purchase,high,,,,,,,,Зависит от product front matter и бизнес-процесса. Цель уточнена как связка каталога и контактов до появления точных коммерческих данных.
+kw-211,uk,доставка aerocool,support,delivery uk,support,P1,/faq/,single_url,current,support,medium,,,,,,,,Поддерживающий доверительный запрос.
+kw-212,ru,доставка aerocool,support,delivery ru,support,P1,/ru/faq/,single_url,current,support,medium,,,,,,,,Поддерживающий доверительный запрос.
+kw-213,uk,гарантія aerocool,support,warranty uk,support,P1,/faq/,single_url,current,support,medium,,,,,,,,Поддерживающий доверительный запрос.
+kw-214,ru,гарантия aerocool,support,warranty ru,support,P1,/ru/faq/,single_url,current,support,medium,,,,,,,,Поддерживающий доверительный запрос.
+kw-215,uk,оплата aerocool,support,payment uk,support,P2,/faq/,single_url,current,support,low,,,,,,,,Поддерживать только фактическими условиями.
+kw-216,ru,оплата aerocool,support,payment ru,support,P2,/ru/faq/,single_url,current,support,low,,,,,,,,Поддерживать только фактическими условиями.
+kw-217,uk,повернення aerocool,support,returns uk,support,P2,/faq/,single_url,current,support,low,,,,,,,,Поддерживать только фактическими условиями.
+kw-218,ru,возврат aerocool,support,returns ru,support,P2,/ru/faq/,single_url,current,support,low,,,,,,,,Поддерживать только фактическими условиями.
+kw-219,uk,контакти aerocool,support,contacts uk,navigation,P1,/contact/,single_url,current,navigation,medium,,,,,,,,Навигационный запрос контактов.
+kw-220,ru,контакты aerocool,support,contacts ru,navigation,P1,/ru/contact/,single_url,current,navigation,medium,,,,,,,,Навигационный запрос контактов.
+kw-221,uk,faq aerocool,support,FAQ uk,support,P1,/faq/,single_url,current,support,medium,,,,,,,,"FAQ остается полезным для пользователей, не как ставка на FAQ rich result."
+kw-222,ru,faq aerocool,support,FAQ ru,support,P1,/ru/faq/,single_url,current,support,medium,,,,,,,,"FAQ остается полезным для пользователей, не как ставка на FAQ rich result."
+kw-223,uk,питання про крісла aerocool,support,FAQ uk,support,P1,/faq/,single_url,current,support,medium,,,,,,,,Естественный украинский FAQ-запрос.
+kw-224,ru,вопросы о креслах aerocool,support,FAQ ru,support,P1,/ru/faq/,single_url,current,support,medium,,,,,,,,Естественный русский FAQ-запрос.
+kw-225,uk,про бренд aerocool,brand trust,about uk,navigation,P1,/about/,single_url,current,navigation,medium,,,,,,,,Доверительный брендовый запрос.
+kw-226,ru,о бренде aerocool,brand trust,about ru,navigation,P1,/ru/about/,single_url,current,navigation,medium,,,,,,,,Доверительный брендовый запрос.
+kw-227,any,aerocool sky launch,news,SKY launch,news,P2,/news/sky-series-launch/ | /ru/news/sky-series-launch/,url_group,current,awareness,low,,,,,,,,Брендовая новость/запуск.
+kw-228,any,aerocool wing series,news,WING launch,news,P2,/news/wing-series-launch/ | /ru/news/wing-series-launch/,url_group,current,awareness,low,,,,,,,,Брендовая новость/запуск.
+kw-229,any,aerocool xtal,news,XTAL launch,news,P2,/news/xtal-series-launch/ | /ru/news/xtal-series-launch/,url_group,current,awareness,low,,,,,,,,Брендовая новость/запуск и серия.
+kw-230,any,sky lite 8D,news,SKY Lite launch,news,P2,/news/sky-lite-launch/ | /ru/news/sky-lite-launch/,url_group,current,awareness,low,,,,,,,,Новостной и модельный long-tail.
+kw-231,any,sky 360 11D,news,SKY 360 launch,news,P2,/news/sky-360-launch/ | /ru/news/sky-360-launch/,url_group,current,awareness,low,,,,,,,,Новостной и модельный long-tail.
+kw-232,any,aerocool sync5,news,mechanism update,news,P2,/news/sync4-sync5-mechanism-update/ | /ru/news/sync4-sync5-mechanism-update/,url_group,current,awareness,low,,,,,,,,Новость о механизмах и спецификациях.
+kw-233,any,sync4 sync5 aerocool,news,mechanism update,news,P2,/news/sync4-sync5-mechanism-update/ | /ru/news/sync4-sync5-mechanism-update/,url_group,current,awareness,low,,,,,,,,Новость о механизмах и спецификациях.
+kw-234,uk,SKY WING чи XTAL,comparison,all series uk,commercial investigation,P1,/articles/sky-vs-wing-vs-xtal/,single_url,current,consideration,medium,,,,,,,,Страница опубликована; сравнение всех трех серий не должно дублировать WING vs XTAL и SKY Lite vs SKY 360.
+kw-235,ru,SKY WING или XTAL,comparison,all series ru,commercial investigation,P1,/ru/articles/sky-vs-wing-vs-xtal/,single_url,current,consideration,medium,,,,,,,,Страница опубликована; сравнение всех трех серий не должно дублировать WING vs XTAL и SKY Lite vs SKY 360.
+kw-236,any,sky vs wing vs xtal,comparison,all series english,commercial investigation,P1,/articles/sky-vs-wing-vs-xtal/ | /ru/articles/sky-vs-wing-vs-xtal/,url_group,current,consideration,medium,,,,,,,,"Страница опубликована; англоязычная формула сравнения серий для сниппетов, якорей и FAQ."
+kw-237,ru,сравнение серий Aerocool SKY WING XTAL,comparison,all series ru,commercial investigation,P1,/ru/articles/sky-vs-wing-vs-xtal/,single_url,current,consideration,medium,,,,,,,,Страница опубликована; русский long-tail под выбор между всеми сериями.
+kw-238,uk,як вибрати крісло для довгої роботи,guide,posture and long work uk,informational,P1,/articles/chair-for-posture-and-long-work/,single_url,current,awareness,medium,,,,,,,,"Поддерживающий запрос про длительную работу, посадку и рабочее место."
+kw-239,ru,как выбрать кресло для долгой работы,guide,posture and long work ru,informational,P1,/ru/articles/chair-for-posture-and-long-work/,single_url,current,awareness,medium,,,,,,,,"Поддерживающий запрос про длительную работу, посадку и рабочее место."
+kw-240,uk,як налаштувати крісло,guide,chair setup uk,informational,P1,/articles/chair-setup-after-purchase/,single_url,current,awareness,medium,,,,,,,,Главный инструкционный запрос страницы настройки кресла после покупки.
+kw-241,ru,как настроить кресло,guide,chair setup ru,informational,P1,/ru/articles/chair-setup-after-purchase/,single_url,current,awareness,medium,,,,,,,,Главный инструкционный запрос страницы настройки кресла после покупки.
+kw-242,uk,налаштування крісла після покупки,guide,chair setup uk,informational,P1,/articles/chair-setup-after-purchase/,single_url,current,awareness,medium,,,,,,,,"Long-tail после покупки: высота, сиденье, подлокотники, спинка и Synchronous Tilt."
+kw-243,ru,настройка кресла после покупки,guide,chair setup ru,informational,P1,/ru/articles/chair-setup-after-purchase/,single_url,current,awareness,medium,,,,,,,,"Long-tail после покупки: высота, сиденье, подлокотники, спинка и Synchronous Tilt."
+kw-244,uk,крісла для офісної команди,guide,office team uk,commercial investigation,P1,/articles/chairs-for-office-team/,single_url,current,consideration,medium,,,,,,,,B2B/командный сценарий выбора моделей под разные рабочие места.
+kw-245,ru,кресла для офисной команды,guide,office team ru,commercial investigation,P1,/ru/articles/chairs-for-office-team/,single_url,current,consideration,medium,,,,,,,,B2B/командный сценарий выбора моделей под разные рабочие места.
+kw-246,uk,як вибрати крісла для офісу,guide,office team uk,commercial investigation,P1,/articles/chairs-for-office-team/,single_url,current,consideration,medium,,,,,,,,"Запрос для офисного выбора, закупки и распределения моделей между сотрудниками."
+kw-247,ru,как выбрать кресла для офиса,guide,office team ru,commercial investigation,P1,/ru/articles/chairs-for-office-team/,single_url,current,consideration,medium,,,,,,,,"Запрос для офисного выбора, закупки и распределения моделей между сотрудниками."
+kw-248,uk,Aerocool гіди з вибору крісел,news,chair selection guides update uk,news,P2,/news/aerocool-chair-selection-guides-update/,single_url,current,awareness,low,,,,,,,,Новостной запрос про расширение кластера гидов по выбору кресел.
+kw-249,ru,Aerocool гиды по выбору кресел,news,chair selection guides update ru,news,P2,/ru/news/aerocool-chair-selection-guides-update/,single_url,current,awareness,low,,,,,,,,Новостной запрос про расширение кластера гидов по выбору кресел.
+kw-250,uk,Aerocool практичні гіди про крісла,news,practical guides update uk,news,P2,/news/aerocool-practical-chair-guides-update/,single_url,current,awareness,low,,,,,,,,"Новостной запрос про практические гайды по посадке, настройке и командному выбору."
+kw-251,ru,Aerocool практические гиды по креслам,news,practical guides update ru,news,P2,/ru/news/aerocool-practical-chair-guides-update/,single_url,current,awareness,low,,,,,,,,"Новостной запрос про практические гайды по посадке, настройке и командному выбору."
+kw-252,uk,статті та гіди aerocool,guide,articles hub uk,informational,P1,/articles/,single_url,current,awareness,medium,,,,,,,,"Явная строка для хаба статей; не конкурирует с отдельными гайдами, работает как навигационная коллекция."
+kw-253,ru,статьи и гиды aerocool,guide,articles hub ru,informational,P1,/ru/articles/,single_url,current,awareness,medium,,,,,,,,"Явная строка для хаба статей; не конкурирует с отдельными гайдами, работает как навигационная коллекция."
+kw-254,uk,новини aerocool,news,news hub uk,news,P2,/news/,single_url,current,awareness,low,,,,,,,,"Явная строка для хаба новостей; хаб фиксирует анонсы, запуски серий и обновления каталога."
+kw-255,ru,новости aerocool,news,news hub ru,news,P2,/ru/news/,single_url,current,awareness,low,,,,,,,,"Явная строка для хаба новостей; хаб фиксирует анонсы, запуски серий и обновления каталога."

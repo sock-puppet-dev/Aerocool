@@ -1,8 +1,9 @@
 # Полный Аудит JSON-LD И Entity Graph На 2026-05-20
 
 Дата аудита: 2026-05-20.
+Актуализировано: 2026-05-21.
 
-Контекст: это свежий контрольный аудит после предыдущих данных Schema App, customer stories, перехода документации на глобальную нумерацию `01-51`, внедрения правила `linkTitle`, синхронизации видимых breadcrumbs с schema.org `BreadcrumbList` и фиксации политики видимой meta-строки страниц.
+Контекст: это свежий контрольный аудит после предыдущих данных Schema App, customer stories, синхронизации документации до глобального диапазона `01-53`, внедрения правила `linkTitle`, синхронизации видимых breadcrumbs с schema.org `BreadcrumbList`, фиксации политики видимой meta-строки страниц и добавления keyword database.
 
 Базовые документы, на которые опирается этот срез:
 
@@ -29,13 +30,13 @@
 
 ## 2. Что Изменилось После Предыдущего Full Audit
 
-Технические JSON-LD метрики не изменились. Реальное изменение в project governance:
+После расширения контента и добавления keyword database rendered graph вырос, но архитектурные правила не изменились. Реальное изменение в project governance:
 
 1. Документация получила глобальную нумерацию и главный вход [01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md).
 2. Видимые breadcrumbs и schema.org `BreadcrumbList` используют общий helper [breadcrumb-label.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/breadcrumb-label.html).
 3. Поле `linkTitle` стало официальным способом задавать короткое имя страницы для навигации и breadcrumbs.
 4. Видимая meta-строка страниц отделена от head/schema-слоя и описана как отдельная policy.
-5. Новый аудит добавляется как документ `52`, поэтому карта документации теперь должна учитывать диапазон `01-52`.
+5. Документация синхронизирована до документа `53`, поэтому карта документации, `README.md` и `AGENTS.md` должны учитывать диапазон `01-53`.
 
 Для JSON-LD это значит: риск расхождения видимых breadcrumbs и `BreadcrumbList` стал ниже, но Product/review/entity reporting задачи остаются открытыми.
 
@@ -65,20 +66,20 @@ git diff --check
 
 | Метрика | Значение |
 | --- | ---: |
-| HTML files | `108` |
-| Pages with JSON-LD | `86` |
-| JSON-LD scripts | `86` |
+| HTML files | `138` |
+| Pages with JSON-LD | `116` |
+| JSON-LD scripts | `116` |
 | JSON parse errors | `0` |
-| JSON-LD top-level nodes | `1390` |
+| JSON-LD top-level nodes | `1962` |
 | Duplicate `@id` внутри страницы | `0` |
 | Empty `@id` | `0` |
 | Broken internal Aerocool URL refs | `0` |
-| BreadcrumbList nodes | `74` |
+| BreadcrumbList nodes | `100` |
 | Breadcrumb issues | `0` |
-| Visible breadcrumb pages | `76` |
+| Visible breadcrumb pages | `102` |
 | JSON-LD на `contact-success` | `0` |
 | JSON-LD на `search` | `0` |
-| JSON-LD pages with `noindex` | `86` |
+| JSON-LD pages with `noindex` | `116` |
 
 `noindex` ожидаем: `npm run build` использует `hugo --environment development`. Для production это остается gate, а не ошибка текущей сборки.
 
@@ -87,22 +88,22 @@ git diff --check
 | Type | Count |
 | --- | ---: |
 | `AboutPage` | `2` |
-| `Article` | `14` |
-| `Brand` | `86` |
-| `BreadcrumbList` | `74` |
-| `CollectionPage` | `16` |
+| `Article` | `32` |
+| `Brand` | `116` |
+| `BreadcrumbList` | `100` |
+| `CollectionPage` | `20` |
 | `ContactPage` | `2` |
-| `DefinedTerm` | `530` |
+| `DefinedTerm` | `840` |
 | `FAQPage` | `2` |
-| `ImageObject` | `172` |
-| `NewsArticle` | `14` |
-| `Organization` | `172` |
+| `ImageObject` | `232` |
+| `NewsArticle` | `18` |
+| `Organization` | `232` |
 | `Product` | `24` |
 | `Thing` | `114` |
-| `WebPage` | `82` |
-| `WebSite` | `86` |
+| `WebPage` | `112` |
+| `WebSite` | `116` |
 
-Вывод: graph остается тем же сильным начальным Content Knowledge Graph, который был зафиксирован после customer stories.
+Вывод: graph расширился вместе с контентом, но остается тем же типом Content Knowledge Graph, который был зафиксирован после customer stories.
 
 ## 6. Entity Registry
 
@@ -137,13 +138,13 @@ git diff --check
 
 | Метрика | Значение |
 | --- | ---: |
-| Content markdown files | `76` |
+| Content markdown files | `98` |
 | Front matter parse errors | `0` |
 | Missing `lastmod` | `0` |
-| `schema_types` refs | `74` pages with schema layer |
-| `linkTitle` fields | `72` |
-| `about_entities` refs | `234` |
-| `mentions_entities` refs | `632` |
+| `schema_types` refs | `98` content files |
+| `linkTitle` fields | `94` |
+| `about_entities` refs | `288` |
+| `mentions_entities` refs | `928` |
 | Unique entity refs in `about`/`mentions` | `43` |
 | Unknown entity refs | `0` |
 | Non-confirmed refs in `about_entities` / `mentions_entities` | `0` |
@@ -158,13 +159,13 @@ git diff --check
 
 Текущее состояние:
 
-- visible breadcrumbs найдены на `76` rendered pages;
-- `BreadcrumbList` nodes есть на `74` JSON-LD pages;
+- visible breadcrumbs найдены на `102` rendered pages;
+- `BreadcrumbList` nodes есть на `100` JSON-LD pages;
 - `BreadcrumbList` position issues: `0`;
 - видимый helper и schema helper используют [breadcrumb-label.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/breadcrumb-label.html);
 - `breadcrumb-label.html` берет `.LinkTitle`, а если его нет, `.Title`.
 
-Разница между `76` visible breadcrumb pages и `74` `BreadcrumbList` nodes ожидаема: служебные страницы вроде search/contact-success не должны получать JSON-LD, даже если видимая навигация на странице может существовать.
+Разница между `102` visible breadcrumb pages и `100` `BreadcrumbList` nodes ожидаема: служебные страницы вроде search/contact-success не должны получать JSON-LD, даже если видимая навигация на странице может существовать.
 
 Вывод: текущая архитектура снижает риск schema drift между видимой навигацией и `BreadcrumbList`.
 
@@ -172,13 +173,13 @@ git diff --check
 
 Что работает:
 
-- `WebPage.about`: `82`;
-- `WebPage.mentions`: `82`;
-- `WebPage.mainEntity`: `70`;
+- `WebPage.about`: `112`;
+- `WebPage.mentions`: `112`;
+- `WebPage.mainEntity`: `96`;
 - `Product.brand` указывает на global `Brand`;
 - local organization `sameAs`: `0`;
-- `sameAs` nodes: `172`;
-- `sameAs` refs: `860`;
+- `sameAs` nodes: `232`;
+- `sameAs` refs: `1160`;
 - `additionalType` используется только для policy-like nodes.
 
 `additionalType` counts:
@@ -259,16 +260,16 @@ Product/Offer facts стабильны: цена, валюта, наличие, 
 
 | Метрика | Значение |
 | --- | ---: |
-| `ImageObject` nodes | `172` |
+| `ImageObject` nodes | `232` |
 | Image license nodes | `0` |
 
 Базовая image schema работает. License metadata не добавлять без подтвержденных прав, license page и юридически корректных формулировок.
 
 ## 15. Documentation Governance
 
-До добавления этого документа в `docs/` было `51` markdown-файлов, все с глобальным числовым префиксом. Ненумерованных файлов внутри `docs/` не найдено.
+В `docs/` сейчас `53` markdown-файла, все с глобальным числовым префиксом. Ненумерованных файлов внутри `docs/` не найдено.
 
-Этот аудит добавляет новый документ `52`, поэтому карта документации, `README.md` и `AGENTS.md` должны отражать диапазон `01-52`.
+Карта документации, `README.md` и `AGENTS.md` должны отражать диапазон `01-53`.
 
 Это не влияет напрямую на JSON-LD, но важно для поддержки schema/entity процесса: если документация не ведет к актуальному audit-снимку, команда быстро теряет source of truth.
 
@@ -276,7 +277,7 @@ Product/Offer facts стабильны: цена, валюта, наличие, 
 
 ### P0. Production Gate
 
-Все `86` страниц с JSON-LD имеют `noindex,nofollow`, потому что сборка идет в `development`. Перед production нужно переключить окружение, проверить `index,follow`, sitemap, robots, canonical, hreflang, headers, кастомную 404 и published URL.
+Все `116` страниц с JSON-LD имеют `noindex,nofollow`, потому что сборка идет в `development`. Перед production нужно переключить окружение, проверить `index,follow`, sitemap, robots, canonical, hreflang, headers, кастомную 404 и published URL.
 
 ### P0/P1. Ratings/Reviews Source Of Truth
 
@@ -337,7 +338,7 @@ Product/Offer facts стабильны: цена, валюта, наличие, 
 | Connected Schema | `9.0 / 10` | `about`, `mentions`, policy nodes, stable IDs и `sameAs` работают |
 | Product structured data | `8.0 / 10` | Offer facts сильные; ratings/reviews, ProductGroup и SKY identifiers открыты |
 | AI Search readiness | `8.4 / 10` | База сильная; baseline возможен только после production |
-| Documentation governance | `9.6 / 10` | Нумерация и карта сильные; новый аудит добавляет документ `52` |
+| Documentation governance | `9.6 / 10` | Нумерация, карта, `README.md` и `AGENTS.md` синхронизированы до `01-53` |
 | Agentic Web readiness | `7.5 / 10` | Верно удержано в P3 |
 
 Общая оценка: `8.6 / 10`.

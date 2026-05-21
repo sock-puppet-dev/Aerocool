@@ -313,8 +313,8 @@
 
 | URL / файл | Основной интент | Основные ключи | Дополнительные ключи |
 | --- | --- | --- | --- |
-| `content/articles/_index.md` | хаб статей | `як вибрати ігрове крісло`, `як вибрати офісне крісло`, `як вибрати комп'ютерне крісло` | `aerocool sky`, `aerocool wing`, `aerocool xtal` |
-| `content/articles/_index.ru.md` | хаб статей | `как выбрать игровое кресло`, `как выбрать офисное кресло`, `как выбрать компьютерное кресло` | `aerocool sky`, `aerocool wing`, `aerocool xtal` |
+| `content/articles/_index.md` | хаб статей | `статті та гіди aerocool`, `як вибрати ігрове крісло`, `як вибрати офісне крісло`, `як вибрати комп'ютерне крісло` | `aerocool sky`, `aerocool wing`, `aerocool xtal` |
+| `content/articles/_index.ru.md` | хаб статей | `статьи и гиды aerocool`, `как выбрать игровое кресло`, `как выбрать офисное кресло`, `как выбрать компьютерное кресло` | `aerocool sky`, `aerocool wing`, `aerocool xtal` |
 | `content/articles/how-to-choose-aerocool-chair/index.md` | общий гайд | `як вибрати крісло aerocool`, `крісло для роботи`, `крісло для home office` | `ігрове крісло`, `офісне крісло`, `комп'ютерне крісло` |
 | `content/articles/how-to-choose-aerocool-chair/index.ru.md` | общий гайд | `как выбрать кресло aerocool`, `кресло для работы`, `кресло для home office` | `игровое кресло`, `офисное кресло`, `компьютерное кресло` |
 | `content/articles/how-to-choose-chair-by-adjustability/index.md` | гайд по регулировкам | `регулювання крісла`, `7D 8D 11D`, `як вибрати ергономічне крісло` | `підлокітники`, `сидіння`, `поперекова підтримка`, `Synchronous Tilt` |
@@ -352,6 +352,8 @@
 
 | URL / файл | Основной интент | Основные ключи | Дополнительные ключи |
 | --- | --- | --- | --- |
+| `content/news/_index.md` | хаб новостей | `новини aerocool`, `анонси aerocool`, `оновлення каталогу aerocool` | `SKY`, `WING`, `XTAL`, `Loft Air`, `Mesh`, `SYNC4`, `SYNC5` |
+| `content/news/_index.ru.md` | хаб новостей | `новости aerocool`, `анонсы aerocool`, `обновления каталога aerocool` | `SKY`, `WING`, `XTAL`, `Loft Air`, `Mesh`, `SYNC4`, `SYNC5` |
 | `content/news/2026-04-15-aerocool-sky-series-launch/index.md` | запуск серии | `Aerocool SKY`, `SKY Lite`, `SKY 360` | `офісне крісло`, `комп'ютерне крісло`, `Synchronous Tilt` |
 | `content/news/2026-04-15-aerocool-sky-series-launch/index.ru.md` | запуск серии | `Aerocool SKY`, `SKY Lite`, `SKY 360` | `офисное кресло`, `компьютерное кресло`, `Synchronous Tilt` |
 | `content/news/2026-04-16-aerocool-wing-series-launch/index.md` | запуск серии | `Aerocool WING`, `WING Racer`, `WING Loft Air`, `WING Mesh` | `ігрове крісло`, `офісне крісло`, `11D`, `dual backrest` |
@@ -398,8 +400,9 @@
 Дополнительно в этом проходе:
 
 - все 16 основных постоянно актуальных статей заведены в карту ключей
-- все 9 ключевых новостей заведены в карту ключей
+- все 9 ключевых новостей и хаб новостей заведены в карту ключей
 - слой статей и новостей усилен под широкое коммерческое покрытие, а не только под брендовые запросы о запусках
+- CSV-база расширена до аналитического формата: добавлены `target_scope`, `funnel_stage`, `business_value` и поля для будущего импорта Google Search Console
 
 Главная цель этого обновления: убрать перекос только в брендовые запросы и запросы по функциям, а также добавить системное покрытие широких коммерческих кластеров:
 
