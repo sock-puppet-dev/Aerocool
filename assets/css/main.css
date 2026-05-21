@@ -542,6 +542,73 @@ button[class*="bg-indigo-600"],
     padding-left: 0;
 }
 
+/* About-компоненты используют Tailwind Plus-паттерны вместо обычного
+   markdown-потока, поэтому локально отключаем PaperMod-списки,
+   dl-отступы и link-анимацию только внутри этих блоков. */
+.post-content :where(
+    .about-series-preview,
+    .about-ergonomics-features,
+    .about-service-features
+) ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.post-content :where(
+    .about-series-preview,
+    .about-ergonomics-features,
+    .about-service-features
+) li {
+    margin: 0;
+    padding-left: 0;
+}
+
+.post-content .about-product-facts dl,
+.post-content .about-product-facts dd {
+    margin: 0;
+}
+
+.post-content :where(
+    .about-intro,
+    .about-series-preview,
+    .about-ergonomics-features,
+    .about-service-features,
+    .about-product-facts,
+    .about-next-steps
+) a {
+    box-shadow: none;
+    text-decoration: none;
+    animation: none;
+}
+
+.post-content :where(
+    .about-intro,
+    .about-series-preview,
+    .about-ergonomics-features,
+    .about-service-features,
+    .about-product-facts,
+    .about-next-steps
+) a:hover,
+.post-content :where(
+    .about-intro,
+    .about-series-preview,
+    .about-ergonomics-features,
+    .about-service-features,
+    .about-product-facts,
+    .about-next-steps
+) a:focus-visible {
+    text-decoration: none;
+}
+
+.post-content .about-next-steps a:first-of-type {
+    color: #fff;
+}
+
+.post-content .about-next-steps a:not(:first-of-type) {
+    color: rgb(17 24 39);
+}
+
 /* =========================================================
    6. RELATED-LINKS И FOOTER-LINKS
    ---------------------------------------------------------

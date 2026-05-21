@@ -1,0 +1,26 @@
+{{- $isRu := eq .Page.Language.Lang "ru" -}}
+{{- $heading := cond $isRu "Наш подход к эргономике" "Наш підхід до ергономіки" -}}
+{{- $intro := cond $isRu "Мы описываем комфорт через конкретные механические и конструктивные решения, а не через общие обещания." "Ми описуємо комфорт через конкретні механічні й конструктивні рішення, а не через загальні обіцянки." -}}
+{{- $items := slice -}}
+{{- $items = $items | append (dict "badge" "Tilt" "title" "Synchronous Tilt" "description" (cond $isRu "Согласованное движение спинки и сиденья для более естественного отклонения." "Узгоджений рух спинки й сидіння для природнішого відхилення.")) -}}
+{{- $items = $items | append (dict "badge" "Back" "title" (cond $isRu "Поясничная поддержка" "Поперекова підтримка") "description" (cond $isRu "Регулировка по высоте и глубине помогает точнее настроить посадку." "Регулювання по висоті та глибині допомагає точніше налаштувати посадку.")) -}}
+{{- $items = $items | append (dict "badge" "Arm" "title" (cond $isRu "Подлокотники" "Підлокітники") "description" (cond $isRu "1D, 3D, 3D X 360 и 4D X 360 закрывают разные рабочие места и сценарии." "1D, 3D, 3D X 360 і 4D X 360 закривають різні робочі місця і сценарії.")) -}}
+{{- $items = $items | append (dict "badge" "Mesh" "title" (cond $isRu "Материалы" "Матеріали") "description" (cond $isRu "Leatherette, Loft Air и Mesh меняют вентиляцию, контакт и простоту ухода." "Leatherette, Loft Air і Mesh змінюють вентиляцію, контакт і простоту догляду.")) -}}
+
+<section class="about-ergonomics-features mt-12" aria-labelledby="about-ergonomics-features-title">
+  <div class="max-w-3xl">
+    <h2 id="about-ergonomics-features-title">{{ $heading }}</h2>
+    <p class="mt-3 text-base/7 text-gray-600">{{ $intro }}</p>
+  </div>
+  <ul role="list" class="mt-8 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2">
+    {{- range $items }}
+    <li class="flex gap-x-4">
+      <div class="mt-1 flex h-8 min-w-12 flex-none items-center justify-center rounded-md bg-red-50 px-2 text-xs font-semibold text-red-700 ring-1 ring-red-100">{{ .badge }}</div>
+      <div>
+        <h3 class="text-base/7 font-semibold text-gray-900">{{ .title }}</h3>
+        <p class="mt-1 text-sm/6 text-gray-600">{{ .description }}</p>
+      </div>
+    </li>
+    {{- end }}
+  </ul>
+</section>

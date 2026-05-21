@@ -137,11 +137,30 @@
 - [layouts/_shortcodes/faq-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq-list.html) — видимый список FAQ из front matter.
 - [layouts/_shortcodes/contact.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/contact.html) — контактная `side-by-side` секция для `/contact/` и `/ru/contact/`.
 - [layouts/_shortcodes/contact-success-alert.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/contact-success-alert.html) — success alert после отправки контактной формы на `/contact/success/` и `/ru/contact/success/`.
+- [layouts/_shortcodes/about-intro.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/about-intro.html) — верхний two-column description блок на `/about/` и `/ru/about/`.
+- [layouts/_shortcodes/about-series-preview.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/about-series-preview.html) — три входа в серии `SKY`, `WING`, `XTAL` на about-странице.
+- [layouts/_shortcodes/about-ergonomics-features.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/about-ergonomics-features.html) — feature-блок подхода к эргономике на about-странице.
+- [layouts/_shortcodes/about-service-features.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/about-service-features.html) — feature-блок причин работать с Aerocool на about-странице.
+- [layouts/_shortcodes/about-product-facts.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/about-product-facts.html) — description list ключевых терминов и характеристик Aerocool.
+- [layouts/_shortcodes/about-next-steps.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/about-next-steps.html) — финальный CTA на about-странице.
 - [layouts/_shortcodes/section-highlights-articles.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/section-highlights-articles.html) — краткий feature-блок “Что вы найдете в этом разделе” на `/articles/` и `/ru/articles/`.
 - [layouts/_shortcodes/section-highlights-news.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/section-highlights-news.html) — краткий feature-блок “Что уже обновлено” на `/news/` и `/ru/news/`.
 - [layouts/_shortcodes/recommended-links-articles.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/recommended-links-articles.html) — управляемый блок стартовых материалов на `/articles/` и `/ru/articles/`.
 - [layouts/_shortcodes/recommended-links-news.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/recommended-links-news.html) — управляемый блок рекомендованных новостей на `/news/` и `/ru/news/`.
 - [layouts/_shortcodes/recommended-links-faq.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/recommended-links-faq.html) — блок следующих шагов после FAQ на `/faq/` и `/ru/faq/`.
+
+Важно по `about-*`:
+
+- эти shortcodes заменяют верхние повторяющиеся markdown-разделы `/about/` на управляемые UI-компоненты;
+- каждый shortcode сам переключает украинский и русский текст по языку страницы;
+- `about-intro.html` соответствует Tailwind Plus `Marketing -> About Pages -> With two column description`;
+- `about-series-preview.html` соответствует Tailwind Plus `Ecommerce -> Category Previews -> Three-column with description`;
+- `about-ergonomics-features.html` соответствует Tailwind Plus `Marketing -> Feature Sections -> Centered 2x2 grid`;
+- `about-service-features.html` соответствует Tailwind Plus `Marketing -> Feature Sections -> Simple three column with small icons`;
+- `about-product-facts.html` соответствует Tailwind Plus `Application UI -> Description Lists -> Two-column`;
+- `about-next-steps.html` соответствует Tailwind Plus `Marketing -> CTA Sections -> Simple justified`;
+- CSS-хуки `.about-intro`, `.about-series-preview`, `.about-ergonomics-features`, `.about-service-features`, `.about-product-facts` и `.about-next-steps` сбрасываются в [assets/css/main.css](/Users/stadnyk/MEGA/Aerocool/assets/css/main.css);
+- длинные доверительные SEO-разделы ниже компонентов остаются в markdown, чтобы не превращать `/about/` в декоративный лендинг.
 
 Важно по `section-highlights-*`:
 

@@ -1,0 +1,19 @@
+{{- $isRu := eq .Page.Language.Lang "ru" -}}
+{{- $heading := cond $isRu "Почему пользователям удобно работать с Aerocool" "Чому користувачам зручно працювати з Aerocool" -}}
+{{- $items := slice -}}
+{{- $items = $items | append (dict "badge" "01" "title" (cond $isRu "Актуальные технические данные" "Актуальні технічні дані") "description" (cond $isRu "Страницы опираются на характеристики производителя: механизмы, регулировки, материалы, базу, ролики и сервисные данные." "Сторінки спираються на характеристики виробника: механізми, регулювання, матеріали, базу, ролики і сервісні дані.")) -}}
+{{- $items = $items | append (dict "badge" "02" "title" (cond $isRu "Консультация по сценарию" "Консультація за сценарієм") "description" (cond $isRu "Подбор начинается с задач пользователя: работа, home office, гейминг, вентиляция, активная поддержка или спокойная посадка." "Підбір починається із задач користувача: робота, home office, геймінг, вентиляція, активна підтримка або спокійна посадка.")) -}}
+{{- $items = $items | append (dict "badge" "03" "title" (cond $isRu "Сервисная коммуникация в Украине" "Сервісна комунікація в Україні") "description" (cond $isRu "FAQ, контакты и страницы товаров помогают уточнить гарантию, доставку, наличие и вопросы после покупки." "FAQ, контакти і сторінки товарів допомагають уточнити гарантію, доставку, наявність і питання після покупки.")) -}}
+
+<section class="about-service-features mt-12" aria-labelledby="about-service-features-title">
+  <h2 id="about-service-features-title">{{ $heading }}</h2>
+  <ul role="list" class="mt-8 grid grid-cols-1 gap-x-8 gap-y-8 lg:grid-cols-3">
+    {{- range $items }}
+    <li>
+      <div class="flex h-8 w-8 items-center justify-center rounded-md bg-red-50 text-sm font-semibold text-red-700 ring-1 ring-red-100">{{ .badge }}</div>
+      <h3 class="mt-4 text-base/7 font-semibold text-gray-900">{{ .title }}</h3>
+      <p class="mt-2 text-sm/6 text-gray-600">{{ .description }}</p>
+    </li>
+    {{- end }}
+  </ul>
+</section>
