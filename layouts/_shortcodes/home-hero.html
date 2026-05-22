@@ -18,11 +18,11 @@
     <div class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
       <div class="lg:pr-4">
         <div class="lg:max-w-lg">
-          <p class="home-hero__eyebrow text-base/7 font-semibold text-indigo-600">
+          <p class="home-hero__eyebrow ui-eyebrow">
             {{- if $isRu -}}Официальный каталог Aerocool в Украине{{- else -}}Офіційний каталог Aerocool в Україні{{- end -}}
           </p>
 
-          <h1 class="home-hero__title mt-2 text-2xl font-normal tracking-tight text-gray-900 sm:text-3xl">
+          <h1 class="home-hero__title mt-2 font-semibold">
             {{- if $isRu -}}
               Эргономичные игровые, офисные и компьютерные кресла для ежедневного комфорта
             {{- else -}}
@@ -30,7 +30,7 @@
             {{- end -}}
           </h1>
 
-          <p class="home-hero__lead mt-6 text-xl/8 text-gray-700">
+          <p class="home-hero__lead ui-section-lead mt-6">
             {{- if $isRu -}}
               Aerocool Украина — официальный сайт бренда кресел для работы, home office и длительных игровых сессий. В каталоге представлены серии SKY, WING и XTAL с разными механизмами, форматами обивки и уровнем регулировок.
             {{- else -}}
@@ -41,13 +41,13 @@
           <div class="home-hero__actions mt-8 flex flex-wrap gap-4">
             <a
               href="{{ with site.GetPage "/products" }}{{ .RelPermalink }}{{ end }}"
-              class="home-hero__cta rounded-full bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold !text-white shadow-xs transition hover:bg-indigo-500 hover:!text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+              class="home-hero__cta ui-button ui-button-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700">
               {{- if $isRu -}}Смотреть каталог{{- else -}}Дивитися каталог{{- end -}}
             </a>
 
             <a
               href="{{ with site.GetPage "/about" }}{{ .RelPermalink }}{{ end }}"
-              class="home-hero__cta rounded-full bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold !text-white shadow-xs transition hover:bg-indigo-500 hover:!text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+              class="home-hero__cta ui-button ui-button-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700">
               {{- if $isRu -}}О бренде Aerocool{{- else -}}Про бренд Aerocool{{- end -}}
             </a>
           </div>
@@ -80,7 +80,7 @@
 
           <ul role="list" class="mt-8 space-y-8 text-gray-600">
             <li class="flex gap-x-3">
-              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="mt-1 size-5 flex-none text-indigo-600">
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="mt-1 size-5 flex-none text-red-700">
                 <path d="M5.5 17a4.5 4.5 0 0 1-1.44-8.765 4.5 4.5 0 0 1 8.302-3.046 3.5 3.5 0 0 1 4.504 4.272A4 4 0 0 1 15 17H5.5Zm3.75-2.75a.75.75 0 0 0 1.5 0V9.66l1.95 2.1a.75.75 0 1 0 1.1-1.02l-3.25-3.5a.75.75 0 0 0-1.1 0l-3.25 3.5a.75.75 0 1 0 1.1 1.02l1.95-2.1v4.59Z" clip-rule="evenodd" fill-rule="evenodd" />
               </svg>
               <span>
@@ -95,7 +95,7 @@
             </li>
 
             <li class="flex gap-x-3">
-              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="mt-1 size-5 flex-none text-indigo-600">
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="mt-1 size-5 flex-none text-red-700">
                 <path d="M10 1a4.5 4.5 0 0 0-4.5 4.5V9H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0 10 1Zm3 8V5.5a3 3 0 1 0-6 0V9h6Z" clip-rule="evenodd" fill-rule="evenodd" />
               </svg>
               <span>
@@ -110,7 +110,7 @@
             </li>
 
             <li class="flex gap-x-3">
-              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="mt-1 size-5 flex-none text-indigo-600">
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="mt-1 size-5 flex-none text-red-700">
                 <path d="M4.632 3.533A2 2 0 0 1 6.577 2h6.846a2 2 0 0 1 1.945 1.533l1.976 8.234A3.489 3.489 0 0 0 16 11.5H4c-.476 0-.93.095-1.344.267l1.976-8.234Z" />
                 <path d="M4 13a2 2 0 1 0 0 4h12a2 2 0 1 0 0-4H4Zm11.24 2a.75.75 0 0 1 .75-.75H16a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75h-.01a.75.75 0 0 1-.75-.75V15Zm-2.25-.75a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75H13a.75.75 0 0 0 .75-.75V15a.75.75 0 0 0-.75-.75h-.01Z" clip-rule="evenodd" fill-rule="evenodd" />
               </svg>
@@ -134,7 +134,7 @@
             {{- end -}}
           </p>
 
-          <h2 class="mt-16 text-2xl font-bold tracking-tight text-gray-900">
+          <h2 class="ui-section-title mt-16">
             {{- if $isRu -}}Как выбрать серию Aerocool под свои задачи{{- else -}}Як обрати серію Aerocool під свої задачі{{- end -}}
           </h2>
 
@@ -147,7 +147,7 @@
           </p>
 
           <div class="mt-8">
-            <a href="{{ with site.GetPage "/faq" }}{{ .RelPermalink }}{{ end }}" class="text-sm font-semibold text-indigo-600 hover:text-indigo-500">
+            <a href="{{ with site.GetPage "/faq" }}{{ .RelPermalink }}{{ end }}" class="text-sm font-semibold text-red-700 hover:text-red-600">
               {{- if $isRu -}}Перейти в FAQ{{- else -}}Перейти до FAQ{{- end -}} <span aria-hidden="true">→</span>
             </a>
           </div>

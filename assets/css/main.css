@@ -82,18 +82,31 @@
     --base-text-size: 1rem;
     --base-text-line-height: 1.75;
     --base-text-color: #4b5563;
+    --ui-text-xs: 0.75rem;
+    --ui-text-xs-line-height: 1.25rem;
+    --ui-text-sm: 0.875rem;
+    --ui-text-sm-line-height: 1.5rem;
+    --ui-text-base: 1rem;
+    --ui-text-base-line-height: 1.75rem;
+    --ui-text-lg: 1.125rem;
+    --ui-text-lg-line-height: 1.875rem;
+    --ui-title-sm: 1.25rem;
+    --ui-title-sm-line-height: 1.75rem;
+    --ui-title-md: 1.5rem;
+    --ui-title-md-line-height: 2rem;
+    --ui-title-lg: 1.875rem;
+    --ui-title-lg-line-height: 2.25rem;
+    --ui-title-xl: 2.25rem;
+    --ui-title-xl-line-height: 2.5rem;
+    --ui-font-medium: 500;
+    --ui-font-semibold: 600;
+    --ui-tracking: 0;
     --bg-soft: #f8fafc;
     --bg-muted: #f3f4f6;
-    --accent: #4f39f6;
-    --accent-hover: #432dd7;
-    --accent-soft: #e0e7ff;
-    --link-underline: #c7d2fe;
-    --color-link-rose: #d60057;
-    --color-link-purple: #7c1fff;
-    --color-link-blue: #004cff;
-    --color-link-cyan: #0088cc;
-    --color-link-green: #008c45;
-    --color-link-orange: #d94700;
+    --accent: #b91c1c;
+    --accent-hover: #dc2626;
+    --accent-soft: #fef2f2;
+    --link-underline: #fecaca;
     --border-strong: #d1d5db;
     --shadow-soft: 0 8px 24px rgba(15, 23, 42, 0.06);
     --shadow-card: 0 2px 10px rgba(15, 23, 42, 0.04);
@@ -106,6 +119,7 @@
     --code-bg: #f8fafc;
     --border: #e5e7eb;
     --radius: 14px;
+    --radius-control: 0.375rem;
 }
 
 /* Единый sans-serif стек для всего интерфейса:
@@ -158,6 +172,217 @@ body.list {
     color: var(--base-text-color);
 }
 
+.ui-eyebrow {
+    color: var(--accent);
+    font-size: var(--ui-text-sm);
+    line-height: var(--ui-text-sm-line-height);
+    font-weight: var(--ui-font-semibold);
+    letter-spacing: var(--ui-tracking);
+}
+
+.ui-section-title {
+    color: var(--primary);
+    font-size: var(--ui-title-lg);
+    line-height: var(--ui-title-lg-line-height);
+    font-weight: var(--ui-font-semibold);
+    letter-spacing: var(--ui-tracking);
+}
+
+.ui-section-lead {
+    color: var(--content);
+    font-size: var(--ui-text-lg);
+    line-height: var(--ui-text-lg-line-height);
+}
+
+.ui-card-title {
+    color: var(--primary);
+    font-size: var(--ui-text-base);
+    line-height: var(--ui-text-sm-line-height);
+    font-weight: var(--ui-font-semibold);
+    letter-spacing: var(--ui-tracking);
+}
+
+.ui-card-text {
+    color: var(--secondary);
+    font-size: var(--ui-text-sm);
+    line-height: var(--ui-text-sm-line-height);
+}
+
+.ui-meta {
+    color: var(--secondary);
+    font-size: var(--ui-text-xs);
+    line-height: var(--ui-text-xs-line-height);
+    letter-spacing: var(--ui-tracking);
+}
+
+.ui-badge {
+    display: inline-flex;
+    min-width: 2.5rem;
+    min-height: 1.75rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-control);
+    padding: 0.125rem 0.5rem;
+    background: var(--accent-soft);
+    color: var(--accent);
+    box-shadow: inset 0 0 0 1px var(--link-underline);
+    font-size: var(--ui-text-xs);
+    line-height: var(--ui-text-xs-line-height);
+    font-weight: var(--ui-font-semibold);
+    white-space: nowrap;
+}
+
+.ui-badge-muted {
+    background: var(--bg-soft);
+    color: var(--content);
+    box-shadow: inset 0 0 0 1px var(--border);
+}
+
+.ui-alert {
+    border-radius: var(--radius-control);
+    padding: 1rem;
+    text-align: center;
+}
+
+.ui-alert-success {
+    background: #f0fdf4;
+    color: #166534;
+}
+
+.ui-alert__icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #4ade80;
+}
+
+.ui-alert__title {
+    color: #166534;
+    font-size: var(--ui-text-sm);
+    line-height: var(--ui-text-sm-line-height);
+    font-weight: var(--ui-font-medium);
+}
+
+.ui-alert__description {
+    color: #15803d;
+    font-size: var(--ui-text-sm);
+    line-height: var(--ui-text-sm-line-height);
+}
+
+.ui-alert__action {
+    border-radius: var(--radius-control);
+    padding: 0.375rem 0.5rem;
+    background: #f0fdf4;
+    color: #166534;
+    font-size: var(--ui-text-sm);
+    line-height: var(--ui-text-sm-line-height);
+    font-weight: var(--ui-font-medium);
+    text-decoration: none;
+}
+
+.ui-alert__action:hover,
+.ui-alert__action:focus-visible {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.ui-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-control);
+    padding: 0.625rem 0.875rem;
+    font-size: var(--ui-text-sm);
+    line-height: var(--ui-text-sm-line-height);
+    font-weight: var(--ui-font-semibold);
+    text-decoration: none;
+    transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+.ui-button-primary {
+    background: var(--accent);
+    color: #ffffff;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+}
+
+.ui-button-primary:hover,
+.ui-button-primary:focus-visible {
+    background: var(--accent-hover);
+    color: #ffffff;
+}
+
+.ui-button-secondary {
+    border: 1px solid var(--border-strong);
+    background: #ffffff;
+    color: var(--primary);
+}
+
+.ui-button-secondary:hover,
+.ui-button-secondary:focus-visible {
+    background: var(--bg-soft);
+    color: var(--primary);
+}
+
+.ui-footer-title {
+    color: #ffffff;
+    font-size: var(--ui-text-sm);
+    line-height: var(--ui-text-sm-line-height);
+    font-weight: var(--ui-font-semibold);
+}
+
+.ui-footer-text,
+.ui-footer-link {
+    color: #9ca3af;
+    font-size: var(--ui-text-sm);
+    line-height: var(--ui-text-sm-line-height);
+}
+
+.ui-footer-link {
+    display: inline-flex;
+    text-decoration: none;
+    transition: color 180ms ease;
+}
+
+.ui-footer-link:hover,
+.ui-footer-link:focus-visible {
+    color: #d1d5db;
+}
+
+.ui-form-label {
+    display: block;
+    color: var(--primary);
+    font-size: var(--ui-text-sm);
+    line-height: var(--ui-text-sm-line-height);
+    font-weight: var(--ui-font-semibold);
+}
+
+.ui-field {
+    display: block;
+    width: 100%;
+    border: 0;
+    border-radius: var(--radius-control);
+    background: #ffffff;
+    padding: 0.5rem 0.875rem;
+    color: var(--primary);
+    font-size: var(--ui-text-base);
+    line-height: var(--ui-text-base-line-height);
+    outline: 1px solid var(--border-strong);
+    outline-offset: -1px;
+}
+
+.ui-field::placeholder {
+    color: #9ca3af;
+}
+
+.ui-field:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+}
+
+textarea.ui-field {
+    min-height: 9rem;
+    resize: vertical;
+}
+
 /* =========================================================
    3.1 КОМПОНЕНТНЫЙ СЛОЙ ПРОЕКТА
    ---------------------------------------------------------
@@ -184,7 +409,43 @@ body.list {
 .post-content h2,
 .post-content h3 {
     color: var(--primary);
-    letter-spacing: -0.02em;
+    letter-spacing: var(--ui-tracking);
+}
+
+.post-title,
+.page-header h1 {
+    font-size: var(--ui-title-xl);
+    line-height: var(--ui-title-xl-line-height);
+    font-weight: var(--ui-font-semibold);
+}
+
+.entry-header h2,
+.first-entry .entry-header h1 {
+    font-size: var(--ui-title-sm);
+    line-height: var(--ui-title-sm-line-height);
+    font-weight: var(--ui-font-semibold);
+}
+
+.post-content h2,
+.related-links__title {
+    font-size: var(--ui-title-md);
+    line-height: var(--ui-title-md-line-height);
+    font-weight: var(--ui-font-semibold);
+}
+
+.post-content h3,
+.footer-links__title {
+    font-size: var(--ui-title-sm);
+    line-height: var(--ui-title-sm-line-height);
+    font-weight: var(--ui-font-semibold);
+}
+
+.post-content .ui-section-title,
+.ui-section-title {
+    font-size: var(--ui-title-lg);
+    line-height: var(--ui-title-lg-line-height);
+    font-weight: var(--ui-font-semibold);
+    letter-spacing: var(--ui-tracking);
 }
 
 /* Вводные описания страниц делаем чуть крупнее, но не такими большими,
@@ -223,126 +484,36 @@ body.list {
     color: var(--primary);
 }
 
-/* Текстовые ссылки приводим к одному паттерну:
-   многоцветный перелив без underline и разнородных
-   box-shadow/border-bottom решений темы.
+/* Текстовые ссылки приводим к одному спокойному паттерну:
+   стабильный accent-цвет, понятное подчеркивание и без анимаций.
 
    Важно:
    - это слой именно для inline/text links;
    - CTA-кнопки и card/surface links ниже живут отдельно;
    - так проект не смешивает обычные текстовые ссылки с кнопками. */
-.post-content a:not(.home-hero__cta):not([class*="bg-indigo-600"]),
+.post-content a:not(.home-hero__cta):not([class*="bg-"]),
 .related-links a,
 .footer a,
 .home-hero a:not(.home-hero__cta),
 .entry-cover a {
     border-bottom: 0;
     box-shadow: none;
-    text-decoration: none;
-    transition: color 180ms ease;
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: var(--link-underline);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    animation: none;
+    transition: color 180ms ease, text-decoration-color 180ms ease;
 }
 
-/* Многоцветный link-эффект для обычных ссылок сайта.
-   Размер и padding не задаем глобально, чтобы ссылки внутри меню,
-   футера и абзацев не превратились в большие CTA. */
-:where(
-    .post-content a:not(.home-hero__cta):not([class*="bg-indigo-600"]),
-    .related-links a,
-    .footer a,
-    .home-hero a:not(.home-hero__cta),
-    .entry-cover a,
-    .pagination a,
-    .paginav a,
-    .entry-title-link,
-    .color-link
-) {
-    animation: colorChange 60s linear infinite;
-    color: var(--color-link-rose);
-}
-
-:where(
-    .post-content a:not(.home-hero__cta):not([class*="bg-indigo-600"]),
-    .related-links a,
-    .footer a,
-    .home-hero a:not(.home-hero__cta),
-    .entry-cover a,
-    .pagination a,
-    .paginav a,
-    .entry-title-link,
-    .color-link
-) {
-    display: inline-block;
-}
-
-.post-content a:not(.home-hero__cta):not([class*="bg-indigo-600"]):hover,
+.post-content a:not(.home-hero__cta):not([class*="bg-"]):hover,
 .related-links a:hover,
 .footer a:hover,
 .home-hero a:not(.home-hero__cta):hover,
 .entry-cover a:hover {
-    text-decoration: none;
-}
-
-@keyframes colorChange {
-    0% {
-        color: var(--color-link-blue);
-    }
-
-    11% {
-        color: var(--color-link-orange);
-    }
-
-    18% {
-        color: var(--color-link-purple);
-    }
-
-    29% {
-        color: var(--color-link-green);
-    }
-
-    41% {
-        color: var(--color-link-rose);
-    }
-
-    53% {
-        color: var(--color-link-cyan);
-    }
-
-    64% {
-        color: var(--color-link-purple);
-    }
-
-    73% {
-        color: var(--color-link-orange);
-    }
-
-    85% {
-        color: var(--color-link-blue);
-    }
-
-    93% {
-        color: var(--color-link-green);
-    }
-
-    100% {
-        color: var(--color-link-blue);
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    :where(
-        .post-content a,
-        .related-links a,
-        .footer a,
-        .home-hero a:not(.home-hero__cta),
-        .entry-cover a,
-        .pagination a,
-        .paginav a,
-        .entry-title-link,
-        .color-link
-    ) {
-        animation: none;
-    }
-
+    color: var(--accent-hover);
+    text-decoration-color: var(--accent-hover);
 }
 
 /* Карточки и вспомогательные поверхности строим по одному принципу:
@@ -402,8 +573,8 @@ body.list {
     transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
 }
 
-a[class*="bg-indigo-600"],
-button[class*="bg-indigo-600"],
+a[class*="bg-red-700"],
+button[class*="bg-red-700"],
 .home-hero__cta {
     animation: none;
     color: #fff;
@@ -427,8 +598,10 @@ button[class*="bg-indigo-600"],
 
 .home-hero__title {
     max-width: none;
-    font-size: 1.5rem;
-    line-height: 1.25;
+    color: var(--primary);
+    font-size: 2rem;
+    line-height: 2.375rem;
+    letter-spacing: var(--ui-tracking);
     word-break: normal;
     overflow-wrap: normal;
     hyphens: none;
@@ -437,7 +610,8 @@ button[class*="bg-indigo-600"],
 @media (min-width: 640px) {
     .home-hero__title {
         max-width: 34rem;
-        font-size: 1.875rem;
+        font-size: var(--ui-title-xl);
+        line-height: var(--ui-title-xl-line-height);
     }
 }
 
@@ -734,54 +908,6 @@ button[class*="bg-indigo-600"],
 .post-content > .relative.isolate.bg-white a:hover {
     color: var(--color-gray-900);
     text-decoration: none;
-}
-
-.post-content > .relative.isolate.bg-white input,
-.post-content > .relative.isolate.bg-white textarea {
-    display: block;
-    width: 100%;
-    border: 0;
-    border-radius: var(--radius-md);
-    background: var(--color-white);
-    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3.5);
-    color: var(--color-gray-900);
-    font-size: var(--text-base);
-    line-height: var(--text-base--line-height);
-    outline: 1px solid var(--color-gray-300);
-    outline-offset: -1px;
-}
-
-.post-content > .relative.isolate.bg-white input:focus,
-.post-content > .relative.isolate.bg-white textarea:focus {
-    outline: 2px solid var(--color-indigo-600);
-    outline-offset: -2px;
-}
-
-.post-content > .relative.isolate.bg-white textarea {
-    min-height: 9rem;
-    resize: vertical;
-}
-
-.post-content > .relative.isolate.bg-white button[type="submit"] {
-    border: 0;
-    border-radius: 9999px;
-    background: var(--color-indigo-600);
-    padding: calc(var(--spacing) * 2.5) calc(var(--spacing) * 3.5);
-    color: var(--color-white);
-    font-size: var(--text-sm);
-    line-height: var(--text-sm--line-height);
-    font-weight: var(--font-weight-semibold);
-    text-align: center;
-    box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
-}
-
-.post-content > .relative.isolate.bg-white button[type="submit"]:hover {
-    background: var(--color-indigo-500);
-}
-
-.post-content > .relative.isolate.bg-white button[type="submit"]:focus-visible {
-    outline: 2px solid var(--color-indigo-600);
-    outline-offset: 2px;
 }
 
 /* =========================================================

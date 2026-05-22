@@ -149,6 +149,17 @@
 - [layouts/_shortcodes/recommended-links-news.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/recommended-links-news.html) — управляемый блок рекомендованных новостей на `/news/` и `/ru/news/`.
 - [layouts/_shortcodes/recommended-links-faq.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/recommended-links-faq.html) — блок следующих шагов после FAQ на `/faq/` и `/ru/faq/`.
 
+Важно по единому UI-слою:
+
+- базовая типографика, accent-цвет, радиус кнопок и общие UI-классы задаются в [assets/css/main.css](/Users/stadnyk/MEGA/Aerocool/assets/css/main.css), а не разрозненно в каждом shortcode;
+- для новых управляемых блоков сначала использовать классы `.ui-eyebrow`, `.ui-section-title`, `.ui-section-lead`, `.ui-card-title`, `.ui-card-text`, `.ui-meta`, `.ui-badge`, `.ui-alert`, `.ui-button`, `.ui-button-primary`, `.ui-button-secondary`, `.ui-footer-title`, `.ui-footer-text`, `.ui-footer-link`, `.ui-form-label` и `.ui-field`;
+- блоки `recommended-links-*` и `section-highlights-*` должны брать бейджи, заголовки карточек, описания и meta-текст из `.ui-badge`, `.ui-card-title`, `.ui-card-text` и `.ui-meta`;
+- `footer.html` должен использовать `.ui-footer-title`, `.ui-footer-text` и `.ui-footer-link`, чтобы footer не держал собственную типографику в Tailwind-классах;
+- контактная форма должна использовать `.ui-form-label` и `.ui-field`, а success-состояние — `.ui-alert` и дочерние `.ui-alert__*` классы;
+- Tailwind-классы в shortcode лучше оставлять для сетки, spacing, responsive-поведения, иконок и локальной композиции;
+- не возвращать `tracking-tight`, `tracking-wide` или отрицательный `letter-spacing`: в проекте закреплен `letter-spacing: 0`;
+- обычные текстовые ссылки используют стабильный accent-цвет и подчеркивание; многоцветная анимация ссылок больше не является базовым паттерном проекта.
+
 Важно по `about-*`:
 
 - эти shortcodes заменяют верхние повторяющиеся markdown-разделы `/about/` на управляемые UI-компоненты;

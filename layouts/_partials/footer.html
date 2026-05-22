@@ -38,11 +38,11 @@
             class="h-9 w-auto brightness-0 invert"
           />
         </a>
-        <p class="site-footer__description text-sm/6 text-balance text-gray-400">{{ $footerText }}</p>
+        <p class="site-footer__description ui-footer-text text-balance">{{ $footerText }}</p>
         <div class="site-footer__social flex gap-x-6">
           {{- range site.Params.socialIcons }}
           {{- $iconName := .name | lower -}}
-          <a href="{{ trim .url " " | safeURL }}" class="text-gray-400 hover:text-gray-300" target="_blank" rel="noopener noreferrer me">
+          <a href="{{ trim .url " " | safeURL }}" class="ui-footer-link" target="_blank" rel="noopener noreferrer me">
             <span class="sr-only">{{ .title | default .name | title }}</span>
             {{- if eq $iconName "facebook" }}
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="size-6">
@@ -69,21 +69,21 @@
       </div>
       <nav class="site-footer__nav mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 xl:col-span-2 xl:mt-0" aria-label="{{ $navLabel }}">
         <div>
-          <h3 class="site-footer__title text-sm/6 font-semibold text-white">{{ $sectionsTitle }}</h3>
+          <h3 class="site-footer__title ui-footer-title">{{ $sectionsTitle }}</h3>
           <ul role="list" class="site-footer__list mt-6 space-y-4">
             {{- range $pagesScratch.GetSortedMapValues "sections" }}
             <li>
-              <a href="{{ .RelPermalink }}" class="text-sm/6 text-gray-400 hover:text-gray-300">{{ .Title }}</a>
+              <a href="{{ .RelPermalink }}" class="ui-footer-link">{{ .Title }}</a>
             </li>
             {{- end }}
           </ul>
         </div>
         <div>
-          <h3 class="site-footer__title text-sm/6 font-semibold text-white">{{ $seriesTitle }}</h3>
+          <h3 class="site-footer__title ui-footer-title">{{ $seriesTitle }}</h3>
           <ul role="list" class="site-footer__list mt-6 space-y-4">
             {{- range $seriesScratch.GetSortedMapValues "pages" }}
             <li>
-              <a href="{{ .RelPermalink }}" class="text-sm/6 text-gray-400 hover:text-gray-300">{{ .Title }}</a>
+              <a href="{{ .RelPermalink }}" class="ui-footer-link">{{ .Title }}</a>
             </li>
             {{- end }}
           </ul>
@@ -93,13 +93,13 @@
     <div class="site-footer__bottom mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
       {{- if not site.Params.footer.hideCopyright }}
         {{- if site.Copyright }}
-        <p class="site-footer__copyright text-sm/6 text-gray-400">{{ site.Copyright | markdownify }}</p>
+        <p class="site-footer__copyright ui-footer-text">{{ site.Copyright | markdownify }}</p>
         {{- else }}
-        <p class="site-footer__copyright text-sm/6 text-gray-400">&copy; {{ now.Year }} <a href="{{ "" | absLangURL }}" class="hover:text-gray-300">{{ site.Title }}</a></p>
+        <p class="site-footer__copyright ui-footer-text">&copy; {{ now.Year }} <a href="{{ "" | absLangURL }}" class="ui-footer-link">{{ site.Title }}</a></p>
         {{- end }}
       {{- end }}
       {{- with site.Params.footer.text }}
-      <p class="site-footer__extra mt-2 text-sm/6 text-gray-400">{{ . | markdownify }}</p>
+      <p class="site-footer__extra ui-footer-text mt-2">{{ . | markdownify }}</p>
       {{- end }}
     </div>
   </div>

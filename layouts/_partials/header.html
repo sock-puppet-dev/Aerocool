@@ -94,7 +94,7 @@
         <details class="relative inline-block z-50">
           <!-- details/summary → нативный dropdown без JS -->
 
-          <summary class="inline-flex cursor-pointer list-none items-center gap-x-1.5 bg-white px-2 py-2 !text-sm/6 !font-semibold text-gray-900 hover:bg-gray-50 [&::-webkit-details-marker]:hidden">
+          <summary class="inline-flex cursor-pointer list-none items-center gap-x-1.5 bg-white px-2 py-2 text-sm/6 font-semibold text-gray-900 hover:bg-gray-50 [&::-webkit-details-marker]:hidden">
             {{- $current_display -}}
 
             <svg
@@ -127,7 +127,7 @@
 
               <a
                 href="{{ .RelPermalink }}"
-                class="block whitespace-nowrap px-4 py-2 !text-sm/6 !font-normal text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                class="block whitespace-nowrap px-4 py-2 text-sm/6 font-normal text-gray-700 hover:bg-gray-100 hover:text-gray-900"
               >
                 {{- $display_name -}}
               </a>
@@ -266,7 +266,7 @@
           <a
             href="{{ .URL | absLangURL }}"
             data-nav-close
-            class="block px-3 py-2 text-lg font-semibold hover:bg-gray-50"
+            class="block px-3 py-2 text-base font-semibold hover:bg-gray-50"
           >
             <!-- При клике закрываем меню -->
             {{ .Name }}

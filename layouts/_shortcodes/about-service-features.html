@@ -6,7 +6,7 @@
 {{- $items = $items | append (dict "badge" "03" "title" (cond $isRu "Сервисная коммуникация в Украине" "Сервісна комунікація в Україні") "description" (cond $isRu "FAQ, контакты и страницы товаров помогают уточнить гарантию, доставку, наличие и вопросы после покупки." "FAQ, контакти і сторінки товарів допомагають уточнити гарантію, доставку, наявність і питання після покупки.")) -}}
 
 <section class="about-service-features mt-12" aria-labelledby="about-service-features-title">
-  <h2 id="about-service-features-title">{{ $heading }}</h2>
+  <h2 id="about-service-features-title" class="ui-section-title">{{ $heading }}</h2>
   <ul role="list" class="mt-8 grid grid-cols-1 gap-x-8 gap-y-8 lg:grid-cols-3">
     {{- range $items }}
     <li>
