@@ -3,13 +3,13 @@
 {{- $contactPage := site.GetPage "/contact" -}}
 
 <section class="not-found">
-  <div class="grid min-h-[65vh] place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
+  <div class="grid min-h-[65vh] place-items-center bg-aero-canvas px-6 py-24 sm:py-32 lg:px-8">
     <div class="text-center">
       <p class="ui-eyebrow">404</p>
-      <h1 class="mt-4 text-4xl font-semibold text-gray-900 sm:text-5xl">
+      <h1 class="ui-page-title mt-4">
         {{- if $isRu -}}Страница не найдена{{- else -}}Сторінку не знайдено{{- end -}}
       </h1>
-      <p class="mt-6 text-lg font-medium text-gray-500">
+      <p class="ui-section-lead mt-6">
         {{- if $isRu -}}
           Похоже, такой страницы больше нет или ссылка неверна.
         {{- else -}}

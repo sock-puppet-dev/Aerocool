@@ -19,6 +19,56 @@
    в шаблонах и контенте, чтобы Tailwind не выкинул их как unused. */
 @source "hugo_stats.json";
 
+/* Tailwind CSS 4.3: CSS-first tokens.
+   @theme делает проектные значения частью Tailwind-системы: из них можно
+   получать utility-классы вроде bg-aero-accent, text-aero-muted,
+   rounded-aero-control и shadow-aero-card. Ниже :root оставлен как
+   совместимый слой для PaperMod-переменных и локальных semantic-классов. */
+@theme {
+    --font-aero-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+    --color-aero-canvas: #ffffff;
+    --color-aero-surface: #ffffff;
+    --color-aero-soft: #f8fafc;
+    --color-aero-muted-surface: #f3f4f6;
+    --color-aero-ink: #111827;
+    --color-aero-body: #374151;
+    --color-aero-muted: #6b7280;
+    --color-aero-border: #e5e7eb;
+    --color-aero-border-strong: #d1d5db;
+    --color-aero-accent: #b91c1c;
+    --color-aero-accent-hover: #dc2626;
+    --color-aero-accent-soft: #fef2f2;
+    --color-aero-accent-border: #fecaca;
+
+    --text-aero-xs: 0.75rem;
+    --text-aero-xs--line-height: 1.25rem;
+    --text-aero-sm: 0.875rem;
+    --text-aero-sm--line-height: 1.5rem;
+    --text-aero-base: 1rem;
+    --text-aero-base--line-height: 1.75rem;
+    --text-aero-lg: 1.125rem;
+    --text-aero-lg--line-height: 1.875rem;
+    --text-aero-title-sm: 1.25rem;
+    --text-aero-title-sm--line-height: 1.75rem;
+    --text-aero-title-md: 1.5rem;
+    --text-aero-title-md--line-height: 2rem;
+    --text-aero-title-lg: 1.875rem;
+    --text-aero-title-lg--line-height: 2.25rem;
+    --text-aero-title-xl: 2.25rem;
+    --text-aero-title-xl--line-height: 2.5rem;
+
+    --font-weight-aero-medium: 500;
+    --font-weight-aero-semibold: 600;
+
+    --radius-aero-card: 0.875rem;
+    --radius-aero-control: 0.375rem;
+
+    --shadow-aero-card: 0 2px 10px rgba(15, 23, 42, 0.04);
+    --shadow-aero-soft: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
 /* =========================================================
    2. БАЗОВАЯ ТИПОГРАФИКА КОНТЕНТА
    ---------------------------------------------------------
@@ -77,49 +127,48 @@
     --nav-width: 1280px;
     --main-width: 1150px;
     --text-width: 720px;
-    --project-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    --base-text-size: 1rem;
+    --project-font-sans: var(--font-aero-sans);
+    --base-text-size: var(--text-aero-base);
     --base-text-line-height: 1.75;
     --base-text-color: #4b5563;
-    --ui-text-xs: 0.75rem;
-    --ui-text-xs-line-height: 1.25rem;
-    --ui-text-sm: 0.875rem;
-    --ui-text-sm-line-height: 1.5rem;
-    --ui-text-base: 1rem;
-    --ui-text-base-line-height: 1.75rem;
-    --ui-text-lg: 1.125rem;
-    --ui-text-lg-line-height: 1.875rem;
-    --ui-title-sm: 1.25rem;
-    --ui-title-sm-line-height: 1.75rem;
-    --ui-title-md: 1.5rem;
-    --ui-title-md-line-height: 2rem;
-    --ui-title-lg: 1.875rem;
-    --ui-title-lg-line-height: 2.25rem;
-    --ui-title-xl: 2.25rem;
-    --ui-title-xl-line-height: 2.5rem;
-    --ui-font-medium: 500;
-    --ui-font-semibold: 600;
+    --ui-text-xs: var(--text-aero-xs);
+    --ui-text-xs-line-height: var(--text-aero-xs--line-height);
+    --ui-text-sm: var(--text-aero-sm);
+    --ui-text-sm-line-height: var(--text-aero-sm--line-height);
+    --ui-text-base: var(--text-aero-base);
+    --ui-text-base-line-height: var(--text-aero-base--line-height);
+    --ui-text-lg: var(--text-aero-lg);
+    --ui-text-lg-line-height: var(--text-aero-lg--line-height);
+    --ui-title-sm: var(--text-aero-title-sm);
+    --ui-title-sm-line-height: var(--text-aero-title-sm--line-height);
+    --ui-title-md: var(--text-aero-title-md);
+    --ui-title-md-line-height: var(--text-aero-title-md--line-height);
+    --ui-title-lg: var(--text-aero-title-lg);
+    --ui-title-lg-line-height: var(--text-aero-title-lg--line-height);
+    --ui-title-xl: var(--text-aero-title-xl);
+    --ui-title-xl-line-height: var(--text-aero-title-xl--line-height);
+    --ui-font-medium: var(--font-weight-aero-medium);
+    --ui-font-semibold: var(--font-weight-aero-semibold);
     --ui-tracking: 0;
-    --bg-soft: #f8fafc;
-    --bg-muted: #f3f4f6;
-    --accent: #b91c1c;
-    --accent-hover: #dc2626;
-    --accent-soft: #fef2f2;
-    --link-underline: #fecaca;
-    --border-strong: #d1d5db;
-    --shadow-soft: 0 8px 24px rgba(15, 23, 42, 0.06);
-    --shadow-card: 0 2px 10px rgba(15, 23, 42, 0.04);
-    --theme: #ffffff;
-    --entry: #ffffff;
-    --primary: #111827;
-    --secondary: #6b7280;
-    --tertiary: #d1d5db;
-    --content: #374151;
-    --code-bg: #f8fafc;
-    --border: #e5e7eb;
-    --radius: 14px;
-    --radius-control: 0.375rem;
+    --bg-soft: var(--color-aero-soft);
+    --bg-muted: var(--color-aero-muted-surface);
+    --accent: var(--color-aero-accent);
+    --accent-hover: var(--color-aero-accent-hover);
+    --accent-soft: var(--color-aero-accent-soft);
+    --link-underline: var(--color-aero-accent-border);
+    --border-strong: var(--color-aero-border-strong);
+    --shadow-soft: var(--shadow-aero-soft);
+    --shadow-card: var(--shadow-aero-card);
+    --theme: var(--color-aero-canvas);
+    --entry: var(--color-aero-surface);
+    --primary: var(--color-aero-ink);
+    --secondary: var(--color-aero-muted);
+    --tertiary: var(--color-aero-border-strong);
+    --content: var(--color-aero-body);
+    --code-bg: var(--color-aero-soft);
+    --border: var(--color-aero-border);
+    --radius: var(--radius-aero-card);
+    --radius-control: var(--radius-aero-control);
 }
 
 /* Единый sans-serif стек для всего интерфейса:
@@ -188,10 +237,32 @@ body.list {
     letter-spacing: var(--ui-tracking);
 }
 
+.ui-page-title {
+    color: var(--primary);
+    font-size: var(--ui-title-xl);
+    line-height: var(--ui-title-xl-line-height);
+    font-weight: var(--ui-font-semibold);
+    letter-spacing: var(--ui-tracking);
+}
+
+.ui-group-title {
+    color: var(--primary);
+    font-size: var(--ui-title-sm);
+    line-height: var(--ui-title-sm-line-height);
+    font-weight: var(--ui-font-semibold);
+    letter-spacing: var(--ui-tracking);
+}
+
 .ui-section-lead {
     color: var(--content);
     font-size: var(--ui-text-lg);
     line-height: var(--ui-text-lg-line-height);
+}
+
+.ui-body {
+    color: var(--base-text-color);
+    font-size: var(--ui-text-base);
+    line-height: var(--ui-text-base-line-height);
 }
 
 .ui-card-title {
@@ -213,6 +284,35 @@ body.list {
     font-size: var(--ui-text-xs);
     line-height: var(--ui-text-xs-line-height);
     letter-spacing: var(--ui-tracking);
+}
+
+.ui-link {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: var(--link-underline);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    transition: color 180ms ease, text-decoration-color 180ms ease;
+}
+
+.ui-link:hover,
+.ui-link:focus-visible {
+    color: var(--accent-hover);
+    text-decoration-color: var(--accent-hover);
+}
+
+.ui-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex: none;
+    color: var(--accent);
+}
+
+.ui-surface {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--entry);
+    box-shadow: var(--shadow-card);
 }
 
 .ui-badge {
@@ -383,6 +483,100 @@ textarea.ui-field {
     resize: vertical;
 }
 
+/* PaperMod оформляет обычный markdown-контент через .post-content p/li/dd/a.
+   Управляемые UI-компоненты должны сохранять semantic-типографику даже
+   внутри .post-content, поэтому здесь задаем точечный каскад поверх темы. */
+.post-content .ui-eyebrow {
+    color: var(--accent);
+    font-size: var(--ui-text-sm);
+    line-height: var(--ui-text-sm-line-height);
+    font-weight: var(--ui-font-semibold);
+}
+
+.post-content .ui-page-title {
+    color: var(--primary);
+    font-size: var(--ui-title-xl);
+    line-height: var(--ui-title-xl-line-height);
+    font-weight: var(--ui-font-semibold);
+}
+
+.post-content .ui-section-title {
+    color: var(--primary);
+    font-size: var(--ui-title-lg);
+    line-height: var(--ui-title-lg-line-height);
+    font-weight: var(--ui-font-semibold);
+}
+
+.post-content .ui-group-title {
+    color: var(--primary);
+    font-size: var(--ui-title-sm);
+    line-height: var(--ui-title-sm-line-height);
+    font-weight: var(--ui-font-semibold);
+}
+
+.post-content .ui-section-lead {
+    color: var(--content);
+    font-size: var(--ui-text-lg);
+    line-height: var(--ui-text-lg-line-height);
+}
+
+.post-content .ui-body {
+    color: var(--base-text-color);
+    font-size: var(--ui-text-base);
+    line-height: var(--ui-text-base-line-height);
+}
+
+.post-content .ui-card-title {
+    color: var(--primary);
+    font-size: var(--ui-text-base);
+    line-height: var(--ui-text-sm-line-height);
+    font-weight: var(--ui-font-semibold);
+}
+
+.post-content .ui-card-text,
+.post-content .ui-meta {
+    color: var(--secondary);
+}
+
+.post-content .ui-card-text {
+    font-size: var(--ui-text-sm);
+    line-height: var(--ui-text-sm-line-height);
+}
+
+.post-content .ui-meta {
+    font-size: var(--ui-text-xs);
+    line-height: var(--ui-text-xs-line-height);
+}
+
+.post-content .ui-button,
+.post-content a.ui-button,
+.home-hero .ui-button {
+    text-decoration: none;
+}
+
+.post-content .ui-button-primary,
+.post-content a.ui-button-primary,
+.home-hero .ui-button-primary {
+    background: var(--accent);
+    color: #ffffff;
+}
+
+.post-content .ui-button-primary:hover,
+.post-content .ui-button-primary:focus-visible,
+.post-content a.ui-button-primary:hover,
+.post-content a.ui-button-primary:focus-visible,
+.home-hero .ui-button-primary:hover,
+.home-hero .ui-button-primary:focus-visible {
+    background: var(--accent-hover);
+    color: #ffffff;
+}
+
+.post-content .ui-button-secondary,
+.post-content a.ui-button-secondary,
+.home-hero .ui-button-secondary {
+    color: var(--primary);
+}
+
 /* =========================================================
    3.1 КОМПОНЕНТНЫЙ СЛОЙ ПРОЕКТА
    ---------------------------------------------------------
@@ -491,10 +685,10 @@ textarea.ui-field {
    - это слой именно для inline/text links;
    - CTA-кнопки и card/surface links ниже живут отдельно;
    - так проект не смешивает обычные текстовые ссылки с кнопками. */
-.post-content a:not(.home-hero__cta):not([class*="bg-"]),
+.post-content a:not(.home-hero__cta):not(.ui-button):not(.ui-alert__action):not([class*="bg-"]),
 .related-links a,
 .footer a,
-.home-hero a:not(.home-hero__cta),
+.home-hero a:not(.home-hero__cta):not(.ui-button),
 .entry-cover a {
     border-bottom: 0;
     box-shadow: none;
@@ -507,10 +701,10 @@ textarea.ui-field {
     transition: color 180ms ease, text-decoration-color 180ms ease;
 }
 
-.post-content a:not(.home-hero__cta):not([class*="bg-"]):hover,
+.post-content a:not(.home-hero__cta):not(.ui-button):not(.ui-alert__action):not([class*="bg-"]):hover,
 .related-links a:hover,
 .footer a:hover,
-.home-hero a:not(.home-hero__cta):hover,
+.home-hero a:not(.home-hero__cta):not(.ui-button):hover,
 .entry-cover a:hover {
     color: var(--accent-hover);
     text-decoration-color: var(--accent-hover);
@@ -565,6 +759,19 @@ textarea.ui-field {
     transform: none;
 }
 
+/* Header подключен через PaperMod и часть его ссылок получает цвет из темы.
+   Классы text-aero-* остаются источником смысла в HTML, а этот локальный
+   override гарантирует, что unlayered CSS темы не перебьет проектные токены. */
+.nav #menu a {
+    color: var(--secondary);
+}
+
+.nav #menu a.text-aero-ink,
+.nav #menu a:hover,
+.nav #menu a:focus-visible {
+    color: var(--primary);
+}
+
 /* Пагинация и маленькие навигационные карточки используют свой hover-state.
    Это surface links, поэтому у них меняется не underline, а сама поверхность. */
 .pagination a,
@@ -573,8 +780,6 @@ textarea.ui-field {
     transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
 }
 
-a[class*="bg-red-700"],
-button[class*="bg-red-700"],
 .home-hero__cta {
     animation: none;
     color: #fff;
@@ -870,43 +1075,43 @@ button[class*="bg-red-700"],
 }
 
 /* фикс для contact shortcode */
-.post-content > .relative.isolate.bg-white {
+.post-content > .contact-section {
     margin-bottom: var(--content-gap);
 }
 
-.post-content > .relative.isolate.bg-white p,
-.post-content > .relative.isolate.bg-white dd {
+.post-content > .contact-section p:not([class*="ui-"]),
+.post-content > .contact-section dd:not([class*="ui-"]) {
     font-size: inherit;
     line-height: inherit;
     color: inherit;
 }
 
-.post-content > .relative.isolate.bg-white dl {
+.post-content > .contact-section dl {
     display: block;
     flex-wrap: initial;
     margin: 0;
 }
 
-.post-content > .relative.isolate.bg-white dt,
-.post-content > .relative.isolate.bg-white dd {
+.post-content > .contact-section dt,
+.post-content > .contact-section dd {
     width: auto;
     margin: 0;
     padding: 0;
 }
 
-.post-content > .relative.isolate.bg-white dd ~ dd,
-.post-content > .relative.isolate.bg-white dt ~ dt {
+.post-content > .contact-section dd ~ dd,
+.post-content > .contact-section dt ~ dt {
     margin-top: 0;
 }
 
-.post-content > .relative.isolate.bg-white a {
+.post-content > .contact-section a:not(.ui-button):not(.ui-link) {
     color: inherit;
     box-shadow: none;
     text-decoration: none;
 }
 
-.post-content > .relative.isolate.bg-white a:hover {
-    color: var(--color-gray-900);
+.post-content > .contact-section a:not(.ui-button):not(.ui-link):hover {
+    color: var(--primary);
     text-decoration: none;
 }
 
@@ -979,8 +1184,8 @@ button[class*="bg-red-700"],
     max-width: 28rem;
     margin: 0;
     color: #9ca3af;
-    font-size: 0.875rem;
-    line-height: 1.5rem;
+    font-size: var(--ui-text-sm);
+    line-height: var(--ui-text-sm-line-height);
 }
 
 .site-footer__description {
@@ -1027,9 +1232,9 @@ button[class*="bg-red-700"],
 .site-footer__title {
     margin: 0;
     color: #ffffff;
-    font-size: 0.875rem;
-    font-weight: 600;
-    line-height: 1.5rem;
+    font-size: var(--ui-text-sm);
+    font-weight: var(--ui-font-semibold);
+    line-height: var(--ui-text-sm-line-height);
 }
 
 .site-footer__list {
@@ -1043,8 +1248,8 @@ button[class*="bg-red-700"],
 .site-footer__list li {
     margin: 0;
     color: #9ca3af;
-    font-size: 0.875rem;
-    line-height: 1.5rem;
+    font-size: var(--ui-text-sm);
+    line-height: var(--ui-text-sm-line-height);
 }
 
 .site-footer__bottom {
@@ -1127,18 +1332,18 @@ button[class*="bg-red-700"],
 
 .products-list__title {
     margin-top: 1rem;
-    color: #111827;
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1.5;
-    letter-spacing: 0;
+    color: var(--primary);
+    font-size: var(--ui-text-base);
+    font-weight: var(--ui-font-semibold);
+    line-height: var(--ui-text-sm-line-height);
+    letter-spacing: var(--ui-tracking);
 }
 
 .products-list__summary {
     margin-top: 0.5rem;
-    color: #6b7280;
-    font-size: 0.875rem;
-    line-height: 1.5;
+    color: var(--secondary);
+    font-size: var(--ui-text-sm);
+    line-height: var(--ui-text-sm-line-height);
 }
 
 @media (min-width: 768px) {
@@ -1157,7 +1362,3 @@ button[class*="bg-red-700"],
         aspect-ratio: 5 / 6;
     }
 }
-
-/* убираем тени home-hero image*/
-.home-hero { box-shadow: none !important; }
-.home-hero__image { box-shadow: none !important; }

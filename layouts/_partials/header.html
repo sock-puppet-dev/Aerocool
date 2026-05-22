@@ -94,14 +94,14 @@
         <details class="relative inline-block z-50">
           <!-- details/summary → нативный dropdown без JS -->
 
-          <summary class="inline-flex cursor-pointer list-none items-center gap-x-1.5 bg-white px-2 py-2 text-sm/6 font-semibold text-gray-900 hover:bg-gray-50 [&::-webkit-details-marker]:hidden">
+          <summary class="inline-flex cursor-pointer list-none items-center gap-x-1.5 bg-aero-surface px-2 py-2 text-sm/6 font-semibold text-aero-ink hover:bg-aero-soft [&::-webkit-details-marker]:hidden">
             {{- $current_display -}}
 
             <svg
               viewBox="0 0 20 20"
               fill="currentColor"
               aria-hidden="true"
-              class="-mr-1 size-5 text-gray-400"
+              class="-mr-1 size-5 text-aero-muted"
             >
               <!-- Иконка стрелки вниз -->
               <path
@@ -112,7 +112,7 @@
             </svg>
           </summary>
 
-          <div class="absolute left-0 mt-2 w-max origin-top-left rounded-md bg-white shadow-lg z-50 pointer-events-auto ring-1 ring-black/5">
+          <div class="absolute left-0 mt-2 w-max origin-top-left rounded-md bg-aero-surface shadow-lg z-50 pointer-events-auto ring-1 ring-aero-ink/5">
             <!-- Выпадающее меню языков -->
 
             <div class="py-1">
@@ -127,7 +127,7 @@
 
               <a
                 href="{{ .RelPermalink }}"
-                class="block whitespace-nowrap px-4 py-2 text-sm/6 font-normal text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                class="block whitespace-nowrap px-4 py-2 text-sm/6 font-normal text-aero-body hover:bg-aero-soft hover:text-aero-ink"
               >
                 {{- $display_name -}}
               </a>
@@ -157,7 +157,7 @@
       <!-- Кнопка бургер-меню.
            Видна только на мобильных экранах -->
 
-      <label for="nav-toggle" class="p-3 text-gray-700">
+      <label for="nav-toggle" class="p-3 text-aero-body">
         <!-- Клик по label переключает checkbox -->
 
         <svg
@@ -204,7 +204,7 @@
 
           <a
             href="{{ .URL | absLangURL }}"
-            class="text-sm font-medium text-gray-600 {{ if $is_active }}text-black{{ end }}"
+            class="text-sm font-medium text-aero-muted {{ if $is_active }}text-aero-ink{{ end }}"
           >
             <!-- Активный пункт делаем темнее -->
 
@@ -233,7 +233,7 @@
       <!-- Клик по затемнению закрывает меню -->
 
       <!-- Боковая панель -->
-      <div class="absolute inset-y-0 right-0 w-full overflow-y-auto bg-white p-6 sm:max-w-sm">
+      <div class="absolute inset-y-0 right-0 w-full overflow-y-auto bg-aero-surface p-6 sm:max-w-sm">
         <!-- Правая выезжающая панель меню -->
 
         <!-- Header панели -->
@@ -266,7 +266,7 @@
           <a
             href="{{ .URL | absLangURL }}"
             data-nav-close
-            class="block px-3 py-2 text-base font-semibold hover:bg-gray-50"
+            class="block px-3 py-2 text-base font-semibold hover:bg-aero-soft"
           >
             <!-- При клике закрываем меню -->
             {{ .Name }}

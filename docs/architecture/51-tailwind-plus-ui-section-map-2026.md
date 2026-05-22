@@ -10,13 +10,15 @@
 - [Application UI Blocks](https://tailwindcss.com/plus/ui-blocks#product-application-ui)
 - [Ecommerce UI Blocks](https://tailwindcss.com/plus/ui-blocks#product-ecommerce)
 
-Важно: Tailwind Plus используется здесь как **референс структуры и UX-паттернов**, а не как источник для механического копирования. Реализация должна учитывать текущий стек проекта: `Hugo 0.161.0`, `Tailwind CSS 4`, локальные overrides в `layouts/`, контент в `content/`, schema.org partials в `layouts/_partials/_schema` и текущий visual layer в `assets/css/main.css`.
+Важно: Tailwind Plus используется здесь как **референс структуры и UX-паттернов**, а не как источник для механического копирования. Реализация должна учитывать текущий стек проекта: `Hugo 0.161.0`, `Tailwind CSS 4.3`, локальные overrides в `layouts/`, контент в `content/`, schema.org partials в `layouts/_partials/_schema` и текущий visual layer в `assets/css/main.css`.
 
 ## Базовые Правила Внедрения
 
 | Правило | Что Это Значит Для Проекта |
 |---|---|
 | Сначала локальные overrides | Правки вносятся в `layouts/`, `content/`, `assets/css/main.css` и `data/`, а не напрямую в `themes/PaperMod`, если это можно решить локально. |
+| Tailwind 4.3 CSS-first | Проектные дизайн-токены сначала фиксируются в `@theme`, чтобы они были частью Tailwind-системы. `:root` используется как совместимый слой для PaperMod и существующих CSS-хуков. |
+| Цветовые utilities только из проекта | В локальных shortcodes и partials использовать `text-aero-*`, `bg-aero-*`, `border-aero-*`, `ring-aero-*`, `stroke-aero-*`, `fill-aero-*`, а не дефолтные `gray/red/white/black` классы Tailwind, если это не осознанный внешний паттерн. |
 | Tailwind Plus не копируется слепо | Берем структуру секции, UX-логику, responsive-поведение и типы элементов, но адаптируем визуальный слой под Aerocool. |
 | Единая типографика важнее копирования классов | Для заголовков, lead-текста, карточек, meta, бейджей, alert-состояний, footer, форм и кнопок использовать проектные CSS-хуки `.ui-*` из `assets/css/main.css`; прямые Tailwind `text-*`, `tracking-*` и цветовые классы оставлять только там, где они не ломают общий масштаб. |
 | Блок должен решать задачу страницы | Каждый UI-блок должен помогать выбрать кресло, перейти в каталог, сравнить модели, понять условия покупки или связаться с Aerocool. |

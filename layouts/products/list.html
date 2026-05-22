@@ -3,11 +3,11 @@
 {{- $pageDescription := .Description | default (partial "page-description.html" .) }}
 {{- $pages := .Pages.ByWeight }}
 
-<div class="products-list bg-white">
+<div class="products-list bg-aero-canvas">
   <div class="products-list__inner mx-auto max-w-xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
     <header>
       {{- partial "breadcrumbs.html" . }}
-      <h1 class="ui-section-title">
+      <h1 class="ui-page-title">
         {{ partial "page-h1.html" . }}
       </h1>
       {{- with $pageDescription }}

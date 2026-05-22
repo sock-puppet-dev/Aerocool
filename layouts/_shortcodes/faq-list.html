@@ -3,7 +3,7 @@
 {{- $faqGroups := .Page.Params.faq_groups -}}
 {{- $faqItems := .Page.Params.faq -}}
 {{- if or $faqGroups $faqItems }}
-<div class="faq-block bg-white">
+<div class="faq-block bg-aero-surface">
   <div class="mx-auto max-w-7xl px-6 pb-12 pt-2 sm:pb-16 sm:pt-4 lg:px-8">
     {{- $faqTitle := "" -}}
     {{- if eq .Page.Language.Name "ru" -}}
@@ -16,15 +16,15 @@
     {{- if $faqGroups }}
       {{ range $groupIndex, $group := $faqGroups }}
       <section class="mt-14 first:mt-12" aria-labelledby="faq-group-{{ $groupIndex }}">
-        <h3 id="faq-group-{{ $groupIndex }}" class="text-2xl font-semibold text-gray-900">
+        <h3 id="faq-group-{{ $groupIndex }}" class="ui-group-title">
           {{ $group.title }}
         </h3>
         <dl class="mt-8 divide-y divide-gray-900/10">
           {{ range $index, $item := $group.items }}
           <div class="py-8 first:pt-0 last:pb-0 lg:grid lg:grid-cols-12 lg:gap-8">
-            <dt class="text-base/7 font-semibold text-gray-900 lg:col-span-5">{{ $item.question }}</dt>
+            <dt class="ui-card-title lg:col-span-5">{{ $item.question }}</dt>
             <dd class="mt-4 lg:col-span-7 lg:mt-0">
-              <div class="text-base/7 text-gray-600">
+              <div class="ui-body">
                 {{ $item.answer | markdownify }}
               </div>
             </dd>
@@ -37,9 +37,9 @@
     <dl class="mt-12 divide-y divide-gray-900/10">
       {{ range $index, $item := .Page.Params.faq }}
       <div class="py-8 first:pt-0 last:pb-0 lg:grid lg:grid-cols-12 lg:gap-8">
-        <dt class="text-base/7 font-semibold text-gray-900 lg:col-span-5">{{ $item.question }}</dt>
+        <dt class="ui-card-title lg:col-span-5">{{ $item.question }}</dt>
         <dd class="mt-4 lg:col-span-7 lg:mt-0">
-          <div class="text-base/7 text-gray-600">
+          <div class="ui-body">
             {{ $item.answer | markdownify }}
           </div>
         </dd>

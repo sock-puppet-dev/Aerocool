@@ -152,10 +152,13 @@
 Важно по единому UI-слою:
 
 - базовая типографика, accent-цвет, радиус кнопок и общие UI-классы задаются в [assets/css/main.css](/Users/stadnyk/MEGA/Aerocool/assets/css/main.css), а не разрозненно в каждом shortcode;
-- для новых управляемых блоков сначала использовать классы `.ui-eyebrow`, `.ui-section-title`, `.ui-section-lead`, `.ui-card-title`, `.ui-card-text`, `.ui-meta`, `.ui-badge`, `.ui-alert`, `.ui-button`, `.ui-button-primary`, `.ui-button-secondary`, `.ui-footer-title`, `.ui-footer-text`, `.ui-footer-link`, `.ui-form-label` и `.ui-field`;
+- проектный подход соответствует `Tailwind CSS 4.3`: дизайн-токены сначала задаются через `@theme`, а затем совместимо пробрасываются в `:root` для PaperMod-переменных и локальных semantic-классов;
+- в шаблонах использовать utilities, сгенерированные из `@theme`: `text-aero-*`, `bg-aero-*`, `border-aero-*`, `ring-aero-*`, `stroke-aero-*`, `fill-aero-*`; дефолтные `text-gray-*`, `bg-red-*`, `border-gray-*` и похожие цветовые классы не добавлять в локальные shortcodes/partials без отдельной причины;
+- для новых управляемых блоков сначала использовать классы `.ui-page-title`, `.ui-eyebrow`, `.ui-section-title`, `.ui-group-title`, `.ui-section-lead`, `.ui-body`, `.ui-card-title`, `.ui-card-text`, `.ui-meta`, `.ui-link`, `.ui-icon`, `.ui-surface`, `.ui-badge`, `.ui-alert`, `.ui-button`, `.ui-button-primary`, `.ui-button-secondary`, `.ui-footer-title`, `.ui-footer-text`, `.ui-footer-link`, `.ui-form-label` и `.ui-field`;
 - блоки `recommended-links-*` и `section-highlights-*` должны брать бейджи, заголовки карточек, описания и meta-текст из `.ui-badge`, `.ui-card-title`, `.ui-card-text` и `.ui-meta`;
 - `footer.html` должен использовать `.ui-footer-title`, `.ui-footer-text` и `.ui-footer-link`, чтобы footer не держал собственную типографику в Tailwind-классах;
 - контактная форма должна использовать `.ui-form-label` и `.ui-field`, а success-состояние — `.ui-alert` и дочерние `.ui-alert__*` классы;
+- точечные сбросы PaperMod внутри UI-компонентов должны быть привязаны к namespaced-контейнеру, например `.contact-section`, а не к общему набору utility-классов вроде `.relative.isolate.bg-white`;
 - Tailwind-классы в shortcode лучше оставлять для сетки, spacing, responsive-поведения, иконок и локальной композиции;
 - не возвращать `tracking-tight`, `tracking-wide` или отрицательный `letter-spacing`: в проекте закреплен `letter-spacing: 0`;
 - обычные текстовые ссылки используют стабильный accent-цвет и подчеркивание; многоцветная анимация ссылок больше не является базовым паттерном проекта.

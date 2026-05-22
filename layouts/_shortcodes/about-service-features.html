@@ -10,9 +10,9 @@
   <ul role="list" class="mt-8 grid grid-cols-1 gap-x-8 gap-y-8 lg:grid-cols-3">
     {{- range $items }}
     <li>
-      <div class="flex h-8 w-8 items-center justify-center rounded-md bg-red-50 text-sm font-semibold text-red-700 ring-1 ring-red-100">{{ .badge }}</div>
-      <h3 class="mt-4 text-base/7 font-semibold text-gray-900">{{ .title }}</h3>
-      <p class="mt-2 text-sm/6 text-gray-600">{{ .description }}</p>
+      <div class="ui-badge">{{ .badge }}</div>
+      <h3 class="ui-card-title mt-4">{{ .title }}</h3>
+      <p class="ui-card-text mt-2">{{ .description }}</p>
     </li>
     {{- end }}
   </ul>
