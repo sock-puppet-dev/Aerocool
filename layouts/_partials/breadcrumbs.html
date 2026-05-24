@@ -2,7 +2,7 @@
 {{- $homeName := cond (eq .Site.Language.Lang "ru") "Главная" "Головна" -}}
 {{- $breadcrumbLabel := cond (eq .Site.Language.Lang "ru") "Хлебные крошки" "Хлібні крихти" -}}
 {{- $items := slice (dict
-  "url" ("" | absLangURL)
+  "url" .Site.Home.RelPermalink
   "label" $homeName
   "isHome" true
   "isCurrent" false
@@ -21,15 +21,15 @@
 {{- end -}}
 {{- range $sections -}}
   {{- $items = $items | append (dict
-    "url" .Permalink
+    "url" .RelPermalink
     "label" (partial "breadcrumb-label.html" .)
     "isHome" false
-    "isCurrent" (eq .Permalink $.Permalink)
+    "isCurrent" (eq .RelPermalink $.RelPermalink)
   ) -}}
 {{- end -}}
-{{- if and (not .IsHome) (or (not .CurrentSection) (ne .CurrentSection.Permalink .Permalink)) -}}
+{{- if and (not .IsHome) (or (not .CurrentSection) (ne .CurrentSection.RelPermalink .RelPermalink)) -}}
   {{- $items = $items | append (dict
-    "url" .Permalink
+    "url" .RelPermalink
     "label" (partial "breadcrumb-label.html" .)
     "isHome" false
     "isCurrent" true
