@@ -127,6 +127,99 @@
     });
   }
 
+  function setupProductTabs() {
+    var tablists = document.querySelectorAll('[role="tablist"]');
+
+    tablists.forEach(function (tablist) {
+      var tabs = Array.prototype.slice.call(tablist.querySelectorAll('[data-product-tab-target]'));
+
+      if (!tabs.length) {
+        return;
+      }
+
+      function getPanel(tab) {
+        return document.getElementById(tab.getAttribute('data-product-tab-target'));
+      }
+
+      function activateTab(tab, options) {
+        if (!tab) {
+          return;
+        }
+
+        var panel = getPanel(tab);
+
+        if (!panel) {
+          return;
+        }
+
+        tabs.forEach(function (candidate) {
+          var candidatePanel = getPanel(candidate);
+          var isActive = candidate === tab;
+
+          candidate.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          candidate.tabIndex = isActive ? 0 : -1;
+
+          if (candidatePanel) {
+            candidatePanel.hidden = !isActive;
+          }
+        });
+
+        if (options && options.updateHash) {
+          history.pushState(null, '', '#' + panel.id);
+        }
+
+        if (options && options.focus) {
+          tab.focus();
+        }
+
+        if (options && options.scroll) {
+          panel.scrollIntoView(prefersReducedMotion() ? undefined : { behavior: 'smooth' });
+        }
+      }
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          activateTab(tab, { updateHash: true, scroll: false });
+        });
+
+        tab.addEventListener('keydown', function (event) {
+          if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) {
+            return;
+          }
+
+          event.preventDefault();
+
+          var currentIndex = tabs.indexOf(tab);
+          var nextIndex = currentIndex;
+
+          if (event.key === 'ArrowLeft') {
+            nextIndex = currentIndex <= 0 ? tabs.length - 1 : currentIndex - 1;
+          }
+          else if (event.key === 'ArrowRight') {
+            nextIndex = currentIndex >= tabs.length - 1 ? 0 : currentIndex + 1;
+          }
+          else if (event.key === 'Home') {
+            nextIndex = 0;
+          }
+          else if (event.key === 'End') {
+            nextIndex = tabs.length - 1;
+          }
+
+          activateTab(tabs[nextIndex], { updateHash: true, focus: true, scroll: false });
+        });
+      });
+
+      var hashTarget = getHashTarget(window.location.hash);
+      var hashTab = hashTarget
+        ? tabs.find(function (tab) {
+            return getPanel(tab) === hashTarget;
+          })
+        : null;
+
+      activateTab(hashTab || tabs[0], { scroll: Boolean(hashTab) });
+    });
+  }
+
   function setupViewTransitions() {
     if (typeof document.startViewTransition !== 'function') {
       return;
@@ -302,6 +395,7 @@
   setupThemeToggle();
   setupMobileNavClose();
   setupPhoneSanitizer();
+  setupProductTabs();
   setupViewTransitions();
   setupCodeCopyButtons();
   setupServiceWorker();

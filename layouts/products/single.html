@@ -1,0 +1,206 @@
+{{- define "main" }}
+
+{{- $isRu := eq .Language.Lang "ru" -}}
+{{- $contactURL := cond $isRu "/ru/contact/" "/contact/" -}}
+{{- $faqURL := cond $isRu "/ru/faq/" "/faq/" -}}
+{{- $content := .Content -}}
+{{- $content = replaceRE `(?s)^\s*<figure class="w-full rounded-2xl">.*?</figure>` "" $content -}}
+{{- $productTitle := partial "page-h1.html" . -}}
+{{- $productDescription := .Description | default .Summary | plainify | htmlUnescape -}}
+{{- $imageName := .Params.image | default .Params.cover.image -}}
+{{- $imageAlt := .Params.cover.alt | default $productTitle -}}
+{{- $imageSrc := "" -}}
+{{- $imageSrcset := slice -}}
+{{- $imageWidth := 1200 -}}
+{{- $imageHeight := 1200 -}}
+{{- with $imageName -}}
+  {{- $image := ($.Resources.ByType "image").GetMatch (printf "*%s*" .) -}}
+  {{- if and $image (in (slice "jpg" "jpeg" "png" "webp") $image.MediaType.SubType) -}}
+    {{- $fallbackWidth := 1200 -}}
+    {{- if lt $image.Width $fallbackWidth -}}
+      {{- $fallbackWidth = $image.Width -}}
+    {{- end -}}
+    {{- $fallback := $image.Resize (printf "%dx webp q82" $fallbackWidth) -}}
+    {{- $imageSrc = $fallback.RelPermalink -}}
+    {{- $imageWidth = $fallback.Width -}}
+    {{- $imageHeight = $fallback.Height -}}
+    {{- range slice 480 720 960 1200 1600 -}}
+      {{- if le . $image.Width -}}
+        {{- $variant := $image.Resize (printf "%dx webp q82" .) -}}
+        {{- $imageSrcset = $imageSrcset | append (printf "%s %dw" $variant.RelPermalink $variant.Width) -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if not (in $imageSrcset (printf "%s %dw" $fallback.RelPermalink $fallback.Width)) -}}
+      {{- $imageSrcset = $imageSrcset | append (printf "%s %dw" $fallback.RelPermalink $fallback.Width) -}}
+    {{- end -}}
+  {{- else -}}
+    {{- $imageSrc = . | relURL -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $availability := .Params.availability | default "InStock" -}}
+{{- $availabilityLabel := cond (eq $availability "InStock") (cond $isRu "В наличии" "В наявності") $availability -}}
+{{- $reviewTargetID := .Params.review_target_id | default (.Params.sku | default .File.Dir) -}}
+
+<article class="product-detail bg-aero-canvas">
+  <div class="product-detail__inner mx-auto px-4 pt-4 pb-12 sm:px-6 sm:pt-6 sm:pb-16 lg:max-w-7xl lg:px-8">
+    <header class="product-detail__header">
+      {{ partial "breadcrumbs.html" . }}
+    </header>
+
+    <div class="product-detail__overview lg:grid lg:grid-cols-7 lg:grid-rows-1 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
+      <div class="lg:col-span-4 lg:row-end-1">
+        {{- with $imageSrc }}
+        <img
+          src="{{ . }}"
+          {{- if $imageSrcset }}
+          srcset="{{ delimit $imageSrcset ", " }}"
+          sizes="(min-width: 1024px) 55vw, calc(100vw - 2rem)"
+          {{- end }}
+          width="{{ $imageWidth }}"
+          height="{{ $imageHeight }}"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+          alt="{{ $imageAlt }}"
+          class="aspect-square w-full rounded-lg bg-aero-soft object-contain" />
+        {{- end }}
+      </div>
+
+      <div class="mx-auto mt-12 max-w-2xl sm:mt-14 lg:col-span-3 lg:row-span-2 lg:row-end-2 lg:mt-0 lg:max-w-none">
+        <div class="flex flex-col-reverse">
+          <div class="mt-4">
+            <h1 class="text-2xl font-bold tracking-normal text-aero-ink sm:text-3xl">{{ $productTitle }}</h1>
+            <h2 id="product-information-heading" class="sr-only">{{ cond $isRu "Информация о товаре" "Інформація про товар" }}</h2>
+            {{- with $productDescription }}
+            <p class="mt-4 text-sm/6 text-aero-muted">{{ . }}</p>
+            {{- end }}
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="ui-badge">{{ $availabilityLabel }}</span>
+            {{- with .Params.warranty }}
+            <span class="ui-badge ui-badge-muted">{{ . }} {{ cond $isRu "мес. гарантии" "міс. гарантії" }}</span>
+            {{- end }}
+          </div>
+        </div>
+
+        <div class="mt-8">
+          {{- with .Params.price }}
+          <p class="text-3xl font-semibold tracking-normal text-aero-ink">{{ . }} грн</p>
+          {{- end }}
+          <p class="mt-2 text-sm/6 text-aero-muted">
+            {{ cond $isRu "Перед заказом можно уточнить наличие, комплектацию и условия доставки у Aerocool Украина." "Перед замовленням можна уточнити наявність, комплектацію та умови доставки в Aerocool Україна." }}
+          </p>
+        </div>
+
+        <div class="mt-8 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
+          <a href="{{ $contactURL }}" class="ui-button ui-button-primary w-full px-8 py-3 text-base">
+            {{ cond $isRu "Уточнить покупку" "Уточнити покупку" }}
+          </a>
+          <a href="{{ $faqURL }}" class="ui-button ui-button-secondary w-full px-8 py-3 text-base">
+            {{ cond $isRu "Доставка и гарантия" "Доставка і гарантія" }}
+          </a>
+        </div>
+
+        <div class="mt-10 border-t border-aero-border pt-10">
+          <h3 class="text-sm font-medium text-aero-ink">{{ cond $isRu "Ключевые данные" "Ключові дані" }}</h3>
+          <dl class="mt-4 grid grid-cols-1 gap-3 text-sm/6 text-aero-muted sm:grid-cols-2">
+            {{- with .Params.sku }}
+            <div>
+              <dt class="font-medium text-aero-ink">SKU</dt>
+              <dd>{{ . }}</dd>
+            </div>
+            {{- end }}
+            {{- with .Params.mpn }}
+            <div>
+              <dt class="font-medium text-aero-ink">MPN</dt>
+              <dd>{{ . }}</dd>
+            </div>
+            {{- end }}
+            {{- with .Params.gtin13 }}
+            <div>
+              <dt class="font-medium text-aero-ink">GTIN</dt>
+              <dd>{{ . }}</dd>
+            </div>
+            {{- end }}
+            {{- with .Params.priceValidUntil }}
+            <div>
+              <dt class="font-medium text-aero-ink">{{ cond $isRu "Цена действительна до" "Ціна чинна до" }}</dt>
+              <dd>{{ time.Format "2006-01-02" . }}</dd>
+            </div>
+            {{- end }}
+          </dl>
+        </div>
+
+        <div class="mt-10 border-t border-aero-border pt-10">
+          <h3 class="text-sm font-medium text-aero-ink">{{ cond $isRu "Условия покупки" "Умови покупки" }}</h3>
+          <dl class="mt-4 space-y-4 text-sm/6 text-aero-muted">
+            <div>
+              <dt class="font-medium text-aero-ink">{{ cond $isRu "Доставка" "Доставка" }}</dt>
+              <dd>
+                {{- if eq (printf "%v" (.Params.shipping_rate | default 0)) "0" -}}
+                  {{ cond $isRu "Бесплатная доставка по Украине" "Безкоштовна доставка Україною" }}
+                {{- else -}}
+                  {{ .Params.shipping_rate }} {{ .Params.shipping_currency | default "UAH" }}
+                {{- end -}}
+              </dd>
+            </div>
+            <div>
+              <dt class="font-medium text-aero-ink">{{ cond $isRu "Возврат" "Повернення" }}</dt>
+              <dd>{{ .Params.return_days | default 14 }} {{ cond $isRu "дней" "днів" }}</dd>
+            </div>
+            <div>
+              <dt class="font-medium text-aero-ink">{{ cond $isRu "Оплата" "Оплата" }}</dt>
+              <dd>{{ cond $isRu "Наличными или картой" "Готівкою або карткою" }}</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="mx-auto mt-16 w-full max-w-2xl lg:col-span-4 lg:mt-0 lg:max-w-none">
+        <nav class="border-b border-aero-border" aria-label="{{ cond $isRu "Разделы товара" "Розділи товару" }}">
+          <div class="-mb-px flex gap-x-8 overflow-x-auto" role="tablist">
+            <button type="button" id="tab-details" role="tab" aria-selected="true" aria-controls="details" data-product-tab-target="details" class="product-detail__tab">{{ cond $isRu "Описание" "Опис" }}</button>
+            <button type="button" id="tab-purchase" role="tab" aria-selected="false" aria-controls="purchase" data-product-tab-target="purchase" class="product-detail__tab">{{ cond $isRu "Условия" "Умови" }}</button>
+            <button type="button" id="tab-reviews" role="tab" aria-selected="false" aria-controls="reviews" data-product-tab-target="reviews" class="product-detail__tab">{{ cond $isRu "Отзывы" "Відгуки" }}</button>
+          </div>
+        </nav>
+
+        <section id="details" role="tabpanel" aria-labelledby="tab-details" class="product-detail__panel product-detail__content post-content pt-10">
+          {{- if $content }}
+            {{- if not (.Param "disableAnchoredHeadings") }}
+              {{- partial "anchored_headings.html" ($content | safeHTML) -}}
+            {{- else }}
+              {{- $content | safeHTML -}}
+            {{- end }}
+          {{- end }}
+        </section>
+
+        <section id="purchase" role="tabpanel" aria-labelledby="tab-purchase" hidden class="product-detail__panel mt-12 border-t border-aero-border pt-10">
+          <h2 class="ui-group-title">{{ cond $isRu "Перед заказом" "Перед замовленням" }}</h2>
+          <p class="ui-body mt-4">
+            {{ cond $isRu "Если нужно сравнить модель, проверить наличие или уточнить условия доставки, напишите Aerocool Украина перед оформлением заказа." "Якщо потрібно порівняти модель, перевірити наявність або уточнити умови доставки, напишіть Aerocool Україна перед оформленням замовлення." }}
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="{{ $contactURL }}" class="ui-button ui-button-primary">{{ cond $isRu "Связаться" "Зв'язатися" }}</a>
+            <a href="{{ $faqURL }}" class="ui-button ui-button-secondary">FAQ</a>
+          </div>
+        </section>
+
+        <section id="reviews" role="tabpanel" aria-labelledby="tab-reviews" hidden class="product-detail__panel product-review-slot mt-12 border-t border-aero-border pt-10" data-review-target-id="{{ $reviewTargetID }}">
+          <h2 class="ui-group-title">{{ cond $isRu "Отзывы" "Відгуки" }}</h2>
+          <p class="ui-body mt-4">
+            {{ cond $isRu "Рейтинг появится только после проверки реальных публичных отзывов для этой модели." "Рейтинг з'явиться тільки після перевірки реальних публічних відгуків для цієї моделі." }}
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <footer class="product-detail__footer mt-16">
+      {{- partial "post-footer-navigation.html" . -}}
+    </footer>
+  </div>
+</article>
+
+{{- end }}{{- /* end main */ -}}

@@ -200,6 +200,18 @@ body.list {
     background: var(--theme);
 }
 
+.logo .logo-switches a.lang-switch__item {
+    color: var(--content);
+    font-size: var(--ui-text-sm);
+    line-height: var(--ui-text-sm-line-height);
+    font-weight: 400;
+}
+
+.logo .logo-switches a.lang-switch__item:hover,
+.logo .logo-switches a.lang-switch__item:focus-visible {
+    color: var(--primary);
+}
+
 /* Базовый текстовый слой проекта.
    Здесь мы сознательно красим только "обычный" текст:
    описания страниц, абзацы, списки, FAQ-ответы, элементы
@@ -481,6 +493,58 @@ body.list {
 textarea.ui-field {
     min-height: 9rem;
     resize: vertical;
+}
+
+.product-detail {
+    width: 100%;
+    margin-inline: 0;
+}
+
+.product-detail__inner {
+    max-width: var(--main-width);
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.product-detail__overview {
+    align-items: start;
+}
+
+.product-detail__tab {
+    display: inline-flex;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    background: transparent;
+    padding: 1.25rem 0;
+    color: var(--content);
+    font-size: var(--ui-text-sm);
+    line-height: var(--ui-text-sm-line-height);
+    font-weight: var(--ui-font-medium);
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.product-detail__tab:hover,
+.product-detail__tab:focus-visible {
+    border-bottom-color: var(--border-strong);
+    color: var(--primary);
+}
+
+.product-detail__tab[aria-selected="true"] {
+    border-bottom-color: var(--accent);
+    color: var(--accent);
+}
+
+.product-detail__panel[hidden] {
+    display: none;
+}
+
+.product-detail__content > :first-child {
+    margin-top: 0;
+}
+
+.product-detail__footer .related-links {
+    margin-top: 0;
 }
 
 /* PaperMod оформляет обычный markdown-контент через .post-content p/li/dd/a.

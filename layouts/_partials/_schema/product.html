@@ -113,15 +113,7 @@
 {{- with .Params.gtin13 -}}
   {{- $product = merge $product (dict "gtin13" .) -}}
 {{- end -}}
-{{- with .Params.rating -}}
-  {{- if and .value .count -}}
-    {{- $product = merge $product (dict "aggregateRating" (dict
-      "@type" "AggregateRating"
-      "ratingValue" .value
-      "reviewCount" .count
-    )) -}}
-  {{- end -}}
-{{- end -}}
+{{- /* AggregateRating will come from approved public reviews, not legacy front matter ratings. */ -}}
 {{- with $productGroupRef -}}
   {{- $product = merge $product (dict
     "isVariantOf" .
