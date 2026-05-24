@@ -1,0 +1,71 @@
+{{- define "main" }}
+
+{{- $pageDescription := .Description | default (partial "page-description.html" .) }}
+{{- $paginator := .Paginate .Pages 6 }}
+{{- $isRu := eq .Language.Lang "ru" }}
+
+{{- if .Title }}
+<header class="articles-list__header">
+  {{- partial "breadcrumbs.html" . }}
+  <div class="articles-list__intro">
+    <h1 class="articles-list__title">
+      {{ partial "page-h1.html" . }}
+    </h1>
+    {{- with $pageDescription }}
+    <div class="articles-list__description">
+      {{ . | markdownify }}
+    </div>
+    {{- end }}
+  </div>
+</header>
+{{- end }}
+
+<section class="articles-list" aria-label="{{ cond $isRu "Список статей" "Список статей" }}">
+  <div class="articles-list__grid">
+    {{- range $paginator.Pages }}
+    {{- $cardTitle := .Title }}
+    {{- $badge := .LinkTitle | default (cond $isRu "Статья" "Стаття") }}
+    <article class="articles-list__card">
+      <div class="articles-list__media">
+        {{- partial "articles/card-image.html" . }}
+        <div class="articles-list__media-ring" aria-hidden="true"></div>
+      </div>
+
+      <div class="articles-list__body">
+        <div class="articles-list__meta-row">
+          {{- with partial "page-meta.html" . }}
+          <div class="articles-list__meta">{{ . }}</div>
+          {{- end }}
+          <span class="articles-list__badge">{{ $badge }}</span>
+        </div>
+
+        <div class="articles-list__copy">
+          <h2 class="articles-list__card-title">
+            <a href="{{ .Permalink }}">
+              <span class="articles-list__link-overlay" aria-hidden="true"></span>
+              {{ $cardTitle }}
+            </a>
+          </h2>
+          {{- if ne (.Param "hideSummary") true }}
+          <p class="articles-list__summary">
+            {{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}
+          </p>
+          {{- end }}
+        </div>
+      </div>
+    </article>
+    {{- end }}
+  </div>
+</section>
+
+{{- partial "pagination.html" $paginator }}
+
+{{- if and .Content (eq $paginator.PageNumber 1) }}
+<div class="post-content articles-list__content">
+  {{- if not (.Param "disableAnchoredHeadings") }}
+  {{- partial "anchored_headings.html" .Content -}}
+  {{- else }}{{ .Content }}{{ end }}
+</div>
+{{- end }}
+
+{{- end }}{{- /* end main */ -}}

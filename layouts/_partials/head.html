@@ -28,10 +28,18 @@
     {{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections -}}
     {{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true" -}}
   {{- end -}}
-  {{- $paginator := .Paginate $pages -}}
-  {{- $pageNumber = $paginator.PageNumber -}}
-  {{- if gt $pageNumber 1 -}}
-    {{- $pagePermalink = $paginator.URL | absURL -}}
+  {{- if and .IsSection (eq .Section "articles") -}}
+    {{- $paginator := .Paginate $pages 6 -}}
+    {{- $pageNumber = $paginator.PageNumber -}}
+    {{- if gt $pageNumber 1 -}}
+      {{- $pagePermalink = $paginator.URL | absURL -}}
+    {{- end -}}
+  {{- else -}}
+    {{- $paginator := .Paginate $pages -}}
+    {{- $pageNumber = $paginator.PageNumber -}}
+    {{- if gt $pageNumber 1 -}}
+      {{- $pagePermalink = $paginator.URL | absURL -}}
+    {{- end -}}
   {{- end -}}
 {{- end -}}
 {{- .Scratch.Set "pageNumber" $pageNumber -}}

@@ -1,0 +1,47 @@
+{{- /*
+Responsive-изображение для карточек на странице списка статей.
+
+Partial использует тот же поиск в page bundle, что и cover.html, но держит
+фиксированный crop карточки, чтобы сетка была стабильной в обоих языках.
+*/ -}}
+{{- $page := . -}}
+{{- $image := $page.Params.cover.image | default $page.Params.image -}}
+{{- $alt := $page.Params.cover.alt | default $page.Title | plainify -}}
+{{- with $image }}
+  {{- $pageBundleImage := ($page.Resources.ByType "image").GetMatch (printf "*%s*" .) -}}
+  {{- $globalImage := (resources.ByType "image").GetMatch (printf "*%s*" .) -}}
+  {{- $resource := or $pageBundleImage $globalImage -}}
+  {{- if $resource -}}
+    {{- $candidates := slice
+      (dict "width" 480 "height" 320)
+      (dict "width" 720 "height" 480)
+      (dict "width" 1080 "height" 720)
+    -}}
+    {{- $srcset := slice -}}
+    {{- $fallback := false -}}
+    {{- range $candidates -}}
+      {{- if and (ge $resource.Width .width) (ge $resource.Height .height) -}}
+        {{- $variant := $resource.Fill (printf "%dx%d webp q82 Center" .width .height) -}}
+        {{- $srcset = $srcset | append (printf "%s %dw" $variant.RelPermalink $variant.Width) -}}
+        {{- $fallback = $variant -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if not $fallback -}}
+      {{- $fallback = $resource.Fit "720x480 webp q82" -}}
+      {{- $srcset = $srcset | append (printf "%s %dw" $fallback.RelPermalink $fallback.Width) -}}
+    {{- end -}}
+    <img
+      class="articles-list__image"
+      loading="lazy"
+      decoding="async"
+      fetchpriority="auto"
+      src="{{ $fallback.RelPermalink }}"
+      srcset="{{ delimit $srcset ", " }}"
+      sizes="(min-width: 1024px) 360px, (min-width: 640px) 672px, calc(100vw - 48px)"
+      width="{{ $fallback.Width }}"
+      height="{{ $fallback.Height }}"
+      alt="{{ $alt }}">
+  {{- else -}}
+    <img class="articles-list__image" loading="lazy" decoding="async" fetchpriority="auto" src="{{ . | relURL }}" alt="{{ $alt }}">
+  {{- end -}}
+{{- end -}}
