@@ -6,22 +6,22 @@
 # Когда использовать:
 #   - если локальная сборка ведет себя странно из-за старого public/ или
 #     resources/;
-#   - перед чистой локальной сборкой через ./script_build.sh;
+#   - перед чистой локальной сборкой через ./scripts/script_build.sh;
 #   - когда нужна безопасная очистка без удаления node_modules и
 #     package-lock.json.
 #
 # Как использовать:
-#   ./script_clean.sh
+#   ./scripts/script_clean.sh
 #
 # Что делает:
 #   Удаляет public, resources, .hugo_build.lock и hugo_stats.json.
 #   Не трогает node_modules, .cache и package-lock.json. Для полного сброса
-#   использовать ./script_reset_full.sh.
+#   использовать ./scripts/script_reset_full.sh.
 
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$SCRIPT_DIR"
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$PROJECT_ROOT"
 
 echo "Cleaning Hugo build artifacts"
 

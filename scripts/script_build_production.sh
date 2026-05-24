@@ -9,7 +9,7 @@
 #   - после SEO, schema.org, sitemap, robots или metadata-правок.
 #
 # Как использовать:
-#   ./script_build_production.sh
+#   ./scripts/script_build_production.sh
 #
 # Что делает:
 #   Запускает npm run build:production, то есть Hugo-сборку с
@@ -18,8 +18,8 @@
 
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$SCRIPT_DIR"
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$PROJECT_ROOT"
 
 echo "Building Hugo site in production mode"
 npm run build:production

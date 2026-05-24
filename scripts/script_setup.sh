@@ -11,7 +11,7 @@
 #   - если нужно заново поставить npm-зависимости проекта.
 #
 # Как использовать:
-#   ./script_setup.sh
+#   ./scripts/script_setup.sh
 #
 # Что делает:
 #   Обновляет git-подмодули, запускает mise install при наличии mise, ставит
@@ -23,8 +23,8 @@
 
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$SCRIPT_DIR"
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$PROJECT_ROOT"
 
 echo "Updating git submodules"
 git submodule update --init --recursive
@@ -47,4 +47,4 @@ if [ -f "unlighthouse/package.json" ]; then
   )
 fi
 
-echo "Setup complete. Run ./script_start.sh to start local development."
+echo "Setup complete. Run ./scripts/script_start.sh to start local development."

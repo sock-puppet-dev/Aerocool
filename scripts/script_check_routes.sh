@@ -4,15 +4,15 @@
 #   Быстро проверить ключевые локальные маршруты и scanner/sensitive 404.
 #
 # Когда использовать:
-#   - после запуска ./script_netlify_dev.sh;
+#   - после запуска ./scripts/script_netlify_dev.sh;
 #   - после правок static/_redirects;
 #   - после правок netlify.toml или 404-шаблона;
 #   - когда нужно быстро увидеть, что реальные страницы дают 200, а scanner URL
 #     остаются 404.
 #
 # Как использовать:
-#   ./script_check_routes.sh
-#   ./script_check_routes.sh http://localhost:8899
+#   ./scripts/script_check_routes.sh
+#   ./scripts/script_check_routes.sh http://localhost:8899
 #
 # Что делает:
 #   Отправляет HEAD/GET-запросы через curl к локальному Netlify Dev и проверяет

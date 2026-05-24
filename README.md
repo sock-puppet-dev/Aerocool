@@ -386,42 +386,42 @@ npm run build:production
 - `npm run build` — development-сборка, безопасная для noindex.
 - `npm run build:production` — локальная production-сборка для финальной проверки index/follow.
 
-Для ежедневной работы удобнее использовать root helper-скрипты. Они находятся в корне проекта, запускаются из любой текущей папки и содержат комментарии с назначением и инструкцией.
+Для ежедневной работы удобнее использовать helper-скрипты из папки `scripts/`. Они запускаются из корня проекта и содержат комментарии с назначением и инструкцией.
 
 Карта всех скриптов:
 
 ```bash
-./script_help.sh
+./scripts/script_help.sh
 ```
 
 Основной набор:
 
 | Скрипт | Когда запускать | Что делает |
 | --- | --- | --- |
-| `./script_setup.sh` | После первого клонирования или переноса проекта | Подтягивает git-подмодули, запускает `mise install`, ставит npm-зависимости корня и `unlighthouse/`. |
-| `./script_start.sh` | Для ежедневной разработки | Запускает `hugo server` со встроенным Hugo/Tailwind pipeline. |
-| `./script_build.sh` | После правок и перед ручной проверкой | Запускает `npm run build`. |
-| `./script_build_production.sh` | Перед финальной SEO/indexability-проверкой | Запускает `npm run build:production`. |
-| `./script_check.sh` | Перед коммитом | Собирает сайт и проверяет `_redirects`, `.DS_Store`, markdown `# H1`, inline-code в `content/`, `schema_type` и noindex для служебных страниц. |
-| `./script_netlify_dev.sh` | После правок `static/_redirects`, `netlify.toml`, 404, headers или CSP | Собирает `public/` и запускает Netlify Dev на `http://localhost:8899`. |
-| `./script_check_routes.sh` | После запуска `script_netlify_dev.sh` | Проверяет ключевые `200` и scanner/sensitive `404` через `curl`. |
-| `./script_audit_urls.sh` | После крупных SEO/CSS/layout/image-правок | Запускает Unlighthouse-аудит критических URL. |
-| `./script_clean.sh` | Когда нужна безопасная очистка Hugo-кэша | Удаляет только `public`, `resources`, `.hugo_build.lock`, `hugo_stats.json`. |
-| `./script_reset_full.sh` | Когда сломались зависимости и мягкой очистки недостаточно | Удаляет Hugo-артефакты, `node_modules` и `.cache`, затем запускает `npm install`, сохраняя `package-lock.json`. |
-| `./script_reset_full.sh --with-lockfile` | Только если lock-файл действительно нужно пересоздать | Дополнительно удаляет `package-lock.json` перед `npm install`. |
+| `./scripts/script_setup.sh` | После первого клонирования или переноса проекта | Подтягивает git-подмодули, запускает `mise install`, ставит npm-зависимости корня и `unlighthouse/`. |
+| `./scripts/script_start.sh` | Для ежедневной разработки | Запускает `hugo server` со встроенным Hugo/Tailwind pipeline. |
+| `./scripts/script_build.sh` | После правок и перед ручной проверкой | Запускает `npm run build`. |
+| `./scripts/script_build_production.sh` | Перед финальной SEO/indexability-проверкой | Запускает `npm run build:production`. |
+| `./scripts/script_check.sh` | Перед коммитом | Собирает сайт и проверяет `_redirects`, `.DS_Store`, markdown `# H1`, inline-code в `content/`, `schema_type` и noindex для служебных страниц. |
+| `./scripts/script_netlify_dev.sh` | После правок `static/_redirects`, `netlify.toml`, 404, headers или CSP | Собирает `public/` и запускает Netlify Dev на `http://localhost:8899`. |
+| `./scripts/script_check_routes.sh` | После запуска `script_netlify_dev.sh` | Проверяет ключевые `200` и scanner/sensitive `404` через `curl`. |
+| `./scripts/script_audit_urls.sh` | После крупных SEO/CSS/layout/image-правок | Запускает Unlighthouse-аудит критических URL. |
+| `./scripts/script_clean.sh` | Когда нужна безопасная очистка Hugo-кэша | Удаляет только `public`, `resources`, `.hugo_build.lock`, `hugo_stats.json`. |
+| `./scripts/script_reset_full.sh` | Когда сломались зависимости и мягкой очистки недостаточно | Удаляет Hugo-артефакты, `node_modules` и `.cache`, затем запускает `npm install`, сохраняя `package-lock.json`. |
+| `./scripts/script_reset_full.sh --with-lockfile` | Только если lock-файл действительно нужно пересоздать | Дополнительно удаляет `package-lock.json` перед `npm install`. |
 
 Обычный короткий цикл:
 
 ```bash
-./script_start.sh
-./script_check.sh
+./scripts/script_start.sh
+./scripts/script_check.sh
 ```
 
 После изменений Netlify routing или headers:
 
 ```bash
-./script_netlify_dev.sh
-./script_check_routes.sh
+./scripts/script_netlify_dev.sh
+./scripts/script_check_routes.sh
 ```
 
 ## 15. Перед важным deploy
@@ -429,9 +429,9 @@ npm run build:production
 Минимальный чек:
 
 ```bash
-./script_check.sh
-./script_build_production.sh
-./script_audit_urls.sh
+./scripts/script_check.sh
+./scripts/script_build_production.sh
+./scripts/script_audit_urls.sh
 ```
 
 Для строгого Unlighthouse-прогона с budget и exit code:

@@ -163,11 +163,12 @@
 ## Сборка И Запуск
 
 - Установка зависимостей: `npm install`.
-- Локальная разработка: `./script_start.sh` или `hugo server`.
+- Локальная разработка: `./scripts/script_start.sh` или `hugo server`.
 - Tailwind компилируется через `css.TailwindCSS` внутри Hugo; отдельный watch-процесс Tailwind не нужен.
 - `npm run dev` — это удобный алиас для `hugo server`.
 - Build в `Netlify`: `git submodule update --init --recursive && hugo --environment development --gc --minify`.
-- `script_clean.sh` — разрушительный скрипт: он удаляет `public`, `resources`, `node_modules`, `.cache` и `package-lock.json`, а затем заново ставит зависимости.
+- `scripts/script_clean.sh` — мягкая очистка Hugo-артефактов: удаляет `public`, `resources`, `.hugo_build.lock` и `hugo_stats.json`, но не трогает `node_modules`, `.cache` и `package-lock.json`.
+- `scripts/script_reset_full.sh` — тяжелый reset зависимостей: удаляет Hugo-артефакты, `node_modules` и `.cache`, затем запускает `npm install`; `package-lock.json` удаляется только при явном флаге `--with-lockfile`.
 
 ## Правила Редактирования
 

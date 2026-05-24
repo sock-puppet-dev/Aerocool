@@ -9,7 +9,7 @@
 #   - перед локальной проверкой public/ и сгенерированных файлов.
 #
 # Как использовать:
-#   ./script_build.sh
+#   ./scripts/script_build.sh
 #
 # Что делает:
 #   Запускает npm run build, а эта команда выполняет Hugo-сборку с
@@ -18,8 +18,8 @@
 
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$SCRIPT_DIR"
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$PROJECT_ROOT"
 
 echo "Building Hugo site in development mode"
 npm run build

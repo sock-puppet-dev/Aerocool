@@ -6,11 +6,11 @@
 # Когда использовать:
 #   - если node_modules явно сломались;
 #   - после проблем с зависимостями Tailwind, Netlify Database или Node;
-#   - когда мягкой очистки ./script_clean.sh недостаточно.
+#   - когда мягкой очистки ./scripts/script_clean.sh недостаточно.
 #
 # Как использовать:
-#   ./script_reset_full.sh
-#   ./script_reset_full.sh --with-lockfile
+#   ./scripts/script_reset_full.sh
+#   ./scripts/script_reset_full.sh --with-lockfile
 #
 # Что делает:
 #   По умолчанию удаляет public, resources, .hugo_build.lock, hugo_stats.json,
@@ -19,14 +19,14 @@
 #
 # Важно:
 #   Это тяжелая операция. Для обычной ежедневной работы сначала использовать
-#   ./script_clean.sh, а полный reset запускать только при реальной необходимости.
+#   ./scripts/script_clean.sh, а полный reset запускать только при реальной необходимости.
 #   Флаг --with-lockfile удаляет package-lock.json и нужен только когда lock-файл
 #   действительно поврежден или его нужно намеренно пересоздать.
 
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$SCRIPT_DIR"
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$PROJECT_ROOT"
 
 REMOVE_LOCKFILE="false"
 
@@ -38,7 +38,7 @@ case "${1:-}" in
     ;;
   *)
     echo "Unknown argument: $1"
-    echo "Usage: ./script_reset_full.sh [--with-lockfile]"
+    echo "Usage: ./scripts/script_reset_full.sh [--with-lockfile]"
     exit 1
     ;;
 esac
@@ -58,4 +58,4 @@ fi
 echo "Installing npm dependencies"
 npm install
 
-echo "Done. Run ./script_start.sh to start local development."
+echo "Done. Run ./scripts/script_start.sh to start local development."

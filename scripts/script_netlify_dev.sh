@@ -10,7 +10,7 @@
 #   - когда нужно проверить поведение ближе к Netlify, а не только Hugo server.
 #
 # Как использовать:
-#   ./script_netlify_dev.sh
+#   ./scripts/script_netlify_dev.sh
 #
 # Что делает:
 #   Сначала собирает сайт через npm run build, затем запускает Netlify Dev
@@ -18,12 +18,12 @@
 #
 # Важно:
 #   Этот процесс остается запущенным, пока его не остановить через Ctrl+C.
-#   В другом терминале можно запустить ./script_check_routes.sh.
+#   В другом терминале можно запустить ./scripts/script_check_routes.sh.
 
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$SCRIPT_DIR"
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$PROJECT_ROOT"
 
 echo "Building site before Netlify Dev"
 npm run build

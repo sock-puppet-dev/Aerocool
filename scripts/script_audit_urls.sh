@@ -9,7 +9,7 @@
 #   - когда нужно проверить не весь сайт, а заранее выбранный набор важных URL.
 #
 # Как использовать:
-#   ./script_audit_urls.sh
+#   ./scripts/script_audit_urls.sh
 #
 # Что делает:
 #   Переходит в папку unlighthouse, при необходимости ставит зависимости,
@@ -21,8 +21,8 @@
 
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$SCRIPT_DIR/unlighthouse"
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$PROJECT_ROOT/unlighthouse"
 
 if [ ! -d "node_modules" ]; then
   echo "Installing Unlighthouse npm dependencies"

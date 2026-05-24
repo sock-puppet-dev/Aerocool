@@ -10,7 +10,7 @@
 #   - когда нужно быстро поймать типичные нарушения правил проекта.
 #
 # Как использовать:
-#   ./script_check.sh
+#   ./scripts/script_check.sh
 #
 # Что делает:
 #   Запускает обычную development-сборку, проверяет наличие public/_redirects,
@@ -19,12 +19,12 @@
 #
 # Важно:
 #   Скрипт намеренно проверяет только быстрый базовый слой. Для Netlify routing
-#   использовать ./script_netlify_dev.sh и ./script_check_routes.sh.
+#   использовать ./scripts/script_netlify_dev.sh и ./scripts/script_check_routes.sh.
 
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$SCRIPT_DIR"
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$PROJECT_ROOT"
 
 if ! command -v rg >/dev/null 2>&1; then
   echo "ripgrep is required for content checks. Install rg and run this script again."
