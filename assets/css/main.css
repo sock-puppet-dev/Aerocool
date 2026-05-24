@@ -785,7 +785,6 @@ textarea.ui-field {
 .related-links,
 .toc,
 .paginav,
-.pagination a,
 .post-tags a,
 .share-buttons {
     background: var(--entry);
@@ -794,7 +793,6 @@ textarea.ui-field {
     box-shadow: var(--shadow-card);
 }
 
-.pagination a,
 .paginav a,
 .post-tags a,
 .share-buttons a,
@@ -802,13 +800,6 @@ textarea.ui-field {
 .copy-code,
 .button {
     border-radius: 9999px;
-}
-
-/* У pagination в теме нет явного border, поэтому одного border-color
-   недостаточно. Добавляем рамку, чтобы пагинация жила в той же
-   surface-системе, что и TOC, paginav и post-tags. */
-.pagination a {
-    border: 1px solid var(--border);
 }
 
 .post-entry {
@@ -821,6 +812,12 @@ textarea.ui-field {
 
 .post-entry:active {
     transform: none;
+}
+
+.ui-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 /* Header подключен через PaperMod и часть его ссылок получает цвет из темы.
@@ -838,7 +835,6 @@ textarea.ui-field {
 
 /* Пагинация и маленькие навигационные карточки используют свой hover-state.
    Это surface links, поэтому у них меняется не underline, а сама поверхность. */
-.pagination a,
 .paginav a,
 .post-tags a {
     transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
@@ -849,7 +845,6 @@ textarea.ui-field {
     color: #fff;
 }
 
-.pagination a:hover,
 .paginav a:hover,
 .post-tags a:hover {
     background: var(--bg-soft);

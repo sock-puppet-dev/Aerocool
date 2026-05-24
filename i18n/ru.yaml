@@ -1,6 +1,9 @@
 - id: page_not_found
   translation: "Страница не найдена"
 
+- id: pagination_nav
+  translation: "Навигация по страницам"
+
 - id: words
   translation:
     zero: "0 слов"
