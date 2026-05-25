@@ -815,7 +815,7 @@ textarea.ui-field {
 }
 
 .articles-list__header {
-    padding-top: 2rem;
+    padding-top: 1.5rem;
 }
 
 .articles-list__intro {
@@ -1524,6 +1524,7 @@ textarea.ui-field {
 
 .products-list__inner {
     max-width: var(--main-width);
+    padding-top: 1.5rem;
     padding-right: 0;
     padding-left: 0;
 }
