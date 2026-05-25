@@ -1,6 +1,6 @@
 # Aerocool Ukraine
 
-Обновлено: 2026-05-21.
+Обновлено: 2026-05-25.
 
 `Aerocool Ukraine` — двуязычный маркетинговый и каталоговый сайт на `Hugo` для кресел Aerocool в Украине. Основной язык — украинский (`uk`), второй язык — русский (`ru`). Сайт собирается статически, деплоится через `Netlify`, использует локальные Hugo overrides поверх темы `PaperMod` и отдельный Unlighthouse-набор для технического аудита качества.
 
@@ -30,7 +30,7 @@
 
 - `Hugo 0.161.0`
 - `Node 24`
-- `Tailwind CSS 4`
+- `Tailwind CSS 4.3`
 - `themes/PaperMod` как git-подмодуль
 - `Netlify` для сборки и публикации
 - `Netlify Functions` для будущих API-эндпоинтов отзывов
@@ -171,12 +171,14 @@ index.ru.md   русская версия
 Главные локальные шаблоны:
 
 - `layouts/baseof.html` — общий HTML-каркас.
-- `layouts/_partials/head.html` — meta, canonical, OG/Twitter, CSS, search JS.
+- `layouts/_partials/head.html` — SEO/meta-теги, canonical, OG/Twitter, подключение CSS и поискового JS.
 - `layouts/_partials/header.html` — шапка, логотип, меню, переключатель языка.
 - `layouts/_partials/page-meta.html` — видимая meta-строка для статей и новостей.
 - `layouts/_partials/footer.html` — footer, JSON-LD внизу body, внешний `site.js`.
 - `layouts/single.html` — одиночные страницы.
 - `layouts/list.html` — листинги.
+- `layouts/articles/list.html` — специализированный листинг статей с сеткой карточек.
+- `layouts/_partials/articles/card-image.html` — responsive-изображение карточки статьи в листинге.
 - `layouts/404.html`, `layouts/search.html`, `layouts/alias.html` — служебные страницы.
 - `layouts/sitemap.xml` и `layouts/sitemapindex.xml` — мультиязычные sitemap-файлы.
 

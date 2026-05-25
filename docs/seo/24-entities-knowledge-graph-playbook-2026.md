@@ -1,12 +1,14 @@
 # Практическое Руководство По Сущностям И Knowledge Graph 2026
 
-Актуально на 2026-05-18.
+Актуально на 2026-05-25.
 
-Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md). Дополнительный PDF-аудит Schema App по connected schema, Content Knowledge Graphs, impact и Agentic Web зафиксирован в [44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md). Customer stories/case studies Schema App по real-world entity linking, migrations и product visibility зафиксированы в [46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md).
+Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md). Дополнительный PDF-аудит Schema App по connected schema, Content Knowledge Graphs, impact и Agentic Web зафиксирован в [44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md). Customer stories/case studies Schema App по real-world entity linking, migrations и product visibility зафиксированы в [46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md). Обновление `2026-05-25` учитывает статью Schema App [Stop Chasing Visibility. Build Understanding.](https://www.schemaapp.com/schema-markup/stop-chasing-visibility-build-understanding/) и официальный Google guide [Optimizing your website for generative AI features on Google Search](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide).
 
 Этот документ переводит `Guide to Entities & Knowledge Graphs for SEO`, `Guide to Connected Schema Markup` и `How to Drive Your Content Marketing Strategy Using Content Knowledge Graphs` от SchemaApp в локальные правила для проекта `Aerocool Ukraine`.
 
 Главная мысль: SEO больше не держится только на совпадении слов. Поиск и AI-системы пытаются понять сущности, их атрибуты и связи. Поэтому сайт Aerocool должен не просто покрывать ключевые слова, а строить понятный reusable knowledge graph из бренда, организации, серий, товаров, материалов, механизмов, сценариев и коммерческих условий.
+
+Уточнение `2026-05-25`: structured data не считать магическим способом попасть в AI-ответы. Для Aerocool цель knowledge graph — не “поймать видимость”, а дать поиску и AI-системам управляемый, проверяемый слой понимания: кто такой бренд, что продает локальная организация, какие есть серии и модели, какие факты подтверждены, как связаны страницы и где находится источник правды.
 
 Текущий порядок внедрения entity registry, entity home, `about`, `mentions` и `ProductGroup` описан в [34-2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md). Актуальный реестр сущностей находится в [23-entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/23-entity-registry-2026.md).
 
@@ -41,10 +43,23 @@ Knowledge graph — это сеть отношений между сущност
 - поисковики лучше понимают, что именно описывает страница;
 - AI search получает более точный источник фактов;
 - снижается риск неправильного описания бренда или товара;
+- появляется единый semantic layer для бренда, каталога, product facts и сервисных условий;
 - можно анализировать, какие сущности и темы уже покрыты, а где есть пробелы;
 - в будущем тот же слой может быть полезен для AI-chatbot, NLWeb, `llms.txt` или agentic interfaces.
 
-Важно: knowledge graph строится из видимого контента. JSON-LD не должен описывать факты, которых нет на странице или в подтвержденной структуре сайта.
+Важно: knowledge graph строится из видимого контента и подтвержденных источников правды. JSON-LD не должен описывать факты, которых нет на странице или в подтвержденной структуре сайта.
+
+### Semantic Infrastructure, А Не Разрозненные Теги
+
+Статья Schema App от `2026-05-21` полезна для локальной документации именно этим сдвигом: schema.org-разметка должна рассматриваться как инфраструктура понимания, а не как набор отдельных тегов на страницах.
+
+Для Aerocool это значит:
+
+- `data/entities.yaml` и `docs/seo/23-entity-registry-2026.md` являются governance-слоем сущностей, а не справочником “для красоты”;
+- product front matter является источником правды для merchant facts, а не дублем JSON-LD;
+- `/faq/`, `/contact/`, `/about/`, серии, товары и статьи должны взаимно подтверждать факты, а не рассказывать разные версии;
+- `about_entities`, `mentions_entities`, `product_group_id`, `related_*` и видимые внутренние ссылки должны усиливать одну и ту же карту связей;
+- graph-аудит должен проверять не только валидность JSON, но и то, насколько уверенно машина может понять бренд, товар, серию, материал, механизм и условия покупки.
 
 ## 3. Три Шага Построения Knowledge Graph
 

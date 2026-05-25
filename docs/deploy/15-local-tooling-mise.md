@@ -1,10 +1,10 @@
 # Локальные Инструменты Через `mise`
 
-Обновлено: 2026-05-13.
+Обновлено: 2026-05-25.
 
 `mise` — это менеджер версий инструментов. В этом проекте он нужен, чтобы локально запускать те же версии `Hugo` и `Node`, которые используются в `Netlify`.
 
-Базовая синхронизация tooling-документации с Hugo 0.161-era Node permission model и Tailwind CSS 4 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md).
+Базовая синхронизация tooling-документации с Hugo 0.161-era Node permission model и Tailwind CSS 4.3 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md).
 
 Проще говоря:
 
@@ -19,11 +19,14 @@ mise.toml говорит компьютеру:
 
 - `Hugo 0.161.0`
 - `Node 24`
+- `Tailwind CSS 4.3`
 
-Они зафиксированы в двух местах:
+`Hugo` и `Node` зафиксированы в двух местах:
 
 - `mise.toml` — для локальной разработки;
 - `netlify.toml` — для сборки на Netlify.
+
+`Tailwind CSS 4.3` зафиксирован как npm-зависимость в `package.json` и точной версией `4.3.0` в `package-lock.json`. Для Hugo `0.161.0` это важно: Tailwind CLI должен оставаться npm-зависимостью проекта.
 
 Важно: актуальный файл называется `mise.toml`, без точки в начале. Если где-то встретилось старое имя `.mise.toml`, его нужно считать устаревшим.
 
@@ -147,7 +150,7 @@ npm run build:production
 Для этого проекта важно:
 
 - держать `Node 24`;
-- держать `tailwindcss` и `@tailwindcss/cli` как npm-зависимости проекта;
+- держать `tailwindcss` и `@tailwindcss/cli` версии `4.3.0` как npm-зависимости проекта;
 - не переходить на standalone Tailwind CLI;
 - не удалять `package-lock.json` без причины.
 

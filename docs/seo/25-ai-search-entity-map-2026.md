@@ -1,6 +1,6 @@
 # Карта Сущностей Для Поиска С AI 2026
 
-Актуально на 2026-05-21.
+Актуально на 2026-05-25.
 
 Этот документ переводит идеи из `Mastering AI Search`, `Schema Markup and AI Search`, `Designing Content for Humans and Machines`, `How to Prepare Your Content for Generative AI Search`, `Impact of Schema Markup` и `How Marketers Can Prepare Their Organization for the Agentic Web` от SchemaApp в практическую систему для проекта `Aerocool Ukraine`: какие сущности нужно закрепить на сайте, какие AI Search-метрики отслеживать, какие prompt-наборы проверять и как развивать JSON-LD graph без переспама.
 
@@ -10,8 +10,21 @@
 Базовая синхронизация всей документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md).
 Новый PDF-аудит Schema App по connected graph, Content Knowledge Graphs, impact и Agentic Web зафиксирован в [44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md).
 Customer stories/case studies Schema App по AI hallucinations, entity linking и product visibility зафиксированы в [46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md).
+Обновление `2026-05-25` учитывает статью Schema App [Stop Chasing Visibility. Build Understanding.](https://www.schemaapp.com/schema-markup/stop-chasing-visibility-build-understanding/) и официальный Google guide [Optimizing your website for generative AI features on Google Search](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide).
 
-Важно: AI Search-слой не заменяет Google Search Essentials, people-first content, Core Web Vitals и structured data quality. До production-запуска и индексации AI Search считать мониторинговым и entity-governance слоем, а не причиной внедрять chatbot, NLWeb, MCP или `llms.txt` как P0.
+Важно: AI Search-слой не заменяет Google Search Essentials, people-first content, Core Web Vitals и structured data quality. До production-запуска и индексации AI Search считать мониторинговым и entity-governance слоем, а не причиной внедрять chatbot, NLWeb, MCP, chunking-стратегию или `llms.txt` как P0.
+
+### Уточнение После Google AI Guide И Schema App
+
+Для проекта нельзя формулировать AI Search как “добавить schema и получить AI visibility”. Корректная рамка такая:
+
+- специальной `AI schema` для попадания в generative AI search не существует;
+- structured data не является самостоятельным shortcut для AI-видимости;
+- `llms.txt`, chunking и похожие AI-тактики не должны опережать индексацию, качество контента и связный entity graph;
+- AI Search-аудит должен проверять не только наличие упоминаний, но и точность понимания бренда, товаров, условий покупки и связей между сущностями;
+- главная цель Aerocool — machine understanding: поисковые и AI-системы должны уверенно понимать, кто продает кресла Aerocool в Украине, какие серии и модели существуют, какие характеристики подтверждены, какие условия сервиса актуальны.
+
+Практический вывод: если нужно выбрать между новым “AI-файлом” и улучшением видимого контента, product facts, entity home, внутренних ссылок и JSON-LD-связей, сначала улучшать основу понимания.
 
 ## 1. Зачем Это Нужно
 
@@ -25,6 +38,14 @@ AI-поиск меняет SEO-логику:
 Для Aerocool это означает: текущий SEO-фундамент уже сильный, но нужен отдельный слой `AI Search visibility`.
 
 Customer stories Wells Fargo, Henry Ford Health и MasterControl усиливают отдельную цель: AI Search-аудит должен искать не только наличие цитирования, но и ошибки представления. Проверять нужно, правильно ли AI описывает `Aerocool Ukraine`, связь с global Aerocool, официальность сайта, серии, товары, доставку, гарантию и наличие.
+
+После статьи Schema App от `2026-05-21` приоритет формулируется строже: измерять нужно не только visibility, но и understanding. В отчете фиксировать, понял ли AI:
+
+- что `Aerocool Ukraine` — локальный сайт/представительство в Украине, связанное с global Aerocool;
+- что каталог состоит из серий `SKY`, `WING`, `XTAL` и конкретных вариантов;
+- что product facts берутся из подтвержденного front matter;
+- что доставка, возврат, гарантия и оплата подтверждаются `/faq/`;
+- что рекомендации должны опираться на реальные характеристики, а не на общие фразы про игровые кресла.
 
 ## 2. Связь С Текущей Документацией
 

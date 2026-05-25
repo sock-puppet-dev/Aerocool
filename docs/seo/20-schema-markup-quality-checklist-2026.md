@@ -1,6 +1,6 @@
 # Чек-Лист Качества Schema-Разметки 2026
 
-Актуально на 2026-05-18.
+Актуально на 2026-05-25.
 
 Этот документ переводит `Schema Markup Checklist` и универсальные выводы из `Definitive Guide to Healthcare Structured Data in SEO` от SchemaApp в локальный QA-чеклист для `Aerocool Ukraine`. Его задача — проверять не только валидность JSON-LD, но и качество schema.org-графа: правильные типы, полезные свойства, связи между сущностями, устойчивые `@id`, отсутствие schema drift и соответствие schema-стратегии реальной цели страницы.
 
@@ -13,6 +13,19 @@
 Дополнительный аудит support-статей Schema App по `sameAs`, primary entity, `additionalType`, breadcrumbs и image license metadata: [42-2026-05-17-schemaapp-support-knowledge-base-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/42-2026-05-17-schemaapp-support-knowledge-base-audit.md).
 Анализ 4 PDF Schema App про connected schema, Content Knowledge Graphs, impact и Agentic Web: [44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md).
 Анализ 21 Schema App customer stories/case studies по real-world внедрениям: [46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md).
+Обновление `2026-05-25` учитывает статью Schema App [Stop Chasing Visibility. Build Understanding.](https://www.schemaapp.com/schema-markup/stop-chasing-visibility-build-understanding/) и официальный Google guide [Optimizing your website for generative AI features on Google Search](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide).
+
+## 0. Рамка Для AI Search
+
+Structured data не является отдельным AI-хаком. В Google generative AI search нет специального schema.org-типа, который нужно добавить “для AI”. Поэтому качество разметки в проекте оценивается не по количеству свойств, а по тому, насколько точно graph помогает машинам понять реальные сущности и связи.
+
+Для Aerocool это правило означает:
+
+- не добавлять свойства только потому, что они звучат полезно для AI;
+- не размечать невидимые или неподтвержденные факты;
+- не создавать отдельную `AI schema`;
+- не считать `llms.txt` или chunking заменой видимого контента, индексации, entity registry и JSON-LD graph;
+- считать лучшей schema-разметкой ту, которая синхронизирована с source of truth и снижает риск неправильного представления бренда, товара или условий покупки.
 
 ## 1. Семь Проверок Schema-Разметки
 

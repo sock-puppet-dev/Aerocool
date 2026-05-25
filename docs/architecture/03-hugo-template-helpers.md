@@ -1,12 +1,12 @@
 # Руководство по шаблонным helper-файлам Hugo
 
-Обновлено: 2026-05-22.
+Обновлено: 2026-05-25.
 
 ## Зачем Нужен Этот Документ
 
 Этот документ объясняет логику локальных `helpers` и `partials` проекта `Aerocool` так, чтобы в ней мог быстро разобраться новичок.
 
-Базовая синхронизация документации с Hugo 0.161, Tailwind CSS 4, SEO/schema и CWV-практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md).
+Базовая синхронизация документации с Hugo 0.161, Tailwind CSS 4.3, SEO/schema и CWV-практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md).
 
 Главная цель:
 
@@ -122,6 +122,7 @@
 - [layouts/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/single.html) — обычная детальная страница.
 - [layouts/list.html](/Users/stadnyk/MEGA/Aerocool/layouts/list.html) — списковые страницы и хабы.
 - [layouts/products/list.html](/Users/stadnyk/MEGA/Aerocool/layouts/products/list.html) — специализированный листинг каталога и серий товаров с каталоговой сеткой карточек.
+- [layouts/articles/list.html](/Users/stadnyk/MEGA/Aerocool/layouts/articles/list.html) — специализированный листинг статей: заголовок, breadcrumbs, карточки, изображения, meta-строка, пагинация и контент первой страницы листинга.
 - [layouts/search.html](/Users/stadnyk/MEGA/Aerocool/layouts/search.html) — страница поиска; должна оставаться `noindex,nofollow`.
 - [layouts/404.html](/Users/stadnyk/MEGA/Aerocool/layouts/404.html) — кастомная 404; должна оставаться `noindex,nofollow`.
 - [layouts/alias.html](/Users/stadnyk/MEGA/Aerocool/layouts/alias.html) — служебные alias-страницы; не использовать как SEO-посадочные.
@@ -148,6 +149,10 @@
 - [layouts/_shortcodes/recommended-links-articles.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/recommended-links-articles.html) — управляемый блок стартовых материалов на `/articles/` и `/ru/articles/`.
 - [layouts/_shortcodes/recommended-links-news.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/recommended-links-news.html) — управляемый блок рекомендованных новостей на `/news/` и `/ru/news/`.
 - [layouts/_shortcodes/recommended-links-faq.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/recommended-links-faq.html) — блок следующих шагов после FAQ на `/faq/` и `/ru/faq/`.
+
+## Быстрая Карта Article Helpers
+
+- [layouts/_partials/articles/card-image.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/articles/card-image.html) — responsive-изображение для карточек на листинге статей; берет `cover.image` или `image` из page bundle, строит WebP `srcset`, задает стабильные размеры и использует `lazy` loading.
 
 Важно по единому UI-слою:
 

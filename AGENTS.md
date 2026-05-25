@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Обновлено: 2026-05-21.
+Обновлено: 2026-05-25.
 
 ## Обзор Проекта
 
@@ -14,7 +14,7 @@
 - В `Netlify` зафиксирована версия `Hugo 0.161.0`.
 - В `Netlify` зафиксирована версия `Node 24`.
 - Локальные версии инструментов зафиксированы в `mise.toml`.
-- Для стилизации используется `Tailwind CSS 4`.
+- Для стилизации используется `Tailwind CSS 4.3`.
 - Для будущей review-системы подключены `Netlify Functions` и `Netlify Database` / `PostgreSQL`.
 - В Hugo 0.161.0 Node-инструменты запускаются через Node permission model; Tailwind должен оставаться npm-зависимостью проекта, standalone Tailwind CLI не использовать.
 - Локальные SEO-шаблоны и шаблоны schema.org-разметки находятся в `layouts/_partials/_seo` и `layouts/_partials/_schema`.
@@ -29,6 +29,8 @@
 - `data/entities.yaml` — структурированный реестр entity IDs для safe resolver schema.org-связей.
 - `layouts/` — локальные Hugo-переопределения. По умолчанию правки вносятся сюда, а не в тему.
 - `layouts/single.html` и `layouts/list.html` — общие базовые шаблоны для большинства типов страниц.
+- `layouts/articles/list.html` — специализированный листинг статей с управляемой сеткой карточек.
+- `layouts/_partials/articles/card-image.html` — helper responsive-изображения для карточек статей.
 - `layouts/404.html`, `layouts/alias.html` и `layouts/search.html` — служебные шаблоны страниц, которые не должны попадать в SEO-индекс.
 - `layouts/rss.xml` — локальный RSS-шаблон.
 - `layouts/sitemap.xml` — шаблон языковых sitemap-файлов.
