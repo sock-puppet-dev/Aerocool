@@ -1,0 +1,71 @@
+{{- define "main" }}
+
+{{- $pageDescription := .Description | default (partial "page-description.html" .) }}
+{{- $paginator := .Paginate .Pages 6 }}
+{{- $isRu := eq .Language.Lang "ru" }}
+
+{{- if .Title }}
+<header class="articles-list__header news-list__header">
+  {{- partial "breadcrumbs.html" . }}
+  <div class="articles-list__intro news-list__intro">
+    <h1 class="articles-list__title news-list__title">
+      {{ partial "page-h1.html" . }}
+    </h1>
+    {{- with $pageDescription }}
+    <div class="articles-list__description news-list__description">
+      {{ . | markdownify }}
+    </div>
+    {{- end }}
+  </div>
+</header>
+{{- end }}
+
+<section class="articles-list news-list" aria-label="{{ cond $isRu "Список новостей" "Список новин" }}">
+  <div class="articles-list__grid news-list__grid">
+    {{- range $paginator.Pages }}
+    {{- $cardTitle := .Title }}
+    {{- $badge := .LinkTitle | default (cond $isRu "Новость" "Новина") }}
+    <article class="articles-list__card news-list__card">
+      <div class="articles-list__media news-list__media">
+        {{- partial "articles/card-image.html" . }}
+        <div class="articles-list__media-ring news-list__media-ring" aria-hidden="true"></div>
+      </div>
+
+      <div class="articles-list__body news-list__body">
+        <div class="articles-list__meta-row news-list__meta-row">
+          {{- with partial "page-meta.html" . }}
+          <div class="articles-list__meta news-list__meta">{{ . }}</div>
+          {{- end }}
+          <span class="articles-list__badge news-list__badge">{{ $badge }}</span>
+        </div>
+
+        <div class="articles-list__copy news-list__copy">
+          <h2 class="articles-list__card-title news-list__card-title">
+            <a href="{{ .RelPermalink }}">
+              <span class="articles-list__link-overlay news-list__link-overlay" aria-hidden="true"></span>
+              {{ $cardTitle }}
+            </a>
+          </h2>
+          {{- if ne (.Param "hideSummary") true }}
+          <p class="articles-list__summary news-list__summary">
+            {{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}
+          </p>
+          {{- end }}
+        </div>
+      </div>
+    </article>
+    {{- end }}
+  </div>
+</section>
+
+{{- partial "pagination.html" $paginator }}
+
+{{- if and .Content (eq $paginator.PageNumber 1) }}
+<div class="post-content articles-list__content news-list__content">
+  {{- if not (.Param "disableAnchoredHeadings") }}
+  {{- partial "anchored_headings.html" .Content -}}
+  {{- else }}{{ .Content }}{{ end }}
+</div>
+{{- end }}
+
+{{- end }}{{- /* end main */ -}}

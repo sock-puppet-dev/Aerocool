@@ -1566,6 +1566,8 @@ textarea.ui-field {
 
 .products-list__media-link {
     display: block;
+    overflow: hidden;
+    border-radius: 0.5rem;
     border-bottom: 0;
     box-shadow: none;
     text-decoration: none;
@@ -1576,7 +1578,7 @@ textarea.ui-field {
     aspect-ratio: 3 / 2;
     object-fit: cover;
     border-radius: 0.5rem;
-    transition: opacity 150ms ease;
+    transition: opacity 150ms ease, transform 220ms ease;
 }
 
 .products-list__card--product .products-list__image {
@@ -1585,8 +1587,12 @@ textarea.ui-field {
     background: var(--bg-soft);
 }
 
-.products-list__card:hover .products-list__image {
-    opacity: 0.75;
+.products-list__card:hover .products-list__image,
+.products-list__card:focus-within .products-list__image,
+.products-list__card--product:hover .products-list__image,
+.products-list__card--product:focus-within .products-list__image {
+    opacity: 1;
+    transform: scale(1.025);
 }
 
 .products-list__card-body {
