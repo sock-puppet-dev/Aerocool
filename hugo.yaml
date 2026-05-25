@@ -122,7 +122,7 @@ params:
   disableLanguagesRedirect: true
   ShowReadingTime: true
 # Кнопки социальных сетей (если используются)
-  ShowShareButtons: true
+  ShowShareButtons: false
 # Ссылки "предыдущая/следующая статья"
   ShowPostNavLinks: true
 # Хлебные крошки (навигация)
