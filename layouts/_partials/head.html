@@ -28,7 +28,7 @@
     {{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections -}}
     {{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true" -}}
   {{- end -}}
-  {{- if and .IsSection (in (slice "articles" "news") .Section) -}}
+  {{- if or .IsHome (and .IsSection (in (slice "articles" "news") .Section)) -}}
     {{- $paginator := .Paginate $pages 6 -}}
     {{- $pageNumber = $paginator.PageNumber -}}
     {{- if gt $pageNumber 1 -}}
