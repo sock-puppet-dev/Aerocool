@@ -1,0 +1,61 @@
+{{- $isRu := eq .Language.Lang "ru" -}}
+{{- $reviewTargetID := .Params.review_target_id | default (.Params.sku | default .File.Dir) -}}
+{{- $targetURL := .Permalink -}}
+
+<form class="review-form mt-8" method="POST" action="/api/reviews">
+  <input type="hidden" name="target_type" value="product">
+  <input type="hidden" name="target_id" value="{{ $reviewTargetID }}">
+  <input type="hidden" name="target_url" value="{{ $targetURL }}">
+  <input type="hidden" name="language" value="{{ .Language.Lang }}">
+
+  <p class="review-form__honeypot" aria-hidden="true">
+    <label>
+      {{ cond $isRu "Не заполняйте это поле:" "Не заповнюйте це поле:" }}
+      <input type="text" name="bot-field" tabindex="-1" autocomplete="off">
+    </label>
+  </p>
+
+  <div class="review-form__header">
+    <div>
+      <h3 class="review-form__title">{{ cond $isRu "Оставить отзыв" "Залишити відгук" }}</h3>
+      <p class="review-form__note">
+        {{ cond $isRu "Отзыв появится на странице после проверки. Email не публикуется." "Відгук з'явиться на сторінці після перевірки. Email не публікується." }}
+      </p>
+    </div>
+  </div>
+
+  <fieldset class="review-form__rating">
+    <legend>{{ cond $isRu "Оценка" "Оцінка" }}</legend>
+    <div class="review-form__rating-options">
+      {{- range seq 5 -1 1 }}
+      <label class="review-form__rating-option">
+        <input type="radio" name="rating" value="{{ . }}" required>
+        <span aria-hidden="true">★</span>
+        <span class="sr-only">{{ . }}</span>
+      </label>
+      {{- end }}
+    </div>
+  </fieldset>
+
+  <div class="review-form__grid">
+    <div>
+      <label for="review-author-name">{{ cond $isRu "Имя" "Ім'я" }}</label>
+      <input id="review-author-name" name="author_name" type="text" autocomplete="name" required maxlength="80" class="ui-field">
+    </div>
+    <div>
+      <label for="review-author-email">Email</label>
+      <input id="review-author-email" name="author_email" type="email" autocomplete="email" required maxlength="254" class="ui-field">
+    </div>
+  </div>
+
+  <div class="review-form__body">
+    <label for="review-body">{{ cond $isRu "Отзыв" "Відгук" }}</label>
+    <textarea id="review-body" name="body" required minlength="20" maxlength="2000" class="ui-field" placeholder="{{ cond $isRu "Что стоит знать об этой модели?" "Що варто знати про цю модель?" }}"></textarea>
+  </div>
+
+  <div class="review-form__actions">
+    <button type="submit" class="ui-button ui-button-primary">
+      {{ cond $isRu "Отправить отзыв" "Надіслати відгук" }}
+    </button>
+  </div>
+</form>
