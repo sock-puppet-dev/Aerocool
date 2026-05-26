@@ -160,7 +160,7 @@
       </div>
 
       <div class="mx-auto mt-16 w-full max-w-2xl lg:col-span-4 lg:mt-0 lg:max-w-none">
-        <nav class="border-b border-aero-border" aria-label="{{ cond $isRu "Разделы товара" "Розділи товару" }}">
+        <nav aria-label="{{ cond $isRu "Разделы товара" "Розділи товару" }}">
           <div class="-mb-px flex gap-x-8 overflow-x-auto" role="tablist">
             <button type="button" id="tab-details" role="tab" aria-selected="true" aria-controls="details" data-product-tab-target="details" class="product-detail__tab">{{ cond $isRu "Описание" "Опис" }}</button>
             {{- if $characteristics }}
@@ -171,7 +171,7 @@
           </div>
         </nav>
 
-        <section id="details" role="tabpanel" aria-labelledby="tab-details" class="product-detail__panel product-detail__content post-content pt-10">
+        <section id="details" role="tabpanel" aria-labelledby="tab-details" class="product-detail__panel product-detail__content post-content pt-6">
           {{- if $content }}
             {{- if not (.Param "disableAnchoredHeadings") }}
               {{- partial "anchored_headings.html" ($content | safeHTML) -}}
@@ -182,9 +182,8 @@
         </section>
 
         {{- if $characteristics }}
-        <section id="characteristics" role="tabpanel" aria-labelledby="tab-characteristics" hidden class="product-detail__panel mt-12 border-t border-aero-border pt-10">
-          <h2 class="ui-group-title">{{ cond $isRu "Характеристики" "Характеристики" }}</h2>
-          <dl class="mt-6 divide-y divide-aero-border text-sm/6">
+        <section id="characteristics" role="tabpanel" aria-labelledby="tab-characteristics" hidden class="product-detail__panel pt-6">
+          <dl class="divide-y divide-aero-border text-sm/6">
             {{- range $characteristics }}
             {{- $label := index . "label" -}}
             {{- $value := index . "value" -}}
@@ -199,7 +198,7 @@
         </section>
         {{- end }}
 
-        <section id="purchase" role="tabpanel" aria-labelledby="tab-purchase" hidden class="product-detail__panel mt-12 border-t border-aero-border pt-10">
+        <section id="purchase" role="tabpanel" aria-labelledby="tab-purchase" hidden class="product-detail__panel pt-6">
           <h2 class="ui-group-title">{{ cond $isRu "Перед заказом" "Перед замовленням" }}</h2>
           <p class="ui-body mt-4">
             {{ cond $isRu "Если нужно сравнить модель, проверить наличие или уточнить условия доставки, напишите Aerocool Украина перед оформлением заказа." "Якщо потрібно порівняти модель, перевірити наявність або уточнити умови доставки, напишіть Aerocool Україна перед оформленням замовлення." }}
@@ -210,7 +209,7 @@
           </div>
         </section>
 
-        <section id="reviews" role="tabpanel" aria-labelledby="tab-reviews" hidden class="product-detail__panel product-review-slot mt-12 border-t border-aero-border pt-10" data-review-target-id="{{ $reviewTargetID }}">
+        <section id="reviews" role="tabpanel" aria-labelledby="tab-reviews" hidden class="product-detail__panel product-review-slot pt-6" data-review-target-id="{{ $reviewTargetID }}">
           <h2 class="ui-group-title">{{ cond $isRu "Отзывы" "Відгуки" }}</h2>
           <p class="ui-body mt-4">
             {{ cond $isRu "Рейтинг появится только после проверки реальных публичных отзывов для этой модели." "Рейтинг з'явиться тільки після перевірки реальних публічних відгуків для цієї моделі." }}
