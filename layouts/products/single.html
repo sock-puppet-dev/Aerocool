@@ -40,7 +40,8 @@
 
 {{- $availability := .Params.availability | default "InStock" -}}
 {{- $availabilityLabel := cond (eq $availability "InStock") (cond $isRu "В наличии" "В наявності") $availability -}}
-{{- $reviewTargetID := .Params.review_target_id | default (.Params.sku | default .File.Dir) -}}
+{{- $reviewTargetID := .Params.review_target_id | default "" -}}
+{{- $reviewsEnabled := and (.Params.reviews_enabled | default false) $reviewTargetID -}}
 {{- $characteristics := .Params.characteristics | default (slice) -}}
 
 <article class="product-detail bg-aero-canvas">
@@ -167,7 +168,9 @@
             <button type="button" id="tab-characteristics" role="tab" aria-selected="false" aria-controls="characteristics" data-product-tab-target="characteristics" class="product-detail__tab">{{ cond $isRu "Характеристики" "Характеристики" }}</button>
             {{- end }}
             <button type="button" id="tab-purchase" role="tab" aria-selected="false" aria-controls="purchase" data-product-tab-target="purchase" class="product-detail__tab">{{ cond $isRu "Условия" "Умови" }}</button>
+            {{- if $reviewsEnabled }}
             <button type="button" id="tab-reviews" role="tab" aria-selected="false" aria-controls="reviews" data-product-tab-target="reviews" class="product-detail__tab">{{ cond $isRu "Отзывы" "Відгуки" }}</button>
+            {{- end }}
           </div>
         </nav>
 
@@ -209,14 +212,15 @@
           </div>
         </section>
 
+        {{- if $reviewsEnabled }}
         <section id="reviews" role="tabpanel" aria-labelledby="tab-reviews" hidden class="product-detail__panel product-review-slot pt-6" data-review-target-id="{{ $reviewTargetID }}">
           <h2 class="ui-group-title">{{ cond $isRu "Отзывы" "Відгуки" }}</h2>
           <p class="ui-body mt-4">
             {{ cond $isRu "Рейтинг появится только после проверки реальных публичных отзывов для этой модели." "Рейтинг з'явиться тільки після перевірки реальних публічних відгуків для цієї моделі." }}
           </p>
           {{ partial "reviews/form.html" . }}
-          {{ partial "reviews/sample-list.html" . }}
         </section>
+        {{- end }}
       </div>
     </div>
 

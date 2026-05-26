@@ -37,6 +37,8 @@ cover:
   hiddenInSingle: true
 price: 8500
 sku: "SKY-LITE-001"
+review_target_id: "sky-lite"
+reviews_enabled: true
 warranty: 12
 availability: InStock
 priceValidUntil: 2027-12-31
