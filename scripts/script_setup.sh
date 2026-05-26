@@ -33,7 +33,7 @@ if command -v mise >/dev/null 2>&1; then
   echo "Installing local tool versions through mise"
   mise install
 else
-  echo "mise was not found. Install Hugo 0.161.0 and Node 24 manually, or install mise."
+  echo "mise was not found. Install Hugo 0.162.0 and Node 24 manually, or install mise."
 fi
 
 echo "Installing root npm dependencies"

@@ -1,6 +1,6 @@
 {{- define "main" }}
 
-{{- $isRu := eq .Language.Lang "ru" -}}
+{{- $isRu := eq .Language.Name "ru" -}}
 {{- $contactURL := cond $isRu "/ru/contact/" "/contact/" -}}
 {{- $faqURL := cond $isRu "/ru/faq/" "/faq/" -}}
 {{- $content := .Content -}}

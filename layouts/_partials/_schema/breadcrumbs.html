@@ -1,4 +1,4 @@
-{{- $homeName := cond (eq .Site.Language.Lang "ru") "Главная" "Головна" -}}
+{{- $homeName := cond (eq .Site.Language.Name "ru") "Главная" "Головна" -}}
 {{- $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) -}}
 {{- $itemList := slice (dict
   "@type" "ListItem"

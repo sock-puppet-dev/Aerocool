@@ -2,8 +2,8 @@
   "name": "Aerocool",
   "version": "1.0.0",
   "devDependencies": {
-    "@tailwindcss/cli": "^4.3.0",
-    "tailwindcss": "^4.3.0"
+    "@tailwindcss/cli": "4.3.0",
+    "tailwindcss": "4.3.0"
   },
   "scripts": {
     "prebuild": "git submodule update --init --recursive",
@@ -13,6 +13,6 @@
     "dev": "hugo server"
   },
   "dependencies": {
-    "@netlify/database": "^1.0.0"
+    "@netlify/database": "1.0.0"
   }
 }

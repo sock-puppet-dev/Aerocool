@@ -1,4 +1,4 @@
-{{- $isRu := eq .Language.Lang "ru" -}}
+{{- $isRu := eq .Language.Name "ru" -}}
 {{- $reviews := slice -}}
 {{- if $isRu -}}
   {{- $reviews = slice

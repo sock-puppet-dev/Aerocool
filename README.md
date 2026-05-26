@@ -32,8 +32,8 @@
 
 ## 2. Стек
 
-- `Hugo 0.161.0`
-- `Node 24`
+- `Hugo 0.162.0`
+- `Node 24.16.0`
 - `Tailwind CSS 4.3`
 - `themes/PaperMod` как git-подмодуль
 - `Netlify` для сборки и публикации

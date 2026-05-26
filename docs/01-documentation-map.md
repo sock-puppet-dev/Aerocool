@@ -136,6 +136,10 @@
 
 55. [audits/55-2026-05-26-schema-entity-full-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/55-2026-05-26-schema-entity-full-audit.md) — актуальный полный аудит schema/entity-слоя, Entity Registry, всех сущностей, Product graph, connected schema, ratings/reviews governance и списка текущих проблем на 2026-05-26.
 
+### Актуальные Hugo Аудиты
+
+56. [audits/56-2026-05-26-hugo-0-162-compliance-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/56-2026-05-26-hugo-0-162-compliance-audit.md) — аудит перехода проекта на Hugo 0.162.0, обновленных pins, сборки и deprecated language API cleanup.
+
 ## Маршруты По Задачам
 
 Для контентной правки читать:

@@ -11,12 +11,12 @@
 
 ## Стек
 
-- В `Netlify` зафиксирована версия `Hugo 0.161.0`.
-- В `Netlify` зафиксирована версия `Node 24`.
+- В `Netlify` зафиксирована версия `Hugo 0.162.0`.
+- В `Netlify` зафиксирована версия `Node 24.16.0`.
 - Локальные версии инструментов зафиксированы в `mise.toml`.
 - Для стилизации используется `Tailwind CSS 4.3`.
 - Для будущей review-системы подключены `Netlify Functions` и `Netlify Database` / `PostgreSQL`.
-- В Hugo 0.161.0 Node-инструменты запускаются через Node permission model; Tailwind должен оставаться npm-зависимостью проекта, standalone Tailwind CLI не использовать.
+- В Hugo 0.162.0 Node-инструменты запускаются через Node permission model; Tailwind должен оставаться npm-зависимостью проекта, standalone Tailwind CLI не использовать.
 - Локальные SEO-шаблоны и шаблоны schema.org-разметки находятся в `layouts/_partials/_seo` и `layouts/_partials/_schema`.
 
 ## Структура Репозитория
@@ -46,7 +46,7 @@
 - `hugo.yaml` — основная конфигурация сайта: языки, постоянные ссылки, меню и настройки сборки.
 - `netlify.toml` — сборка и заголовки ответа; временно используется `HUGO_ENVIRONMENT = "development"`, production включать только после финальной проверки.
 - `netlify/database/migrations` — SQL-миграции Netlify Database. Появляется после первой миграции; для review-системы использовать Direct SQL, а не Drizzle ORM.
-- `mise.toml` — локальные версии `Hugo 0.161.0` и `Node 24` для `mise`.
+- `mise.toml` — локальные версии `Hugo 0.162.0` и `Node 24.16.0` для `mise`.
 - `unlighthouse/` — локальный набор конфигов для массового Lighthouse-аудита. Он не деплоит сайт, а проверяет уже опубликованный URL или Netlify Deploy Preview.
 
 ## Локальные Гайды

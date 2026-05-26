@@ -1,4 +1,4 @@
-{{- $isRu := eq .Page.Language.Lang "ru" -}}
+{{- $isRu := eq .Page.Language.Name "ru" -}}
 {{- $heading := cond $isRu "Как мы описываем кресла Aerocool" "Як ми описуємо крісла Aerocool" -}}
 {{- $intro := cond $isRu "Ключевые термины на сайте должны быть одинаковыми в товарах, статьях, новостях, FAQ и schema.org-разметке." "Ключові терміни на сайті мають бути однаковими в товарах, статтях, новинах, FAQ і schema.org-розмітці." -}}
 {{- $items := slice -}}

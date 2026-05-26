@@ -1,6 +1,6 @@
 {{- if and (.Param "ShowBreadCrumbs") (not .IsHome) -}}
-{{- $homeName := cond (eq .Site.Language.Lang "ru") "Главная" "Головна" -}}
-{{- $breadcrumbLabel := cond (eq .Site.Language.Lang "ru") "Хлебные крошки" "Хлібні крихти" -}}
+{{- $homeName := cond (eq .Site.Language.Name "ru") "Главная" "Головна" -}}
+{{- $breadcrumbLabel := cond (eq .Site.Language.Name "ru") "Хлебные крошки" "Хлібні крихти" -}}
 {{- $items := slice (dict
   "url" .Site.Home.RelPermalink
   "label" $homeName

@@ -1,4 +1,4 @@
-{{- $isRu := eq .Page.Language.Lang "ru" -}}
+{{- $isRu := eq .Page.Language.Name "ru" -}}
 {{- $contactURL := cond $isRu "/ru/contact/" "/contact/" -}}
 {{- $productsURL := cond $isRu "/ru/products/" "/products/" -}}
 

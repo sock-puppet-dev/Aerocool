@@ -1,4 +1,4 @@
-{{- $isRu := eq .Page.Language.Lang "ru" -}}
+{{- $isRu := eq .Page.Language.Name "ru" -}}
 {{- $heading := cond $isRu "Рекомендуем посмотреть" "Рекомендуємо переглянути" -}}
 {{- $items := slice -}}
 {{- $items = $items | append (dict

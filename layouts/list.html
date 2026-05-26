@@ -52,18 +52,18 @@
 {{- end }}
 
 {{- if .IsHome }}
-<section class="articles-list home-list" aria-label="{{ cond (eq .Language.Lang "ru") "Последние материалы" "Останні матеріали" }}">
+<section class="articles-list home-list" aria-label="{{ cond (eq .Language.Name "ru") "Последние материалы" "Останні матеріали" }}">
   <div class="articles-list__grid home-list__grid">
     {{- range $paginator.Pages }}
     {{- $cardTitle := .Title }}
     {{- $schemaTypes := .Params.schema_types | default (slice) }}
     {{- $isArticleCard := in $schemaTypes "article" }}
     {{- $isNewsCard := in $schemaTypes "news" }}
-    {{- $defaultBadge := cond (eq .Language.Lang "ru") "Материал" "Матеріал" }}
+    {{- $defaultBadge := cond (eq .Language.Name "ru") "Материал" "Матеріал" }}
     {{- if $isArticleCard }}
-      {{- $defaultBadge = cond (eq .Language.Lang "ru") "Статья" "Стаття" }}
+      {{- $defaultBadge = cond (eq .Language.Name "ru") "Статья" "Стаття" }}
     {{- else if $isNewsCard }}
-      {{- $defaultBadge = cond (eq .Language.Lang "ru") "Новость" "Новина" }}
+      {{- $defaultBadge = cond (eq .Language.Name "ru") "Новость" "Новина" }}
     {{- end }}
     {{- $badge := .LinkTitle | default $defaultBadge }}
     <article class="articles-list__card home-list__card">

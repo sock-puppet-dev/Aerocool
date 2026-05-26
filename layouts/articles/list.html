@@ -2,7 +2,7 @@
 
 {{- $pageDescription := .Description | default (partial "page-description.html" .) }}
 {{- $paginator := .Paginate .Pages 6 }}
-{{- $isRu := eq .Language.Lang "ru" }}
+{{- $isRu := eq .Language.Name "ru" }}
 
 {{- if .Title }}
 <header class="articles-list__header">

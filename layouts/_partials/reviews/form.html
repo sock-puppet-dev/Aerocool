@@ -1,4 +1,4 @@
-{{- $isRu := eq .Language.Lang "ru" -}}
+{{- $isRu := eq .Language.Name "ru" -}}
 {{- $reviewTargetID := .Params.review_target_id | default (.Params.sku | default .File.Dir) -}}
 {{- $targetURL := .Permalink -}}
 
@@ -6,7 +6,7 @@
   <input type="hidden" name="target_type" value="product">
   <input type="hidden" name="target_id" value="{{ $reviewTargetID }}">
   <input type="hidden" name="target_url" value="{{ $targetURL }}">
-  <input type="hidden" name="language" value="{{ .Language.Lang }}">
+  <input type="hidden" name="language" value="{{ .Language.Name }}">
 
   <p class="review-form__honeypot" aria-hidden="true">
     <label>
