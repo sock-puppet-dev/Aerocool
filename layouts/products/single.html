@@ -41,6 +41,7 @@
 {{- $availability := .Params.availability | default "InStock" -}}
 {{- $availabilityLabel := cond (eq $availability "InStock") (cond $isRu "В наличии" "В наявності") $availability -}}
 {{- $reviewTargetID := .Params.review_target_id | default (.Params.sku | default .File.Dir) -}}
+{{- $characteristics := .Params.characteristics | default (slice) -}}
 
 <article class="product-detail bg-aero-canvas">
   <div class="product-detail__inner mx-auto px-4 pt-4 pb-12 sm:px-6 sm:pt-6 sm:pb-16 lg:max-w-7xl lg:px-8">
@@ -162,6 +163,9 @@
         <nav class="border-b border-aero-border" aria-label="{{ cond $isRu "Разделы товара" "Розділи товару" }}">
           <div class="-mb-px flex gap-x-8 overflow-x-auto" role="tablist">
             <button type="button" id="tab-details" role="tab" aria-selected="true" aria-controls="details" data-product-tab-target="details" class="product-detail__tab">{{ cond $isRu "Описание" "Опис" }}</button>
+            {{- if $characteristics }}
+            <button type="button" id="tab-characteristics" role="tab" aria-selected="false" aria-controls="characteristics" data-product-tab-target="characteristics" class="product-detail__tab">{{ cond $isRu "Характеристики" "Характеристики" }}</button>
+            {{- end }}
             <button type="button" id="tab-purchase" role="tab" aria-selected="false" aria-controls="purchase" data-product-tab-target="purchase" class="product-detail__tab">{{ cond $isRu "Условия" "Умови" }}</button>
             <button type="button" id="tab-reviews" role="tab" aria-selected="false" aria-controls="reviews" data-product-tab-target="reviews" class="product-detail__tab">{{ cond $isRu "Отзывы" "Відгуки" }}</button>
           </div>
@@ -176,6 +180,24 @@
             {{- end }}
           {{- end }}
         </section>
+
+        {{- if $characteristics }}
+        <section id="characteristics" role="tabpanel" aria-labelledby="tab-characteristics" hidden class="product-detail__panel mt-12 border-t border-aero-border pt-10">
+          <h2 class="ui-group-title">{{ cond $isRu "Характеристики" "Характеристики" }}</h2>
+          <dl class="mt-6 divide-y divide-aero-border text-sm/6">
+            {{- range $characteristics }}
+            {{- $label := index . "label" -}}
+            {{- $value := index . "value" -}}
+            {{- if and $label $value }}
+            <div class="grid grid-cols-1 gap-1 py-4 sm:grid-cols-3 sm:gap-6">
+              <dt class="font-medium text-aero-ink">{{ $label }}</dt>
+              <dd class="text-aero-muted sm:col-span-2">{{ $value }}</dd>
+            </div>
+            {{- end }}
+            {{- end }}
+          </dl>
+        </section>
+        {{- end }}
 
         <section id="purchase" role="tabpanel" aria-labelledby="tab-purchase" hidden class="product-detail__panel mt-12 border-t border-aero-border pt-10">
           <h2 class="ui-group-title">{{ cond $isRu "Перед заказом" "Перед замовленням" }}</h2>

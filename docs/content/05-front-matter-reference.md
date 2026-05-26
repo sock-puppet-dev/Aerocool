@@ -418,6 +418,11 @@ shipping_transit_max: 3      # необязательно
 payment_methods:             # необязательно
   - "https://schema.org/Cash"
   - "https://schema.org/CreditCard"
+characteristics:             # видимая вкладка "Характеристики"
+  - label: "Модель"
+    value: "<MODEL>"
+  - label: "Механизм"
+    value: "SYNC5 с расширенной настройкой"
 rating:
   value: 4.8
   count: 10       # legacy-поле: не использовать как долгосрочный источник Product JSON-LD
@@ -433,6 +438,8 @@ rating:
 Не добавлять параметр `jsonld` в shortcode `seo-image`: `ImageObject` собирается централизованно из front matter `image`.
 
 Для товарных страниц единый источник правды по merchant product facts — front matter конкретной страницы. Это относится к `price`, `sku`, `mpn`, `gtin13`, `availability`, `priceValidUntil`, `warranty`, `return_days`, `return_method`, `return_fees`, `shipping_country`, `shipping_rate`, `shipping_currency`, `shipping_handling_min`, `shipping_handling_max`, `shipping_transit_min`, `shipping_transit_max` и `payment_methods`.
+
+`characteristics` — видимый список технических характеристик товара во вкладке “Характеристики”. Использовать пары `label` + `value`, локализованные под язык страницы. Это поле нужно для технических фактов модели: общая регулировка, подголовник, поверхность, спинка, поясничная поддержка, подлокотники, механизм, сиденье, тип наклона, база, ролики и вес. Не смешивать сюда цену, доставку, возврат и оплату: коммерческие условия остаются в отдельных merchant fields и во вкладке условий.
 
 Владелец бизнес-значений — команда Aerocool Украина. Она подтверждает цену, наличие, гарантию, доставку, возврат, оплату, SKU, MPN, GTIN и срок актуальности цены. Контент-редактор или Codex вносит подтвержденные значения в front matter и синхронизирует видимый товарный текст. По состоянию на `2026-05-07` значение `priceValidUntil: 2027-12-31` подтверждено для текущих товарных цен.
 
