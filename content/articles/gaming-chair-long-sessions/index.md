@@ -2,7 +2,7 @@
 title: "Ігрове крісло для довгих сесій: що важливіше за дизайн"
 linkTitle: "Довгі ігрові сесії"
 date: 2026-05-21T00:30:00+03:00
-lastmod: 2026-05-21
+lastmod: 2026-05-26
 slug: "gaming-chair-long-sessions"
 description: "Гайд Aerocool про вибір ігрового крісла для довгих сесій: подвійна спинка, 11D, Synchronous Tilt, матеріали Racer, Loft Air і Mesh, сценарії WING та XTAL."
 summary: "Пояснюємо, як вибирати ігрове крісло Aerocool для тривалих сесій за підтримкою спини, руками, матеріалом і реальним сценарієм використання."
@@ -14,6 +14,7 @@ related_articles:
   - "articles/how-to-choose-chair-by-adjustability"
 about_entities:
   - "gaming-chair"
+  - "long-sitting"
   - "chair-selection"
 mentions_entities:
   - "aerocool-catalog"
@@ -26,6 +27,8 @@ mentions_entities:
   - "sync5-mechanism"
   - "11d-adjustment"
   - "7d-adjustment"
+  - "dual-backrest"
+  - "replaceable-elements"
   - "racer-material"
   - "loft-air-material"
   - "mesh-material"

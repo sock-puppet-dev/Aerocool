@@ -880,11 +880,14 @@ dual-backrest:
     ru: "двойная спинка"
   entity_class: "Feature"
   schema_candidate: "DefinedTerm"
-  future_jsonld_id: "https://aerocool.ua/products/wing/#dual-backrest"
-  entity_home: "/products/wing/"
-  status: "planned"
+  future_jsonld_id: "https://aerocool.ua/articles/what-is-dual-backrest/#dual-backrest"
+  entity_home: "/articles/what-is-dual-backrest/"
+  status: "confirmed"
   related:
     - "wing-series"
+    - "11d-adjustment"
+    - "sync5-mechanism"
+    - "long-sitting"
 
 replaceable-elements:
   name:
@@ -893,11 +896,14 @@ replaceable-elements:
     ru: "сменные элементы"
   entity_class: "Feature"
   schema_candidate: "DefinedTerm"
-  future_jsonld_id: "https://aerocool.ua/products/xtal/#replaceable-elements"
-  entity_home: "/products/xtal/"
-  status: "planned"
+  future_jsonld_id: "https://aerocool.ua/articles/what-is-fully-replaceable-design/#replaceable-elements"
+  entity_home: "/articles/what-is-fully-replaceable-design/"
+  status: "confirmed"
   related:
     - "xtal-series"
+    - "7d-adjustment"
+    - "sync5-mechanism"
+    - "long-sitting"
 
 lumbar-support:
   name:
@@ -1011,12 +1017,15 @@ long-sitting:
     ru: "долгие сессии"
   entity_class: "UseCase"
   schema_candidate: "DefinedTerm"
-  future_jsonld_id: "https://aerocool.ua/articles/how-to-choose-aerocool-chair/#long-sitting"
-  entity_home: "/articles/how-to-choose-aerocool-chair/"
-  status: "planned"
+  future_jsonld_id: "https://aerocool.ua/articles/chair-for-posture-and-long-work/#long-sitting"
+  entity_home: "/articles/chair-for-posture-and-long-work/"
+  status: "confirmed"
   related:
     - "home-office"
     - "ergonomic-chair"
+    - "gaming-chair"
+    - "dual-backrest"
+    - "replaceable-elements"
 
 hot-room:
   name:

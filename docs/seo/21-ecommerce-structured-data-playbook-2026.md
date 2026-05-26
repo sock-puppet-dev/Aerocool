@@ -1,6 +1,6 @@
 # Практическое Руководство По Структурированным Данным Для E-Commerce 2026
 
-Актуально на 2026-05-18.
+Актуально на 2026-05-26.
 
 Этот документ переводит `Guide to E-Commerce Structured Data` от SchemaApp в локальные правила для товарного каталога `Aerocool Ukraine`.
 
@@ -10,6 +10,7 @@
 
 Текущий порядок внедрения для ratings, product facts, `ProductGroup` и production gate описан в [34-2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md).
 Реальные e-commerce customer stories Schema App по InSinkErator, Avid, CAPREIT, KEEN и Home Hardware разобраны в [46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md).
+Актуальный полный schema/entity audit зафиксирован в [55-2026-05-26-schema-entity-full-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/55-2026-05-26-schema-entity-full-audit.md).
 
 ## 1. Связь С Текущими Документами
 
@@ -45,14 +46,14 @@
 - `hasMerchantReturnPolicy`;
 - `acceptedPaymentMethod`;
 - `WarrantyPromise`, если заполнено в front matter;
-- `AggregateRating` сейчас технически может выводиться из legacy `rating.value` и `rating.count` во front matter;
+- `AggregateRating` сейчас не выводится из legacy `rating.value` и `rating.count`; он должен вернуться только после approved reviews pipeline;
 - `BreadcrumbList`;
 - `FAQPage` для канонического `/faq/`;
 - единый `ImageObject` для primary image страницы.
 
 Главный риск: данные e-commerce schema должны совпадать с видимым контентом и единым источником правды. Для merchant facts таким источником является product front matter; владелец бизнес-значений — команда Aerocool Украина. Видимый commercial block и `/faq/` подтверждают те же значения. Это касается цены, `priceValidUntil`, наличия, доставки, возврата и гарантии. Текущее значение `priceValidUntil: 2027-12-31` подтверждено командой Aerocool Украина `2026-05-07`.
 
-Для рейтингов и отзывов целевой источник правды другой: `Netlify Database` с approved отзывами и build-time export в `data/generated/reviews.json`. Это решение зафиксировано `2026-05-17` в [17-netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/17-netlify-database-reviews.md). До переключения `Product` JSON-LD на этот snapshot текущие front matter ratings остаются открытым quality risk.
+Для рейтингов и отзывов целевой источник правды другой: `Netlify Database` с approved отзывами и build-time export в `data/generated/reviews.json`. Это решение зафиксировано `2026-05-17` в [17-netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/17-netlify-database-reviews.md). До переключения `Product` JSON-LD на этот snapshot `AggregateRating` не выводится, а текущие front matter/UI ratings остаются открытым governance risk.
 
 ## 3. Обязательные И Важные Свойства Товара
 

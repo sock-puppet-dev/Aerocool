@@ -1,14 +1,29 @@
 # Реестр Сущностей Aerocool 2026
 
-Обновлено: 2026-05-17.
+Обновлено: 2026-05-26.
 
-Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md). PDF-аудит Schema App по connected graph, Content Knowledge Graphs, impact и Agentic Web зафиксирован в [44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md). Реестр остается governance-документом: `confirmed` сущности можно использовать в JSON-LD, staged/planned сущности не должны становиться сильными связями без видимого подтверждения на странице.
+Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md). PDF-аудит Schema App по connected graph, Content Knowledge Graphs, impact и Agentic Web зафиксирован в [44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md). Актуальный полный audit registry и rendered graph зафиксирован в [55-2026-05-26-schema-entity-full-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/55-2026-05-26-schema-entity-full-audit.md). Реестр остается governance-документом: `confirmed` сущности можно использовать в JSON-LD, staged/planned сущности не должны становиться сильными связями без видимого подтверждения на странице.
 
 Этот документ — канонический реестр сущностей проекта `Aerocool Ukraine`. Он нужен для управляемого Entity SEO, AI Search, `about_entities`, `mentions_entities`, `ProductGroup`, будущих `additionalProperty`, `llms.txt`, будущего `Callable Actions Registry` и структурированного [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml).
 
 Если вы впервые работаете с entity-полями, сначала прочитайте [Entity Registry: гайд для новичка](/Users/stadnyk/MEGA/Aerocool/docs/seo/22-entity-registry-beginner-guide-2026.md).
 
 Реестр не заменяет `schema_types`. Поле `schema_types` по-прежнему выбирает типы JSON-LD, а registry фиксирует стабильные сущности, `@id`, entity home, связи, владельца фактов и условия внедрения.
+
+## Актуальный Audit Snapshot
+
+На 2026-05-26 в registry зафиксировано `67` сущностей: `51 confirmed`, `14 planned` и `2 do-not-markup`. Машинных ошибок registry не найдено: неизвестных ссылок из front matter нет, `about_entities` и `mentions_entities` используют только `confirmed` сущности, а все `product_group_id` пока указывают на `planned` ProductGroup и поэтому не выводят `isVariantOf` в JSON-LD.
+
+Оценка Entity Registry: `9.5 / 10`.
+
+Активация `2026-05-26`: `dual-backrest`, `replaceable-elements` и `long-sitting` переведены в `confirmed`, потому что для них уже есть сильный видимый контент, стабильные entity homes и точечное использование в front matter.
+
+Главные открытые задачи registry-слоя:
+
+- перевести ProductGroup из `planned` в `confirmed` только после видимой навигации вариантов;
+- не активировать planned feature/use case/material entities без видимого объяснения и entity home;
+- завести регулярный Entity Performance Report;
+- решить ratings/reviews governance через approved reviews pipeline или удаление legacy rating из front matter и UI.
 
 ## 1. Как Использовать Этот Документ
 
@@ -172,8 +187,8 @@ Only these global profiles are currently approved as exact identity links for gl
 | `7d-adjustment` | 7D adjustment | 7D регулювання | 7D регулировка | Feature | `DefinedTerm` or `Thing` | `/articles/how-to-choose-chair-by-adjustability/` | `confirmed` | adjustability guide; XTAL pages | Candidate for `additionalProperty`. |
 | `8d-adjustment` | 8D adjustment | 8D регулювання | 8D регулировка | Feature | `DefinedTerm` or `Thing` | `/articles/how-to-choose-chair-by-adjustability/` | `confirmed` | adjustability guide; SKY Lite | Candidate for `additionalProperty`. |
 | `11d-adjustment` | 11D adjustment | 11D регулювання | 11D регулировка | Feature | `DefinedTerm` or `Thing` | `/articles/how-to-choose-chair-by-adjustability/` | `confirmed` | adjustability guide; SKY 360, WING | Candidate for `additionalProperty`. |
-| `dual-backrest` | Dual backrest | подвійна спинка | двойная спинка | Feature | `DefinedTerm` or `Thing` | `/products/wing/` | `planned` | WING pages; WING vs XTAL comparison | Needs stronger canonical explanation before separate node. |
-| `replaceable-elements` | Replaceable elements | змінні елементи | сменные элементы | Feature | `DefinedTerm` or `Thing` | `/products/xtal/` | `planned` | XTAL pages; WING vs XTAL comparison | XTAL-specific feature; not ready as standalone schema node. |
+| `dual-backrest` | Dual backrest | подвійна спинка | двойная спинка | Feature | `DefinedTerm` or `Thing` | `/articles/what-is-dual-backrest/` | `confirmed` | WING pages; dedicated Dual backrest article | Activated `2026-05-26`; use only where WING dual backrest is visibly discussed. |
+| `replaceable-elements` | Replaceable elements | змінні елементи | сменные элементы | Feature | `DefinedTerm` or `Thing` | `/articles/what-is-fully-replaceable-design/` | `confirmed` | XTAL pages; dedicated replaceable design article | Activated `2026-05-26`; use only where XTAL replaceable elements are visibly discussed. |
 | `lumbar-support` | Lumbar support | поперекова підтримка | поясничная поддержка | Feature | `DefinedTerm` or `Thing` | product/series pages | `planned` | SKY pages | Add visible specs table first. |
 | `armrests-4d-x-360` | 4D X 360 armrests | підлокітники 4D X 360 | подлокотники 4D X 360 | Feature | `DefinedTerm` or `Thing` | `/products/wing/` | `planned` | WING pages | Candidate for `additionalProperty`. |
 | `armrests-3d-x-360` | 3D X 360 armrests | підлокітники 3D X 360 | подлокотники 3D X 360 | Feature | `DefinedTerm` or `Thing` | `/products/sky/` | `planned` | SKY 360 pages | Candidate for `additionalProperty`. |
@@ -187,7 +202,7 @@ Only these global profiles are currently approved as exact identity links for gl
 | `computer-chair` | computer chair | комп'ютерне крісло | компьютерное кресло | UseCase / ProductCategory | `Thing` or `DefinedTerm` | `/products/` | `confirmed` | Broad commercial intent across catalog. |
 | `ergonomic-chair` | ergonomic chair | ергономічне крісло | эргономичное кресло | UseCase / ProductCategory | `Thing` or `DefinedTerm` | `/products/` | `confirmed` | Parent concept for selection articles. |
 | `home-office` | home office | home office | home office | UseCase | `Thing` or `DefinedTerm` | `/articles/how-to-choose-aerocool-chair/` | `confirmed` | Important for AI Search prompts and product copy. |
-| `long-sitting` | long sitting | довгі сесії | долгие сессии | UseCase | `Thing` or `DefinedTerm` | `/articles/how-to-choose-aerocool-chair/` | `planned` | Useful for ergonomic comparisons. |
+| `long-sitting` | long sitting | довгі сесії | долгие сессии | UseCase | `Thing` or `DefinedTerm` | `/articles/chair-for-posture-and-long-work/` | `confirmed` | Long work and long gaming session articles. Activated `2026-05-26`. |
 | `hot-room` | hot room | жарке приміщення | жаркое помещение | UseCase | `Thing` or `DefinedTerm` | `/articles/racer-vs-loft-air-vs-mesh/` | `planned` | Connected to Mesh and Loft Air material decisions. |
 | `chair-selection` | chair selection | вибір крісла | выбор кресла | ContentTopic | `Thing` or `DefinedTerm` | `/articles/how-to-choose-aerocool-chair/` | `confirmed` | Main editorial support topic. |
 
@@ -216,6 +231,10 @@ This section maps existing article pages to primary and secondary entities. It i
 | `/articles/sync4-sync5-mechanism-guide/` | `sync4-mechanism`, `sync5-mechanism` | `synchronous-tilt`, `sky-lite`, `sky-360`, `wing-series`, `xtal-series` | `confirmed` |
 | `/articles/what-is-synchronous-tilt/` | `synchronous-tilt` | `sync4-mechanism`, `sync5-mechanism`, `office-chair`, `home-office`, `long-sitting` | `confirmed` |
 | `/articles/wing-vs-xtal/` | `wing-series`, `xtal-series` | `11d-adjustment`, `7d-adjustment`, `dual-backrest`, `replaceable-elements`, `racer-material`, `loft-air-material`, `mesh-material`, `gaming-chair`, `computer-chair`, `home-office` | `confirmed` |
+| `/articles/what-is-dual-backrest/` | `dual-backrest`, `wing-series` | `long-sitting`, `gaming-chair`, `office-chair`, `home-office`, `sync5-mechanism`, `11d-adjustment`, WING product variants | `confirmed` |
+| `/articles/what-is-fully-replaceable-design/` | `replaceable-elements`, `xtal-series` | `long-sitting`, `gaming-chair`, `office-chair`, `home-office`, `sync5-mechanism`, `7d-adjustment`, XTAL product variants | `confirmed` |
+| `/articles/chair-for-posture-and-long-work/` | `chair-selection`, `long-sitting`, `ergonomic-chair`, `office-chair` | `dual-backrest`, `replaceable-elements`, `sky-series`, `wing-series`, `xtal-series`, mechanisms, materials | `confirmed` |
+| `/articles/gaming-chair-long-sessions/` | `gaming-chair`, `long-sitting`, `chair-selection` | `dual-backrest`, `replaceable-elements`, `wing-series`, `xtal-series`, `sky-series`, materials | `confirmed` |
 
 ## 17. Карта Сущностей Для Новостей
 

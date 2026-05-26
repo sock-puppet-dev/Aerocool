@@ -2,7 +2,7 @@
 title: "Fully replaceable design в Aerocool XTAL: что означают сменные элементы"
 linkTitle: "Сменные элементы XTAL"
 date: 2026-05-21T00:50:00+03:00
-lastmod: 2026-05-21
+lastmod: 2026-05-26
 slug: "what-is-fully-replaceable-design"
 description: "Объясняем, что означает конструкция со сменными элементами в креслах Aerocool XTAL, как она связана с подушками, 7D, Synchronous Tilt и практичным использованием."
 summary: "Гид по конструкции со сменными элементами Aerocool XTAL: кому она нужна, как сравнивать XTAL с WING и SKY и какой материал выбрать."
@@ -13,6 +13,7 @@ related_products:
   - "products/xtal/racer-black"
   - "products/xtal/loft-air-light-grey"
 about_entities:
+  - "replaceable-elements"
   - "xtal-series"
 mentions_entities:
   - "aerocool-catalog"
@@ -20,6 +21,7 @@ mentions_entities:
   - "computer-chair"
   - "office-chair"
   - "home-office"
+  - "long-sitting"
   - "ergonomic-chair"
   - "synchronous-tilt"
   - "sync5-mechanism"
