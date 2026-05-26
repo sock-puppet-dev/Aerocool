@@ -1,6 +1,6 @@
 # Aerocool Ukraine
 
-Обновлено: 2026-05-25.
+Обновлено: 2026-05-26.
 
 `Aerocool Ukraine` — двуязычный маркетинговый и каталоговый сайт на `Hugo` для кресел Aerocool в Украине. Основной язык — украинский (`uk`), второй язык — русский (`ru`). Сайт собирается статически, деплоится через `Netlify`, использует локальные Hugo overrides поверх темы `PaperMod` и отдельный Unlighthouse-набор для технического аудита качества.
 
@@ -12,6 +12,8 @@
 4. `docs/content/05-front-matter-reference.md` — какие поля писать в `content/**/*.md`.
 5. `docs/architecture/03-hugo-template-helpers.md` — какие шаблоны за что отвечают.
 6. `docs/quality/13-unlighthouse-site-audit.md` — как проверять качество сайта после правок.
+
+Для текущих задач по Core Web Vitals читать `docs/quality/12-core-web-vitals-guide-2026.md` и актуальный аудит `docs/audits/54-2026-05-26-core-web-vitals-current-audit.md`.
 
 Проще говоря: `content/` отвечает за текст и данные страниц, `layouts/` отвечает за HTML/SEO/schema-логику, `assets/` отвечает за CSS/JS, а `unlighthouse/` отвечает за аудит качества.
 

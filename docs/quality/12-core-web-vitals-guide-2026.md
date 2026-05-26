@@ -1,6 +1,6 @@
 # Руководство по Core Web Vitals 2026 для Aerocool
 
-Обновлено: 2026-05-25.
+Обновлено: 2026-05-26.
 
 Этот документ собирает в одном месте правила Core Web Vitals для проекта `Aerocool Ukraine`: что проверять, какие пороги считать хорошими, где искать причины просадки и как исправлять типовые проблемы на Hugo / Netlify / Tailwind CSS 4.3 сайте.
 
@@ -8,6 +8,7 @@
 
 - [quality/13-unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-unlighthouse-site-audit.md) — массовый Lighthouse-аудит по сайту.
 - [quality/14-lighthouse-single-page-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/14-lighthouse-single-page-audit.md) — точечный Lighthouse-аудит одной страницы.
+- [audits/54-2026-05-26-core-web-vitals-current-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/54-2026-05-26-core-web-vitals-current-audit.md) — актуальный CWV-аудит проекта на 2026-05-26.
 - [content/06-seo-image-shortcode.md](/Users/stadnyk/MEGA/Aerocool/docs/content/06-seo-image-shortcode.md) — правила изображений в page bundle.
 - [seo/27-google-seo-audit-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/27-google-seo-audit-checklist-2026.md) — общий SEO-аудит для сильного ранжирования в Google.
 - [seo/28-ssg-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/28-ssg-seo-checklist-2026.md) — общий SSG SEO-чеклист.
@@ -165,7 +166,8 @@ LCP состоит из четырех частей:
 | CSS блокирует отрисовку | Убирать лишние правила, держать Tailwind purge через Hugo paths |
 | JS блокирует первый экран | Не добавлять тяжелые скрипты в head, держать JS минимальным |
 | Глобальный `prefetch` страниц меню | Не prefetch-ить навигационные HTML-страницы из `<head>`: это добавляет лишние загрузки до LCP и может ухудшать mobile lab-аудит |
-| Большой search index | Не preload-ить `index.json` в `<head>` search-страницы; deferred search JS может загрузить индекс после первичного рендера |
+| Большой search index | Не preload-ить `index.json` в `<head>` и не грузить его по `window.onload`; search index загружать только после непустого ввода пользователя |
+| Service worker в критическом окне | Не регистрировать service worker сразу после `load`; регистрация должна уходить за пределы первого рендера через задержку и `requestIdleCallback` |
 | Шрифты задерживают текстовый LCP | Использовать ограниченное число шрифтов, `font-display: swap`, осторожный preload |
 | Плохой TTFB | Проверить Netlify headers/cache, размер HTML и внешние зависимости |
 
@@ -210,10 +212,11 @@ LCP состоит из четырех частей:
 | Проблема | Что делать |
 |---|---|
 | Длинный JS-task | Разбить работу на меньшие задачи |
-| Тяжелый search JS | Индексировать только нужное, debounce input, не пересчитывать DOM на каждый символ без лимита |
+| Тяжелый search JS | Индексировать только нужное, загружать `index.json` по первому непустому вводу, debounce input, не пересчитывать DOM на каждый символ без лимита |
 | Обработчик делает layout thrashing | Разнести чтение и запись layout, не дергать размеры в цикле |
 | Слишком много listeners | Делегировать события там, где это упрощает DOM |
 | View transitions тормозят | Проверить `assets/js/site.js` и `docs/architecture/04-browser-view-transitions.md` |
+| Service worker дает long task | Проверить отложенную регистрацию в `assets/js/site.js`; PWA-кэш не должен мешать первому взаимодействию |
 | Сторонний скрипт тормозит main thread | Удалить, отложить или заменить |
 | Большой bundle | Не добавлять framework/runtime без реальной нужды |
 
@@ -483,6 +486,8 @@ cd /Users/stadnyk/MEGA/Aerocool/unlighthouse
 - [ ] Вторичные изображения lazy-loaded.
 - [ ] Нет layout shifts от header, cards, fonts или late content.
 - [ ] Search/menu/view transitions не создают long tasks.
+- [ ] Search-страница не запрашивает `index.json` до непустого ввода пользователя.
+- [ ] Service worker не регистрируется в критическом окне первого рендера.
 - [ ] Mobile не хуже целевых CWV-порогов.
 - [ ] PageSpeed Insights не показывает очевидных CWV-регрессий.
 - [ ] После production-перехода Search Console Core Web Vitals monitor включен в регулярный контроль.

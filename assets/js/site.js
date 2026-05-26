@@ -422,7 +422,7 @@
       return;
     }
 
-    window.addEventListener('load', function () {
+    function registerServiceWorker() {
       var serviceWorkerUrl = getServiceWorkerUrl();
 
       if (!serviceWorkerUrl) {
@@ -432,6 +432,17 @@
       navigator.serviceWorker.register(serviceWorkerUrl).catch(function () {
         // Service worker registration should never break the page experience.
       });
+    }
+
+    window.addEventListener('load', function () {
+      window.setTimeout(function () {
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(registerServiceWorker, { timeout: 5000 });
+          return;
+        }
+
+        registerServiceWorker();
+      }, 4000);
     });
   }
 
