@@ -1,6 +1,6 @@
 # Netlify Database Для SEO-First Отзывов
 
-Обновлено: 2026-05-17.
+Обновлено: 2026-05-26.
 
 Этот документ объясняет, как в проекте `Aerocool Ukraine` использовать `Netlify Database` для собственной системы отзывов к товарам и статьям.
 
@@ -24,17 +24,22 @@
 
 ## 1. Текущий Статус
 
-На `2026-05-17` для проекта выполнено:
+На `2026-05-26` для проекта выполнено:
 
 - `Netlify CLI` установлен через `brew`;
-- версия CLI: `netlify-cli/26.0.2`;
-- локальная папка `/Users/stadnyk/MEGA/Aerocool` связана с Netlify-проектом `hugo-aerocool`;
+- версия CLI: `netlify-cli/26.0.0` локально проверялась через `netlify dev`;
+- локальная папка `/Users/Vladimir/aerocool` связана с Netlify-проектом `hugo-aerocool`;
 - production URL проекта: `https://aerocool.ua`;
 - `Netlify Database` включена для проекта;
 - пакет `@netlify/database` установлен в корневой `package.json`;
 - выбран режим `Direct SQL`;
 - sample data не создавались;
-- миграций пока нет.
+- создана первая миграция `20260526171923_create-reviews-table`;
+- миграция локально применена через `netlify database migrations apply`;
+- добавлена функция `netlify/functions/reviews.mjs` для `POST /api/reviews`;
+- `SKY Lite` в украинской и русской версии получил `review_target_id: "sky-lite"` и `reviews_enabled: true`;
+- форма отзывов выводится только для товаров с явными `review_target_id` и `reviews_enabled: true`;
+- локально проверено, что `POST /api/reviews` создает запись в `reviews` со статусом `pending`.
 
 Управление базой в Netlify находится здесь:
 
@@ -48,7 +53,7 @@ https://app.netlify.com/projects/hugo-aerocool/database
 
 ### Уже Сделано
 
-1. Установлен `Netlify CLI 26.0.2`.
+1. Установлен `Netlify CLI`.
 2. Выполнен `netlify login`.
 3. Выполнен `netlify link`.
 4. Локальная папка связана с проектом `hugo-aerocool`.
@@ -56,54 +61,65 @@ https://app.netlify.com/projects/hugo-aerocool/database
 6. Выбран режим `Direct SQL`.
 7. Sample data не создавались.
 8. Установлен пакет `@netlify/database`.
+9. Создана SQL-миграция `reviews`.
+10. Миграция локально применена и проверена через `SELECT COUNT(*) AS review_count FROM reviews;`.
+11. В `SKY Lite` добавлены `review_target_id` и `reviews_enabled` в `uk` и `ru`.
+12. Вкладка и форма отзывов ограничены товарами с включенным `reviews_enabled`.
+13. Добавлен `POST /api/reviews`, который сохраняет только `pending` отзывы.
+14. Локально проверена отправка тестового отзыва: запись появилась в `reviews` со статусом `pending`.
 
 ### Следующий Шаг
 
-Создать первую миграцию:
+После deploy проверить pipeline уже в Netlify:
 
-```bash
-netlify database migrations new --description "create reviews table" --scheme timestamp
+```text
+Deploy Preview или production URL
+-> POST /api/reviews
+-> Netlify Function logs
+-> Netlify Database branch
+-> pending review в таблице reviews
 ```
 
-После создания миграции вставить SQL из раздела 6 в созданный файл миграции.
+Если функция и миграция на Netlify работают так же, как локально, следующий технический шаг — минимальная модерация `pending -> approved`.
 
 ### Полный Алгоритм V1
 
-1. Создать миграцию `reviews`.
-2. Вставить SQL таблицы отзывов.
-3. Запустить локальное окружение:
+1. Создать миграцию `reviews`. Готово: `20260526171923_create-reviews-table`.
+2. Вставить SQL таблицы отзывов. Готово.
+3. Запустить локальное окружение. Проверено:
 
    ```bash
    netlify dev
    ```
 
-4. В другом терминале применить миграции:
+4. В другом терминале применить миграции. Проверено:
 
    ```bash
    netlify database migrations apply
    ```
 
-5. Проверить состояние базы:
+5. Проверить состояние базы. Проверено:
 
    ```bash
    netlify database status
    ```
 
-6. Добавить `review_target_id` и `reviews_enabled` только в один тестовый товар, например `SKY Lite`, в обе языковые версии.
-7. Сделать `POST /api/reviews`, который создает только `pending` отзыв.
-8. Сделать минимальный admin endpoint для перевода отзыва в `approved`, `rejected` или `spam`.
-9. Сделать build-time export approved отзывов в `data/generated/reviews.json`.
-10. Подключить Hugo partial отзывов только на тестовом товаре.
-11. Переключить `Product.aggregateRating` на generated reviews snapshot.
-12. Проверить два состояния:
+6. Добавить `review_target_id` и `reviews_enabled` только в один тестовый товар, например `SKY Lite`, в обе языковые версии. Готово.
+7. Сделать `POST /api/reviews`, который создает только `pending` отзыв. Готово локально.
+8. Проверить `POST /api/reviews` на Netlify Deploy Preview или production после deploy.
+9. Сделать минимальный admin endpoint или временный SQL-flow для перевода отзыва в `approved`, `rejected` или `spam`.
+10. Сделать build-time export approved отзывов в `data/generated/reviews.json`.
+11. Подключить Hugo partial для вывода реальных approved отзывов только на тестовом товаре.
+12. Переключить `Product.aggregateRating` на generated reviews snapshot.
+13. Проверить два состояния:
 
     ```text
     нет approved отзывов -> нет AggregateRating
     есть approved отзыв -> visible review block + AggregateRating
     ```
 
-13. После успешной проверки масштабировать `review_target_id` на остальные товары.
-14. Статьи подключать вторым этапом, без `AggregateRating` в `Article` JSON-LD.
+14. После успешной проверки масштабировать `review_target_id` на остальные товары.
+15. Статьи подключать вторым этапом, без `AggregateRating` в `Article` JSON-LD.
 
 ### Что Не Делать В Первом Проходе
 
@@ -140,6 +156,30 @@ netlify database migrations new --description "create reviews table" --scheme ti
 -> Hugo build
 -> visible review + Product JSON-LD
 ```
+
+## 3.1. Database Branching
+
+`Netlify Database` использует ветки базы.
+
+Для проекта это значит:
+
+```text
+production deploy -> production database branch
+Deploy Preview -> отдельная database branch
+local netlify dev -> локальная база на машине разработчика
+```
+
+Когда появится Deploy Preview, Netlify создаст отдельную ветку базы для проверки этого preview. Тестовые отзывы, миграции и SQL-проверки в preview не должны попадать в production branch.
+
+Практический порядок проверки после deploy:
+
+1. Открыть Deploy Preview или production URL.
+2. Отправить отзыв на `SKY Lite`.
+3. Проверить Netlify Function logs для `/api/reviews`.
+4. Проверить соответствующую database branch в Netlify Dashboard.
+5. Убедиться, что отзыв попал в `reviews` со статусом `pending`.
+
+Не переносить тестовые preview-отзывы в production вручную. Для production нужны реальные пользовательские отзывы, отправленные через production URL и прошедшие модерацию.
 
 ## 4. Базовые Команды
 
@@ -201,6 +241,12 @@ netlify database migrations new --description "create reviews table" --scheme ti
 netlify/database/migrations/
 ```
 
+Текущая первая миграция:
+
+```text
+netlify/database/migrations/20260526171923_create-reviews-table/migration.sql
+```
+
 Применить pending migrations локально:
 
 ```bash
@@ -242,6 +288,9 @@ CREATE TABLE reviews (
 
 CREATE INDEX reviews_target_status_idx
 ON reviews (target_type, target_id, language, status, created_at DESC);
+
+CREATE INDEX reviews_email_hash_idx
+ON reviews (author_email_hash);
 ```
 
 Поля:
@@ -255,6 +304,8 @@ ON reviews (target_type, target_id, language, status, created_at DESC);
 - `author_email_hash` нужен для дедупликации и антиспама без публичного email;
 - `status` управляет модерацией.
 
+В фактической миграции также добавлен триггер `reviews_set_updated_at`, который обновляет `updated_at` при изменении строки. Это нужно для будущей модерации: когда отзыв переводят из `pending` в `approved`, дата обновления меняется автоматически.
+
 ## 7. `review_target_id` Для Товаров
 
 Для товаров нельзя привязывать отзывы только к URL. У товара есть украинская и русская версии, а URL может измениться.
@@ -265,6 +316,15 @@ ON reviews (target_type, target_id, language, status, created_at DESC);
 review_target_id: "sky-lite"
 reviews_enabled: true
 ```
+
+На текущем этапе эти поля включены только для тестового товара `SKY Lite`:
+
+```text
+content/products/sky/lite/index.md
+content/products/sky/lite/index.ru.md
+```
+
+Шаблон `layouts/products/single.html` выводит вкладку и форму отзывов только если у товара есть оба поля: `review_target_id` и `reviews_enabled: true`. Для остальных товаров вкладка отзывов не выводится.
 
 Правило:
 
@@ -337,6 +397,30 @@ PATCH /api/admin/reviews/:id
 - очищает текст;
 - ставит статус `pending`;
 - не публикует отзыв сразу.
+
+Текущая реализация:
+
+```text
+netlify/functions/reviews.mjs
+```
+
+Функция принимает только `POST`, читает `application/x-www-form-urlencoded`, `multipart/form-data` или `application/json`, проверяет honeypot `bot-field`, валидирует поля, считает `author_email_hash` на сервере и записывает отзыв в `reviews` со статусом `pending`.
+
+После успешной записи функция возвращает `303 See Other` на товарную страницу:
+
+```text
+/products/sky/lite/?review=pending#reviews
+```
+
+Локальная проверка `2026-05-26`:
+
+```text
+POST /api/reviews -> 303 See Other
+SELECT id, target_id, language, rating, author_name, status FROM reviews
+-> target_id = sky-lite, language = uk, rating = 5, status = pending
+```
+
+Важно: этот тестовый отзыв был создан в локальной базе, поднятой через `netlify dev`. В Netlify Dashboard он не виден. После deploy нужно отдельно проверить Deploy Preview или production branch базы.
 
 Админские функции:
 
