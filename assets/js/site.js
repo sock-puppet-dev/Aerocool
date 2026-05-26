@@ -127,6 +127,52 @@
     });
   }
 
+  function setupProductImageZoom() {
+    var canHover = window.matchMedia &&
+      window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    if (!canHover) {
+      return;
+    }
+
+    document.querySelectorAll('[data-product-image-zoom]').forEach(function (container) {
+      var image = container.querySelector('[data-product-image-zoom-source]');
+      var lens = container.querySelector('[data-product-image-zoom-lens]');
+      var zoom = 2.2;
+
+      if (!image || !lens) {
+        return;
+      }
+
+      function syncLens(event) {
+        var rect = image.getBoundingClientRect();
+        var lensRect = lens.getBoundingClientRect();
+        var x = Math.min(Math.max(event.clientX - rect.left, 0), rect.width);
+        var y = Math.min(Math.max(event.clientY - rect.top, 0), rect.height);
+
+        container.classList.add('is-zooming');
+        lens.style.left = x + 'px';
+        lens.style.top = y + 'px';
+        lens.style.backgroundImage = 'url("' + (image.currentSrc || image.src) + '")';
+        lens.style.backgroundSize = (rect.width * zoom) + 'px ' + (rect.height * zoom) + 'px';
+        lens.style.backgroundPosition =
+          (-(x * zoom) + lensRect.width / 2) + 'px ' +
+          (-(y * zoom) + lensRect.height / 2) + 'px';
+      }
+
+      container.addEventListener('pointerenter', function (event) {
+        container.classList.add('is-zooming');
+        syncLens(event);
+      });
+
+      container.addEventListener('pointermove', syncLens);
+
+      container.addEventListener('pointerleave', function () {
+        container.classList.remove('is-zooming');
+      });
+    });
+  }
+
   function setupProductTabs() {
     var tablists = document.querySelectorAll('[role="tablist"]');
 
@@ -395,6 +441,7 @@
   setupThemeToggle();
   setupMobileNavClose();
   setupPhoneSanitizer();
+  setupProductImageZoom();
   setupProductTabs();
   setupViewTransitions();
   setupCodeCopyButtons();

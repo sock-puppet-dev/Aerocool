@@ -512,6 +512,49 @@ textarea.ui-field {
     align-items: start;
 }
 
+.product-detail__image-zoom {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background: var(--theme);
+}
+
+.product-detail__image {
+    display: block;
+}
+
+.product-detail__image-lens {
+    display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .product-detail__image-zoom {
+        cursor: zoom-in;
+    }
+
+    .product-detail__image-lens {
+        position: absolute;
+        z-index: 1;
+        display: block;
+        width: 12rem;
+        height: 12rem;
+        border: 1px solid var(--border);
+        border-radius: 0;
+        background-color: var(--theme);
+        background-repeat: no-repeat;
+        box-shadow: 0 1.25rem 2.5rem rgb(15 23 42 / 18%);
+        opacity: 0;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        transition: opacity 120ms ease;
+        will-change: left, top, background-position;
+    }
+
+    .product-detail__image-zoom.is-zooming .product-detail__image-lens {
+        opacity: 1;
+    }
+}
+
 .product-detail__tab {
     display: inline-flex;
     border: 0;
