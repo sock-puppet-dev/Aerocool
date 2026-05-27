@@ -449,7 +449,7 @@ rating:
 
 `reviews_enabled` включает вкладку и форму отзывов на странице товара только вместе с явным `review_target_id`. На текущем этапе `reviews_enabled: true` включен только для тестового товара `SKY Lite` в `uk` и `ru`, чтобы проверить отправку `pending` отзывов через `POST /api/reviews`.
 
-Для остальных товаров поле держать отсутствующим или `false`, пока pipeline не пройдет проверку на тестовой модели. Включение формы не означает включение SEO-рейтинга: `AggregateRating` и `Review` можно выводить только после build-time export approved отзывов в `data/generated/reviews.json` и видимого вывода этих отзывов на той же странице.
+Для остальных товаров поле держать отсутствующим или `false`, пока pipeline не пройдет проверку на тестовой модели. Включение формы не означает включение SEO-рейтинга: `AggregateRating` и `Review` можно выводить только после того, как approved отзывы попали в build-time export `data/generated/reviews.json` и видимо выводятся на той же странице.
 
 Поля `rating.value` и `rating.count` остаются legacy-риском текущего этапа. Целевая SEO-first архитектура описана в [17-netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/17-netlify-database-reviews.md): рейтинг должен приходить не из front matter, а из approved отзывов в `Netlify Database`, выгруженных на build в `data/generated/reviews.json` и видимо показанных на странице.
 
