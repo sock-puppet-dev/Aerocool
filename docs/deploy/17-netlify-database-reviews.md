@@ -1,6 +1,6 @@
 # Netlify Database Для SEO-First Отзывов
 
-Обновлено: 2026-05-26.
+Обновлено: 2026-05-28.
 
 Этот документ объясняет, как в проекте `Aerocool Ukraine` использовать `Netlify Database` для собственной системы отзывов к товарам и статьям.
 
@@ -41,7 +41,8 @@
 - форма отзывов выводится только для товаров с явными `review_target_id` и `reviews_enabled: true`;
 - локально и на Netlify branch `dev` проверено, что `POST /api/reviews` создает запись в `reviews` со статусом `pending`;
 - добавлен build-time export `scripts/export_reviews.mjs`, который пишет approved отзывы в `data/generated/reviews.json`;
-- товарный шаблон умеет показывать approved отзывы из generated snapshot.
+- товарный шаблон умеет показывать approved отзывы из generated snapshot;
+- на `https://dev--hugo-aerocool.netlify.app/products/sky/lite/#reviews` проверен полный цикл: отправка отзыва, ручная модерация `pending -> approved`, новый deploy `dev`, появление видимого отзыва на странице.
 
 Управление базой в Netlify находится здесь:
 
@@ -70,7 +71,7 @@ https://app.netlify.com/projects/hugo-aerocool/database
 13. Добавлен `POST /api/reviews`, который сохраняет только `pending` отзывы.
 14. Локально проверена отправка тестового отзыва: запись появилась в `reviews` со статусом `pending`.
 
-### Следующий Шаг
+### Текущий Рабочий Шаг
 
 После изменения статуса отзыва на `approved` нужно запустить новый deploy/rebuild:
 
@@ -82,7 +83,7 @@ approved review в Netlify Database
 -> Hugo renders visible review
 ```
 
-Если approved отзыв появился в HTML на `SKY Lite`, следующий технический шаг — подключить `Product.aggregateRating` и `Product.review` к тому же generated snapshot.
+На ветке `dev` этот сценарий уже подтвержден на `SKY Lite`. Следующий технический шаг — подключить `Product.aggregateRating` и `Product.review` к тому же generated snapshot.
 
 ### Полный Алгоритм V1
 
@@ -108,11 +109,11 @@ approved review в Netlify Database
 
 6. Добавить `review_target_id` и `reviews_enabled` только в один тестовый товар, например `SKY Lite`, в обе языковые версии. Готово.
 7. Сделать `POST /api/reviews`, который создает только `pending` отзыв. Готово локально.
-8. Проверить `POST /api/reviews` на Netlify Deploy Preview или production после deploy. Готово на branch `dev`.
+8. Проверить `POST /api/reviews` на Netlify branch-сайте `dev`. Готово на `https://dev--hugo-aerocool.netlify.app/`.
 9. Сделать минимальный admin endpoint или временный SQL-flow для перевода отзыва в `approved`, `rejected` или `spam`. Временно проверяется ручным редактированием статуса в Netlify Dashboard.
 10. Сделать build-time export approved отзывов в `data/generated/reviews.json`. Готово через `scripts/export_reviews.mjs`.
 11. Подключить Hugo partial для вывода реальных approved отзывов только на тестовом товаре. Готово через `layouts/_partials/reviews/list.html`.
-12. Проверить после rebuild, что approved отзыв виден на `SKY Lite`.
+12. Проверить после rebuild, что approved отзыв виден на `SKY Lite`. Готово на branch `dev`.
 13. Переключить `Product.aggregateRating` на generated reviews snapshot.
 14. Проверить два состояния:
 
@@ -168,21 +169,41 @@ approved review в Netlify Database
 
 ```text
 production deploy -> production database branch
-Deploy Preview -> отдельная database branch
+dev branch deploy -> dev database branch
+Deploy Preview -> отдельная database branch, если используется PR/preview
 local netlify dev -> локальная база на машине разработчика
 ```
 
-Когда появится Deploy Preview, Netlify создаст отдельную ветку базы для проверки этого preview. Тестовые отзывы, миграции и SQL-проверки в preview не должны попадать в production branch.
+Текущая рабочая ветка разработки — `dev`. Ее тестовый сайт:
+
+```text
+https://dev--hugo-aerocool.netlify.app/
+```
+
+По подтверждению поддержки Netlify для этого проекта branch-сайт `dev--hugo-aerocool.netlify.app` можно использовать для частых автодеплоев и тестирования без расходования production-лимитов основного домена.
+
+Для отзывов это значит:
+
+```text
+dev-сайт -> database branch dev
+production-сайт -> database branch production
+local netlify dev -> локальная база
+```
+
+Важно: команда `netlify database connect --query "..."` в обычном локальном окружении подключается к локальной development database. Для проверки remote branch `dev` надежнее использовать Netlify Dashboard: `Database -> dev -> View and edit data` или SQL console внутри branch `dev`.
+
+Тестовые отзывы, миграции и SQL-проверки в `dev` не должны вручную переноситься в `production`. Для production нужны реальные пользовательские отзывы, отправленные через production URL и прошедшие модерацию.
 
 Практический порядок проверки после deploy:
 
-1. Открыть Deploy Preview или production URL.
+1. Открыть `https://dev--hugo-aerocool.netlify.app/`.
 2. Отправить отзыв на `SKY Lite`.
 3. Проверить Netlify Function logs для `/api/reviews`.
-4. Проверить соответствующую database branch в Netlify Dashboard.
+4. Проверить database branch `dev` в Netlify Dashboard.
 5. Убедиться, что отзыв попал в `reviews` со статусом `pending`.
-
-Не переносить тестовые preview-отзывы в production вручную. Для production нужны реальные пользовательские отзывы, отправленные через production URL и прошедшие модерацию.
+6. Изменить статус на `approved`.
+7. Запустить новый deploy `dev`.
+8. Проверить, что отзыв появился в HTML на `SKY Lite`.
 
 ## 4. Базовые Команды
 
@@ -441,7 +462,7 @@ SELECT id, target_id, language, rating, author_name, status FROM reviews
 -> target_id = sky-lite, language = uk, rating = 5, status = pending
 ```
 
-Важно: этот тестовый отзыв был создан в локальной базе, поднятой через `netlify dev`. В Netlify Dashboard он не виден. После deploy нужно отдельно проверить Deploy Preview или production branch базы.
+Важно: этот тестовый отзыв был создан в локальной базе, поднятой через `netlify dev`. В Netlify Dashboard он не виден. Для remote-проверки использовать branch-сайт `dev` и database branch `dev` в Netlify Dashboard.
 
 Админские функции:
 

@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Обновлено: 2026-05-26.
+Обновлено: 2026-05-28.
 
 ## Обзор Проекта
 
@@ -8,6 +8,7 @@
 - Основной язык сайта — украинский (`uk`), второй язык — русский (`ru`).
 - Активная тема — `themes/PaperMod`, подключенная как git-подмодуль.
 - Развертывание настроено через `Netlify`.
+- Рабочая ветка для ежедневной разработки — `dev`; тестовый Netlify Branch Deploy — `https://dev--hugo-aerocool.netlify.app/`. `main` использовать только для production-релизов основного домена `https://aerocool.ua/`.
 
 ## Стек
 
@@ -171,9 +172,19 @@
 - Локальная разработка: `./scripts/script_start.sh` или `hugo server`.
 - Tailwind компилируется через `css.TailwindCSS` внутри Hugo; отдельный watch-процесс Tailwind не нужен.
 - `npm run dev` — это удобный алиас для `hugo server`.
-- Build в `Netlify`: `git submodule update --init --recursive && hugo --environment development --gc --minify`.
+- Build в `Netlify`: `git submodule update --init --recursive && node scripts/export_reviews.mjs && hugo --environment development --gc --minify`.
 - `scripts/script_clean.sh` — мягкая очистка Hugo-артефактов: удаляет `public`, `resources`, `.hugo_build.lock` и `hugo_stats.json`, но не трогает `node_modules`, `.cache` и `package-lock.json`.
 - `scripts/script_reset_full.sh` — тяжелый reset зависимостей: удаляет Hugo-артефакты, `node_modules` и `.cache`, затем запускает `npm install`; `package-lock.json` удаляется только при явном флаге `--with-lockfile`.
+
+## Git И Netlify Workflow
+
+- Все обычные изменения делать в ветке `dev`.
+- Push в `dev` запускает Netlify Branch Deploy на `https://dev--hugo-aerocool.netlify.app/`.
+- По подтверждению поддержки Netlify для этого проекта branch-сайт `dev--hugo-aerocool.netlify.app` можно использовать для частых автодеплоев и тестов без расходования production-лимитов основного домена.
+- `main` — только production-релиз для `https://aerocool.ua/`. Не коммитить и не пушить в `main`, если пользователь явно не сказал переносить изменения в production.
+- Перед любым commit/push сначала проверить `git status --short --branch`. Ожидаемая рабочая ветка по умолчанию: `dev`.
+- Перенос `dev -> main` делать отдельным осознанным шагом после проверки тестового сайта, обычно раз в неделю или перед готовым релизом.
+- Для отзывов на `dev`: отправка формы создает `pending` запись в database branch `dev`, ручное изменение статуса на `approved` в Netlify Dashboard требует нового deploy `dev`, потому что visible HTML и `data/generated/reviews.json` создаются на build-time.
 
 ## Правила Редактирования
 

@@ -43,7 +43,25 @@
 
 Локальные версии инструментов фиксируются в `mise.toml`. В Netlify версии фиксируются в `netlify.toml`.
 
-## 3. Важное про Netlify и production
+## 3. Важное про Netlify, dev И production
+
+Рабочая ветка проекта — `dev`.
+
+Для ежедневной разработки используется Netlify Branch Deploy:
+
+```text
+ветка dev -> https://dev--hugo-aerocool.netlify.app/
+```
+
+По подтверждению поддержки Netlify для этого проекта тестовый branch-сайт `dev--hugo-aerocool.netlify.app` можно использовать для частых автодеплоев и проверок без расходования production-лимитов основного домена. Поэтому все обычные изменения сначала делаются в `dev`, проверяются на тестовом URL и только потом переносятся в `main`.
+
+`main` — это production-ветка для основного домена:
+
+```text
+ветка main -> https://aerocool.ua/
+```
+
+В `main` не пушить случайные ежедневные правки. Перенос `dev -> main` делать осознанно, например раз в неделю или перед готовым релизом.
 
 Сейчас `netlify.toml` намеренно собирает сайт в `development`:
 
@@ -79,16 +97,19 @@ npm run build:production
 - ставить зависимости;
 - собирать Hugo;
 - публиковать сайт;
-- создавать Deploy Preview.
+- создавать Branch Deploy для `dev`.
 
 Для системы отзывов подключен `Netlify Database`. Целевая архитектура описана в [docs/deploy/17-netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/17-netlify-database-reviews.md): отзывы хранятся в PostgreSQL, проходят модерацию, выгружаются в `data/generated/reviews.json` на этапе build и только после этого попадают в видимый HTML и `Product` JSON-LD. На текущем этапе создана первая миграция `reviews`, добавлен `POST /api/reviews`, локально и на ветке `dev` проверена запись `pending` отзыва для тестового товара `SKY Lite`, а approved отзывы выгружаются в Hugo snapshot перед сборкой.
 
 Текущий правильный workflow такой:
 
-1. Локально или в ветке делаешь изменения.
-2. Netlify собирает Deploy Preview.
-3. Проверяешь сайт вручную или через Unlighthouse из папки `unlighthouse/`.
-4. После финального решения переводишь Netlify в `production`, если сайт должен индексироваться.
+1. Перейти в `dev` и подтянуть свежую ветку.
+2. Сделать изменения и закоммитить их в `dev`.
+3. Запушить `dev` в GitHub.
+4. Netlify автоматически собирает `https://dev--hugo-aerocool.netlify.app/`.
+5. Проверить тестовый сайт вручную или через Unlighthouse из папки `unlighthouse/`.
+6. Если все готово к релизу, отдельно перенести `dev` в `main`.
+7. После финального решения переводить Netlify в `production`, если сайт должен индексироваться.
 
 ## 5. Основная структура
 
@@ -431,7 +452,40 @@ npm run build:production
 ./scripts/script_check_routes.sh
 ```
 
-## 15. Перед важным deploy
+## 15. Перед Важным Deploy
+
+### Перед Push В `dev`
+
+`dev` — рабочая ветка для частых тестовых автодеплоев.
+
+Минимальный цикл:
+
+```bash
+git checkout dev
+git pull origin dev
+git status
+git add .
+git commit -m "короткое описание изменения"
+git push origin dev
+```
+
+После push проверить тестовый сайт:
+
+```text
+https://dev--hugo-aerocool.netlify.app/
+```
+
+Для отзывов важный порядок такой:
+
+```text
+отзыв отправлен на dev-сайте
+-> запись появилась в database branch dev со статусом pending
+-> статус вручную изменен на approved в Netlify Dashboard
+-> новый deploy dev
+-> approved отзыв появился в HTML
+```
+
+### Перед Переносом В `main`
 
 Минимальный чек:
 
@@ -449,7 +503,7 @@ npm run audit:ci:urls
 npm run audit:ci:technical
 ```
 
-Перед включением production в Netlify дополнительно проверить:
+Перед переносом `dev -> main` и включением production в Netlify дополнительно проверить:
 
 - главную `/`;
 - русскую главную `/ru/`;
@@ -463,6 +517,16 @@ npm run audit:ci:technical
 - `public/_redirects`, если менялись `static/_redirects` или 404/routing;
 - Netlify CLI routing check, если менялись `static/_redirects`, `netlify.toml` headers или 404/routing;
 - sitemap index и языковые sitemap.
+
+Переносить в `main` только после проверки `dev`:
+
+```bash
+git checkout main
+git pull origin main
+git merge dev
+git push origin main
+git checkout dev
+```
 
 ## 16. Карта документации
 
