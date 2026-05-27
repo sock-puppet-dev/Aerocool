@@ -7,8 +7,9 @@
   },
   "scripts": {
     "prebuild": "git submodule update --init --recursive",
-    "build": "hugo --environment development --gc --minify",
-    "build:production": "hugo --environment production --gc --minify",
+    "export:reviews": "node scripts/export_reviews.mjs",
+    "build": "node scripts/export_reviews.mjs && hugo --environment development --gc --minify",
+    "build:production": "node scripts/export_reviews.mjs && hugo --environment production --gc --minify",
     "predev": "git submodule update --init --recursive",
     "dev": "hugo server"
   },

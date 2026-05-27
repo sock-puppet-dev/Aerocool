@@ -20,6 +20,8 @@ hugo_stats.json
 unlighthouse/reports/
 unlighthouse/.unlighthouse/
 unlighthouse/lighthouse/
+# Build-time generated review snapshot
+data/generated/reviews.json
 # Node dependencies inside Unlighthouse audit folder
 unlighthouse/node_modules/
 # Netlify CLI local state

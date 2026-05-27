@@ -39,7 +39,9 @@
 - добавлена функция `netlify/functions/reviews.mjs` для `POST /api/reviews`;
 - `SKY Lite` в украинской и русской версии получил `review_target_id: "sky-lite"` и `reviews_enabled: true`;
 - форма отзывов выводится только для товаров с явными `review_target_id` и `reviews_enabled: true`;
-- локально проверено, что `POST /api/reviews` создает запись в `reviews` со статусом `pending`.
+- локально и на Netlify branch `dev` проверено, что `POST /api/reviews` создает запись в `reviews` со статусом `pending`;
+- добавлен build-time export `scripts/export_reviews.mjs`, который пишет approved отзывы в `data/generated/reviews.json`;
+- товарный шаблон умеет показывать approved отзывы из generated snapshot.
 
 Управление базой в Netlify находится здесь:
 
@@ -70,17 +72,17 @@ https://app.netlify.com/projects/hugo-aerocool/database
 
 ### Следующий Шаг
 
-После deploy проверить pipeline уже в Netlify:
+После изменения статуса отзыва на `approved` нужно запустить новый deploy/rebuild:
 
 ```text
-Deploy Preview или production URL
--> POST /api/reviews
--> Netlify Function logs
--> Netlify Database branch
--> pending review в таблице reviews
+approved review в Netlify Database
+-> новый build
+-> scripts/export_reviews.mjs
+-> data/generated/reviews.json
+-> Hugo renders visible review
 ```
 
-Если функция и миграция на Netlify работают так же, как локально, следующий технический шаг — минимальная модерация `pending -> approved`.
+Если approved отзыв появился в HTML на `SKY Lite`, следующий технический шаг — подключить `Product.aggregateRating` и `Product.review` к тому же generated snapshot.
 
 ### Полный Алгоритм V1
 
@@ -106,20 +108,21 @@ Deploy Preview или production URL
 
 6. Добавить `review_target_id` и `reviews_enabled` только в один тестовый товар, например `SKY Lite`, в обе языковые версии. Готово.
 7. Сделать `POST /api/reviews`, который создает только `pending` отзыв. Готово локально.
-8. Проверить `POST /api/reviews` на Netlify Deploy Preview или production после deploy.
-9. Сделать минимальный admin endpoint или временный SQL-flow для перевода отзыва в `approved`, `rejected` или `spam`.
-10. Сделать build-time export approved отзывов в `data/generated/reviews.json`.
-11. Подключить Hugo partial для вывода реальных approved отзывов только на тестовом товаре.
-12. Переключить `Product.aggregateRating` на generated reviews snapshot.
-13. Проверить два состояния:
+8. Проверить `POST /api/reviews` на Netlify Deploy Preview или production после deploy. Готово на branch `dev`.
+9. Сделать минимальный admin endpoint или временный SQL-flow для перевода отзыва в `approved`, `rejected` или `spam`. Временно проверяется ручным редактированием статуса в Netlify Dashboard.
+10. Сделать build-time export approved отзывов в `data/generated/reviews.json`. Готово через `scripts/export_reviews.mjs`.
+11. Подключить Hugo partial для вывода реальных approved отзывов только на тестовом товаре. Готово через `layouts/_partials/reviews/list.html`.
+12. Проверить после rebuild, что approved отзыв виден на `SKY Lite`.
+13. Переключить `Product.aggregateRating` на generated reviews snapshot.
+14. Проверить два состояния:
 
     ```text
     нет approved отзывов -> нет AggregateRating
     есть approved отзыв -> visible review block + AggregateRating
     ```
 
-14. После успешной проверки масштабировать `review_target_id` на остальные товары.
-15. Статьи подключать вторым этапом, без `AggregateRating` в `Article` JSON-LD.
+15. После успешной проверки масштабировать `review_target_id` на остальные товары.
+16. Статьи подключать вторым этапом, без `AggregateRating` в `Article` JSON-LD.
 
 ### Что Не Делать В Первом Проходе
 
@@ -344,7 +347,7 @@ content/products/sky/lite/index.ru.md
 ```text
 Netlify Database
 -> approved reviews
--> build-time export
+-> scripts/export_reviews.mjs
 -> data/generated/reviews.json
 -> Hugo renders visible reviews
 -> Hugo renders Product JSON-LD
@@ -362,6 +365,24 @@ Netlify Database
 ```text
 data/generated/reviews.json
 ```
+
+Файл создается перед сборкой командой:
+
+```bash
+node scripts/export_reviews.mjs
+```
+
+В `package.json` этот шаг встроен в `npm run build` и `npm run build:production`. В `netlify.toml` он встроен в Netlify build command перед `hugo --environment development --gc --minify`.
+
+Если `NETLIFY_DB_URL` недоступен, например при обычной локальной сборке без `netlify dev`, скрипт пишет пустой snapshot:
+
+```json
+{
+  "product": {}
+}
+```
+
+Это сохраняет локальную сборку рабочей, но отзывы появятся только в окружении, где build видит Netlify Database.
 
 Пример структуры:
 

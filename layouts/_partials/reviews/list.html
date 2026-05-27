@@ -1,0 +1,67 @@
+{{- $isRu := eq .Language.Name "ru" -}}
+{{- $targetID := .Params.review_target_id | default "" -}}
+{{- $language := .Language.Name -}}
+{{- $reviewData := dict -}}
+
+{{- with hugo.Data.generated.reviews -}}
+  {{- with .product -}}
+    {{- with index . $targetID -}}
+      {{- with index . $language -}}
+        {{- $reviewData = . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $reviews := $reviewData.reviews | default (slice) -}}
+
+{{- if $reviews -}}
+<section class="review-preview" aria-labelledby="approved-reviews-title">
+  <div class="review-preview__header">
+    <h3 id="approved-reviews-title" class="review-preview__title">{{ cond $isRu "Отзывы покупателей" "Відгуки покупців" }}</h3>
+    <p class="review-preview__note">
+      {{- cond $isRu
+        (printf "Средняя оценка %.1f из 5 на основе %d одобренных отзывов." (float $reviewData.ratingValue) (int $reviewData.reviewCount))
+        (printf "Середня оцінка %.1f з 5 на основі %d схвалених відгуків." (float $reviewData.ratingValue) (int $reviewData.reviewCount))
+      -}}
+    </p>
+  </div>
+
+  <div class="review-preview__list">
+    {{- range $reviews }}
+    <article class="review-preview__item">
+      <div class="review-preview__content">
+        <div class="review-preview__rating" aria-label="{{ .rating }} {{ cond $isRu "из 5 звезд" "з 5 зірок" }}">
+          <div class="review-preview__stars" aria-hidden="true">
+            {{- $rating := int .rating -}}
+            {{- range seq 1 5 }}
+            <span class="{{ if le . $rating }}is-active{{ end }}">★</span>
+            {{- end }}
+          </div>
+          <span>{{ .rating }}<span class="sr-only"> {{ cond $isRu "из 5 звезд" "з 5 зірок" }}</span></span>
+        </div>
+
+        <div class="review-preview__copy">
+          <h4>{{ cond $isRu "Проверенный отзыв" "Перевірений відгук" }}</h4>
+          <div class="review-preview__body">
+            {{- range split .body "\n\n" }}
+              {{- with . }}
+              <p>{{ . }}</p>
+              {{- end }}
+            {{- end }}
+          </div>
+        </div>
+      </div>
+
+      <footer class="review-preview__meta">
+        <p>{{ .authorName }}</p>
+        {{- $date := .approvedAt | default .createdAt -}}
+        {{- with $date }}
+        <time datetime="{{ . }}">{{ time.Format "2006-01-02" . }}</time>
+        {{- end }}
+      </footer>
+    </article>
+    {{- end }}
+  </div>
+</section>
+{{- end -}}

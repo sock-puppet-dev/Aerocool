@@ -3,8 +3,8 @@
 [build]
   publish = "public"
   # Папка с результатом сборки Hugo
-  command = "git submodule update --init --recursive && hugo --environment development --gc --minify"
-  # 1) Обновляем git-подмодули 2) Собираем сайт Hugo с очисткой кэша и минификацией
+  command = "git submodule update --init --recursive && node scripts/export_reviews.mjs && hugo --environment development --gc --minify"
+  # 1) Обновляем git-подмодули 2) Выгружаем approved отзывы 3) Собираем сайт Hugo с очисткой кэша и минификацией
 
 [build.environment]
   HUGO_VERSION = "0.162.0"
