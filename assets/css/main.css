@@ -860,15 +860,11 @@ textarea.ui-field {
 
 @media (min-width: 1280px) {
     .review-preview__content {
-        grid-column: 4 / span 9;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        align-items: start;
-        column-gap: 2rem;
+        grid-column: 5 / span 8;
     }
 
     .review-preview__copy {
-        grid-column: span 2;
-        margin-top: 0;
+        margin-top: 0.75rem;
     }
 
     .review-preview__meta {
