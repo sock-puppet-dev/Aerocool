@@ -659,6 +659,52 @@ textarea.ui-field {
     margin-top: 3rem;
 }
 
+.review-summary {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem;
+    margin-top: 0.85rem;
+}
+
+.review-summary__stars {
+    display: inline-flex;
+    gap: 0.12rem;
+    color: var(--border-strong);
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.review-summary__stars .is-active {
+    color: var(--rating);
+}
+
+.review-summary__text {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem;
+    margin: 0;
+    color: var(--secondary);
+    font-size: var(--ui-text-sm);
+    line-height: var(--ui-text-sm-line-height);
+}
+
+.review-summary__text strong {
+    color: var(--primary);
+    font-weight: var(--ui-font-semibold);
+}
+
+.review-summary__text a {
+    color: var(--accent);
+    font-weight: var(--ui-font-medium);
+    text-decoration: none;
+}
+
+.review-summary__text a:hover {
+    text-decoration: underline;
+}
+
 .review-preview__header {
     max-width: 38rem;
 }
