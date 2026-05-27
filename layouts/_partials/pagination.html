@@ -6,7 +6,7 @@
   <nav class="ui-pagination flex items-center justify-between border-t border-aero-border px-4 sm:px-0" aria-label="{{ i18n "pagination_nav" }}">
     <div class="-mt-px flex w-0 flex-1">
       {{- if $paginator.HasPrev }}
-      <a class="inline-flex items-center whitespace-nowrap border-t-2 border-transparent pt-4 pr-1 text-sm font-aero-medium text-aero-muted transition-colors hover:border-aero-border-strong hover:text-aero-body" href="{{ $paginator.Prev.URL | absURL }}" rel="prev">
+      <a class="inline-flex items-center whitespace-nowrap border-t-2 border-transparent pt-4 pr-1 text-sm font-aero-medium text-aero-muted transition-colors hover:border-aero-border-strong hover:text-aero-body" href="{{ $paginator.Prev.URL | relURL }}" rel="prev">
         <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="mr-3 size-5 text-aero-muted">
           <path d="M18 10a.75.75 0 0 1-.75.75H4.66l2.1 1.95a.75.75 0 1 1-1.02 1.1l-3.5-3.25a.75.75 0 0 1 0-1.1l3.5-3.25a.75.75 0 1 1 1.02 1.1l-2.1 1.95h12.59A.75.75 0 0 1 18 10Z" clip-rule="evenodd" fill-rule="evenodd" />
         </svg>
@@ -33,9 +33,9 @@
           <span class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-aero-medium text-aero-muted" aria-hidden="true">...</span>
           {{- end }}
           {{- if eq $pageNumber $currentPage }}
-          <a href="{{ .URL | absURL }}" aria-current="page" class="inline-flex items-center border-t-2 border-aero-accent px-4 pt-4 text-sm font-aero-semibold text-aero-accent">{{ $pageNumber }}</a>
+          <a href="{{ .URL | relURL }}" aria-current="page" class="inline-flex items-center border-t-2 border-aero-accent px-4 pt-4 text-sm font-aero-semibold text-aero-accent">{{ $pageNumber }}</a>
           {{- else }}
-          <a href="{{ .URL | absURL }}" class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-aero-medium text-aero-muted transition-colors hover:border-aero-border-strong hover:text-aero-body">{{ $pageNumber }}</a>
+          <a href="{{ .URL | relURL }}" class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-aero-medium text-aero-muted transition-colors hover:border-aero-border-strong hover:text-aero-body">{{ $pageNumber }}</a>
           {{- end }}
           {{- $lastRenderedPage = $pageNumber -}}
         {{- end -}}
@@ -44,7 +44,7 @@
 
     <div class="-mt-px flex w-0 flex-1 justify-end">
       {{- if $paginator.HasNext }}
-      <a class="inline-flex items-center whitespace-nowrap border-t-2 border-transparent pt-4 pl-1 text-sm font-aero-medium text-aero-muted transition-colors hover:border-aero-border-strong hover:text-aero-body" href="{{ $paginator.Next.URL | absURL }}" rel="next">
+      <a class="inline-flex items-center whitespace-nowrap border-t-2 border-transparent pt-4 pl-1 text-sm font-aero-medium text-aero-muted transition-colors hover:border-aero-border-strong hover:text-aero-body" href="{{ $paginator.Next.URL | relURL }}" rel="next">
         {{ i18n "next_page" }}
         <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="ml-3 size-5 text-aero-muted">
           <path d="M2 10a.75.75 0 0 1 .75-.75h12.59l-2.1-1.95a.75.75 0 1 1 1.02-1.1l3.5 3.25a.75.75 0 0 1 0 1.1l-3.5 3.25a.75.75 0 1 1-1.02-1.1l2.1-1.95H2.75A.75.75 0 0 1 2 10Z" clip-rule="evenodd" fill-rule="evenodd" />

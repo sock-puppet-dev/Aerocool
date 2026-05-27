@@ -8,7 +8,7 @@
     {{- $languageKey := .Language.Name -}}
     {{- $languageLabel := .Language.Label | default ($languageKey | title) -}}
     <li>
-        <a href="{{ .Permalink }}">
+        <a href="{{ .RelPermalink }}">
             {{- if site.Params.displayFullLangName -}}
             {{- $languageLabel | emojify -}}
             {{- else -}}

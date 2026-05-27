@@ -36,9 +36,9 @@
       {{- $img = $img.Resize "x30" }}
       {{- end }}
       {{- end }}
-      {{- $logo_src = $img.Permalink }}
+      {{- $logo_src = $img.RelPermalink }}
       {{- else }}
-      {{- $logo_src = site.Params.label.icon | absURL }}
+      {{- $logo_src = site.Params.label.icon | relURL }}
       {{- end -}}
       {{- end }}
 
@@ -46,7 +46,7 @@
       <!-- Если у сайта есть Title → показываем логотип/название -->
 
       <a
-        href="{{ "" | absLangURL }}"
+        href="{{ site.Home.RelPermalink }}"
         accesskey="h"
         title="{{ $logo_title }} (Alt + H)"
         aria-label="{{ site.Title }}"
@@ -183,17 +183,21 @@
         {{- range site.Menus.main }}
         <!-- Берем все пункты меню из config -->
 
-        {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL)) | absLangURL }}
+        {{- $raw_menu_url := .URL }}
+        {{- $is_external_menu_url := or (hasPrefix $raw_menu_url "http://") (hasPrefix $raw_menu_url "https://") }}
+        {{- $menu_item_path := cond (strings.HasSuffix $raw_menu_url "/") $raw_menu_url (printf "%s/" $raw_menu_url) }}
+        {{- $menu_item_url := cond $is_external_menu_url $raw_menu_url ($menu_item_path | relLangURL) }}
         <!-- Нормализуем URL пункта меню:
-             если нет "/" в конце, добавляем его -->
+             если нет "/" в конце, добавляем его;
+             для внутренних ссылок оставляем путь относительным к текущему deploy -->
 
-        {{- $page_url := $currentPage.Permalink | absLangURL }}
+        {{- $page_url := $currentPage.RelPermalink }}
         <!-- URL текущей страницы -->
 
-        {{- $is_active := or
+        {{- $is_active := and (not $is_external_menu_url) (or
         (eq $menu_item_url $page_url)
         (and (hasPrefix $page_url $menu_item_url)
-        (ne $menu_item_url (site.Home.Permalink | absLangURL))) }}
+        (ne $menu_item_url site.Home.RelPermalink))) }}
         <!-- Пункт считается активным, если:
              1) URL совпадает полностью
              2) или текущая страница вложена в этот раздел,
@@ -203,7 +207,7 @@
           <!-- whitespace-nowrap → текст не переносится -->
 
           <a
-            href="{{ .URL | absLangURL }}"
+            href="{{ $menu_item_url }}"
             class="text-sm font-medium text-aero-muted {{ if $is_active }}text-aero-ink{{ end }}"
           >
             <!-- Активный пункт делаем темнее -->
@@ -238,7 +242,7 @@
 
         <!-- Header панели -->
         <div class="flex items-center justify-between">
-          <a href="{{ "" | absLangURL }}" aria-label="{{ site.Title }}">
+          <a href="{{ site.Home.RelPermalink }}" aria-label="{{ site.Title }}">
             {{- if $logo_src }}
             <img
               src="{{ $logo_src }}"
@@ -263,8 +267,12 @@
         <!-- Пункты мобильного меню -->
         <div class="mt-6 space-y-4">
           {{- range site.Menus.main }}
+          {{- $raw_menu_url := .URL }}
+          {{- $is_external_menu_url := or (hasPrefix $raw_menu_url "http://") (hasPrefix $raw_menu_url "https://") }}
+          {{- $menu_item_path := cond (strings.HasSuffix $raw_menu_url "/") $raw_menu_url (printf "%s/" $raw_menu_url) }}
+          {{- $menu_item_url := cond $is_external_menu_url $raw_menu_url ($menu_item_path | relLangURL) }}
           <a
-            href="{{ .URL | absLangURL }}"
+            href="{{ $menu_item_url }}"
             data-nav-close
             class="block px-3 py-2 text-base font-semibold hover:bg-aero-soft"
           >
