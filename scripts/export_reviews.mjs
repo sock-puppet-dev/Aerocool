@@ -60,21 +60,19 @@ function buildSnapshot(rows) {
       continue;
     }
 
-    snapshot.product[targetID] ??= {};
-    snapshot.product[targetID][language] ??= {
-      ratingValue: 0,
-      reviewCount: 0,
-      reviews: [],
-    };
-
-    snapshot.product[targetID][language].reviews.push({
+    const review = {
       id: String(row.id),
+      language,
       rating: Number(row.rating),
       authorName: String(row.author_name || "").trim(),
       body: String(row.body || "").trim(),
       createdAt: toISODate(row.created_at),
       approvedAt: toISODate(row.approved_at || row.created_at),
-    });
+    };
+
+    snapshot.product[targetID] ??= {};
+    addReviewToGroup(snapshot.product[targetID], language, review);
+    addReviewToGroup(snapshot.product[targetID], "all", review);
   }
 
   for (const targetsByLanguage of Object.values(snapshot.product)) {
@@ -86,6 +84,16 @@ function buildSnapshot(rows) {
   }
 
   return snapshot;
+}
+
+function addReviewToGroup(targetReviews, groupKey, review) {
+  targetReviews[groupKey] ??= {
+    ratingValue: 0,
+    reviewCount: 0,
+    reviews: [],
+  };
+
+  targetReviews[groupKey].reviews.push(review);
 }
 
 function toISODate(value) {

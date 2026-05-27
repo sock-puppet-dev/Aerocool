@@ -6,8 +6,12 @@
 {{- with hugo.Data.generated.reviews -}}
   {{- with .product -}}
     {{- with index . $targetID -}}
-      {{- with index . $language -}}
+      {{- with index . "all" -}}
         {{- $reviewData = . -}}
+      {{- else -}}
+        {{- with index . $language -}}
+          {{- $reviewData = . -}}
+        {{- end -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
