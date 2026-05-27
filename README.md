@@ -1,4 +1,4 @@
-# Aerocool Ukraine
+# Aerocool Ukraine Тest Deploy
 
 Обновлено: 2026-05-26.
 
