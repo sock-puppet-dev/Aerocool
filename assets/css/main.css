@@ -774,8 +774,13 @@ textarea.ui-field {
     display: flex;
     gap: 0.15rem;
     color: var(--border-strong);
-    font-size: 1.15rem;
     line-height: 1;
+}
+
+.review-preview__stars svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
 }
 
 .review-preview__stars .is-active {
@@ -853,6 +858,16 @@ textarea.ui-field {
         margin-left: 0;
         border-left: 0;
         padding-left: 0;
+    }
+}
+
+@media (min-width: 1280px) {
+    .review-preview__content {
+        grid-column: 4 / -1;
+    }
+
+    .review-preview__meta {
+        grid-column: 1 / span 3;
     }
 }
 
