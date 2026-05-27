@@ -27,7 +27,7 @@
   <div class="site-footer__inner mx-auto max-w-7xl px-6 pt-16 pb-8 sm:pt-24 lg:px-8 lg:pt-32">
     <div class="site-footer__grid xl:grid xl:grid-cols-3 xl:gap-8">
       <div class="site-footer__brand space-y-8">
-        <a href="{{ "" | absLangURL }}" class="site-footer__logo inline-flex">
+        <a href="{{ site.Home.RelPermalink }}" class="site-footer__logo inline-flex">
           <span class="sr-only">{{ site.Title }}</span>
           <img
             src="{{ "/images/logo.svg" | relURL }}"
@@ -95,7 +95,7 @@
         {{- if site.Copyright }}
         <p class="site-footer__copyright ui-footer-text">{{ site.Copyright | markdownify }}</p>
         {{- else }}
-        <p class="site-footer__copyright ui-footer-text">&copy; {{ now.Year }} <a href="{{ "" | absLangURL }}" class="ui-footer-link">{{ site.Title }}</a></p>
+        <p class="site-footer__copyright ui-footer-text">&copy; {{ now.Year }} <a href="{{ site.Home.RelPermalink }}" class="ui-footer-link">{{ site.Title }}</a></p>
         {{- end }}
       {{- end }}
       {{- with site.Params.footer.text }}
