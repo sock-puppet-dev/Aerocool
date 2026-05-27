@@ -205,11 +205,11 @@ Schema помогает E-E-A-T только тогда, когда усилив
 
 ### P0
 
-1. Выполнить актуальный алгоритм review-системы из [17-netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/17-netlify-database-reviews.md): миграция `reviews`, тестовый товар, `POST /api/reviews`, moderation endpoint, build-time export и Hugo review block.
-2. Внедрить `review_target_id` и `reviews_enabled` сначала только на одном тестовом товаре в `uk` и `ru`.
-3. Переключить `Product.aggregateRating` с legacy front matter rating на generated reviews snapshot из `data/generated/reviews.json`.
+1. Выполнить актуальный алгоритм review-системы из [17-netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/17-netlify-database-reviews.md): миграция `reviews`, тестовый товар, `POST /api/reviews`, moderation endpoint, build-time export и Hugo review block. Базовый pipeline готов.
+2. Внедрить `review_target_id` и `reviews_enabled` сначала только на одном тестовом товаре в `uk` и `ru`, затем масштабировать на текущий каталог. Готово для текущих товаров.
+3. Переключить `Product.aggregateRating` с legacy front matter rating на generated reviews snapshot из `data/generated/reviews.json`. Готово.
 4. Проверить правило: без approved отзывов нет `AggregateRating`; с approved отзывом есть visible review block и `AggregateRating`.
-5. После успешной проверки масштабировать `review_target_id` на остальные товары.
+5. Проверить branch-сайт `dev` с тестовыми approved отзывами для остальных товаров перед переносом в `main`.
 6. Поддерживать product front matter как единый источник правды для merchant facts.
 7. Держать видимый commercial block, `/faq/` и `Product` JSON-LD синхронными с front matter по доставке, возврату, оплате и гарантии.
 8. При каждом изменении product facts брать подтверждение у команды Aerocool Украина.

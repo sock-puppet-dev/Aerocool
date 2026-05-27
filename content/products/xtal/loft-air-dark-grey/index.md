@@ -34,6 +34,8 @@ cover:
   hiddenInSingle: true
 price: 12500
 sku: "XTAL-LADG-001"
+review_target_id: "xtal-loft-air-dark-grey"
+reviews_enabled: true
 mpn: "TEGC-210010Z.Z1"
 gtin13: "4711530966792"
 warranty: 12

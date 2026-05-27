@@ -34,6 +34,8 @@ cover:
   hiddenInSingle: true
 price: 12500
 sku: "XTAL-LALG-001"
+review_target_id: "xtal-loft-air-light-grey"
+reviews_enabled: true
 mpn: "TEGC-2100104.41"
 gtin13: "4711530966808"
 warranty: 12

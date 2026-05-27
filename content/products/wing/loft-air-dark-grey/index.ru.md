@@ -35,6 +35,8 @@ cover:
   hiddenInSingle: true
 price: 12000
 sku: "WING-LADG-001"
+review_target_id: "wing-loft-air-dark-grey"
+reviews_enabled: true
 mpn: "TEGC-309700Z.Z1"
 gtin13: "4711530966501"
 warranty: 12

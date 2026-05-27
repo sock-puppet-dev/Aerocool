@@ -35,6 +35,8 @@ cover:
   hiddenInSingle: true
 price: 12000
 sku: "WING-LALG-001"
+review_target_id: "wing-loft-air-light-grey"
+reviews_enabled: true
 mpn: "TEGC-3097004.41"
 gtin13: "4711530966518"
 warranty: 12

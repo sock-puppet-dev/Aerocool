@@ -99,7 +99,7 @@ npm run build:production
 - публиковать сайт;
 - создавать Branch Deploy для `dev`.
 
-Для системы отзывов подключен `Netlify Database`. Целевая архитектура описана в [docs/deploy/17-netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/17-netlify-database-reviews.md): отзывы хранятся в PostgreSQL, проходят модерацию, выгружаются в `data/generated/reviews.json` на этапе build и только после этого попадают в видимый HTML и `Product` JSON-LD. На текущем этапе создана первая миграция `reviews`, добавлен `POST /api/reviews`, локально и на ветке `dev` проверена запись `pending` отзыва для тестового товара `SKY Lite`, а approved отзывы выгружаются в Hugo snapshot перед сборкой.
+Для системы отзывов подключен `Netlify Database`. Целевая архитектура описана в [docs/deploy/17-netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/17-netlify-database-reviews.md): отзывы хранятся в PostgreSQL, проходят модерацию, выгружаются в `data/generated/reviews.json` на этапе build и только после этого попадают в видимый HTML и `Product` JSON-LD. На текущем этапе создана первая миграция `reviews`, добавлен `POST /api/reviews`, полный цикл проверен на ветке `dev`, а все текущие товарные страницы получили `review_target_id` и `reviews_enabled: true`. Рейтинг в HTML, карточках товаров и `Product.aggregateRating` строится только из approved отзывов, выгруженных в Hugo snapshot перед сборкой.
 
 Текущий правильный workflow такой:
 

@@ -34,6 +34,8 @@ cover:
   hiddenInSingle: true
 price: 12000
 sku: "XTAL-RB-001"
+review_target_id: "xtal-racer-black"
+reviews_enabled: true
 mpn: "TEGC-2099101.11"
 gtin13: "4711530966778"
 warranty: 12

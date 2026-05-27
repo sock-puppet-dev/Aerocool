@@ -35,6 +35,8 @@ cover:
   hiddenInSingle: true
 price: 11500
 sku: "WING-RDG-001"
+review_target_id: "wing-racer-dark-grey"
+reviews_enabled: true
 mpn: "TEGC-309600Z.Z1"
 gtin13: "4711530966495"
 warranty: 12

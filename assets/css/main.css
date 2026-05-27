@@ -705,6 +705,20 @@ textarea.ui-field {
     text-decoration: underline;
 }
 
+.review-summary--card {
+    margin-top: 0.5rem;
+    gap: 0.4rem;
+}
+
+.review-summary--card .review-summary__stars {
+    font-size: 0.875rem;
+}
+
+.review-summary--card .review-summary__text {
+    font-size: var(--ui-text-xs);
+    line-height: var(--ui-text-xs-line-height);
+}
+
 .review-preview__header {
     max-width: 38rem;
 }

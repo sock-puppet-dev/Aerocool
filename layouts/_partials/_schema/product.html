@@ -113,7 +113,17 @@
 {{- with .Params.gtin13 -}}
   {{- $product = merge $product (dict "gtin13" .) -}}
 {{- end -}}
-{{- /* AggregateRating will come from approved public reviews, not legacy front matter ratings. */ -}}
+{{- $reviewData := partial "reviews/summary-data.html" . -}}
+{{- $reviewCount := int ($reviewData.reviewCount | default 0) -}}
+{{- if gt $reviewCount 0 -}}
+  {{- $product = merge $product (dict "aggregateRating" (dict
+    "@type" "AggregateRating"
+    "ratingValue" (float $reviewData.ratingValue)
+    "reviewCount" $reviewCount
+    "bestRating" 5
+    "worstRating" 1
+  )) -}}
+{{- end -}}
 {{- with $productGroupRef -}}
   {{- $product = merge $product (dict
     "isVariantOf" .

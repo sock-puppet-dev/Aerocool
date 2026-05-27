@@ -37,11 +37,12 @@
 - создана первая миграция `20260526171923_create-reviews-table`;
 - миграция локально применена через `netlify database migrations apply`;
 - добавлена функция `netlify/functions/reviews.mjs` для `POST /api/reviews`;
-- `SKY Lite` в украинской и русской версии получил `review_target_id: "sky-lite"` и `reviews_enabled: true`;
+- все текущие товарные страницы в украинской и русской версии получили стабильный `review_target_id` и `reviews_enabled: true`;
 - форма отзывов выводится только для товаров с явными `review_target_id` и `reviews_enabled: true`;
 - локально и на Netlify branch `dev` проверено, что `POST /api/reviews` создает запись в `reviews` со статусом `pending`;
 - добавлен build-time export `scripts/export_reviews.mjs`, который пишет approved отзывы в `data/generated/reviews.json`;
-- товарный шаблон умеет показывать approved отзывы из generated snapshot;
+- товарный шаблон и карточки товаров умеют показывать approved отзывы и средний рейтинг из generated snapshot;
+- `Product.aggregateRating` строится из того же generated snapshot и не выводится, если у товара нет approved отзывов;
 - на `https://dev--hugo-aerocool.netlify.app/products/sky/lite/#reviews` проверен полный цикл: отправка отзыва, ручная модерация `pending -> approved`, новый deploy `dev`, появление видимого отзыва на странице.
 
 Управление базой в Netlify находится здесь:
@@ -66,7 +67,7 @@ https://app.netlify.com/projects/hugo-aerocool/database
 8. Установлен пакет `@netlify/database`.
 9. Создана SQL-миграция `reviews`.
 10. Миграция локально применена и проверена через `SELECT COUNT(*) AS review_count FROM reviews;`.
-11. В `SKY Lite` добавлены `review_target_id` и `reviews_enabled` в `uk` и `ru`.
+11. В `SKY Lite` добавлены `review_target_id` и `reviews_enabled` в `uk` и `ru`; после проверки эти поля масштабированы на все текущие товары.
 12. Вкладка и форма отзывов ограничены товарами с включенным `reviews_enabled`.
 13. Добавлен `POST /api/reviews`, который сохраняет только `pending` отзывы.
 14. Локально проверена отправка тестового отзыва: запись появилась в `reviews` со статусом `pending`.
@@ -83,7 +84,7 @@ approved review в Netlify Database
 -> Hugo renders visible review
 ```
 
-На ветке `dev` этот сценарий уже подтвержден на `SKY Lite`. Следующий технический шаг — подключить `Product.aggregateRating` и `Product.review` к тому же generated snapshot.
+На ветке `dev` этот сценарий уже подтвержден на `SKY Lite`. `Product.aggregateRating` подключен к тому же generated snapshot и появляется только при наличии visible approved отзывов. Следующий технический шаг — проверить тестовые approved отзывы для остальных товаров на branch-сайте `dev`.
 
 ### Полный Алгоритм V1
 
@@ -107,14 +108,14 @@ approved review в Netlify Database
    netlify database status
    ```
 
-6. Добавить `review_target_id` и `reviews_enabled` только в один тестовый товар, например `SKY Lite`, в обе языковые версии. Готово.
+6. Добавить `review_target_id` и `reviews_enabled` сначала в один тестовый товар, например `SKY Lite`, в обе языковые версии. Готово.
 7. Сделать `POST /api/reviews`, который создает только `pending` отзыв. Готово локально.
 8. Проверить `POST /api/reviews` на Netlify branch-сайте `dev`. Готово на `https://dev--hugo-aerocool.netlify.app/`.
 9. Сделать минимальный admin endpoint или временный SQL-flow для перевода отзыва в `approved`, `rejected` или `spam`. Временно проверяется ручным редактированием статуса в Netlify Dashboard.
 10. Сделать build-time export approved отзывов в `data/generated/reviews.json`. Готово через `scripts/export_reviews.mjs`.
-11. Подключить Hugo partial для вывода реальных approved отзывов только на тестовом товаре. Готово через `layouts/_partials/reviews/list.html`.
+11. Подключить Hugo partial для вывода реальных approved отзывов сначала на тестовом товаре. Готово через `layouts/_partials/reviews/list.html`.
 12. Проверить после rebuild, что approved отзыв виден на `SKY Lite`. Готово на branch `dev`.
-13. Переключить `Product.aggregateRating` на generated reviews snapshot.
+13. Переключить `Product.aggregateRating` на generated reviews snapshot. Готово.
 14. Проверить два состояния:
 
     ```text
@@ -122,7 +123,7 @@ approved review в Netlify Database
     есть approved отзыв -> visible review block + AggregateRating
     ```
 
-15. После успешной проверки масштабировать `review_target_id` на остальные товары.
+15. После успешной проверки масштабировать `review_target_id` на остальные товары. Готово для текущего каталога.
 16. Статьи подключать вторым этапом, без `AggregateRating` в `Article` JSON-LD.
 
 ### Что Не Делать В Первом Проходе
@@ -337,18 +338,20 @@ ON reviews (author_email_hash);
 Целевой front matter:
 
 ```yaml
-review_target_id: "sky-lite"
+review_target_id: "stable-product-id"
 reviews_enabled: true
 ```
 
-На текущем этапе эти поля включены только для тестового товара `SKY Lite`:
+На текущем этапе эти поля включены для всех текущих товарных страниц. Примеры:
 
 ```text
 content/products/sky/lite/index.md
 content/products/sky/lite/index.ru.md
+content/products/wing/racer-black/index.md
+content/products/xtal/mesh-black/index.ru.md
 ```
 
-Шаблон `layouts/products/single.html` выводит вкладку и форму отзывов только если у товара есть оба поля: `review_target_id` и `reviews_enabled: true`. Для остальных товаров вкладка отзывов не выводится.
+Шаблон `layouts/products/single.html` выводит вкладку и форму отзывов только если у товара есть оба поля: `review_target_id` и `reviews_enabled: true`. Шаблон `layouts/products/list.html` выводит средний рейтинг в карточке товара только если для этого `review_target_id` есть approved отзывы в `data/generated/reviews.json`.
 
 Правило:
 

@@ -34,6 +34,8 @@ cover:
   hiddenInSingle: true
 price: 12000
 sku: "XTAL-RDG-001"
+review_target_id: "xtal-racer-dark-grey"
+reviews_enabled: true
 mpn: "TEGC-209910Z.Z1"
 gtin13: "4711530966785"
 warranty: 12

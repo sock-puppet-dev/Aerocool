@@ -35,6 +35,8 @@ cover:
   hiddenInSingle: true
 price: 11500
 sku: "WING-RB-001"
+review_target_id: "wing-racer-black"
+reviews_enabled: true
 mpn: "TEGC-3096001.11"
 gtin13: "4711530966488"
 warranty: 12

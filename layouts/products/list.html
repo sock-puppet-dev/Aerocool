@@ -23,6 +23,8 @@
       {{- $cardTitle := partial "breadcrumb-label.html" . }}
       {{- $cardSummary := .Summary | default .Description | plainify | htmlUnescape }}
       {{- $isProductCard := .Params.price }}
+      {{- $reviewTargetID := .Params.review_target_id | default "" }}
+      {{- $reviewsEnabled := and (.Params.reviews_enabled | default false) $reviewTargetID }}
       {{- $mentions := .Params.mentions_entities | default (slice) }}
       {{- $availability := .Params.availability | default "" }}
       {{- $availabilityLabel := "" }}
@@ -113,6 +115,9 @@
             </h2>
             {{- with .Params.price }}
             <p class="products-list__price">{{ . }} грн</p>
+            {{- end }}
+            {{- if $reviewsEnabled }}
+            {{ partial "reviews/summary-card.html" . }}
             {{- end }}
           </div>
 

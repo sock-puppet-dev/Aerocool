@@ -34,6 +34,8 @@ cover:
   hiddenInSingle: true
 price: 12000
 sku: "XTAL-MB-001"
+review_target_id: "xtal-mesh-black"
+reviews_enabled: true
 mpn: "TEGC-2101101.11"
 gtin13: "4711530966815"
 warranty: 12

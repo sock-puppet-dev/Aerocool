@@ -35,6 +35,8 @@ cover:
   hiddenInSingle: true
 price: 11000
 sku: "WING-MB-001"
+review_target_id: "wing-mesh-black"
+reviews_enabled: true
 mpn: "TEGC-3098001.11"
 gtin13: "4711530966525"
 warranty: 12

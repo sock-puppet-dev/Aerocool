@@ -37,6 +37,8 @@ cover:
   hiddenInSingle: true
 price: 12400
 sku: "SKY-360-001"
+review_target_id: "sky-360"
+reviews_enabled: true
 warranty: 12
 availability: InStock
 priceValidUntil: 2027-12-31
