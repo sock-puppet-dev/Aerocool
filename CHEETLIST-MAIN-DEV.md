@@ -84,7 +84,6 @@ git push origin main
 # 13. вернуться в dev
 git checkout dev
 
-
 Самые важные команды
 git checkout dev        # перейти в dev
 git pull origin dev     # обновить dev с GitHub
