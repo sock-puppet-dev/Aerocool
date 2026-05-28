@@ -1,0 +1,15 @@
+{{- $isRu := eq .Language.Name "ru" -}}
+{{- $reviewData := partial "reviews/summary-data.html" . -}}
+{{- $reviewCount := int ($reviewData.reviewCount | default 0) -}}
+
+{{- if gt $reviewCount 0 -}}
+{{- $ratingValue := float $reviewData.ratingValue -}}
+<div class="review-summary review-summary--card" aria-label="{{ cond $isRu (printf "Средняя оценка %.1f из 5 на основе %d отзывов." $ratingValue $reviewCount) (printf "Середня оцінка %.1f з 5 на основі %d відгуків." $ratingValue $reviewCount) }}">
+  {{ partial "reviews/stars.html" (dict "rating" $ratingValue "className" "review-summary__stars") }}
+  <p class="review-summary__text">
+    <strong>{{ printf "%.1f" $ratingValue }}</strong>
+    <span>{{ cond $isRu "из 5" "з 5" }}</span>
+    <a href="{{ .RelPermalink }}#reviews">{{ cond $isRu (printf "%d отзывов" $reviewCount) (printf "%d відгуків" $reviewCount) }}</a>
+  </p>
+</div>
+{{- end -}}

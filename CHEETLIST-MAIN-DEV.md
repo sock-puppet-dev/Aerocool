@@ -1,15 +1,18 @@
-Ниже — короткая шпаргалка для твоего workflow: dev → тест, main → production.
+Ниже — короткая шпаргалка для workflow проекта: `dev` — тест и ежедневная разработка, `main` — production.
 
 1. Главная логика
 
 origin  = GitHub-репозиторий
-dev     = тестовая ветка / Branch Deploy в Netlify
+dev     = рабочая тестовая ветка / Branch Deploy в Netlify
 main    = production-ветка / основной сайт
 
 Схема:
 
-локально dev    → git push      → origin/dev       → Netlify Branch Deploy
-локально main   → git push      → origin main      → origin/main  → Netlify Production Deploy
+локально dev    → git push origin dev   → Netlify Branch Deploy       → https://dev--hugo-aerocool.netlify.app/
+локально main   → git push origin main  → Netlify Production Deploy   → https://aerocool.ua/
+
+По подтверждению поддержки Netlify для этого проекта `dev--hugo-aerocool.netlify.app` 
+можно использовать для частых автодеплоев и тестов без расходования production-лимитов основного домена.
 
 2. Проверить, где ты сейчас
 
@@ -30,7 +33,7 @@ git remote -v
 
 5. Применить изменения из dev в main
 
-Когда проверил сайт на Branch Deploy и всё хорошо:
+Когда проверил сайт на Branch Deploy и всё хорошо, например раз в неделю:
 
 git checkout main
 git pull origin main
@@ -68,6 +71,7 @@ git commit -m "Update site"
 git push
 
 # 8. проверить Branch Deploy в Netlify
+# https://dev--hugo-aerocool.netlify.app/
 
 # 9. если всё хорошо — перейти в main
 git checkout main
@@ -100,3 +104,12 @@ git push origin main    # отправить main на GitHub
 
 dev  = работаю, тестирую, проверяю
 main = только готовая финальная версия
+
+Отзывы на dev
+
+1. Отзыв отправляется на `https://dev--hugo-aerocool.netlify.app/`.
+2. В Netlify Database открыть branch `dev`.
+3. Новый отзыв сначала имеет статус `pending`.
+4. Для публикации поменять статус на `approved`.
+5. После изменения статуса нужен новый deploy `dev`.
+6. Только после нового deploy отзыв появится в статическом HTML.

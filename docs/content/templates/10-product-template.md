@@ -51,9 +51,6 @@ shipping_transit_max: 3      # необязательно
 payment_methods:             # необязательно
   - "https://schema.org/Cash"
   - "https://schema.org/CreditCard"
-rating:
-  value: 4.8
-  count: 10       # legacy-поле, не использовать как долгосрочный источник Product JSON-LD
 ---
 ```
 

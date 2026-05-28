@@ -23,7 +23,7 @@
 - перевести ProductGroup из `planned` в `confirmed` только после видимой навигации вариантов;
 - не активировать planned feature/use case/material entities без видимого объяснения и entity home;
 - завести регулярный Entity Performance Report;
-- решить ratings/reviews governance через approved reviews pipeline или удаление legacy rating из front matter и UI.
+- поддерживать review governance через approved reviews pipeline и не возвращать ручные rating-поля во front matter.
 
 ## 1. Как Использовать Этот Документ
 

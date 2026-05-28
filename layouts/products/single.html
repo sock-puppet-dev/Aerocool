@@ -72,7 +72,7 @@
       <div class="mx-auto mt-12 max-w-2xl sm:mt-14 lg:col-span-3 lg:row-span-2 lg:row-end-2 lg:mt-0 lg:max-w-none">
         <div class="flex flex-col-reverse">
           <div class="mt-4">
-            <h1 class="text-2xl font-bold tracking-normal text-aero-ink sm:text-3xl">{{ $productTitle }}</h1>
+            <h1 class="product-detail__title text-2xl font-bold tracking-normal text-aero-ink sm:text-3xl">{{ $productTitle }}</h1>
             <h2 id="product-information-heading" class="sr-only">{{ cond $isRu "Информация о товаре" "Інформація про товар" }}</h2>
             {{- with $productDescription }}
             <p class="mt-4 text-sm/6 text-aero-muted">{{ . }}</p>
@@ -87,9 +87,12 @@
           </div>
         </div>
 
-        <div class="mt-8">
+        <div class="product-detail__purchase mt-6">
           {{- with .Params.price }}
           <p class="text-3xl font-semibold tracking-normal text-aero-ink">{{ . }} грн</p>
+          {{- end }}
+          {{- if $reviewsEnabled }}
+          {{ partial "reviews/summary-inline.html" . }}
           {{- end }}
           <p class="mt-2 text-sm/6 text-aero-muted">
             {{ cond $isRu "Перед заказом можно уточнить наличие, комплектацию и условия доставки у Aerocool Украина." "Перед замовленням можна уточнити наявність, комплектацію та умови доставки в Aerocool Україна." }}

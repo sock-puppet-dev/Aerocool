@@ -1,0 +1,19 @@
+{{- $targetID := .Params.review_target_id | default "" -}}
+{{- $language := .Language.Name -}}
+{{- $reviewData := dict -}}
+
+{{- with hugo.Data.generated.reviews -}}
+  {{- with .product -}}
+    {{- with index . $targetID -}}
+      {{- with index . "all" -}}
+        {{- $reviewData = . -}}
+      {{- else -}}
+        {{- with index . $language -}}
+          {{- $reviewData = . -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return $reviewData -}}

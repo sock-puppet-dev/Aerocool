@@ -1,18 +1,5 @@
 {{- $isRu := eq .Language.Name "ru" -}}
-{{- $targetID := .Params.review_target_id | default "" -}}
-{{- $language := .Language.Name -}}
-{{- $reviewData := dict -}}
-
-{{- with hugo.Data.generated.reviews -}}
-  {{- with .product -}}
-    {{- with index . $targetID -}}
-      {{- with index . $language -}}
-        {{- $reviewData = . -}}
-      {{- end -}}
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
-
+{{- $reviewData := partial "reviews/summary-data.html" . -}}
 {{- $reviews := $reviewData.reviews | default (slice) -}}
 
 {{- if $reviews -}}
@@ -32,12 +19,7 @@
     <article class="review-preview__item">
       <div class="review-preview__content">
         <div class="review-preview__rating" aria-label="{{ .rating }} {{ cond $isRu "из 5 звезд" "з 5 зірок" }}">
-          <div class="review-preview__stars" aria-hidden="true">
-            {{- $rating := int .rating -}}
-            {{- range seq 1 5 }}
-            <span class="{{ if le . $rating }}is-active{{ end }}">★</span>
-            {{- end }}
-          </div>
+          {{ partial "reviews/stars.html" (dict "rating" .rating "className" "review-preview__stars") }}
           <span>{{ .rating }}<span class="sr-only"> {{ cond $isRu "из 5 звезд" "з 5 зірок" }}</span></span>
         </div>
 

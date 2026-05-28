@@ -73,7 +73,7 @@
 
 15. [deploy/15-local-tooling-mise.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/15-local-tooling-mise.md) — локальные версии Hugo/Node через `mise`.
 16. [deploy/16-netlify-routing.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/16-netlify-routing.md) — Netlify `_redirects`, forced 404 и служебная 404-страница.
-17. [deploy/17-netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/17-netlify-database-reviews.md) — Netlify Database, Direct SQL, миграции, Functions и SEO-first pipeline для отзывов.
+17. [deploy/17-netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/17-netlify-database-reviews.md) — Netlify Database, Direct SQL, миграции, Functions, branch `dev` и SEO-first pipeline для отзывов.
 
 ### SEO, Schema.org И Сущности
 

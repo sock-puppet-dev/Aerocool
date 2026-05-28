@@ -4,7 +4,7 @@ linkTitle: "Loft Air Dark Grey"
 description: "Купити Aerocool WING Loft Air Dark Grey в Україні — ергономічне офісне та комп'ютерне крісло серії WING з 11D регулюванням, Synchronous Tilt, подвійною спинкою та поверхнею з багатошарової вентильованої сітчастої тканини."
 summary: "Aerocool WING Loft Air Dark Grey — офісне та комп'ютерне крісло серії WING з 11D регулюванням, подвійною спинкою й вентильованою поверхнею для роботи та home office."
 date: 2026-03-19
-lastmod: 2026-05-26
+lastmod: 2026-05-28
 schema_types: ["website", "product", "organization", "breadcrumbs"]
 about_entities:
   - "wing-loft-air-dark-grey"
@@ -35,6 +35,8 @@ cover:
   hiddenInSingle: true
 price: 12000
 sku: "WING-LADG-001"
+review_target_id: "wing-loft-air-dark-grey"
+reviews_enabled: true
 mpn: "TEGC-309700Z.Z1"
 gtin13: "4711530966501"
 warranty: 12
@@ -90,9 +92,6 @@ characteristics:
     value: "тихі ролики 75 мм"
   - label: "Вага виробу"
     value: "23.9 кг"
-rating:
-  value: 4.9
-  count: 58
 ---
 {{< seo-image 
   src="01-front.png"
