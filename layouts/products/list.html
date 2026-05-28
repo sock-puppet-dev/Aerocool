@@ -119,6 +119,9 @@
             {{- if $reviewsEnabled }}
             {{ partial "reviews/summary-card.html" . }}
             {{- end }}
+            {{- if $isProductCard }}
+            {{ partial "products/color-dots.html" . }}
+            {{- end }}
           </div>
 
           {{- if $isProductCard }}

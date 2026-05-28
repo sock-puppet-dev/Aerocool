@@ -2151,6 +2151,38 @@ textarea.ui-field {
     font-weight: var(--ui-font-medium);
 }
 
+.product-color-dots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 0.45rem;
+}
+
+.product-color-dot {
+    display: inline-block;
+    width: 0.875rem;
+    height: 0.875rem;
+    border-radius: 999px;
+    border: 1px solid rgb(17 24 39 / 0.14);
+    background: var(--color-aero-muted);
+}
+
+.product-color-dot--black {
+    background: #111827;
+}
+
+.product-color-dot--dark-grey {
+    background: #4b5563;
+}
+
+.product-color-dot--light-grey {
+    background: #d1d5db;
+}
+
+.product-color-dot--not-specified {
+    background: linear-gradient(135deg, #f9fafb 0 48%, #d1d5db 48% 52%, #f9fafb 52% 100%);
+}
+
 .products-list__summary {
     margin-top: 0.5rem;
     color: var(--secondary);

@@ -1,0 +1,28 @@
+{{- $groupID := .Params.product_group_id | default "" -}}
+{{- $entities := index hugo.Data "entities" -}}
+{{- $group := index $entities $groupID -}}
+{{- $colors := slice -}}
+{{- $seen := dict -}}
+{{- $labels := slice -}}
+
+{{- if $group -}}
+  {{- range ($group.variants | default (slice)) -}}
+    {{- $entity := index $entities . -}}
+    {{- if $entity -}}
+      {{- $color := $entity.color | default "not-specified" -}}
+      {{- if and $color (not (index $seen $color)) -}}
+        {{- $colors = $colors | append $color -}}
+        {{- $seen = merge $seen (dict $color true) -}}
+        {{- $labels = $labels | append (humanize $color) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if gt (len $colors) 0 -}}
+  <div class="product-color-dots" aria-label="{{ delimit $labels ", " }}">
+    {{- range $colors }}
+      <span class="product-color-dot product-color-dot--{{ . | anchorize }}"></span>
+    {{- end }}
+  </div>
+{{- end -}}
