@@ -1,0 +1,15 @@
+{{- $rating := float (.rating | default 0) -}}
+{{- $roundedTenths := int (math.Round (mul $rating 10)) -}}
+{{- $className := .className | default "review-stars" -}}
+<div class="{{ $className }}" aria-hidden="true">
+  {{- range seq 1 5 }}
+    {{- $previousTenths := mul (sub . 1) 10 -}}
+    {{- $fillPercent := 0 -}}
+    {{- if ge $roundedTenths (add $previousTenths 10) -}}
+      {{- $fillPercent = 100 -}}
+    {{- else if gt $roundedTenths $previousTenths -}}
+      {{- $fillPercent = mul (sub $roundedTenths $previousTenths) 10 -}}
+    {{- end -}}
+    <span class="rating-star" style="--rating-fill: {{ $fillPercent }}%">★</span>
+  {{- end }}
+</div>

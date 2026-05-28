@@ -41,7 +41,8 @@
     --color-aero-accent-hover: #dc2626;
     --color-aero-accent-soft: #fef2f2;
     --color-aero-accent-border: #fecaca;
-    --color-aero-rating: #facc15;
+    --color-aero-rating: #f59e0b;
+    --color-aero-rating-muted: #e5e7eb;
 
     --text-aero-xs: 0.75rem;
     --text-aero-xs--line-height: 1.25rem;
@@ -670,13 +671,24 @@ textarea.ui-field {
 .review-summary__stars {
     display: inline-flex;
     gap: 0.12rem;
-    color: var(--border-strong);
     font-size: 1rem;
     line-height: 1;
 }
 
-.review-summary__stars .is-active {
+.rating-star {
+    position: relative;
+    display: inline-block;
+    color: var(--color-aero-rating-muted);
+    text-shadow: 0 0 0.01em currentColor;
+}
+
+.rating-star::before {
+    position: absolute;
+    inset: 0;
+    width: var(--rating-fill, 0%);
+    overflow: hidden;
     color: var(--rating);
+    content: "★";
 }
 
 .review-summary__text {
@@ -773,18 +785,12 @@ textarea.ui-field {
 .review-preview__stars {
     display: flex;
     gap: 0.15rem;
-    color: var(--border-strong);
+    font-size: 1.25rem;
     line-height: 1;
 }
 
-.review-preview__stars svg {
-    width: 1.25rem;
-    height: 1.25rem;
+.review-preview__stars .rating-star {
     flex-shrink: 0;
-}
-
-.review-preview__stars .is-active {
-    color: var(--rating);
 }
 
 .review-preview__copy h4 {
