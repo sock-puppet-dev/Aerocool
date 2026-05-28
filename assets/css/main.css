@@ -404,11 +404,13 @@ body.list {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    border-bottom: 0;
     border-radius: var(--radius-control);
     padding: 0.625rem 0.875rem;
     font-size: var(--ui-text-sm);
     line-height: var(--ui-text-sm-line-height);
     font-weight: var(--ui-font-semibold);
+    box-shadow: none;
     text-decoration: none;
     transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
 }
@@ -416,7 +418,7 @@ body.list {
 .ui-button-primary {
     background: var(--accent);
     color: #ffffff;
-    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+    box-shadow: none;
 }
 
 .ui-button-primary:hover,
@@ -426,15 +428,18 @@ body.list {
 }
 
 .ui-button-secondary {
-    border: 1px solid var(--border-strong);
+    border: 1px solid var(--border);
     background: #ffffff;
     color: var(--primary);
+    box-shadow: none;
 }
 
 .ui-button-secondary:hover,
 .ui-button-secondary:focus-visible {
-    background: var(--bg-soft);
+    border-color: var(--border-strong);
+    background: #ffffff;
     color: var(--primary);
+    box-shadow: none;
 }
 
 .ui-footer-title {
@@ -1110,6 +1115,7 @@ textarea.ui-field {
 .post-content .ui-button,
 .post-content a.ui-button,
 .home-hero .ui-button {
+    box-shadow: none;
     text-decoration: none;
 }
 
@@ -1866,6 +1872,10 @@ textarea.ui-field {
 .post-content > .contact-section a:not(.ui-button):not(.ui-link):hover {
     color: var(--primary);
     text-decoration: none;
+}
+
+.post-content > .contact-section a.contact-section__quick-link {
+    border-radius: 999px;
 }
 
 /* =========================================================
