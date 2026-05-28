@@ -423,9 +423,6 @@ characteristics:             # видимая вкладка "Характери
     value: "<MODEL>"
   - label: "Механизм"
     value: "SYNC5 с расширенной настройкой"
-rating:
-  value: 4.8
-  count: 10       # legacy-поле: не использовать как долгосрочный источник Product JSON-LD
 ---
 ```
 
@@ -451,7 +448,7 @@ rating:
 
 Включение формы не означает автоматическое включение SEO-рейтинга: `AggregateRating` можно выводить только после того, как approved отзывы попали в build-time export `data/generated/reviews.json` и видимо выводятся на той же странице. Если у товара нет approved отзывов, рейтинг в карточке, на странице товара и в `Product` JSON-LD не выводится.
 
-Поля `rating.value` и `rating.count` остаются legacy-риском текущего этапа. Целевая SEO-first архитектура описана в [17-netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/17-netlify-database-reviews.md): рейтинг должен приходить не из front matter, а из approved отзывов в `Netlify Database`, выгруженных на build в `data/generated/reviews.json` и видимо показанных на странице.
+Поля `rating.value` и `rating.count` больше не использовать в товарном front matter. SEO-first архитектура описана в [17-netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/17-netlify-database-reviews.md): рейтинг приходит не из front matter, а из approved отзывов в `Netlify Database`, выгруженных на build в `data/generated/reviews.json` и видимо показанных на странице.
 
 Если рейтинг или количество отзывов не подтверждены реальными approved отзывами, их нельзя выводить в `AggregateRating` и нельзя усиливать дополнительной `Review`-разметкой.
 

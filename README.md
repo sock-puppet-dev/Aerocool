@@ -179,7 +179,7 @@ index.ru.md   русская версия
 
 Для товарных страниц product facts хранятся в front matter конкретного `content/products/<series>/<model>/index*.md`. Это единый источник правды для цены, наличия, SKU, MPN, GTIN, гарантии, доставки, возврата и способов оплаты. Владелец бизнес-значений — команда Aerocool Украина; `Product` JSON-LD, видимый товарный блок и `/faq/` должны быть синхронизированы с front matter.
 
-Для отзывов и рейтингов целевой источник правды другой: `Netlify Database` с approved отзывами и build-time export в Hugo data. Поля `rating.value` и `rating.count` во front matter считаются legacy-риском до переключения `Product` JSON-LD на реальные публичные отзывы.
+Для отзывов и рейтингов целевой источник правды другой: `Netlify Database` с approved отзывами и build-time export в Hugo data. Поля `rating.value` и `rating.count` удалены из товарного front matter; рейтинг в HTML, карточках товаров и `Product.aggregateRating` строится только из approved отзывов, выгруженных в `data/generated/reviews.json`.
 
 Редакционные ориентиры объема для SEO-посадочных страниц:
 

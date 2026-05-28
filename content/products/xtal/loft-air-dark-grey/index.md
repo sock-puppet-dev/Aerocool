@@ -4,7 +4,7 @@ linkTitle: "Loft Air Dark Grey"
 description: "Купити Aerocool XTAL Loft Air Dark Grey в Україні — ергономічне офісне та комп'ютерне крісло серії XTAL з 7D регулюванням, Synchronous Tilt, змінними елементами та багатошаровою вентильованою сітчастою тканиною."
 summary: "Aerocool XTAL Loft Air Dark Grey — офісне та комп'ютерне крісло серії XTAL з 7D регулюванням, змінними елементами та вентильованою текстильною поверхнею для роботи й home office."
 date: 2026-03-19
-lastmod: 2026-05-26
+lastmod: 2026-05-28
 schema_types: ["website", "product", "organization", "breadcrumbs"]
 about_entities:
   - "xtal-loft-air-dark-grey"
@@ -91,9 +91,6 @@ characteristics:
     value: "тихі ролики 75 мм"
   - label: "Вага виробу"
     value: "26.3 кг"
-rating:
-  value: 4.9
-  count: 72
 ---
 {{< seo-image 
   src="01-front.png"

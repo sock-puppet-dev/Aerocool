@@ -84,7 +84,7 @@ approved review в Netlify Database
 -> Hugo renders visible review
 ```
 
-На ветке `dev` этот сценарий уже подтвержден на `SKY Lite`. `Product.aggregateRating` подключен к тому же generated snapshot и появляется только при наличии visible approved отзывов. Следующий технический шаг — проверить тестовые approved отзывы для остальных товаров на branch-сайте `dev`.
+На ветке `dev` этот сценарий уже подтвержден на `SKY Lite`. `Product.aggregateRating` подключен к тому же generated snapshot и появляется только при наличии visible approved отзывов. После масштабирования на каталог legacy `rating.value` и `rating.count` удалены из товарного front matter; следующий операционный шаг — поддерживать модерацию, rebuild после approval и проверку branch/production rich-results reports.
 
 ### Полный Алгоритм V1
 
@@ -134,7 +134,7 @@ approved review в Netlify Database
 - не подключать отзывы сразу ко всем товарам;
 - не подключать статьи до проверки товарного pipeline;
 - не добавлять `Review` JSON-LD раньше visible approved отзывов;
-- не оставлять front matter `rating.value` / `rating.count` источником `Product.aggregateRating`.
+- не возвращать front matter `rating.value` / `rating.count` как источник `Product.aggregateRating`.
 
 ## 3. Что Такое Netlify Database
 
@@ -548,7 +548,7 @@ netlify dev
 
 - не создавать sample data в production-схеме;
 - не использовать fake reviews;
-- не использовать front matter `rating.value` и `rating.count` как долгосрочный источник для `Product` JSON-LD;
+- не возвращать front matter `rating.value` и `rating.count`;
 - не показывать `AggregateRating` без видимых approved отзывов;
 - не агрегировать отзывы серии в рейтинг отдельного товара;
 - не публиковать отзыв без модерации;

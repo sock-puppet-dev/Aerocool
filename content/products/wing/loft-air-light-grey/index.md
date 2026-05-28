@@ -4,7 +4,7 @@ linkTitle: "Loft Air Light Grey"
 description: "Купити Aerocool WING Loft Air Light Grey в Україні — ергономічне офісне та комп'ютерне крісло серії WING з 11D регулюванням, Synchronous Tilt, подвійною спинкою та поверхнею з багатошарової вентильованої сітчастої тканини."
 summary: "Aerocool WING Loft Air Light Grey — офісне та комп'ютерне крісло серії WING з 11D регулюванням, подвійною спинкою й вентильованою поверхнею для роботи та home office."
 date: 2026-03-19
-lastmod: 2026-05-26
+lastmod: 2026-05-28
 schema_types: ["website", "product", "organization", "breadcrumbs"]
 about_entities:
   - "wing-loft-air-light-grey"
@@ -92,9 +92,6 @@ characteristics:
     value: "тихі ролики 75 мм"
   - label: "Вага виробу"
     value: "23.9 кг"
-rating:
-  value: 4.9
-  count: 63
 ---
 {{< seo-image 
   src="01-front.png"
