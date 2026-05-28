@@ -246,11 +246,12 @@ cover:
 
 ## 9. Изображения
 
-Есть три разных сценария:
+Есть четыре разных сценария:
 
 1. `seo-image` — изображение внутри тела страницы.
 2. `cover.image` — обложка для листингов и одиночной страницы.
 3. `image` — основная картинка для SEO/OG/Twitter/schema.
+4. Товарная галерея — автоматический visible UI на `layouts/products/single.html`, который берет первый кадр из `image`, а остальные изображения из page bundle товара показывает как миниатюры.
 
 Для контентного изображения в markdown использовать shortcode:
 
@@ -283,8 +284,15 @@ cover:
 `image` идет в SEO/OG/schema, `cover.image` — в визуальный preview.
 `seo-image` для processable-изображений выводит WebP `srcset` через `<picture>`, fallback `<img>`, размеры и приоритет загрузки. Для типовых статей, новостей и товаров главный `preload=true` попадает в `<head>`, если `image` совпадает с `src` shortcode и `cover.hiddenInSingle: true`.
 Если первое контентное изображение использует нестандартный `sizes`, такое же значение нужно задать во front matter как `seo_image_sizes`, иначе head preload и `<picture>` могут выбрать разные responsive candidates.
+На товарной странице `layouts/_partials/products/gallery.html` дополнительно собирает галерею из файлов изображений рядом с товаром. Если в page bundle есть только основной файл `image`, лента миниатюр не выводится. Если добавить второе и последующие изображения, они автоматически появятся как компактные миниатюры с lazy loading.
 Для всех `content/**/*.md` в проекте нужен служебный `cover`-блок. `cover.alt` должен описывать тему или объект изображения на языке страницы; не оставляйте пустой `alt` и не превращайте его в список ключевых слов.
 Для служебных, taxonomy и других страниц без собственного `image` fallback теперь идет в root `cover.webp`, а не в `images/logo.svg`.
+
+## 9.1. Цветовые Варианты Товара
+
+Цвет на товарной странице — это не декоративный radio button, а ссылка на отдельный URL товарного варианта. Например, `WING Racer Black` и `WING Racer Dark Grey` остаются отдельными страницами, а видимый swatch переводит пользователя между ними.
+
+Шаблон `layouts/_partials/products/variant-swatches.html` берет список вариантов из `product_group_id` и `data/entities.yaml`, фильтрует страницы по текущему языку и выводит swatches только если в группе больше одного варианта. Ручной список цветов в front matter не нужен. `ProductGroup`, `isVariantOf` и `inProductGroupWithID` включать только после перевода соответствующих ProductGroup entities в `confirmed`.
 
 ## 10. JavaScript и CSP
 

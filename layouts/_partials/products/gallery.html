@@ -1,0 +1,85 @@
+{{- $page := . -}}
+{{- $isRu := eq .Language.Name "ru" -}}
+{{- $productTitle := .Params.h1 | default .Title | plainify | htmlUnescape -}}
+{{- $primaryName := .Params.image | default .Params.cover.image -}}
+{{- $primaryAlt := .Params.cover.alt | default $productTitle -}}
+{{- $images := slice -}}
+{{- $seen := dict -}}
+
+{{- $resources := .Resources.ByType "image" -}}
+{{- with $primaryName -}}
+  {{- with $resources.GetMatch (printf "*%s*" .) -}}
+    {{- $images = $images | append (dict "resource" . "alt" $primaryAlt "label" (cond $isRu "Основное фото" "Головне фото")) -}}
+    {{- $seen = merge $seen (dict .Name true) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- range $resources -}}
+  {{- if and (in (slice "jpg" "jpeg" "png" "webp") .MediaType.SubType) (not (index $seen .Name)) -}}
+    {{- $label := cond $isRu "Дополнительное фото" "Додаткове фото" -}}
+    {{- $images = $images | append (dict "resource" . "alt" (printf "%s — %s" $productTitle $label) "label" $label) -}}
+    {{- $seen = merge $seen (dict .Name true) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if eq (len $images) 0 -}}
+  {{- with $primaryName -}}
+    <img src="{{ . | relURL }}" width="1200" height="1200" loading="eager" decoding="async" fetchpriority="high" alt="{{ $primaryAlt }}" class="aspect-square w-full rounded-lg bg-aero-soft object-contain" />
+  {{- end -}}
+{{- else -}}
+  {{- $galleryID := printf "product-gallery-%s" (.Params.slug | default .File.ContentBaseName | anchorize) -}}
+  <div class="product-gallery" data-product-gallery>
+    <div class="product-gallery__stage">
+      {{- range $index, $item := $images }}
+        {{- $image := $item.resource -}}
+        {{- $fallbackWidth := 1200 -}}
+        {{- if lt $image.Width $fallbackWidth -}}
+          {{- $fallbackWidth = $image.Width -}}
+        {{- end -}}
+        {{- $fallback := $image.Resize (printf "%dx webp q82" $fallbackWidth) -}}
+        {{- $srcset := slice -}}
+        {{- range slice 480 720 960 1200 1600 -}}
+          {{- if le . $image.Width -}}
+            {{- $variant := $image.Resize (printf "%dx webp q82" .) -}}
+            {{- $srcset = $srcset | append (printf "%s %dw" $variant.RelPermalink $variant.Width) -}}
+          {{- end -}}
+        {{- end -}}
+        {{- if not (in $srcset (printf "%s %dw" $fallback.RelPermalink $fallback.Width)) -}}
+          {{- $srcset = $srcset | append (printf "%s %dw" $fallback.RelPermalink $fallback.Width) -}}
+        {{- end -}}
+        <figure id="{{ $galleryID }}-image-{{ add $index 1 }}" class="product-gallery__panel" data-product-gallery-panel{{ if ne $index 0 }} hidden{{ end }}>
+          <img
+            src="{{ $fallback.RelPermalink }}"
+            srcset="{{ delimit $srcset ", " }}"
+            sizes="(min-width: 1024px) 55vw, calc(100vw - 2rem)"
+            width="{{ $fallback.Width }}"
+            height="{{ $fallback.Height }}"
+            loading="{{ cond (eq $index 0) "eager" "lazy" }}"
+            decoding="async"
+            {{- if eq $index 0 }} fetchpriority="high"{{ end }}
+            alt="{{ $item.alt }}"
+            class="product-gallery__image" />
+        </figure>
+      {{- end }}
+    </div>
+
+    {{- if gt (len $images) 1 }}
+      <div class="product-gallery__thumbs" role="tablist" aria-label="{{ cond $isRu "Фотографии товара" "Фотографії товару" }}">
+        {{- range $index, $item := $images }}
+          {{- $image := $item.resource -}}
+          {{- $thumb := $image.Fill "96x96 webp q82 Center" -}}
+          <button
+            type="button"
+            class="product-gallery__thumb"
+            role="tab"
+            aria-selected="{{ cond (eq $index 0) "true" "false" }}"
+            aria-controls="{{ $galleryID }}-image-{{ add $index 1 }}"
+            data-product-gallery-thumb>
+            <span class="sr-only">{{ $item.label }} {{ add $index 1 }}</span>
+            <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" loading="lazy" decoding="async" alt="" class="product-gallery__thumb-image" />
+          </button>
+        {{- end }}
+      </div>
+    {{- end }}
+  </div>
+{{- end -}}

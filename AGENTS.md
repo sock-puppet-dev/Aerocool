@@ -150,6 +150,8 @@
 - Для контентных изображений по возможности использовать shortcode `seo-image`, а не сырые `<img>`.
 - Для каждого файла `content/**/*.md` поддерживать связку `image` + полный служебный `cover`-блок: `cover.image`, `cover.alt`, `cover.relative`, `cover.hiddenInSingle`.
 - Для товарных карточек текущий стандарт такой: `image` во front matter для SEO/OG/schema, `cover.image` для preview в листингах и `seo-image` в теле страницы для основного изображения.
+- Товарная галерея на `layouts/products/single.html` собирается partial `layouts/_partials/products/gallery.html`: первым кадром идет `image` из front matter, остальные изображения из page bundle товара становятся миниатюрами. Для дополнительных фото не добавлять отдельные front matter поля; класть файлы рядом с `index.md` / `index.ru.md`.
+- Выбор цвета на товарной странице выводит partial `layouts/_partials/products/variant-swatches.html`: swatches строятся из `product_group_id` и `data/entities.yaml`, являются ссылками на соседние variant URL текущего языка и не заменяют отдельные страницы вариантов.
 - Для главных изображений первого экрана (LCP) обычно нужен `eager loading`; для второстепенных изображений — `lazy loading`.
 - Для hero-изображения главной страницы сейчас используется обычный `<img>` внутри `layouts/_shortcodes/home-hero.html`; там сохранять локальный путь через `relURL`, `loading="eager"` и `fetchpriority="high"`.
 - Параметр `jsonld` в shortcode `seo-image` больше не использовать: schema для primary image собирается централизованно из `image` во front matter.

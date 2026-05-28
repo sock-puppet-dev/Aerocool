@@ -1,0 +1,45 @@
+{{- $isRu := eq .Language.Name "ru" -}}
+{{- $groupID := .Params.product_group_id | default "" -}}
+{{- $entities := index hugo.Data "entities" -}}
+{{- $group := index $entities $groupID -}}
+{{- $variants := slice -}}
+
+{{- if $group -}}
+  {{- range ($group.variants | default (slice)) -}}
+    {{- $variantID := . -}}
+    {{- $entity := index $entities $variantID -}}
+    {{- if $entity -}}
+      {{- $variantPage := false -}}
+      {{- range where $.Site.RegularPages "Section" "products" -}}
+        {{- if and (eq .Language.Name $.Language.Name) (or (eq (.Params.review_target_id | default "") $variantID) (in (.Params.about_entities | default (slice)) $variantID)) -}}
+          {{- $variantPage = . -}}
+        {{- end -}}
+      {{- end -}}
+      {{- if $variantPage -}}
+        {{- $nameMap := $entity.name | default dict -}}
+        {{- $label := index $nameMap $.Language.Name | default (index $nameMap "uk") | default (index $nameMap "en") | default $variantPage.LinkTitle | default $variantPage.Title -}}
+        {{- $color := $entity.color | default "not-specified" -}}
+        {{- $variants = $variants | append (dict "id" $variantID "page" $variantPage "label" $label "color" $color) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if gt (len $variants) 1 -}}
+  <section class="product-variants mt-8" aria-labelledby="product-color-heading">
+    <h3 id="product-color-heading" class="product-variants__title">{{ cond $isRu "Цвет" "Колір" }}</h3>
+    <div class="product-variants__swatches">
+      {{- range $variants }}
+        {{- $isCurrent := eq .page.RelPermalink $.RelPermalink -}}
+        <a
+          href="{{ .page.RelPermalink }}"
+          class="product-color-swatch{{ if $isCurrent }} product-color-swatch--current{{ end }}"
+          aria-label="{{ .label }}"
+          {{- if $isCurrent }} aria-current="page"{{ end }}>
+          <span class="product-color-swatch__chip product-color-swatch__chip--{{ .color | anchorize }}"></span>
+          <span class="sr-only">{{ .label }}</span>
+        </a>
+      {{- end }}
+    </div>
+  </section>
+{{- end -}}

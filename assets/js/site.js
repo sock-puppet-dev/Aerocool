@@ -269,6 +269,81 @@
     });
   }
 
+  function setupProductGalleries() {
+    document.querySelectorAll('[data-product-gallery]').forEach(function (gallery) {
+      var thumbs = Array.prototype.slice.call(gallery.querySelectorAll('[data-product-gallery-thumb]'));
+      var panels = Array.prototype.slice.call(gallery.querySelectorAll('[data-product-gallery-panel]'));
+
+      if (!thumbs.length || !panels.length) {
+        return;
+      }
+
+      function getPanel(thumb) {
+        return document.getElementById(thumb.getAttribute('aria-controls'));
+      }
+
+      function activateThumb(thumb, options) {
+        var panel = getPanel(thumb);
+
+        if (!panel) {
+          return;
+        }
+
+        thumbs.forEach(function (candidate) {
+          var candidatePanel = getPanel(candidate);
+          var isActive = candidate === thumb;
+
+          candidate.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          candidate.tabIndex = isActive ? 0 : -1;
+
+          if (candidatePanel) {
+            candidatePanel.hidden = !isActive;
+          }
+        });
+
+        if (options && options.focus) {
+          thumb.focus();
+        }
+      }
+
+      thumbs.forEach(function (thumb) {
+        thumb.addEventListener('click', function () {
+          activateThumb(thumb);
+        });
+
+        thumb.addEventListener('keydown', function (event) {
+          if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) {
+            return;
+          }
+
+          event.preventDefault();
+
+          var currentIndex = thumbs.indexOf(thumb);
+          var nextIndex = currentIndex;
+
+          if (event.key === 'ArrowLeft') {
+            nextIndex = currentIndex <= 0 ? thumbs.length - 1 : currentIndex - 1;
+          }
+          else if (event.key === 'ArrowRight') {
+            nextIndex = currentIndex >= thumbs.length - 1 ? 0 : currentIndex + 1;
+          }
+          else if (event.key === 'Home') {
+            nextIndex = 0;
+          }
+          else if (event.key === 'End') {
+            nextIndex = thumbs.length - 1;
+          }
+
+          activateThumb(thumbs[nextIndex], { focus: true });
+        });
+      });
+
+      activateThumb(thumbs.find(function (thumb) {
+        return thumb.getAttribute('aria-selected') === 'true';
+      }) || thumbs[0]);
+    });
+  }
+
   function setupViewTransitions() {
     if (typeof document.startViewTransition !== 'function') {
       return;
@@ -456,6 +531,7 @@
   setupMobileNavClose();
   setupPhoneSanitizer();
   setupProductTabs();
+  setupProductGalleries();
   setupViewTransitions();
   setupCodeCopyButtons();
   setupServiceWorker();
