@@ -177,6 +177,30 @@
         }
       }
 
+      function getTabByHash(hash) {
+        var hashTarget = getHashTarget(hash);
+
+        if (!hashTarget) {
+          return null;
+        }
+
+        return tabs.find(function (tab) {
+          return getPanel(tab) === hashTarget;
+        }) || null;
+      }
+
+      function activateHashTab(hash, options) {
+        var hashTab = getTabByHash(hash);
+
+        if (!hashTab) {
+          return false;
+        }
+
+        activateTab(hashTab, options);
+
+        return true;
+      }
+
       tabs.forEach(function (tab) {
         tab.addEventListener('click', function () {
           activateTab(tab, { updateHash: true, scroll: false });
@@ -209,14 +233,39 @@
         });
       });
 
-      var hashTarget = getHashTarget(window.location.hash);
-      var hashTab = hashTarget
-        ? tabs.find(function (tab) {
-            return getPanel(tab) === hashTarget;
-          })
-        : null;
+      document.addEventListener('click', function (event) {
+        var link = event.target.closest('a[href]');
 
-      activateTab(hashTab || tabs[0], { scroll: Boolean(hashTab) });
+        if (!link) {
+          return;
+        }
+
+        var url = new URL(link.href, window.location.href);
+
+        if (url.origin !== window.location.origin || url.pathname !== window.location.pathname || !url.hash) {
+          return;
+        }
+
+        if (!getTabByHash(url.hash)) {
+          return;
+        }
+
+        event.preventDefault();
+
+        if (window.location.hash !== url.hash) {
+          history.pushState(null, '', url.hash);
+        }
+
+        activateHashTab(url.hash, { scroll: true });
+      });
+
+      window.addEventListener('hashchange', function () {
+        activateHashTab(window.location.hash, { scroll: true });
+      });
+
+      if (!activateHashTab(window.location.hash, { scroll: true })) {
+        activateTab(tabs[0]);
+      }
     });
   }
 
