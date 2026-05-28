@@ -8,8 +8,8 @@ main    = production-ветка / основной сайт
 
 Схема:
 
-локально dev    → git push origin dev   → Netlify Branch Deploy → https://dev--hugo-aerocool.netlify.app/
-локально main   → git push origin main  → Netlify Production Deploy → https://aerocool.ua/
+локально dev    → git push origin dev   → Netlify Branch Deploy       → https://dev--hugo-aerocool.netlify.app/
+локально main   → git push origin main  → Netlify Production Deploy   → https://aerocool.ua/
 
 По подтверждению поддержки Netlify для этого проекта `dev--hugo-aerocool.netlify.app` 
 можно использовать для частых автодеплоев и тестов без расходования production-лимитов основного домена.
