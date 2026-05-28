@@ -2,7 +2,7 @@
 title: "Aerocool — игровые, офисные и эргономичные кресла в Украине"
 description: "Официальный сайт Aerocool в Украине. Игровые, офисные и компьютерные кресла серий SKY, WING и XTAL для работы, home office и гейминга с доставкой, консультацией и сервисом."
 date: 2026-03-19
-lastmod: 2026-05-14
+lastmod: 2026-05-28
 schema_types: ["website", "organization", "brand"]
 about_entities:
   - "aerocool-brand"

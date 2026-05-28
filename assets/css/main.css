@@ -1524,11 +1524,30 @@ textarea.ui-field {
     color: var(--accent);
 }
 
+.home-hero__announcement {
+    color: var(--secondary);
+    box-shadow: inset 0 0 0 1px var(--border);
+}
+
+.post-content .home-hero a.home-hero__announcement-link:not(.home-hero__cta):not(.ui-button),
+.home-hero a.home-hero__announcement-link:not(.home-hero__cta):not(.ui-button) {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.post-content .home-hero a.home-hero__announcement-link:not(.home-hero__cta):not(.ui-button):hover,
+.post-content .home-hero a.home-hero__announcement-link:not(.home-hero__cta):not(.ui-button):focus-visible,
+.home-hero a.home-hero__announcement-link:not(.home-hero__cta):not(.ui-button):hover,
+.home-hero a.home-hero__announcement-link:not(.home-hero__cta):not(.ui-button):focus-visible {
+    color: var(--accent-hover);
+    text-decoration: none;
+}
+
 .home-hero__title {
     max-width: none;
     color: var(--primary);
-    font-size: 2rem;
-    line-height: 2.375rem;
+    font-size: 2.75rem;
+    line-height: 3rem;
     letter-spacing: var(--ui-tracking);
     word-break: normal;
     overflow-wrap: normal;
@@ -1538,14 +1557,16 @@ textarea.ui-field {
 @media (min-width: 640px) {
     .home-hero__title {
         max-width: 34rem;
-        font-size: var(--ui-title-xl);
-        line-height: var(--ui-title-xl-line-height);
+        font-size: 4rem;
+        line-height: 4.25rem;
     }
 }
 
 .home-hero__lead {
     max-width: 34rem;
     color: var(--content);
+    font-size: var(--ui-text-lg);
+    line-height: var(--ui-text-lg-line-height);
 }
 
 .home-hero__actions {
@@ -1556,9 +1577,18 @@ textarea.ui-field {
     text-decoration: none;
 }
 
+.home-hero__media {
+    min-height: 22rem;
+}
+
 .home-hero__image {
-    border-radius: calc(var(--radius) + 4px);
-    box-shadow: var(--shadow-soft);
+    object-position: center;
+}
+
+@media (min-width: 1024px) {
+    .home-hero__media {
+        min-height: auto;
+    }
 }
 
 /* =========================================================

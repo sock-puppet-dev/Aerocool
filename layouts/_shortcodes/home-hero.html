@@ -1,61 +1,59 @@
 {{- $isRu := eq .Page.Language.Name "ru" -}}
-<div class="home-hero relative isolate overflow-hidden bg-aero-surface px-6 pt-6 pb-10 sm:pt-10 sm:pb-12 lg:overflow-visible lg:px-0">
-  <div class="absolute inset-0 -z-10 hidden overflow-hidden md:block" aria-hidden="true">
-    <svg class="absolute top-0 left-[max(50%,25rem)] h-256 w-512 -translate-x-1/2 mask-[radial-gradient(64rem_64rem_at_top,white,transparent)] stroke-aero-border">
-      <defs>
-        <pattern id="home-content-grid-pattern" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
-          <path d="M100 200V.5M.5 .5H200" fill="none" />
-        </pattern>
-      </defs>
-      <svg x="50%" y="-1" class="overflow-visible fill-aero-canvas">
-        <path d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z" stroke-width="0" />
-      </svg>
-      <rect width="100%" height="100%" fill="url(#home-content-grid-pattern)" stroke-width="0" />
-    </svg>
-  </div>
-
-  <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
-    <div class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
-      <div class="lg:pr-4">
-        <div class="lg:max-w-lg">
-          <p class="home-hero__eyebrow ui-eyebrow">
-            {{- if $isRu -}}Официальный каталог Aerocool в Украине{{- else -}}Офіційний каталог Aerocool в Україні{{- end -}}
-          </p>
-
-          <h1 class="home-hero__title mt-2 font-semibold">
+{{- $productsPage := site.GetPage "/products" -}}
+{{- $aboutPage := site.GetPage "/about" -}}
+<section class="home-hero relative overflow-hidden bg-white">
+  <div class="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
+    <div class="px-6 pt-10 pb-16 sm:pb-24 lg:col-span-7 lg:px-0 lg:pt-32 lg:pb-36 xl:col-span-6">
+      <div class="mx-auto max-w-lg lg:mx-0">
+        <div class="hidden sm:flex">
+          <div class="home-hero__announcement relative rounded-full px-3 py-1 text-sm/6 ring-1">
             {{- if $isRu -}}
-              Эргономичные игровые, офисные и компьютерные кресла для ежедневного комфорта
+              Каталог серий SKY, WING и XTAL обновлен.
             {{- else -}}
-              Ергономічні ігрові, офісні та комп’ютерні крісла для щоденного комфорту
+              Каталог серій SKY, WING і XTAL оновлено.
             {{- end -}}
-          </h1>
-
-          <p class="home-hero__lead ui-section-lead mt-6">
-            {{- if $isRu -}}
-              Aerocool Украина — официальный сайт бренда кресел для работы, home office и длительных игровых сессий. В каталоге представлены серии SKY, WING и XTAL с разными механизмами, форматами обивки и уровнем регулировок.
-            {{- else -}}
-              Aerocool Україна — офіційний сайт бренду крісел для роботи, home office та тривалих ігрових сесій. У каталозі представлені серії SKY, WING і XTAL з різними механізмами, форматами оббивки та рівнем регулювань.
-            {{- end -}}
-          </p>
-
-          <div class="home-hero__actions mt-8 flex flex-wrap gap-4">
-            <a
-              href="{{ with site.GetPage "/products" }}{{ .RelPermalink }}{{ end }}"
-              class="home-hero__cta ui-button ui-button-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700">
-              {{- if $isRu -}}Смотреть каталог{{- else -}}Дивитися каталог{{- end -}}
-            </a>
-
-            <a
-              href="{{ with site.GetPage "/about" }}{{ .RelPermalink }}{{ end }}"
-              class="home-hero__cta ui-button ui-button-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700">
-              {{- if $isRu -}}О бренде Aerocool{{- else -}}Про бренд Aerocool{{- end -}}
+            <a href="{{ with $productsPage }}{{ .RelPermalink }}{{ end }}" class="home-hero__announcement-link font-semibold whitespace-nowrap">
+              <span aria-hidden="true" class="absolute inset-0"></span>
+              {{- if $isRu -}}Смотреть модели{{- else -}}Дивитися моделі{{- end -}}
+              <span aria-hidden="true">→</span>
             </a>
           </div>
+        </div>
+
+        <h1 class="home-hero__title mt-8 text-pretty font-semibold sm:mt-10">
+          {{- if $isRu -}}
+            Эргономичные кресла Aerocool для работы, home office и игр
+          {{- else -}}
+            Ергономічні крісла Aerocool для роботи, home office та ігор
+          {{- end -}}
+        </h1>
+
+        <p class="home-hero__lead mt-8 text-pretty font-medium">
+          {{- if $isRu -}}
+            Официальный сайт Aerocool в Украине: игровые, офисные и компьютерные кресла серий SKY, WING и XTAL с разными механизмами, материалами и уровнем регулировок.
+          {{- else -}}
+            Офіційний сайт Aerocool в Україні: ігрові, офісні та комп’ютерні крісла серій SKY, WING і XTAL з різними механізмами, матеріалами та рівнем регулювань.
+          {{- end -}}
+        </p>
+
+        <div class="home-hero__actions mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
+          <a
+            href="{{ with $productsPage }}{{ .RelPermalink }}{{ end }}"
+            class="home-hero__cta ui-button ui-button-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700">
+            {{- if $isRu -}}Смотреть каталог{{- else -}}Дивитися каталог{{- end -}}
+          </a>
+
+          <a
+            href="{{ with $aboutPage }}{{ .RelPermalink }}{{ end }}"
+            class="home-hero__cta ui-button ui-button-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700">
+            {{- if $isRu -}}О бренде{{- else -}}Про бренд{{- end -}}
+            <span aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
     </div>
 
-    <div class="-mt-12 -ml-12 p-12 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
+    <div class="home-hero__media relative lg:col-span-5 lg:-mr-8 xl:absolute xl:inset-0 xl:left-1/2 xl:mr-0">
       <img
         src="{{ "images/home-hero85.webp" | relURL }}"
         alt="{{- if $isRu -}}Эргономичное кресло Aerocool для офиса, home office и игрового пространства{{- else -}}Ергономічне крісло Aerocool для офісу, home office та ігрового простору{{- end -}}"
@@ -64,95 +62,7 @@
         loading="eager"
         decoding="async"
         fetchpriority="high"
-        class="home-hero__image w-3xl max-w-none sm:w-228" />
-    </div>
-
-    <div class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
-      <div class="lg:pr-4">
-        <div class="ui-body max-w-xl lg:max-w-lg">
-          <p>
-            {{- if $isRu -}}
-              Мы помогаем выбирать кресла не только по дизайну, но и по реальным техническим характеристикам: типу механизма, конструкции спинки, уровню регулировок, формату подлокотников, материалам обивки, типу базы и роликам. Такой подход позволяет подобрать модель под конкретный сценарий использования.
-            {{- else -}}
-              Ми допомагаємо обирати крісла не лише за дизайном, а й за реальними технічними характеристиками: типом механізму, конструкцією спинки, рівнем регулювань, форматом підлокітників, матеріалами оббивки, типом бази та роликами. Такий підхід дозволяє підібрати модель під конкретний сценарій використання.
-            {{- end -}}
-          </p>
-
-          <ul role="list" class="mt-8 space-y-8">
-            <li class="flex gap-x-3">
-              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="ui-icon mt-1">
-                <path d="M5.5 17a4.5 4.5 0 0 1-1.44-8.765 4.5 4.5 0 0 1 8.302-3.046 3.5 3.5 0 0 1 4.504 4.272A4 4 0 0 1 15 17H5.5Zm3.75-2.75a.75.75 0 0 0 1.5 0V9.66l1.95 2.1a.75.75 0 1 0 1.1-1.02l-3.25-3.5a.75.75 0 0 0-1.1 0l-3.25 3.5a.75.75 0 1 0 1.1 1.02l1.95-2.1v4.59Z" clip-rule="evenodd" fill-rule="evenodd" />
-              </svg>
-              <span>
-                {{- if $isRu -}}
-                  <strong class="font-semibold text-aero-ink">Серии SKY, WING и XTAL.</strong>
-                  Решения для офиса, дома, home office и длительного сидения с разным уровнем эргономики.
-                {{- else -}}
-                  <strong class="font-semibold text-aero-ink">Серії SKY, WING і XTAL.</strong>
-                  Рішення для офісу, дому, home office та тривалого сидіння з різним рівнем ергономіки.
-                {{- end -}}
-              </span>
-            </li>
-
-            <li class="flex gap-x-3">
-              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="ui-icon mt-1">
-                <path d="M10 1a4.5 4.5 0 0 0-4.5 4.5V9H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0 10 1Zm3 8V5.5a3 3 0 1 0-6 0V9h6Z" clip-rule="evenodd" fill-rule="evenodd" />
-              </svg>
-              <span>
-                {{- if $isRu -}}
-                  <strong class="font-semibold text-aero-ink">Продуманная эргономика.</strong>
-                  Модели с Synchronous Tilt, поясничной поддержкой, регулируемыми подлокотниками и вентилируемыми поверхностями.
-                {{- else -}}
-                  <strong class="font-semibold text-aero-ink">Продумана ергономіка.</strong>
-                  Моделі з Synchronous Tilt, поперековою підтримкою, регульованими підлокітниками та вентильованими поверхнями.
-                {{- end -}}
-              </span>
-            </li>
-
-            <li class="flex gap-x-3">
-              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="ui-icon mt-1">
-                <path d="M4.632 3.533A2 2 0 0 1 6.577 2h6.846a2 2 0 0 1 1.945 1.533l1.976 8.234A3.489 3.489 0 0 0 16 11.5H4c-.476 0-.93.095-1.344.267l1.976-8.234Z" />
-                <path d="M4 13a2 2 0 1 0 0 4h12a2 2 0 1 0 0-4H4Zm11.24 2a.75.75 0 0 1 .75-.75H16a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75h-.01a.75.75 0 0 1-.75-.75V15Zm-2.25-.75a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75H13a.75.75 0 0 0 .75-.75V15a.75.75 0 0 0-.75-.75h-.01Z" clip-rule="evenodd" fill-rule="evenodd" />
-              </svg>
-              <span>
-                {{- if $isRu -}}
-                  <strong class="font-semibold text-aero-ink">Официальный сайт в Украине.</strong>
-                  Актуальные характеристики от производителя, консультация, доставка по Украине и сервисная поддержка.
-                {{- else -}}
-                  <strong class="font-semibold text-aero-ink">Офіційний сайт в Україні.</strong>
-                  Актуальні характеристики від виробника, консультація, доставка по Україні та сервісна підтримка.
-                {{- end -}}
-              </span>
-            </li>
-          </ul>
-
-          <p class="mt-8">
-            {{- if $isRu -}}
-              Если нужно кресло на каждый день, стоит начать с серии SKY. Если важны динамическая поддержка осанки и более широкие возможности настройки, обратите внимание на WING. Если в приоритете современная конструкция, сменные элементы и сервисная гибкость, присмотритесь к XTAL.
-            {{- else -}}
-              Якщо потрібне крісло на кожен день, варто почати із серії SKY. Якщо важлива динамічна підтримка постави та ширші можливості налаштування, зверніть увагу на WING. Якщо пріоритетом є сучасна конструкція, змінні елементи та сервісна гнучкість, придивіться до XTAL.
-            {{- end -}}
-          </p>
-
-          <h2 class="ui-section-title mt-16">
-            {{- if $isRu -}}Как выбрать серию Aerocool под свои задачи{{- else -}}Як обрати серію Aerocool під свої задачі{{- end -}}
-          </h2>
-
-          <p class="mt-6">
-            {{- if $isRu -}}
-              Сравнивайте кресла по механизму, регулировкам, типу поверхности и формату посадки. На сайте Aerocool Украина вы можете посмотреть весь каталог, ознакомиться с характеристиками и подобрать модель для офиса, дома или игрового пространства.
-            {{- else -}}
-              Порівнюйте крісла за механізмом, регулюваннями, типом поверхні та форматом посадки. На сайті Aerocool Україна ви можете переглянути весь каталог, ознайомитися з характеристиками та підібрати модель для офісу, дому або ігрового простору.
-            {{- end -}}
-          </p>
-
-          <div class="mt-8">
-            <a href="{{ with site.GetPage "/faq" }}{{ .RelPermalink }}{{ end }}" class="ui-link font-semibold">
-              {{- if $isRu -}}Перейти в FAQ{{- else -}}Перейти до FAQ{{- end -}} <span aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
-      </div>
+        class="home-hero__image aspect-3/2 w-full object-contain px-8 py-8 lg:absolute lg:inset-0 lg:aspect-auto lg:h-full lg:px-12 xl:px-16" />
     </div>
   </div>
-</div>
+</section>
