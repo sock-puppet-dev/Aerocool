@@ -513,6 +513,14 @@ textarea.ui-field {
     align-items: start;
 }
 
+.product-detail__title {
+    margin-bottom: 0.35rem;
+}
+
+.product-detail__purchase .review-summary {
+    margin-bottom: 0.75rem;
+}
+
 .product-detail__tab {
     display: inline-flex;
     border: 0;
