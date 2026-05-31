@@ -804,7 +804,19 @@
 
 - строит единый `ImageObject` для основного изображения страницы;
 - использует `image` во front matter через `page-image.html`;
+- добавляет image license metadata через [image-license-metadata.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/image-license-metadata.html): `license`, `acquireLicensePage`, `creator`, `creditText`, `copyrightNotice`;
 - дает стабильный `@id` вида `#primary-image`, на который ссылаются `WebPage`, `Product`, `Article` и `NewsArticle`.
+
+### `image-license-metadata.html`
+
+Файл: [image-license-metadata.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/image-license-metadata.html)
+
+Что делает:
+
+- возвращает единый набор правовых/кредитных полей для `ImageObject`;
+- выбирает локализованный URL страницы условий: `/image-license/` для украинского языка и `/ru/image-license/` для русского;
+- фиксирует `creator` как global Aerocool organization и `creditText` как `Aerocool`;
+- не читает данные из content, чтобы не размножать юридические утверждения по страницам.
 
 ### `logo.html`
 
@@ -814,6 +826,7 @@
 
 - строит отдельный top-level `ImageObject` для логотипа;
 - дает стабильный `@id` вида `#logo`;
+- добавляет тот же набор image license metadata, что и primary image;
 - используется как `WebSite.image`, `Organization.logo` и `Organization.image`;
 - подключается как зависимый top-level узел, если в графе есть `website` или `organization`.
 

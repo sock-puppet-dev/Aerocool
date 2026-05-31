@@ -1,0 +1,15 @@
+{{- $licensePath := "/image-license/" -}}
+{{- if eq .Language.Name "ru" -}}
+  {{- $licensePath = "/ru/image-license/" -}}
+{{- end -}}
+{{- return (dict
+  "license" ($licensePath | absURL)
+  "acquireLicensePage" ($licensePath | absURL)
+  "creator" (dict
+    "@type" "Organization"
+    "@id" "https://aerocool.io/#organization"
+    "name" "Aerocool Advanced Technologies Corp."
+  )
+  "creditText" "Aerocool"
+  "copyrightNotice" "Copyright Aerocool Advanced Technologies Corp. All rights reserved."
+) -}}

@@ -1051,6 +1051,22 @@ price-validity-policy:
   owner: "Aerocool Ukraine"
   status: "confirmed"
 
+image-license-policy:
+  name:
+    en: "Image usage rights"
+    uk: "Права на використання зображень"
+    ru: "Права на использование изображений"
+  entity_class: "Policy"
+  schema_candidate: "Thing"
+  future_jsonld_id: "https://aerocool.ua/image-license/#image-license-policy"
+  entity_home: "/image-license/"
+  source_of_truth: "image license page"
+  owner: "Aerocool Ukraine + Global Aerocool"
+  status: "confirmed"
+  related:
+    - "aerocool-brand"
+    - "aerocool-ukraine"
+
 online-store:
   name:
     en: "Online store"

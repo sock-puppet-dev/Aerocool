@@ -2,6 +2,7 @@
 {{- $pageDescription := partial "page-description.html" . -}}
 {{- $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) -}}
 {{- $imageURL := partial "page-image.html" . -}}
+{{- $licenseMetadata := partial "_schema/image-license-metadata.html" . -}}
 {{- $imageObject := dict
   "@type" "ImageObject"
   "@id" (printf "%s#primary-image" $pageURL)
@@ -11,6 +12,7 @@
   "name" .Title
   "description" $pageDescription
 -}}
+{{- $imageObject = merge $imageObject $licenseMetadata -}}
 {{- with .Params.image -}}
   {{- with $.Resources.GetMatch . -}}
     {{- $imageObject = merge $imageObject (dict

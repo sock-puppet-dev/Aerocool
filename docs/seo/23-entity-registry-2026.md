@@ -12,13 +12,13 @@
 
 ## Актуальный Audit Snapshot
 
-На 2026-05-31 в registry зафиксировано `62` сущности: `60 confirmed`, `0 planned` и `2 do-not-markup`. Машинных ошибок registry не найдено: неизвестных ссылок из front matter нет, `about_entities` и `mentions_entities` используют только `confirmed` сущности, `product_group_id` остался только у реальных цветовых вариантов WING/XTAL и указывает на `confirmed` ProductGroup, поэтому `ProductGroup`, `isVariantOf` и `inProductGroupWithID` выводятся в JSON-LD.
+На 2026-05-31 в registry зафиксировано `63` сущности: `61 confirmed`, `0 planned` и `2 do-not-markup`. Машинных ошибок registry не найдено: неизвестных ссылок из front matter нет, `about_entities` и `mentions_entities` используют только `confirmed` сущности, `product_group_id` остался только у реальных цветовых вариантов WING/XTAL и указывает на `confirmed` ProductGroup, поэтому `ProductGroup`, `isVariantOf` и `inProductGroupWithID` выводятся в JSON-LD.
 
 Оценка Entity Registry: `9.7 / 10`.
 
 Активация `2026-05-26`: `dual-backrest`, `replaceable-elements` и `long-sitting` переведены в `confirmed`, потому что для них уже есть сильный видимый контент, стабильные entity homes и точечное использование в front matter.
 
-Активация `2026-05-31`: четыре реальные ProductGroup для WING/XTAL цветовых вариантов переведены в `confirmed`, duplicate registry ID `products-collection` удален в пользу канонического `aerocool-catalog`, а `lumbar-support`, `armrests-4d-x-360`, `armrests-3d-x-360`, `hot-room`, `leatherette-material` и `fabric-material` включены как `confirmed` сущности.
+Активация `2026-05-31`: четыре реальные ProductGroup для WING/XTAL цветовых вариантов переведены в `confirmed`, duplicate registry ID `products-collection` удален в пользу канонического `aerocool-catalog`, а `lumbar-support`, `armrests-4d-x-360`, `armrests-3d-x-360`, `hot-room`, `leatherette-material` и `fabric-material` включены как `confirmed` сущности. Дополнительно добавлена `image-license-policy`: она описывает видимую страницу условий использования изображений и поддерживает `ImageObject.license` / `ImageObject.acquireLicensePage`.
 
 Главные открытые задачи registry-слоя:
 
@@ -26,6 +26,7 @@
 - добавлять новые `planned` feature/use case/material entities только после видимого объяснения и entity home;
 - поддерживать регулярный [Entity Performance Report](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md) через `npm run entity:report`;
 - исполнять операционный процесс поддержки product front matter из [58-product-facts-maintenance-process-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/58-product-facts-maintenance-process-2026.md);
+- поддерживать страницу `/image-license/` и `/ru/image-license/`, если меняются права на изображения, владелец или порядок запроса разрешения;
 - поддерживать review governance через approved reviews pipeline и не возвращать ручные rating-поля во front matter.
 
 ## 1. Как Использовать Этот Документ
@@ -93,7 +94,7 @@
 | Material | `<name>-material` | Future glossary/entity node |
 | Mechanism | `<name>-mechanism` | Future glossary/entity node |
 | Use case | `<intent-name>` | Future glossary/entity node or content hub |
-| Policy | `<policy>-policy` | `/faq/` now; future policy pages if split |
+| Policy | `<policy>-policy` | `/faq/`, `/image-license/` или будущая отдельная policy page |
 
 ## 6. Базовые Сущности Бренда, Сайта И Организации
 
@@ -216,6 +217,7 @@ The current entity home for service policies is `/faq/`. Do not create separate 
 | `return-policy` | Returns | Повернення | Возврат | `MerchantReturnPolicy` | `/faq/` | product front matter | Aerocool Ukraine | `confirmed` | Uses `return_days`, `return_method`, `return_fees`. |
 | `warranty-policy` | Warranty | Гарантія | Гарантия | `WarrantyPromise` / policy reference | `/faq/` | product front matter | Aerocool Ukraine | `confirmed` | Uses `warranty`. |
 | `price-validity-policy` | Price validity | Актуальність ціни | Актуальность цены | Offer validity reference | product front matter | product front matter | Aerocool Ukraine | `confirmed` | `priceValidUntil: 2027-12-31` подтверждено `2026-05-07`. |
+| `image-license-policy` | Image usage rights | Права на використання зображень | Права на использование изображений | `Thing` / image policy reference | `/image-license/` | image license page | Aerocool Ukraine + Global Aerocool | `confirmed` | Source for `ImageObject.license` and `ImageObject.acquireLicensePage`. |
 
 ## 16. Карта Сущностей Для Редакционного Контента
 

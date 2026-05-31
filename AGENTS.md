@@ -24,7 +24,7 @@
 
 - `content/` — весь контент сайта.
 - `content/_index.md` и `content/_index.ru.md` — локализованные главные страницы.
-- `content/about`, `content/contact`, `content/faq` — локализованные статичные страницы.
+- `content/about`, `content/contact`, `content/faq`, `content/image-license` — локализованные статичные страницы.
 - `content/articles`, `content/news` — материалы в формате папок страниц Hugo (`page bundle`) со структурами `index.md` и `index.ru.md`.
 - `content/products` — каталог товаров. Для серий используются `_index.md` / `_index.ru.md`, а варианты товаров лежат во вложенных папках как самостоятельные папки страниц.
 - `data/entities.yaml` — структурированный реестр entity IDs для safe resolver schema.org-связей.

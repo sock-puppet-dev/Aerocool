@@ -30,16 +30,16 @@ CSV-версия отчета: [59-entity-performance-report-2026.csv](/Users/st
 
 | Метрика | Значение |
 | --- | ---: |
-| Registry entities | `62` |
-| Confirmed entities | `60` |
+| Registry entities | `63` |
+| Confirmed entities | `61` |
 | Planned entities | `0` |
 | Do-not-markup entities | `2` |
-| Content pages parsed | `98` |
-| JSON-LD scripts parsed | `112` |
+| Content pages parsed | `100` |
+| JSON-LD scripts parsed | `114` |
 | JSON-LD parse errors | `0` |
-| Entities with about usage | `45` |
-| Entities with mentions usage | `46` |
-| Entities with rendered `@id` refs | `60` |
+| Entities with about usage | `46` |
+| Entities with mentions usage | `48` |
+| Entities with rendered `@id` refs | `61` |
 
 JSON-LD parse errors не найдены.
 
@@ -55,9 +55,9 @@ JSON-LD parse errors не найдены.
 | xtal-series | 20 | [/products/xtal/](https://aerocool.ua/products/xtal/) |
 | gaming-chair | 14 | [/products/](https://aerocool.ua/products/) |
 | sky-series | 12 | [/products/sky/](https://aerocool.ua/products/sky/) |
+| aerocool-brand | 8 | [/about/](https://aerocool.ua/about/) |
 | aerocool-catalog | 8 | [/products/](https://aerocool.ua/products/) |
-| aerocool-brand | 6 | [/about/](https://aerocool.ua/about/) |
-| aerocool-ukraine | 6 | [/about/](https://aerocool.ua/about/) |
+| aerocool-ukraine | 8 | [/about/](https://aerocool.ua/about/) |
 | articles-collection | 6 | [/articles/](https://aerocool.ua/articles/) |
 
 ## 4. Top Entities By Mentions Pages
@@ -81,18 +81,18 @@ JSON-LD parse errors не найдены.
 
 | Entity | Count | Home |
 | --- | ---: | --- |
-| aerocool-ukraine | 504 | [/about/](https://aerocool.ua/about/) |
-| aerocool-logo | 448 | [/](https://aerocool.ua/) |
+| aerocool-ukraine | 514 | [/about/](https://aerocool.ua/about/) |
+| aerocool-global-organization | 460 | [https://aerocool.io/](https://aerocool.io/) |
+| aerocool-logo | 456 | [/](https://aerocool.ua/) |
 | wing-series | 410 | [/products/wing/](https://aerocool.ua/products/wing/) |
 | xtal-series | 386 | [/products/xtal/](https://aerocool.ua/products/xtal/) |
 | office-chair | 378 | [/products/](https://aerocool.ua/products/) |
+| aerocool-brand | 338 | [/about/](https://aerocool.ua/about/) |
 | home-office | 336 | [/articles/how-to-choose-aerocool-chair/](https://aerocool.ua/articles/how-to-choose-aerocool-chair/) |
-| aerocool-brand | 330 | [/about/](https://aerocool.ua/about/) |
 | sky-series | 304 | [/products/sky/](https://aerocool.ua/products/sky/) |
 | computer-chair | 294 | [/products/](https://aerocool.ua/products/) |
 | synchronous-tilt | 288 | [/articles/what-is-synchronous-tilt/](https://aerocool.ua/articles/what-is-synchronous-tilt/) |
 | loft-air-material | 246 | [/articles/racer-vs-loft-air-vs-mesh/](https://aerocool.ua/articles/racer-vs-loft-air-vs-mesh/) |
-| mesh-material | 242 | [/articles/racer-vs-loft-air-vs-mesh/](https://aerocool.ua/articles/racer-vs-loft-air-vs-mesh/) |
 
 ## 6. Full Entity Table
 
@@ -102,18 +102,18 @@ JSON-LD parse errors не найдены.
 | 7d-adjustment | confirmed | Feature | [/articles/how-to-choose-chair-by-adjustability/](https://aerocool.ua/articles/how-to-choose-chair-by-adjustability/) | 2 | 30 | 0 | 92 | 32 | pending-production | pending-production | pending-production | ok |
 | 8d-adjustment | confirmed | Feature | [/articles/how-to-choose-chair-by-adjustability/](https://aerocool.ua/articles/how-to-choose-chair-by-adjustability/) | 2 | 22 | 0 | 70 | 24 | pending-production | pending-production | pending-production | ok |
 | about-page | confirmed | AboutPage | [/about/](https://aerocool.ua/about/) | 0 | 0 | 0 | 2 | 1 | pending-production | pending-production | pending-production | ok |
-| aerocool-brand | confirmed | Brand | [/about/](https://aerocool.ua/about/) | 6 | 34 | 0 | 330 | 112 | pending-production | pending-production | pending-production | ok |
+| aerocool-brand | confirmed | Brand | [/about/](https://aerocool.ua/about/) | 8 | 34 | 0 | 338 | 114 | pending-production | pending-production | pending-production | ok |
 | aerocool-catalog | confirmed | Collection | [/products/](https://aerocool.ua/products/) | 8 | 26 | 0 | 116 | 1 | pending-production | pending-production | pending-production | ok |
-| aerocool-global-organization | confirmed | Organization | [https://aerocool.io/](https://aerocool.io/) | 2 | 0 | 0 | 226 | 112 | pending-production | pending-production | pending-production | ok |
-| aerocool-logo | confirmed | ImageObject | [/](https://aerocool.ua/) | 0 | 0 | 0 | 448 | 112 | pending-production | pending-production | pending-production | ok |
-| aerocool-ukraine | confirmed | Organization | [/about/](https://aerocool.ua/about/) | 6 | 2 | 0 | 504 | 112 | pending-production | pending-production | pending-production | ok |
-| aerocool-website | confirmed | WebSite | [/](https://aerocool.ua/) | 0 | 0 | 0 | 147 | 56 | pending-production | pending-production | pending-production | ok |
+| aerocool-global-organization | confirmed | Organization | [https://aerocool.io/](https://aerocool.io/) | 2 | 2 | 0 | 460 | 114 | pending-production | pending-production | pending-production | ok |
+| aerocool-logo | confirmed | ImageObject | [/](https://aerocool.ua/) | 0 | 0 | 0 | 456 | 114 | pending-production | pending-production | pending-production | ok |
+| aerocool-ukraine | confirmed | Organization | [/about/](https://aerocool.ua/about/) | 8 | 2 | 0 | 514 | 114 | pending-production | pending-production | pending-production | ok |
+| aerocool-website | confirmed | WebSite | [/](https://aerocool.ua/) | 0 | 0 | 0 | 149 | 57 | pending-production | pending-production | pending-production | ok |
 | armrests-3d-x-360 | confirmed | Feature | [/products/sky/](https://aerocool.ua/products/sky/) | 0 | 4 | 0 | 10 | 4 | pending-production | pending-production | pending-production | ok |
 | armrests-4d-x-360 | confirmed | Feature | [/products/wing/](https://aerocool.ua/products/wing/) | 0 | 12 | 0 | 26 | 12 | pending-production | pending-production | pending-production | ok |
 | articles-collection | confirmed | Collection | [/articles/](https://aerocool.ua/articles/) | 6 | 0 | 0 | 26 | 3 | pending-production | pending-production | pending-production | ok |
 | chair-selection | confirmed | ContentTopic | [/articles/how-to-choose-aerocool-chair/](https://aerocool.ua/articles/how-to-choose-aerocool-chair/) | 20 | 2 | 0 | 98 | 26 | pending-production | pending-production | pending-production | ok |
 | computer-chair | confirmed | UseCase | [/products/](https://aerocool.ua/products/) | 36 | 42 | 0 | 294 | 94 | pending-production | pending-production | pending-production | ok |
-| contact-page | confirmed | ContactPage | [/contact/](https://aerocool.ua/contact/) | 0 | 0 | 0 | 2 | 1 | pending-production | pending-production | pending-production | ok |
+| contact-page | confirmed | ContactPage | [/contact/](https://aerocool.ua/contact/) | 0 | 2 | 0 | 4 | 1 | pending-production | pending-production | pending-production | ok |
 | delivery-policy | confirmed | Policy | [/faq/](https://aerocool.ua/faq/) | 2 | 26 | 0 | 56 | 28 | pending-production | pending-production | pending-production | ok |
 | dual-backrest | confirmed | Feature | [/articles/what-is-dual-backrest/](https://aerocool.ua/articles/what-is-dual-backrest/) | 2 | 4 | 0 | 26 | 6 | pending-production | pending-production | pending-production | ok |
 | ergonomic-chair | confirmed | UseCase | [/products/](https://aerocool.ua/products/) | 4 | 16 | 0 | 124 | 20 | pending-production | pending-production | pending-production | ok |
@@ -123,6 +123,7 @@ JSON-LD parse errors не найдены.
 | home-office | confirmed | UseCase | [/articles/how-to-choose-aerocool-chair/](https://aerocool.ua/articles/how-to-choose-aerocool-chair/) | 28 | 52 | 0 | 336 | 96 | pending-production | pending-production | pending-production | ok |
 | home-page | confirmed | WebPage | [/](https://aerocool.ua/) | 0 | 0 | 0 | 7 | 7 | pending-production | pending-production | pending-production | ok |
 | hot-room | confirmed | UseCase | [/articles/racer-vs-loft-air-vs-mesh/](https://aerocool.ua/articles/racer-vs-loft-air-vs-mesh/) | 0 | 6 | 0 | 116 | 6 | pending-production | pending-production | pending-production | ok |
+| image-license-policy | confirmed | Policy | [/image-license/](https://aerocool.ua/image-license/) | 2 | 0 | 0 | 4 | 2 | pending-production | pending-production | pending-production | ok |
 | leatherette-material | confirmed | Material | [/articles/racer-vs-loft-air-vs-mesh/](https://aerocool.ua/articles/racer-vs-loft-air-vs-mesh/) | 0 | 10 | 0 | 70 | 10 | pending-production | pending-production | pending-production | ok |
 | loft-air-material | confirmed | Material | [/articles/racer-vs-loft-air-vs-mesh/](https://aerocool.ua/articles/racer-vs-loft-air-vs-mesh/) | 4 | 42 | 0 | 246 | 50 | pending-production | pending-production | pending-production | ok |
 | long-sitting | confirmed | UseCase | [/articles/chair-for-posture-and-long-work/](https://aerocool.ua/articles/chair-for-posture-and-long-work/) | 4 | 4 | 0 | 132 | 8 | pending-production | pending-production | pending-production | ok |

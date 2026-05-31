@@ -17,6 +17,7 @@
 {{- with site.GetPage "/faq" }}{{- $pagesScratch.SetInMap "sections" .RelPermalink . -}}{{- end -}}
 {{- with site.GetPage "/about" }}{{- $pagesScratch.SetInMap "sections" .RelPermalink . -}}{{- end -}}
 {{- with site.GetPage "/contact" }}{{- $pagesScratch.SetInMap "sections" .RelPermalink . -}}{{- end -}}
+{{- with site.GetPage "/image-license" }}{{- $pagesScratch.SetInMap "sections" .RelPermalink . -}}{{- end -}}
 {{- $seriesScratch := newScratch -}}
 {{- range slice "sky" "wing" "xtal" -}}
   {{- with site.GetPage (printf "/products/%s" .) -}}

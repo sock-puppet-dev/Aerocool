@@ -1,6 +1,6 @@
 # Руководство По `schema_types`
 
-Обновлено: 2026-05-19.
+Обновлено: 2026-05-31.
 
 В проекте `Aerocool` используется только поле `schema_types`.
 
@@ -32,7 +32,7 @@ schema_types: ["website", "product", "organization", "breadcrumbs"]
 - `BreadcrumbList` должен отражать реальную иерархию страницы: последовательные `position`, абсолютные `item`, понятные `name`. После изменения slug, section или меню проверять breadcrumbs отдельно.
 - `sameAs` не управляется через `schema_types`; это governance-решение entity layer. Использовать только для точного совпадения сущности.
 - `additionalType` пока не является рабочим front matter полем проекта. Если оно понадобится, сначала документировать источник, внешний термин и причину, почему базового Schema.org типа недостаточно.
-- Image license metadata (`license`, `acquireLicensePage`, `creator`, `creditText`, `copyrightNotice`) пока не внедрена. Добавлять ее только после подтверждения прав на изображения и обновления schema partials.
+- Image license metadata (`license`, `acquireLicensePage`, `creator`, `creditText`, `copyrightNotice`) внедрена централизованно для `ImageObject`: основное изображение страницы и логотип получают эти поля через schema partials, а видимая страница условий находится по `/image-license/` и `/ru/image-license/`.
 - Чистый Schema Validator не равен гарантии rich results: для Google данные в JSON-LD должны совпадать с видимым контентом страницы.
 - Для `product` source of truth по коммерческим фактам — front matter товарной страницы; schema partial читает эти поля, а видимый товарный блок и `/faq/` должны подтверждать их. Операционный процесс поддержки этих фактов описан в [58-product-facts-maintenance-process-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/58-product-facts-maintenance-process-2026.md).
 - Текущий roadmap усиления графа и rich-results качества хранится в [26-json-ld-graph-audit-roadmap-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/26-json-ld-graph-audit-roadmap-2026.md).
