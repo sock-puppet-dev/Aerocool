@@ -14,7 +14,7 @@
 4. Не добавляй поля “на всякий случай”, если шаблоны проекта их не используют.
 5. После правки запусти `npm run build`.
 
-Практический план entity/product fields (`about_entities`, `mentions_entities`, `product_group_id`, `variant_attributes`, `rating_source`) описан в [34-2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md). Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md). Entity IDs и entity homes зафиксированы в [23-entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/23-entity-registry-2026.md), а структурированный источник для шаблонов — [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml). Для первого знакомства с этим слоем читайте [22-entity-registry-beginner-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/22-entity-registry-beginner-guide-2026.md). Hugo templates уже безопасно читают `about_entities`, `mentions_entities`, `product_group_id`, `related_series` и `related_products`, но добавлять их в `content/` нужно только точечно: значение должно быть подтверждено видимым содержанием страницы. Для JSON-LD resolver выводит только `confirmed` сущности; `product_group_id` может быть подготовлен заранее, но `isVariantOf` появится только после подтверждения ProductGroup.
+Практический план entity/product fields (`about_entities`, `mentions_entities`, `product_group_id`, `variant_attributes`, `rating_source`) описан в [34-2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md). Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md). Entity IDs и entity homes зафиксированы в [23-entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/23-entity-registry-2026.md), а структурированный источник для шаблонов — [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml). Для первого знакомства с этим слоем читайте [22-entity-registry-beginner-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/22-entity-registry-beginner-guide-2026.md). Hugo templates уже безопасно читают `about_entities`, `mentions_entities`, `product_group_id`, `related_series` и `related_products`, но добавлять их в `content/` нужно только точечно: значение должно быть подтверждено видимым содержанием страницы. Для JSON-LD resolver выводит только `confirmed` сущности; `product_group_id` допустим только для реальных групп вариантов одной модели и начнет давать `isVariantOf` только после подтверждения ProductGroup.
 
 ## Поля Сущностей Во Front Matter
 
@@ -22,7 +22,7 @@
 
 `mentions_entities` — важные связанные сущности, которые заметно раскрыты в тексте, ссылках, FAQ, характеристиках или коммерческих условиях.
 
-`product_group_id` — только для товарных вариантов. Значение указывает на группу вариантов товара, например `wing-racer-product-group`. Пока ProductGroup entity имеет статус `planned`, поле остается подготовленным front matter и не выводит `isVariantOf` в JSON-LD.
+`product_group_id` — только для товарных страниц, которые являются вариантами одной модели, например цветовые варианты `wing-racer-product-group`. Одиночные товары без соседних вариантов не получают это поле: их связь с линейкой задается через `about_entities`, registry-поле `series` и страницу серии. Пока ProductGroup entity имеет статус `planned`, поле остается подготовленным front matter и не выводит `isVariantOf` в JSON-LD.
 
 Пример:
 
@@ -446,7 +446,7 @@ characteristics:             # видимая вкладка "Характери
 
 `review_target_id` — стабильный ID объекта отзывов. Для украинской и русской версии одного товара он должен быть одинаковым. Лучше использовать человекочитаемый slug модели, например `sky-lite`, а не URL. Это защищает отзывы от потери связи при изменении адреса страницы.
 
-Выбор цвета на товарной странице строится из `product_group_id` и `data/entities.yaml`: шаблон берет варианты группы, находит страницы текущего языка и выводит swatches со ссылками на соседние цветовые варианты. Ручной список цветов в front matter товара не добавлять. Если в группе только один вариант, блок выбора цвета скрывается.
+Выбор цвета на товарной странице строится из `product_group_id` и `data/entities.yaml`: шаблон берет варианты реальной ProductGroup, находит страницы текущего языка и выводит swatches со ссылками на соседние цветовые варианты. Ручной список цветов в front matter товара не добавлять. Одиночные товары без соседних вариантов не получают `product_group_id`, поэтому блок выбора цвета для них не выводится.
 
 `reviews_enabled` включает вкладку и форму отзывов на странице товара только вместе с явным `review_target_id`. После проверки pipeline на `SKY Lite` поле `reviews_enabled: true` включено для всех текущих товарных страниц в `uk` и `ru`, чтобы `dev`-ветка могла тестировать отзывы по всему каталогу.
 

@@ -100,7 +100,7 @@ Customer stories Schema App подтверждают практическую с
 | SKY | `/products/sky/` | Entity home серии |
 | WING | `/products/wing/` | Entity home серии |
 | XTAL | `/products/xtal/` | Entity home серии |
-| Product variant | `/products/<series>/<model>/` | Entity home конкретного товара |
+| Product / Product variant | `/products/<series>/<model>/` | Entity home конкретного товара или варианта |
 | FAQ/service policies | `/faq/` | Главный источник доставки, оплаты, возврата, гарантии |
 | Synchronous Tilt | статья, FAQ-блок или glossary | Нужна отдельная объясняющая сущность |
 | Mesh | статья, product block или glossary | Нужна связь с товарами и сценариями |
@@ -117,14 +117,15 @@ Knowledge graph можно проектировать через тройки:
 
 - `Aerocool SKY 360 -> brand -> Aerocool`;
 - `Aerocool SKY 360 -> seller -> Aerocool Ukraine`;
-- `Aerocool SKY 360 -> isVariantOf -> SKY ProductGroup`;
+- `Aerocool SKY 360 -> memberOf/about -> Aerocool SKY series`;
+- `Aerocool WING Racer Black -> isVariantOf -> WING Racer ProductGroup`;
 - `Aerocool WING -> has material -> Mesh`;
 - `Synchronous Tilt -> used in -> Aerocool chair models`;
 - `Home office guide -> about -> office chair`;
 - `Product page -> mentions -> warranty policy`;
 - `FAQ -> mainEntity -> delivery and return questions`.
 
-Такой формат помогает выбирать точные свойства Schema.org. Не использовать общий `mentions`, если связь точнее описывается через `brand`, `seller`, `author`, `publisher`, `mainEntity`, `about`, `isVariantOf`, `parentOrganization` или другое конкретное свойство.
+Такой формат помогает выбирать точные свойства Schema.org. Не использовать общий `mentions`, если связь точнее описывается через `brand`, `seller`, `author`, `publisher`, `mainEntity`, `about`, `isVariantOf`, `parentOrganization` или другое конкретное свойство. Для одиночных товаров без соседних вариантов не использовать `isVariantOf`: связь с линейкой должна идти через серию, URL, breadcrumbs, `about_entities` и страницу серии.
 
 ## 6. URI И `@id`
 
@@ -164,7 +165,7 @@ Knowledge graph можно проектировать через тройки:
 - product -> brand;
 - product -> seller;
 - product -> page image;
-- product -> collection/series через visible links и, после подтверждения групп, `ProductGroup`;
+- product -> collection/series через visible links; только реальные варианты одной модели дополнительно связывать через `ProductGroup`;
 - article/news -> publisher;
 - article/news -> related series/products через visible links и точечные `about` / `mentions`;
 - FAQ -> organization/service policy;
@@ -209,7 +210,7 @@ Knowledge graph можно проектировать через тройки:
 | 4 | External linked entities | Добавить точные внешние идентификаторы |
 | 5 | Internal knowledge graph | Связать entities через `@id`, видимые ссылки и Schema.org properties |
 
-Aerocool уже находится выше уровня keyword/topics благодаря хабам, сериям, товарам и JSON-LD graph. Следующий рост — не больше ключей, а явнее entity home, `about`, `mentions`, `ProductGroup`, `additionalProperty` и registry сущностей.
+Aerocool уже находится выше уровня keyword/topics благодаря хабам, сериям, товарам и JSON-LD graph. Следующий рост — не больше ключей, а явнее entity home, `about`, `mentions`, точный `ProductGroup` только для реальных вариантов, `additionalProperty` и registry сущностей.
 
 ## 10. Аудит Пробелов Контента Через Knowledge Graph
 
@@ -278,9 +279,10 @@ Knowledge graph может быть переиспользован за пред
 4. Выполнено `2026-05-07`: `ProductGroup` и `product_group_id` спроектированы; ProductGroup выводится только для confirmed entity.
 5. Выполнено `2026-05-07`: beginner-гайд по Entity Registry добавлен.
 6. Выполнено `2026-05-07`: priority pages получили `about_entities`, `mentions_entities` и staged `product_group_id`.
-7. Добавить видимые характеристики как источник для `additionalProperty`.
-8. Провести content gap audit по entity map.
-9. Добавить entity coverage report и graph inventory после production-запуска.
+7. Выполнено `2026-05-31`: singleton ProductGroup удалены; `product_group_id` оставлен только для реальных WING/XTAL цветовых вариантов.
+8. Добавить видимые характеристики как источник для `additionalProperty`.
+9. Провести content gap audit по entity map.
+10. Добавить entity coverage report и graph inventory после production-запуска.
 
 ### P2
 

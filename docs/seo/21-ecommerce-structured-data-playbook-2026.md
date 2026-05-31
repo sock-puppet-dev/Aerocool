@@ -173,15 +173,15 @@ PDF выделяет три типовых подхода к вариантам 
 | Each variant as individual Offer | Один product, варианты как offers | Подходит, если варианты отличаются только коммерчески |
 | Each variant as product model | Каждый вариант как отдельный product/model | Ближе к текущей структуре Aerocool |
 
-Текущий проект сознательно хранит варианты товаров отдельными URL. Поэтому основной путь:
+Текущий проект сознательно хранит реальные варианты товаров отдельными URL. Поэтому основной путь:
 
-- оставить отдельные product pages для вариантов;
+- оставить отдельные product pages для вариантов и одиночных товаров;
 - использовать видимую навигацию между вариантами через swatches-ссылки;
-- спроектировать и подтвердить `ProductGroup`;
+- спроектировать и подтвердить `ProductGroup` только для моделей с несколькими реальными вариантами;
 - связать варианты через `isVariantOf` или `inProductGroupWithID`;
 - использовать variant-specific `sku`, `color`, `material`, `image`, `offers`.
 
-Видимая навигация уже есть на уровне UI: `variant-swatches.html` строит цветовые ссылки из `product_group_id` и `data/entities.yaml`. Следующий schema-шаг — проверить группы, перевести готовые ProductGroup entities в `confirmed` и только после этого выводить `ProductGroup` / `isVariantOf` в JSON-LD.
+Видимая навигация уже есть на уровне UI: `variant-swatches.html` строит цветовые ссылки из `product_group_id` и `data/entities.yaml`. Одиночные товары не получают `product_group_id` и связываются с линейкой через `about_entities`, registry-поле `series` и страницу серии. Следующий schema-шаг — проверить группы, перевести готовые ProductGroup entities в `confirmed` и только после этого выводить `ProductGroup` / `isVariantOf` в JSON-LD.
 
 ## 9. E-E-A-T Для E-Commerce
 
@@ -217,7 +217,7 @@ Schema помогает E-E-A-T только тогда, когда усилив
 
 ### P1
 
-1. Спроектировать `ProductGroup` для вариантов.
+1. Спроектировать `ProductGroup` только для реальных вариантов одной модели.
 2. Видимая навигация между цветовыми вариантами товара добавлена через swatches-ссылки; дальше поддерживать ее через `data/entities.yaml`.
 3. Расширить product image strategy до набора `1:1`, `4:3`, `16:9`.
 4. Добавить видимые таблицы характеристик как источник для `additionalProperty`.

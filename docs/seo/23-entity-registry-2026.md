@@ -1,6 +1,6 @@
 # Реестр Сущностей Aerocool 2026
 
-Обновлено: 2026-05-26.
+Обновлено: 2026-05-31.
 
 Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md). PDF-аудит Schema App по connected graph, Content Knowledge Graphs, impact и Agentic Web зафиксирован в [44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md). Актуальный полный audit registry и rendered graph зафиксирован в [55-2026-05-26-schema-entity-full-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/55-2026-05-26-schema-entity-full-audit.md). Реестр остается governance-документом: `confirmed` сущности можно использовать в JSON-LD, staged/planned сущности не должны становиться сильными связями без видимого подтверждения на странице.
 
@@ -12,7 +12,7 @@
 
 ## Актуальный Audit Snapshot
 
-На 2026-05-26 в registry зафиксировано `67` сущностей: `51 confirmed`, `14 planned` и `2 do-not-markup`. Машинных ошибок registry не найдено: неизвестных ссылок из front matter нет, `about_entities` и `mentions_entities` используют только `confirmed` сущности, а все `product_group_id` пока указывают на `planned` ProductGroup и поэтому не выводят `isVariantOf` в JSON-LD.
+На 2026-05-31 в registry зафиксировано `63` сущности: `51 confirmed`, `10 planned` и `2 do-not-markup`. Машинных ошибок registry не найдено: неизвестных ссылок из front matter нет, `about_entities` и `mentions_entities` используют только `confirmed` сущности, а `product_group_id` остался только у реальных цветовых вариантов WING/XTAL и пока указывает на `planned` ProductGroup, поэтому не выводит `isVariantOf` в JSON-LD.
 
 Оценка Entity Registry: `9.5 / 10`.
 
@@ -21,6 +21,7 @@
 Главные открытые задачи registry-слоя:
 
 - перевести ProductGroup из `planned` в `confirmed` только после видимой навигации вариантов;
+- не создавать ProductGroup для одиночных товаров без соседних вариантов;
 - не активировать planned feature/use case/material entities без видимого объяснения и entity home;
 - завести регулярный Entity Performance Report;
 - поддерживать review governance через approved reviews pipeline и не возвращать ручные rating-поля во front matter.
@@ -65,7 +66,7 @@
 | --- | --- |
 | `entity_id` | Stable internal ID used by future front matter and resolver |
 | `name_uk` / `name_ru` / `name_en` | Localized labels for editors and future UI/schema helpers |
-| `entity_class` | Brand, Organization, ProductSeries, ProductGroup, ProductVariant, Material, Mechanism, UseCase, Policy, ContentHub |
+| `entity_class` | Brand, Organization, ProductSeries, ProductGroup, Product, ProductVariant, Material, Mechanism, UseCase, Policy, ContentHub |
 | `schema_candidate` | Schema.org type to consider, not always active today |
 | `current_jsonld_id` | Existing `@id` emitted by current Hugo templates |
 | `future_jsonld_id` | Stable `@id` for registry-managed nodes that are not emitted by core Product/Organization/Page partials |
@@ -131,41 +132,37 @@ Only these global profiles are currently approved as exact identity links for gl
 
 | entity_id | name_en | name_uk | name_ru | entity_class | current_schema | future_schema | current_jsonld_id | entity_home | status | Main Relations |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `sky-series` | Aerocool SKY | Aerocool SKY | Aerocool SKY | ProductSeries | `CollectionPage` | `ProductGroup` where useful | `https://aerocool.ua/products/sky/#collection` | `/products/sky/` | `confirmed` | parent `aerocool-catalog`; variants `sky-lite`, `sky-360`; mentions `mesh-material`, `sync4-mechanism`, `sync5-mechanism` |
-| `wing-series` | Aerocool WING | Aerocool WING | Aerocool WING | ProductSeries | `CollectionPage` | `ProductGroup` where useful | `https://aerocool.ua/products/wing/#collection` | `/products/wing/` | `confirmed` | parent `aerocool-catalog`; variants WING products; mentions `racer-material`, `loft-air-material`, `mesh-material`, `11d-adjustment`, `dual-backrest` |
-| `xtal-series` | Aerocool XTAL | Aerocool XTAL | Aerocool XTAL | ProductSeries | `CollectionPage` | `ProductGroup` where useful | `https://aerocool.ua/products/xtal/#collection` | `/products/xtal/` | `confirmed` | parent `aerocool-catalog`; variants XTAL products; mentions `racer-material`, `loft-air-material`, `mesh-material`, `7d-adjustment`, `replaceable-elements` |
+| `sky-series` | Aerocool SKY | Aerocool SKY | Aerocool SKY | ProductSeries | `CollectionPage` | Product list/series collection | `https://aerocool.ua/products/sky/#collection` | `/products/sky/` | `confirmed` | parent `aerocool-catalog`; products `sky-lite`, `sky-360`; mentions `mesh-material`, `sync4-mechanism`, `sync5-mechanism` |
+| `wing-series` | Aerocool WING | Aerocool WING | Aerocool WING | ProductSeries | `CollectionPage` | Product list/series collection | `https://aerocool.ua/products/wing/#collection` | `/products/wing/` | `confirmed` | parent `aerocool-catalog`; products WING; ProductGroup только для цветовых вариантов моделей; mentions `racer-material`, `loft-air-material`, `mesh-material`, `11d-adjustment`, `dual-backrest` |
+| `xtal-series` | Aerocool XTAL | Aerocool XTAL | Aerocool XTAL | ProductSeries | `CollectionPage` | Product list/series collection | `https://aerocool.ua/products/xtal/#collection` | `/products/xtal/` | `confirmed` | parent `aerocool-catalog`; products XTAL; ProductGroup только для цветовых вариантов моделей; mentions `racer-material`, `loft-air-material`, `mesh-material`, `7d-adjustment`, `replaceable-elements` |
 
 ## 10. Сущности `ProductGroup`, Запланированные Для Вариантов
 
-`ProductGroup` should not render in JSON-LD until product pages show visible variant navigation. The IDs below are stable planning IDs.
+`ProductGroup` should not render in JSON-LD until product pages show visible variant navigation. Одиночные товары не получают ProductGroup. The IDs below are stable planning IDs only for real multi-variant model groups.
 
 | entity_id | name_en | future_jsonld_id | entity_home | varies_by | variants | status | Blocking Requirement |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| `sky-lite-product-group` | Aerocool SKY Lite | `https://aerocool.ua/products/sky/#sky-lite-product-group` | `/products/sky/` | model | `sky-lite` | `planned` | Single-variant group; use only if group-level page content is useful. |
-| `sky-360-product-group` | Aerocool SKY 360 | `https://aerocool.ua/products/sky/#sky-360-product-group` | `/products/sky/` | model | `sky-360` | `planned` | Single-variant group; use only if group-level page content is useful. |
-| `wing-racer-product-group` | Aerocool WING Racer | `https://aerocool.ua/products/wing/#wing-racer-product-group` | `/products/wing/` | color | `wing-racer-black`, `wing-racer-dark-grey` | `planned` | Add visible color navigation between variants. |
-| `wing-loft-air-product-group` | Aerocool WING Loft Air | `https://aerocool.ua/products/wing/#wing-loft-air-product-group` | `/products/wing/` | color | `wing-loft-air-light-grey`, `wing-loft-air-dark-grey` | `planned` | Add visible color navigation between variants. |
-| `wing-mesh-product-group` | Aerocool WING Mesh | `https://aerocool.ua/products/wing/#wing-mesh-product-group` | `/products/wing/` | material/color | `wing-mesh-black` | `planned` | Single current variant. |
-| `xtal-racer-product-group` | Aerocool XTAL Racer | `https://aerocool.ua/products/xtal/#xtal-racer-product-group` | `/products/xtal/` | color | `xtal-racer-black`, `xtal-racer-dark-grey` | `planned` | Add visible color navigation between variants. |
-| `xtal-loft-air-product-group` | Aerocool XTAL Loft Air | `https://aerocool.ua/products/xtal/#xtal-loft-air-product-group` | `/products/xtal/` | color | `xtal-loft-air-light-grey`, `xtal-loft-air-dark-grey` | `planned` | Add visible color navigation between variants. |
-| `xtal-mesh-product-group` | Aerocool XTAL Mesh | `https://aerocool.ua/products/xtal/#xtal-mesh-product-group` | `/products/xtal/` | material/color | `xtal-mesh-black` | `planned` | Single current variant. |
+| `wing-racer-product-group` | Aerocool WING Racer | `https://aerocool.ua/products/wing/#wing-racer-product-group` | `/products/wing/` | color | `wing-racer-black`, `wing-racer-dark-grey` | `planned` | Verify visible color navigation and group facts before confirming. |
+| `wing-loft-air-product-group` | Aerocool WING Loft Air | `https://aerocool.ua/products/wing/#wing-loft-air-product-group` | `/products/wing/` | color | `wing-loft-air-light-grey`, `wing-loft-air-dark-grey` | `planned` | Verify visible color navigation and group facts before confirming. |
+| `xtal-racer-product-group` | Aerocool XTAL Racer | `https://aerocool.ua/products/xtal/#xtal-racer-product-group` | `/products/xtal/` | color | `xtal-racer-black`, `xtal-racer-dark-grey` | `planned` | Verify visible color navigation and group facts before confirming. |
+| `xtal-loft-air-product-group` | Aerocool XTAL Loft Air | `https://aerocool.ua/products/xtal/#xtal-loft-air-product-group` | `/products/xtal/` | color | `xtal-loft-air-light-grey`, `xtal-loft-air-dark-grey` | `planned` | Verify visible color navigation and group facts before confirming. |
 
-## 11. Сущности Товарных Вариантов
+## 11. Сущности Товаров И Товарных Вариантов
 
-| entity_id | name_en | SKU | MPN | GTIN-13 | series | material | color | adjustability | mechanism | current_jsonld_id | entity_home | planned_group |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `sky-360` | Aerocool SKY 360 | `SKY-360-001` |  |  | `sky-series` | `mesh-material` | not-specified | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/sky/360/#product` | `/products/sky/360/` | `sky-360-product-group` |
-| `sky-lite` | Aerocool SKY Lite | `SKY-LITE-001` |  |  | `sky-series` | `mesh-material` | not-specified | `8d-adjustment` | `sync4-mechanism` | `https://aerocool.ua/products/sky/lite/#product` | `/products/sky/lite/` | `sky-lite-product-group` |
-| `wing-loft-air-dark-grey` | Aerocool WING Loft Air Dark Grey | `WING-LADG-001` | `TEGC-309700Z.Z1` | `4711530966501` | `wing-series` | `loft-air-material` | dark-grey | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/wing/loft-air-dark-grey/#product` | `/products/wing/loft-air-dark-grey/` | `wing-loft-air-product-group` |
-| `wing-loft-air-light-grey` | Aerocool WING Loft Air Light Grey | `WING-LALG-001` | `TEGC-3097004.41` | `4711530966518` | `wing-series` | `loft-air-material` | light-grey | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/wing/loft-air-light-grey/#product` | `/products/wing/loft-air-light-grey/` | `wing-loft-air-product-group` |
-| `wing-mesh-black` | Aerocool WING Mesh Black | `WING-MB-001` | `TEGC-3098001.11` | `4711530966525` | `wing-series` | `mesh-material` | black | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/wing/mesh-black/#product` | `/products/wing/mesh-black/` | `wing-mesh-product-group` |
-| `wing-racer-black` | Aerocool WING Racer Black | `WING-RB-001` | `TEGC-3096001.11` | `4711530966488` | `wing-series` | `racer-material` | black | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/wing/racer-black/#product` | `/products/wing/racer-black/` | `wing-racer-product-group` |
-| `wing-racer-dark-grey` | Aerocool WING Racer Dark Grey | `WING-RDG-001` | `TEGC-309600Z.Z1` | `4711530966495` | `wing-series` | `racer-material` | dark-grey | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/wing/racer-dark-grey/#product` | `/products/wing/racer-dark-grey/` | `wing-racer-product-group` |
-| `xtal-loft-air-dark-grey` | Aerocool XTAL Loft Air Dark Grey | `XTAL-LADG-001` | `TEGC-210010Z.Z1` | `4711530966792` | `xtal-series` | `loft-air-material` | dark-grey | `7d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/xtal/loft-air-dark-grey/#product` | `/products/xtal/loft-air-dark-grey/` | `xtal-loft-air-product-group` |
-| `xtal-loft-air-light-grey` | Aerocool XTAL Loft Air Light Grey | `XTAL-LALG-001` | `TEGC-2100104.41` | `4711530966808` | `xtal-series` | `loft-air-material` | light-grey | `7d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/xtal/loft-air-light-grey/#product` | `/products/xtal/loft-air-light-grey/` | `xtal-loft-air-product-group` |
-| `xtal-mesh-black` | Aerocool XTAL Mesh Black | `XTAL-MB-001` | `TEGC-2101101.11` | `4711530966815` | `xtal-series` | `mesh-material` | black | `7d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/xtal/mesh-black/#product` | `/products/xtal/mesh-black/` | `xtal-mesh-product-group` |
-| `xtal-racer-black` | Aerocool XTAL Racer Black | `XTAL-RB-001` | `TEGC-2099101.11` | `4711530966778` | `xtal-series` | `racer-material` | black | `7d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/xtal/racer-black/#product` | `/products/xtal/racer-black/` | `xtal-racer-product-group` |
-| `xtal-racer-dark-grey` | Aerocool XTAL Racer Dark Grey | `XTAL-RDG-001` | `TEGC-209910Z.Z1` | `4711530966785` | `xtal-series` | `racer-material` | dark-grey | `7d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/xtal/racer-dark-grey/#product` | `/products/xtal/racer-dark-grey/` | `xtal-racer-product-group` |
+| entity_id | entity_class | name_en | SKU | MPN | GTIN-13 | series | material | color | adjustability | mechanism | current_jsonld_id | entity_home | product_group |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `sky-360` | Product | Aerocool SKY 360 | `SKY-360-001` |  |  | `sky-series` | `mesh-material` | not-specified | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/sky/360/#product` | `/products/sky/360/` |  |
+| `sky-lite` | Product | Aerocool SKY Lite | `SKY-LITE-001` |  |  | `sky-series` | `mesh-material` | not-specified | `8d-adjustment` | `sync4-mechanism` | `https://aerocool.ua/products/sky/lite/#product` | `/products/sky/lite/` |  |
+| `wing-loft-air-dark-grey` | ProductVariant | Aerocool WING Loft Air Dark Grey | `WING-LADG-001` | `TEGC-309700Z.Z1` | `4711530966501` | `wing-series` | `loft-air-material` | dark-grey | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/wing/loft-air-dark-grey/#product` | `/products/wing/loft-air-dark-grey/` | `wing-loft-air-product-group` |
+| `wing-loft-air-light-grey` | ProductVariant | Aerocool WING Loft Air Light Grey | `WING-LALG-001` | `TEGC-3097004.41` | `4711530966518` | `wing-series` | `loft-air-material` | light-grey | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/wing/loft-air-light-grey/#product` | `/products/wing/loft-air-light-grey/` | `wing-loft-air-product-group` |
+| `wing-mesh-black` | Product | Aerocool WING Mesh Black | `WING-MB-001` | `TEGC-3098001.11` | `4711530966525` | `wing-series` | `mesh-material` | black | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/wing/mesh-black/#product` | `/products/wing/mesh-black/` |  |
+| `wing-racer-black` | ProductVariant | Aerocool WING Racer Black | `WING-RB-001` | `TEGC-3096001.11` | `4711530966488` | `wing-series` | `racer-material` | black | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/wing/racer-black/#product` | `/products/wing/racer-black/` | `wing-racer-product-group` |
+| `wing-racer-dark-grey` | ProductVariant | Aerocool WING Racer Dark Grey | `WING-RDG-001` | `TEGC-309600Z.Z1` | `4711530966495` | `wing-series` | `racer-material` | dark-grey | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/wing/racer-dark-grey/#product` | `/products/wing/racer-dark-grey/` | `wing-racer-product-group` |
+| `xtal-loft-air-dark-grey` | ProductVariant | Aerocool XTAL Loft Air Dark Grey | `XTAL-LADG-001` | `TEGC-210010Z.Z1` | `4711530966792` | `xtal-series` | `loft-air-material` | dark-grey | `7d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/xtal/loft-air-dark-grey/#product` | `/products/xtal/loft-air-dark-grey/` | `xtal-loft-air-product-group` |
+| `xtal-loft-air-light-grey` | ProductVariant | Aerocool XTAL Loft Air Light Grey | `XTAL-LALG-001` | `TEGC-2100104.41` | `4711530966808` | `xtal-series` | `loft-air-material` | light-grey | `7d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/xtal/loft-air-light-grey/#product` | `/products/xtal/loft-air-light-grey/` | `xtal-loft-air-product-group` |
+| `xtal-mesh-black` | Product | Aerocool XTAL Mesh Black | `XTAL-MB-001` | `TEGC-2101101.11` | `4711530966815` | `xtal-series` | `mesh-material` | black | `7d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/xtal/mesh-black/#product` | `/products/xtal/mesh-black/` |  |
+| `xtal-racer-black` | ProductVariant | Aerocool XTAL Racer Black | `XTAL-RB-001` | `TEGC-2099101.11` | `4711530966778` | `xtal-series` | `racer-material` | black | `7d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/xtal/racer-black/#product` | `/products/xtal/racer-black/` | `xtal-racer-product-group` |
+| `xtal-racer-dark-grey` | ProductVariant | Aerocool XTAL Racer Dark Grey | `XTAL-RDG-001` | `TEGC-209910Z.Z1` | `4711530966785` | `xtal-series` | `racer-material` | dark-grey | `7d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/xtal/racer-dark-grey/#product` | `/products/xtal/racer-dark-grey/` | `xtal-racer-product-group` |
 
 ## 12. Сущности Материалов И Поверхностей
 
@@ -231,8 +228,8 @@ This section maps existing article pages to primary and secondary entities. It i
 | `/articles/sync4-sync5-mechanism-guide/` | `sync4-mechanism`, `sync5-mechanism` | `synchronous-tilt`, `sky-lite`, `sky-360`, `wing-series`, `xtal-series` | `confirmed` |
 | `/articles/what-is-synchronous-tilt/` | `synchronous-tilt` | `sync4-mechanism`, `sync5-mechanism`, `office-chair`, `home-office`, `long-sitting` | `confirmed` |
 | `/articles/wing-vs-xtal/` | `wing-series`, `xtal-series` | `11d-adjustment`, `7d-adjustment`, `dual-backrest`, `replaceable-elements`, `racer-material`, `loft-air-material`, `mesh-material`, `gaming-chair`, `computer-chair`, `home-office` | `confirmed` |
-| `/articles/what-is-dual-backrest/` | `dual-backrest`, `wing-series` | `long-sitting`, `gaming-chair`, `office-chair`, `home-office`, `sync5-mechanism`, `11d-adjustment`, WING product variants | `confirmed` |
-| `/articles/what-is-fully-replaceable-design/` | `replaceable-elements`, `xtal-series` | `long-sitting`, `gaming-chair`, `office-chair`, `home-office`, `sync5-mechanism`, `7d-adjustment`, XTAL product variants | `confirmed` |
+| `/articles/what-is-dual-backrest/` | `dual-backrest`, `wing-series` | `long-sitting`, `gaming-chair`, `office-chair`, `home-office`, `sync5-mechanism`, `11d-adjustment`, WING products and variants | `confirmed` |
+| `/articles/what-is-fully-replaceable-design/` | `replaceable-elements`, `xtal-series` | `long-sitting`, `gaming-chair`, `office-chair`, `home-office`, `sync5-mechanism`, `7d-adjustment`, XTAL products and variants | `confirmed` |
 | `/articles/chair-for-posture-and-long-work/` | `chair-selection`, `long-sitting`, `ergonomic-chair`, `office-chair` | `dual-backrest`, `replaceable-elements`, `sky-series`, `wing-series`, `xtal-series`, mechanisms, materials | `confirmed` |
 | `/articles/gaming-chair-long-sessions/` | `gaming-chair`, `long-sitting`, `chair-selection` | `dual-backrest`, `replaceable-elements`, `wing-series`, `xtal-series`, `sky-series`, materials | `confirmed` |
 
@@ -241,11 +238,11 @@ This section maps existing article pages to primary and secondary entities. It i
 | Страница | Основные `about_entities` | Кандидаты `mentions_entities` | Статус |
 | --- | --- | --- | --- |
 | `/news/sky-series-launch/` | `sky-series` | `sky-lite`, `sky-360`, `office-chair`, `computer-chair`, `home-office` | `confirmed` |
-| `/news/wing-series-launch/` | `wing-series` | `wing-racer-product-group`, `wing-loft-air-product-group`, `wing-mesh-product-group`, `11d-adjustment`, `dual-backrest` | `confirmed` |
-| `/news/xtal-series-launch/` | `xtal-series` | `xtal-racer-product-group`, `xtal-loft-air-product-group`, `xtal-mesh-product-group`, `7d-adjustment`, `replaceable-elements` | `confirmed` |
+| `/news/wing-series-launch/` | `wing-series` | `wing-racer-product-group`, `wing-loft-air-product-group`, `wing-mesh-black`, `11d-adjustment`, `dual-backrest` | `confirmed` |
+| `/news/xtal-series-launch/` | `xtal-series` | `xtal-racer-product-group`, `xtal-loft-air-product-group`, `xtal-mesh-black`, `7d-adjustment`, `replaceable-elements` | `confirmed` |
 | `/news/sky-360-launch/` | `sky-360` | `sky-series`, `11d-adjustment`, `sync5-mechanism`, `synchronous-tilt`, `home-office` | `confirmed` |
 | `/news/sky-lite-launch/` | `sky-lite` | `sky-series`, `8d-adjustment`, `sync4-mechanism`, `synchronous-tilt`, `office-chair` | `confirmed` |
-| `/news/loft-air-and-mesh-focus/` | `loft-air-material`, `mesh-material` | `wing-loft-air-product-group`, `xtal-loft-air-product-group`, `wing-mesh-product-group`, `xtal-mesh-product-group`, `hot-room` | `confirmed` |
+| `/news/loft-air-and-mesh-focus/` | `loft-air-material`, `mesh-material` | `wing-loft-air-product-group`, `xtal-loft-air-product-group`, `wing-mesh-black`, `xtal-mesh-black`, `hot-room` | `confirmed` |
 | `/news/sync4-sync5-mechanism-update/` | `sync4-mechanism`, `sync5-mechanism` | `synchronous-tilt`, `sky-series`, `wing-series`, `xtal-series` | `confirmed` |
 
 ## 18. Тройки Связей Между Сущностями
@@ -257,25 +254,25 @@ Use these as the semantic backbone for future JSON-LD relationships.
 | `aerocool-ukraine` | `brand` | `aerocool-brand` | local organization schema |
 | `aerocool-ukraine` | `parentOrganization` | `aerocool-global-organization` | local organization schema |
 | `aerocool-catalog` | `hasPart` | `sky-series`, `wing-series`, `xtal-series` | `/products/` |
-| `sky-series` | `hasVariant` | `sky-lite`, `sky-360` | `/products/sky/` |
-| `wing-series` | `hasVariant` | WING product variants | `/products/wing/` |
-| `xtal-series` | `hasVariant` | XTAL product variants | `/products/xtal/` |
-| `wing-racer-product-group` | `hasVariant` | `wing-racer-black`, `wing-racer-dark-grey` | future visible variant navigation |
-| `wing-loft-air-product-group` | `hasVariant` | `wing-loft-air-light-grey`, `wing-loft-air-dark-grey` | future visible variant navigation |
-| `xtal-racer-product-group` | `hasVariant` | `xtal-racer-black`, `xtal-racer-dark-grey` | future visible variant navigation |
-| `xtal-loft-air-product-group` | `hasVariant` | `xtal-loft-air-light-grey`, `xtal-loft-air-dark-grey` | future visible variant navigation |
+| `sky-series` | `hasProduct` | `sky-lite`, `sky-360` | `/products/sky/` |
+| `wing-series` | `hasProduct` | WING products and variants | `/products/wing/` |
+| `xtal-series` | `hasProduct` | XTAL products and variants | `/products/xtal/` |
+| `wing-racer-product-group` | `hasVariant` | `wing-racer-black`, `wing-racer-dark-grey` | visible variant navigation |
+| `wing-loft-air-product-group` | `hasVariant` | `wing-loft-air-light-grey`, `wing-loft-air-dark-grey` | visible variant navigation |
+| `xtal-racer-product-group` | `hasVariant` | `xtal-racer-black`, `xtal-racer-dark-grey` | visible variant navigation |
+| `xtal-loft-air-product-group` | `hasVariant` | `xtal-loft-air-light-grey`, `xtal-loft-air-dark-grey` | visible variant navigation |
 | `racer-material` | `isMaterialOf` | Racer product variants | product pages |
 | `loft-air-material` | `isMaterialOf` | Loft Air product variants | product pages |
-| `mesh-material` | `isMaterialOf` | SKY and Mesh product variants | product pages |
+| `mesh-material` | `isMaterialOf` | SKY and Mesh products | product pages |
 | `sync4-mechanism` | `usedIn` | `sky-lite` | product page |
-| `sync5-mechanism` | `usedIn` | `sky-360`, WING variants, XTAL variants | product pages |
+| `sync5-mechanism` | `usedIn` | `sky-360`, WING products/variants, XTAL products/variants | product pages |
 | `delivery-policy` | `appliesTo` | Product offers | product front matter and `/faq/` |
 | `return-policy` | `appliesTo` | Product offers | product front matter and `/faq/` |
 | `warranty-policy` | `appliesTo` | Product offers | product front matter and `/faq/` |
 
 ## 19. Связь С Front Matter Страницы
 
-Template support exists for `about_entities`, `mentions_entities` and `product_group_id`. On `2026-05-07`, these fields were filled on priority pages: home, about, contact, FAQ, product/article/news hubs, series pages, current articles, current news and product pages.
+Template support exists for `about_entities`, `mentions_entities` and `product_group_id`. On `2026-05-07`, these fields were filled on priority pages: home, about, contact, FAQ, product/article/news hubs, series pages, current articles, current news and product pages. On `2026-05-31`, singleton ProductGroup entries were removed: `product_group_id` remains only for real multi-variant model groups.
 
 Future additions must still be page-by-page after checking this registry and the visible page content.
 
@@ -316,7 +313,7 @@ Rules:
 
 - `about_entities` should contain the main subject of the page.
 - `mentions_entities` should contain visibly discussed related products, series, materials, mechanisms, use cases and policies.
-- `product_group_id` must point to an entity in section 10 and will render only after that entity is moved from `planned` to `confirmed`.
+- `product_group_id` must point to a real multi-variant entity in section 10 and will render only after that entity is moved from `planned` to `confirmed`.
 - `variant_attributes` should only contain visible attributes.
 - Unknown `entity_id` values should fail QA before production.
 - Entity values should be stable IDs, not display labels.
@@ -385,6 +382,7 @@ Action нельзя создавать как “идею”. Он должен 
 - Every `about_entities` value must exist in this registry.
 - Every `mentions_entities` value must exist in this registry.
 - No page should mention a product group that is not visibly linked or explained.
+- No standalone product should use `product_group_id`; use the series relationship instead.
 - Do not render `ProductGroup` until variant navigation is visible.
 - Do not render `additionalProperty` until product specs are visible in a table or comparable block.
 - Do not render `Review` or reviewer entities until rating source is resolved.
@@ -414,7 +412,8 @@ Action нельзя создавать как “идею”. Он должен 
 6. Выполнено `2026-05-07`: render optional `about` and `mentions` from resolver when front matter fields are present.
 7. Выполнено `2026-05-07`: add [22-entity-registry-beginner-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/22-entity-registry-beginner-guide-2026.md).
 8. Выполнено `2026-05-07`: fill `about_entities`, `mentions_entities` and staged `product_group_id` on priority pages.
-9. Render `ProductGroup` only after visible variant navigation exists and group entities become `confirmed`.
-10. Render `additionalProperty` only after visible specs tables exist.
-11. Use this registry as input for `llms.txt` after production stabilization.
-12. Keep `Callable Actions Registry` as P3 documentation until real business endpoints and owners exist.
+9. Выполнено `2026-05-31`: remove singleton ProductGroup entries and keep `product_group_id` only for real WING/XTAL color variant groups.
+10. Render `ProductGroup` only after visible variant navigation exists and group entities become `confirmed`.
+11. Render `additionalProperty` only after visible specs tables exist.
+12. Use this registry as input for `llms.txt` after production stabilization.
+13. Keep `Callable Actions Registry` as P3 documentation until real business endpoints and owners exist.

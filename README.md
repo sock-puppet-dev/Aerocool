@@ -292,7 +292,7 @@ cover:
 
 Цвет на товарной странице — это не декоративный radio button, а ссылка на отдельный URL товарного варианта. Например, `WING Racer Black` и `WING Racer Dark Grey` остаются отдельными страницами, а видимый swatch переводит пользователя между ними.
 
-Шаблон `layouts/_partials/products/variant-swatches.html` берет список вариантов из `product_group_id` и `data/entities.yaml`, фильтрует страницы по текущему языку и выводит swatches только если в группе больше одного варианта. Ручной список цветов в front matter не нужен. `ProductGroup`, `isVariantOf` и `inProductGroupWithID` включать только после перевода соответствующих ProductGroup entities в `confirmed`.
+Шаблон `layouts/_partials/products/variant-swatches.html` берет список вариантов из `product_group_id` и `data/entities.yaml`, фильтрует страницы по текущему языку и выводит swatches только если в реальной ProductGroup больше одного варианта. Одиночные товары не получают `product_group_id`; они связаны с линейкой через `about_entities`, `series` в registry и страницу серии. Ручной список цветов в front matter не нужен. `ProductGroup`, `isVariantOf` и `inProductGroupWithID` включать только после перевода соответствующих ProductGroup entities в `confirmed`.
 
 ## 10. JavaScript и CSP
 

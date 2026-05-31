@@ -209,7 +209,7 @@ sky-series:
   entity_home: "/products/sky/"
   parent: "aerocool-catalog"
   status: "confirmed"
-  variants:
+  products:
     - "sky-lite"
     - "sky-360"
   related:
@@ -231,7 +231,7 @@ wing-series:
   entity_home: "/products/wing/"
   parent: "aerocool-catalog"
   status: "confirmed"
-  variants:
+  products:
     - "wing-racer-black"
     - "wing-racer-dark-grey"
     - "wing-loft-air-light-grey"
@@ -257,7 +257,7 @@ xtal-series:
   entity_home: "/products/xtal/"
   parent: "aerocool-catalog"
   status: "confirmed"
-  variants:
+  products:
     - "xtal-racer-black"
     - "xtal-racer-dark-grey"
     - "xtal-loft-air-light-grey"
@@ -271,36 +271,6 @@ xtal-series:
     - "replaceable-elements"
     - "computer-chair"
     - "home-office"
-
-sky-lite-product-group:
-  name:
-    en: "Aerocool SKY Lite"
-    uk: "Aerocool SKY Lite"
-    ru: "Aerocool SKY Lite"
-  entity_class: "ProductGroup"
-  schema_candidate: "ProductGroup"
-  future_jsonld_id: "https://aerocool.ua/products/sky/#sky-lite-product-group"
-  entity_home: "/products/sky/"
-  status: "planned"
-  variants:
-    - "sky-lite"
-  varies_by:
-    - "model"
-
-sky-360-product-group:
-  name:
-    en: "Aerocool SKY 360"
-    uk: "Aerocool SKY 360"
-    ru: "Aerocool SKY 360"
-  entity_class: "ProductGroup"
-  schema_candidate: "ProductGroup"
-  future_jsonld_id: "https://aerocool.ua/products/sky/#sky-360-product-group"
-  entity_home: "/products/sky/"
-  status: "planned"
-  variants:
-    - "sky-360"
-  varies_by:
-    - "model"
 
 wing-racer-product-group:
   name:
@@ -332,22 +302,6 @@ wing-loft-air-product-group:
     - "wing-loft-air-light-grey"
     - "wing-loft-air-dark-grey"
   varies_by:
-    - "color"
-
-wing-mesh-product-group:
-  name:
-    en: "Aerocool WING Mesh"
-    uk: "Aerocool WING Mesh"
-    ru: "Aerocool WING Mesh"
-  entity_class: "ProductGroup"
-  schema_candidate: "ProductGroup"
-  future_jsonld_id: "https://aerocool.ua/products/wing/#wing-mesh-product-group"
-  entity_home: "/products/wing/"
-  status: "planned"
-  variants:
-    - "wing-mesh-black"
-  varies_by:
-    - "material"
     - "color"
 
 xtal-racer-product-group:
@@ -382,32 +336,16 @@ xtal-loft-air-product-group:
   varies_by:
     - "color"
 
-xtal-mesh-product-group:
-  name:
-    en: "Aerocool XTAL Mesh"
-    uk: "Aerocool XTAL Mesh"
-    ru: "Aerocool XTAL Mesh"
-  entity_class: "ProductGroup"
-  schema_candidate: "ProductGroup"
-  future_jsonld_id: "https://aerocool.ua/products/xtal/#xtal-mesh-product-group"
-  entity_home: "/products/xtal/"
-  status: "planned"
-  variants:
-    - "xtal-mesh-black"
-  varies_by:
-    - "material"
-    - "color"
-
 sky-360:
   name:
     en: "Aerocool SKY 360"
     uk: "Aerocool SKY 360"
     ru: "Aerocool SKY 360"
-  entity_class: "ProductVariant"
+  entity_class: "Product"
   schema_candidate: "Product"
   current_jsonld_id: "https://aerocool.ua/products/sky/360/#product"
   entity_home: "/products/sky/360/"
-  parent: "sky-360-product-group"
+  parent: "sky-series"
   series: "sky-series"
   sku: "SKY-360-001"
   material: "mesh-material"
@@ -428,11 +366,11 @@ sky-lite:
     en: "Aerocool SKY Lite"
     uk: "Aerocool SKY Lite"
     ru: "Aerocool SKY Lite"
-  entity_class: "ProductVariant"
+  entity_class: "Product"
   schema_candidate: "Product"
   current_jsonld_id: "https://aerocool.ua/products/sky/lite/#product"
   entity_home: "/products/sky/lite/"
-  parent: "sky-lite-product-group"
+  parent: "sky-series"
   series: "sky-series"
   sku: "SKY-LITE-001"
   material: "mesh-material"
@@ -508,11 +446,11 @@ wing-mesh-black:
     en: "Aerocool WING Mesh Black"
     uk: "Aerocool WING Mesh Black"
     ru: "Aerocool WING Mesh Black"
-  entity_class: "ProductVariant"
+  entity_class: "Product"
   schema_candidate: "Product"
   current_jsonld_id: "https://aerocool.ua/products/wing/mesh-black/#product"
   entity_home: "/products/wing/mesh-black/"
-  parent: "wing-mesh-product-group"
+  parent: "wing-series"
   series: "wing-series"
   sku: "WING-MB-001"
   mpn: "TEGC-3098001.11"
@@ -643,11 +581,11 @@ xtal-mesh-black:
     en: "Aerocool XTAL Mesh Black"
     uk: "Aerocool XTAL Mesh Black"
     ru: "Aerocool XTAL Mesh Black"
-  entity_class: "ProductVariant"
+  entity_class: "Product"
   schema_candidate: "Product"
   current_jsonld_id: "https://aerocool.ua/products/xtal/mesh-black/#product"
   entity_home: "/products/xtal/mesh-black/"
-  parent: "xtal-mesh-product-group"
+  parent: "xtal-series"
   series: "xtal-series"
   sku: "XTAL-MB-001"
   mpn: "TEGC-2101101.11"

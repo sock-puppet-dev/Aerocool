@@ -152,7 +152,7 @@ mentions_entities:
 
 ## 8. `product_group_id`: К Какой Группе Вариантов Относится Товар
 
-`product_group_id` нужен только для товарных вариантов.
+`product_group_id` нужен только для товарных страниц, которые являются реальными вариантами одной модели. Одиночный товар без соседних вариантов не получает `product_group_id`: его связь с линейкой задается через `about_entities`, registry-поле `series` и страницу серии.
 
 Пример:
 
@@ -160,7 +160,7 @@ mentions_entities:
 product_group_id: "wing-racer-product-group"
 ```
 
-Это значит: конкретный товар, например `WING Racer Black`, относится к группе вариантов `WING Racer`.
+Это значит: конкретный товар, например `WING Racer Black`, относится к группе вариантов `WING Racer`, где есть минимум два соседних варианта одной модели.
 
 Важно: в текущем проекте ProductGroup entities пока остаются `planned`. Поэтому поле можно подготовить в front matter, но JSON-LD `isVariantOf` начнет выводиться только после двух условий:
 
@@ -295,7 +295,7 @@ about_entities:
 - Entity IDs есть в [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml).
 - Для JSON-LD используются только `confirmed` сущности.
 - Для `confirmed` materials/mechanisms/features/use cases/topics/policies registry node появляется только если сущность реально используется в `about_entities` или `mentions_entities`.
-- `product_group_id` заполнен только на товарных страницах.
+- `product_group_id` заполнен только на товарных страницах с реальными соседними вариантами.
 - ProductGroup не переводится в `confirmed` без видимой навигации вариантов.
 - Украинская и русская версии страницы синхронны.
 - `lastmod` обновлен.
@@ -307,7 +307,7 @@ about_entities:
 
 > `about_entities` — главная тема страницы.
 > `mentions_entities` — важные связанные сущности.
-> `product_group_id` — группа вариантов товара.
+> `product_group_id` — группа реальных вариантов одной модели, не линейка и не одиночный товар.
 > `data/entities.yaml` — список разрешенных id.
 > Видимый текст страницы — доказательство, что связь честная.
 

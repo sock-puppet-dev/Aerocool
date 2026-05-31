@@ -157,7 +157,7 @@
 ## Быстрая Карта Product Helpers
 
 - [layouts/_partials/products/gallery.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/gallery.html) — товарная галерея на детальной странице товара. Первый кадр берет из `image` во front matter, остальные изображения из page bundle товара выводит как компактные миниатюры. Большие изображения получают responsive WebP `srcset`; первый кадр грузится eager/fetchpriority high, дополнительные кадры и миниатюры — lazy.
-- [layouts/_partials/products/variant-swatches.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/variant-swatches.html) — видимый выбор цвета/варианта товара. Список вариантов строит из `product_group_id` и `data/entities.yaml`, находит страницы текущего языка и выводит swatches как ссылки на соседние variant URL. Если в группе только один вариант, блок не выводится.
+- [layouts/_partials/products/variant-swatches.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/variant-swatches.html) — видимый выбор цвета/варианта товара. Список вариантов строит из `product_group_id` и `data/entities.yaml` только для реальных ProductGroup с несколькими вариантами, находит страницы текущего языка и выводит swatches как ссылки на соседние variant URL. Одиночные товары без соседних вариантов не получают `product_group_id`.
 
 Важно по единому UI-слою:
 
@@ -912,7 +912,7 @@
 
 - безопасно резолвит список `about_entities` или `mentions_entities`;
 - удаляет повторяющиеся `entity_id`;
-- используется в `webpage`, `about-page`, `contact-page`, `collection`, `article` и `news` schema partials. Для товарных страниц `about_entities` и `mentions_entities` попадают в `WebPage`, а `Product` остается основным товарным узлом с `brand`, `offers`, `seller` и staged `product_group_id`.
+- используется в `webpage`, `about-page`, `contact-page`, `collection`, `article` и `news` schema partials. Для товарных страниц `about_entities` и `mentions_entities` попадают в `WebPage`, а `Product` остается основным товарным узлом с `brand`, `offers`, `seller` и, только для реальных групп вариантов, staged `product_group_id`.
 
 ### `article.html`
 

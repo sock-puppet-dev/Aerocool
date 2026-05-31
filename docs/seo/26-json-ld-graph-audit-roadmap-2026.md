@@ -103,7 +103,7 @@ Google отличает технически валидную structured data о
 
 ### P1. ProductGroup Для Вариантов
 
-У Aerocool есть варианты по сериям, модели, материалу и цвету. Если продуктовые URL остаются отдельными страницами вариантов, можно внедрить `ProductGroup`:
+У Aerocool есть отдельные товарные URL, но не каждый товар является вариантом ProductGroup. `ProductGroup` внедрять только там, где несколько URL представляют реальные варианты одной модели, например цветовые пары WING Racer, WING Loft Air, XTAL Racer и XTAL Loft Air:
 
 - `ProductGroup`;
 - `productGroupID`;
@@ -112,9 +112,9 @@ Google отличает технически валидную structured data о
 - `isVariantOf` или `inProductGroupWithID`;
 - variant-specific `color`, `material`, `sku`, `url`, `image`, `offers`.
 
-Это поможет Google понять, что отдельные URL являются вариантами одной продуктовой группы, а не полностью независимыми товарами.
+Это поможет Google понять, что отдельные URL являются вариантами одной продуктовой группы, а не полностью независимыми товарами. Одиночные товары, такие как SKY Lite, SKY 360, WING Mesh Black и XTAL Mesh Black, должны оставаться самостоятельными `Product` внутри своей серии, без `isVariantOf`.
 
-Важное условие: на странице должен быть видимый variant selector или хотя бы понятные ссылки на другие варианты. На `2026-05-28` этот UI-слой добавлен: `variant-swatches.html` выводит цветовые swatches как ссылки на соседние variant URL на основе `product_group_id` и `data/entities.yaml`.
+Важное условие: на странице должен быть видимый variant selector или хотя бы понятные ссылки на другие варианты. На `2026-05-28` этот UI-слой добавлен: `variant-swatches.html` выводит цветовые swatches как ссылки на соседние variant URL на основе `product_group_id` и `data/entities.yaml`. На `2026-05-31` singleton ProductGroup удалены из registry/front matter, чтобы `product_group_id` оставался только у реальных групп вариантов.
 
 ### P1. Свойства Товара
 

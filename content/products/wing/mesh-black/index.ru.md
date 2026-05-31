@@ -4,7 +4,7 @@ linkTitle: "Mesh Black"
 description: "Купить Aerocool WING Mesh Black в Украине — эргономичное компьютерное и офисное кресло серии WING с 11D регулировкой, Synchronous Tilt, двойной спинкой и поверхностью из вентилируемой сетки."
 summary: "Aerocool WING Mesh Black — компьютерное и офисное кресло серии WING с 11D регулировкой, двойной спинкой и максимально вентилируемой поверхностью."
 date: 2026-03-19
-lastmod: 2026-05-28
+lastmod: 2026-05-31
 schema_types: ["website", "product", "organization", "breadcrumbs"]
 about_entities:
   - "wing-mesh-black"
@@ -23,7 +23,6 @@ mentions_entities:
   - "payment-policy"
   - "return-policy"
   - "warranty-policy"
-product_group_id: "wing-mesh-product-group"
 slug: "mesh-black"
 categories: ["wing"]
 tags: ["aerocool", "эргономичное кресло", "компьютерное кресло", "офисное кресло", "wing", "mesh black"]

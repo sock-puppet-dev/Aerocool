@@ -257,6 +257,7 @@ AI follow-up вопросы не равны обычному Google `People Also
 - `Home office guide -> about -> office chair`;
 - `Product page -> seller -> Aerocool Ukraine`;
 - `Product variant -> isVariantOf -> ProductGroup`.
+- `Standalone product -> memberOf/about -> ProductSeries`.
 
 Такая запись помогает выбирать точные Schema.org properties, а не использовать общий `mentions` там, где подходит `brand`, `seller`, `about`, `mainEntity` или `isVariantOf`.
 
@@ -269,10 +270,10 @@ AI follow-up вопросы не равны обычному Google `People Also
 | Aerocool | `Brand` | `/` или `/about/` | Home, About, Product, Collection | Использовать стабильный `@id`; глобальные соцпрофили держать как `sameAs` бренда/global organization |
 | Aerocool Ukraine | `Organization` / `OnlineStore`, если подтвердится модель магазина | `/about/`, `/contact/`, `/faq/` | Organization graph, FAQ, Contact | Local facts подтверждены `2026-05-07`; не расширять до `OnlineStore`; связь с глобальным Aerocool через `parentOrganization` и `brand`, без local `sameAs` |
 | Каталог кресел | `CollectionPage` | `/products/` | Product hub, series pages | Связать с сериями и коммерческими интентами |
-| SKY | `ProductGroup` / `CollectionPage` | `/products/sky/` | Серия, товары, статьи | Entity IDs зафиксированы; перед JSON-LD ProductGroup нужна видимая variant navigation |
-| WING | `ProductGroup` / `CollectionPage` | `/products/wing/` | Серия, товары, статьи | Entity IDs зафиксированы; перед JSON-LD ProductGroup нужна видимая variant navigation |
-| XTAL | `ProductGroup` / `CollectionPage` | `/products/xtal/` | Серия, товары, статьи | Entity IDs зафиксированы; перед JSON-LD ProductGroup нужна видимая variant navigation |
-| Товарный вариант | `Product` | `/products/<series>/<model>/` | Product pages | Добавить `additionalProperty` после видимой таблицы характеристик |
+| SKY | `ProductSeries` / `CollectionPage` | `/products/sky/` | Серия, товары, статьи | SKY Lite и SKY 360 остаются самостоятельными Product внутри серии, без ProductGroup |
+| WING | `ProductSeries` / `CollectionPage` | `/products/wing/` | Серия, товары, статьи | ProductGroup использовать только для моделей с реальными цветовыми вариантами |
+| XTAL | `ProductSeries` / `CollectionPage` | `/products/xtal/` | Серия, товары, статьи | ProductGroup использовать только для моделей с реальными цветовыми вариантами |
+| Товар / товарный вариант | `Product` | `/products/<series>/<model>/` | Product pages | Добавить `additionalProperty` после видимой таблицы характеристик |
 | Игровое кресло | `Thing` / product category | `/products/`, статьи | Hubs, products, articles | Использовать как `about` для релевантных страниц |
 | Офисное кресло | `Thing` / product category | `/products/`, статьи | Hubs, products, articles | Использовать как `about` для home office страниц |
 | Компьютерное кресло | `Thing` / product category | `/products/`, статьи | Hubs, products, articles | Связать с выбором для работы и учебы |
@@ -297,7 +298,7 @@ AI follow-up вопросы не равны обычному Google `People Also
 | P0 | Уточнить источник рейтингов или убрать `aggregateRating` | Product schema | Рейтинг должен быть реальным и видимым |
 | P1 | `about` | Article, NewsArticle, CollectionPage | В front matter должна быть главная сущность страницы |
 | P1 | `mentions` | Article, NewsArticle, Product, CollectionPage | Нужны явные связанные товары/серии/темы |
-| P1 | `ProductGroup` | Product variants, series pages | Нужны group ID, variant links, visible variant navigation |
+| P1 | `ProductGroup` | Product variants внутри одной модели | Нужны group ID, variant links, visible variant navigation; одиночные товары не размечать как ProductGroup |
 | P1 | `additionalProperty` | Product | Нужна видимая таблица характеристик |
 | P2 | `DefinedTerm` / glossary layer | Articles, glossary or FAQ sections | Нужны реальные объяснения терминов |
 | P2 | Author / reviewer layer | Articles, NewsArticle | Только реальные люди или прозрачная организация |
@@ -314,7 +315,7 @@ AI follow-up вопросы не равны обычному Google `People Also
 - `mentions_entities`;
 - `product_group_id`.
 
-На `2026-05-07` эти поля точечно заполнены на priority pages. Новые значения не добавлять массово: каждое значение должно существовать в [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml), иметь статус `confirmed` для JSON-LD и быть видимо раскрыто в тексте, ссылках, навигации или характеристиках страницы. `product_group_id` может быть подготовлен как staged field, но `isVariantOf` появится только после подтверждения ProductGroup.
+На `2026-05-07` эти поля точечно заполнены на priority pages. На `2026-05-31` singleton ProductGroup вычищены: `product_group_id` оставлен только для реальных WING/XTAL цветовых вариантов. Новые значения не добавлять массово: каждое значение должно существовать в [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml), иметь статус `confirmed` для JSON-LD и быть видимо раскрыто в тексте, ссылках, навигации или характеристиках страницы. `product_group_id` может быть подготовлен как staged field, но `isVariantOf` появится только после подтверждения ProductGroup.
 
 Поля управляемой перелинковки уже используются шаблонным блоком “Что посмотреть дальше”:
 
@@ -447,7 +448,7 @@ AI-friendly контент не должен быть короче или бед
 ### P1
 
 1. Подготовить технический дизайн для `about` и `mentions`.
-2. Подготовить `ProductGroup` для вариантов по серии, модели, материалу и цвету.
+2. Подготовить `ProductGroup` только для реальных вариантов одной модели, прежде всего цветовых групп WING/XTAL.
 3. Добавить видимую таблицу характеристик как источник для `additionalProperty`.
 4. Усилить страницы терминов и сценариев: `Synchronous Tilt`, `SYNC4`, `SYNC5`, `Mesh`, `home office`, `dual backrest`.
 5. Проверить, какие текущие статьи лучше всего подходят как entity pages.
