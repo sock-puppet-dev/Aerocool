@@ -905,6 +905,7 @@
 
 - строит полноценный JSON-LD узел сущности из [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml);
 - используется для подтвержденных сущностей, которые нужно вывести как часть общего graph;
+- для `DefinedTerm` выводит только validator-safe поля: `@id`, `name`, `alternateName`, `identifier`, `termCode`, `url`, `subjectOf`;
 - не заменяет видимый контент страницы: сущность должна быть раскрыта на странице или в связанном контенте.
 
 ### `entity-node-list.html`

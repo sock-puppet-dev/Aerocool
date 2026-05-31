@@ -51,7 +51,7 @@
 - Не добавлять entity fields в `content/`, пока Hugo templates не умеют безопасно читать эти поля.
 - Не создавать новые schema nodes, если человек не видит соответствующий факт на странице.
 - Hugo генерирует отдельные registry-based JSON-LD nodes для `confirmed` сущностей классов `Material`, `Mechanism`, `Feature`, `UseCase`, `ContentTopic` и `Policy`, если они используются в `about_entities` или `mentions_entities`. Product, Organization, Brand, WebPage и Collection nodes не дублируются, потому что для них уже есть отдельные schema partials.
-- Registry-based nodes должны оставаться объяснительными: они называют сущность, дают стабильный `@id`, `entity_home`, localized `name`, `alternateName`, `identifier` и связи `isRelatedTo`, но не заменяют Product/Offer/FAQ/Article schema.
+- Registry-based nodes должны оставаться объяснительными: они называют сущность, дают стабильный `@id`, `entity_home`, localized `name`, `alternateName`, `identifier`, `termCode` для `DefinedTerm`, `url` и `subjectOf`, но не заменяют Product/Offer/FAQ/Article schema. Не добавлять в `DefinedTerm` свойства, которые Schema.org Validator не принимает для этого типа, например `inLanguage` или `isRelatedTo`.
 - Agentic actions не добавлять в JSON-LD, пока нет реального business endpoint, owner, input validation, success/failure states и видимого процесса для пользователя.
 
 ## 3. Статусы Сущностей

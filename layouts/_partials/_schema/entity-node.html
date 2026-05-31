@@ -65,9 +65,6 @@
         "name" $name
         "identifier" $id
       -}}
-      {{- with partial "page-language.html" $page -}}
-        {{- $node = merge $node (dict "inLanguage" .) -}}
-      {{- end -}}
       {{- if gt (len $alternateNames) 0 -}}
         {{- $node = merge $node (dict "alternateName" $alternateNames) -}}
       {{- end -}}
@@ -82,12 +79,6 @@
       {{- end -}}
       {{- if and (eq $entityClass "Policy") (ne $schemaCandidate "Thing") -}}
         {{- $node = merge $node (dict "additionalType" (printf "https://schema.org/%s" $schemaCandidate)) -}}
-      {{- end -}}
-      {{- with $entity.related -}}
-        {{- $relatedRefs := partial "_schema/entity-ref-list.html" (dict "site" $site "ids" .) -}}
-        {{- if gt (len $relatedRefs) 0 -}}
-          {{- $node = merge $node (dict "isRelatedTo" $relatedRefs) -}}
-        {{- end -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}

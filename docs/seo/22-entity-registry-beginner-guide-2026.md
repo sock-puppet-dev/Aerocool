@@ -76,7 +76,7 @@ product_group_id: "wing-racer-product-group"
 
 Шаблоны в `layouts/_partials/_schema/` читают front matter, проверяют `entity_id` через [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml) и выводят JSON-LD только для безопасных сущностей.
 
-Для части `confirmed` сущностей шаблоны теперь создают не только ссылку вида `{ "@id": "..." }`, но и отдельный небольшой JSON-LD node. Это касается материалов, механизмов, фич, сценариев, тем и service policy сущностей. Например `gaming-chair` может стать `DefinedTerm`, а `delivery-policy` — объяснительным `Thing` с `name`, `url`, `identifier` и связями. Product, Brand, Organization и WebPage так не дублируются, потому что для них уже есть отдельные schema partials.
+Для части `confirmed` сущностей шаблоны теперь создают не только ссылку вида `{ "@id": "..." }`, но и отдельный небольшой JSON-LD node. Это касается материалов, механизмов, фич, сценариев, тем и service policy сущностей. Например `gaming-chair` может стать `DefinedTerm`, а `delivery-policy` — объяснительным `Thing` с `name`, `url`, `identifier` и `subjectOf`. Product, Brand, Organization и WebPage так не дублируются, потому что для них уже есть отдельные schema partials.
 
 ## 4. Главное Правило
 
