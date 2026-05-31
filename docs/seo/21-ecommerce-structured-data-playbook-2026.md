@@ -11,6 +11,7 @@
 Текущий порядок внедрения для ratings, product facts, `ProductGroup` и production gate описан в [34-2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md).
 Реальные e-commerce customer stories Schema App по InSinkErator, Avid, CAPREIT, KEEN и Home Hardware разобраны в [46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md).
 Актуальный полный schema/entity audit зафиксирован в [57-2026-05-31-schema-entity-full-audit-current.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/57-2026-05-31-schema-entity-full-audit-current.md).
+Операционный регламент поддержки product facts зафиксирован в [58-product-facts-maintenance-process-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/58-product-facts-maintenance-process-2026.md).
 
 ## 1. Связь С Текущими Документами
 
@@ -213,7 +214,7 @@ Schema помогает E-E-A-T только тогда, когда усилив
 5. Проверить branch-сайт `dev` с тестовыми approved отзывами для остальных товаров перед переносом в `main`.
 6. Поддерживать product front matter как единый источник правды для merchant facts.
 7. Держать видимый commercial block, `/faq/` и `Product` JSON-LD синхронными с front matter по доставке, возврату, оплате и гарантии.
-8. При каждом изменении product facts брать подтверждение у команды Aerocool Украина.
+8. При каждом изменении product facts брать подтверждение у команды Aerocool Украина и проходить регламент [58-product-facts-maintenance-process-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/58-product-facts-maintenance-process-2026.md).
 
 ### P1
 

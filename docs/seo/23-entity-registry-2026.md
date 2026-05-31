@@ -25,7 +25,7 @@
 - не создавать ProductGroup для одиночных товаров без соседних вариантов;
 - добавлять новые `planned` feature/use case/material entities только после видимого объяснения и entity home;
 - завести регулярный Entity Performance Report;
-- описать операционный процесс поддержки product front matter;
+- исполнять операционный процесс поддержки product front matter из [58-product-facts-maintenance-process-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/58-product-facts-maintenance-process-2026.md);
 - поддерживать review governance через approved reviews pipeline и не возвращать ручные rating-поля во front matter.
 
 ## 1. Как Использовать Этот Документ
@@ -46,7 +46,7 @@
 - Внешние профили Aerocool остаются у `https://aerocool.io/#brand` и `https://aerocool.io/#organization`.
 - Официальный реестр `sameAs` проверять раз в квартал: URL должен быть живым, стабильным и по-прежнему представлять ту же global Aerocool entity.
 - `additionalType` не является заменой `sameAs`. Его можно рассматривать только для уточнения типа через внешний словарь, если внешний термин является более узким типом текущей сущности.
-- Product facts canonical source — product front matter; владелец business values — команда Aerocool Украина.
+- Product facts canonical source — product front matter; владелец business values — команда Aerocool Украина; процесс подтверждения, внесения и QA описан в [58-product-facts-maintenance-process-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/58-product-facts-maintenance-process-2026.md).
 - Не добавлять entity fields в `content/`, пока Hugo templates не умеют безопасно читать эти поля.
 - Не создавать новые schema nodes, если человек не видит соответствующий факт на странице.
 - Hugo генерирует отдельные registry-based JSON-LD nodes для `confirmed` сущностей классов `Material`, `Mechanism`, `Feature`, `UseCase`, `ContentTopic` и `Policy`, если они используются в `about_entities` или `mentions_entities`. Product, Organization, Brand, WebPage и Collection nodes не дублируются, потому что для них уже есть отдельные schema partials.
@@ -363,7 +363,7 @@ Action нельзя создавать как “идею”. Он должен 
 | Action ID | Человеческое Действие | Возможная Сущность/Endpoint | Минимальные Входные Данные | Владелец | Статус | Блокер |
 | --- | --- | --- | --- | --- | --- | --- |
 | `compare-chairs` | Сравнить кресла | product/series comparison page | series/model IDs, язык, сценарий | Aerocool Ukraine + content owner | `planned` | Нужны стабильные comparison rules и visible comparison pages |
-| `check-availability` | Проверить наличие | product front matter или будущий inventory endpoint | product ID, регион при необходимости | Aerocool Ukraine | `planned` | Нужен операционный процесс обновления наличия |
+| `check-availability` | Проверить наличие | product front matter или будущий inventory endpoint | product ID, регион при необходимости | Aerocool Ukraine | `planned` | Процесс обновления наличия описан; action останется planned до появления реального endpoint |
 | `request-consultation` | Запросить консультацию | contact form | имя, контакт, интересующий товар/сценарий, язык | Aerocool Ukraine | `planned` | Нужен подтвержденный процесс обработки заявок |
 | `submit-contact-form` | Отправить форму контакта | contact form | имя, email/phone, сообщение, consent где нужно | Aerocool Ukraine | `planned` | Нужны validation, anti-spam и success/failure states |
 | `buy-product` | Купить товар | checkout или официальный purchase endpoint | product ID, цена, доставка, оплата, контакт | Aerocool Ukraine | `do-not-markup` | Нет подтвержденного checkout/purchase endpoint |

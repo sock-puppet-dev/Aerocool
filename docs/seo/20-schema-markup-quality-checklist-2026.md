@@ -13,6 +13,7 @@
 Дополнительный аудит support-статей Schema App по `sameAs`, primary entity, `additionalType`, breadcrumbs и image license metadata: [42-2026-05-17-schemaapp-support-knowledge-base-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/42-2026-05-17-schemaapp-support-knowledge-base-audit.md).
 Анализ 4 PDF Schema App про connected schema, Content Knowledge Graphs, impact и Agentic Web: [44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md).
 Анализ 21 Schema App customer stories/case studies по real-world внедрениям: [46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md).
+Операционный регламент поддержки product facts: [58-product-facts-maintenance-process-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/58-product-facts-maintenance-process-2026.md).
 Обновление `2026-05-25` учитывает статью Schema App [Stop Chasing Visibility. Build Understanding.](https://www.schemaapp.com/schema-markup/stop-chasing-visibility-build-understanding/) и официальный Google guide [Optimizing your website for generative AI features on Google Search](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide).
 
 ## 0. Рамка Для AI Search
@@ -132,6 +133,8 @@ Healthcare-гайд полезен как напоминание: schema.org typ
 - `isVariantOf` / `inProductGroupWithID` для confirmed ProductGroup вариантов.
 
 На `2026-05-31` `Product.color` выводится из registry, а `Product.additionalProperty` строится из видимой вкладки `characteristics`. Если характеристика не видна пользователю, она не должна попадать в `additionalProperty`.
+
+Для цены, наличия, гарантии, доставки, возврата, оплаты, `priceValidUntil`, цвета и характеристик использовать регламент [58-product-facts-maintenance-process-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/58-product-facts-maintenance-process-2026.md): сначала бизнес-подтверждение, затем front matter или registry, затем видимый HTML, JSON-LD и `/faq/`, если факт относится к общей политике.
 
 Открытый риск: `aggregateRating`. Его нужно держать только при реальном и видимом источнике рейтинга/отзывов. Целевой источник для проекта — approved отзывы из `Netlify Database`, выгруженные на build в `data/generated/reviews.json`.
 

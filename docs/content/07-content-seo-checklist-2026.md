@@ -325,8 +325,8 @@
 - [ ] Для товарных страниц обязательно заполнять `title`, `description`, `summary`, `date`, `lastmod`, `slug`, `categories`, `tags`, `image`, `schema_types`, `price`, `sku`, `availability`, `priceValidUntil`.
 - [ ] Для товарных страниц желательно заполнять `mpn`, `gtin13`, `warranty`, `review_target_id`, `reviews_enabled`, `return_days`, `return_method`, `return_fees`, `shipping_country`, `shipping_rate`, `shipping_currency`, `shipping_handling_min`, `shipping_handling_max`, `shipping_transit_min`, `shipping_transit_max`, `payment_methods`, если эти данные доступны.
 - [ ] Не добавлять `rating.value` и `rating.count` в товарный front matter: SEO-рейтинги должны приходить из approved отзывов, а не из ручных полей.
-- [ ] Бизнес-значения product facts должны быть подтверждены командой Aerocool Украина перед изменением front matter.
-- [ ] Если меняются доставка, возврат или способы оплаты, сначала обновлять product front matter, затем синхронно проверять `Product` JSON-LD, видимый коммерческий блок товарных страниц и `/faq/`.
+- [ ] Бизнес-значения product facts должны быть подтверждены командой Aerocool Украина перед изменением front matter по регламенту [58-product-facts-maintenance-process-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/58-product-facts-maintenance-process-2026.md).
+- [ ] Если меняются цена, наличие, гарантия, доставка, возврат, способы оплаты, `priceValidUntil`, цвет или характеристики, сначала обновлять product front matter или registry, затем синхронно проверять `Product` JSON-LD, видимый коммерческий блок товарных страниц и `/faq/`, если изменение относится к общей политике.
 - [ ] Для статей обязательно заполнять `title`, `description`, `summary`, `date`, `lastmod`, `slug`, `image`, `schema_types`.
 - [ ] Для статей желательно заполнять `tags`, `categories` или иной тематический классификатор, если он используется в перелинковке.
 - [ ] Для новостей обязательно заполнять `title`, `description`, `date`, `lastmod`, `slug`, `image`, `schema_types`.

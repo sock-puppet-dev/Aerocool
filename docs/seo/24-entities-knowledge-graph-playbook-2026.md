@@ -56,7 +56,7 @@ Knowledge graph — это сеть отношений между сущност
 Для Aerocool это значит:
 
 - `data/entities.yaml` и `docs/seo/23-entity-registry-2026.md` являются governance-слоем сущностей, а не справочником “для красоты”;
-- product front matter является источником правды для merchant facts, а не дублем JSON-LD;
+- product front matter является источником правды для merchant facts, а не дублем JSON-LD; поддерживать его нужно по регламенту [58-product-facts-maintenance-process-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/58-product-facts-maintenance-process-2026.md);
 - `/faq/`, `/contact/`, `/about/`, серии, товары и статьи должны взаимно подтверждать факты, а не рассказывать разные версии;
 - `about_entities`, `mentions_entities`, `product_group_id`, `related_*` и видимые внутренние ссылки должны усиливать одну и ту же карту связей;
 - graph-аудит должен проверять не только валидность JSON, но и то, насколько уверенно машина может понять бренд, товар, серию, материал, механизм и условия покупки.
@@ -83,7 +83,7 @@ Customer stories Schema App подтверждают практическую с
 | --- | --- | --- |
 | Creation | Определить сущности, entity home, `@id`, связи и видимый контент | `data/entities.yaml`, front matter, страницы сущностей |
 | Hosting | Опубликовать graph в crawlable HTML через JSON-LD | централизованный `@graph` из Hugo partials |
-| Curation | Регулярно проверять факты, статусы, `sameAs`, product facts и schema drift | меньше дублей, битых `@id` и устаревших коммерческих данных |
+| Curation | Регулярно проверять факты, статусы, `sameAs`, product facts по регламенту и schema drift | меньше дублей, битых `@id` и устаревших коммерческих данных |
 | Deployment / Reuse | Использовать graph для SEO, AI Search, отчетности, будущего `llms.txt` или agentic surfaces | entity coverage reports, AI citation audits, будущие data endpoints при необходимости |
 
 Не внедрять triplestore, SPARQL или отдельный graph database сейчас. Для текущего масштаба проекта достаточно качественного registry, rendered JSON-LD и регулярной отчетности.
