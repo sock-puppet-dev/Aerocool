@@ -388,7 +388,7 @@ Customer stories Schema App подтверждают ту же логику на
 - привязывать schema-изменения к цели страницы и измеримой метрике;
 - поддерживать schema ownership и backlog как часть контентно-технического процесса;
 - при новых страницах выбирать type через intent страницы, а не по шаблону “похоже на прошлую”.
-- после production добавить entity-level reporting: entity -> URL -> impressions -> clicks -> CTR -> AI citations -> business actions.
+- поддерживать [Entity Performance Report](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md): entity -> URL -> impressions -> clicks -> CTR -> AI citations -> business actions; внешние performance-поля заполнять после production.
 
 ## 12. Что Не Менять Сейчас
 

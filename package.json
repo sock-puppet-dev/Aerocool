@@ -8,6 +8,7 @@
   "scripts": {
     "prebuild": "git submodule update --init --recursive",
     "export:reviews": "node scripts/export_reviews.mjs",
+    "entity:report": "node scripts/generate_entity_performance_report.mjs",
     "build": "node scripts/export_reviews.mjs && hugo --environment development --gc --minify",
     "build:production": "node scripts/export_reviews.mjs && hugo --environment production --gc --minify",
     "predev": "git submodule update --init --recursive",

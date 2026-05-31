@@ -137,6 +137,14 @@ npm run dev
 npm run build
 ```
 
+После schema/entity изменений можно обновить Entity Performance Report:
+
+```bash
+npm run entity:report
+```
+
+Generated CSV отчета не редактировать вручную: внешние GSC/AI/business-метрики добавлять в [59-entity-performance-overrides.csv](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-overrides.csv).
+
 Локальная production-сборка:
 
 ```bash

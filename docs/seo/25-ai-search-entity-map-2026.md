@@ -455,7 +455,7 @@ AI-friendly контент не должен быть короче или бед
 5. Проверить, какие текущие статьи лучше всего подходят как entity pages.
 6. Расширить prompt-аудит до матрицы `persona × intent stage`.
 7. Описать компонентные паттерны для product, series, article, news и FAQ страниц.
-8. Добавить entity-level performance baseline после production-индексации.
+8. Заполнять внешние GSC/AI/business-метрики в [Entity Performance Report](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md) после production-индексации.
 
 ### P2
 

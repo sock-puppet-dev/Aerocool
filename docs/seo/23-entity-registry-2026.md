@@ -24,7 +24,7 @@
 
 - не создавать ProductGroup для одиночных товаров без соседних вариантов;
 - добавлять новые `planned` feature/use case/material entities только после видимого объяснения и entity home;
-- завести регулярный Entity Performance Report;
+- поддерживать регулярный [Entity Performance Report](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md) через `npm run entity:report`;
 - исполнять операционный процесс поддержки product front matter из [58-product-facts-maintenance-process-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/58-product-facts-maintenance-process-2026.md);
 - поддерживать review governance через approved reviews pipeline и не возвращать ручные rating-поля во front matter.
 
