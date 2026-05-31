@@ -893,9 +893,10 @@
 Что делает:
 
 - безопасно резолвит один `entity_id` из [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml);
-- возвращает JSON-LD reference вида `{"@id": "..."}`;
+- возвращает JSON-LD reference вида `{"@id": "...", "@type": "..."}`, если у сущности есть `schema_candidate`;
 - по умолчанию выводит только сущности со статусом `confirmed`;
-- игнорирует неизвестные, `planned`, `needs-review` и `do-not-markup` сущности, чтобы front matter не ломал сборку.
+- игнорирует неизвестные, `planned`, `needs-review` и `do-not-markup` сущности, чтобы front matter не ломал сборку;
+- нужен для validator-safe ссылок в `about`, `mentions`, `hasVariant` и других местах, где Schema.org Validator должен понимать тип целевого `@id`.
 
 ### `entity-node.html`
 

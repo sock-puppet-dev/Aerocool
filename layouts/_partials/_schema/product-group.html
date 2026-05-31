@@ -39,14 +39,8 @@
         "productGroupID" $groupID
         "brand" (dict "@id" "https://aerocool.io/#brand")
       -}}
-      {{- with partial "page-language.html" $ -}}
-        {{- $node = merge $node (dict "inLanguage" .) -}}
-      {{- end -}}
       {{- with $homeURL -}}
-        {{- $node = merge $node (dict
-          "url" .
-          "isPartOf" (dict "@id" (printf "%s#collection" .))
-        ) -}}
+        {{- $node = merge $node (dict "url" .) -}}
       {{- end -}}
       {{- if gt (len $variantRefs) 0 -}}
         {{- $node = merge $node (dict "hasVariant" $variantRefs) -}}

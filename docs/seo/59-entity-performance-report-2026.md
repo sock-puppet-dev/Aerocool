@@ -152,7 +152,7 @@ JSON-LD parse errors не найдены.
 | wing-racer-black | confirmed | ProductVariant | [/products/wing/racer-black/](https://aerocool.ua/products/wing/racer-black/) | 2 | 6 | 0 | 20 | 1 | pending-production | pending-production | pending-production | ok |
 | wing-racer-dark-grey | confirmed | ProductVariant | [/products/wing/racer-dark-grey/](https://aerocool.ua/products/wing/racer-dark-grey/) | 2 | 4 | 0 | 16 | 1 | pending-production | pending-production | pending-production | ok |
 | wing-racer-product-group | confirmed | ProductGroup | [/products/wing/](https://aerocool.ua/products/wing/) | 0 | 0 | 4 | 8 | 4 | pending-production | pending-production | pending-production | active ProductGroup |
-| wing-series | confirmed | ProductSeries | [/products/wing/](https://aerocool.ua/products/wing/) | 20 | 36 | 0 | 130 | 1 | pending-production | pending-production | pending-production | ok |
+| wing-series | confirmed | ProductSeries | [/products/wing/](https://aerocool.ua/products/wing/) | 20 | 36 | 0 | 122 | 1 | pending-production | pending-production | pending-production | ok |
 | xtal-loft-air-dark-grey | confirmed | ProductVariant | [/products/xtal/loft-air-dark-grey/](https://aerocool.ua/products/xtal/loft-air-dark-grey/) | 2 | 8 | 0 | 24 | 1 | pending-production | pending-production | pending-production | ok |
 | xtal-loft-air-light-grey | confirmed | ProductVariant | [/products/xtal/loft-air-light-grey/](https://aerocool.ua/products/xtal/loft-air-light-grey/) | 2 | 6 | 0 | 20 | 1 | pending-production | pending-production | pending-production | ok |
 | xtal-loft-air-product-group | confirmed | ProductGroup | [/products/xtal/](https://aerocool.ua/products/xtal/) | 0 | 0 | 4 | 8 | 4 | pending-production | pending-production | pending-production | active ProductGroup |
@@ -160,7 +160,7 @@ JSON-LD parse errors не найдены.
 | xtal-racer-black | confirmed | ProductVariant | [/products/xtal/racer-black/](https://aerocool.ua/products/xtal/racer-black/) | 2 | 4 | 0 | 16 | 1 | pending-production | pending-production | pending-production | ok |
 | xtal-racer-dark-grey | confirmed | ProductVariant | [/products/xtal/racer-dark-grey/](https://aerocool.ua/products/xtal/racer-dark-grey/) | 2 | 6 | 0 | 20 | 1 | pending-production | pending-production | pending-production | ok |
 | xtal-racer-product-group | confirmed | ProductGroup | [/products/xtal/](https://aerocool.ua/products/xtal/) | 0 | 0 | 4 | 8 | 4 | pending-production | pending-production | pending-production | active ProductGroup |
-| xtal-series | confirmed | ProductSeries | [/products/xtal/](https://aerocool.ua/products/xtal/) | 20 | 36 | 0 | 130 | 1 | pending-production | pending-production | pending-production | ok |
+| xtal-series | confirmed | ProductSeries | [/products/xtal/](https://aerocool.ua/products/xtal/) | 20 | 36 | 0 | 122 | 1 | pending-production | pending-production | pending-production | ok |
 
 ## 7. Как Использовать Отчет
 

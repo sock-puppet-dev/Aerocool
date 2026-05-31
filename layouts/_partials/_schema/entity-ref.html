@@ -17,11 +17,15 @@
 {{- end -}}
 {{- $result := false -}}
 {{- with index $entities $id -}}
+  {{- $entity := . -}}
   {{- $status := .status | default "planned" -}}
   {{- if or (eq $status "confirmed") (and $allowPlanned (eq $status "planned")) -}}
     {{- $jsonldID := .current_jsonld_id | default .future_jsonld_id -}}
     {{- with $jsonldID -}}
       {{- $result = dict "@id" . -}}
+      {{- with ($entity.schema_candidate | default "") -}}
+        {{- $result = merge $result (dict "@type" .) -}}
+      {{- end -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}
