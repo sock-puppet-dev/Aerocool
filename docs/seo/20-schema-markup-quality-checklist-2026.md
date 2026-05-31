@@ -129,7 +129,7 @@ Healthcare-гайд полезен как напоминание: schema.org typ
 - `color`;
 - `material`;
 - `additionalProperty` для механизма, подлокотников, базы, роликов, гарантии, сценария использования;
-- `isVariantOf` / `inProductGroupWithID` после внедрения `ProductGroup`.
+- `isVariantOf` / `inProductGroupWithID` для confirmed ProductGroup вариантов.
 
 Открытый риск: `aggregateRating`. Его нужно держать только при реальном и видимом источнике рейтинга/отзывов. Целевой источник для проекта — approved отзывы из `Netlify Database`, выгруженные на build в `data/generated/reviews.json`.
 
@@ -376,7 +376,7 @@ Customer stories Schema App подтверждают ту же логику на
 
 - формализовать registry сущностей и `@id`;
 - внедрить `about` и `mentions` через явные front matter поля;
-- внедрить `ProductGroup` для вариантов;
+- поддерживать активный `ProductGroup` для реальных вариантов и не расширять его на одиночные товары;
 - добавить видимые характеристики и затем `additionalProperty`;
 - документировать источник рейтингов или убрать `aggregateRating`;
 - создать schema drift QA как регулярную проверку;

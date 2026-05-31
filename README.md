@@ -1,6 +1,6 @@
 # Aerocool Ukraine
 
-Обновлено: 2026-05-26.
+Обновлено: 2026-05-31.
 
 `Aerocool Ukraine` — двуязычный маркетинговый и каталоговый сайт на `Hugo` для кресел Aerocool в Украине. Основной язык — украинский (`uk`), второй язык — русский (`ru`). Сайт собирается статически, деплоится через `Netlify`, использует локальные Hugo overrides поверх темы `PaperMod` и отдельный Unlighthouse-набор для технического аудита качества.
 
@@ -15,7 +15,7 @@
 
 Для текущих задач по Core Web Vitals читать `docs/quality/12-core-web-vitals-guide-2026.md` и актуальный аудит `docs/audits/54-2026-05-26-core-web-vitals-current-audit.md`.
 
-Для текущих задач по JSON-LD, schema.org, Entity Registry, `about_entities`, `mentions_entities`, `ProductGroup`, `sameAs` и graph-аудиту читать `docs/seo/23-entity-registry-2026.md`, `docs/seo/26-json-ld-graph-audit-roadmap-2026.md` и актуальный аудит `docs/audits/55-2026-05-26-schema-entity-full-audit.md`.
+Для текущих задач по JSON-LD, schema.org, Entity Registry, `about_entities`, `mentions_entities`, `ProductGroup`, `sameAs` и graph-аудиту читать `docs/seo/23-entity-registry-2026.md`, `docs/seo/26-json-ld-graph-audit-roadmap-2026.md` и актуальный аудит `docs/audits/57-2026-05-31-schema-entity-full-audit-current.md`.
 
 Проще говоря: `content/` отвечает за текст и данные страниц, `layouts/` отвечает за HTML/SEO/schema-логику, `assets/` отвечает за CSS/JS, а `unlighthouse/` отвечает за аудит качества.
 
@@ -66,7 +66,7 @@
 Сейчас `netlify.toml` намеренно собирает сайт в `development`:
 
 ```toml
-command = "git submodule update --init --recursive && hugo --environment development --gc --minify"
+command = "git submodule update --init --recursive && node scripts/export_reviews.mjs && hugo --environment development --gc --minify"
 HUGO_ENVIRONMENT = "development"
 ```
 
@@ -79,7 +79,7 @@ HUGO_ENVIRONMENT = "development"
 Когда сайт готов к индексации, нужно отдельно поменять Netlify на:
 
 ```toml
-command = "git submodule update --init --recursive && hugo --environment production --gc --minify"
+command = "git submodule update --init --recursive && node scripts/export_reviews.mjs && hugo --environment production --gc --minify"
 HUGO_ENVIRONMENT = "production"
 ```
 
@@ -292,7 +292,7 @@ cover:
 
 Цвет на товарной странице — это не декоративный radio button, а ссылка на отдельный URL товарного варианта. Например, `WING Racer Black` и `WING Racer Dark Grey` остаются отдельными страницами, а видимый swatch переводит пользователя между ними.
 
-Шаблон `layouts/_partials/products/variant-swatches.html` берет список вариантов из `product_group_id` и `data/entities.yaml`, фильтрует страницы по текущему языку и выводит swatches только если в реальной ProductGroup больше одного варианта. Одиночные товары не получают `product_group_id`; они связаны с линейкой через `about_entities`, `series` в registry и страницу серии. Ручной список цветов в front matter не нужен. `ProductGroup`, `isVariantOf` и `inProductGroupWithID` включать только после перевода соответствующих ProductGroup entities в `confirmed`.
+Шаблон `layouts/_partials/products/variant-swatches.html` берет список вариантов из `product_group_id` и `data/entities.yaml`, фильтрует страницы по текущему языку и выводит swatches только если в реальной ProductGroup больше одного варианта. Одиночные товары не получают `product_group_id`; они связаны с линейкой через `about_entities`, `series` в registry и страницу серии. Ручной список цветов в front matter не нужен. На 2026-05-31 `ProductGroup`, `isVariantOf` и `inProductGroupWithID` активны только для четырех confirmed WING/XTAL цветовых групп.
 
 ## 10. JavaScript и CSP
 

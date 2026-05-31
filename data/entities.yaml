@@ -134,7 +134,7 @@ faq-page:
     - "return-policy"
     - "warranty-policy"
 
-products-collection:
+aerocool-catalog:
   name:
     en: "Aerocool chairs catalog"
     uk: "Каталог крісел Aerocool"
@@ -152,22 +152,6 @@ products-collection:
     - "gaming-chair"
     - "office-chair"
     - "computer-chair"
-
-aerocool-catalog:
-  name:
-    en: "Aerocool chairs catalog"
-    uk: "Каталог крісел Aerocool"
-    ru: "Каталог кресел Aerocool"
-  entity_class: "Collection"
-  schema_candidate: "CollectionPage"
-  current_jsonld_id: "https://aerocool.ua/products/#collection"
-  entity_home: "/products/"
-  owner: "Aerocool Ukraine"
-  status: "confirmed"
-  related:
-    - "sky-series"
-    - "wing-series"
-    - "xtal-series"
 
 articles-collection:
   name:
@@ -281,7 +265,7 @@ wing-racer-product-group:
   schema_candidate: "ProductGroup"
   future_jsonld_id: "https://aerocool.ua/products/wing/#wing-racer-product-group"
   entity_home: "/products/wing/"
-  status: "planned"
+  status: "confirmed"
   variants:
     - "wing-racer-black"
     - "wing-racer-dark-grey"
@@ -297,7 +281,7 @@ wing-loft-air-product-group:
   schema_candidate: "ProductGroup"
   future_jsonld_id: "https://aerocool.ua/products/wing/#wing-loft-air-product-group"
   entity_home: "/products/wing/"
-  status: "planned"
+  status: "confirmed"
   variants:
     - "wing-loft-air-light-grey"
     - "wing-loft-air-dark-grey"
@@ -313,7 +297,7 @@ xtal-racer-product-group:
   schema_candidate: "ProductGroup"
   future_jsonld_id: "https://aerocool.ua/products/xtal/#xtal-racer-product-group"
   entity_home: "/products/xtal/"
-  status: "planned"
+  status: "confirmed"
   variants:
     - "xtal-racer-black"
     - "xtal-racer-dark-grey"
@@ -329,7 +313,7 @@ xtal-loft-air-product-group:
   schema_candidate: "ProductGroup"
   future_jsonld_id: "https://aerocool.ua/products/xtal/#xtal-loft-air-product-group"
   entity_home: "/products/xtal/"
-  status: "planned"
+  status: "confirmed"
   variants:
     - "xtal-loft-air-light-grey"
     - "xtal-loft-air-dark-grey"
@@ -710,7 +694,7 @@ leatherette-material:
   schema_candidate: "DefinedTerm"
   future_jsonld_id: "https://aerocool.ua/articles/racer-vs-loft-air-vs-mesh/#leatherette-material"
   entity_home: "/articles/racer-vs-loft-air-vs-mesh/"
-  status: "planned"
+  status: "confirmed"
   related:
     - "racer-material"
 
@@ -723,7 +707,7 @@ fabric-material:
   schema_candidate: "DefinedTerm"
   future_jsonld_id: "https://aerocool.ua/articles/racer-vs-loft-air-vs-mesh/#fabric-material"
   entity_home: "/articles/racer-vs-loft-air-vs-mesh/"
-  status: "planned"
+  status: "confirmed"
   related:
     - "loft-air-material"
 
@@ -852,7 +836,10 @@ lumbar-support:
   schema_candidate: "DefinedTerm"
   future_jsonld_id: "https://aerocool.ua/products/#lumbar-support"
   entity_home: "/products/"
-  status: "planned"
+  status: "confirmed"
+  related:
+    - "ergonomic-chair"
+    - "home-office"
 
 armrests-4d-x-360:
   name:
@@ -863,7 +850,10 @@ armrests-4d-x-360:
   schema_candidate: "DefinedTerm"
   future_jsonld_id: "https://aerocool.ua/products/wing/#armrests-4d-x-360"
   entity_home: "/products/wing/"
-  status: "planned"
+  status: "confirmed"
+  related:
+    - "wing-series"
+    - "11d-adjustment"
 
 armrests-3d-x-360:
   name:
@@ -874,7 +864,10 @@ armrests-3d-x-360:
   schema_candidate: "DefinedTerm"
   future_jsonld_id: "https://aerocool.ua/products/sky/#armrests-3d-x-360"
   entity_home: "/products/sky/"
-  status: "planned"
+  status: "confirmed"
+  related:
+    - "sky-360"
+    - "11d-adjustment"
 
 gaming-chair:
   name:
@@ -974,7 +967,7 @@ hot-room:
   schema_candidate: "DefinedTerm"
   future_jsonld_id: "https://aerocool.ua/articles/racer-vs-loft-air-vs-mesh/#hot-room"
   entity_home: "/articles/racer-vs-loft-air-vs-mesh/"
-  status: "planned"
+  status: "confirmed"
   related:
     - "mesh-material"
     - "loft-air-material"
@@ -1076,4 +1069,4 @@ review-layer:
   entity_class: "Review"
   schema_candidate: "Review"
   status: "do-not-markup"
-  notes: "Rating source and individual review evidence are not confirmed."
+  notes: "Reviews are handled per product through approved Netlify Database snapshots; no standalone Review entity should be used in the registry."

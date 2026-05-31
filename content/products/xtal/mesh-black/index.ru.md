@@ -15,8 +15,10 @@ about_entities:
 mentions_entities:
   - "aerocool-brand"
   - "mesh-material"
+  - "hot-room"
   - "synchronous-tilt"
   - "7d-adjustment"
+  - "lumbar-support"
   - "gaming-chair"
   - "delivery-policy"
   - "payment-policy"

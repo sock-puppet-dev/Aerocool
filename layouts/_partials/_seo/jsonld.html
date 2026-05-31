@@ -46,6 +46,9 @@
 
 {{/* PRODUCT */}}
 {{- if and .IsPage (in $schemaTypes "product") -}}
+  {{- with partial "_schema/product-group.html" . -}}
+    {{- $graph = $graph | append . -}}
+  {{- end -}}
   {{- with partial "_schema/product.html" . -}}
     {{- $graph = $graph | append (transform.Unmarshal .) -}}
   {{- end -}}

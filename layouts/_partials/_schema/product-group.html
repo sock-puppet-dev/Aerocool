@@ -1,0 +1,60 @@
+{{- $groupID := .Params.product_group_id | default "" -}}
+{{- $entities := index hugo.Data "entities" -}}
+{{- $node := false -}}
+{{- with index $entities $groupID -}}
+  {{- $group := . -}}
+  {{- if eq ($group.status | default "planned") "confirmed" -}}
+    {{- $jsonldID := $group.current_jsonld_id | default $group.future_jsonld_id -}}
+    {{- with $jsonldID -}}
+      {{- $lang := $.Language.Name | default "en" -}}
+      {{- $names := $group.name | default dict -}}
+      {{- $name := index $names $lang | default (index $names "en") | default $groupID -}}
+      {{- $homeURL := "" -}}
+      {{- with $group.entity_home -}}
+        {{- if or (hasPrefix . "http://") (hasPrefix . "https://") -}}
+          {{- $homeURL = . -}}
+        {{- else -}}
+          {{- $homeURL = . | absURL -}}
+        {{- end -}}
+      {{- end -}}
+      {{- $variantRefs := slice -}}
+      {{- range ($group.variants | default (slice)) -}}
+        {{- with partial "_schema/entity-ref.html" (dict "site" $.Site "id" .) -}}
+          {{- $variantRefs = $variantRefs | append . -}}
+        {{- end -}}
+      {{- end -}}
+      {{- $variesBy := slice -}}
+      {{- range ($group.varies_by | default (slice)) -}}
+        {{- $value := printf "%s" . -}}
+        {{- if eq $value "color" -}}
+          {{- $variesBy = $variesBy | append "https://schema.org/color" -}}
+        {{- else -}}
+          {{- $variesBy = $variesBy | append $value -}}
+        {{- end -}}
+      {{- end -}}
+      {{- $node = dict
+        "@type" "ProductGroup"
+        "@id" .
+        "name" $name
+        "productGroupID" $groupID
+        "brand" (dict "@id" "https://aerocool.io/#brand")
+      -}}
+      {{- with partial "page-language.html" $ -}}
+        {{- $node = merge $node (dict "inLanguage" .) -}}
+      {{- end -}}
+      {{- with $homeURL -}}
+        {{- $node = merge $node (dict
+          "url" .
+          "isPartOf" (dict "@id" (printf "%s#collection" .))
+        ) -}}
+      {{- end -}}
+      {{- if gt (len $variantRefs) 0 -}}
+        {{- $node = merge $node (dict "hasVariant" $variantRefs) -}}
+      {{- end -}}
+      {{- if gt (len $variesBy) 0 -}}
+        {{- $node = merge $node (dict "variesBy" $variesBy) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $node -}}

@@ -21,6 +21,8 @@ mentions_entities:
   - "synchronous-tilt"
   - "sync5-mechanism"
   - "11d-adjustment"
+  - "lumbar-support"
+  - "armrests-3d-x-360"
   - "delivery-policy"
   - "payment-policy"
   - "return-policy"

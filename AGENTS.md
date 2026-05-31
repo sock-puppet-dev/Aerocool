@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Обновлено: 2026-05-28.
+Обновлено: 2026-05-31.
 
 ## Обзор Проекта
 
@@ -111,8 +111,9 @@
 - `docs/audits/54-2026-05-26-core-web-vitals-current-audit.md`
 - `docs/audits/55-2026-05-26-schema-entity-full-audit.md`
 - `docs/audits/56-2026-05-26-hugo-0-162-compliance-audit.md`
+- `docs/audits/57-2026-05-31-schema-entity-full-audit-current.md`
 
-Для новичка порядок чтения такой: сначала `README.md`, затем `AGENTS.md`, затем `docs/01-documentation-map.md`, затем `docs/architecture/02-documentation-style-guide.md`, затем `docs/architecture/03-hugo-template-helpers.md`, затем `docs/content/05-front-matter-reference.md`, затем `docs/quality/13-unlighthouse-site-audit.md`. Для SEO/schema-задач после этого читать `docs/seo/19-schema-types-reference.md`, `docs/seo/20-schema-markup-quality-checklist-2026.md`, `docs/seo/24-entities-knowledge-graph-playbook-2026.md`, `docs/seo/26-json-ld-graph-audit-roadmap-2026.md` и текущий аудит `docs/audits/55-2026-05-26-schema-entity-full-audit.md`. Для задач по ключевым словам, семантике и планированию посадочных страниц читать `docs/seo/18-seo-keyword-map-2026.md` и `docs/seo/53-keyword-database-2026.md`. Для performance/Core Web Vitals-задач читать `docs/quality/12-core-web-vitals-guide-2026.md` и текущий аудит `docs/audits/54-2026-05-26-core-web-vitals-current-audit.md`. Для задач по tooling, Hugo, Node и Tailwind читать `docs/deploy/15-local-tooling-mise.md` и текущий аудит `docs/audits/56-2026-05-26-hugo-0-162-compliance-audit.md`. Остальные гайды подключать по задаче.
+Для новичка порядок чтения такой: сначала `README.md`, затем `AGENTS.md`, затем `docs/01-documentation-map.md`, затем `docs/architecture/02-documentation-style-guide.md`, затем `docs/architecture/03-hugo-template-helpers.md`, затем `docs/content/05-front-matter-reference.md`, затем `docs/quality/13-unlighthouse-site-audit.md`. Для SEO/schema-задач после этого читать `docs/seo/19-schema-types-reference.md`, `docs/seo/20-schema-markup-quality-checklist-2026.md`, `docs/seo/24-entities-knowledge-graph-playbook-2026.md`, `docs/seo/26-json-ld-graph-audit-roadmap-2026.md` и текущий аудит `docs/audits/57-2026-05-31-schema-entity-full-audit-current.md`. Для задач по ключевым словам, семантике и планированию посадочных страниц читать `docs/seo/18-seo-keyword-map-2026.md` и `docs/seo/53-keyword-database-2026.md`. Для performance/Core Web Vitals-задач читать `docs/quality/12-core-web-vitals-guide-2026.md` и текущий аудит `docs/audits/54-2026-05-26-core-web-vitals-current-audit.md`. Для задач по tooling, Hugo, Node и Tailwind читать `docs/deploy/15-local-tooling-mise.md` и текущий аудит `docs/audits/56-2026-05-26-hugo-0-162-compliance-audit.md`. Остальные гайды подключать по задаче.
 
 ## Контентные Правила
 

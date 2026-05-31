@@ -21,6 +21,7 @@ mentions_entities:
   - "synchronous-tilt"
   - "sync4-mechanism"
   - "8d-adjustment"
+  - "lumbar-support"
   - "delivery-policy"
   - "payment-policy"
   - "return-policy"

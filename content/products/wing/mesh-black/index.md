@@ -15,9 +15,12 @@ about_entities:
 mentions_entities:
   - "aerocool-brand"
   - "mesh-material"
+  - "hot-room"
   - "synchronous-tilt"
   - "sync5-mechanism"
   - "11d-adjustment"
+  - "lumbar-support"
+  - "armrests-4d-x-360"
   - "gaming-chair"
   - "delivery-policy"
   - "payment-policy"

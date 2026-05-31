@@ -10,7 +10,7 @@
 
 Текущий порядок внедрения для ratings, product facts, `ProductGroup` и production gate описан в [34-2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md).
 Реальные e-commerce customer stories Schema App по InSinkErator, Avid, CAPREIT, KEEN и Home Hardware разобраны в [46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md).
-Актуальный полный schema/entity audit зафиксирован в [55-2026-05-26-schema-entity-full-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/55-2026-05-26-schema-entity-full-audit.md).
+Актуальный полный schema/entity audit зафиксирован в [57-2026-05-31-schema-entity-full-audit-current.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/57-2026-05-31-schema-entity-full-audit-current.md).
 
 ## 1. Связь С Текущими Документами
 
@@ -177,11 +177,11 @@ PDF выделяет три типовых подхода к вариантам 
 
 - оставить отдельные product pages для вариантов и одиночных товаров;
 - использовать видимую навигацию между вариантами через swatches-ссылки;
-- спроектировать и подтвердить `ProductGroup` только для моделей с несколькими реальными вариантами;
+- поддерживать `ProductGroup` только для моделей с несколькими реальными вариантами;
 - связать варианты через `isVariantOf` или `inProductGroupWithID`;
 - использовать variant-specific `sku`, `color`, `material`, `image`, `offers`.
 
-Видимая навигация уже есть на уровне UI: `variant-swatches.html` строит цветовые ссылки из `product_group_id` и `data/entities.yaml`. Одиночные товары не получают `product_group_id` и связываются с линейкой через `about_entities`, registry-поле `series` и страницу серии. Следующий schema-шаг — проверить группы, перевести готовые ProductGroup entities в `confirmed` и только после этого выводить `ProductGroup` / `isVariantOf` в JSON-LD.
+Видимая навигация уже есть на уровне UI: `variant-swatches.html` строит цветовые ссылки из `product_group_id` и `data/entities.yaml`. На `2026-05-31` четыре реальные WING/XTAL цветовые группы переведены в `confirmed` и выводят `ProductGroup`, `isVariantOf` и `inProductGroupWithID` в JSON-LD. Одиночные товары не получают `product_group_id` и связываются с линейкой через `about_entities`, registry-поле `series` и страницу серии.
 
 ## 9. E-E-A-T Для E-Commerce
 
@@ -217,11 +217,10 @@ Schema помогает E-E-A-T только тогда, когда усилив
 
 ### P1
 
-1. Спроектировать `ProductGroup` только для реальных вариантов одной модели.
-2. Видимая навигация между цветовыми вариантами товара добавлена через swatches-ссылки; дальше поддерживать ее через `data/entities.yaml`.
-3. Расширить product image strategy до набора `1:1`, `4:3`, `16:9`.
-4. Добавить видимые таблицы характеристик как источник для `additionalProperty`.
-5. Подготовить реальные HowTo-материалы только там, где есть пошаговый контент.
+1. Поддерживать активный `ProductGroup` только для реальных вариантов одной модели; новые группы добавлять только после видимой variant-навигации.
+2. Расширить product image strategy до набора `1:1`, `4:3`, `16:9`.
+3. Добавить видимые таблицы характеристик как источник для `additionalProperty`.
+4. Подготовить реальные HowTo-материалы только там, где есть пошаговый контент.
 
 ### P2
 

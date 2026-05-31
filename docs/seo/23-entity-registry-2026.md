@@ -2,7 +2,7 @@
 
 Обновлено: 2026-05-31.
 
-Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md). PDF-аудит Schema App по connected graph, Content Knowledge Graphs, impact и Agentic Web зафиксирован в [44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md). Актуальный полный audit registry и rendered graph зафиксирован в [55-2026-05-26-schema-entity-full-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/55-2026-05-26-schema-entity-full-audit.md). Реестр остается governance-документом: `confirmed` сущности можно использовать в JSON-LD, staged/planned сущности не должны становиться сильными связями без видимого подтверждения на странице.
+Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md). PDF-аудит Schema App по connected graph, Content Knowledge Graphs, impact и Agentic Web зафиксирован в [44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md). Актуальный полный audit registry и rendered graph зафиксирован в [57-2026-05-31-schema-entity-full-audit-current.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/57-2026-05-31-schema-entity-full-audit-current.md). Реестр остается governance-документом: `confirmed` сущности можно использовать в JSON-LD, а новые staged/planned сущности не должны становиться сильными связями без видимого подтверждения на странице.
 
 Этот документ — канонический реестр сущностей проекта `Aerocool Ukraine`. Он нужен для управляемого Entity SEO, AI Search, `about_entities`, `mentions_entities`, `ProductGroup`, будущих `additionalProperty`, `llms.txt`, будущего `Callable Actions Registry` и структурированного [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml).
 
@@ -12,18 +12,20 @@
 
 ## Актуальный Audit Snapshot
 
-На 2026-05-31 в registry зафиксировано `63` сущности: `51 confirmed`, `10 planned` и `2 do-not-markup`. Машинных ошибок registry не найдено: неизвестных ссылок из front matter нет, `about_entities` и `mentions_entities` используют только `confirmed` сущности, а `product_group_id` остался только у реальных цветовых вариантов WING/XTAL и пока указывает на `planned` ProductGroup, поэтому не выводит `isVariantOf` в JSON-LD.
+На 2026-05-31 в registry зафиксировано `62` сущности: `60 confirmed`, `0 planned` и `2 do-not-markup`. Машинных ошибок registry не найдено: неизвестных ссылок из front matter нет, `about_entities` и `mentions_entities` используют только `confirmed` сущности, `product_group_id` остался только у реальных цветовых вариантов WING/XTAL и указывает на `confirmed` ProductGroup, поэтому `ProductGroup`, `isVariantOf` и `inProductGroupWithID` выводятся в JSON-LD.
 
-Оценка Entity Registry: `9.5 / 10`.
+Оценка Entity Registry: `9.7 / 10`.
 
 Активация `2026-05-26`: `dual-backrest`, `replaceable-elements` и `long-sitting` переведены в `confirmed`, потому что для них уже есть сильный видимый контент, стабильные entity homes и точечное использование в front matter.
 
+Активация `2026-05-31`: четыре реальные ProductGroup для WING/XTAL цветовых вариантов переведены в `confirmed`, duplicate registry ID `products-collection` удален в пользу канонического `aerocool-catalog`, а `lumbar-support`, `armrests-4d-x-360`, `armrests-3d-x-360`, `hot-room`, `leatherette-material` и `fabric-material` включены как `confirmed` сущности.
+
 Главные открытые задачи registry-слоя:
 
-- перевести ProductGroup из `planned` в `confirmed` только после видимой навигации вариантов;
 - не создавать ProductGroup для одиночных товаров без соседних вариантов;
-- не активировать planned feature/use case/material entities без видимого объяснения и entity home;
+- добавлять новые `planned` feature/use case/material entities только после видимого объяснения и entity home;
 - завести регулярный Entity Performance Report;
+- описать операционный процесс поддержки product front matter;
 - поддерживать review governance через approved reviews pipeline и не возвращать ручные rating-поля во front matter.
 
 ## 1. Как Использовать Этот Документ
@@ -124,7 +126,7 @@ Only these global profiles are currently approved as exact identity links for gl
 | `about-page` | About Aerocool Ukraine | Про Aerocool Україна | Об Aerocool Украина | AboutPage | `AboutPage` | `https://aerocool.ua/about/#webpage` | `/about/` | `confirmed` | `aerocool-brand`, `aerocool-ukraine`, `aerocool-global-organization` |
 | `contact-page` | Contacts | Контакти | Контакты | ContactPage | `ContactPage` | `https://aerocool.ua/contact/#webpage` | `/contact/` | `confirmed` | `aerocool-ukraine` |
 | `faq-page` | FAQ | FAQ | FAQ | FAQPage | `FAQPage` | `https://aerocool.ua/faq/#faq` | `/faq/` | `confirmed` | `delivery-policy`, `payment-policy`, `return-policy`, `warranty-policy` |
-| `products-collection` | Aerocool chairs catalog | Каталог крісел Aerocool | Каталог кресел Aerocool | Collection | `CollectionPage` | `https://aerocool.ua/products/#collection` | `/products/` | `confirmed` | `aerocool-catalog`, `gaming-chair`, `office-chair`, `computer-chair` |
+| `aerocool-catalog` | Aerocool chairs catalog | Каталог крісел Aerocool | Каталог кресел Aerocool | Collection | `CollectionPage` | `https://aerocool.ua/products/#collection` | `/products/` | `confirmed` | `gaming-chair`, `office-chair`, `computer-chair`, `sky-series`, `wing-series`, `xtal-series` |
 | `articles-collection` | Aerocool articles | Статті Aerocool | Статьи Aerocool | Collection | `CollectionPage` | `https://aerocool.ua/articles/#collection` | `/articles/` | `confirmed` | `chair-selection`, `ergonomic-chair`, `aerocool-catalog` |
 | `news-collection` | Aerocool news | Новини Aerocool | Новости Aerocool | Collection | `CollectionPage` | `https://aerocool.ua/news/#collection` | `/news/` | `confirmed` | `aerocool-brand`, `aerocool-catalog` |
 
@@ -136,16 +138,16 @@ Only these global profiles are currently approved as exact identity links for gl
 | `wing-series` | Aerocool WING | Aerocool WING | Aerocool WING | ProductSeries | `CollectionPage` | Product list/series collection | `https://aerocool.ua/products/wing/#collection` | `/products/wing/` | `confirmed` | parent `aerocool-catalog`; products WING; ProductGroup только для цветовых вариантов моделей; mentions `racer-material`, `loft-air-material`, `mesh-material`, `11d-adjustment`, `dual-backrest` |
 | `xtal-series` | Aerocool XTAL | Aerocool XTAL | Aerocool XTAL | ProductSeries | `CollectionPage` | Product list/series collection | `https://aerocool.ua/products/xtal/#collection` | `/products/xtal/` | `confirmed` | parent `aerocool-catalog`; products XTAL; ProductGroup только для цветовых вариантов моделей; mentions `racer-material`, `loft-air-material`, `mesh-material`, `7d-adjustment`, `replaceable-elements` |
 
-## 10. Сущности `ProductGroup`, Запланированные Для Вариантов
+## 10. Сущности `ProductGroup`, Активные Для Вариантов
 
-`ProductGroup` should not render in JSON-LD until product pages show visible variant navigation. Одиночные товары не получают ProductGroup. The IDs below are stable planning IDs only for real multi-variant model groups.
+`ProductGroup` выводится только для реальных вариантов одной модели, где есть видимая навигация между вариантами. Одиночные товары не получают ProductGroup. На 2026-05-31 активны только четыре цветовые группы WING/XTAL.
 
-| entity_id | name_en | future_jsonld_id | entity_home | varies_by | variants | status | Blocking Requirement |
+| entity_id | name_en | future_jsonld_id | entity_home | varies_by | variants | status | Условие Поддержки |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| `wing-racer-product-group` | Aerocool WING Racer | `https://aerocool.ua/products/wing/#wing-racer-product-group` | `/products/wing/` | color | `wing-racer-black`, `wing-racer-dark-grey` | `planned` | Verify visible color navigation and group facts before confirming. |
-| `wing-loft-air-product-group` | Aerocool WING Loft Air | `https://aerocool.ua/products/wing/#wing-loft-air-product-group` | `/products/wing/` | color | `wing-loft-air-light-grey`, `wing-loft-air-dark-grey` | `planned` | Verify visible color navigation and group facts before confirming. |
-| `xtal-racer-product-group` | Aerocool XTAL Racer | `https://aerocool.ua/products/xtal/#xtal-racer-product-group` | `/products/xtal/` | color | `xtal-racer-black`, `xtal-racer-dark-grey` | `planned` | Verify visible color navigation and group facts before confirming. |
-| `xtal-loft-air-product-group` | Aerocool XTAL Loft Air | `https://aerocool.ua/products/xtal/#xtal-loft-air-product-group` | `/products/xtal/` | color | `xtal-loft-air-light-grey`, `xtal-loft-air-dark-grey` | `planned` | Verify visible color navigation and group facts before confirming. |
+| `wing-racer-product-group` | Aerocool WING Racer | `https://aerocool.ua/products/wing/#wing-racer-product-group` | `/products/wing/` | color | `wing-racer-black`, `wing-racer-dark-grey` | `confirmed` | Поддерживать swatches-ссылки и variant-specific facts. |
+| `wing-loft-air-product-group` | Aerocool WING Loft Air | `https://aerocool.ua/products/wing/#wing-loft-air-product-group` | `/products/wing/` | color | `wing-loft-air-light-grey`, `wing-loft-air-dark-grey` | `confirmed` | Поддерживать swatches-ссылки и variant-specific facts. |
+| `xtal-racer-product-group` | Aerocool XTAL Racer | `https://aerocool.ua/products/xtal/#xtal-racer-product-group` | `/products/xtal/` | color | `xtal-racer-black`, `xtal-racer-dark-grey` | `confirmed` | Поддерживать swatches-ссылки и variant-specific facts. |
+| `xtal-loft-air-product-group` | Aerocool XTAL Loft Air | `https://aerocool.ua/products/xtal/#xtal-loft-air-product-group` | `/products/xtal/` | color | `xtal-loft-air-light-grey`, `xtal-loft-air-dark-grey` | `confirmed` | Поддерживать swatches-ссылки и variant-specific facts. |
 
 ## 11. Сущности Товаров И Товарных Вариантов
 
@@ -171,8 +173,8 @@ Only these global profiles are currently approved as exact identity links for gl
 | `racer-material` | Racer | Racer | Racer | Material | `DefinedTerm` or `Thing` | `/articles/racer-vs-loft-air-vs-mesh/` | `confirmed` | material comparison article; Racer product pages | Leatherette-like dense contact and easier care. |
 | `loft-air-material` | Loft Air | Loft Air | Loft Air | Material | `DefinedTerm` or `Thing` | `/articles/racer-vs-loft-air-vs-mesh/` | `confirmed` | material comparison article; Loft Air product pages | Ventilated multilayer textile feel. |
 | `mesh-material` | Mesh | Mesh / сітка | Mesh / сетка | Material | `DefinedTerm` or `Thing` | `/articles/racer-vs-loft-air-vs-mesh/` | `confirmed` | material comparison article; SKY and Mesh product pages | Maximum ventilation entity. |
-| `leatherette-material` | Leatherette | екошкіра / Leatherette | экокожа / Leatherette | Material | `DefinedTerm` or `Thing` | `/articles/racer-vs-loft-air-vs-mesh/` | `planned` | Racer pages | Treat as material behind Racer, not as separate page topic yet. |
-| `fabric-material` | Fabric | тканина | ткань | Material | `DefinedTerm` or `Thing` | `/articles/racer-vs-loft-air-vs-mesh/` | `planned` | Loft Air pages | Treat as generic material until glossary is stronger. |
+| `leatherette-material` | Leatherette | екошкіра / Leatherette | экокожа / Leatherette | Material | `DefinedTerm` or `Thing` | `/articles/racer-vs-loft-air-vs-mesh/` | `confirmed` | Racer pages | Activated `2026-05-31`; use where Racer leatherette surface is visibly discussed. |
+| `fabric-material` | Fabric | тканина | ткань | Material | `DefinedTerm` or `Thing` | `/articles/racer-vs-loft-air-vs-mesh/` | `confirmed` | Loft Air pages | Activated `2026-05-31`; use where Loft Air fabric surface is visibly discussed. |
 
 ## 13. Сущности Механизмов И Функций
 
@@ -186,9 +188,9 @@ Only these global profiles are currently approved as exact identity links for gl
 | `11d-adjustment` | 11D adjustment | 11D регулювання | 11D регулировка | Feature | `DefinedTerm` or `Thing` | `/articles/how-to-choose-chair-by-adjustability/` | `confirmed` | adjustability guide; SKY 360, WING | Candidate for `additionalProperty`. |
 | `dual-backrest` | Dual backrest | подвійна спинка | двойная спинка | Feature | `DefinedTerm` or `Thing` | `/articles/what-is-dual-backrest/` | `confirmed` | WING pages; dedicated Dual backrest article | Activated `2026-05-26`; use only where WING dual backrest is visibly discussed. |
 | `replaceable-elements` | Replaceable elements | змінні елементи | сменные элементы | Feature | `DefinedTerm` or `Thing` | `/articles/what-is-fully-replaceable-design/` | `confirmed` | XTAL pages; dedicated replaceable design article | Activated `2026-05-26`; use only where XTAL replaceable elements are visibly discussed. |
-| `lumbar-support` | Lumbar support | поперекова підтримка | поясничная поддержка | Feature | `DefinedTerm` or `Thing` | product/series pages | `planned` | SKY pages | Add visible specs table first. |
-| `armrests-4d-x-360` | 4D X 360 armrests | підлокітники 4D X 360 | подлокотники 4D X 360 | Feature | `DefinedTerm` or `Thing` | `/products/wing/` | `planned` | WING pages | Candidate for `additionalProperty`. |
-| `armrests-3d-x-360` | 3D X 360 armrests | підлокітники 3D X 360 | подлокотники 3D X 360 | Feature | `DefinedTerm` or `Thing` | `/products/sky/` | `planned` | SKY 360 pages | Candidate for `additionalProperty`. |
+| `lumbar-support` | Lumbar support | поперекова підтримка | поясничная поддержка | Feature | `DefinedTerm` or `Thing` | `/products/` | `confirmed` | product and series pages | Activated `2026-05-31`; candidate for future `additionalProperty`. |
+| `armrests-4d-x-360` | 4D X 360 armrests | підлокітники 4D X 360 | подлокотники 4D X 360 | Feature | `DefinedTerm` or `Thing` | `/products/wing/` | `confirmed` | WING pages | Activated `2026-05-31`; candidate for future `additionalProperty`. |
+| `armrests-3d-x-360` | 3D X 360 armrests | підлокітники 3D X 360 | подлокотники 3D X 360 | Feature | `DefinedTerm` or `Thing` | `/products/sky/` | `confirmed` | SKY 360 pages | Activated `2026-05-31`; candidate for future `additionalProperty`. |
 
 ## 14. Сущности Сценариев Использования И Поисковых Интентов
 
@@ -200,7 +202,7 @@ Only these global profiles are currently approved as exact identity links for gl
 | `ergonomic-chair` | ergonomic chair | ергономічне крісло | эргономичное кресло | UseCase / ProductCategory | `Thing` or `DefinedTerm` | `/products/` | `confirmed` | Parent concept for selection articles. |
 | `home-office` | home office | home office | home office | UseCase | `Thing` or `DefinedTerm` | `/articles/how-to-choose-aerocool-chair/` | `confirmed` | Important for AI Search prompts and product copy. |
 | `long-sitting` | long sitting | довгі сесії | долгие сессии | UseCase | `Thing` or `DefinedTerm` | `/articles/chair-for-posture-and-long-work/` | `confirmed` | Long work and long gaming session articles. Activated `2026-05-26`. |
-| `hot-room` | hot room | жарке приміщення | жаркое помещение | UseCase | `Thing` or `DefinedTerm` | `/articles/racer-vs-loft-air-vs-mesh/` | `planned` | Connected to Mesh and Loft Air material decisions. |
+| `hot-room` | hot room | жарке приміщення | жаркое помещение | UseCase | `Thing` or `DefinedTerm` | `/articles/racer-vs-loft-air-vs-mesh/` | `confirmed` | Activated `2026-05-31`; connected to Mesh and Loft Air material decisions without medical claims. |
 | `chair-selection` | chair selection | вибір крісла | выбор кресла | ContentTopic | `Thing` or `DefinedTerm` | `/articles/how-to-choose-aerocool-chair/` | `confirmed` | Main editorial support topic. |
 
 ## 15. Сущности Сервисных Политик
@@ -272,7 +274,7 @@ Use these as the semantic backbone for future JSON-LD relationships.
 
 ## 19. Связь С Front Matter Страницы
 
-Template support exists for `about_entities`, `mentions_entities` and `product_group_id`. On `2026-05-07`, these fields were filled on priority pages: home, about, contact, FAQ, product/article/news hubs, series pages, current articles, current news and product pages. On `2026-05-31`, singleton ProductGroup entries were removed: `product_group_id` remains only for real multi-variant model groups.
+Template support exists for `about_entities`, `mentions_entities` and `product_group_id`. On `2026-05-07`, these fields were filled on priority pages: home, about, contact, FAQ, product/article/news hubs, series pages, current articles, current news and product pages. On `2026-05-31`, singleton ProductGroup entries were removed, `product_group_id` remained only for real multi-variant model groups, and the four WING/XTAL ProductGroup entities became active in JSON-LD.
 
 Future additions must still be page-by-page after checking this registry and the visible page content.
 
@@ -313,7 +315,7 @@ Rules:
 
 - `about_entities` should contain the main subject of the page.
 - `mentions_entities` should contain visibly discussed related products, series, materials, mechanisms, use cases and policies.
-- `product_group_id` must point to a real multi-variant entity in section 10 and will render only after that entity is moved from `planned` to `confirmed`.
+- `product_group_id` must point to a real multi-variant entity in section 10; currently only four WING/XTAL groups qualify and render in JSON-LD.
 - `variant_attributes` should only contain visible attributes.
 - Unknown `entity_id` values should fail QA before production.
 - Entity values should be stable IDs, not display labels.
@@ -346,7 +348,7 @@ Resolver requirements:
 - return localized display name;
 - return `@id`;
 - fail or warn on unknown ID;
-- filter `planned`, `needs-review` and `do-not-markup` entities from JSON-LD by default;
+- filter future `planned`, `needs-review` and `do-not-markup` entities from JSON-LD by default;
 - support `about`, `mentions`, `isVariantOf` and `inProductGroupWithID`;
 - generate registry-based nodes for confirmed dictionary/policy entities used in `about_entities` and `mentions_entities`;
 - keep `additionalProperty` for a later pass after visible specification tables exist.
@@ -383,9 +385,9 @@ Action нельзя создавать как “идею”. Он должен 
 - Every `mentions_entities` value must exist in this registry.
 - No page should mention a product group that is not visibly linked or explained.
 - No standalone product should use `product_group_id`; use the series relationship instead.
-- Do not render `ProductGroup` until variant navigation is visible.
+- Do not render new `ProductGroup` entities until variant navigation is visible.
 - Do not render `additionalProperty` until product specs are visible in a table or comparable block.
-- Do not render `Review` or reviewer entities until rating source is resolved.
+- Do not render standalone `Review` or reviewer entities from the registry. Product-level review/rating schema can use only approved, visible reviews from `data/generated/reviews.json`.
 - Do not add `OnlineStore` while the site remains a catalog without confirmed checkout flow.
 - Do not add `sameAs` to marketplaces, random reviews or non-official pages.
 - If an entity changes entity home, update internal links, registry, future front matter and schema tests together.
@@ -395,7 +397,7 @@ Action нельзя создавать как “идею”. Он должен 
 | Кандидат | Статус | Причина |
 | --- | --- | --- |
 | `OnlineStore` | `do-not-markup` | Requires confirmed merchant/checkout scenario. |
-| `Review` | `do-not-markup` | Rating source and individual review evidence are not confirmed. |
+| `Review` | `do-not-markup` | Reviews are handled per product through approved review snapshots, not as a standalone registry entity. |
 | Author/reviewer people | `do-not-markup` | No real editorial person model yet. |
 | Marketplace pages as `sameAs` | `do-not-markup` | Not exact identity. |
 | Random product reviews as `sameAs` | `do-not-markup` | Not exact identity. |
@@ -413,7 +415,8 @@ Action нельзя создавать как “идею”. Он должен 
 7. Выполнено `2026-05-07`: add [22-entity-registry-beginner-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/22-entity-registry-beginner-guide-2026.md).
 8. Выполнено `2026-05-07`: fill `about_entities`, `mentions_entities` and staged `product_group_id` on priority pages.
 9. Выполнено `2026-05-31`: remove singleton ProductGroup entries and keep `product_group_id` only for real WING/XTAL color variant groups.
-10. Render `ProductGroup` only after visible variant navigation exists and group entities become `confirmed`.
-11. Render `additionalProperty` only after visible specs tables exist.
-12. Use this registry as input for `llms.txt` after production stabilization.
-13. Keep `Callable Actions Registry` as P3 documentation until real business endpoints and owners exist.
+10. Выполнено `2026-05-31`: remove duplicate `products-collection` and keep `aerocool-catalog` as the single canonical catalog entity.
+11. Выполнено `2026-05-31`: render `ProductGroup`, `isVariantOf` and `inProductGroupWithID` for four confirmed WING/XTAL color variant groups.
+12. Render `additionalProperty` only after visible specs tables exist.
+13. Use this registry as input for `llms.txt` after production stabilization.
+14. Keep `Callable Actions Registry` as P3 documentation until real business endpoints and owners exist.

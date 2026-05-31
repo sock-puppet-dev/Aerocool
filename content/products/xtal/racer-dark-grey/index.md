@@ -4,7 +4,7 @@ linkTitle: "Racer Dark Grey"
 description: "Купити Aerocool XTAL Racer Dark Grey в Україні — ергономічне ігрове та комп'ютерне крісло серії XTAL з 7D регулюванням, Synchronous Tilt, змінними елементами та оббивкою Leatherette."
 summary: "Aerocool XTAL Racer Dark Grey — ігрове та комп'ютерне крісло серії XTAL з 7D регулюванням, змінними елементами та оббивкою Leatherette."
 date: 2026-03-19
-lastmod: 2026-05-28
+lastmod: 2026-05-31
 schema_types: ["website", "product", "organization", "breadcrumbs"]
 about_entities:
   - "xtal-racer-dark-grey"
@@ -15,8 +15,10 @@ about_entities:
 mentions_entities:
   - "aerocool-brand"
   - "racer-material"
+  - "leatherette-material"
   - "synchronous-tilt"
   - "7d-adjustment"
+  - "lumbar-support"
   - "office-chair"
   - "delivery-policy"
   - "payment-policy"

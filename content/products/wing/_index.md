@@ -3,7 +3,7 @@ title: "Aerocool WING — ергономічні ігрові та офісні 
 linkTitle: "WING"
 description: "Серія Aerocool WING: ігрові та офісні крісла Racer, Loft Air і Mesh з подвійною спинкою, 11D регулюванням і 4D X 360 підлокітниками."
 date: 2026-03-19
-lastmod: 2026-05-18
+lastmod: 2026-05-31
 summary: "WING — серія з подвійною спинкою, 11D регулюванням і трьома форматами поверхні: Racer, Loft Air і Mesh."
 slug: "wing"
 schema_types: ["website", "collection", "organization", "breadcrumbs"]
@@ -25,6 +25,8 @@ mentions_entities:
   - "synchronous-tilt"
   - "sync5-mechanism"
   - "11d-adjustment"
+  - "lumbar-support"
+  - "armrests-4d-x-360"
   - "home-office"
 image: "cover.webp"
 cover:
