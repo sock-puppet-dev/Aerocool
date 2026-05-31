@@ -34,7 +34,7 @@
 
 - `Hugo 0.162.0`
 - `Node 24.16.0`
-- `Tailwind CSS 4.3`
+- `Tailwind CSS 4.3` через npm-пакеты `tailwindcss` и `@tailwindcss/cli` версии `4.3.0`
 - `themes/PaperMod` как git-подмодуль
 - `Netlify` для сборки и публикации
 - `Netlify Functions` для API-эндпоинтов отзывов
@@ -421,7 +421,7 @@ npm run build:production
 - `npm install` — ставит npm-зависимости проекта.
 - `npm run dev` — запускает `hugo server`.
 - `npm run build` — сначала запускает `node scripts/export_reviews.mjs`, затем development-сборку Hugo, безопасную для noindex.
-- `npm run entity:report` — после сборки обновляет [docs/seo/59-entity-performance-report-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md) и generated CSV по Entity Registry, `about_entities`, `mentions_entities`, `product_group_id` и rendered JSON-LD refs; будущие GSC/AI/business-метрики вносить в [docs/seo/59-entity-performance-overrides.csv](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-overrides.csv).
+- `npm run entity:report` — запускает `node scripts/generate_entity_performance_report.mjs`; после сборки обновляет [docs/seo/59-entity-performance-report-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md) и generated CSV по Entity Registry, `about_entities`, `mentions_entities`, `product_group_id` и rendered JSON-LD refs; будущие GSC/AI/business-метрики вносить в [docs/seo/59-entity-performance-overrides.csv](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-overrides.csv).
 - `npm run build:production` — сначала запускает `node scripts/export_reviews.mjs`, затем локальную production-сборку Hugo для финальной проверки index/follow.
 
 Для ежедневной работы удобнее использовать helper-скрипты из папки `scripts/`. Они запускаются из корня проекта и содержат комментарии с назначением и инструкцией.
