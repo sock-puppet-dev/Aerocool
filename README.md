@@ -419,8 +419,8 @@ npm run build:production
 - `mise install` — читает `mise.toml` и ставит нужные версии Hugo/Node.
 - `npm install` — ставит npm-зависимости проекта.
 - `npm run dev` — запускает `hugo server`.
-- `npm run build` — development-сборка, безопасная для noindex.
-- `npm run build:production` — локальная production-сборка для финальной проверки index/follow.
+- `npm run build` — сначала запускает `node scripts/export_reviews.mjs`, затем development-сборку Hugo, безопасную для noindex.
+- `npm run build:production` — сначала запускает `node scripts/export_reviews.mjs`, затем локальную production-сборку Hugo для финальной проверки index/follow.
 
 Для ежедневной работы удобнее использовать helper-скрипты из папки `scripts/`. Они запускаются из корня проекта и содержат комментарии с назначением и инструкцией.
 
