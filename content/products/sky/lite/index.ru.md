@@ -58,6 +58,8 @@ payment_methods:
 characteristics:
   - label: "Модель"
     value: "SKY Lite"
+  - label: "Цвет"
+    value: "черный"
   - label: "Общая регулировка"
     value: "8D"
   - label: "Подголовник"

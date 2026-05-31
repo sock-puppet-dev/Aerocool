@@ -210,7 +210,7 @@ Knowledge graph можно проектировать через тройки:
 | 4 | External linked entities | Добавить точные внешние идентификаторы |
 | 5 | Internal knowledge graph | Связать entities через `@id`, видимые ссылки и Schema.org properties |
 
-Aerocool уже находится выше уровня keyword/topics благодаря хабам, сериям, товарам и JSON-LD graph. Следующий рост — не больше ключей, а явнее entity home, `about`, `mentions`, поддержка активного `ProductGroup` только для реальных вариантов, `additionalProperty` и registry governance.
+Aerocool уже находится выше уровня keyword/topics благодаря хабам, сериям, товарам и JSON-LD graph. Следующий рост — не больше ключей, а явнее entity home, `about`, `mentions`, поддержка активного `ProductGroup` только для реальных вариантов, `Product.color`, `additionalProperty` и registry governance.
 
 ## 10. Аудит Пробелов Контента Через Knowledge Graph
 
@@ -281,7 +281,7 @@ Knowledge graph может быть переиспользован за пред
 6. Выполнено `2026-05-07`: priority pages получили `about_entities`, `mentions_entities` и staged `product_group_id`.
 7. Выполнено `2026-05-31`: singleton ProductGroup удалены; `product_group_id` оставлен только для реальных WING/XTAL цветовых вариантов.
 8. Выполнено `2026-05-31`: четыре WING/XTAL ProductGroup переведены в `confirmed` и активированы в JSON-LD через `ProductGroup`, `isVariantOf` и `inProductGroupWithID`.
-9. Добавить видимые характеристики как источник для `additionalProperty`.
+9. Выполнено `2026-05-31`: `Product.color` выводится из registry, а `Product.additionalProperty` строится из видимой вкладки `characteristics`.
 10. Провести content gap audit по entity map.
 11. Добавить entity coverage report и graph inventory после production-запуска.
 

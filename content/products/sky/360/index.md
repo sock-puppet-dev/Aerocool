@@ -59,6 +59,8 @@ payment_methods:
 characteristics:
   - label: "Модель"
     value: "SKY 360"
+  - label: "Колір"
+    value: "чорний"
   - label: "Загальна регульованість"
     value: "11D"
   - label: "Підголівник"

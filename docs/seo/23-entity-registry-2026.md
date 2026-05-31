@@ -4,7 +4,7 @@
 
 Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md). PDF-аудит Schema App по connected graph, Content Knowledge Graphs, impact и Agentic Web зафиксирован в [44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md). Актуальный полный audit registry и rendered graph зафиксирован в [57-2026-05-31-schema-entity-full-audit-current.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/57-2026-05-31-schema-entity-full-audit-current.md). Реестр остается governance-документом: `confirmed` сущности можно использовать в JSON-LD, а новые staged/planned сущности не должны становиться сильными связями без видимого подтверждения на странице.
 
-Этот документ — канонический реестр сущностей проекта `Aerocool Ukraine`. Он нужен для управляемого Entity SEO, AI Search, `about_entities`, `mentions_entities`, `ProductGroup`, будущих `additionalProperty`, `llms.txt`, будущего `Callable Actions Registry` и структурированного [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml).
+Этот документ — канонический реестр сущностей проекта `Aerocool Ukraine`. Он нужен для управляемого Entity SEO, AI Search, `about_entities`, `mentions_entities`, `ProductGroup`, `Product.color`, `additionalProperty`, `llms.txt`, будущего `Callable Actions Registry` и структурированного [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml).
 
 Если вы впервые работаете с entity-полями, сначала прочитайте [Entity Registry: гайд для новичка](/Users/stadnyk/MEGA/Aerocool/docs/seo/22-entity-registry-beginner-guide-2026.md).
 
@@ -153,8 +153,8 @@ Only these global profiles are currently approved as exact identity links for gl
 
 | entity_id | entity_class | name_en | SKU | MPN | GTIN-13 | series | material | color | adjustability | mechanism | current_jsonld_id | entity_home | product_group |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `sky-360` | Product | Aerocool SKY 360 | `SKY-360-001` |  |  | `sky-series` | `mesh-material` | not-specified | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/sky/360/#product` | `/products/sky/360/` |  |
-| `sky-lite` | Product | Aerocool SKY Lite | `SKY-LITE-001` |  |  | `sky-series` | `mesh-material` | not-specified | `8d-adjustment` | `sync4-mechanism` | `https://aerocool.ua/products/sky/lite/#product` | `/products/sky/lite/` |  |
+| `sky-360` | Product | Aerocool SKY 360 | `SKY-360-001` |  |  | `sky-series` | `mesh-material` | black | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/sky/360/#product` | `/products/sky/360/` |  |
+| `sky-lite` | Product | Aerocool SKY Lite | `SKY-LITE-001` |  |  | `sky-series` | `mesh-material` | black | `8d-adjustment` | `sync4-mechanism` | `https://aerocool.ua/products/sky/lite/#product` | `/products/sky/lite/` |  |
 | `wing-loft-air-dark-grey` | ProductVariant | Aerocool WING Loft Air Dark Grey | `WING-LADG-001` | `TEGC-309700Z.Z1` | `4711530966501` | `wing-series` | `loft-air-material` | dark-grey | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/wing/loft-air-dark-grey/#product` | `/products/wing/loft-air-dark-grey/` | `wing-loft-air-product-group` |
 | `wing-loft-air-light-grey` | ProductVariant | Aerocool WING Loft Air Light Grey | `WING-LALG-001` | `TEGC-3097004.41` | `4711530966518` | `wing-series` | `loft-air-material` | light-grey | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/wing/loft-air-light-grey/#product` | `/products/wing/loft-air-light-grey/` | `wing-loft-air-product-group` |
 | `wing-mesh-black` | Product | Aerocool WING Mesh Black | `WING-MB-001` | `TEGC-3098001.11` | `4711530966525` | `wing-series` | `mesh-material` | black | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/wing/mesh-black/#product` | `/products/wing/mesh-black/` |  |
@@ -183,14 +183,14 @@ Only these global profiles are currently approved as exact identity links for gl
 | `synchronous-tilt` | Synchronous Tilt | Synchronous Tilt | Synchronous Tilt | Mechanism | `DefinedTerm` or `Thing` | `/articles/what-is-synchronous-tilt/` | `confirmed` | sync tilt guide; product pages | Main tilt concept. |
 | `sync4-mechanism` | SYNC4 | SYNC4 | SYNC4 | Mechanism | `DefinedTerm` or `Thing` | `/articles/sync4-sync5-mechanism-guide/` | `confirmed` | SYNC4/SYNC5 guide; SKY Lite | Use where product content visibly says SYNC4. |
 | `sync5-mechanism` | SYNC5 | SYNC5 | SYNC5 | Mechanism | `DefinedTerm` or `Thing` | `/articles/sync4-sync5-mechanism-guide/` | `confirmed` | SYNC4/SYNC5 guide; SKY 360, WING, XTAL | Use where product content visibly says SYNC5. |
-| `7d-adjustment` | 7D adjustment | 7D регулювання | 7D регулировка | Feature | `DefinedTerm` or `Thing` | `/articles/how-to-choose-chair-by-adjustability/` | `confirmed` | adjustability guide; XTAL pages | Candidate for `additionalProperty`. |
-| `8d-adjustment` | 8D adjustment | 8D регулювання | 8D регулировка | Feature | `DefinedTerm` or `Thing` | `/articles/how-to-choose-chair-by-adjustability/` | `confirmed` | adjustability guide; SKY Lite | Candidate for `additionalProperty`. |
-| `11d-adjustment` | 11D adjustment | 11D регулювання | 11D регулировка | Feature | `DefinedTerm` or `Thing` | `/articles/how-to-choose-chair-by-adjustability/` | `confirmed` | adjustability guide; SKY 360, WING | Candidate for `additionalProperty`. |
+| `7d-adjustment` | 7D adjustment | 7D регулювання | 7D регулировка | Feature | `DefinedTerm` or `Thing` | `/articles/how-to-choose-chair-by-adjustability/` | `confirmed` | adjustability guide; XTAL pages | Covered through visible product `characteristics` / `additionalProperty` where present. |
+| `8d-adjustment` | 8D adjustment | 8D регулювання | 8D регулировка | Feature | `DefinedTerm` or `Thing` | `/articles/how-to-choose-chair-by-adjustability/` | `confirmed` | adjustability guide; SKY Lite | Covered through visible product `characteristics` / `additionalProperty` where present. |
+| `11d-adjustment` | 11D adjustment | 11D регулювання | 11D регулировка | Feature | `DefinedTerm` or `Thing` | `/articles/how-to-choose-chair-by-adjustability/` | `confirmed` | adjustability guide; SKY 360, WING | Covered through visible product `characteristics` / `additionalProperty` where present. |
 | `dual-backrest` | Dual backrest | подвійна спинка | двойная спинка | Feature | `DefinedTerm` or `Thing` | `/articles/what-is-dual-backrest/` | `confirmed` | WING pages; dedicated Dual backrest article | Activated `2026-05-26`; use only where WING dual backrest is visibly discussed. |
 | `replaceable-elements` | Replaceable elements | змінні елементи | сменные элементы | Feature | `DefinedTerm` or `Thing` | `/articles/what-is-fully-replaceable-design/` | `confirmed` | XTAL pages; dedicated replaceable design article | Activated `2026-05-26`; use only where XTAL replaceable elements are visibly discussed. |
-| `lumbar-support` | Lumbar support | поперекова підтримка | поясничная поддержка | Feature | `DefinedTerm` or `Thing` | `/products/` | `confirmed` | product and series pages | Activated `2026-05-31`; candidate for future `additionalProperty`. |
-| `armrests-4d-x-360` | 4D X 360 armrests | підлокітники 4D X 360 | подлокотники 4D X 360 | Feature | `DefinedTerm` or `Thing` | `/products/wing/` | `confirmed` | WING pages | Activated `2026-05-31`; candidate for future `additionalProperty`. |
-| `armrests-3d-x-360` | 3D X 360 armrests | підлокітники 3D X 360 | подлокотники 3D X 360 | Feature | `DefinedTerm` or `Thing` | `/products/sky/` | `confirmed` | SKY 360 pages | Activated `2026-05-31`; candidate for future `additionalProperty`. |
+| `lumbar-support` | Lumbar support | поперекова підтримка | поясничная поддержка | Feature | `DefinedTerm` or `Thing` | `/products/` | `confirmed` | product and series pages | Activated `2026-05-31`; covered through visible product `characteristics` / `additionalProperty` where present. |
+| `armrests-4d-x-360` | 4D X 360 armrests | підлокітники 4D X 360 | подлокотники 4D X 360 | Feature | `DefinedTerm` or `Thing` | `/products/wing/` | `confirmed` | WING pages | Activated `2026-05-31`; covered through visible product `characteristics` / `additionalProperty` where present. |
+| `armrests-3d-x-360` | 3D X 360 armrests | підлокітники 3D X 360 | подлокотники 3D X 360 | Feature | `DefinedTerm` or `Thing` | `/products/sky/` | `confirmed` | SKY 360 pages | Activated `2026-05-31`; covered through visible product `characteristics` / `additionalProperty` where present. |
 
 ## 14. Сущности Сценариев Использования И Поисковых Интентов
 
@@ -351,7 +351,8 @@ Resolver requirements:
 - filter future `planned`, `needs-review` and `do-not-markup` entities from JSON-LD by default;
 - support `about`, `mentions`, `isVariantOf` and `inProductGroupWithID`;
 - generate registry-based nodes for confirmed dictionary/policy entities used in `about_entities` and `mentions_entities`;
-- keep `additionalProperty` for a later pass after visible specification tables exist.
+- render `Product.color` from registry product entities;
+- render `Product.additionalProperty` from visible `characteristics`.
 
 ## 21. Будущий `Callable Actions Registry`
 
@@ -417,6 +418,6 @@ Action нельзя создавать как “идею”. Он должен 
 9. Выполнено `2026-05-31`: remove singleton ProductGroup entries and keep `product_group_id` only for real WING/XTAL color variant groups.
 10. Выполнено `2026-05-31`: remove duplicate `products-collection` and keep `aerocool-catalog` as the single canonical catalog entity.
 11. Выполнено `2026-05-31`: render `ProductGroup`, `isVariantOf` and `inProductGroupWithID` for four confirmed WING/XTAL color variant groups.
-12. Render `additionalProperty` only after visible specs tables exist.
+12. Выполнено `2026-05-31`: render `Product.color` from registry and `Product.additionalProperty` from visible `characteristics`.
 13. Use this registry as input for `llms.txt` after production stabilization.
 14. Keep `Callable Actions Registry` as P3 documentation until real business endpoints and owners exist.

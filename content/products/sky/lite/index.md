@@ -58,6 +58,8 @@ payment_methods:
 characteristics:
   - label: "Модель"
     value: "SKY Lite"
+  - label: "Колір"
+    value: "чорний"
   - label: "Загальна регульованість"
     value: "8D"
   - label: "Підголівник"

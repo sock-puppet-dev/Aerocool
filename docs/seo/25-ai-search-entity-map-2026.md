@@ -263,7 +263,7 @@ AI follow-up вопросы не равны обычному Google `People Also
 
 ## 7. Карта Сущностей
 
-Эта карта нужна для управляемых `about`, `mentions`, `ProductGroup`, будущих `additionalProperty` и внутренних ссылок. Канонический список entity IDs и entity homes находится в [23-entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/23-entity-registry-2026.md), а структурированный источник для schema resolver — в [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml).
+Эта карта нужна для управляемых `about`, `mentions`, `ProductGroup`, `Product.color`, `additionalProperty` и внутренних ссылок. Канонический список entity IDs и entity homes находится в [23-entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/23-entity-registry-2026.md), а структурированный источник для schema resolver — в [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml).
 
 | Entity | Тип Schema.org | Каноническая Страница | Где Усиливать | Следующее Действие |
 | --- | --- | --- | --- | --- |
@@ -273,7 +273,7 @@ AI follow-up вопросы не равны обычному Google `People Also
 | SKY | `ProductSeries` / `CollectionPage` | `/products/sky/` | Серия, товары, статьи | SKY Lite и SKY 360 остаются самостоятельными Product внутри серии, без ProductGroup |
 | WING | `ProductSeries` / `CollectionPage` | `/products/wing/` | Серия, товары, статьи | ProductGroup использовать только для моделей с реальными цветовыми вариантами |
 | XTAL | `ProductSeries` / `CollectionPage` | `/products/xtal/` | Серия, товары, статьи | ProductGroup использовать только для моделей с реальными цветовыми вариантами |
-| Товар / товарный вариант | `Product` | `/products/<series>/<model>/` | Product pages | Добавить `additionalProperty` после видимой таблицы характеристик |
+| Товар / товарный вариант | `Product` | `/products/<series>/<model>/` | Product pages | `color` из registry; `additionalProperty` из видимой вкладки характеристик |
 | Игровое кресло | `Thing` / product category | `/products/`, статьи | Hubs, products, articles | Использовать как `about` для релевантных страниц |
 | Офисное кресло | `Thing` / product category | `/products/`, статьи | Hubs, products, articles | Использовать как `about` для home office страниц |
 | Компьютерное кресло | `Thing` / product category | `/products/`, статьи | Hubs, products, articles | Связать с выбором для работы и учебы |
@@ -299,7 +299,7 @@ AI follow-up вопросы не равны обычному Google `People Also
 | P1 | `about` | Article, NewsArticle, CollectionPage | В front matter должна быть главная сущность страницы |
 | P1 | `mentions` | Article, NewsArticle, Product, CollectionPage | Нужны явные связанные товары/серии/темы |
 | Done | `ProductGroup` | Product variants внутри одной модели | Активно для четырех WING/XTAL цветовых групп; новые группы добавлять только при visible variant navigation |
-| P1 | `additionalProperty` | Product | Нужна видимая таблица характеристик |
+| Done | `additionalProperty` | Product | Строится из видимой вкладки `characteristics`; поддерживать без скрытых фактов |
 | P2 | `DefinedTerm` / glossary layer | Articles, glossary or FAQ sections | Нужны реальные объяснения терминов |
 | P2 | Author / reviewer layer | Articles, NewsArticle | Только реальные люди или прозрачная организация |
 | P2 | `sameAs` | Brand, Organization, entities | Только точные официальные профили или авторитетные knowledge bases |
@@ -449,7 +449,7 @@ AI-friendly контент не должен быть короче или бед
 
 1. Подготовить технический дизайн для `about` и `mentions`.
 2. Поддерживать активный `ProductGroup` только для реальных вариантов одной модели; новые группы не добавлять без видимой variant navigation.
-3. Добавить видимую таблицу характеристик как источник для `additionalProperty`.
+3. Поддерживать видимую таблицу характеристик как источник для `additionalProperty`.
 4. Усилить страницы терминов и сценариев: `Synchronous Tilt`, `SYNC4`, `SYNC5`, `Mesh`, `home office`, `dual backrest`.
 5. Проверить, какие текущие статьи лучше всего подходят как entity pages.
 6. Расширить prompt-аудит до матрицы `persona × intent stage`.
@@ -477,7 +477,7 @@ AI-friendly контент не должен быть короче или бед
 - AI Search prompt-аудит;
 - `about` / `mentions`;
 - `ProductGroup`;
-- видимые характеристики для `additionalProperty`;
+- видимые характеристики как источник `additionalProperty`;
 - осторожные trust-сигналы только на реальных данных;
 - измерение AI referrals и качества этого трафика.
 - оценка prompts через personas и intent stages;

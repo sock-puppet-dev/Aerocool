@@ -131,6 +131,8 @@ Healthcare-гайд полезен как напоминание: schema.org typ
 - `additionalProperty` для механизма, подлокотников, базы, роликов, гарантии, сценария использования;
 - `isVariantOf` / `inProductGroupWithID` для confirmed ProductGroup вариантов.
 
+На `2026-05-31` `Product.color` выводится из registry, а `Product.additionalProperty` строится из видимой вкладки `characteristics`. Если характеристика не видна пользователю, она не должна попадать в `additionalProperty`.
+
 Открытый риск: `aggregateRating`. Его нужно держать только при реальном и видимом источнике рейтинга/отзывов. Целевой источник для проекта — approved отзывы из `Netlify Database`, выгруженные на build в `data/generated/reviews.json`.
 
 ## 4. Вложенность И Иерархия
@@ -377,7 +379,7 @@ Customer stories Schema App подтверждают ту же логику на
 - формализовать registry сущностей и `@id`;
 - внедрить `about` и `mentions` через явные front matter поля;
 - поддерживать активный `ProductGroup` для реальных вариантов и не расширять его на одиночные товары;
-- добавить видимые характеристики и затем `additionalProperty`;
+- поддерживать видимые характеристики как источник `additionalProperty`;
 - документировать источник рейтингов или убрать `aggregateRating`;
 - создать schema drift QA как регулярную проверку;
 - привязывать schema-изменения к цели страницы и измеримой метрике;

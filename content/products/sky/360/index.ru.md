@@ -59,6 +59,8 @@ payment_methods:
 characteristics:
   - label: "Модель"
     value: "SKY 360"
+  - label: "Цвет"
+    value: "черный"
   - label: "Общая регулировка"
     value: "11D"
   - label: "Подголовник"

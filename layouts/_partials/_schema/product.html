@@ -29,6 +29,36 @@
 {{- with .Params.product_group_id -}}
   {{- $productGroupRef = partial "_schema/entity-ref.html" (dict "site" $.Site "id" .) -}}
 {{- end -}}
+{{- $entities := index hugo.Data "entities" -}}
+{{- $productEntity := false -}}
+{{- range (.Params.about_entities | default (slice)) -}}
+  {{- if not $productEntity -}}
+    {{- with index $entities . -}}
+      {{- $class := .entity_class | default "" -}}
+      {{- if and (eq (.status | default "planned") "confirmed") (or (eq $class "Product") (eq $class "ProductVariant")) -}}
+        {{- $productEntity = . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $additionalProperties := slice -}}
+{{- range (.Params.characteristics | default (slice)) -}}
+  {{- $label := "" -}}
+  {{- $value := "" -}}
+  {{- with .label -}}
+    {{- $label = printf "%s" . -}}
+  {{- end -}}
+  {{- with .value -}}
+    {{- $value = printf "%s" . -}}
+  {{- end -}}
+  {{- if and $label $value (not (in (slice "color" "колір" "цвет") (lower $label))) -}}
+    {{- $additionalProperties = $additionalProperties | append (dict
+      "@type" "PropertyValue"
+      "name" $label
+      "value" $value
+    ) -}}
+  {{- end -}}
+{{- end -}}
 {{- $offer := dict
   "@type" "Offer"
   "url" $pageURL
@@ -112,6 +142,14 @@
 {{- end -}}
 {{- with .Params.gtin13 -}}
   {{- $product = merge $product (dict "gtin13" .) -}}
+{{- end -}}
+{{- with $productEntity -}}
+  {{- with .color -}}
+    {{- $product = merge $product (dict "color" (replace (printf "%s" .) "-" " ")) -}}
+  {{- end -}}
+{{- end -}}
+{{- if gt (len $additionalProperties) 0 -}}
+  {{- $product = merge $product (dict "additionalProperty" $additionalProperties) -}}
 {{- end -}}
 {{- $reviewData := partial "reviews/summary-data.html" . -}}
 {{- $reviewCount := int ($reviewData.reviewCount | default 0) -}}
