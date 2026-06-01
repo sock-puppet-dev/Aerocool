@@ -73,7 +73,7 @@ Knowledge graph — это сеть отношений между сущност
 
 Customer stories Schema App подтверждают практическую сторону этой модели: knowledge graph должен быть измеримым. Для Aerocool это означает регулярный [Entity Performance Report](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md) `entity -> entity home -> pages about -> pages mentions -> rendered node -> GSC/AI/business signal`, а не только наличие `data/entities.yaml`.
 
-### Lifecycle Content Knowledge Graph
+### Граф Знаний Контента Жизненного Цикла (Lifecycle Content Knowledge Graph)
 
 Новые материалы Schema App уточняют: Content Knowledge Graph — это не только JSON-LD на страницах, а reusable data layer, который нужно создавать, размещать, поддерживать и переиспользовать.
 
@@ -81,10 +81,10 @@ Customer stories Schema App подтверждают практическую с
 
 | Этап | Что Значит В Проекте | Практический Результат |
 | --- | --- | --- |
-| Creation | Определить сущности, entity home, `@id`, связи и видимый контент | `data/entities.yaml`, front matter, страницы сущностей |
-| Hosting | Опубликовать graph в crawlable HTML через JSON-LD | централизованный `@graph` из Hugo partials |
-| Curation | Регулярно проверять факты, статусы, `sameAs`, product facts по регламенту и schema drift | меньше дублей, битых `@id` и устаревших коммерческих данных |
-| Deployment / Reuse | Использовать graph для SEO, AI Search, отчетности, будущего `llms.txt` или agentic surfaces | entity coverage reports, AI citation audits, будущие data endpoints при необходимости |
+| Создание (Creation) | Определить сущности, entity home, `@id`, связи и видимый контент | `data/entities.yaml`, front matter, страницы сущностей |
+| Публикация (Hosting) | Опубликовать graph в crawlable HTML через JSON-LD | централизованный `@graph` из Hugo partials |
+| Поддержка (Curation) | Регулярно проверять факты, статусы, `sameAs`, product facts по регламенту и schema drift | меньше дублей, битых `@id` и устаревших коммерческих данных |
+| Внедрение И Повторное Использование (Deployment / Reuse) | Использовать graph для SEO, AI Search, отчетности, будущего `llms.txt` или agentic surfaces | entity coverage reports, AI citation audits, будущие data endpoints при необходимости |
 
 Не внедрять triplestore, SPARQL или отдельный graph database сейчас. Для текущего масштаба проекта достаточно качественного registry, rendered JSON-LD и регулярной отчетности.
 
@@ -231,7 +231,7 @@ Aerocool уже находится выше уровня keyword/topics благ
 
 Результат аудита должен превращаться в контентные задачи, а не только в schema-задачи.
 
-### Entity Coverage Report
+### Отчет Покрытия Сущностей (Entity Coverage Report)
 
 Раз в месяц после production-запуска готовить простую таблицу покрытия сущностей.
 

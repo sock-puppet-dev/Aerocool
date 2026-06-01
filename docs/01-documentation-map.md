@@ -148,11 +148,11 @@
 
 58. [seo/58-product-facts-maintenance-process-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/58-product-facts-maintenance-process-2026.md) — регламент поддержки product facts: роли команды Aerocool Украина, порядок обновления front matter, HTML, JSON-LD, `/faq/`, Entity Registry и post-deploy QA.
 
-### Entity Performance Reports
+### Отчеты По Entity Performance
 
 59. [seo/59-entity-performance-report-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md) — текущий Entity Performance Report: registry, `about_entities`, `mentions_entities`, `product_group_id`, rendered JSON-LD refs, generated CSV и `59-entity-performance-overrides.csv` для будущих GSC/AI/business-метрик.
 
-### Schema Validator Checklists
+### Чеклисты Schema Validator
 
 60. [seo/60-schema-validator-url-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/60-schema-validator-url-checklist-2026.md) — полный список `114` dev URL с JSON-LD для ручной проверки через `https://validator.schema.org`, с приоритетом проверки и исключениями.
 

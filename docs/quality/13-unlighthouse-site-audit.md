@@ -762,7 +762,7 @@ local.adguard.org
 
 ## 14. Что значат категории Lighthouse
 
-### Performance
+### Производительность (Performance)
 
 Показывает скорость и тяжесть страницы.
 
@@ -788,7 +788,7 @@ local.adguard.org
 - плохой cache;
 - медленный сервер или CDN.
 
-### Accessibility
+### Доступность (Accessibility)
 
 Показывает базовую доступность интерфейса.
 
@@ -802,19 +802,19 @@ local.adguard.org
 
 - нет alt у изображений;
 - плохой контраст;
-- неправильные heading levels;
+- неправильные уровни заголовков (heading levels);
 - кнопка без названия;
 - ссылка без понятного текста;
-- form input без label.
+- поле формы (form input) без label.
 
-### Best Practices
+### Лучшие Практики (Best Practices)
 
 Показывает техническую чистоту страницы.
 
 Типичные проблемы:
 
-- console errors;
-- mixed content;
+- ошибки в консоли (console errors);
+- смешанный контент (mixed content);
 - небезопасные headers;
 - устаревшие browser APIs;
 - неправильные изображения;
