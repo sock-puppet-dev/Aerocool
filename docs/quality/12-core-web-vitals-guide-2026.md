@@ -265,6 +265,8 @@ LCP состоит из четырех частей:
 
 В текущей реализации `seo-image` для `jpg` / `jpeg` / `png` / `webp` генерирует `<picture>` с WebP `srcset` и fallback `<img>` в исходном формате. Для типовых `article`, `news` и `product` страниц, где `image` во front matter совпадает с первым `seo-image`, а `cover.hiddenInSingle: true`, LCP preload выводится в `<head>` через `layouts/_partials/_seo/lcp-image-preload.html`.
 
+Главная страница остается отдельным shortcode-исключением: `layouts/_shortcodes/home-hero.html` берет `assets/images/home-hero85.webp` как Hugo global image resource и сам выводит responsive `srcset`. Для `/` и `/ru/` тот же набор размеров preloads в `<head>` через `layouts/_partials/_seo/lcp-image-preload.html`.
+
 Важно: preload в `<head>` должен использовать тот же `sizes`, что и первое видимое изображение. Если у первого `seo-image` нестандартный `sizes`, задайте такой же `seo_image_sizes` во front matter.
 
 Для главного изображения первого экрана:

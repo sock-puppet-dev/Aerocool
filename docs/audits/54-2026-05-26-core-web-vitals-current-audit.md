@@ -65,6 +65,7 @@
 3. Search input debounce-ится, результаты строятся через DOM API.
 4. Регистрация service worker в `assets/js/site.js` перенесена после `load` на задержку и `requestIdleCallback`.
 5. `docs/quality/12-core-web-vitals-guide-2026.md` обновлен под эти правила.
+6. 2026-06-01: hero-изображение главной переведено в Hugo global image pipeline через `assets/images/home-hero85.webp`, получило responsive `srcset` и matching preload в `<head>` для `/` и `/ru/`.
 
 ## Lighthouse Baseline После Исправлений
 
@@ -102,7 +103,6 @@ unlighthouse/node_modules/.bin/lighthouse <url> --output=json --only-categories=
 
 - нет field data из Search Console / CrUX;
 - текущий `netlify.toml` намеренно держит published build в `development/noindex`;
-- главная hero-картинка остается статическим WebP без responsive variants;
 - lab LCP главной в проверке колебался около `2.3-2.6 s`, то есть рядом с порогом Google и выше внутренней строгой цели `≤ 2.0 s`.
 
 ## Приоритеты
@@ -120,7 +120,7 @@ unlighthouse/node_modules/.bin/lighthouse <url> --output=json --only-categories=
 
 ### P2
 
-1. Подготовить responsive variants для `/images/home-hero85.webp` или перевести home hero image в Hugo image pipeline.
+1. После следующего Deploy Preview перепроверить главную через Lighthouse/Unlighthouse и сравнить LCP после responsive hero image.
 2. При росте сайта контролировать размер `index.json`, поля индекса, лимит результатов и INP search-страницы.
 
 ## Итог

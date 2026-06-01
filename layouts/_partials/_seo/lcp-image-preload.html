@@ -11,6 +11,30 @@ late duplicate next to the <img>.
 {{- $coverHiddenInSingle := (.Param "cover.hiddenInSingle") | default false -}}
 {{- $src := .Params.image | default "" -}}
 {{- $sizes := .Params.seo_image_sizes | default "(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)" -}}
+{{- if .IsHome -}}
+  {{- with resources.Get "images/home-hero85.webp" -}}
+    {{- $hero := . -}}
+    {{- $heroSizes := "(min-width: 1280px) 50vw, (min-width: 1024px) 42vw, (min-width: 640px) 560px, calc(100vw - 64px)" -}}
+    {{- $heroSrcset := slice -}}
+    {{- range (slice 360 480 640 768 900 1023) -}}
+      {{- if le . $hero.Width -}}
+        {{- $variant := $hero.Resize (printf "%dx webp q82" .) -}}
+        {{- $heroSrcset = $heroSrcset | append (printf "%s %dw" $variant.RelPermalink $variant.Width) -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $heroPreload := $hero.Resize "768x webp q82" -}}
+    {{- $heroSrcsetAttr := delimit $heroSrcset ", " -}}
+<link
+  rel="preload"
+  as="image"
+  href="{{ $heroPreload.RelPermalink }}"
+  type="image/webp"
+  fetchpriority="high"
+  {{ printf "imagesrcset=%q" $heroSrcsetAttr | safeHTMLAttr }}
+  {{ printf "imagesizes=%q" $heroSizes | safeHTMLAttr }}
+>
+  {{- end -}}
+{{- end -}}
 {{- if and $isPrimaryContentPage $coverHiddenInSingle $src -}}
   {{- with .Resources.GetMatch $src -}}
     {{- $img := . -}}
