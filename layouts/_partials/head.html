@@ -11,14 +11,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!-- Robots -->
 {{- $is404 := or (eq .Kind "404") (eq .Layout "404") (eq .RelPermalink "/404.html") (eq .RelPermalink "/ru/404.html") -}}
-{{- $robotsNoIndex := or $is404 (eq .Layout "search") (eq .Params.robotsNoIndex true) -}}
-{{ if and (or hugo.IsProduction (eq site.Params.env "production")) (not $robotsNoIndex) }}
-<meta name="robots" content="index,follow">
-{{ else }}
-<meta name="robots" content="noindex,nofollow">
-{{ end }}
+{{- $robotsNoIndexBase := or $is404 (eq .Layout "search") (eq .Params.robotsNoIndex true) -}}
 
 {{- $pageNumber := 1 -}}
 {{- $pagePermalink := .Permalink | absURL -}}
@@ -44,6 +38,19 @@
 {{- end -}}
 {{- .Scratch.Set "pageNumber" $pageNumber -}}
 {{- .Scratch.Set "pagePermalink" $pagePermalink -}}
+{{- $isPaginatedIndexPage := gt $pageNumber 1 -}}
+{{- .Scratch.Set "isPaginatedIndexPage" $isPaginatedIndexPage -}}
+
+<!-- Robots -->
+{{ if and (or hugo.IsProduction (eq site.Params.env "production")) (not $robotsNoIndexBase) }}
+{{- if $isPaginatedIndexPage }}
+<meta name="robots" content="noindex,follow">
+{{- else }}
+<meta name="robots" content="index,follow">
+{{- end }}
+{{ else }}
+<meta name="robots" content="noindex,nofollow">
+{{ end }}
 
 <!-- Title & description -->
 {{- $pageTitle := partial "page-title.html" . -}}

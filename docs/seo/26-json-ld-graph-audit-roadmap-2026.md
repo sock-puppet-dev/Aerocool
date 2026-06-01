@@ -30,7 +30,7 @@
 - `search`, `404`, alias, `contact/success` и служебная пагинация остаются без JSON-LD;
 - даты `Article` и `NewsArticle` сериализуются как `+03:00`, без `&#43;`.
 
-Фактическая актуальная сборка в `development` содержит `114` HTML-страниц с JSON-LD и `2026` top-level nodes: `24` `Product`, `32` `Article`, `18` `NewsArticle`, `100` `BreadcrumbList`, `2` `FAQPage`, `18` `CollectionPage`, `2` `AboutPage`, `2` `ContactPage`, `228` `ImageObject`, а также registry-based nodes для подтвержденных сущностей: `DefinedTerm` и объяснительные `Thing` nodes из `about_entities` и `mentions_entities`. Из-за временного `HUGO_ENVIRONMENT = "development"` эти страницы сейчас получают `noindex,nofollow`; rich-results eligibility нужно перепроверить после production-перехода.
+Фактическая актуальная сборка содержит `96` HTML-страниц с JSON-LD и `1796` top-level nodes: `24` `Product`, `16` `ProductGroup`, `32` `Article`, `18` `NewsArticle`, `94` `BreadcrumbList`, `2` `FAQPage`, `12` `CollectionPage`, `2` `AboutPage`, `2` `ContactPage`, `192` `ImageObject`, а также registry-based nodes для подтвержденных сущностей: `DefinedTerm` и объяснительные `Thing` nodes из `about_entities` и `mentions_entities`. Paginated URL `/page/2+`, `/articles/page/2+`, `/news/page/2+` и русские аналоги остаются навигационными `noindex,follow` страницами без JSON-LD. Из-за временного `HUGO_ENVIRONMENT = "development"` published branch build все еще получает `noindex,nofollow`; rich-results eligibility нужно перепроверить после production-перехода.
 
 ### Качество Google Rich Results: `9.0/10`
 

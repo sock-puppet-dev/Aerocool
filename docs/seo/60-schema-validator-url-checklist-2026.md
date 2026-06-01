@@ -22,14 +22,15 @@ https://aerocool.ua
 
 | Группа | Количество URL |
 | --- | ---: |
-| Украинские страницы | `57` |
-| Русские страницы | `57` |
-| Всего URL с JSON-LD | `114` |
+| Украинские страницы | `48` |
+| Русские страницы | `48` |
+| Всего URL с JSON-LD | `96` |
 
 Что не входит в список:
 
 - `/search/` и `/ru/search/`, потому что search должен оставаться `noindex,nofollow` и без JSON-LD;
 - `/contact/success/` и `/ru/contact/success/`, потому что success page не должна получать JSON-LD;
+- `/page/2+`, `/articles/page/2+`, `/news/page/2+` и русские paginated URL, потому что pagination pages остаются навигационными `noindex,follow` страницами без JSON-LD;
 - `404` и alias/service pages.
 
 ## 2. Как Проверять
@@ -52,7 +53,6 @@ Schema.org Validator проверяет синтаксис и распознав
 3. Все product pages.
 4. `/faq/`, `/contact/`, `/about/`, `/image-license/` и русские версии.
 5. Статьи и новости.
-6. Pagination pages.
 
 ## 4. Украинские URL
 
@@ -116,18 +116,6 @@ Schema.org Validator проверяет синтаксис и распознав
 - [ ] https://dev--hugo-aerocool.netlify.app/news/wing-series-launch/
 - [ ] https://dev--hugo-aerocool.netlify.app/news/xtal-series-launch/
 
-### 4.5. Pagination Pages
-
-- [ ] https://dev--hugo-aerocool.netlify.app/page/2/
-- [ ] https://dev--hugo-aerocool.netlify.app/page/3/
-- [ ] https://dev--hugo-aerocool.netlify.app/page/4/
-- [ ] https://dev--hugo-aerocool.netlify.app/page/5/
-- [ ] https://dev--hugo-aerocool.netlify.app/page/6/
-- [ ] https://dev--hugo-aerocool.netlify.app/page/7/
-- [ ] https://dev--hugo-aerocool.netlify.app/articles/page/2/
-- [ ] https://dev--hugo-aerocool.netlify.app/articles/page/3/
-- [ ] https://dev--hugo-aerocool.netlify.app/news/page/2/
-
 ## 5. Русские URL
 
 ### 5.1. Главная И Статичные Страницы
@@ -189,18 +177,6 @@ Schema.org Validator проверяет синтаксис и распознав
 - [ ] https://dev--hugo-aerocool.netlify.app/ru/news/sync4-sync5-mechanism-update/
 - [ ] https://dev--hugo-aerocool.netlify.app/ru/news/wing-series-launch/
 - [ ] https://dev--hugo-aerocool.netlify.app/ru/news/xtal-series-launch/
-
-### 5.5. Pagination Pages
-
-- [ ] https://dev--hugo-aerocool.netlify.app/ru/page/2/
-- [ ] https://dev--hugo-aerocool.netlify.app/ru/page/3/
-- [ ] https://dev--hugo-aerocool.netlify.app/ru/page/4/
-- [ ] https://dev--hugo-aerocool.netlify.app/ru/page/5/
-- [ ] https://dev--hugo-aerocool.netlify.app/ru/page/6/
-- [ ] https://dev--hugo-aerocool.netlify.app/ru/page/7/
-- [ ] https://dev--hugo-aerocool.netlify.app/ru/articles/page/2/
-- [ ] https://dev--hugo-aerocool.netlify.app/ru/articles/page/3/
-- [ ] https://dev--hugo-aerocool.netlify.app/ru/news/page/2/
 
 ## 6. Что Фиксировать После Проверки
 

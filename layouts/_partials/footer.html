@@ -119,8 +119,9 @@
 {{- partial "extend_footer.html" . }}
 
 {{- $is404 := or (eq .Kind "404") (eq .Layout "404") (eq .RelPermalink "/404.html") (eq .RelPermalink "/ru/404.html") -}}
-{{- $robotsNoIndex := or $is404 (eq .Layout "search") (eq .Params.robotsNoIndex true) -}}
-{{- if not $robotsNoIndex }}
+{{- $isPaginatedIndexPage := .Scratch.Get "isPaginatedIndexPage" | default false -}}
+{{- $skipJsonLd := or $is404 (eq .Layout "search") (eq .Params.robotsNoIndex true) $isPaginatedIndexPage -}}
+{{- if not $skipJsonLd }}
 {{ partial "_seo/jsonld.html" . }}
 {{- end }}
 

@@ -5,6 +5,7 @@
 {{- else }}
 
 {{- $pageDescription := .Description | default (partial "page-description.html" .) }}
+{{- $pageNumber := .Scratch.Get "pageNumber" | default 1 }}
 
 {{- if not .IsHome | and .Title }}
 <header class="page-header">
@@ -32,7 +33,7 @@
 </header>
 {{- end }}
 
-{{- if .Content }}
+{{- if and .Content (eq $pageNumber 1) }}
 <div class="post-content">
   {{- if not (.Param "disableAnchoredHeadings") }}
   {{- partial "anchored_headings.html" .Content -}}
