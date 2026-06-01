@@ -2,6 +2,7 @@
   "name": "Aerocool",
   "version": "1.0.0",
   "devDependencies": {
+    "@netlify/plugin-lighthouse": "6.0.4",
     "@tailwindcss/cli": "4.3.0",
     "tailwindcss": "4.3.0"
   },
