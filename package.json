@@ -2,8 +2,10 @@
   "name": "Aerocool",
   "version": "1.0.0",
   "devDependencies": {
-    "@netlify/plugin-lighthouse": "6.0.4",
     "@tailwindcss/cli": "4.3.0",
+    "chrome-launcher": "1.2.1",
+    "lighthouse": "13.3.0",
+    "puppeteer": "25.1.0",
     "tailwindcss": "4.3.0"
   },
   "scripts": {

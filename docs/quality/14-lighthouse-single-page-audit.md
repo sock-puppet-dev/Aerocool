@@ -1,6 +1,6 @@
 # Руководство по аудиту одной страницы через Lighthouse
 
-Обновлено: 2026-05-15.
+Обновлено: 2026-06-01.
 
 Lighthouse — одиночный аудит конкретной страницы. Unlighthouse — массовый запуск Lighthouse по набору URL. Для этого проекта основной ежедневный инструмент — Unlighthouse, а Lighthouse полезен для точечной диагностики одной страницы.
 
@@ -14,8 +14,10 @@ Performance      LCP, CLS, TBT, FCP, Speed Index
 Accessibility    доступность интерфейса
 Best Practices   HTTPS, CSP, console errors, современные API
 SEO              title, description, canonical, hreflang, robots, mobile
-PWA              базовые требования Progressive Web App
+Agentic Browsing готовность страницы к безопасной работе с браузерными AI-агентами
 ```
+
+Важно для новичка: в старых отчетах Lighthouse и старом `@netlify/plugin-lighthouse` могла быть отдельная категория `PWA`. В актуальном root-инструменте проекта используется `lighthouse 13`, где набор категорий отличается и может включать `Agentic Browsing`.
 
 ## Когда использовать
 
@@ -125,6 +127,20 @@ Netlify собирает и публикует сайт. Lighthouse провер
 Если Netlify сейчас собирает `development`, Lighthouse SEO может показывать проблемы с indexability, потому что страницы намеренно получают `noindex,nofollow`.
 
 Финальный SEO-Lighthouse имеет смысл только после production-сборки и deploy.
+
+В Netlify Deploy Summary проект не использует официальный `@netlify/plugin-lighthouse`. Он был заменен локальным build plugin:
+
+```text
+netlify/plugins/lighthouse-summary/
+```
+
+Причина замены простая: официальный plugin может завершаться как `ran successfully`, но отдавать `Summary for path '/': undefined`. Локальный plugin проекта запускает актуальные `lighthouse`, `puppeteer` и `chrome-launcher`, проверяет опубликованный deploy URL после успешного deploy и выводит понятную строку:
+
+```text
+Lighthouse summary for path '/': Performance: 100, Accessibility: 100, Best Practices: 100, SEO: 100, Agentic Browsing: 100
+```
+
+Этот Netlify summary нужен для быстрого контроля главной страницы после deploy. Он не заменяет полный Unlighthouse-аудит по набору страниц.
 
 ## PageSpeed, CSP И Service Worker
 

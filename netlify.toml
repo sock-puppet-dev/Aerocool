@@ -18,13 +18,12 @@
   NPM_FLAGS = "--legacy-peer-deps"
   # Флаг npm для предотвращения конфликтов зависимостей
 
-# Lighthouse Build Plugin
-# Держим подключение плагина в репозитории, а не только в Netlify UI.
-# Так версия и запуск Lighthouse становятся частью кода проекта и не меняются неявно.
-# Без дополнительных inputs плагин использует безопасный дефолт Netlify:
-# запускается после успешного деплоя и проверяет корневой путь "/".
+# Lighthouse summary plugin
+# Официальный @netlify/plugin-lighthouse сейчас может завершаться successfully,
+# но отдавать "Summary for path '/': undefined". Поэтому используем локальный
+# контролируемый плагин проекта с актуальными lighthouse/puppeteer зависимостями.
 [[plugins]]
-  package = "@netlify/plugin-lighthouse"
+  package = "./netlify/plugins/lighthouse-summary"
 
 # Блок Headers для безопасности, SEO и кеширования
 

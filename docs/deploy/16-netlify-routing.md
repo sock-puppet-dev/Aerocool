@@ -1,6 +1,6 @@
 # Маршрутизация Netlify И Принудительная 404
 
-Обновлено: 2026-05-15.
+Обновлено: 2026-06-01.
 
 Этот документ описывает, как в проекте устроены Netlify redirects, HTTP headers и кастомная `404`.
 
@@ -11,7 +11,7 @@
 В проекте есть два слоя routing-настроек:
 
 - `static/_redirects` — plain text `_redirects` для Netlify. Hugo копирует его в `public/_redirects` как статический файл. Здесь живет явный root rewrite `/ -> /index.html` и forced `404!` для scanner URL.
-- `netlify.toml` — основной Netlify config со сборкой и headers. Общий fallback на `404` не нужен: Netlify автоматически использует `public/404.html`.
+- `netlify.toml` — основной Netlify config со сборкой, headers и локальными build plugins. Общий fallback на `404` не нужен: Netlify автоматически использует `public/404.html`.
 
 Netlify обрабатывает `_redirects` раньше правил из `netlify.toml`. Внутри файла первое совпавшее правило выигрывает, поэтому более конкретные правила должны стоять выше более общих.
 
@@ -206,3 +206,28 @@ curl -sS -I http://localhost:8899/ads.txt
 - несуществующие обычные URL, например `/ads.txt`, отдают автоматическую кастомную `404`.
 
 Netlify CLI может создать локальные артефакты `.netlify/` и `deno.lock`; они должны оставаться в `.gitignore` и не попадать в коммит.
+
+## 9. Локальный Lighthouse Summary Plugin
+
+В `netlify.toml` подключен локальный build plugin:
+
+```toml
+[[plugins]]
+  package = "./netlify/plugins/lighthouse-summary"
+```
+
+Он заменяет официальный `@netlify/plugin-lighthouse`, потому что официальный plugin на текущем Netlify runtime может завершаться успешно, но отдавать пустой результат:
+
+```text
+Summary for path '/': undefined
+```
+
+Локальный plugin живет в:
+
+```text
+netlify/plugins/lighthouse-summary/
+```
+
+Он запускается после успешного deploy, берет опубликованный Netlify URL из `DEPLOY_PRIME_URL`, `DEPLOY_URL` или `URL`, проверяет путь `/` через актуальные `lighthouse`, `puppeteer` и `chrome-launcher`, а затем выводит понятный summary в Deploy Summary.
+
+Этот plugin не должен использоваться как жесткий production gate. Он нужен для быстрой диагностики главной страницы после deploy. Для полного аудита сайта использовать Unlighthouse из [quality/13-unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-unlighthouse-site-audit.md).
