@@ -156,7 +156,7 @@
 
 60. [seo/60-schema-validator-url-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/60-schema-validator-url-checklist-2026.md) — полный список `114` dev URL с JSON-LD для ручной проверки через `https://validator.schema.org`, с приоритетом проверки и исключениями.
 
-### Netlify Lighthouse Summary
+### Сводка Lighthouse В Netlify
 
 61. [audits/61-2026-06-01-netlify-lighthouse-summary-plugin-fix.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/61-2026-06-01-netlify-lighthouse-summary-plugin-fix.md) — решение по замене официального `@netlify/plugin-lighthouse` на локальный `netlify/plugins/lighthouse-summary/`, причина ошибки `Summary for path '/': undefined` и подтвержденный Deploy Summary.
 

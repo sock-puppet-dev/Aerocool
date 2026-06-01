@@ -1,21 +1,21 @@
-# Netlify Lighthouse Summary Plugin Fix
+# Исправление Сводки Lighthouse В Netlify
 
 Обновлено: 2026-06-01.
 
-Этот документ фиксирует решение по проблеме Netlify Lighthouse summary на проекте `Aerocool Ukraine`.
+Этот документ фиксирует решение по проблеме сводки Lighthouse в Netlify для проекта `Aerocool Ukraine`.
 
 ## 1. Короткий Итог
 
-Официальный `@netlify/plugin-lighthouse` больше не используется в проекте.
+Официальный плагин `@netlify/plugin-lighthouse` больше не используется в проекте.
 
-Причина: на текущем Netlify runtime plugin мог завершаться как успешный, но отдавать пустой результат:
+Причина: в текущем runtime Netlify плагин мог завершаться как успешный, но отдавать пустой результат:
 
 ```text
 @netlify/plugin-lighthouse ran successfully
 Summary for path '/': undefined
 ```
 
-Вместо него подключен локальный build plugin проекта:
+Вместо него подключен локальный build-плагин проекта:
 
 ```text
 netlify/plugins/lighthouse-summary/
@@ -30,13 +30,13 @@ netlify/plugins/lighthouse-summary/
 
 ## 2. Что Было Проверено
 
-Была проверена версия с официальным plugin:
+Была проверена версия с официальным плагином:
 
 ```text
 @netlify/plugin-lighthouse@6.0.4 from netlify.toml and package.json
 ```
 
-Двойной конфигурации не было: Netlify UI plugin был отключен, а в deploy log plugin загружался один раз из `netlify.toml`.
+Двойной конфигурации не было: плагин в Netlify UI был отключен, а в deploy log плагин загружался один раз из `netlify.toml`.
 
 Несмотря на это, Deploy Summary продолжал показывать:
 
@@ -44,9 +44,9 @@ netlify/plugins/lighthouse-summary/
 Summary for path '/': undefined
 ```
 
-Это означает, что проблема была не в HTML страницы и не в двойном подключении, а в связке официального plugin, Lighthouse/Chrome/Puppeteer runtime и Netlify build environment.
+Это означает, что проблема была не в HTML страницы и не в двойном подключении, а в связке официального плагина, runtime Lighthouse/Chrome/Puppeteer и build environment Netlify.
 
-## 3. Почему Не Оставили Официальный Plugin
+## 3. Почему Не Оставили Официальный Плагин
 
 Официальный `@netlify/plugin-lighthouse` на момент проверки тянул устаревший стек:
 
@@ -61,7 +61,7 @@ puppeteer 24.8.2
 puppeteer@24.8.2: < 24.15.0 is no longer supported
 ```
 
-Главная практическая проблема была не в warning, а в том, что plugin скрывал внутреннюю ошибку и отдавал пользователю не диагностируемый результат `undefined`.
+Главная практическая проблема была не в warning, а в том, что плагин скрывал внутреннюю ошибку и отдавал пользователю не диагностируемый результат `undefined`.
 
 ## 4. Текущее Решение
 
@@ -73,7 +73,7 @@ puppeteer@24.8.2: < 24.15.0 is no longer supported
 "puppeteer": "25.1.0"
 ```
 
-Локальный plugin:
+Локальный плагин:
 
 - запускается после успешного Netlify deploy;
 - берет опубликованный URL из `DEPLOY_PRIME_URL`, `DEPLOY_URL` или `URL`;
