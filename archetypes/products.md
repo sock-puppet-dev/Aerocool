@@ -38,9 +38,6 @@ gtin13: ""
 warranty: 12
 availability: InStock
 priceValidUntil: ""
-rating:
-  value: 0
-  count: 0
 ---
 
 {{- end -}}
