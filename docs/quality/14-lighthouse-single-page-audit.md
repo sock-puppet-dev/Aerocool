@@ -6,6 +6,7 @@ Lighthouse — одиночный аудит конкретной страниц
 
 Для полного Core Web Vitals workflow смотри [12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md).
 Базовый sync-аудит документации: [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md).
+Решение по замене официального Netlify Lighthouse plugin: [61-2026-06-01-netlify-lighthouse-summary-plugin-fix.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/61-2026-06-01-netlify-lighthouse-summary-plugin-fix.md).
 
 ## Что проверяет Lighthouse
 
@@ -141,6 +142,15 @@ Lighthouse summary for path '/': Performance: 100, Accessibility: 100, Best Prac
 ```
 
 Этот Netlify summary нужен для быстрого контроля главной страницы после deploy. Он не заменяет полный Unlighthouse-аудит по набору страниц.
+
+Подтвержденный результат на Branch Deploy `dev@e858777`:
+
+```text
+./netlify/plugins/lighthouse-summary ran successfully
+Lighthouse summary for path '/': Performance: 100, Accessibility: 100, Best Practices: 100, SEO: 100, Agentic Browsing: 100
+```
+
+Если в Netlify UI виден баннер `Install Lighthouse plugin`, его не нажимать: это предложение вернуть официальный plugin, который был заменен.
 
 ## PageSpeed, CSP И Service Worker
 

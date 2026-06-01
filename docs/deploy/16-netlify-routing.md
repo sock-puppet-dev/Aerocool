@@ -6,6 +6,8 @@
 
 Базовая синхронизация с Netlify redirects, headers и caching docs зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md).
 
+Решение по локальному Netlify Lighthouse summary plugin зафиксировано в [61-2026-06-01-netlify-lighthouse-summary-plugin-fix.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/61-2026-06-01-netlify-lighthouse-summary-plugin-fix.md).
+
 ## 1. Где Живут Правила
 
 В проекте есть два слоя routing-настроек:
@@ -231,3 +233,12 @@ netlify/plugins/lighthouse-summary/
 Он запускается после успешного deploy, берет опубликованный Netlify URL из `DEPLOY_PRIME_URL`, `DEPLOY_URL` или `URL`, проверяет путь `/` через актуальные `lighthouse`, `puppeteer` и `chrome-launcher`, а затем выводит понятный summary в Deploy Summary.
 
 Этот plugin не должен использоваться как жесткий production gate. Он нужен для быстрой диагностики главной страницы после deploy. Для полного аудита сайта использовать Unlighthouse из [quality/13-unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-unlighthouse-site-audit.md).
+
+Подтвержденный результат на Branch Deploy `dev@e858777`:
+
+```text
+./netlify/plugins/lighthouse-summary ran successfully
+Lighthouse summary for path '/': Performance: 100, Accessibility: 100, Best Practices: 100, SEO: 100, Agentic Browsing: 100
+```
+
+Если Netlify UI показывает баннер `Install Lighthouse plugin`, его не нажимать: он возвращает официальный plugin, который был заменен из-за `Summary for path '/': undefined`.

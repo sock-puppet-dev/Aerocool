@@ -40,6 +40,7 @@
 - `Netlify Functions` для API-эндпоинтов отзывов
 - `Netlify Database` / `PostgreSQL` для SEO-first review-системы
 - `Unlighthouse` для массового Lighthouse-аудита
+- локальный `netlify/plugins/lighthouse-summary/` для краткого Lighthouse summary в Netlify Deploy Summary
 
 Локальные версии инструментов фиксируются в `mise.toml`. В Netlify версии фиксируются в `netlify.toml`.
 
@@ -107,7 +108,7 @@ npm run build:production
 2. Сделать изменения и закоммитить их в `dev`.
 3. Запушить `dev` в GitHub.
 4. Netlify автоматически собирает `https://dev--hugo-aerocool.netlify.app/`.
-5. Проверить тестовый сайт вручную или через Unlighthouse из папки `unlighthouse/`.
+5. Проверить тестовый сайт вручную, через Netlify Lighthouse summary или через Unlighthouse из папки `unlighthouse/`.
 6. Если все готово к релизу, отдельно перенести `dev` в `main`.
 7. После финального решения переводить Netlify в `production`, если сайт должен индексироваться.
 
@@ -130,6 +131,7 @@ static/                         статические файлы
 static/_redirects               root rewrite и forced 404 для scanner/sensitive URL на Netlify
 netlify/database/migrations/    SQL-миграции Netlify Database
 netlify/functions/              Netlify Functions, включая прием отзывов
+netlify/plugins/lighthouse-summary/ локальный Netlify plugin для краткого Lighthouse summary после deploy
 unlighthouse/                   аудит Lighthouse/Unlighthouse
 hugo.yaml                       конфигурация Hugo
 netlify.toml                    сборка Netlify и HTTP headers
@@ -404,7 +406,36 @@ npm run audit:ci:technical
 
 Подробно смотри [docs/quality/13-unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-unlighthouse-site-audit.md).
 
-## 14. Основные команды и helper-скрипты
+## 14. Netlify Lighthouse Summary
+
+В проекте не используется официальный `@netlify/plugin-lighthouse`.
+
+Причина: на текущем Netlify runtime он может завершаться успешно, но отдавать пустой summary:
+
+```text
+Summary for path '/': undefined
+```
+
+Вместо него используется локальный build plugin:
+
+```text
+netlify/plugins/lighthouse-summary/
+```
+
+Он подключен в `netlify.toml`, запускается после успешного deploy и проверяет опубликованный путь `/`.
+
+Ожидаемая строка в Netlify Deploy Summary:
+
+```text
+./netlify/plugins/lighthouse-summary ran successfully
+Lighthouse summary for path '/': Performance: 100, Accessibility: 100, Best Practices: 100, SEO: 100, Agentic Browsing: 100
+```
+
+Если в Netlify UI появляется баннер `Install Lighthouse plugin`, его не нажимать. Эта кнопка возвращает официальный plugin, который уже был заменен.
+
+Подробно смотри [docs/audits/61-2026-06-01-netlify-lighthouse-summary-plugin-fix.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/61-2026-06-01-netlify-lighthouse-summary-plugin-fix.md) и [docs/quality/14-lighthouse-single-page-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/14-lighthouse-single-page-audit.md).
+
+## 15. Основные команды и helper-скрипты
 
 ```bash
 mise install
@@ -462,7 +493,7 @@ npm run build:production
 ./scripts/script_check_routes.sh
 ```
 
-## 15. Перед Важным Deploy
+## 16. Перед Важным Deploy
 
 ### Перед Push В `dev`
 
@@ -538,7 +569,7 @@ git push origin main
 git checkout dev
 ```
 
-## 16. Карта документации
+## 17. Карта документации
 
 Документация теперь имеет явную последовательность чтения. Корневые файлы остаются со стандартными именами, а все файлы внутри `docs/` имеют глобальный номер в начале имени.
 
@@ -546,7 +577,7 @@ git checkout dev
 
 1. `README.md` — главный вход в проект.
 2. `AGENTS.md` — правила безопасной работы для Codex/агентов.
-3. [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-60`.
+3. [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-61`.
 4. [docs/architecture/02-documentation-style-guide.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/02-documentation-style-guide.md) — стандарт русскоязычной, понятной и структурированной документации.
 5. [docs/architecture/03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md) — локальные Hugo helpers и partials.
 6. [docs/content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md) — поля front matter для страниц.
