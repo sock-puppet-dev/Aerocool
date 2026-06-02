@@ -1114,14 +1114,16 @@ textarea.ui-field {
 
 .post-content .ui-button,
 .post-content a.ui-button,
-.home-hero .ui-button {
+.home-hero .ui-button,
+.home-product-lines .ui-button {
     box-shadow: none;
     text-decoration: none;
 }
 
 .post-content .ui-button-primary,
 .post-content a.ui-button-primary,
-.home-hero .ui-button-primary {
+.home-hero .ui-button-primary,
+.home-product-lines .ui-button-primary {
     background: var(--accent);
     color: #ffffff;
 }
@@ -1131,14 +1133,17 @@ textarea.ui-field {
 .post-content a.ui-button-primary:hover,
 .post-content a.ui-button-primary:focus-visible,
 .home-hero .ui-button-primary:hover,
-.home-hero .ui-button-primary:focus-visible {
+.home-hero .ui-button-primary:focus-visible,
+.home-product-lines .ui-button-primary:hover,
+.home-product-lines .ui-button-primary:focus-visible {
     background: var(--accent-hover);
     color: #ffffff;
 }
 
 .post-content .ui-button-secondary,
 .post-content a.ui-button-secondary,
-.home-hero .ui-button-secondary {
+.home-hero .ui-button-secondary,
+.home-product-lines .ui-button-secondary {
     color: var(--primary);
 }
 
@@ -1594,6 +1599,66 @@ textarea.ui-field {
 @media (min-width: 1024px) {
     .home-hero__media {
         min-height: auto;
+    }
+}
+
+.home-product-lines {
+    width: 100vw;
+    margin-top: 0;
+    margin-right: calc(50% - 50vw);
+    margin-left: calc(50% - 50vw);
+}
+
+.home-product-lines .home-product-lines__inner {
+    padding: 3.5rem 1rem;
+}
+
+.home-product-lines__header {
+    max-width: 48rem;
+}
+
+.home-product-lines__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.post-content .home-product-lines a.products-list__media-link,
+.post-content .home-product-lines .products-list__title a,
+.post-content .home-product-lines a.products-list__details {
+    border-bottom: 0;
+    box-shadow: none;
+    text-decoration: none;
+}
+
+.post-content .home-product-lines .products-list__title a {
+    color: inherit;
+}
+
+.post-content .home-product-lines .products-list__title a:hover,
+.post-content .home-product-lines .products-list__title a:focus-visible {
+    color: var(--accent);
+}
+
+.post-content .home-product-lines a.products-list__details {
+    color: var(--accent);
+}
+
+.post-content .home-product-lines a.products-list__details:hover,
+.post-content .home-product-lines a.products-list__details:focus-visible {
+    color: var(--accent-hover);
+}
+
+@media (min-width: 640px) {
+    .home-product-lines .home-product-lines__inner {
+        padding: 5rem 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .home-product-lines .home-product-lines__inner {
+        padding-right: 2rem;
+        padding-left: 2rem;
     }
 }
 

@@ -1,0 +1,130 @@
+{{- $page := .page -}}
+{{- $context := .context | default $page -}}
+{{- $isRu := eq $context.Language.Name "ru" -}}
+{{- $cardTitle := partial "breadcrumb-label.html" $page -}}
+{{- $cardSummary := $page.Summary | default $page.Description | plainify | htmlUnescape -}}
+{{- $isProductCard := $page.Params.price -}}
+{{- $reviewTargetID := $page.Params.review_target_id | default "" -}}
+{{- $reviewsEnabled := and ($page.Params.reviews_enabled | default false) $reviewTargetID -}}
+{{- $mentions := $page.Params.mentions_entities | default (slice) -}}
+{{- $availability := $page.Params.availability | default "" -}}
+{{- $availabilityLabel := "" -}}
+{{- if eq $availability "InStock" -}}
+  {{- $availabilityLabel = cond $isRu "В наличии" "В наявності" -}}
+{{- else if $availability -}}
+  {{- $availabilityLabel = $availability -}}
+{{- end -}}
+{{- $materialLabel := "" -}}
+{{- $materialText := "" -}}
+{{- $fitText := "" -}}
+{{- if in $mentions "racer-material" -}}
+  {{- $materialLabel = "Racer" -}}
+  {{- $materialText = "Leatherette" -}}
+  {{- $fitText = cond $isRu "Плотный контакт и более простой уход за поверхностью." "Щільніший контакт і простіший догляд за поверхнею." -}}
+{{- else if in $mentions "loft-air-material" -}}
+  {{- $materialLabel = "Loft Air" -}}
+  {{- $materialText = cond $isRu "вентилируемая ткань" "вентильована тканина" -}}
+  {{- $fitText = cond $isRu "Мягче на каждый день и комфортнее для длительной работы." "М'якше на щодень і комфортніше для тривалої роботи." -}}
+{{- else if in $mentions "mesh-material" -}}
+  {{- $materialLabel = "Mesh" -}}
+  {{- $materialText = cond $isRu "вентилируемая сетка" "вентильована сітка" -}}
+  {{- $fitText = cond $isRu "Максимальная вентиляция для теплого помещения и долгого сидения." "Максимальна вентиляція для теплого приміщення та довгого сидіння." -}}
+{{- end -}}
+{{- $featureBadges := slice -}}
+{{- if $materialLabel -}}
+  {{- $featureBadges = $featureBadges | append $materialLabel -}}
+{{- end -}}
+{{- if in $mentions "11d-adjustment" -}}
+  {{- $featureBadges = $featureBadges | append "11D" -}}
+{{- end -}}
+{{- if in $mentions "sync5-mechanism" -}}
+  {{- $featureBadges = $featureBadges | append "SYNC5" -}}
+{{- end -}}
+{{- $coverImage := $page.Params.cover.image | default $page.Params.image -}}
+{{- $coverAlt := $page.Params.cover.alt | default $cardTitle -}}
+{{- $imageSrc := "" -}}
+{{- $imageSrcset := slice -}}
+{{- $imageWidth := 720 -}}
+{{- $imageHeight := 480 -}}
+{{- with $coverImage -}}
+  {{- $cardImage := ($page.Resources.ByType "image").GetMatch (printf "*%s*" .) -}}
+  {{- $globalImage := (resources.ByType "image").GetMatch (printf "*%s*" .) -}}
+  {{- $image := or $cardImage $globalImage -}}
+  {{- if and $image (in (slice "jpg" "jpeg" "png" "webp") $image.MediaType.SubType) -}}
+    {{- $fallbackWidth := 720 -}}
+    {{- if lt $image.Width $fallbackWidth -}}
+      {{- $fallbackWidth = $image.Width -}}
+    {{- end -}}
+    {{- $fallback := $image.Resize (printf "%dx webp q82" $fallbackWidth) -}}
+    {{- $imageSrc = $fallback.RelPermalink -}}
+    {{- $imageWidth = $fallback.Width -}}
+    {{- $imageHeight = $fallback.Height -}}
+    {{- range slice 360 480 720 1080 -}}
+      {{- if le . $image.Width -}}
+        {{- $variant := $image.Resize (printf "%dx webp q82" .) -}}
+        {{- $imageSrcset = $imageSrcset | append (printf "%s %dw" $variant.RelPermalink $variant.Width) -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if not (in $imageSrcset (printf "%s %dw" $fallback.RelPermalink $fallback.Width)) -}}
+      {{- $imageSrcset = $imageSrcset | append (printf "%s %dw" $fallback.RelPermalink $fallback.Width) -}}
+    {{- end -}}
+  {{- else -}}
+    {{- $imageSrc = . | relURL -}}
+  {{- end -}}
+{{- end -}}
+<article class="products-list__card{{ if $isProductCard }} products-list__card--product{{ end }} group">
+  <a href="{{ $page.RelPermalink }}" class="products-list__media-link" aria-label="{{ $cardTitle }}">
+  {{- with $imageSrc }}
+  <img
+    src="{{ . }}"
+    {{- if $imageSrcset }}
+    srcset="{{ delimit $imageSrcset ", " }}"
+    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, calc(100vw - 2rem)"
+    {{- end }}
+    width="{{ $imageWidth }}"
+    height="{{ $imageHeight }}"
+    loading="lazy"
+    decoding="async"
+    alt="{{ $coverAlt }}"
+    class="products-list__image aspect-3/2 w-full rounded-lg object-cover group-hover:opacity-75 lg:aspect-5/6" />
+  {{- end }}
+  </a>
+  <div class="products-list__card-body">
+    <div class="products-list__card-heading">
+      <h2 class="products-list__title ui-card-title">
+        <a href="{{ $page.RelPermalink }}">{{ $cardTitle }}</a>
+      </h2>
+      {{- with $page.Params.price }}
+      <p class="products-list__price">{{ . }} грн</p>
+      {{- end }}
+      {{- if $reviewsEnabled }}
+      {{ partial "reviews/summary-card.html" $page }}
+      {{- end }}
+      {{- if $isProductCard }}
+      {{ partial "products/color-dots.html" $page }}
+      {{- end }}
+    </div>
+
+    {{- if $isProductCard }}
+    <div class="products-list__badges" aria-label="{{ cond $isRu "Краткие характеристики товара" "Короткі характеристики товару" }}">
+      {{- with $availabilityLabel }}
+      <span class="ui-badge">{{ . }}</span>
+      {{- end }}
+      {{- range $featureBadges }}
+      <span class="ui-badge ui-badge-muted">{{ . }}</span>
+      {{- end }}
+    </div>
+    {{- with $materialText }}
+    <p class="products-list__material">{{ . }}</p>
+    {{- end }}
+    <p class="products-list__summary ui-card-text">{{ $fitText | default $cardSummary }}</p>
+    <a href="{{ $page.RelPermalink }}" class="products-list__details ui-link">
+      {{ cond $isRu "Подробнее" "Детальніше" }} <span aria-hidden="true">→</span>
+    </a>
+    {{- else }}
+    {{- with $cardSummary }}
+    <p class="products-list__summary ui-card-text">{{ . }}</p>
+    {{- end }}
+    {{- end }}
+  </div>
+</article>

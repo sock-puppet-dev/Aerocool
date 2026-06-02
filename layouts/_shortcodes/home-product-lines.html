@@ -1,0 +1,42 @@
+{{- $isRu := eq .Page.Language.Name "ru" -}}
+{{- $productsPage := site.GetPage "/products" -}}
+{{- if not $productsPage -}}
+  {{- errorf "home-product-lines: products page not found" -}}
+{{- end -}}
+{{- $seriesPages := $productsPage.Pages.ByWeight -}}
+{{- if $seriesPages -}}
+<section class="home-product-lines products-list bg-aero-canvas" aria-labelledby="home-product-lines-title">
+  <div class="home-product-lines__inner products-list__inner mx-auto max-w-xl px-4 py-14 sm:px-6 sm:py-20 lg:max-w-7xl lg:px-8">
+    <div class="home-product-lines__header">
+      <p class="ui-eyebrow">
+        {{- if $isRu -}}Линейки Aerocool{{- else -}}Лінійки Aerocool{{- end -}}
+      </p>
+      <h2 id="home-product-lines-title" class="ui-section-title mt-2">
+        {{- if $isRu -}}Выберите серию под свой сценарий{{- else -}}Оберіть серію під свій сценарій{{- end -}}
+      </h2>
+      <p class="ui-section-lead mt-4 max-w-3xl">
+        {{- if $isRu -}}
+          SKY, WING и XTAL отличаются логикой посадки, уровнем регулировок и материалами. Начните с серии, а затем переходите к конкретной модели.
+        {{- else -}}
+          SKY, WING і XTAL відрізняються логікою посадки, рівнем регулювань і матеріалами. Почніть із серії, а потім переходьте до конкретної моделі.
+        {{- end -}}
+      </p>
+    </div>
+
+    <div class="home-product-lines__grid products-list__grid mt-10 space-y-12 lg:grid lg:grid-cols-3 lg:space-y-0 lg:gap-x-8">
+      {{- range $seriesPages }}
+      {{- partial "products/card.html" (dict "page" . "context" $.Page) }}
+      {{- end }}
+    </div>
+
+    <div class="home-product-lines__actions mt-10">
+      <a
+        href="{{ $productsPage.RelPermalink }}"
+        class="ui-button ui-button-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700">
+        {{- if $isRu -}}Открыть весь каталог{{- else -}}Відкрити весь каталог{{- end -}}
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+{{- end -}}
