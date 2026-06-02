@@ -36,16 +36,16 @@ CSV-версия отчета: [59-entity-performance-report-2026.csv](/Users/st
 | Do-not-markup-сущности | `2` |
 | Разобранные content-страницы | `100` |
 | Разобранные JSON-LD scripts | `96` |
-| JSON-LD parse errors | `0` |
+| Ошибки парсинга JSON-LD | `0` |
 | Сущности с about usage | `46` |
 | Сущности с mentions usage | `48` |
 | Сущности с rendered `@id` refs | `61` |
 
-JSON-LD parse errors не найдены.
+Ошибки парсинга JSON-LD не найдены.
 
 ## 3. Топ Сущностей По About-Страницам
 
-| Entity | Count | Home |
+| Сущность | Количество | Entity Home |
 | --- | ---: | --- |
 | computer-chair | 36 | [/products/](https://aerocool.ua/products/) |
 | office-chair | 30 | [/products/](https://aerocool.ua/products/) |
@@ -62,7 +62,7 @@ JSON-LD parse errors не найдены.
 
 ## 4. Топ Сущностей По Mentions-Страницам
 
-| Entity | Count | Home |
+| Сущность | Количество | Entity Home |
 | --- | ---: | --- |
 | synchronous-tilt | 64 | [/articles/what-is-synchronous-tilt/](https://aerocool.ua/articles/what-is-synchronous-tilt/) |
 | home-office | 52 | [/articles/how-to-choose-aerocool-chair/](https://aerocool.ua/articles/how-to-choose-aerocool-chair/) |
@@ -79,7 +79,7 @@ JSON-LD parse errors не найдены.
 
 ## 5. Топ Сущностей По Rendered `@id` Refs
 
-| Entity | Count | Home |
+| Сущность | Количество | Entity Home |
 | --- | ---: | --- |
 | aerocool-ukraine | 440 | [/about/](https://aerocool.ua/about/) |
 | aerocool-global-organization | 388 | [https://aerocool.io/](https://aerocool.io/) |
@@ -96,7 +96,7 @@ JSON-LD parse errors не найдены.
 
 ## 6. Полная Таблица Сущностей
 
-| Entity | Status | Class | Home | About | Mentions | Group | Rendered refs | Node defs | GSC | AI | Business | Notes |
+| Сущность | Статус | Класс | Entity Home | About | Mentions | Группы | Rendered refs | Node defs | GSC | AI | Business | Заметки |
 | --- | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- | --- | --- | --- |
 | 11d-adjustment | confirmed | Feature | [/articles/how-to-choose-chair-by-adjustability/](https://aerocool.ua/articles/how-to-choose-chair-by-adjustability/) | 2 | 42 | 0 | 120 | 44 | pending-production | pending-production | pending-production | ok |
 | 7d-adjustment | confirmed | Feature | [/articles/how-to-choose-chair-by-adjustability/](https://aerocool.ua/articles/how-to-choose-chair-by-adjustability/) | 2 | 30 | 0 | 86 | 32 | pending-production | pending-production | pending-production | ok |

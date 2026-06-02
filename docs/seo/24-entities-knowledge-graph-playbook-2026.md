@@ -71,7 +71,7 @@ Knowledge graph — это сеть отношений между сущност
 
 Эти шаги должны быть частью редакционного процесса, а не только технического SEO.
 
-Customer stories Schema App подтверждают практическую сторону этой модели: knowledge graph должен быть измеримым. Для Aerocool это означает регулярный [Entity Performance Report](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md) `entity -> entity home -> pages about -> pages mentions -> rendered node -> GSC/AI/business signal`, а не только наличие `data/entities.yaml`.
+Customer stories Schema App подтверждают практическую сторону этой модели: knowledge graph должен быть измеримым. Для Aerocool это означает регулярный [отчет по эффективности сущностей (Entity Performance Report)](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md) `entity -> entity home -> pages about -> pages mentions -> rendered node -> GSC/AI/business signal`, а не только наличие `data/entities.yaml`.
 
 ### Граф Знаний Контента Жизненного Цикла (Lifecycle Content Knowledge Graph)
 

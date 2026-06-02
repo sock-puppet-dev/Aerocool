@@ -214,7 +214,7 @@ Rendered graph сейчас содержит:
 
 1. Закрыть production gate: переключить окружение только после финальной проверки `index,follow`, sitemap, canonical, hreflang и published URL.
 2. Подтвердить MPN/GTIN для `SKY 360` и `SKY Lite`.
-3. Поддерживать регулярный [Entity Performance Report](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md) через `npm run entity:report`; GSC/AI/business-поля заполнить после production.
+3. Поддерживать регулярный [отчет по эффективности сущностей (Entity Performance Report)](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md) через `npm run entity:report`; GSC/AI/business-поля заполнить после production.
 4. Исполнять регламент product facts при каждом изменении коммерческих и товарных данных.
 5. После production-перехода контролировать approved reviews snapshot, GSC product reports и rich-results eligibility на published URL.
 6. Поддерживать image license metadata через видимую страницу условий и централизованный schema helper.

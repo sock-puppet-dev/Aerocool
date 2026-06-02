@@ -150,7 +150,7 @@
 
 ### Отчеты По Entity Performance
 
-59. [seo/59-entity-performance-report-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md) — текущий Entity Performance Report: registry, `about_entities`, `mentions_entities`, `product_group_id`, rendered JSON-LD refs, generated CSV и `59-entity-performance-overrides.csv` для будущих GSC/AI/business-метрик.
+59. [seo/59-entity-performance-report-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md) — текущий отчет по эффективности сущностей (Entity Performance Report): registry, `about_entities`, `mentions_entities`, `product_group_id`, rendered JSON-LD refs, generated CSV и `59-entity-performance-overrides.csv` для будущих GSC/AI/business-метрик.
 
 ### Чеклисты Schema Validator
 

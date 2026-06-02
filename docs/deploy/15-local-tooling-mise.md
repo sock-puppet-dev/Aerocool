@@ -137,7 +137,7 @@ npm run dev
 npm run build
 ```
 
-После schema/entity изменений можно обновить Entity Performance Report:
+После schema/entity изменений можно обновить отчет по эффективности сущностей (Entity Performance Report):
 
 ```bash
 npm run entity:report

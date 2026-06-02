@@ -395,12 +395,12 @@ CSV-версия отчета: [59-entity-performance-report-2026.csv](/Users/st
 | Do-not-markup-сущности | \`${doNotMarkup}\` |
 | Разобранные content-страницы | \`${contentPages.length}\` |
 | Разобранные JSON-LD scripts | \`${renderedGraph.scripts.length}\` |
-| JSON-LD parse errors | \`${renderedGraph.parseErrors.length}\` |
+| Ошибки парсинга JSON-LD | \`${renderedGraph.parseErrors.length}\` |
 | Сущности с about usage | \`${rowsWithAbout}\` |
 | Сущности с mentions usage | \`${rowsWithMentions}\` |
 | Сущности с rendered \`@id\` refs | \`${rowsWithRenderedRefs}\` |
 
-${renderedGraph.parseErrors.length > 0 ? buildParseErrorBlock(renderedGraph.parseErrors) : "JSON-LD parse errors не найдены."}
+${renderedGraph.parseErrors.length > 0 ? buildParseErrorBlock(renderedGraph.parseErrors) : "Ошибки парсинга JSON-LD не найдены."}
 
 ## 3. Топ Сущностей По About-Страницам
 
@@ -416,7 +416,7 @@ ${buildSmallTable(topRendered, "rendered")}
 
 ## 6. Полная Таблица Сущностей
 
-| Entity | Status | Class | Home | About | Mentions | Group | Rendered refs | Node defs | GSC | AI | Business | Notes |
+| Сущность | Статус | Класс | Entity Home | About | Mentions | Группы | Rendered refs | Node defs | GSC | AI | Business | Заметки |
 | --- | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- | --- | --- | --- |
 ${rows.map((row) => [
     md(row.entityID),
@@ -449,7 +449,7 @@ ${rows.map((row) => [
 }
 
 function buildParseErrorBlock(errors) {
-  return `JSON-LD parse errors:\n\n${errors.map((error) => `- ${error}`).join("\n")}`;
+  return `Ошибки парсинга JSON-LD:\n\n${errors.map((error) => `- ${error}`).join("\n")}`;
 }
 
 function buildSmallTable(rows, metricName) {
@@ -457,7 +457,7 @@ function buildSmallTable(rows, metricName) {
     return "Нет данных.";
   }
 
-  return `| Entity | Count | Home |
+  return `| Сущность | Количество | Entity Home |
 | --- | ---: | --- |
 ${rows.map((row) => {
     const count = metricName === "about"
