@@ -9,7 +9,7 @@
   <p class="review-summary__text">
     <strong>{{ printf "%.1f" $ratingValue }}</strong>
     <span>{{ cond $isRu "из 5" "з 5" }}</span>
-    <a href="{{ .RelPermalink }}#reviews">{{ cond $isRu (printf "%d отзывов" $reviewCount) (printf "%d відгуків" $reviewCount) }}</a>
+    <a class="review-summary__link" href="{{ .RelPermalink }}#reviews">{{ cond $isRu (printf "%d отзывов" $reviewCount) (printf "%d відгуків" $reviewCount) }}</a>
   </p>
 </div>
 {{- end -}}

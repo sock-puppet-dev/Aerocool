@@ -19,6 +19,11 @@
   {{- end -}}
 {{- end -}}
 
+{{- if eq (len $colors) 0 -}}
+  {{- $colors = $colors | append "not-specified" -}}
+  {{- $labels = $labels | append (cond (eq .Language.Name "ru") "цвет не указан" "колір не вказано") -}}
+{{- end -}}
+
 {{- if gt (len $colors) 0 -}}
   <div class="product-color-dots" aria-label="{{ delimit $labels ", " }}">
     {{- range $colors }}

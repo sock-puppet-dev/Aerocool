@@ -92,7 +92,7 @@
   <div class="products-list__card-body">
     <div class="products-list__card-heading">
       <h2 class="products-list__title ui-card-title">
-        <a href="{{ $page.RelPermalink }}">{{ $cardTitle }}</a>
+        <a class="products-list__title-link" href="{{ $page.RelPermalink }}">{{ $cardTitle }}</a>
       </h2>
       {{- with $page.Params.price }}
       <p class="products-list__price">{{ . }} грн</p>

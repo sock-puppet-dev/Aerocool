@@ -1260,7 +1260,7 @@ textarea.ui-field {
    - это слой именно для inline/text links;
    - CTA-кнопки и card/surface links ниже живут отдельно;
    - так проект не смешивает обычные текстовые ссылки с кнопками. */
-.post-content a:not(.home-hero__cta):not(.ui-button):not(.ui-alert__action):not([class*="bg-"]),
+.post-content a:not(.home-hero__cta):not(.ui-button):not(.ui-alert__action):not(.products-list__media-link):not(.products-list__title-link):not(.products-list__details):not(.review-summary__link):not([class*="bg-"]),
 .related-links a,
 .footer a,
 .home-hero a:not(.home-hero__cta):not(.ui-button),
@@ -1276,7 +1276,7 @@ textarea.ui-field {
     transition: color 180ms ease, text-decoration-color 180ms ease;
 }
 
-.post-content a:not(.home-hero__cta):not(.ui-button):not(.ui-alert__action):not([class*="bg-"]):hover,
+.post-content a:not(.home-hero__cta):not(.ui-button):not(.ui-alert__action):not(.products-list__media-link):not(.products-list__title-link):not(.products-list__details):not(.review-summary__link):not([class*="bg-"]):hover,
 .related-links a:hover,
 .footer a:hover,
 .home-hero a:not(.home-hero__cta):not(.ui-button):hover,
@@ -1619,6 +1619,18 @@ textarea.ui-field {
     padding: 3.5rem 1rem;
 }
 
+.home-product-lines .home-product-lines__inner {
+    padding-bottom: 2rem;
+}
+
+.home-product-lines .home-product-lines__inner {
+    padding-top: 2.5rem;
+}
+
+.home-top-rated-products .home-products-section__inner {
+    padding-top: 2rem;
+}
+
 :where(.home-product-lines__header, .home-products-section__header) {
     max-width: 48rem;
 }
@@ -1630,35 +1642,73 @@ textarea.ui-field {
 }
 
 .post-content :where(.home-product-lines, .home-top-rated-products) a.products-list__media-link,
-.post-content :where(.home-product-lines, .home-top-rated-products) .products-list__title a,
-.post-content :where(.home-product-lines, .home-top-rated-products) a.products-list__details {
+.post-content :where(.home-product-lines, .home-top-rated-products) .products-list__title a {
     border-bottom: 0;
     box-shadow: none;
     text-decoration: none;
+}
+
+.post-content :where(.home-product-lines, .home-top-rated-products) a.products-list__details {
+    border-bottom: 0;
+    box-shadow: none;
 }
 
 .post-content :where(.home-product-lines, .home-top-rated-products) .products-list__title a {
     color: inherit;
 }
 
-.post-content :where(.home-product-lines, .home-top-rated-products) .products-list__title a:hover,
-.post-content :where(.home-product-lines, .home-top-rated-products) .products-list__title a:focus-visible {
-    color: var(--accent);
+.post-content :where(.home-product-lines, .home-top-rated-products) .products-list__title {
+    margin: 0;
 }
 
-.post-content :where(.home-product-lines, .home-top-rated-products) a.products-list__details {
-    color: var(--accent);
+.post-content :where(.home-product-lines, .home-top-rated-products) .products-list__price {
+    margin: 0.375rem 0 0;
+    color: var(--primary);
+    font-size: var(--ui-text-sm);
+    line-height: var(--ui-text-sm-line-height);
+    font-weight: var(--ui-font-semibold);
 }
 
-.post-content :where(.home-product-lines, .home-top-rated-products) a.products-list__details:hover,
-.post-content :where(.home-product-lines, .home-top-rated-products) a.products-list__details:focus-visible {
-    color: var(--accent-hover);
+.post-content :where(.home-product-lines, .home-top-rated-products) .products-list__material {
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+    color: var(--primary);
+    font-size: var(--ui-text-sm);
+    line-height: var(--ui-text-sm-line-height);
+    font-weight: var(--ui-font-medium);
+}
+
+.post-content :where(.home-product-lines, .home-top-rated-products) .products-list__summary {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    color: var(--secondary);
+    font-size: var(--ui-text-sm);
+    line-height: var(--ui-text-sm-line-height);
+}
+
+.post-content :where(.home-product-lines, .home-top-rated-products) .review-summary__text {
+    margin: 0;
+    color: var(--secondary);
+    font-size: var(--ui-text-xs);
+    line-height: var(--ui-text-xs-line-height);
 }
 
 @media (min-width: 640px) {
     .home-product-lines .home-product-lines__inner,
     .home-top-rated-products .home-products-section__inner {
         padding: 5rem 1.5rem;
+    }
+
+    .home-product-lines .home-product-lines__inner {
+        padding-bottom: 2.5rem;
+    }
+
+    .home-product-lines .home-product-lines__inner {
+        padding-top: 3rem;
+    }
+
+    .home-top-rated-products .home-products-section__inner {
+        padding-top: 2.5rem;
     }
 }
 
@@ -2305,6 +2355,7 @@ textarea.ui-field {
 
 .products-list__details {
     display: inline-flex;
+    align-self: flex-start;
     margin-top: 0.75rem;
     font-size: var(--ui-text-sm);
     line-height: var(--ui-text-sm-line-height);
