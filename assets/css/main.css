@@ -1115,7 +1115,8 @@ textarea.ui-field {
 .post-content .ui-button,
 .post-content a.ui-button,
 .home-hero .ui-button,
-.home-product-lines .ui-button {
+.home-product-lines .ui-button,
+.home-top-rated-products .ui-button {
     box-shadow: none;
     text-decoration: none;
 }
@@ -1123,7 +1124,8 @@ textarea.ui-field {
 .post-content .ui-button-primary,
 .post-content a.ui-button-primary,
 .home-hero .ui-button-primary,
-.home-product-lines .ui-button-primary {
+.home-product-lines .ui-button-primary,
+.home-top-rated-products .ui-button-primary {
     background: var(--accent);
     color: #ffffff;
 }
@@ -1135,7 +1137,9 @@ textarea.ui-field {
 .home-hero .ui-button-primary:hover,
 .home-hero .ui-button-primary:focus-visible,
 .home-product-lines .ui-button-primary:hover,
-.home-product-lines .ui-button-primary:focus-visible {
+.home-product-lines .ui-button-primary:focus-visible,
+.home-top-rated-products .ui-button-primary:hover,
+.home-top-rated-products .ui-button-primary:focus-visible {
     background: var(--accent-hover);
     color: #ffffff;
 }
@@ -1143,7 +1147,8 @@ textarea.ui-field {
 .post-content .ui-button-secondary,
 .post-content a.ui-button-secondary,
 .home-hero .ui-button-secondary,
-.home-product-lines .ui-button-secondary {
+.home-product-lines .ui-button-secondary,
+.home-top-rated-products .ui-button-secondary {
     color: var(--primary);
 }
 
@@ -1602,61 +1607,64 @@ textarea.ui-field {
     }
 }
 
-.home-product-lines {
+:where(.home-product-lines, .home-top-rated-products) {
     width: 100vw;
     margin-top: 0;
     margin-right: calc(50% - 50vw);
     margin-left: calc(50% - 50vw);
 }
 
-.home-product-lines .home-product-lines__inner {
+.home-product-lines .home-product-lines__inner,
+.home-top-rated-products .home-products-section__inner {
     padding: 3.5rem 1rem;
 }
 
-.home-product-lines__header {
+:where(.home-product-lines__header, .home-products-section__header) {
     max-width: 48rem;
 }
 
-.home-product-lines__actions {
+:where(.home-product-lines__actions, .home-products-section__actions) {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
 }
 
-.post-content .home-product-lines a.products-list__media-link,
-.post-content .home-product-lines .products-list__title a,
-.post-content .home-product-lines a.products-list__details {
+.post-content :where(.home-product-lines, .home-top-rated-products) a.products-list__media-link,
+.post-content :where(.home-product-lines, .home-top-rated-products) .products-list__title a,
+.post-content :where(.home-product-lines, .home-top-rated-products) a.products-list__details {
     border-bottom: 0;
     box-shadow: none;
     text-decoration: none;
 }
 
-.post-content .home-product-lines .products-list__title a {
+.post-content :where(.home-product-lines, .home-top-rated-products) .products-list__title a {
     color: inherit;
 }
 
-.post-content .home-product-lines .products-list__title a:hover,
-.post-content .home-product-lines .products-list__title a:focus-visible {
+.post-content :where(.home-product-lines, .home-top-rated-products) .products-list__title a:hover,
+.post-content :where(.home-product-lines, .home-top-rated-products) .products-list__title a:focus-visible {
     color: var(--accent);
 }
 
-.post-content .home-product-lines a.products-list__details {
+.post-content :where(.home-product-lines, .home-top-rated-products) a.products-list__details {
     color: var(--accent);
 }
 
-.post-content .home-product-lines a.products-list__details:hover,
-.post-content .home-product-lines a.products-list__details:focus-visible {
+.post-content :where(.home-product-lines, .home-top-rated-products) a.products-list__details:hover,
+.post-content :where(.home-product-lines, .home-top-rated-products) a.products-list__details:focus-visible {
     color: var(--accent-hover);
 }
 
 @media (min-width: 640px) {
-    .home-product-lines .home-product-lines__inner {
+    .home-product-lines .home-product-lines__inner,
+    .home-top-rated-products .home-products-section__inner {
         padding: 5rem 1.5rem;
     }
 }
 
 @media (min-width: 1024px) {
-    .home-product-lines .home-product-lines__inner {
+    .home-product-lines .home-product-lines__inner,
+    .home-top-rated-products .home-products-section__inner {
         padding-right: 2rem;
         padding-left: 2rem;
     }

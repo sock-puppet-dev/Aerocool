@@ -1,0 +1,60 @@
+{{- $isRu := eq .Page.Language.Name "ru" -}}
+{{- $productsPage := site.GetPage "/products" -}}
+{{- if not $productsPage -}}
+  {{- errorf "home-top-rated-products: products page not found" -}}
+{{- end -}}
+{{- $ratedProducts := slice -}}
+{{- range $productsPage.Pages.ByWeight -}}
+  {{- range .Pages.ByWeight -}}
+    {{- $product := . -}}
+    {{- $reviewTargetID := $product.Params.review_target_id | default "" -}}
+    {{- $reviewsEnabled := and ($product.Params.reviews_enabled | default false) $reviewTargetID -}}
+    {{- if and $product.Params.price $reviewsEnabled -}}
+      {{- $reviewData := partial "reviews/summary-data.html" $product -}}
+      {{- $reviewCount := int ($reviewData.reviewCount | default 0) -}}
+      {{- if gt $reviewCount 0 -}}
+        {{- $ratingValue := float $reviewData.ratingValue -}}
+        {{- $ratingTenths := int (math.Round (mul $ratingValue 10)) -}}
+        {{- $rank := add (mul $ratingTenths 100000) $reviewCount -}}
+        {{- $ratedProducts = $ratedProducts | append (dict "page" $product "rank" $rank) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $topProducts := first 6 (sort $ratedProducts "rank" "desc") -}}
+{{- if $topProducts -}}
+<section class="home-top-rated-products products-list bg-aero-canvas" aria-labelledby="home-top-rated-products-title">
+  <div class="home-top-rated-products__inner home-products-section__inner products-list__inner mx-auto max-w-xl px-4 py-14 sm:px-6 sm:py-20 lg:max-w-7xl lg:px-8">
+    <div class="home-top-rated-products__header home-products-section__header">
+      <p class="ui-eyebrow">
+        {{- if $isRu -}}По отзывам покупателей{{- else -}}За відгуками покупців{{- end -}}
+      </p>
+      <h2 id="home-top-rated-products-title" class="ui-section-title mt-2">
+        {{- if $isRu -}}Товары с самым высоким рейтингом{{- else -}}Товари з найвищим рейтингом{{- end -}}
+      </h2>
+      <p class="ui-section-lead mt-4 max-w-3xl">
+        {{- if $isRu -}}
+          Шесть моделей Aerocool с лучшими оценками в отзывах, чтобы быстрее перейти от выбора серии к конкретному креслу.
+        {{- else -}}
+          Шість моделей Aerocool з найкращими оцінками у відгуках, щоб швидше перейти від вибору серії до конкретного крісла.
+        {{- end -}}
+      </p>
+    </div>
+
+    <div class="home-top-rated-products__grid products-list__grid mt-10 space-y-12 lg:grid lg:grid-cols-3 lg:space-y-0 lg:gap-x-8">
+      {{- range $topProducts }}
+      {{- partial "products/card.html" (dict "page" .page "context" $.Page) }}
+      {{- end }}
+    </div>
+
+    <div class="home-top-rated-products__actions home-products-section__actions mt-10">
+      <a
+        href="{{ $productsPage.RelPermalink }}"
+        class="ui-button ui-button-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700">
+        {{- if $isRu -}}Смотреть все товары{{- else -}}Дивитися всі товари{{- end -}}
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+{{- end -}}
