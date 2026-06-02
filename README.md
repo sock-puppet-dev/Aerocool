@@ -1,6 +1,6 @@
 # Aerocool Ukraine
 
-Обновлено: 2026-06-01.
+Обновлено: 2026-06-02.
 
 `Aerocool Ukraine` — двуязычный маркетинговый и каталоговый сайт на `Hugo` для кресел Aerocool в Украине. Основной язык — украинский (`uk`), второй язык — русский (`ru`). Сайт собирается статически, деплоится через `Netlify`, использует локальные Hugo overrides поверх темы `PaperMod` и отдельный Unlighthouse-набор для технического аудита качества.
 
@@ -406,17 +406,17 @@ npm run audit:ci:technical
 
 Подробно смотри [docs/quality/13-unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-unlighthouse-site-audit.md).
 
-## 14. Netlify Lighthouse Summary
+## 14. Сводка Lighthouse В Netlify
 
 В проекте не используется официальный `@netlify/plugin-lighthouse`.
 
-Причина: на текущем Netlify runtime он может завершаться успешно, но отдавать пустой summary:
+Причина: в текущем runtime Netlify он может завершаться успешно, но отдавать пустую сводку:
 
 ```text
 Summary for path '/': undefined
 ```
 
-Вместо него используется локальный build plugin:
+Вместо него используется локальный build-плагин:
 
 ```text
 netlify/plugins/lighthouse-summary/

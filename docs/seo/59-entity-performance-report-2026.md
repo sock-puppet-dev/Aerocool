@@ -1,6 +1,6 @@
-# Entity Performance Report 2026
+# Отчет По Эффективности Сущностей (Entity Performance Report) 2026
 
-Обновлено: 2026-06-01.
+Обновлено: 2026-06-02.
 
 Этот отчет связывает Entity Registry, front matter и rendered JSON-LD. Его задача — показать, какие сущности реально используются как главные темы страниц, какие упоминаются как связанные сущности и сколько раз их стабильные `@id` встречаются в готовом JSON-LD графе.
 
@@ -26,24 +26,24 @@ CSV-версия отчета: [59-entity-performance-report-2026.csv](/Users/st
 | AI citations | из `docs/seo/59-entity-performance-overrides.csv`, сейчас `pending-production` |
 | Business signal | из `docs/seo/59-entity-performance-overrides.csv`, сейчас `pending-production` |
 
-## 2. Snapshot
+## 2. Сводка Данных
 
 | Метрика | Значение |
 | --- | ---: |
-| Registry entities | `63` |
-| Confirmed entities | `61` |
-| Planned entities | `0` |
-| Do-not-markup entities | `2` |
-| Content pages parsed | `100` |
-| JSON-LD scripts parsed | `96` |
+| Сущности в Registry | `63` |
+| Confirmed-сущности | `61` |
+| Planned-сущности | `0` |
+| Do-not-markup-сущности | `2` |
+| Разобранные content-страницы | `100` |
+| Разобранные JSON-LD scripts | `96` |
 | JSON-LD parse errors | `0` |
-| Entities with about usage | `46` |
-| Entities with mentions usage | `48` |
-| Entities with rendered `@id` refs | `61` |
+| Сущности с about usage | `46` |
+| Сущности с mentions usage | `48` |
+| Сущности с rendered `@id` refs | `61` |
 
 JSON-LD parse errors не найдены.
 
-## 3. Top Entities By About Pages
+## 3. Топ Сущностей По About-Страницам
 
 | Entity | Count | Home |
 | --- | ---: | --- |
@@ -60,7 +60,7 @@ JSON-LD parse errors не найдены.
 | aerocool-ukraine | 8 | [/about/](https://aerocool.ua/about/) |
 | articles-collection | 6 | [/articles/](https://aerocool.ua/articles/) |
 
-## 4. Top Entities By Mentions Pages
+## 4. Топ Сущностей По Mentions-Страницам
 
 | Entity | Count | Home |
 | --- | ---: | --- |
@@ -77,7 +77,7 @@ JSON-LD parse errors не найдены.
 | gaming-chair | 38 | [/products/](https://aerocool.ua/products/) |
 | wing-series | 36 | [/products/wing/](https://aerocool.ua/products/wing/) |
 
-## 5. Top Entities By Rendered `@id` Refs
+## 5. Топ Сущностей По Rendered `@id` Refs
 
 | Entity | Count | Home |
 | --- | ---: | --- |
@@ -94,7 +94,7 @@ JSON-LD parse errors не найдены.
 | gaming-chair | 132 | [/products/](https://aerocool.ua/products/) |
 | aerocool-website | 128 | [/](https://aerocool.ua/) |
 
-## 6. Full Entity Table
+## 6. Полная Таблица Сущностей
 
 | Entity | Status | Class | Home | About | Mentions | Group | Rendered refs | Node defs | GSC | AI | Business | Notes |
 | --- | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- | --- | --- | --- |

@@ -357,7 +357,7 @@ function buildMarkdownReport(rows, contentPages, renderedGraph) {
   const topMentions = topRows(rows, (row) => row.mentionPages.length);
   const topRendered = topRows(rows, (row) => row.renderedIDRefs);
 
-  return `# Entity Performance Report 2026
+  return `# Отчет По Эффективности Сущностей (Entity Performance Report) 2026
 
 Обновлено: ${date}.
 
@@ -385,36 +385,36 @@ CSV-версия отчета: [59-entity-performance-report-2026.csv](/Users/st
 | AI citations | из \`docs/seo/59-entity-performance-overrides.csv\`, сейчас \`pending-production\` |
 | Business signal | из \`docs/seo/59-entity-performance-overrides.csv\`, сейчас \`pending-production\` |
 
-## 2. Snapshot
+## 2. Сводка Данных
 
 | Метрика | Значение |
 | --- | ---: |
-| Registry entities | \`${rows.length}\` |
-| Confirmed entities | \`${confirmed}\` |
-| Planned entities | \`${planned}\` |
-| Do-not-markup entities | \`${doNotMarkup}\` |
-| Content pages parsed | \`${contentPages.length}\` |
-| JSON-LD scripts parsed | \`${renderedGraph.scripts.length}\` |
+| Сущности в Registry | \`${rows.length}\` |
+| Confirmed-сущности | \`${confirmed}\` |
+| Planned-сущности | \`${planned}\` |
+| Do-not-markup-сущности | \`${doNotMarkup}\` |
+| Разобранные content-страницы | \`${contentPages.length}\` |
+| Разобранные JSON-LD scripts | \`${renderedGraph.scripts.length}\` |
 | JSON-LD parse errors | \`${renderedGraph.parseErrors.length}\` |
-| Entities with about usage | \`${rowsWithAbout}\` |
-| Entities with mentions usage | \`${rowsWithMentions}\` |
-| Entities with rendered \`@id\` refs | \`${rowsWithRenderedRefs}\` |
+| Сущности с about usage | \`${rowsWithAbout}\` |
+| Сущности с mentions usage | \`${rowsWithMentions}\` |
+| Сущности с rendered \`@id\` refs | \`${rowsWithRenderedRefs}\` |
 
 ${renderedGraph.parseErrors.length > 0 ? buildParseErrorBlock(renderedGraph.parseErrors) : "JSON-LD parse errors не найдены."}
 
-## 3. Top Entities By About Pages
+## 3. Топ Сущностей По About-Страницам
 
 ${buildSmallTable(topAbout, "about")}
 
-## 4. Top Entities By Mentions Pages
+## 4. Топ Сущностей По Mentions-Страницам
 
 ${buildSmallTable(topMentions, "mentions")}
 
-## 5. Top Entities By Rendered \`@id\` Refs
+## 5. Топ Сущностей По Rendered \`@id\` Refs
 
 ${buildSmallTable(topRendered, "rendered")}
 
-## 6. Full Entity Table
+## 6. Полная Таблица Сущностей
 
 | Entity | Status | Class | Home | About | Mentions | Group | Rendered refs | Node defs | GSC | AI | Business | Notes |
 | --- | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- | --- | --- | --- |
