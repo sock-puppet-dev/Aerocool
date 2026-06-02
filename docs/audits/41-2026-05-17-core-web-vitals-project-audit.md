@@ -2,15 +2,14 @@
 
 Дата: 2026-05-17.
 
-Цель: проверить текущее состояние Core Web Vitals-подготовки проекта `Aerocool Ukraine`, локальную документацию, шаблоны, изображения, CSS/JS и Lighthouse baseline для ключевых типов страниц.
+Цель: проверить текущее состояние Core Web Vitals-подготовки проекта `Aerocool Ukraine`, локальную документацию, шаблоны, изображения, CSS/JS и browser lab baseline для ключевых типов страниц.
 
 ## Проверенные источники
 
 - Google Core Web Vitals: https://developers.google.com/search/docs/appearance/core-web-vitals
 - Google Page Experience: https://developers.google.com/search/docs/appearance/page-experience
 - Локальный playbook: [12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md)
-- Локальный Lighthouse guide: [14-lighthouse-single-page-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/14-lighthouse-single-page-audit.md)
-- Локальный Unlighthouse guide: [13-unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-unlighthouse-site-audit.md)
+- PageSpeed workflow: [13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md)
 
 Актуальные целевые метрики Google:
 
@@ -20,7 +19,7 @@
 | `INP` | < 200 ms |
 | `CLS` | ≤ 0.1 |
 
-`FID` не считать текущей основной Core Web Vitals метрикой. Для интерактивности использовать `INP`; в Lighthouse смотреть `TBT` только как lab-подсказку.
+`FID` не считать текущей основной Core Web Vitals метрикой. Для интерактивности использовать `INP`; `TBT` смотреть только как lab-подсказку.
 
 ## Что Проверено В Проекте
 
@@ -49,7 +48,7 @@
 /contact/    ~43 KB
 ```
 
-Эти запросы имели `VeryLow` priority, но попадали в Lighthouse load profile и ухудшали mobile lab LCP/Performance.
+Эти запросы имели `VeryLow` priority, но попадали в browser load profile и ухудшали mobile lab LCP/Performance.
 
 Решение: удалить глобальный menu prefetch из `layouts/_partials/head.html`.
 
@@ -67,14 +66,14 @@
 - добавлено правило не prefetch-ить навигационные HTML-страницы из `<head>`;
 - добавлено правило не preload-ить большой `index.json` для search до LCP.
 
-## Lighthouse Baseline После Правок
+## Browser Lab Baseline После Правок
 
 Методика:
 
 ```bash
 npm run build:production
 python3 -m http.server 1320 --bind 127.0.0.1 --directory public
-unlighthouse/node_modules/.bin/lighthouse <url> --output=json --only-categories=performance,accessibility,best-practices,seo
+browser-audit <url> --categories=performance,accessibility,best-practices,seo
 ```
 
 Это чистый локальный стенд production output: без Hugo LiveReload, без development `noindex` для индексируемых страниц и без Netlify CDN-сжатия.
@@ -116,7 +115,7 @@ Lab readiness: `9 / 10`.
 
 - `CLS = 0` на проверенных URL.
 - `TBT = 0 ms` на проверенных URL.
-- Индексируемые production pages дают Lighthouse Performance `99`.
+- Индексируемые production pages дают Performance `99`.
 - Article/product главные изображения имеют head preload, responsive WebP `srcset`, `width`, `height`, `loading="eager"` и `fetchpriority="high"`.
 - Search index больше не блокирует первый рендер через preload.
 
@@ -124,13 +123,13 @@ Lab readiness: `9 / 10`.
 
 - Нет field data из Search Console / CrUX, поэтому реальный `INP` подтвердить нельзя.
 - `netlify.toml` все еще собирает сайт в `development/noindex`; финальный CWV/SEO gate надо повторить на Deploy Preview после production-переключения.
-- Главная hero-картинка `/images/home-hero85.webp` пока статическая, без responsive variants; Lighthouse все еще видит потенциальную экономию около `66 KB` на mobile. Текущий LCP главной — текстовый `H1`, поэтому это не блокер, но это следующий понятный image-optimization резерв.
-- Локальный static server не имитирует Netlify Brotli/Gzip, поэтому warning `Enable text compression` в локальном Lighthouse не переносить напрямую на Netlify без Deploy Preview проверки.
+- Главная hero-картинка `/images/home-hero85.webp` пока статическая, без responsive variants; browser-аудит видел потенциальную экономию около `66 KB` на mobile. Текущий LCP главной — текстовый `H1`, поэтому это не блокер, но это следующий понятный image-optimization резерв.
+- Локальный static server не имитирует Netlify Brotli/Gzip, поэтому warning `Enable text compression` в локальном browser-аудите не переносить напрямую на Netlify без Deploy Preview проверки.
 - Search index уже не мешает LCP, но при росте сайта `index.json` нужно контролировать отдельно: размер, поля, debounce, лимит результатов и INP.
 
 ## Рекомендации
 
-1. Перед production-переключением запустить `npm run build:production` и Lighthouse/Unlighthouse по Deploy Preview.
+1. Перед production-переключением запустить `npm run build:production` и проверить Deploy Preview через PageSpeed Insights.
 2. После production-публикации подключить Search Console Core Web Vitals report и ждать field data.
 3. Не возвращать глобальный `prefetch` меню в `<head>`.
 4. Не preload-ить крупные JSON/search ресурсы до LCP.

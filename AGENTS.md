@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Обновлено: 2026-06-01.
+Обновлено: 2026-06-02.
 
 ## Обзор Проекта
 
@@ -17,7 +17,7 @@
 - Локальные версии инструментов зафиксированы в `mise.toml`.
 - Для стилизации используется `Tailwind CSS 4.3` через npm-пакеты `tailwindcss` и `@tailwindcss/cli` версии `4.3.0`.
 - Для будущей review-системы подключены `Netlify Functions` и `Netlify Database` / `PostgreSQL`.
-- Для краткого Lighthouse summary в Netlify Deploy Summary используется локальный build plugin `netlify/plugins/lighthouse-summary/`; официальный `@netlify/plugin-lighthouse` не использовать, потому что он давал `Summary for path '/': undefined`.
+- Для проверки опубликованных URL используется ручной PageSpeed Insights workflow. Локальный браузерный audit plugin в Netlify не используется.
 - В Hugo 0.162.0 Node-инструменты запускаются через Node permission model; Tailwind должен оставаться npm-зависимостью проекта, standalone Tailwind CLI не использовать.
 - Локальные SEO-шаблоны и шаблоны schema.org-разметки находятся в `layouts/_partials/_seo` и `layouts/_partials/_schema`.
 
@@ -48,9 +48,7 @@
 - `hugo.yaml` — основная конфигурация сайта: языки, постоянные ссылки, меню и настройки сборки.
 - `netlify.toml` — сборка и заголовки ответа; временно используется `HUGO_ENVIRONMENT = "development"`, production включать только после финальной проверки.
 - `netlify/database/migrations` — SQL-миграции Netlify Database. Появляется после первой миграции; для review-системы использовать Direct SQL, а не Drizzle ORM.
-- `netlify/plugins/lighthouse-summary` — локальный Netlify build plugin для краткого Lighthouse summary после deploy. Он заменяет официальный `@netlify/plugin-lighthouse`; баннер Netlify UI `Install Lighthouse plugin` не нажимать.
 - `mise.toml` — локальные версии `Hugo 0.162.0` и `Node 24.16.0` для `mise`.
-- `unlighthouse/` — локальный набор конфигов для массового Lighthouse-аудита. Он не деплоит сайт, а проверяет уже опубликованный URL или Netlify Deploy Preview.
 
 ## Локальные Гайды
 
@@ -69,8 +67,8 @@
 - `docs/content/templates/10-product-template.md`
 - `docs/content/templates/11-series-template.md`
 - `docs/quality/12-core-web-vitals-guide-2026.md`
-- `docs/quality/13-unlighthouse-site-audit.md`
-- `docs/quality/14-lighthouse-single-page-audit.md`
+- `docs/quality/13-pagespeed-insights-audit.md`
+- `docs/quality/14-production-quality-gate-2026.md`
 - `docs/deploy/15-local-tooling-mise.md`
 - `docs/deploy/16-netlify-routing.md`
 - `docs/deploy/17-netlify-database-reviews.md`
@@ -117,9 +115,9 @@
 - `docs/seo/58-product-facts-maintenance-process-2026.md`
 - `docs/seo/59-entity-performance-report-2026.md`
 - `docs/seo/60-schema-validator-url-checklist-2026.md`
-- `docs/audits/61-2026-06-01-netlify-lighthouse-summary-plugin-fix.md`
+- `docs/audits/61-2026-06-02-pagespeed-insights-quality-simplification.md`
 
-Для новичка порядок чтения такой: сначала `README.md`, затем `AGENTS.md`, затем `docs/01-documentation-map.md`, затем `docs/architecture/02-documentation-style-guide.md`, затем `docs/architecture/03-hugo-template-helpers.md`, затем `docs/content/05-front-matter-reference.md`, затем `docs/quality/13-unlighthouse-site-audit.md`. Для SEO/schema-задач после этого читать `docs/seo/19-schema-types-reference.md`, `docs/seo/20-schema-markup-quality-checklist-2026.md`, `docs/seo/24-entities-knowledge-graph-playbook-2026.md`, `docs/seo/26-json-ld-graph-audit-roadmap-2026.md` и текущий аудит `docs/audits/57-2026-05-31-schema-entity-full-audit-current.md`; для ручной проверки через `validator.schema.org` использовать `docs/seo/60-schema-validator-url-checklist-2026.md`. Для задач по product facts, цене, наличию, гарантии, доставке, возврату, оплате, `priceValidUntil`, цвету и характеристикам товара читать `docs/seo/58-product-facts-maintenance-process-2026.md`. Для задач по entity performance, `about_entities`, `mentions_entities`, `product_group_id` и rendered refs читать `docs/seo/59-entity-performance-report-2026.md` и запускать `npm run entity:report` после `npm run build`; команда вызывает `node scripts/generate_entity_performance_report.mjs`. Внешние GSC/AI/business-метрики добавлять в `docs/seo/59-entity-performance-overrides.csv`, а не в generated CSV. Для задач по ключевым словам, семантике и планированию посадочных страниц читать `docs/seo/18-seo-keyword-map-2026.md` и `docs/seo/53-keyword-database-2026.md`. Для performance/Core Web Vitals-задач читать `docs/quality/12-core-web-vitals-guide-2026.md` и текущий аудит `docs/audits/54-2026-05-26-core-web-vitals-current-audit.md`. Для задач по Netlify Lighthouse Deploy Summary, `lighthouse-summary` или ошибке `Summary for path '/': undefined` читать `docs/quality/14-lighthouse-single-page-audit.md` и `docs/audits/61-2026-06-01-netlify-lighthouse-summary-plugin-fix.md`. Для задач по tooling, Hugo, Node и Tailwind читать `docs/deploy/15-local-tooling-mise.md` и текущий аудит `docs/audits/56-2026-05-26-hugo-0-162-compliance-audit.md`. Остальные гайды подключать по задаче.
+Для новичка порядок чтения такой: сначала `README.md`, затем `AGENTS.md`, затем `docs/01-documentation-map.md`, затем `docs/architecture/02-documentation-style-guide.md`, затем `docs/architecture/03-hugo-template-helpers.md`, затем `docs/content/05-front-matter-reference.md`, затем `docs/quality/13-pagespeed-insights-audit.md`, затем `docs/quality/14-production-quality-gate-2026.md`. Для SEO/schema-задач после этого читать `docs/seo/19-schema-types-reference.md`, `docs/seo/20-schema-markup-quality-checklist-2026.md`, `docs/seo/24-entities-knowledge-graph-playbook-2026.md`, `docs/seo/26-json-ld-graph-audit-roadmap-2026.md` и текущий аудит `docs/audits/57-2026-05-31-schema-entity-full-audit-current.md`; для ручной проверки через `validator.schema.org` использовать `docs/seo/60-schema-validator-url-checklist-2026.md`. Для задач по product facts, цене, наличию, гарантии, доставке, возврату, оплате, `priceValidUntil`, цвету и характеристикам товара читать `docs/seo/58-product-facts-maintenance-process-2026.md`. Для задач по entity performance, `about_entities`, `mentions_entities`, `product_group_id` и rendered refs читать `docs/seo/59-entity-performance-report-2026.md` и запускать `npm run entity:report` после `npm run build`; команда вызывает `node scripts/generate_entity_performance_report.mjs`. Внешние GSC/AI/business-метрики добавлять в `docs/seo/59-entity-performance-overrides.csv`, а не в generated CSV. Для задач по ключевым словам, семантике и планированию посадочных страниц читать `docs/seo/18-seo-keyword-map-2026.md` и `docs/seo/53-keyword-database-2026.md`. Для performance/Core Web Vitals-задач читать `docs/quality/12-core-web-vitals-guide-2026.md`, `docs/quality/13-pagespeed-insights-audit.md`, `docs/quality/14-production-quality-gate-2026.md` и текущий аудит `docs/audits/54-2026-05-26-core-web-vitals-current-audit.md`. Для задач по tooling, Hugo, Node и Tailwind читать `docs/deploy/15-local-tooling-mise.md` и текущий аудит `docs/audits/56-2026-05-26-hugo-0-162-compliance-audit.md`. Остальные гайды подключать по задаче.
 
 ## Контентные Правила
 
@@ -204,7 +202,7 @@
 - При изменении меню, языков, permalink-логики или SEO-дефолтов осторожно редактировать `hugo.yaml`, потому что это влияет на весь сайт.
 - При изменении `static/_redirects` использовать синтаксис Netlify: корневой rewrite держать выше scanner-правил, `*` применять только как splat в конце path segment, placeholder `/:prefix/...` использовать для одного сегмента, scanner/sensitive правила оставлять со статусом `404!`. Человекопохожие parser URL из логов без подтвержденной замены, например `/aboutus`, `/contactus`, `/company` или `/profile`, не редиректить; они должны оставаться обычной `404`.
 - При изменении review-системы, `Netlify Database` migrations, `review_target_id`, moderation flow или build-time export отзывов проверять `docs/deploy/17-netlify-database-reviews.md`, `docs/content/05-front-matter-reference.md`, `docs/seo/21-ecommerce-structured-data-playbook-2026.md` и `docs/seo/20-schema-markup-quality-checklist-2026.md`.
-- При изменении `netlify/plugins/lighthouse-summary/`, root `lighthouse` / `puppeteer` / `chrome-launcher` зависимостей или `[[plugins]]` в `netlify.toml` проверять `docs/deploy/16-netlify-routing.md`, `docs/quality/14-lighthouse-single-page-audit.md` и `docs/audits/61-2026-06-01-netlify-lighthouse-summary-plugin-fix.md`. Официальный `@netlify/plugin-lighthouse` не возвращать без отдельного решения.
+- Не возвращать локальный браузерный audit plugin, Chrome-аудит зависимости или post-deploy browser runtime в `netlify.toml` без отдельного решения. Текущий стандарт проверки опубликованных URL — PageSpeed Insights.
 
 ## Проверки
 
@@ -217,6 +215,5 @@
 - Проверять, что `search` остается `noindex,nofollow`. Пока проект намеренно собирается с `HUGO_ENVIRONMENT = "development"`, все HTML-страницы остаются `noindex,nofollow`; перед production-переходом отдельно проверить возврат `index,follow` для индексируемых URL.
 - Проверять, что `404` и служебные alias-страницы остаются `noindex,nofollow`.
 - При правках `static/_redirects` проверять, что `public/_redirects` обновился после сборки, `/` отдает `200`, а кастомная 404 продолжает отдаваться для scanner/sensitive URL. Для финальной проверки routing/headers использовать Netlify CLI или Deploy Preview.
-- После правок Lighthouse summary plugin ожидать в Netlify Deploy Summary строку `./netlify/plugins/lighthouse-summary ran successfully`, а не `@netlify/plugin-lighthouse`.
 - Проверять, что корневой `sitemap.xml` остается индексом карт сайта, а `/uk/sitemap.xml` и `/ru/sitemap.xml` содержат только индексируемые URL.
 - Для SEO-посадочных страниц дополнительно проверять целевые объемы текста и покрытие как брендовых, так и широких коммерческих интентов.

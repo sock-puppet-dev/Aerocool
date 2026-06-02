@@ -15,7 +15,7 @@
 #
 # Что делает:
 #   Обновляет git-подмодули, запускает mise install при наличии mise, ставит
-#   npm-зависимости корневого проекта и зависимости Unlighthouse-аудита.
+#   npm-зависимости корневого проекта.
 #
 # Важно:
 #   Скрипт может занять время и может обращаться к npm registry. Если сети нет,
@@ -38,13 +38,5 @@ fi
 
 echo "Installing root npm dependencies"
 npm install
-
-if [ -f "unlighthouse/package.json" ]; then
-  echo "Installing Unlighthouse npm dependencies"
-  (
-    cd unlighthouse
-    npm install
-  )
-fi
 
 echo "Setup complete. Run ./scripts/script_start.sh to start local development."

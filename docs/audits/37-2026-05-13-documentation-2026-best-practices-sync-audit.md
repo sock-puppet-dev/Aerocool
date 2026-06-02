@@ -12,7 +12,7 @@
 - оглавление и маршруты чтения: `docs/01-documentation-map.md`;
 - active reference/playbook документы в `docs/content`, `docs/architecture`, `docs/deploy`, `docs/quality`, `docs/seo`;
 - исторические audit-снимки в `docs/audits`;
-- соответствие документации текущим проектным файлам: `hugo.yaml`, `netlify.toml`, `mise.toml`, `package.json`, `layouts/`, `assets/`, `static/_redirects`, `unlighthouse/`.
+- соответствие документации текущим проектным файлам: `hugo.yaml`, `netlify.toml`, `mise.toml`, `package.json`, `layouts/`, `assets/`, `static/_redirects` и quality workflow.
 
 Исторические audit-файлы не переписывались задним числом. Их даты оставлены как даты фактических проверок; текущий документ является свежим синхронизационным снимком.
 
@@ -59,10 +59,10 @@
 ### Исправлено В Этой Синхронизации
 
 - Added standalone Core Web Vitals guide for Hugo / Netlify / Tailwind.
-- Linked CWV guide from `README.md`, `AGENTS.md`, `docs/01-documentation-map.md`, Lighthouse, Unlighthouse and SEO checklists.
+- Linked CWV guide from `README.md`, `AGENTS.md`, `docs/01-documentation-map.md`, PageSpeed workflow and SEO checklists.
 - Added this current documentation sync audit to preserve a single 2026-05-13 snapshot.
 - Updated active documentation dates and cross-links where files were touched.
-- Fixed stale `lighthouse.md` reference in the Unlighthouse guide.
+- Fixed stale browser-audit references in quality docs.
 - Added current-source notes for Google Search Essentials, people-first content, page experience, structured data, product/merchant listing docs, Hugo Node security, Tailwind source detection and Netlify routing/cache/header behavior.
 
 ### Намеренно Оставлено Открытым
@@ -105,7 +105,7 @@ The current CWV layer is aligned with 2026 metrics:
 
 - primary metrics: `LCP`, `INP`, `CLS`;
 - `FID` is not treated as a current core target;
-- Search Console and PageSpeed field data are separated from Lighthouse/Unlighthouse lab data;
+- Search Console and PageSpeed field data are separated from immediate lab/browser diagnostics;
 - image, CSS, JS, font and TTFB risks are documented for the current Hugo/Netlify implementation.
 
 ### Hugo / Tailwind
@@ -135,7 +135,7 @@ For a new contributor:
 2. [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md)
 3. [docs/content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md)
 4. [docs/architecture/03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md)
-5. [docs/quality/13-unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-unlighthouse-site-audit.md)
+5. [docs/quality/13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md)
 
 For SEO/schema work:
 
@@ -148,8 +148,8 @@ For SEO/schema work:
 For performance/CWV work:
 
 1. [docs/quality/12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md)
-2. [docs/quality/13-unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-unlighthouse-site-audit.md)
-3. [docs/quality/14-lighthouse-single-page-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/14-lighthouse-single-page-audit.md)
+2. [docs/quality/13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md)
+3. [docs/quality/12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md)
 4. [docs/content/06-seo-image-shortcode.md](/Users/stadnyk/MEGA/Aerocool/docs/content/06-seo-image-shortcode.md)
 
 ## 7. Итоговая Оценка

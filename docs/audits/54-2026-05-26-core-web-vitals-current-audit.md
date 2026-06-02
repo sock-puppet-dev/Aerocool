@@ -12,8 +12,7 @@
 - web.dev INP optimization: https://web.dev/articles/optimize-inp
 - web.dev CLS optimization: https://web.dev/optimize-cls
 - Локальный playbook: [12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md)
-- Локальный Unlighthouse guide: [13-unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-unlighthouse-site-audit.md)
-- Локальный Lighthouse guide: [14-lighthouse-single-page-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/14-lighthouse-single-page-audit.md)
+- PageSpeed workflow: [13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md)
 
 Актуальные пороги Google на дату проверки:
 
@@ -23,13 +22,12 @@
 | `INP` | < 200 ms |
 | `CLS` | ≤ 0.1 |
 
-`FID` не использовать как текущую основную метрику. Для интерактивности использовать `INP`; в Lighthouse смотреть `TBT` только как лабораторную подсказку.
+`FID` не использовать как текущую основную метрику. Для интерактивности использовать `INP`; `TBT` смотреть только как лабораторную подсказку.
 
 ## Что Проверено
 
 - `docs/quality/12-core-web-vitals-guide-2026.md` — главный CWV playbook.
-- `docs/quality/13-unlighthouse-site-audit.md` — массовый audit workflow.
-- `docs/quality/14-lighthouse-single-page-audit.md` — одиночный Lighthouse workflow.
+- `docs/quality/13-pagespeed-insights-audit.md` — PageSpeed workflow.
 - `docs/audits/41-2026-05-17-core-web-vitals-project-audit.md` — предыдущий CWV baseline.
 - `layouts/_partials/head.html` — CSS, search JS, preload/prefetch, robots meta.
 - `layouts/_partials/_seo/lcp-image-preload.html` — head preload главного article/news/product изображения.
@@ -47,7 +45,7 @@
 |---|---|---|
 | Search index грузился до действия пользователя | Theme `fastsearch.js` запрашивал `index.json` по `window.onload` | `/search/` имел total byte weight около `702 KiB`, хотя пользователь еще не вводил запрос |
 | Service worker регистрировался сразу после `load` | `assets/js/site.js` запускал `navigator.serviceWorker.register()` без задержки | Может добавлять работу и network activity в критическое окно первого рендера |
-| Главная hero-картинка не responsive | `/images/home-hero85.webp` статический файл `1023x1537` | Lighthouse видит потенциальную экономию около `66 KiB` на mobile |
+| Главная hero-картинка не responsive | `/images/home-hero85.webp` статический файл `1023x1537` | browser-аудит видел потенциальную экономию около `66 KiB` на mobile |
 | Нет field data | Нет подтверждения из Search Console / CrUX | Реальный `INP` подтвердить нельзя |
 
 Не найдено:
@@ -67,7 +65,7 @@
 5. `docs/quality/12-core-web-vitals-guide-2026.md` обновлен под эти правила.
 6. 2026-06-01: hero-изображение главной переведено в Hugo global image pipeline через `assets/images/home-hero85.webp`, получило responsive `srcset` и matching preload в `<head>` для `/` и `/ru/`.
 
-## Lighthouse Baseline После Исправлений
+## Browser Lab Baseline После Исправлений
 
 Методика:
 
@@ -75,7 +73,7 @@
 npm run build
 npm run build:production
 python3 -m http.server 1324 --bind 127.0.0.1 --directory public
-unlighthouse/node_modules/.bin/lighthouse <url> --output=json --only-categories=performance,accessibility,best-practices,seo
+browser-audit <url> --categories=performance,accessibility,best-practices,seo
 ```
 
 Проверенные URL:
@@ -113,14 +111,14 @@ unlighthouse/node_modules/.bin/lighthouse <url> --output=json --only-categories=
 
 ### P1
 
-1. Перед production-переходом проверить Deploy Preview через Unlighthouse.
+1. Перед production-переходом проверить Deploy Preview через PageSpeed Insights.
 2. После production-публикации подключить Search Console Core Web Vitals report и ждать field data.
 3. Не возвращать загрузку `index.json` по `window.onload`.
 4. Не возвращать service worker registration в критическое окно первого рендера.
 
 ### P2
 
-1. После следующего Deploy Preview перепроверить главную через Lighthouse/Unlighthouse и сравнить LCP после responsive hero image.
+1. После следующего Deploy Preview перепроверить главную через PageSpeed Insights и сравнить LCP после responsive hero image.
 2. При росте сайта контролировать размер `index.json`, поля индекса, лимит результатов и INP search-страницы.
 
 ## Итог

@@ -1,12 +1,12 @@
 # Полный SEO-аудит сайта для сильного ранжирования в Google
 
-Актуально на 2026-05-17.
+Актуально на 2026-06-02.
 
-> Контекст: сайт на Hugo / Netlify, уже используется Unlighthouse.
+> Контекст: сайт на Hugo / Netlify, качество published URL проверяется через PageSpeed Insights.
 > Цель: не обещать позицию, а пройти полный SEO-контур: индексация, Core Web Vitals, structured data, контент, доверие, UX, конкуренты, ссылки и постоянный мониторинг.
 > Синхронизировано с документацией и лучшими практиками 2026: 2026-05-17.
 
-> Примечание для текущего проекта Aerocool: Netlify сейчас намеренно собирает сайт в `development/noindex`, поэтому финальную проверку индексируемости нужно делать только после отдельного production-переключения. Unlighthouse в этом проекте запускается локально из папки `unlighthouse/`, а GitHub Actions gate сейчас не используется.
+> Примечание для текущего проекта Aerocool: Netlify сейчас намеренно собирает сайт в `development/noindex`, поэтому финальную проверку индексируемости нужно делать только после отдельного production-переключения. Автоматический browser-аудит в Netlify и GitHub Actions gate сейчас не используются.
 
 > Практический порядок внедрения для текущего проекта: [34-2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md).
 > Базовый sync-аудит документации: [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md).
@@ -24,9 +24,9 @@
 
 ## 1. Главная идея
 
-**Unlighthouse — это хорошо, но этого недостаточно для сильного ранжирования в Google.**
+**PageSpeed Insights — это полезно, но этого недостаточно для сильного ранжирования в Google.**
 
-Unlighthouse в основном проверяет Lighthouse-аудиты по множеству страниц:
+PageSpeed Insights помогает проверить конкретный опубликованный URL:
 
 - Performance
 - Accessibility
@@ -50,7 +50,7 @@ Unlighthouse в основном проверяет Lighthouse-аудиты по
 
 Главное правило:
 
-> **Сильные позиции получает не сайт с самым высоким Lighthouse, а страница, которая быстрее, понятнее, полезнее, доверительнее и релевантнее конкурентов по конкретному запросу.**
+> **Сильные позиции получает не сайт с самым высоким score, а страница, которая быстрее, понятнее, полезнее, доверительнее и релевантнее конкурентов по конкретному запросу.**
 
 ---
 
@@ -60,9 +60,9 @@ Unlighthouse в основном проверяет Lighthouse-аудиты по
 
 | № | Инструмент / аудит | Зачем нужен |
 |---:|---|---|
-| 1 | Unlighthouse | Массовая проверка Lighthouse по страницам |
+| 1 | PageSpeed Insights | Core Web Vitals, lab-проверка и field data по опубликованному URL |
 | 2 | Google Search Console | Индексация, запросы, клики, позиции, sitemap |
-| 3 | PageSpeed Insights | Core Web Vitals и реальные полевые данные |
+| 3 | Chrome DevTools | Глубокая диагностика проблемной страницы |
 | 4 | Rich Results Test | Проверка rich results и Schema.org |
 | 5 | Schema Markup Validator | Глубокая проверка structured data |
 | 6 | Screaming Frog SEO Spider | Технический краулинг сайта |
@@ -101,7 +101,7 @@ Google Search Console — обязательный инструмент. Без 
 
 ## 4. Аудит Core Web Vitals
 
-Цель — не просто 100 в Lighthouse, а хорошие полевые данные у реальных пользователей.
+Цель — не просто 100 в отчете, а хорошие полевые данные у реальных пользователей.
 
 Подробный локальный playbook для проекта: [12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md).
 
@@ -469,16 +469,16 @@ Accessibility напрямую не гарантирует позиции, но 
 
 ---
 
-## 18. Что добавить к Unlighthouse
+## 18. Что Добавить К PageSpeed Insights
 
 Текущий SEO-стек должен выглядеть так:
 
 ```text
-1. Unlighthouse
+1. PageSpeed Insights
    ↓
 2. Google Search Console
    ↓
-3. PageSpeed Insights
+3. Chrome DevTools
    ↓
 4. Rich Results Test
    ↓
@@ -505,7 +505,7 @@ Accessibility напрямую не гарантирует позиции, но 
 
 | Категория | Требование |
 |---|---|
-| Lighthouse | 100 / 100 / 100 / 100 |
+| PageSpeed score | 95+ / 100 / 100 / 100 |
 | PWA | 100, если используется PWA |
 | LCP | ≤ 2.0 s, лучше ≤ 1.5 s |
 | INP | ≤ 150 ms, лучше ≤ 100 ms |
@@ -533,9 +533,9 @@ Accessibility напрямую не гарантирует позиции, но 
 ### Этап 1 — техническая база
 
 ```text
-Unlighthouse
-Google Search Console
 PageSpeed Insights
+Google Search Console
+Chrome DevTools
 Rich Results Test
 Schema Validator
 Screaming Frog

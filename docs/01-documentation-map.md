@@ -1,6 +1,6 @@
 # Документация Aerocool
 
-Обновлено: 2026-06-01.
+Обновлено: 2026-06-02.
 
 Этот файл — главная карта всей документации проекта. Его задача простая: показать новичку, что читать сначала, что читать потом и какие документы нужны только для профильных задач.
 
@@ -21,7 +21,7 @@
 4. [docs/architecture/02-documentation-style-guide.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/02-documentation-style-guide.md)
 5. [docs/architecture/03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md)
 6. [docs/content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md)
-7. [docs/quality/13-unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-unlighthouse-site-audit.md)
+7. [docs/quality/13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md)
 
 Этого достаточно, чтобы понять структуру сайта, правила правки контента, шаблонный слой и базовую проверку качества.
 
@@ -32,7 +32,7 @@
 - `01-...` — главный вход в документацию;
 - `02-04` — архитектура и шаблонный слой;
 - `05-11` — контент, front matter, изображения и шаблоны материалов;
-- `12-14` — качество, Core Web Vitals, Lighthouse и Unlighthouse;
+- `12-14` — качество, Core Web Vitals, PageSpeed Insights и production quality-gate;
 - `15-17` — локальные инструменты, Netlify routing и Netlify Database reviews;
 - `18-28` — SEO, schema.org, entity registry и structured data;
 - `29-50` — исторические и текущие audit-снимки до UI-карты;
@@ -66,8 +66,8 @@
 ### Качество
 
 12. [quality/12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md) — полный Core Web Vitals playbook для Hugo/Netlify/Tailwind сайта.
-13. [quality/13-unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-unlighthouse-site-audit.md) — массовый Unlighthouse-аудит.
-14. [quality/14-lighthouse-single-page-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/14-lighthouse-single-page-audit.md) — одиночный Lighthouse-аудит одной страницы.
+13. [quality/13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md) — ручная проверка опубликованных URL через PageSpeed Insights.
+14. [quality/14-production-quality-gate-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/14-production-quality-gate-2026.md) — финальный production quality-gate перед релизом.
 
 ### Деплой И Инфраструктура
 
@@ -156,9 +156,9 @@
 
 60. [seo/60-schema-validator-url-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/60-schema-validator-url-checklist-2026.md) — полный список `114` dev URL с JSON-LD для ручной проверки через `https://validator.schema.org`, с приоритетом проверки и исключениями.
 
-### Сводка Lighthouse В Netlify
+### Упрощение Quality-Аудита
 
-61. [audits/61-2026-06-01-netlify-lighthouse-summary-plugin-fix.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/61-2026-06-01-netlify-lighthouse-summary-plugin-fix.md) — решение по замене официального `@netlify/plugin-lighthouse` на локальный `netlify/plugins/lighthouse-summary/`, причина ошибки `Summary for path '/': undefined` и подтвержденный Deploy Summary.
+61. [audits/61-2026-06-02-pagespeed-insights-quality-simplification.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/61-2026-06-02-pagespeed-insights-quality-simplification.md) — решение убрать локальный browser-аудит из Netlify и перейти на ручную проверку опубликованных URL через PageSpeed Insights.
 
 ## Маршруты По Задачам
 
@@ -197,10 +197,10 @@
 Для performance/Core Web Vitals читать:
 
 1. [quality/12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md)
-2. [quality/13-unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-unlighthouse-site-audit.md)
-3. [quality/14-lighthouse-single-page-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/14-lighthouse-single-page-audit.md)
+2. [quality/13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md)
+3. [quality/14-production-quality-gate-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/14-production-quality-gate-2026.md)
 4. [audits/54-2026-05-26-core-web-vitals-current-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/54-2026-05-26-core-web-vitals-current-audit.md)
-5. [audits/61-2026-06-01-netlify-lighthouse-summary-plugin-fix.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/61-2026-06-01-netlify-lighthouse-summary-plugin-fix.md), если задача касается Netlify Deploy Summary, `lighthouse-summary` или ошибки `Summary for path '/': undefined`
+5. [audits/61-2026-06-02-pagespeed-insights-quality-simplification.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/61-2026-06-02-pagespeed-insights-quality-simplification.md), если задача касается текущего PageSpeed-only quality workflow
 
 Для UI-блоков, Tailwind Plus и визуальной структуры страниц читать:
 
@@ -223,8 +223,7 @@
 - поменял review-систему, Netlify Database migrations, `review_target_id`, moderation flow или build-time export отзывов — проверь [deploy/17-netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/17-netlify-database-reviews.md), [content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md), [seo/21-ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/21-ecommerce-structured-data-playbook-2026.md) и [seo/20-schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/20-schema-markup-quality-checklist-2026.md);
 - поменял entity strategy, `about`, `mentions`, `sameAs` или `@id` — проверь [seo/24-entities-knowledge-graph-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/24-entities-knowledge-graph-playbook-2026.md), [seo/25-ai-search-entity-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/25-ai-search-entity-map-2026.md) и [audits/57-2026-05-31-schema-entity-full-audit-current.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/57-2026-05-31-schema-entity-full-audit-current.md);
 - поменял entity registry, `about_entities`, `mentions_entities`, `product_group_id` или rendered JSON-LD graph — после `npm run build` запусти `npm run entity:report` и проверь [seo/59-entity-performance-report-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md);
-- поменял hero, изображения первого экрана, CSS, JS или performance-sensitive layout — проверь [quality/12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md);
-- поменял Unlighthouse конфиг — проверь [quality/13-unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-unlighthouse-site-audit.md);
-- поменял Netlify Lighthouse summary plugin, `netlify/plugins/lighthouse-summary/`, root Lighthouse dependencies или `[[plugins]]` в `netlify.toml` — проверь [deploy/16-netlify-routing.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/16-netlify-routing.md), [quality/14-lighthouse-single-page-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/14-lighthouse-single-page-audit.md) и [audits/61-2026-06-01-netlify-lighthouse-summary-plugin-fix.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/61-2026-06-01-netlify-lighthouse-summary-plugin-fix.md);
+- поменял hero, изображения первого экрана, CSS, JS или performance-sensitive layout — проверь [quality/12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md), [quality/13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md) и [quality/14-production-quality-gate-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/14-production-quality-gate-2026.md);
+- поменял PageSpeed-only quality workflow — проверь [quality/13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md), [deploy/16-netlify-routing.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/16-netlify-routing.md) и [audits/61-2026-06-02-pagespeed-insights-quality-simplification.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/61-2026-06-02-pagespeed-insights-quality-simplification.md);
 - поменял версии Hugo/Node — проверь [deploy/15-local-tooling-mise.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/15-local-tooling-mise.md), [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) и `netlify.toml`;
 - поменял `static/_redirects`, `layouts/404.html` или routing/headers в `netlify.toml` — проверь [deploy/16-netlify-routing.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/16-netlify-routing.md), [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) и [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md).

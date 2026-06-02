@@ -310,7 +310,7 @@ Image license metadata остается P2. Добавлять `license`, `creat
 
 ## 15. Рекомендуемая Очередь Работ
 
-1. Закрыть production gate: environment, indexability, sitemap, robots, headers, Unlighthouse на published URL.
+1. Закрыть production gate: environment, indexability, sitemap, robots, headers, PageSpeed Insights на published URL.
 2. Принять бизнес-решение по ratings: подтвердить источник или убрать `rating` из front matter.
 3. Добавить visible variant navigation для WING/XTAL цветовых групп и решить, нужны ли single-variant ProductGroup для SKY.
 4. Перевести подтвержденные ProductGroup entities в `confirmed` и включить `ProductGroup` / `isVariantOf`.

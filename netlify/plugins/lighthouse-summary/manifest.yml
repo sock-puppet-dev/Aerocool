@@ -1,5 +1,0 @@
-name: aerocool-lighthouse-summary
-inputs:
-  - name: paths
-    required: false
-    description: List of site paths to audit after a successful Netlify deploy.

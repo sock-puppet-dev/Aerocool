@@ -18,13 +18,6 @@
   NPM_FLAGS = "--legacy-peer-deps"
   # Флаг npm для предотвращения конфликтов зависимостей
 
-# Lighthouse summary plugin
-# Официальный @netlify/plugin-lighthouse сейчас может завершаться successfully,
-# но отдавать "Summary for path '/': undefined". Поэтому используем локальный
-# контролируемый плагин проекта с актуальными lighthouse/puppeteer зависимостями.
-[[plugins]]
-  package = "./netlify/plugins/lighthouse-summary"
-
 # Блок Headers для безопасности, SEO и кеширования
 
 # Длительное кэширование статических ресурсов.

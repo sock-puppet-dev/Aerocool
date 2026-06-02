@@ -10,7 +10,7 @@ Shortcode `seo-image` находится в [layouts/_shortcodes/seo-image.html]
 
 Hero-изображение главной страницы — отдельное исключение: оно живет в едином shortcode [home-hero.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero.html), не проходит через `seo-image`, но использует Hugo global image resource из `assets/images/home-hero85.webp`. Shortcode сам выводит responsive `srcset`, `sizes`, `loading="eager"` и `fetchpriority="high"`, а matching preload для главной страницы выводится в `<head>` через [lcp-image-preload.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/lcp-image-preload.html).
 
-Простыми словами для новичка: `seo-image` нужен, когда ты вставляешь изображение прямо в текст страницы. Он помогает Hugo собрать правильный HTML для картинки, чтобы Lighthouse не ругался на размеры, загрузку и адаптивность.
+Простыми словами для новичка: `seo-image` нужен, когда ты вставляешь изображение прямо в текст страницы. Он помогает Hugo собрать правильный HTML для картинки, чтобы PageSpeed Insights не ругался на размеры, загрузку и адаптивность.
 
 Для processable-форматов Hugo (`jpg`, `jpeg`, `png`, `webp`) shortcode выводит `<picture>`:
 

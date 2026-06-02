@@ -70,5 +70,5 @@ cover:
 - [docs/content/templates/08-article-template.md](/Users/stadnyk/MEGA/Aerocool/docs/content/templates/08-article-template.md)
 - [docs/content/templates/09-news-template.md](/Users/stadnyk/MEGA/Aerocool/docs/content/templates/09-news-template.md)
 - [docs/content/templates/11-series-template.md](/Users/stadnyk/MEGA/Aerocool/docs/content/templates/11-series-template.md)
-- [docs/quality/13-unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-unlighthouse-site-audit.md)
+- [docs/quality/13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md)
 - [layouts/_partials/page-image.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-image.html)

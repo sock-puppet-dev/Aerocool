@@ -48,10 +48,6 @@ Netlify routing и headers:
   ./scripts/script_check_routes.sh
     Проверить ключевые URL и scanner/sensitive 404. Требует запущенный Netlify Dev.
 
-Аудит качества:
-  ./scripts/script_audit_urls.sh
-    Запустить Unlighthouse-аудит критических URL.
-
 Очистка:
   ./scripts/script_clean.sh
     Безопасно очистить только Hugo-артефакты: public/, resources/, lock-файлы сборки.

@@ -1,6 +1,6 @@
 # Руководство по стилю документации
 
-Обновлено: 2026-05-18.
+Обновлено: 2026-06-02.
 
 Этот документ задает единый стандарт для всей документации проекта `Aerocool Ukraine`.
 
@@ -12,7 +12,7 @@
 
 Исключения допустимы только там, где английский текст является точным названием:
 
-- технологии: `Hugo`, `Netlify`, `Tailwind CSS`, `Lighthouse`, `Unlighthouse`;
+- технологии: `Hugo`, `Netlify`, `Tailwind CSS`, `PageSpeed Insights`;
 - SEO-термины, которые обычно используются в оригинале: `Core Web Vitals`, `Search Console`, `schema.org`, `JSON-LD`;
 - имена файлов, полей, команд и параметров: `schema_types`, `cover.image`, `npm run build`;
 - официальные названия метрик или HTTP-заголовков: `LCP`, `INP`, `CLS`, `Content-Security-Policy`.
@@ -48,7 +48,7 @@
 Хорошо:
 
 ```md
-# Руководство по аудиту одной страницы через Lighthouse
+# Руководство по проверке страницы через PageSpeed Insights
 ## 3. Как запускать проверку
 ## 7. Что проверять после изменений
 ```
@@ -56,7 +56,7 @@
 Плохо:
 
 ```md
-Название: Lighthouse Single Page Audit Guide
+Название: PageSpeed Single URL Check Guide
 Раздел: Current Status
 Раздел: Implementation Backlog
 ```
@@ -190,7 +190,7 @@ rg --files README.md AGENTS.md docs
 - `content/` и [05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md);
 - `data/`, `data/entities.yaml` и entity-документы;
 - `package.json`, `mise.toml`, `netlify.toml` и deploy-документы;
-- `unlighthouse/` и quality-документы.
+- quality-документы и PageSpeed workflow.
 
 7. Для нестабильных тем свериться с официальными источниками. Это обязательно для `Google Search`, `structured data`, `Core Web Vitals`, `Hugo`, `Netlify`, `Tailwind CSS`, `Netlify Database` и review/rating правил.
 

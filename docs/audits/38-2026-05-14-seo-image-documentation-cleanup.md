@@ -18,7 +18,7 @@
 - [docs/content/templates/10-product-template.md](/Users/stadnyk/MEGA/Aerocool/docs/content/templates/10-product-template.md)
 - [docs/architecture/03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md)
 - [docs/quality/12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md)
-- [docs/quality/13-unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-unlighthouse-site-audit.md)
+- [docs/quality/13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md)
 - [docs/seo/27-google-seo-audit-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/27-google-seo-audit-checklist-2026.md)
 - [docs/seo/28-ssg-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/28-ssg-seo-checklist-2026.md)
 
@@ -72,7 +72,7 @@ seo_image_sizes: "(min-width: 848px) 800px, (max-width: 768px) calc(100vw - 28px
 - Не ставить `preload=true` на вторичные изображения.
 - Не использовать `fetchpriority=high` вместе с `loading="lazy"`.
 - Не использовать `sizes="100vw"` для изображения внутри контентной колонки, если оно не занимает всю ширину viewport.
-- Не обещать автоматический ТОП-1 из-за Lighthouse, schema или Core Web Vitals.
+- Не обещать автоматический ТОП-1 из-за PageSpeed score, schema или Core Web Vitals.
 - Не переименовывать массово опубликованные image URLs без отдельного SEO/redirect-плана.
 
 ## Официальная База

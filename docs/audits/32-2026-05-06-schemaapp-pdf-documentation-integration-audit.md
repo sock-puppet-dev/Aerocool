@@ -50,7 +50,7 @@
 
 ## Итог
 
-Документы SchemaApp не изменили базовую архитектуру проекта: Hugo, local partials, `schema_types`, JSON-LD `@graph`, content bundles и Unlighthouse остаются правильной основой.
+Документы SchemaApp не изменили базовую архитектуру проекта: Hugo, local partials, `schema_types`, JSON-LD `@graph`, content bundles и PageSpeed quality workflow остаются правильной основой.
 
 Их главная польза — усиление верхнего стратегического слоя:
 

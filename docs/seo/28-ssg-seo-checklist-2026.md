@@ -1,12 +1,12 @@
 # Финальный SEO-чеклист для SSG-сайта в 2026 году
 
-Актуально на 2026-05-25.
+Актуально на 2026-06-02.
 
 Этот файл — финальный список элементов для построения технически сильного SSG-сайта: Hugo, техническое SEO, schema.org, Core Web Vitals, контентная стратегия, entity SEO, E-E-A-T, мониторинг и развитие сайта. Он не обещает конкретную позицию в Google; он фиксирует, что должно быть сделано, чтобы сайт не проигрывал по технической базе и качеству сигналов.
 
 Синхронизировано с текущей проектной документацией и лучшими практиками 2026: [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md).
 
-Примечание для новичка: это общий стратегический чеклист, а не список файлов, которые нужно сразу менять. Для текущего проекта Aerocool фактические правила лежат в [README.md](/Users/stadnyk/MEGA/Aerocool/README.md), [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md), [content/07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md), [content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md), [seo/20-schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/20-schema-markup-quality-checklist-2026.md), [seo/24-entities-knowledge-graph-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/24-entities-knowledge-graph-playbook-2026.md), [quality/13-unlighthouse-site-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-unlighthouse-site-audit.md) и [34-2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md).
+Примечание для новичка: это общий стратегический чеклист, а не список файлов, которые нужно сразу менять. Для текущего проекта Aerocool фактические правила лежат в [README.md](/Users/stadnyk/MEGA/Aerocool/README.md), [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md), [content/07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md), [content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md), [seo/20-schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/20-schema-markup-quality-checklist-2026.md), [seo/24-entities-knowledge-graph-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/24-entities-knowledge-graph-playbook-2026.md), [quality/13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md) и [34-2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md).
 
 ---
 
@@ -21,7 +21,7 @@
 | Поиск | Для Aerocool сейчас локальная search-страница Hugo/PaperMod; Pagefind можно рассмотреть отдельно |
 | Деплой | Git-репозиторий -> Netlify / Cloudflare Pages |
 | Версионирование | Git + GitHub |
-| CI-проверки | Для Aerocool сейчас локальный Unlighthouse; отдельный GitHub Actions gate не используется |
+| CI-проверки | Для Aerocool сейчас локальная сборка и ручная PageSpeed-проверка опубликованных URL; отдельный GitHub Actions gate не используется |
 
 ---
 
@@ -193,7 +193,7 @@
 | CDN caching | Да |
 | Brotli / gzip | Да |
 | HTTP/2 или HTTP/3 | Да |
-| Lighthouse 95–100 | Да |
+| PageSpeed Performance 95–100 | Да |
 | Real field data monitoring | Да |
 
 ---
@@ -339,7 +339,7 @@
 | Google Analytics 4 | Да |
 | Plausible / Umami | Альтернатива |
 | PageSpeed Insights | Да |
-| Lighthouse / Unlighthouse | Да; в Aerocool используется локальный `unlighthouse/` |
+| PageSpeed Insights | Да; в Aerocool используется ручная проверка опубликованных URL |
 | CrUX monitoring | Да |
 | Server logs analysis | Желательно |
 | Broken link checker | Да |

@@ -333,7 +333,7 @@ Customer story Wells Fargo усиливает этот блок: structured data
 
 ## 17. Рекомендуемая Очередь Работ
 
-1. Закрыть production gate: production environment, `index,follow`, sitemap, robots, canonical, hreflang, headers, 404, Unlighthouse/Google checks на published URL.
+1. Закрыть production gate: production environment, `index,follow`, sitemap, robots, canonical, hreflang, headers, 404, PageSpeed/Google checks на published URL.
 2. Закрыть ratings/reviews: внедрить approved reviews pipeline или убрать `aggregateRating`.
 3. Подтвердить MPN/GTIN для `SKY 360` и `SKY Lite`.
 4. Добавить visible variant navigation на product/series pages.
