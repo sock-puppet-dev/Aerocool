@@ -1,6 +1,6 @@
 # Реестр Сущностей Aerocool 2026
 
-Обновлено: 2026-05-31.
+Обновлено: 2026-06-03.
 
 Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md). PDF-аудит Schema App по connected graph, Content Knowledge Graphs, impact и Agentic Web зафиксирован в [44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md). Актуальный полный audit registry и rendered graph зафиксирован в [57-2026-05-31-schema-entity-full-audit-current.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/57-2026-05-31-schema-entity-full-audit-current.md). Реестр остается governance-документом: `confirmed` сущности можно использовать в JSON-LD, а новые staged/planned сущности не должны становиться сильными связями без видимого подтверждения на странице.
 
@@ -10,7 +10,7 @@
 
 Реестр не заменяет `schema_types`. Поле `schema_types` по-прежнему выбирает типы JSON-LD, а registry фиксирует стабильные сущности, `@id`, entity home, связи, владельца фактов и условия внедрения.
 
-## Актуальный Audit Snapshot
+## Актуальный Снимок Аудита (Audit Snapshot)
 
 На 2026-05-31 в registry зафиксировано `63` сущности: `61 confirmed`, `0 planned` и `2 do-not-markup`. Машинных ошибок registry не найдено: неизвестных ссылок из front matter нет, `about_entities` и `mentions_entities` используют только `confirmed` сущности, `product_group_id` остался только у реальных цветовых вариантов WING/XTAL и указывает на `confirmed` ProductGroup, поэтому `ProductGroup`, `isVariantOf` и `inProductGroupWithID` выводятся в JSON-LD.
 

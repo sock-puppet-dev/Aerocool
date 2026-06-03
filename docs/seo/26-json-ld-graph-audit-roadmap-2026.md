@@ -1,6 +1,6 @@
 # Аудит И План Развития JSON-LD Графа 2026
 
-Актуально на 2026-05-31.
+Актуально на 2026-06-03.
 
 Этот документ фиксирует текущее состояние JSON-LD Graph проекта `Aerocool Ukraine`, объясняет текущую оценку `Google rich-results quality: 8.8/10` и хранит roadmap усиления structured data без риска переспама, schema drift или несоответствия видимому контенту.
 
@@ -183,7 +183,7 @@ Rendered graph сейчас содержит:
 
 Для Google это полезнее, если изображения реально присутствуют в HTML-странице, а не только в JSON-LD.
 
-### Закрыто. Image License Metadata
+### Закрыто. Метаданные Лицензии Изображений (Image License Metadata)
 
 Выполнено `2026-05-31`: для `ImageObject` внедрены `license`, `acquireLicensePage`, `creator`, `creditText` и `copyrightNotice`. Поля добавляются централизованно через [image-license-metadata.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/image-license-metadata.html), а видимые условия находятся на `/image-license/` и `/ru/image-license/`.
 
