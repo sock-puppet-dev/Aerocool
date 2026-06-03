@@ -25,7 +25,7 @@
    rounded-aero-control и shadow-aero-card. Ниже :root оставлен как
    совместимый слой для PaperMod-переменных и локальных semantic-классов. */
 @theme {
-    --font-aero-sans: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    --font-aero-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
         Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 
     --color-aero-canvas: #ffffff;
