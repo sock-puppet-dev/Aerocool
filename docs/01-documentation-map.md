@@ -1,6 +1,6 @@
 # Документация Aerocool
 
-Обновлено: 2026-06-02.
+Обновлено: 2026-06-03.
 
 Этот файл — главная карта всей документации проекта. Его задача простая: показать новичку, что читать сначала, что читать потом и какие документы нужны только для профильных задач.
 
@@ -9,7 +9,7 @@
 - [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) — краткая карта проекта, стека, структуры и основных команд.
 - [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md) — правила безопасной работы для Codex/агентов.
 
-Все файлы внутри `docs/` пронумерованы глобально от `01` до `61`. Номер в начале имени показывает рекомендуемый порядок чтения.
+Все файлы внутри `docs/` пронумерованы глобально от `01` до `62`. Номер в начале имени показывает рекомендуемый порядок чтения.
 
 ## Как Пользоваться Новичку
 
@@ -160,6 +160,10 @@
 
 61. [audits/61-2026-06-02-pagespeed-insights-quality-simplification.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/61-2026-06-02-pagespeed-insights-quality-simplification.md) — решение убрать локальный browser-аудит из Netlify и перейти на ручную проверку опубликованных URL через PageSpeed Insights.
 
+### Текущие UX/UI Аудиты
+
+62. [audits/62-2026-06-03-ux-ui-tailwind-current-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/62-2026-06-03-ux-ui-tailwind-current-audit.md) — финальный UX/UI-аудит после обновлений Tailwind 4.3 visual layer, FAQ, contact, success alert, articles/news recommended links, about-компонентов, product cards и product detail layout.
+
 ## Маршруты По Задачам
 
 Для контентной правки читать:
@@ -205,8 +209,9 @@
 Для UI-блоков, Tailwind Plus и визуальной структуры страниц читать:
 
 1. [architecture/51-tailwind-plus-ui-section-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/51-tailwind-plus-ui-section-map-2026.md)
-2. [architecture/03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md)
-3. [content/07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md)
+2. [audits/62-2026-06-03-ux-ui-tailwind-current-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/62-2026-06-03-ux-ui-tailwind-current-audit.md)
+3. [architecture/03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md)
+4. [content/07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md)
 
 ## Правило Поддержки
 
