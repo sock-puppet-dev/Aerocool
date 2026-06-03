@@ -142,6 +142,28 @@
     <!-- ===== RIGHT: меню ===== -->
     {{- $currentPage := . }}
     <!-- Сохраняем текущую страницу, чтобы определить активный пункт меню -->
+    {{- $isRu := eq .Language.Name "ru" }}
+    {{- $productsPage := site.GetPage "/products" }}
+    {{- $seriesNav := slice }}
+    {{- range slice
+      (dict
+        "slug" "sky"
+        "textUk" "Lite і 360 для щоденної роботи та home office."
+        "textRu" "Lite и 360 для ежедневной работы и home office.")
+      (dict
+        "slug" "wing"
+        "textUk" "Подвійна спинка, 11D і Racer, Loft Air, Mesh."
+        "textRu" "Двойная спинка, 11D и Racer, Loft Air, Mesh.")
+      (dict
+        "slug" "xtal"
+        "textUk" "Змінні елементи, 7D і три матеріали поверхні."
+        "textRu" "Сменные элементы, 7D и три материала поверхности.")
+    }}
+      {{- $navDescription := cond $isRu .textRu .textUk }}
+      {{- with site.GetPage (printf "/products/%s" .slug) }}
+        {{- $seriesNav = $seriesNav | append (dict "page" . "description" $navDescription) }}
+      {{- end }}
+    {{- end }}
 
     <!-- ===== MOBILE TOGGLE ===== -->
     <input
@@ -203,6 +225,48 @@
              2) или текущая страница вложена в этот раздел,
                 но при этом это не главная страница -->
 
+        {{- if eq .Identifier "products" }}
+        <li class="site-nav__item site-nav__item--catalog whitespace-nowrap">
+          <details class="site-nav__details">
+            <summary class="site-nav__summary text-sm font-medium text-aero-muted {{ if $is_active }}text-aero-ink{{ end }}">
+              {{ .Name }}
+              <svg
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+                class="site-nav__chevron"
+              >
+                <path
+                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                  clip-rule="evenodd"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </summary>
+
+            <div class="site-nav__flyout">
+              {{- with $productsPage }}
+              <a href="{{ .RelPermalink }}" class="site-nav__flyout-link site-nav__flyout-link--catalog">
+                <span class="site-nav__flyout-title">{{ cond $isRu "Весь каталог" "Весь каталог" }}</span>
+                <span class="site-nav__flyout-text">
+                  {{ cond $isRu "Все серии и модели Aerocool." "Усі серії та моделі Aerocool." }}
+                </span>
+              </a>
+              {{- end }}
+
+              <div class="site-nav__flyout-series" aria-label="{{ cond $isRu "Серии кресел Aerocool" "Серії крісел Aerocool" }}">
+                {{- range $seriesNav }}
+                {{- $seriesPage := .page }}
+                <a href="{{ $seriesPage.RelPermalink }}" class="site-nav__flyout-link">
+                  <span class="site-nav__flyout-title">{{ $seriesPage.LinkTitle | default $seriesPage.Title }}</span>
+                  <span class="site-nav__flyout-text">{{ .description }}</span>
+                </a>
+                {{- end }}
+              </div>
+            </div>
+          </details>
+        </li>
+        {{- else }}
         <li class="whitespace-nowrap">
           <!-- whitespace-nowrap → текст не переносится -->
 
@@ -222,13 +286,14 @@
             {{- end }}
           </a>
         </li>
+        {{- end }}
 
         {{- end }}
       </ul>
     </div>
 
     <!-- ===== MOBILE MENU ===== -->
-    <div class="peer-checked:block hidden lg:hidden fixed inset-0 z-50">
+    <div class="mobile-nav-panel peer-checked:block hidden lg:hidden fixed inset-0 z-50">
       <!-- Мобильное меню появляется,
            когда checkbox #nav-toggle находится в состоянии checked -->
 
@@ -265,8 +330,37 @@
         </div>
 
         <!-- Пункты мобильного меню -->
-        <div class="mt-6 space-y-4">
+        <div class="mt-6">
+          <div class="mobile-nav__group">
+            <p class="mobile-nav__label">{{ cond $isRu "Каталог кресел" "Каталог крісел" }}</p>
+            <div class="mobile-nav__links">
+              {{- with $productsPage }}
+              <a
+                href="{{ .RelPermalink }}"
+                data-nav-close
+                class="mobile-nav__link mobile-nav__link--catalog"
+              >
+                {{ cond $isRu "Весь каталог" "Весь каталог" }}
+              </a>
+              {{- end }}
+              {{- range $seriesNav }}
+              {{- $seriesPage := .page }}
+              <a
+                href="{{ $seriesPage.RelPermalink }}"
+                data-nav-close
+                class="mobile-nav__link"
+              >
+                {{ $seriesPage.LinkTitle | default $seriesPage.Title }}
+              </a>
+              {{- end }}
+            </div>
+          </div>
+
+          <div class="mobile-nav__group mobile-nav__group--secondary">
+            <p class="mobile-nav__label">{{ cond $isRu "Справка и бренд" "Довідка та бренд" }}</p>
+            <div class="mobile-nav__links">
           {{- range site.Menus.main }}
+          {{- if ne .Identifier "products" }}
           {{- $raw_menu_url := .URL }}
           {{- $is_external_menu_url := or (hasPrefix $raw_menu_url "http://") (hasPrefix $raw_menu_url "https://") }}
           {{- $menu_item_path := cond (strings.HasSuffix $raw_menu_url "/") $raw_menu_url (printf "%s/" $raw_menu_url) }}
@@ -274,12 +368,15 @@
           <a
             href="{{ $menu_item_url }}"
             data-nav-close
-            class="block px-3 py-2 text-base font-semibold hover:bg-aero-soft"
+            class="mobile-nav__link"
           >
             <!-- При клике закрываем меню -->
             {{ .Name }}
           </a>
           {{- end }}
+          {{- end }}
+            </div>
+          </div>
         </div>
       </div>
     </div>

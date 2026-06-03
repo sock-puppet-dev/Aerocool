@@ -1503,14 +1503,171 @@ textarea.ui-field {
 /* Header подключен через PaperMod и часть его ссылок получает цвет из темы.
    Классы text-aero-* остаются источником смысла в HTML, а этот локальный
    override гарантирует, что unlayered CSS темы не перебьет проектные токены. */
-.nav #menu a {
+.nav #menu a,
+.nav #menu .site-nav__summary {
     color: var(--secondary);
+}
+
+.nav #menu {
+    overflow: visible;
 }
 
 .nav #menu a.text-aero-ink,
 .nav #menu a:hover,
-.nav #menu a:focus-visible {
+.nav #menu a:focus-visible,
+.nav #menu .site-nav__summary.text-aero-ink,
+.nav #menu .site-nav__summary:hover,
+.nav #menu .site-nav__summary:focus-visible {
     color: var(--primary);
+}
+
+.site-nav__details {
+    position: relative;
+}
+
+.site-nav__summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    cursor: pointer;
+    list-style: none;
+    font-size: 1rem;
+    line-height: 1.4285714286;
+    font-weight: var(--ui-font-medium);
+    transition: color 180ms ease;
+}
+
+.site-nav__summary::-webkit-details-marker {
+    display: none;
+}
+
+.site-nav__summary:hover,
+.site-nav__summary:focus-visible {
+    color: var(--primary);
+}
+
+.site-nav__chevron {
+    width: 1rem;
+    height: 1rem;
+    flex: 0 0 auto;
+    color: var(--secondary);
+    transition: transform 180ms ease, color 180ms ease;
+}
+
+.site-nav__details[open] .site-nav__chevron {
+    transform: rotate(180deg);
+}
+
+.site-nav__flyout {
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    left: 0;
+    z-index: 60;
+    width: min(22rem, calc(100vw - 2rem));
+    overflow: hidden;
+    padding: 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background: var(--entry);
+    box-shadow: var(--shadow-card);
+}
+
+.site-nav__flyout-link {
+    display: block;
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    color: var(--primary);
+    text-decoration: none;
+    transition: background-color 180ms ease, color 180ms ease;
+}
+
+.site-nav__flyout-link:hover,
+.site-nav__flyout-link:focus-visible {
+    background: var(--bg-soft);
+    color: var(--primary);
+}
+
+.site-nav__flyout-link--catalog {
+    margin-bottom: 0.25rem;
+    border-bottom: 1px solid var(--border);
+    border-radius: 0.375rem 0.375rem 0 0;
+}
+
+.site-nav__flyout-series {
+    display: grid;
+    gap: 0.125rem;
+}
+
+.site-nav__flyout-title {
+    display: block;
+    color: var(--primary);
+    font-size: var(--ui-text-sm);
+    line-height: var(--ui-text-sm-line-height);
+    font-weight: var(--ui-font-semibold);
+}
+
+.site-nav__flyout-text {
+    display: -webkit-box;
+    overflow: hidden;
+    margin-top: 0.125rem;
+    color: var(--secondary);
+    font-size: var(--ui-text-xs);
+    line-height: var(--ui-text-xs-line-height);
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.mobile-nav__group {
+    padding: 0.25rem 0 1rem;
+}
+
+.mobile-nav__group--secondary {
+    margin-top: 1rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+}
+
+.mobile-nav__label {
+    margin: 0 0 0.5rem;
+    padding: 0 0.75rem;
+    color: var(--secondary);
+    font-size: var(--ui-text-xs);
+    line-height: var(--ui-text-xs-line-height);
+    font-weight: var(--ui-font-semibold);
+    text-transform: uppercase;
+}
+
+.mobile-nav__links {
+    display: grid;
+    gap: 0.25rem;
+}
+
+.mobile-nav__link {
+    display: block;
+    border-radius: 0.5rem;
+    padding: 0.625rem 0.75rem;
+    color: var(--primary);
+    font-size: var(--ui-text-base);
+    line-height: var(--ui-text-base-line-height);
+    font-weight: var(--ui-font-semibold);
+    text-decoration: none;
+    transition: background-color 180ms ease, color 180ms ease;
+}
+
+.mobile-nav__link:hover,
+.mobile-nav__link:focus-visible {
+    background: var(--bg-soft);
+    color: var(--primary);
+}
+
+.mobile-nav__link--catalog {
+    color: var(--accent);
+}
+
+@media (min-width: 1024px) {
+    .mobile-nav-panel {
+        display: none;
+    }
 }
 
 /* Пагинация и маленькие навигационные карточки используют свой hover-state.
