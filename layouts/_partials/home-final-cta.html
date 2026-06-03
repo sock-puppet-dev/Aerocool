@@ -1,0 +1,28 @@
+{{- $isRu := eq .Language.Name "ru" -}}
+{{- $productsURL := cond $isRu "/ru/products/" "/products/" -}}
+{{- $faqURL := cond $isRu "/ru/faq/" "/faq/" -}}
+{{- $label := cond $isRu "Следующий шаг" "Наступний крок" -}}
+{{- $title := cond $isRu "Подберите кресло Aerocool под свой сценарий" "Підберіть крісло Aerocool під свій сценарій" -}}
+{{- $text := cond $isRu "Перейдите в каталог, если уже готовы сравнить модели, или откройте FAQ, чтобы быстро проверить отличия серий, материалов, регулировок, доставки и гарантии." "Перейдіть у каталог, якщо вже готові порівняти моделі, або відкрийте FAQ, щоб швидко перевірити відмінності серій, матеріалів, регулювань, доставки й гарантії." -}}
+{{- $primary := cond $isRu "Перейти в каталог" "Перейти в каталог" -}}
+{{- $secondary := cond $isRu "Открыть FAQ" "Відкрити FAQ" -}}
+
+<section class="home-final-cta products-list bg-aero-canvas" aria-labelledby="home-final-cta-title">
+  <div class="home-final-cta__inner products-list__inner">
+    <div class="home-final-cta__panel">
+      <div class="home-final-cta__copy">
+        <p class="ui-eyebrow">{{ $label }}</p>
+        <h2 id="home-final-cta-title" class="home-final-cta__title">{{ $title }}</h2>
+        <p class="home-final-cta__text">{{ $text }}</p>
+      </div>
+      <div class="home-final-cta__actions">
+        <a href="{{ $productsURL }}" class="ui-button ui-button-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700">
+          {{ $primary }}<span aria-hidden="true">→</span>
+        </a>
+        <a href="{{ $faqURL }}" class="home-final-cta__link">
+          {{ $secondary }}<span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
