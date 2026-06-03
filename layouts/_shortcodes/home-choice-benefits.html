@@ -1,0 +1,80 @@
+{{- $isRu := eq .Page.Language.Name "ru" -}}
+{{- $items := slice -}}
+{{- $items = $items | append (dict
+  "class" "home-choice-benefits__card--tilt"
+  "eyebrow" (cond $isRu "Механика посадки" "Механіка посадки")
+  "title" "Synchronous Tilt"
+  "description" (cond $isRu "Согласованное движение спинки и сиденья помогает креслу оставаться динамичным во время работы, home office и игры." "Узгоджений рух спинки й сидіння допомагає кріслу залишатися динамічним під час роботи, home office і гри.")
+  "url" (cond $isRu "/ru/articles/what-is-synchronous-tilt/" "/articles/what-is-synchronous-tilt/")
+  "action" (cond $isRu "Читать про Tilt" "Читати про Tilt")
+) -}}
+{{- $items = $items | append (dict
+  "class" "home-choice-benefits__card--adjustments"
+  "eyebrow" (cond $isRu "Регулировки" "Регулювання")
+  "title" (cond $isRu "7D, 8D или 11D" "7D, 8D чи 11D")
+  "description" (cond $isRu "Разберите, где достаточно базовой настройки, а где нужна адаптация под рост, руки, сиденье и спинку." "Розберіть, де достатньо базового налаштування, а де потрібна адаптація під зріст, руки, сидіння і спинку.")
+  "url" (cond $isRu "/ru/articles/how-to-choose-chair-by-adjustability/" "/articles/how-to-choose-chair-by-adjustability/")
+  "action" (cond $isRu "Сравнить регулировки" "Порівняти регулювання")
+) -}}
+{{- $items = $items | append (dict
+  "class" "home-choice-benefits__card--materials"
+  "eyebrow" (cond $isRu "Материалы" "Матеріали")
+  "title" (cond $isRu "Racer, Loft Air или Mesh" "Racer, Loft Air чи Mesh")
+  "description" (cond $isRu "Выберите поверхность по контакту, вентиляции и уходу: плотнее, мягче или прохладнее для долгого сидения." "Оберіть поверхню за контактом, вентиляцією і доглядом: щільніше, м'якше або прохолодніше для довгого сидіння.")
+  "url" (cond $isRu "/ru/articles/racer-vs-loft-air-vs-mesh/" "/articles/racer-vs-loft-air-vs-mesh/")
+  "action" (cond $isRu "Выбрать материал" "Обрати матеріал")
+) -}}
+
+<section class="home-choice-benefits products-list bg-aero-canvas" aria-labelledby="home-choice-benefits-title">
+  <div class="home-choice-benefits__inner products-list__inner mx-auto max-w-xl px-4 py-14 sm:px-6 sm:py-20 lg:max-w-7xl lg:px-8">
+    <div class="home-choice-benefits__header">
+      <p class="ui-eyebrow">
+        {{- if $isRu -}}Преимущества выбора{{- else -}}Переваги вибору{{- end -}}
+      </p>
+      <h2 id="home-choice-benefits-title" class="ui-section-title mt-2">
+        {{- if $isRu -}}Разберитесь в главных отличиях кресел{{- else -}}Розберіться в головних відмінностях крісел{{- end -}}
+      </h2>
+      <p class="ui-section-lead mt-4 max-w-3xl">
+        {{- if $isRu -}}
+          Три коротких маршрута помогают быстро разобраться в механике, регулировках и материалах, а затем перейти к подходящей серии или товару.
+        {{- else -}}
+          Три короткі маршрути допомагають швидко розібратися в механіці, регулюваннях і матеріалах, а потім перейти до відповідної серії або товару.
+        {{- end -}}
+      </p>
+    </div>
+
+    <div class="home-choice-benefits__grid">
+      {{- range $items }}
+      <a class="home-choice-benefits__card {{ .class }}" href="{{ .url }}">
+        <div class="home-choice-benefits__content">
+          <p class="home-choice-benefits__eyebrow">{{ .eyebrow }}</p>
+          <h3 class="home-choice-benefits__title">{{ .title }}</h3>
+          <p class="home-choice-benefits__text">{{ .description }}</p>
+          <span class="home-choice-benefits__link">{{ .action }} <span aria-hidden="true">→</span></span>
+        </div>
+        <div class="home-choice-benefits__visual" aria-hidden="true">
+          {{- if in .class "tilt" -}}
+          <div class="home-choice-benefits__tilt">
+            <span class="home-choice-benefits__tilt-back"></span>
+            <span class="home-choice-benefits__tilt-seat"></span>
+            <span class="home-choice-benefits__tilt-arrow">↺</span>
+          </div>
+          {{- else if in .class "adjustments" -}}
+          <div class="home-choice-benefits__adjustments">
+            <span><strong>7D</strong><i></i></span>
+            <span><strong>8D</strong><i></i></span>
+            <span><strong>11D</strong><i></i></span>
+          </div>
+          {{- else -}}
+          <div class="home-choice-benefits__materials">
+            <span class="home-choice-benefits__material home-choice-benefits__material--racer">Racer</span>
+            <span class="home-choice-benefits__material home-choice-benefits__material--loft">Loft Air</span>
+            <span class="home-choice-benefits__material home-choice-benefits__material--mesh">Mesh</span>
+          </div>
+          {{- end -}}
+        </div>
+      </a>
+      {{- end }}
+    </div>
+  </div>
+</section>
