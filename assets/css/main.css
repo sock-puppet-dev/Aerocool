@@ -1721,7 +1721,7 @@ textarea.ui-field {
     color: var(--primary);
     font-size: 1.75rem;
     line-height: 1.875rem;
-    font-weight: 300;
+    font-weight: var(--ui-font-semibold);
     letter-spacing: var(--ui-tracking);
     word-break: normal;
     overflow-wrap: normal;
@@ -1731,7 +1731,7 @@ textarea.ui-field {
 .post-content .home-hero__title {
     font-size: 1.75rem;
     line-height: 1.875rem;
-    font-weight: 300;
+    font-weight: var(--ui-font-semibold);
 }
 
 @media (min-width: 640px) {
@@ -2795,6 +2795,56 @@ textarea.ui-field {
     padding-top: 1.5rem;
     padding-right: 0;
     padding-left: 0;
+}
+
+.products-heading {
+    padding-top: 1.5rem;
+}
+
+.products-heading__body {
+    display: block;
+}
+
+.products-heading__copy {
+    min-width: 0;
+}
+
+.products-heading__copy .ui-section-lead {
+    margin-top: 0.875rem;
+}
+
+.products-heading__actions {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1.25rem;
+    gap: 0.625rem;
+}
+
+.products-heading__action {
+    display: inline-flex;
+    min-height: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 0.5rem 0.875rem;
+    font-size: var(--ui-text-sm);
+    line-height: var(--ui-text-sm-line-height);
+    font-weight: var(--ui-font-semibold);
+    text-decoration: none;
+    transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+.products-heading__action--primary {
+    border: 1px solid var(--accent-border);
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+.products-heading__action--primary:hover,
+.products-heading__action--primary:focus-visible {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #ffffff;
 }
 
 .products-list__grid {
