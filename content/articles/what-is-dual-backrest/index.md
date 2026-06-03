@@ -42,8 +42,8 @@ cover:
 
 {{< seo-image
   src="01-front.png"
-  width="2000"
-  height="2000"
+  width="1536"
+  height="1024"
   alt="Подвійна спинка Dual backrest у кріслі Aerocool WING"
   title="Що таке Dual backrest у кріслах Aerocool WING"
   loading="eager"

@@ -42,8 +42,8 @@ cover:
 
 {{< seo-image
   src="01-front.png"
-  width="2000"
-  height="2000"
+  width="1536"
+  height="1024"
   alt="Конструкція зі змінними елементами у кріслі Aerocool XTAL"
   title="Що означає fully replaceable design у Aerocool XTAL"
   loading="eager"
