@@ -2567,6 +2567,10 @@ textarea.ui-field {
     margin-bottom: var(--content-gap);
 }
 
+.post-content > .contact-section .ui-section-title {
+    margin-top: 0;
+}
+
 .post-content > .contact-section p:not([class*="ui-"]),
 .post-content > .contact-section dd:not([class*="ui-"]) {
     font-size: inherit;
