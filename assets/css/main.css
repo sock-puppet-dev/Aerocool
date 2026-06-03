@@ -1693,6 +1693,17 @@ textarea.ui-field {
     line-height: var(--ui-text-xs-line-height);
 }
 
+.post-content :where(.home-product-lines, .home-top-rated-products) .review-summary__text a {
+    border-bottom: 0;
+    box-shadow: none;
+    text-decoration: none;
+}
+
+.post-content :where(.home-product-lines, .home-top-rated-products) .review-summary__text a:hover,
+.post-content :where(.home-product-lines, .home-top-rated-products) .review-summary__text a:focus-visible {
+    text-decoration: underline;
+}
+
 @media (min-width: 640px) {
     .home-product-lines .home-product-lines__inner,
     .home-top-rated-products .home-products-section__inner {
