@@ -348,6 +348,7 @@
     document.querySelectorAll('[data-product-filter-root]').forEach(function (root) {
       var cards = Array.prototype.slice.call(root.querySelectorAll('[data-product-card]'));
       var inputs = Array.prototype.slice.call(root.querySelectorAll('[data-product-filter-input]'));
+      var groups = Array.prototype.slice.call(root.querySelectorAll('.products-filter__group'));
       var grid = root.querySelector('[data-product-filter-grid]');
       var sort = root.querySelector('[data-product-sort]');
       var sortButton = sort ? sort.querySelector('[data-product-sort-button]') : null;
@@ -365,6 +366,12 @@
 
       if (!cards.length || !inputs.length) {
         return;
+      }
+
+      if (window.matchMedia('(max-width: 767px)').matches) {
+        groups.forEach(function (group) {
+          group.removeAttribute('open');
+        });
       }
 
       function getActiveFilters() {
