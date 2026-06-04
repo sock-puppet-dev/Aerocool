@@ -3173,16 +3173,33 @@ textarea.ui-field {
 }
 
 .products-filter__summary-icon {
-    width: 0.5rem;
-    height: 0.5rem;
-    border-right: 2px solid var(--muted);
-    border-bottom: 2px solid var(--muted);
-    transform: rotate(45deg) translateY(-0.125rem);
-    transition: transform 160ms ease;
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+    flex: 0 0 auto;
+    color: #9ca3af;
 }
 
-.products-filter__group[open] .products-filter__summary-icon {
-    transform: rotate(225deg) translateY(-0.125rem);
+.products-filter__summary-icon::before,
+.products-filter__summary-icon::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.75rem;
+    height: 1px;
+    border-radius: 999px;
+    background: currentColor;
+    content: "";
+    transform: translate(-50%, -50%);
+    transition: opacity 160ms ease;
+}
+
+.products-filter__summary-icon::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.products-filter__group[open] .products-filter__summary-icon::after {
+    opacity: 0;
 }
 
 .products-filter__options {
