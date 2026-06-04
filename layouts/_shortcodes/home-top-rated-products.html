@@ -21,7 +21,7 @@
     {{- end -}}
   {{- end -}}
 {{- end -}}
-{{- $topProducts := first 6 (sort $ratedProducts "rank" "desc") -}}
+{{- $topProducts := first 10 (sort $ratedProducts "rank" "desc") -}}
 {{- if $topProducts -}}
 <section class="home-top-rated-products products-list bg-aero-canvas" aria-labelledby="home-top-rated-products-title">
   <div class="home-top-rated-products__inner home-products-section__inner products-list__inner mx-auto max-w-xl px-4 py-14 sm:px-6 sm:py-20 lg:max-w-7xl lg:px-8">
@@ -34,16 +34,20 @@
       </h2>
       <p class="ui-section-lead mt-4 max-w-3xl">
         {{- if $isRu -}}
-          Шесть моделей Aerocool с лучшими оценками в отзывах, чтобы быстрее перейти от выбора серии к конкретному креслу.
+          Десять моделей Aerocool с лучшими оценками на desktop и шесть на mobile, чтобы быстрее перейти от выбора серии к конкретному креслу.
         {{- else -}}
-          Шість моделей Aerocool з найкращими оцінками у відгуках, щоб швидше перейти від вибору серії до конкретного крісла.
+          Десять моделей Aerocool з найкращими оцінками на desktop і шість на mobile, щоб швидше перейти від вибору серії до конкретного крісла.
         {{- end -}}
       </p>
     </div>
 
-    <div class="home-top-rated-products__grid products-list__grid mt-10 space-y-12 lg:grid lg:grid-cols-3 lg:space-y-0 lg:gap-x-8">
-      {{- range $topProducts }}
-      {{- partial "products/card.html" (dict "page" .page "context" $.Page) }}
+    <div class="home-top-rated-products__grid products-list__grid products-list__grid--products mt-10 space-y-12 lg:grid lg:grid-cols-3 lg:space-y-0 lg:gap-x-8">
+      {{- range $index, $item := $topProducts }}
+      {{- $cardClass := "" -}}
+      {{- if ge $index 6 -}}
+        {{- $cardClass = "home-top-rated-products__item--desktop-only" -}}
+      {{- end -}}
+      {{- partial "products/card.html" (dict "page" $item.page "context" $.Page "class" $cardClass) }}
       {{- end }}
     </div>
 

@@ -1,5 +1,6 @@
 {{- $page := .page -}}
 {{- $context := .context | default $page -}}
+{{- $extraClass := .class | default "" -}}
 {{- $isRu := eq $context.Language.Name "ru" -}}
 {{- $cardTitle := partial "breadcrumb-label.html" $page -}}
 {{- $cardSummary := $page.Summary | default $page.Description | plainify | htmlUnescape -}}
@@ -72,14 +73,14 @@
     {{- $imageSrc = . | relURL -}}
   {{- end -}}
 {{- end -}}
-<article class="products-list__card{{ if $isProductCard }} products-list__card--product{{ end }} group">
+<article class="products-list__card{{ if $isProductCard }} products-list__card--product{{ end }}{{ with $extraClass }} {{ . }}{{ end }} group">
   <a href="{{ $page.RelPermalink }}" class="products-list__media-link" aria-label="{{ $cardTitle }}">
   {{- with $imageSrc }}
   <img
     src="{{ . }}"
     {{- if $imageSrcset }}
     srcset="{{ delimit $imageSrcset ", " }}"
-    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, calc(100vw - 2rem)"
+    sizes="(min-width: 1280px) 20vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, calc(100vw - 2rem)"
     {{- end }}
     width="{{ $imageWidth }}"
     height="{{ $imageHeight }}"

@@ -10,9 +10,26 @@
     {{- partial "head.html" . }}
 </head>
 
+{{- $sectionClass := .Section -}}
+{{- if not $sectionClass -}}
+  {{- $pathParts := split (strings.TrimPrefix "/" .RelPermalink) "/" -}}
+  {{- $firstPart := index $pathParts 0 | default "" -}}
+  {{- if and (eq $firstPart .Language.Lang) (gt (len $pathParts) 1) -}}
+    {{- $sectionClass = index $pathParts 1 -}}
+  {{- else -}}
+    {{- $sectionClass = $firstPart -}}
+  {{- end -}}
+{{- end -}}
+
 <body class="
 {{- if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`)) -}}
 {{- print "list" -}}
+{{- end -}}
+{{- with $sectionClass -}}
+{{- printf " section-%s" . -}}
+{{- end -}}
+{{- if .IsHome -}}
+{{- print " page-home" -}}
 {{- end -}}
 {{- if eq site.Params.defaultTheme `dark` -}}
 {{- print " dark" }}
