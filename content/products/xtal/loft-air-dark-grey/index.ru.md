@@ -1,10 +1,10 @@
 ---
 title: "Эргономичное офисное кресло Aerocool XTAL Loft Air Dark Grey"
 linkTitle: "Loft Air Dark Grey"
-description: "Купить Aerocool XTAL Loft Air Dark Grey в Украине — эргономичное офисное и компьютерное кресло серии XTAL с 7D регулировкой, Synchronous Tilt, сменными элементами и многослойной вентилируемой сетчатой тканью."
+description: "Купить Aerocool XTAL Loft Air Dark Grey в Украине — кресло XTAL с 7D регулировкой, Synchronous Tilt, сменными элементами и вентилируемой тканью."
 summary: "Aerocool XTAL Loft Air Dark Grey — офисное и компьютерное кресло серии XTAL с 7D регулировкой, сменными элементами и вентилируемой текстильной поверхностью для работы и home office."
 date: 2026-03-19
-lastmod: 2026-06-01
+lastmod: 2026-06-04
 schema_types: ["website", "product", "organization", "breadcrumbs"]
 about_entities:
   - "xtal-loft-air-dark-grey"

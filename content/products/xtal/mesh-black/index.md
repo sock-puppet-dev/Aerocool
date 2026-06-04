@@ -1,10 +1,10 @@
 ---
 title: "Ергономічне комп'ютерне крісло Aerocool XTAL Mesh Black"
 linkTitle: "Mesh Black"
-description: "Купити Aerocool XTAL Mesh Black в Україні — ергономічне комп'ютерне та офісне крісло серії XTAL з 7D регулюванням, Synchronous Tilt, змінними елементами та поверхнею з вентильованої сітки."
+description: "Купити Aerocool XTAL Mesh Black в Україні — крісло XTAL з 7D регулюванням, Synchronous Tilt, змінними елементами та вентильованою сіткою."
 summary: "Aerocool XTAL Mesh Black — комп'ютерне та офісне крісло серії XTAL з 7D регулюванням, змінними елементами та максимально вентильованою поверхнею."
 date: 2026-03-19
-lastmod: 2026-06-01
+lastmod: 2026-06-04
 schema_types: ["website", "product", "organization", "breadcrumbs"]
 about_entities:
   - "xtal-mesh-black"

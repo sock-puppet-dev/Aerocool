@@ -1,11 +1,11 @@
 ---
-title: "Статьи и гиды Aerocool — как выбрать игровое, офисное или компьютерное кресло"
+title: "Статьи и гиды Aerocool — выбор игрового, офисного и компьютерного кресла"
 linkTitle: "Статьи"
 slug: "articles"
 date: 2025-08-01T00:00:00+03:00
-description: "Статьи Aerocool о сериях SKY, WING и XTAL, выборе игрового, офисного и компьютерного кресла, посадке, настройке, Synchronous Tilt, 7D/8D/11D регулировках и материалах Racer, Loft Air и Mesh."
+description: "Статьи Aerocool о выборе кресел SKY, WING и XTAL, Synchronous Tilt, 7D/8D/11D регулировках и материалах Racer, Loft Air и Mesh."
 summary: "Практические гиды Aerocool о выборе серии, посадке, настройке, механике, материалах и сценариях использования кресел."
-lastmod: 2026-06-01
+lastmod: 2026-06-04
 schema_types: ["website", "collection", "organization", "breadcrumbs"]
 about_entities:
   - "articles-collection"
