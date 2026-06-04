@@ -1,0 +1,20 @@
+{{- $isRu := eq .Language.Name "ru" -}}
+
+<div class="products-sort" data-product-sort>
+  <button
+    type="button"
+    class="products-sort__button"
+    aria-haspopup="menu"
+    aria-expanded="false"
+    data-product-sort-button>
+    <span>{{ cond $isRu "Сортировка" "Сортування" }}</span>
+    <span class="products-sort__chevron" aria-hidden="true"></span>
+  </button>
+
+  <div class="products-sort__menu" role="menu" data-product-sort-menu hidden>
+    <button type="button" class="products-sort__option" role="menuitemradio" aria-checked="true" data-product-sort-option value="name">{{ cond $isRu "по названию" "за назвою" }}</button>
+    <button type="button" class="products-sort__option" role="menuitemradio" aria-checked="false" data-product-sort-option value="rating">{{ cond $isRu "по рейтингу" "за рейтингом" }}</button>
+    <button type="button" class="products-sort__option" role="menuitemradio" aria-checked="false" data-product-sort-option value="price-asc">{{ cond $isRu "сначала дешевле" "спочатку дешевші" }}</button>
+    <button type="button" class="products-sort__option" role="menuitemradio" aria-checked="false" data-product-sort-option value="price-desc">{{ cond $isRu "сначала дороже" "спочатку дорожчі" }}</button>
+  </div>
+</div>

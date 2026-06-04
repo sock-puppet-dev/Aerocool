@@ -59,7 +59,7 @@
       </div>
     </header>
 
-    {{- if $pages }}
+    {{- if and $pages (not $hasProductPages) }}
     <div class="products-list__grid{{ if $hasProductPages }} products-list__grid--products{{ end }} mt-10 space-y-12 lg:grid lg:grid-cols-3 lg:space-y-0 lg:gap-x-8">
       {{- range $pages }}
       {{- partial "products/card.html" (dict "page" . "context" $) }}
@@ -73,33 +73,42 @@
         <h2 id="products-catalog-title" class="ui-section-title">
           {{ cond $isRu "Все кресла Aerocool" "Усі крісла Aerocool" }}
         </h2>
-        <div class="products-sort" data-product-sort>
-          <button
-            type="button"
-            class="products-sort__button"
-            aria-haspopup="menu"
-            aria-expanded="false"
-            data-product-sort-button>
-            <span>{{ cond $isRu "Сортировка" "Сортування" }}</span>
-            <span class="products-sort__chevron" aria-hidden="true"></span>
-          </button>
-
-          <div class="products-sort__menu" role="menu" data-product-sort-menu hidden>
-            <button type="button" class="products-sort__option" role="menuitemradio" aria-checked="true" data-product-sort-option value="name">{{ cond $isRu "по названию" "за назвою" }}</button>
-            <button type="button" class="products-sort__option" role="menuitemradio" aria-checked="false" data-product-sort-option value="rating">{{ cond $isRu "по рейтингу" "за рейтингом" }}</button>
-            <button type="button" class="products-sort__option" role="menuitemradio" aria-checked="false" data-product-sort-option value="price-asc">{{ cond $isRu "сначала дешевле" "спочатку дешевші" }}</button>
-            <button type="button" class="products-sort__option" role="menuitemradio" aria-checked="false" data-product-sort-option value="price-desc">{{ cond $isRu "сначала дороже" "спочатку дорожчі" }}</button>
-          </div>
-        </div>
+        {{ partial "products/sort.html" . }}
       </div>
 
       <div class="products-catalog__layout">
         {{- .Scratch.Set "productFilterTotal" (len $allProducts) -}}
+        {{- .Scratch.Set "productFilterHideSeries" false -}}
         {{ partial "products/filters.html" . }}
 
         <div class="products-catalog__results">
           <div class="products-list__grid products-list__grid--products" data-product-filter-grid>
             {{- range $index, $product := $allProducts }}
+            {{- partial "products/card.html" (dict "page" $product "context" $ "order" $index) }}
+            {{- end }}
+          </div>
+        </div>
+      </div>
+    </section>
+    {{- end }}
+
+    {{- if and (not $isProductsRoot) $hasProductPages $pages }}
+    <section class="products-catalog" data-product-filter-root aria-labelledby="products-series-catalog-title">
+      <div class="products-catalog__header">
+        <h2 id="products-series-catalog-title" class="ui-section-title">
+          {{ cond $isRu "Все модели" "Усі моделі" }}
+        </h2>
+        {{ partial "products/sort.html" . }}
+      </div>
+
+      <div class="products-catalog__layout">
+        {{- .Scratch.Set "productFilterTotal" (len $pages) -}}
+        {{- .Scratch.Set "productFilterHideSeries" true -}}
+        {{ partial "products/filters.html" . }}
+
+        <div class="products-catalog__results">
+          <div class="products-list__grid products-list__grid--products" data-product-filter-grid>
+            {{- range $index, $product := $pages }}
             {{- partial "products/card.html" (dict "page" $product "context" $ "order" $index) }}
             {{- end }}
           </div>
