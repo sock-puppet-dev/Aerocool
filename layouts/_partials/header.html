@@ -91,7 +91,7 @@
         {{ end }}
         <!-- Для uk меняем отображение на UA -->
 
-        <details class="relative inline-block z-50">
+        <details class="relative inline-block z-50" data-close-on-outside>
           <!-- details/summary → нативный dropdown без JS -->
 
           <summary class="inline-flex cursor-pointer list-none items-center gap-x-1.5 bg-aero-surface px-2 py-2 text-sm/6 font-semibold text-aero-ink hover:bg-aero-soft [&::-webkit-details-marker]:hidden">
@@ -227,7 +227,7 @@
 
         {{- if eq .Identifier "products" }}
         <li class="site-nav__item site-nav__item--catalog whitespace-nowrap">
-          <details class="site-nav__details">
+          <details class="site-nav__details" data-close-on-outside>
             <summary class="site-nav__summary text-sm font-medium text-aero-muted {{ if $is_active }}text-aero-ink{{ end }}">
               {{ .Name }}
               <svg

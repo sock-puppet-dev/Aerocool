@@ -117,6 +117,34 @@
     });
   }
 
+  function setupOutsideCloseDetails() {
+    var detailsList = Array.prototype.slice.call(document.querySelectorAll('details[data-close-on-outside]'));
+
+    if (!detailsList.length) {
+      return;
+    }
+
+    document.addEventListener('click', function (event) {
+      detailsList.forEach(function (details) {
+        if (!details.open || details.contains(event.target)) {
+          return;
+        }
+
+        details.open = false;
+      });
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape') {
+        return;
+      }
+
+      detailsList.forEach(function (details) {
+        details.open = false;
+      });
+    });
+  }
+
   function setupPhoneSanitizer() {
     document.addEventListener('input', function (event) {
       if (!event.target.matches('[data-phone-sanitize]')) {
@@ -757,6 +785,7 @@
   setupTopLink();
   setupThemeToggle();
   setupMobileNavClose();
+  setupOutsideCloseDetails();
   setupPhoneSanitizer();
   setupProductTabs();
   setupProductGalleries();
