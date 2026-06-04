@@ -1,6 +1,6 @@
 # Руководство по шаблонным helper-файлам Hugo
 
-Обновлено: 2026-05-26.
+Обновлено: 2026-06-04.
 
 ## Зачем Нужен Этот Документ
 
@@ -121,7 +121,7 @@
 - [layouts/baseof.html](/Users/stadnyk/MEGA/Aerocool/layouts/baseof.html) — общий HTML-каркас.
 - [layouts/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/single.html) — обычная детальная страница.
 - [layouts/list.html](/Users/stadnyk/MEGA/Aerocool/layouts/list.html) — списковые страницы и хабы.
-- [layouts/products/list.html](/Users/stadnyk/MEGA/Aerocool/layouts/products/list.html) — специализированный листинг каталога и серий товаров с каталоговой сеткой карточек.
+- [layouts/products/list.html](/Users/stadnyk/MEGA/Aerocool/layouts/products/list.html) — специализированный листинг каталога и серий товаров: breadcrumbs, page heading, быстрые ссылки между сериями, `products/filters.html`, `products/sort.html`, счетчик результатов, empty state и каталоговая сетка карточек.
 - [layouts/articles/list.html](/Users/stadnyk/MEGA/Aerocool/layouts/articles/list.html) — специализированный листинг статей: заголовок, breadcrumbs, карточки, изображения, meta-строка, пагинация и контент первой страницы листинга.
 - [layouts/search.html](/Users/stadnyk/MEGA/Aerocool/layouts/search.html) — страница поиска; должна оставаться `noindex,nofollow`.
 - [layouts/404.html](/Users/stadnyk/MEGA/Aerocool/layouts/404.html) — кастомная 404; должна оставаться `noindex,nofollow`.
@@ -134,6 +134,9 @@
 ## Быстрая Карта Shortcode-Файлов
 
 - [layouts/_shortcodes/home-hero.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero.html) — hero главной страницы и ее H1.
+- [layouts/_shortcodes/home-product-lines.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-product-lines.html) — три входа в серии `SKY`, `WING`, `XTAL` на главной.
+- [layouts/_shortcodes/home-top-rated-products.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-top-rated-products.html) — товарный блок главной на базе approved отзывов: до 10 товаров на desktop и 6 на mobile.
+- [layouts/_shortcodes/home-choice-benefits.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-choice-benefits.html) — блок преимуществ выбора: механика, регулировки, материалы и сценарии.
 - [layouts/_shortcodes/seo-image.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/seo-image.html) — контентные изображения с контролем LCP/lazy loading.
 - [layouts/_shortcodes/faq-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq-list.html) — видимый список FAQ из front matter.
 - [layouts/_shortcodes/contact.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/contact.html) — контактная `side-by-side` секция для `/contact/` и `/ru/contact/`.
@@ -154,8 +157,16 @@
 
 - [layouts/_partials/articles/card-image.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/articles/card-image.html) — responsive-изображение для карточек на листинге статей; берет `cover.image` или `image` из page bundle, строит WebP `srcset`, задает стабильные размеры и использует `lazy` loading.
 
+## Быстрая Карта Home Helpers
+
+- [layouts/_partials/home-final-cta.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/home-final-cta.html) — финальный CTA главной страницы. Подключается в `layouts/list.html` после блока материалов, ведет в каталог и контакты, не имитирует checkout-flow.
+
 ## Быстрая Карта Product Helpers
 
+- [layouts/_partials/products/card.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/card.html) — товарная карточка для `/products/`, страниц серий, home-блоков и related-блоков. Выводит изображение, название, цену, наличие, rating summary при approved отзывах, color dots и product facts. Для фильтров и сортировки добавляет `data-product-*`: title, price, rating, order, series, material, adjustment, mechanism и availability.
+- [layouts/_partials/products/color-dots.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/color-dots.html) — компактные цветовые точки в карточках товаров. Это визуальный сигнал вариантов, а не замена отдельным variant URL.
+- [layouts/_partials/products/filters.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/filters.html) — static-first фильтры каталога. На `/products/` показывает группы серии, материала, регулировок, механизма и наличия; на страницах конкретной серии скрывает группу серии. Фильтры не меняют URL и не создают индексируемые filter pages.
+- [layouts/_partials/products/sort.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/sort.html) — сортировка каталога: по названию, рейтингу, цене от дешевых и цене от дорогих. Работает вместе с фильтрами через `assets/js/site.js`.
 - [layouts/_partials/products/gallery.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/gallery.html) — товарная галерея на детальной странице товара. Первый кадр берет из `image` во front matter, остальные изображения из page bundle товара выводит как компактные миниатюры. Большие изображения получают responsive WebP `srcset`; первый кадр грузится eager/fetchpriority high, дополнительные кадры и миниатюры — lazy.
 - [layouts/_partials/products/variant-swatches.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/variant-swatches.html) — видимый выбор цвета/варианта товара. Список вариантов строит из `product_group_id` и `data/entities.yaml` только для реальных ProductGroup с несколькими вариантами, находит страницы текущего языка и выводит swatches как ссылки на соседние variant URL. Одиночные товары без соседних вариантов не получают `product_group_id`.
 
@@ -172,6 +183,25 @@
 - Tailwind-классы в shortcode лучше оставлять для сетки, spacing, responsive-поведения, иконок и локальной композиции;
 - не возвращать `tracking-tight`, `tracking-wide` или отрицательный `letter-spacing`: в проекте закреплен `letter-spacing: 0`;
 - обычные текстовые ссылки используют стабильный accent-цвет и подчеркивание; многоцветная анимация ссылок больше не является базовым паттерном проекта.
+
+Важно по ширине UX/UI-слоя:
+
+- широкий e-commerce контейнер проекта — `--site-width: 1440px`;
+- информационные разделы используют `--content-section-width: 1200px`;
+- `--nav-width` и `--main-width` завязаны на `--site-width`;
+- `--gap` задает единый боковой отступ примерно от **20 px** до **40 px**;
+- длинный текст не растягивать на всю ширину каталога: для него используется `--text-width: 720px`;
+- если Tailwind Plus-блок уже находится внутри общего контейнера, не добавлять второй горизонтальный padding через случайные `px-*`.
+
+Важно по каталогу и фильтрам:
+
+- `layouts/products/list.html` отвечает за каталоговую структуру, а не обычный blog archive;
+- root `/products/` выводит карточки серий, затем все товары;
+- страницы серий выводят быстрые бейдж-ссылки `SKY`, `WING`, `XTAL` и вторичный бейдж `Весь каталог`;
+- `products/filters.html` и `products/sort.html` подключаются из `layouts/products/list.html`;
+- фильтры должны оставаться static-first: без URL-параметров, без индексируемых filter pages, без canonical/noindex-сюрпризов;
+- активные фильтры, счетчик, reset, сортировка и empty state управляются внешним JS в `assets/js/site.js`;
+- следующим UX/UI-слоем остаются applied filter chips и comparison table.
 
 Важно по `about-*`:
 
@@ -505,14 +535,17 @@
 - логотип;
 - переключатель языков;
 - desktop menu;
-- mobile menu.
+- desktop catalog flyout для `Весь каталог`, `SKY`, `WING`, `XTAL`;
+- mobile menu с отдельной catalog group;
+- отделяет товарные входы от secondary links вроде FAQ и контактов.
 
 Когда идти сюда:
 
 - если нужно менять навигацию;
 - если ломается логотип;
 - если меню работает не так на мобильных;
-- если нужно изменить ARIA/alt/языковой switcher.
+- если нужно изменить ARIA/alt/языковой switcher;
+- если нужно изменить быстрые входы в серии или поведение `details[data-close-on-outside]`.
 
 ### `footer.html`
 

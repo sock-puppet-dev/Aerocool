@@ -1,6 +1,6 @@
 # Документация Aerocool
 
-Обновлено: 2026-06-03.
+Обновлено: 2026-06-04.
 
 Этот файл — главная карта всей документации проекта. Его задача простая: показать новичку, что читать сначала, что читать потом и какие документы нужны только для профильных задач.
 
@@ -9,7 +9,7 @@
 - [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) — краткая карта проекта, стека, структуры и основных команд.
 - [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md) — правила безопасной работы для Codex/агентов.
 
-Все файлы внутри `docs/` пронумерованы глобально от `01` до `62`. Номер в начале имени показывает рекомендуемый порядок чтения.
+Все файлы внутри `docs/` пронумерованы глобально от `01` до `64`. Номер в начале имени показывает рекомендуемый порядок чтения.
 
 ## Как Пользоваться Новичку
 
@@ -162,7 +162,11 @@
 
 ### Текущие UX/UI Аудиты
 
-62. [audits/62-2026-06-03-ux-ui-tailwind-current-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/62-2026-06-03-ux-ui-tailwind-current-audit.md) — финальный UX/UI-аудит после обновлений Tailwind 4.3 visual layer, FAQ, contact, success alert, articles/news recommended links, about-компонентов, product cards и product detail layout.
+62. [audits/62-2026-06-03-ux-ui-tailwind-current-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/62-2026-06-03-ux-ui-tailwind-current-audit.md) — предыдущий исторический UX/UI-аудит после первых обновлений Tailwind 4.3 visual layer, FAQ, contact, success alert, articles/news recommended links, about-компонентов, product cards и product detail layout. Для текущего состояния использовать audit `64`.
+
+63. [audits/63-2026-06-04-ux-ui-tailwind-current-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/63-2026-06-04-ux-ui-tailwind-current-audit.md) — быстрый UX/UI snapshot после каталоговых обновлений: 1440px site width, desktop/mobile catalog navigation, product filters, sort, product cards, PDP purchase-блоки и backlog по comparison table, applied filter chips и search UI. Для текущего полного аудита использовать audit `64`.
+
+64. [audits/64-2026-06-04-full-ux-ui-tailwind-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md) — текущий полный глубокий UX/UI-аудит Tailwind 4.3: screenshots, rendered HTML, CDP-проверка filters/sort, PDP gallery, search UI, root catalog titles, series previews, contact placeholders, Tailwind token debt и практический порядок исправлений.
 
 ## Маршруты По Задачам
 
@@ -209,7 +213,7 @@
 Для UI-блоков, Tailwind Plus и визуальной структуры страниц читать:
 
 1. [architecture/51-tailwind-plus-ui-section-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/51-tailwind-plus-ui-section-map-2026.md)
-2. [audits/62-2026-06-03-ux-ui-tailwind-current-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/62-2026-06-03-ux-ui-tailwind-current-audit.md)
+2. [audits/64-2026-06-04-full-ux-ui-tailwind-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md)
 3. [architecture/03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md)
 4. [content/07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md)
 

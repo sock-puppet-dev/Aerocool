@@ -48,19 +48,19 @@
 
 ## Текущий Статус На 2026-06-04
 
-Финальная UX/UI-проверка после обновлений показала, что проект уже перешел от PaperMod-блоговой структуры к более управляемой каталоговой структуре на базе локальных Hugo overrides и Tailwind 4.3 visual layer. Критических визуальных блокеров не найдено: локальная Hugo-проверка проходит, основные страницы проверены на `uk` и `ru`, горизонтального переполнения на проверенных mobile/desktop экранах не обнаружено, товарные табы, галерея и базовые фильтры каталога работают.
+Финальная UX/UI-проверка после обновлений показала, что проект уже перешел от PaperMod-блоговой структуры к более управляемой каталоговой структуре на базе локальных Hugo overrides и Tailwind 4.3 visual layer. Глубокий visual audit `64` подтвердил рабочую базу, но нашел несколько P1-дефектов, которые важно исправить до следующей оценки: тестовый asset в PDP-галерее, слабые series preview images в каталоге, неоднозначные root product titles, старый search UI, отсутствие applied filter chips и comparison table.
 
 Оценка текущего состояния:
 
 | Направление | Оценка | Что Это Значит |
 |---|---:|---|
-| Tailwind 4.3 CSS-first архитектура | 8.5/10 | `@theme`, проектные токены и `.ui-*` semantic-классы уже есть, но остались точечные дефолтные utilities вроде `bg-white`, `divide-gray-*`, `outline-red-*`, `outline-green-*`. |
-| UI consistency | 8/10 | FAQ, contact, articles, news, about и PDP стали более едиными; search page и часть PDP-типографики еще ближе к старому стилю. |
-| Соответствие Tailwind Plus карте | 8.5/10 | Большая часть справочных и товарных блоков реализована; базовые catalog filters, sorting и быстрые входы в серии добавлены, но applied filter chips и comparison tables остаются backlog. |
-| E-commerce UX | 8/10 | PDP, product cards, верх страниц серий, mobile navigation и базовый product finding в каталоге заметно улучшены; следующий слой — applied filters и comparison table. |
-| Responsive/accessibility basics | 8.5/10 | Labels, native validation, tab roles, gallery controls и responsive layout есть; нужно увеличить отдельные alert action targets и добавить placeholders там, где подсказки должны быть внутри поля. |
+| Tailwind 4.3 CSS-first архитектура | 8/10 | `@theme`, проектные токены и `.ui-*` semantic-классы уже есть, но остались точечные дефолтные utilities вроде `bg-white`, `divide-gray-*`, `outline-red-*`, `outline-green-*`, а также несуществующий token `--accent-border`. |
+| UI consistency | 7.6/10 | FAQ, contact, articles, news, about и PDP стали более едиными; search page, series preview cards и часть root catalog titles выбиваются сильнее. |
+| Соответствие Tailwind Plus карте | 8.1/10 | Большая часть справочных и товарных блоков реализована; catalog filters, sorting и быстрые входы в серии добавлены, но applied filter chips, comparison tables и search UI остаются backlog. |
+| E-commerce UX | 7.5/10 | PDP, product cards, mobile navigation и базовый product finding улучшены, но root-каталог еще требует comparison table, applied chips, однозначных titles и реальных series previews. |
+| Responsive/accessibility basics | 8/10 | Labels, native validation, tab roles, gallery controls и responsive layout есть; нужно добавить placeholders, live regions для фильтров и проверить mobile screenshots в обычном браузере. |
 
-Свежий снимок аудита зафиксирован в `docs/audits/62-2026-06-03-ux-ui-tailwind-current-audit.md`. Если статус в таблице ниже расходится с этим audit-снимком, актуальным считать audit `62`, а затем обновить эту карту.
+Свежий полный аудит зафиксирован в `docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md`. Если статус в таблице ниже расходится с этим audit-снимком, актуальным считать audit `64`, а затем обновить эту карту.
 
 ## Сводная Таблица По Страницам И Блокам
 

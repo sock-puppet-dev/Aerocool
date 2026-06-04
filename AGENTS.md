@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Обновлено: 2026-06-03.
+Обновлено: 2026-06-04.
 
 ## Обзор Проекта
 
@@ -33,6 +33,11 @@
 - `layouts/single.html` и `layouts/list.html` — общие базовые шаблоны для большинства типов страниц.
 - `layouts/articles/list.html` — специализированный листинг статей с управляемой сеткой карточек.
 - `layouts/_partials/articles/card-image.html` — helper responsive-изображения для карточек статей.
+- `layouts/_partials/home-final-cta.html` — финальный CTA главной страницы после товарно-информационных блоков.
+- `layouts/products/list.html` — специализированный листинг каталога и страниц серий: page heading, быстрые ссылки между сериями, фильтры, сортировка, счетчик и сетка товаров.
+- `layouts/_partials/products/card.html` — товарная карточка с product facts и `data-product-*` атрибутами для фильтров и сортировки.
+- `layouts/_partials/products/filters.html` — static-first фильтры каталога и страниц серий без изменения URL и без индексируемых filter pages.
+- `layouts/_partials/products/sort.html` — сортировка товаров по названию, рейтингу и цене.
 - `layouts/404.html`, `layouts/alias.html` и `layouts/search.html` — служебные шаблоны страниц, которые не должны попадать в SEO-индекс.
 - `layouts/rss.xml` — локальный RSS-шаблон.
 - `layouts/sitemap.xml` — шаблон языковых sitemap-файлов.
@@ -117,8 +122,10 @@
 - `docs/seo/60-schema-validator-url-checklist-2026.md`
 - `docs/audits/61-2026-06-02-pagespeed-insights-quality-simplification.md`
 - `docs/audits/62-2026-06-03-ux-ui-tailwind-current-audit.md`
+- `docs/audits/63-2026-06-04-ux-ui-tailwind-current-audit.md`
+- `docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md`
 
-Для новичка порядок чтения такой: сначала `README.md`, затем `AGENTS.md`, затем `docs/01-documentation-map.md`, затем `docs/architecture/02-documentation-style-guide.md`, затем `docs/architecture/03-hugo-template-helpers.md`, затем `docs/content/05-front-matter-reference.md`, затем `docs/quality/13-pagespeed-insights-audit.md`, затем `docs/quality/14-production-quality-gate-2026.md`. Для SEO/schema-задач после этого читать `docs/seo/19-schema-types-reference.md`, `docs/seo/20-schema-markup-quality-checklist-2026.md`, `docs/seo/24-entities-knowledge-graph-playbook-2026.md`, `docs/seo/26-json-ld-graph-audit-roadmap-2026.md` и текущий аудит `docs/audits/57-2026-05-31-schema-entity-full-audit-current.md`; для ручной проверки через `validator.schema.org` использовать `docs/seo/60-schema-validator-url-checklist-2026.md`. Для задач по product facts, цене, наличию, гарантии, доставке, возврату, оплате, `priceValidUntil`, цвету и характеристикам товара читать `docs/seo/58-product-facts-maintenance-process-2026.md`. Для задач по entity performance, `about_entities`, `mentions_entities`, `product_group_id` и rendered refs читать `docs/seo/59-entity-performance-report-2026.md` и запускать `npm run entity:report` после `npm run build`; команда вызывает `node scripts/generate_entity_performance_report.mjs`. Внешние GSC/AI/business-метрики добавлять в `docs/seo/59-entity-performance-overrides.csv`, а не в generated CSV. Для задач по ключевым словам, семантике и планированию посадочных страниц читать `docs/seo/18-seo-keyword-map-2026.md` и `docs/seo/53-keyword-database-2026.md`. Для performance/Core Web Vitals-задач читать `docs/quality/12-core-web-vitals-guide-2026.md`, `docs/quality/13-pagespeed-insights-audit.md`, `docs/quality/14-production-quality-gate-2026.md` и текущий аудит `docs/audits/54-2026-05-26-core-web-vitals-current-audit.md`. Для UX/UI, Tailwind Plus, Tailwind CSS 4.3 visual layer, компонентной структуры и e-commerce product finding читать `docs/architecture/51-tailwind-plus-ui-section-map-2026.md` и текущий аудит `docs/audits/62-2026-06-03-ux-ui-tailwind-current-audit.md`. Для задач по tooling, Hugo, Node и Tailwind читать `docs/deploy/15-local-tooling-mise.md` и текущий аудит `docs/audits/56-2026-05-26-hugo-0-162-compliance-audit.md`. Остальные гайды подключать по задаче.
+Для новичка порядок чтения такой: сначала `README.md`, затем `AGENTS.md`, затем `docs/01-documentation-map.md`, затем `docs/architecture/02-documentation-style-guide.md`, затем `docs/architecture/03-hugo-template-helpers.md`, затем `docs/content/05-front-matter-reference.md`, затем `docs/quality/13-pagespeed-insights-audit.md`, затем `docs/quality/14-production-quality-gate-2026.md`. Для SEO/schema-задач после этого читать `docs/seo/19-schema-types-reference.md`, `docs/seo/20-schema-markup-quality-checklist-2026.md`, `docs/seo/24-entities-knowledge-graph-playbook-2026.md`, `docs/seo/26-json-ld-graph-audit-roadmap-2026.md` и текущий аудит `docs/audits/57-2026-05-31-schema-entity-full-audit-current.md`; для ручной проверки через `validator.schema.org` использовать `docs/seo/60-schema-validator-url-checklist-2026.md`. Для задач по product facts, цене, наличию, гарантии, доставке, возврату, оплате, `priceValidUntil`, цвету и характеристикам товара читать `docs/seo/58-product-facts-maintenance-process-2026.md`. Для задач по entity performance, `about_entities`, `mentions_entities`, `product_group_id` и rendered refs читать `docs/seo/59-entity-performance-report-2026.md` и запускать `npm run entity:report` после `npm run build`; команда вызывает `node scripts/generate_entity_performance_report.mjs`. Внешние GSC/AI/business-метрики добавлять в `docs/seo/59-entity-performance-overrides.csv`, а не в generated CSV. Для задач по ключевым словам, семантике и планированию посадочных страниц читать `docs/seo/18-seo-keyword-map-2026.md` и `docs/seo/53-keyword-database-2026.md`. Для performance/Core Web Vitals-задач читать `docs/quality/12-core-web-vitals-guide-2026.md`, `docs/quality/13-pagespeed-insights-audit.md`, `docs/quality/14-production-quality-gate-2026.md` и текущий аудит `docs/audits/54-2026-05-26-core-web-vitals-current-audit.md`. Для UX/UI, Tailwind Plus, Tailwind CSS 4.3 visual layer, компонентной структуры, каталога, фильтров и e-commerce product finding читать `docs/architecture/51-tailwind-plus-ui-section-map-2026.md` и текущий полный аудит `docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md`. Для задач по tooling, Hugo, Node и Tailwind читать `docs/deploy/15-local-tooling-mise.md` и текущий аудит `docs/audits/56-2026-05-26-hugo-0-162-compliance-audit.md`. Остальные гайды подключать по задаче.
 
 ## Контентные Правила
 

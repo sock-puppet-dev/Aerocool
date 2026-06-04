@@ -1,6 +1,6 @@
 # Aerocool Ukraine
 
-Обновлено: 2026-06-03.
+Обновлено: 2026-06-04.
 
 `Aerocool Ukraine` — двуязычный маркетинговый и каталоговый сайт на `Hugo` для кресел Aerocool в Украине. Основной язык — украинский (`uk`), второй язык — русский (`ru`). Сайт собирается статически, деплоится через `Netlify` и использует локальные Hugo overrides поверх темы `PaperMod`.
 
@@ -17,7 +17,7 @@
 
 Для текущих задач по JSON-LD, schema.org, Entity Registry, `about_entities`, `mentions_entities`, `ProductGroup`, `sameAs` и graph-аудиту читать `docs/seo/23-entity-registry-2026.md`, `docs/seo/26-json-ld-graph-audit-roadmap-2026.md` и актуальный аудит `docs/audits/57-2026-05-31-schema-entity-full-audit-current.md`. Для ручной проверки через `validator.schema.org` использовать [docs/seo/60-schema-validator-url-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/60-schema-validator-url-checklist-2026.md).
 
-Для текущих задач по UX/UI, Tailwind Plus секциям, Tailwind CSS 4.3 visual layer, компонентам и визуальной структуре страниц читать [docs/architecture/51-tailwind-plus-ui-section-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/51-tailwind-plus-ui-section-map-2026.md) и актуальный аудит [docs/audits/62-2026-06-03-ux-ui-tailwind-current-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/62-2026-06-03-ux-ui-tailwind-current-audit.md).
+Для текущих задач по UX/UI, Tailwind Plus секциям, Tailwind CSS 4.3 visual layer, компонентам, каталогу, фильтрам и визуальной структуре страниц читать [docs/architecture/51-tailwind-plus-ui-section-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/51-tailwind-plus-ui-section-map-2026.md) и актуальный полный аудит [docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md).
 
 Проще говоря: `content/` отвечает за текст и данные страниц, `layouts/` отвечает за HTML/SEO/schema-логику, `assets/` отвечает за CSS/JS, а PageSpeed Insights используется для ручной проверки качества опубликованных URL.
 
@@ -202,8 +202,12 @@ index.ru.md   русская версия
 - `layouts/_partials/footer.html` — footer, JSON-LD внизу body, внешний `site.js`.
 - `layouts/single.html` — одиночные страницы.
 - `layouts/list.html` — листинги.
+- `layouts/products/list.html` — специализированный листинг каталога и страниц серий с фильтрами, сортировкой, счетчиком и товарной сеткой.
 - `layouts/articles/list.html` — специализированный листинг статей с сеткой карточек.
 - `layouts/_partials/articles/card-image.html` — responsive-изображение карточки статьи в листинге.
+- `layouts/_partials/products/card.html` — товарная карточка с product facts и `data-product-*` атрибутами.
+- `layouts/_partials/products/filters.html` — static-first фильтры каталога и страниц серий без изменения URL.
+- `layouts/_partials/products/sort.html` — сортировка товаров по названию, рейтингу и цене.
 - `layouts/404.html`, `layouts/search.html`, `layouts/alias.html` — служебные страницы.
 - `layouts/sitemap.xml` и `layouts/sitemapindex.xml` — мультиязычные sitemap-файлы.
 
@@ -308,7 +312,12 @@ static/offline.js
 - плавные якорные переходы;
 - кнопку scroll-to-top;
 - закрытие мобильного меню;
+- закрытие desktop catalog flyout и language dropdown по клику вне меню и по `Escape`;
 - sanitizing телефона в contact-форме;
+- табы и галерею товарной страницы;
+- фильтры каталога и страниц серий;
+- сортировку товаров;
+- закрытие групп фильтра на mobile при загрузке;
 - view transitions;
 - code copy buttons, если они включены;
 - service worker registration.
@@ -528,7 +537,7 @@ git checkout dev
 
 1. `README.md` — главный вход в проект.
 2. `AGENTS.md` — правила безопасной работы для Codex/агентов.
-3. [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-62`.
+3. [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-64`.
 4. [docs/architecture/02-documentation-style-guide.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/02-documentation-style-guide.md) — стандарт русскоязычной, понятной и структурированной документации.
 5. [docs/architecture/03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md) — локальные Hugo helpers и partials.
 6. [docs/content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md) — поля front matter для страниц.
