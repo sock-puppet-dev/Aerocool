@@ -1951,6 +1951,14 @@ textarea.ui-field {
     background: linear-gradient(90deg, transparent, var(--border), transparent);
 }
 
+.home-choice-benefits .home-choice-benefits__inner::after {
+    content: "";
+    display: block;
+    height: 1px;
+    margin-top: 1.5rem;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
 .home-product-lines .home-product-lines__inner {
     padding-bottom: 2rem;
 }
