@@ -126,7 +126,7 @@
    отсюда, а не с разбросанных hardcode-значений ниже.
    ========================================================= */
 :root {
-    --gap: clamp(1rem, 2vw, 2rem);
+    --gap: clamp(1.25rem, 2.5vw, 2.5rem);
     --site-width: 1440px;
     --content-section-width: 1200px;
     --nav-width: var(--site-width);
@@ -2677,6 +2677,21 @@ textarea.ui-field {
     padding-left: 0;
 }
 
+@media (min-width: 1024px) {
+    .contact-section > .mx-auto {
+        grid-template-columns: minmax(0, 32rem) minmax(0, 32rem);
+        justify-content: center;
+        column-gap: 2.5rem;
+    }
+
+    .contact-section > .mx-auto > div > div,
+    .contact-section > .mx-auto > form > div {
+        max-width: 32rem;
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
+
 /* =========================================================
    7. RESPONSIVE-ПРАВИЛА
    ---------------------------------------------------------
@@ -2904,6 +2919,19 @@ textarea.ui-field {
     border-color: var(--accent);
     background: var(--accent);
     color: #ffffff;
+}
+
+.products-heading__action--secondary {
+    border: 1px solid var(--border);
+    background: #ffffff;
+    color: var(--content);
+}
+
+.products-heading__action--secondary:hover,
+.products-heading__action--secondary:focus-visible {
+    border-color: var(--border-strong);
+    background: var(--bg-soft);
+    color: var(--primary);
 }
 
 .products-list__grid {

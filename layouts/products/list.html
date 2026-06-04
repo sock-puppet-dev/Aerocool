@@ -48,6 +48,11 @@
               {{ .LinkTitle | default .Title }}
             </a>
             {{- end }}
+            {{- with $productsRoot }}
+            <a href="{{ .RelPermalink }}" class="products-heading__action products-heading__action--secondary">
+              {{ cond $isRu "Весь каталог" "Весь каталог" }}
+            </a>
+            {{- end }}
           </nav>
           {{- end }}
         </div>
