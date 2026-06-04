@@ -1,12 +1,20 @@
 {{- $page := .page -}}
 {{- $context := .context | default $page -}}
 {{- $extraClass := .class | default "" -}}
+{{- $order := .order | default 0 -}}
 {{- $isRu := eq $context.Language.Name "ru" -}}
 {{- $cardTitle := partial "breadcrumb-label.html" $page -}}
 {{- $cardSummary := $page.Summary | default $page.Description | plainify | htmlUnescape -}}
 {{- $isProductCard := $page.Params.price -}}
 {{- $reviewTargetID := $page.Params.review_target_id | default "" -}}
 {{- $reviewsEnabled := and ($page.Params.reviews_enabled | default false) $reviewTargetID -}}
+{{- $reviewRating := 0.0 -}}
+{{- if $reviewsEnabled -}}
+  {{- $reviewData := partial "reviews/summary-data.html" $page -}}
+  {{- with $reviewData.ratingValue -}}
+    {{- $reviewRating = float . -}}
+  {{- end -}}
+{{- end -}}
 {{- $mentions := $page.Params.mentions_entities | default (slice) -}}
 {{- $availability := $page.Params.availability | default "" -}}
 {{- $availabilityLabel := "" -}}
@@ -102,6 +110,10 @@
   class="products-list__card{{ if $isProductCard }} products-list__card--product{{ end }}{{ with $extraClass }} {{ . }}{{ end }} group"
   {{- if $isProductCard }}
   data-product-card
+  data-product-title="{{ $cardTitle | plainify | htmlEscape }}"
+  data-product-price="{{ $page.Params.price | default 0 }}"
+  data-product-rating="{{ $reviewRating }}"
+  data-product-order="{{ $order }}"
   data-product-series="{{ $seriesValue }}"
   data-product-material="{{ $materialValue }}"
   data-product-adjustment="{{ $adjustmentValue }}"

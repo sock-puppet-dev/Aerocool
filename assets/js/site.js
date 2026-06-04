@@ -348,9 +348,20 @@
     document.querySelectorAll('[data-product-filter-root]').forEach(function (root) {
       var cards = Array.prototype.slice.call(root.querySelectorAll('[data-product-card]'));
       var inputs = Array.prototype.slice.call(root.querySelectorAll('[data-product-filter-input]'));
+      var grid = root.querySelector('[data-product-filter-grid]');
+      var sort = root.querySelector('[data-product-sort]');
+      var sortButton = sort ? sort.querySelector('[data-product-sort-button]') : null;
+      var sortMenu = sort ? sort.querySelector('[data-product-sort-menu]') : null;
+      var sortCurrent = sort ? sort.querySelector('[data-product-sort-current]') : null;
+      var sortOptions = sort ? Array.prototype.slice.call(sort.querySelectorAll('[data-product-sort-option]')) : [];
+      var sortValue = sortOptions.find(function (option) {
+        return option.getAttribute('aria-checked') === 'true';
+      });
       var count = root.querySelector('[data-product-filter-count]');
       var emptyState = root.querySelector('[data-product-filter-empty]');
       var resetButtons = Array.prototype.slice.call(root.querySelectorAll('[data-product-filter-reset]'));
+
+      sortValue = sortValue ? sortValue.value : 'name';
 
       if (!cards.length || !inputs.length) {
         return;
@@ -387,9 +398,95 @@
         });
       }
 
+      function getProductNumber(card, attribute) {
+        var value = Number(card.getAttribute(attribute));
+
+        return Number.isFinite(value) ? value : 0;
+      }
+
+      function compareByTitle(firstCard, secondCard) {
+        var firstTitle = firstCard.getAttribute('data-product-title') || '';
+        var secondTitle = secondCard.getAttribute('data-product-title') || '';
+
+        return firstTitle.localeCompare(secondTitle, document.documentElement.lang || undefined, {
+          numeric: true,
+          sensitivity: 'base'
+        });
+      }
+
+      function compareByOrder(firstCard, secondCard) {
+        return getProductNumber(firstCard, 'data-product-order') - getProductNumber(secondCard, 'data-product-order');
+      }
+
+      function sortCards() {
+        if (!grid) {
+          return;
+        }
+
+        var sortedCards = cards.slice();
+
+        if (sortValue === 'rating') {
+          sortedCards.sort(function (firstCard, secondCard) {
+            var ratingDifference = getProductNumber(secondCard, 'data-product-rating') - getProductNumber(firstCard, 'data-product-rating');
+
+            return ratingDifference || compareByTitle(firstCard, secondCard) || compareByOrder(firstCard, secondCard);
+          });
+        }
+        else if (sortValue === 'price-asc') {
+          sortedCards.sort(function (firstCard, secondCard) {
+            var priceDifference = getProductNumber(firstCard, 'data-product-price') - getProductNumber(secondCard, 'data-product-price');
+
+            return priceDifference || compareByTitle(firstCard, secondCard) || compareByOrder(firstCard, secondCard);
+          });
+        }
+        else if (sortValue === 'price-desc') {
+          sortedCards.sort(function (firstCard, secondCard) {
+            var priceDifference = getProductNumber(secondCard, 'data-product-price') - getProductNumber(firstCard, 'data-product-price');
+
+            return priceDifference || compareByTitle(firstCard, secondCard) || compareByOrder(firstCard, secondCard);
+          });
+        }
+        else {
+          sortedCards.sort(function (firstCard, secondCard) {
+            return compareByTitle(firstCard, secondCard) || compareByOrder(firstCard, secondCard);
+          });
+        }
+
+        sortedCards.forEach(function (card) {
+          grid.appendChild(card);
+          });
+      }
+
+      function setSortMenuOpen(isOpen) {
+        if (!sort || !sortButton || !sortMenu) {
+          return;
+        }
+
+        sort.toggleAttribute('data-open', isOpen);
+        sortButton.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        sortMenu.hidden = !isOpen;
+      }
+
+      function updateSortOption(selectedOption) {
+        sortValue = selectedOption.value || 'name';
+
+        sortOptions.forEach(function (option) {
+          option.setAttribute('aria-checked', option === selectedOption ? 'true' : 'false');
+        });
+
+        if (sortCurrent) {
+          sortCurrent.textContent = selectedOption.textContent;
+        }
+
+        setSortMenuOpen(false);
+        applyFilters();
+      }
+
       function applyFilters() {
         var activeFilters = getActiveFilters();
         var visibleCount = 0;
+
+        sortCards();
 
         cards.forEach(function (card) {
           var isVisible = cardMatches(card, activeFilters);
@@ -413,6 +510,46 @@
       inputs.forEach(function (input) {
         input.addEventListener('change', applyFilters);
       });
+
+      if (sortButton) {
+        sortButton.addEventListener('click', function () {
+          setSortMenuOpen(!sort || !sort.hasAttribute('data-open'));
+        });
+      }
+
+      sortOptions.forEach(function (option) {
+        option.addEventListener('click', function () {
+          updateSortOption(option);
+        });
+
+        option.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape') {
+            setSortMenuOpen(false);
+            sortButton && sortButton.focus();
+          }
+        });
+      });
+
+      document.addEventListener('click', function (event) {
+        if (!sort || !sort.hasAttribute('data-open') || sort.contains(event.target)) {
+          return;
+        }
+
+        setSortMenuOpen(false);
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key !== 'Escape' || !sort || !sort.hasAttribute('data-open')) {
+          return;
+        }
+
+        setSortMenuOpen(false);
+        sortButton && sortButton.focus();
+      });
+
+      if (sortButton && sortMenu) {
+        setSortMenuOpen(false);
+      }
 
       resetButtons.forEach(function (button) {
         button.addEventListener('click', function () {

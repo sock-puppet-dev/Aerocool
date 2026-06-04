@@ -73,6 +73,24 @@
         <h2 id="products-catalog-title" class="ui-section-title">
           {{ cond $isRu "Все кресла Aerocool" "Усі крісла Aerocool" }}
         </h2>
+        <div class="products-sort" data-product-sort>
+          <button
+            type="button"
+            class="products-sort__button"
+            aria-haspopup="menu"
+            aria-expanded="false"
+            data-product-sort-button>
+            <span>{{ cond $isRu "Сортировка" "Сортування" }}</span>
+            <span class="products-sort__chevron" aria-hidden="true"></span>
+          </button>
+
+          <div class="products-sort__menu" role="menu" data-product-sort-menu hidden>
+            <button type="button" class="products-sort__option" role="menuitemradio" aria-checked="true" data-product-sort-option value="name">{{ cond $isRu "по названию" "за назвою" }}</button>
+            <button type="button" class="products-sort__option" role="menuitemradio" aria-checked="false" data-product-sort-option value="rating">{{ cond $isRu "по рейтингу" "за рейтингом" }}</button>
+            <button type="button" class="products-sort__option" role="menuitemradio" aria-checked="false" data-product-sort-option value="price-asc">{{ cond $isRu "сначала дешевле" "спочатку дешевші" }}</button>
+            <button type="button" class="products-sort__option" role="menuitemradio" aria-checked="false" data-product-sort-option value="price-desc">{{ cond $isRu "сначала дороже" "спочатку дорожчі" }}</button>
+          </div>
+        </div>
       </div>
 
       <div class="products-catalog__layout">
@@ -81,8 +99,8 @@
 
         <div class="products-catalog__results">
           <div class="products-list__grid products-list__grid--products" data-product-filter-grid>
-            {{- range $allProducts }}
-            {{- partial "products/card.html" (dict "page" . "context" $) }}
+            {{- range $index, $product := $allProducts }}
+            {{- partial "products/card.html" (dict "page" $product "context" $ "order" $index) }}
             {{- end }}
           </div>
         </div>
