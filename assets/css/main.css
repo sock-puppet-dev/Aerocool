@@ -210,6 +210,14 @@ body:is(.section-about, .section-articles, .section-news, .section-faq, .section
     max-width: calc(var(--content-section-width) + var(--gap) * 2);
 }
 
+.main {
+    padding-bottom: 1.25rem;
+}
+
+.post-footer:empty {
+    margin-top: 0;
+}
+
 .logo .logo-switches a.lang-switch__item {
     color: var(--content);
     font-size: var(--ui-text-sm);
@@ -518,6 +526,7 @@ textarea.ui-field {
 .product-detail__inner {
     max-width: var(--main-width);
     padding-right: 0;
+    padding-bottom: 2.5rem;
     padding-left: 0;
 }
 
@@ -1479,6 +1488,7 @@ textarea.ui-field {
 
 .articles-list__content {
     margin-top: 4.5rem;
+    margin-bottom: 2rem;
 }
 
 .articles-list + .page-footer {
@@ -1835,7 +1845,7 @@ textarea.ui-field {
 
 .home-final-cta__inner {
     position: relative;
-    padding: 1.5rem 0 3.5rem;
+    padding: 1.5rem 0 1.5rem;
 }
 
 .home-final-cta__inner::before {
@@ -2308,7 +2318,7 @@ textarea.ui-field {
 @media (min-width: 640px) {
     .home-final-cta__inner {
         padding-top: 2rem;
-        padding-bottom: 5rem;
+        padding-bottom: 2rem;
     }
 
     .home-final-cta__panel {
@@ -2609,7 +2619,7 @@ textarea.ui-field {
 
 /* фикс для contact shortcode */
 .post-content > .contact-section {
-    margin-bottom: var(--content-gap);
+    margin-bottom: 0;
 }
 
 .post-content > .contact-section .ui-section-title {
@@ -2677,6 +2687,15 @@ textarea.ui-field {
     padding-left: 0;
 }
 
+.faq-block > .mx-auto {
+    padding-bottom: 2rem;
+}
+
+.contact-section > .mx-auto > div,
+.contact-section > .mx-auto > form {
+    padding-bottom: 2rem;
+}
+
 @media (min-width: 1024px) {
     .contact-section > .mx-auto {
         grid-template-columns: minmax(0, 32rem) minmax(0, 32rem);
@@ -2727,7 +2746,7 @@ textarea.ui-field {
     max-width: calc(var(--main-width) + var(--gap) * 2);
     margin-right: auto;
     margin-left: auto;
-    padding: 4rem var(--gap) 2rem;
+    padding: 2.5rem var(--gap) 2rem;
 }
 
 .site-footer__grid {
@@ -2830,14 +2849,14 @@ textarea.ui-field {
 }
 
 .site-footer__bottom {
-    margin-top: 4rem;
-    padding-top: 2rem;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 @media (min-width: 640px) {
     .site-footer__inner {
-        padding-top: 6rem;
+        padding-top: 3rem;
     }
 
     .site-footer__nav {
@@ -2868,6 +2887,7 @@ textarea.ui-field {
     max-width: var(--main-width);
     padding-top: 1.5rem;
     padding-right: 0;
+    padding-bottom: 2.5rem;
     padding-left: 0;
 }
 
