@@ -44,35 +44,40 @@
   {{- $fitText = cond $isRu "Максимальная вентиляция для теплого помещения и долгого сидения." "Максимальна вентиляція для теплого приміщення та довгого сидіння." -}}
 {{- end -}}
 {{- $adjustmentValue := "" -}}
+{{- $adjustmentLabel := "" -}}
 {{- if in $mentions "11d-adjustment" -}}
   {{- $adjustmentValue = "11d" -}}
+  {{- $adjustmentLabel = "11D" -}}
 {{- else if in $mentions "8d-adjustment" -}}
   {{- $adjustmentValue = "8d" -}}
+  {{- $adjustmentLabel = "8D" -}}
 {{- else if in $mentions "7d-adjustment" -}}
   {{- $adjustmentValue = "7d" -}}
+  {{- $adjustmentLabel = "7D" -}}
 {{- end -}}
 {{- $mechanismValue := "" -}}
+{{- $mechanismLabel := "" -}}
 {{- if in $mentions "sync5-mechanism" -}}
   {{- $mechanismValue = "sync5" -}}
+  {{- $mechanismLabel = "SYNC5" -}}
 {{- else if in $mentions "sync4-mechanism" -}}
   {{- $mechanismValue = "sync4" -}}
+  {{- $mechanismLabel = "SYNC4" -}}
 {{- end -}}
 {{- $seriesValue := delimit ($page.Params.categories | default (slice)) " " -}}
+{{- $seriesLabel := "" -}}
+{{- if in ($page.Params.categories | default (slice)) "sky" -}}
+  {{- $seriesLabel = "SKY" -}}
+{{- else if in ($page.Params.categories | default (slice)) "wing" -}}
+  {{- $seriesLabel = "WING" -}}
+{{- else if in ($page.Params.categories | default (slice)) "xtal" -}}
+  {{- $seriesLabel = "XTAL" -}}
+{{- end -}}
 {{- $availabilityValue := "" -}}
 {{- if eq $availability "InStock" -}}
   {{- $availabilityValue = "in-stock" -}}
 {{- else if $availability -}}
   {{- $availabilityValue = $availability | urlize -}}
-{{- end -}}
-{{- $featureBadges := slice -}}
-{{- if $materialLabel -}}
-  {{- $featureBadges = $featureBadges | append $materialLabel -}}
-{{- end -}}
-{{- if in $mentions "11d-adjustment" -}}
-  {{- $featureBadges = $featureBadges | append "11D" -}}
-{{- end -}}
-{{- if in $mentions "sync5-mechanism" -}}
-  {{- $featureBadges = $featureBadges | append "SYNC5" -}}
 {{- end -}}
 {{- $coverImage := $page.Params.cover.image | default $page.Params.image -}}
 {{- $coverAlt := $page.Params.cover.alt | default $cardTitle -}}
@@ -157,14 +162,37 @@
       {{- with $availabilityLabel }}
       <span class="ui-badge">{{ . }}</span>
       {{- end }}
-      {{- range $featureBadges }}
-      <span class="ui-badge ui-badge-muted">{{ . }}</span>
-      {{- end }}
     </div>
     {{- with $materialText }}
     <p class="products-list__material">{{ . }}</p>
     {{- end }}
     <p class="products-list__summary ui-card-text">{{ $fitText | default $cardSummary }}</p>
+    <div class="products-list__hover-details" aria-label="{{ cond $isRu "Дополнительные характеристики" "Додаткові характеристики" }}">
+      {{- with $seriesLabel }}
+      <div class="products-list__hover-row">
+        <span>{{ cond $isRu "Серия" "Серія" }}</span>
+        <strong>{{ . }}</strong>
+      </div>
+      {{- end }}
+      {{- with $materialLabel }}
+      <div class="products-list__hover-row">
+        <span>{{ cond $isRu "Материал" "Матеріал" }}</span>
+        <strong>{{ . }}</strong>
+      </div>
+      {{- end }}
+      {{- with $adjustmentLabel }}
+      <div class="products-list__hover-row">
+        <span>{{ cond $isRu "Регулировки" "Регулювання" }}</span>
+        <strong>{{ . }}</strong>
+      </div>
+      {{- end }}
+      {{- with $mechanismLabel }}
+      <div class="products-list__hover-row">
+        <span>{{ cond $isRu "Механизм" "Механізм" }}</span>
+        <strong>{{ . }}</strong>
+      </div>
+      {{- end }}
+    </div>
     <a href="{{ $page.RelPermalink }}" class="products-list__details ui-link">
       {{ cond $isRu "Подробнее" "Детальніше" }} <span aria-hidden="true">→</span>
     </a>

@@ -3308,7 +3308,6 @@ textarea.ui-field {
     content: "";
     opacity: 0;
     pointer-events: none;
-    transition: inset 80ms ease-out, box-shadow 80ms ease-out, opacity 80ms ease-out;
 }
 
 .products-list__card--product > * {
@@ -3324,7 +3323,7 @@ textarea.ui-field {
 
 .products-list__card--product:hover::before,
 .products-list__card--product:focus-within::before {
-    inset: -0.375rem;
+    inset: -0.375rem -0.375rem -6rem;
     box-shadow: 0 28px 56px rgb(17 24 39 / 0.22), 0 8px 18px rgb(17 24 39 / 0.12);
     opacity: 1;
 }
@@ -3457,6 +3456,40 @@ textarea.ui-field {
     color: var(--secondary);
     font-size: var(--ui-text-xs);
     line-height: var(--ui-text-xs-line-height);
+}
+
+.products-list__hover-details {
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    right: 0.75rem;
+    left: 0.75rem;
+    display: grid;
+    gap: 0.25rem;
+    padding-top: 0.375rem;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.products-list__hover-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    color: var(--secondary);
+    font-size: var(--ui-text-xs);
+    line-height: var(--ui-text-xs-line-height);
+}
+
+.products-list__hover-row strong {
+    color: var(--primary);
+    font-weight: var(--ui-font-semibold);
+    white-space: nowrap;
+}
+
+.products-list__card--product:hover .products-list__hover-details,
+.products-list__card--product:focus-within .products-list__hover-details {
+    opacity: 1;
 }
 
 .products-list__details {
