@@ -1815,7 +1815,7 @@ textarea.ui-field {
     .home-hero__image {
         padding-right: 0;
         padding-left: 0;
-        transform: translateX(-5%) scale(1.08);
+        transform: translateX(1%) scale(1.08);
         transform-origin: left center;
     }
 }
@@ -1826,7 +1826,7 @@ textarea.ui-field {
     }
 
     .home-hero__image {
-        transform: translateX(-6%) scale(1.1);
+        transform: translateX(0) scale(1.1);
     }
 }
 
