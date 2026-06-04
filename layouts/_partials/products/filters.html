@@ -1,0 +1,81 @@
+{{- $isRu := eq .Language.Name "ru" -}}
+{{- $filterLabel := cond $isRu "Фильтры" "Фільтри" -}}
+{{- $resetLabel := cond $isRu "Сбросить" "Скинути" -}}
+{{- $seriesLabel := cond $isRu "Серия" "Серія" -}}
+{{- $materialLabel := cond $isRu "Материал" "Матеріал" -}}
+{{- $adjustmentLabel := cond $isRu "Регулировки" "Регулювання" -}}
+{{- $mechanismLabel := cond $isRu "Механизм" "Механізм" -}}
+{{- $availabilityLabel := cond $isRu "Наличие" "Наявність" -}}
+{{- $foundLabel := cond $isRu "Найдено товаров" "Знайдено товарів" -}}
+{{- $emptyTitle := cond $isRu "По этим фильтрам товаров не найдено" "За цими фільтрами товарів не знайдено" -}}
+{{- $emptyText := cond $isRu "Снимите часть условий или сбросьте фильтры, чтобы снова увидеть все кресла." "Зніміть частину умов або скиньте фільтри, щоб знову побачити всі крісла." -}}
+
+<aside class="products-filter" aria-label="{{ $filterLabel }}">
+  <div class="products-filter__header">
+    <h2 class="products-filter__title">{{ $filterLabel }}</h2>
+    <button type="button" class="products-filter__reset" data-product-filter-reset>{{ $resetLabel }}</button>
+  </div>
+
+  <p class="products-filter__count">
+    {{ $foundLabel }}:
+    <span data-product-filter-count>{{ .Scratch.Get "productFilterTotal" }}</span>
+  </p>
+
+  <form class="products-filter__form" data-product-filter-form>
+    {{- $groups := slice
+      (dict "name" "series" "label" $seriesLabel "options" (slice
+        (dict "value" "sky" "label" "SKY")
+        (dict "value" "wing" "label" "WING")
+        (dict "value" "xtal" "label" "XTAL")
+      ))
+      (dict "name" "material" "label" $materialLabel "options" (slice
+        (dict "value" "mesh" "label" "Mesh")
+        (dict "value" "loft-air" "label" "Loft Air")
+        (dict "value" "racer" "label" "Racer")
+      ))
+      (dict "name" "adjustment" "label" $adjustmentLabel "options" (slice
+        (dict "value" "7d" "label" "7D")
+        (dict "value" "8d" "label" "8D")
+        (dict "value" "11d" "label" "11D")
+      ))
+      (dict "name" "mechanism" "label" $mechanismLabel "options" (slice
+        (dict "value" "sync4" "label" "SYNC4")
+        (dict "value" "sync5" "label" "SYNC5")
+      ))
+      (dict "name" "availability" "label" $availabilityLabel "options" (slice
+        (dict "value" "in-stock" "label" (cond $isRu "В наличии" "В наявності"))
+      ))
+    -}}
+
+    {{- range $groups }}
+    <details class="products-filter__group" open>
+      <summary class="products-filter__summary">
+        <span>{{ .label }}</span>
+        <span class="products-filter__summary-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="products-filter__options">
+        {{- $groupName := .name -}}
+        {{- range $index, $option := .options }}
+        {{- $inputID := printf "filter-%s-%d" $groupName $index -}}
+        <label class="products-filter__option" for="{{ $inputID }}">
+          <input
+            id="{{ $inputID }}"
+            class="products-filter__checkbox"
+            type="checkbox"
+            name="{{ $groupName }}"
+            value="{{ $option.value }}"
+            data-product-filter-input>
+          <span>{{ $option.label }}</span>
+        </label>
+        {{- end }}
+      </div>
+    </details>
+    {{- end }}
+  </form>
+</aside>
+
+<div class="products-filter__empty" data-product-filter-empty hidden>
+  <h2 class="ui-group-title">{{ $emptyTitle }}</h2>
+  <p class="ui-body">{{ $emptyText }}</p>
+  <button type="button" class="ui-button ui-button-secondary" data-product-filter-reset>{{ $resetLabel }}</button>
+</div>

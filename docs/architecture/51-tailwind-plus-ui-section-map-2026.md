@@ -36,7 +36,7 @@
 В `assets/css/main.css` стандарт зафиксирован через токены:
 
 - `--site-width: 1440px` — полезная ширина широкого контейнера.
-- `--content-section-width: 1280px` — полезная ширина внутренних информационных разделов: `/about/`, `/articles/`, `/news/`, `/faq/`, `/contact/`.
+- `--content-section-width: 1200px` — полезная ширина внутренних информационных разделов: `/about/`, `/articles/`, `/news/`, `/faq/`, `/contact/`.
 - `--nav-width: var(--site-width)` — ширина навигации.
 - `--main-width: var(--site-width)` — ширина основного широкого контейнера.
 - `--gap: clamp(1rem, 2vw, 2rem)` — единый боковой отступ для базовых блоков.

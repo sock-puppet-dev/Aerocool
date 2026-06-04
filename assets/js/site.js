@@ -344,6 +344,90 @@
     });
   }
 
+  function setupProductFilters() {
+    document.querySelectorAll('[data-product-filter-root]').forEach(function (root) {
+      var cards = Array.prototype.slice.call(root.querySelectorAll('[data-product-card]'));
+      var inputs = Array.prototype.slice.call(root.querySelectorAll('[data-product-filter-input]'));
+      var count = root.querySelector('[data-product-filter-count]');
+      var emptyState = root.querySelector('[data-product-filter-empty]');
+      var resetButtons = Array.prototype.slice.call(root.querySelectorAll('[data-product-filter-reset]'));
+
+      if (!cards.length || !inputs.length) {
+        return;
+      }
+
+      function getActiveFilters() {
+        return inputs.reduce(function (active, input) {
+          if (!input.checked) {
+            return active;
+          }
+
+          if (!active[input.name]) {
+            active[input.name] = [];
+          }
+
+          active[input.name].push(input.value);
+          return active;
+        }, {});
+      }
+
+      function cardMatches(card, activeFilters) {
+        return Object.keys(activeFilters).every(function (filterName) {
+          var activeValues = activeFilters[filterName];
+
+          if (!activeValues.length) {
+            return true;
+          }
+
+          var cardValues = (card.getAttribute('data-product-' + filterName) || '').split(/\s+/).filter(Boolean);
+
+          return activeValues.some(function (value) {
+            return cardValues.indexOf(value) !== -1;
+          });
+        });
+      }
+
+      function applyFilters() {
+        var activeFilters = getActiveFilters();
+        var visibleCount = 0;
+
+        cards.forEach(function (card) {
+          var isVisible = cardMatches(card, activeFilters);
+
+          card.hidden = !isVisible;
+
+          if (isVisible) {
+            visibleCount += 1;
+          }
+        });
+
+        if (count) {
+          count.textContent = String(visibleCount);
+        }
+
+        if (emptyState) {
+          emptyState.hidden = visibleCount > 0;
+        }
+      }
+
+      inputs.forEach(function (input) {
+        input.addEventListener('change', applyFilters);
+      });
+
+      resetButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          inputs.forEach(function (input) {
+            input.checked = false;
+          });
+
+          applyFilters();
+        });
+      });
+
+      applyFilters();
+    });
+  }
+
   function setupViewTransitions() {
     if (typeof document.startViewTransition !== 'function') {
       return;
@@ -532,6 +616,7 @@
   setupPhoneSanitizer();
   setupProductTabs();
   setupProductGalleries();
+  setupProductFilters();
   setupViewTransitions();
   setupCodeCopyButtons();
   setupServiceWorker();

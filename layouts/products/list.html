@@ -3,10 +3,22 @@
 {{- $pageDescription := .Description | default (partial "page-description.html" .) }}
 {{- $pages := .Pages.ByWeight }}
 {{- $isRu := eq .Language.Name "ru" }}
+{{- $productsRoot := site.GetPage "/products" }}
+{{- $isProductsRoot := and $productsRoot (eq .RelPermalink $productsRoot.RelPermalink) }}
 {{- $hasProductPages := false }}
 {{- range $pages }}
   {{- if in (.Params.schema_types | default (slice)) "product" }}
     {{- $hasProductPages = true }}
+  {{- end }}
+{{- end }}
+{{- $allProducts := slice }}
+{{- if $isProductsRoot }}
+  {{- range $pages }}
+    {{- range .Pages.ByWeight }}
+      {{- if in (.Params.schema_types | default (slice)) "product" }}
+        {{- $allProducts = $allProducts | append . }}
+      {{- end }}
+    {{- end }}
   {{- end }}
 {{- end }}
 {{- $seriesActions := slice }}
@@ -48,6 +60,29 @@
       {{- partial "products/card.html" (dict "page" . "context" $) }}
       {{- end }}
     </div>
+    {{- end }}
+
+    {{- if and $isProductsRoot $allProducts }}
+    <section class="products-catalog" data-product-filter-root aria-labelledby="products-catalog-title">
+      <div class="products-catalog__header">
+        <h2 id="products-catalog-title" class="ui-section-title">
+          {{ cond $isRu "Все кресла Aerocool" "Усі крісла Aerocool" }}
+        </h2>
+      </div>
+
+      <div class="products-catalog__layout">
+        {{- .Scratch.Set "productFilterTotal" (len $allProducts) -}}
+        {{ partial "products/filters.html" . }}
+
+        <div class="products-catalog__results">
+          <div class="products-list__grid products-list__grid--products" data-product-filter-grid>
+            {{- range $allProducts }}
+            {{- partial "products/card.html" (dict "page" . "context" $) }}
+            {{- end }}
+          </div>
+        </div>
+      </div>
+    </section>
     {{- end }}
 
     {{- if .Content }}

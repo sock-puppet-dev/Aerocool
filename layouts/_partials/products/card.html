@@ -16,20 +16,45 @@
   {{- $availabilityLabel = $availability -}}
 {{- end -}}
 {{- $materialLabel := "" -}}
+{{- $materialValue := "" -}}
 {{- $materialText := "" -}}
 {{- $fitText := "" -}}
 {{- if in $mentions "racer-material" -}}
   {{- $materialLabel = "Racer" -}}
+  {{- $materialValue = "racer" -}}
   {{- $materialText = "Leatherette" -}}
   {{- $fitText = cond $isRu "Плотный контакт и более простой уход за поверхностью." "Щільніший контакт і простіший догляд за поверхнею." -}}
 {{- else if in $mentions "loft-air-material" -}}
   {{- $materialLabel = "Loft Air" -}}
+  {{- $materialValue = "loft-air" -}}
   {{- $materialText = cond $isRu "вентилируемая ткань" "вентильована тканина" -}}
   {{- $fitText = cond $isRu "Мягче на каждый день и комфортнее для длительной работы." "М'якше на щодень і комфортніше для тривалої роботи." -}}
 {{- else if in $mentions "mesh-material" -}}
   {{- $materialLabel = "Mesh" -}}
+  {{- $materialValue = "mesh" -}}
   {{- $materialText = cond $isRu "вентилируемая сетка" "вентильована сітка" -}}
   {{- $fitText = cond $isRu "Максимальная вентиляция для теплого помещения и долгого сидения." "Максимальна вентиляція для теплого приміщення та довгого сидіння." -}}
+{{- end -}}
+{{- $adjustmentValue := "" -}}
+{{- if in $mentions "11d-adjustment" -}}
+  {{- $adjustmentValue = "11d" -}}
+{{- else if in $mentions "8d-adjustment" -}}
+  {{- $adjustmentValue = "8d" -}}
+{{- else if in $mentions "7d-adjustment" -}}
+  {{- $adjustmentValue = "7d" -}}
+{{- end -}}
+{{- $mechanismValue := "" -}}
+{{- if in $mentions "sync5-mechanism" -}}
+  {{- $mechanismValue = "sync5" -}}
+{{- else if in $mentions "sync4-mechanism" -}}
+  {{- $mechanismValue = "sync4" -}}
+{{- end -}}
+{{- $seriesValue := delimit ($page.Params.categories | default (slice)) " " -}}
+{{- $availabilityValue := "" -}}
+{{- if eq $availability "InStock" -}}
+  {{- $availabilityValue = "in-stock" -}}
+{{- else if $availability -}}
+  {{- $availabilityValue = $availability | urlize -}}
 {{- end -}}
 {{- $featureBadges := slice -}}
 {{- if $materialLabel -}}
@@ -73,7 +98,16 @@
     {{- $imageSrc = . | relURL -}}
   {{- end -}}
 {{- end -}}
-<article class="products-list__card{{ if $isProductCard }} products-list__card--product{{ end }}{{ with $extraClass }} {{ . }}{{ end }} group">
+<article
+  class="products-list__card{{ if $isProductCard }} products-list__card--product{{ end }}{{ with $extraClass }} {{ . }}{{ end }} group"
+  {{- if $isProductCard }}
+  data-product-card
+  data-product-series="{{ $seriesValue }}"
+  data-product-material="{{ $materialValue }}"
+  data-product-adjustment="{{ $adjustmentValue }}"
+  data-product-mechanism="{{ $mechanismValue }}"
+  data-product-availability="{{ $availabilityValue }}"
+  {{- end }}>
   <a href="{{ $page.RelPermalink }}" class="products-list__media-link" aria-label="{{ $cardTitle }}">
   {{- with $imageSrc }}
   <img
