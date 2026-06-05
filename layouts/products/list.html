@@ -84,7 +84,7 @@
         <div class="products-catalog__results">
           <div class="products-list__grid products-list__grid--products" data-product-filter-grid>
             {{- range $index, $product := $allProducts }}
-            {{- partial "products/card.html" (dict "page" $product "context" $ "order" $index) }}
+            {{- partial "products/card.html" (dict "page" $product "context" $ "order" $index "showSeriesInTitle" true) }}
             {{- end }}
           </div>
         </div>

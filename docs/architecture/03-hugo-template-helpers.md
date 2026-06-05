@@ -1,6 +1,6 @@
 # Руководство по шаблонным helper-файлам Hugo
 
-Обновлено: 2026-06-04.
+Обновлено: 2026-06-05.
 
 ## Зачем Нужен Этот Документ
 
@@ -163,7 +163,7 @@
 
 ## Быстрая Карта Product Helpers
 
-- [layouts/_partials/products/card.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/card.html) — товарная карточка для `/products/`, страниц серий, home-блоков и related-блоков. Выводит изображение, название, цену, наличие, rating summary при approved отзывах, color dots и product facts. Для фильтров и сортировки добавляет `data-product-*`: title, price, rating, order, series, material, adjustment, mechanism и availability.
+- [layouts/_partials/products/card.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/card.html) — товарная карточка для `/products/`, страниц серий, home-блоков и related-блоков. Выводит изображение, название, цену, наличие, rating summary при approved отзывах, color dots и product facts. Для фильтров и сортировки добавляет `data-product-*`: title, price, rating, order, series, material, adjustment, mechanism и availability. Поддерживает флаг `showSeriesInTitle`: в root-каталоге карточка показывает серию в названии товара, например `WING Mesh Black` и `XTAL Mesh Black`, а на страницах конкретных серий сохраняет короткий `linkTitle`, например `Mesh Black`.
 - [layouts/_partials/products/color-dots.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/color-dots.html) — компактные цветовые точки в карточках товаров. Это визуальный сигнал вариантов, а не замена отдельным variant URL.
 - [layouts/_partials/products/filters.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/filters.html) — static-first фильтры каталога. На `/products/` показывает группы серии, материала, регулировок, механизма и наличия; на страницах конкретной серии скрывает группу серии. Фильтры не меняют URL и не создают индексируемые filter pages.
 - [layouts/_partials/products/sort.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/sort.html) — сортировка каталога: по названию, рейтингу, цене от дешевых и цене от дорогих. Работает вместе с фильтрами через `assets/js/site.js`.
@@ -197,6 +197,7 @@
 
 - `layouts/products/list.html` отвечает за каталоговую структуру, а не обычный blog archive;
 - root `/products/` выводит карточки серий, затем все товары;
+- root `/products/` передает в `products/card.html` флаг `showSeriesInTitle`, чтобы одинаковые короткие `linkTitle` вроде `Mesh Black` и `Racer Black` не выглядели как дубликаты между сериями `WING` и `XTAL`;
 - страницы серий выводят быстрые бейдж-ссылки `SKY`, `WING`, `XTAL` и вторичный бейдж `Весь каталог`;
 - `products/filters.html` и `products/sort.html` подключаются из `layouts/products/list.html`;
 - фильтры должны оставаться static-first: без URL-параметров, без индексируемых filter pages, без canonical/noindex-сюрпризов;
