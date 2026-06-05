@@ -3104,7 +3104,6 @@ textarea.ui-field {
     gap: 0;
     margin-top: 1.5rem;
     border-top: 1px solid var(--border);
-    border-left: 1px solid var(--border);
 }
 
 .products-catalog__results {
@@ -3115,6 +3114,7 @@ textarea.ui-field {
 .products-filter {
     position: relative;
     border: 0;
+    border-left: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     background: var(--entry);
 }
