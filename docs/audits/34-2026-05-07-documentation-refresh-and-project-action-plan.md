@@ -14,7 +14,7 @@
 
 Проект уже имеет сильную базу:
 
-- Hugo `0.161.0`, Node `24`, Tailwind CSS 4 и Netlify зафиксированы в локальных и deploy-настройках.
+- Hugo `0.162.0`, Node `24.16.0`, Tailwind CSS 4.3 и Netlify зафиксированы в локальных и deploy-настройках.
 - Основной сайт двуязычный: `uk` как основной язык и `ru` как второй.
 - Контентная структура через page bundles уже подходит для SEO, изображений и локализации.
 - В `layouts/_partials/_schema` есть централизованный JSON-LD слой для `Website`, `Organization`, `Brand`, `CollectionPage`, `Product`, `Article`, `NewsArticle`, `FAQPage`, `BreadcrumbList`, `WebPage` и изображений.

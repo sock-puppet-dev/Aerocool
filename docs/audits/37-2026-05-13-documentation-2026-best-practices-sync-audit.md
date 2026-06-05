@@ -43,8 +43,8 @@
 
 | Область | Текущее Состояние | Статус |
 |---|---|---|
-| Hugo | `0.161.0` pinned in `mise.toml` and `netlify.toml` | OK; keep pinned until explicit upgrade task |
-| Node | `24` pinned locally and on Netlify | OK |
+| Hugo | `0.162.0` pinned in `mise.toml` and `netlify.toml` | OK; keep pinned until explicit upgrade task |
+| Node | `24.16.0` pinned locally and on Netlify | OK |
 | Tailwind | Tailwind CSS 4 via npm dependency and Hugo `css.TailwindCSS` | OK |
 | Netlify | Build remains `development/noindex` intentionally | OK for pre-production; production gate remains open |
 | SEO docs | Google SEO, SSG SEO, content, schema, entity and e-commerce docs exist | OK |
@@ -74,7 +74,7 @@
 | Product ratings source | Google rich result risk if rating source is not real/visible | Confirm source or remove/avoid `aggregateRating` |
 | ProductGroup | Entities are staged/planned | Add visible variant navigation before confirming |
 | AI Search baseline | Needs production index and real prompt monitoring | Start monthly baseline after launch |
-| Hugo `0.161.1`+ | Project pins `0.161.0` for reproducibility | Evaluate upgrade separately, do not drift silently |
+| Future Hugo releases | Project pins `0.162.0` for reproducibility | Evaluate upgrades separately, do not drift silently |
 
 ## 5. Соответствие Лучшим Практикам
 
@@ -110,7 +110,7 @@ The current CWV layer is aligned with 2026 metrics:
 
 ### Hugo / Tailwind
 
-The documentation is aligned with Hugo 0.161-era behavior:
+The documentation is aligned with Hugo 0.162-era behavior:
 
 - Tailwind remains an npm dependency;
 - standalone Tailwind CLI is not used as project workflow;

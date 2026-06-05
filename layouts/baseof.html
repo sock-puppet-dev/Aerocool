@@ -14,7 +14,7 @@
 {{- if not $sectionClass -}}
   {{- $pathParts := split (strings.TrimPrefix "/" .RelPermalink) "/" -}}
   {{- $firstPart := index $pathParts 0 | default "" -}}
-  {{- if and (eq $firstPart .Language.Lang) (gt (len $pathParts) 1) -}}
+  {{- if and (eq $firstPart .Language.Name) (gt (len $pathParts) 1) -}}
     {{- $sectionClass = index $pathParts 1 -}}
   {{- else -}}
     {{- $sectionClass = $firstPart -}}

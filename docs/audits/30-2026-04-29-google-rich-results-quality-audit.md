@@ -48,11 +48,11 @@ npm run build
 
 Результат:
 
-- Hugo: `v0.161.0`
-- Pages: `50` UK, `48` RU
-- Paginator pages: `7` UK, `7` RU
+- Hugo: `v0.162.0`
+- Pages: `62` UK, `60` RU
+- Paginator pages: `9` UK, `9` RU
 - Aliases: `8` UK, `7` RU
-- Processed images: `296`
+- Processed images: `793`
 - Build: успешный
 
 ## Инвентаризация

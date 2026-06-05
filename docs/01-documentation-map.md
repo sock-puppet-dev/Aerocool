@@ -93,7 +93,7 @@
 
 Аудиты читать после базовых документов. Они фиксируют историю решений и текущие риски.
 
-29. [audits/29-2026-04-29-hugo-0-161-compliance-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/29-2026-04-29-hugo-0-161-compliance-audit.md) — аудит совместимости с Hugo 0.161.0.
+29. [audits/29-2026-04-29-hugo-0-161-compliance-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/29-2026-04-29-hugo-0-161-compliance-audit.md) — архивный аудит совместимости с Hugo 0.161.0; текущий Hugo target см. в аудитах 56 и 66.
 30. [audits/30-2026-04-29-google-rich-results-quality-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/30-2026-04-29-google-rich-results-quality-audit.md) — аудит Google rich results качества.
 31. [audits/31-2026-05-06-content-depth-literary-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/31-2026-05-06-content-depth-literary-audit.md) — аудит глубины и литературной обработки `content/`.
 32. [audits/32-2026-05-06-schemaapp-pdf-documentation-integration-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/32-2026-05-06-schemaapp-pdf-documentation-integration-audit.md) — интеграция выводов из SchemaApp PDF.
@@ -139,6 +139,8 @@
 ### Актуальные Hugo Аудиты
 
 56. [audits/56-2026-05-26-hugo-0-162-compliance-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/56-2026-05-26-hugo-0-162-compliance-audit.md) — аудит перехода проекта на Hugo 0.162.0, обновленных pins, сборки и deprecated language API cleanup.
+
+66. [audits/66-2026-06-05-hugo-0-162-documentation-full-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/66-2026-06-05-hugo-0-162-documentation-full-audit.md) — текущий полный аудит документации по Hugo 0.162.0: проверка pins, актуальных docs, архивных исключений и сборки на 2026-06-05.
 
 ### Текущие Schema/Entity Аудиты
 
