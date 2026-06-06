@@ -2,7 +2,7 @@
 title: "Игровое кресло для долгих сессий: что важнее дизайна"
 linkTitle: "Долгие игровые сессии"
 date: 2026-05-21T00:30:00+03:00
-lastmod: 2026-06-05
+lastmod: 2026-06-06
 slug: "gaming-chair-long-sessions"
 description: "Гид Aerocool по выбору игрового кресла для долгих сессий: двойная спинка, 11D, Synchronous Tilt, материалы Racer, Loft Air и Mesh, сценарии WING и XTAL."
 summary: "Объясняем, как выбирать игровое кресло Aerocool для длительных сессий по поддержке спины, рукам, материалу и реальному сценарию использования."
@@ -32,16 +32,16 @@ mentions_entities:
   - "racer-material"
   - "loft-air-material"
   - "mesh-material"
-image: "01-front.png"
+image: "01-front.webp"
 cover:
-  image: "01-front.png"
+  image: "01-front.webp"
   alt: "Игровое кресло Aerocool для долгих сессий за компьютером"
   relative: true
   hiddenInSingle: true
 ---
 
 {{< seo-image
-  src="01-front.png"
+  src="01-front.webp"
   width="1536"
   height="1024"
   alt="Игровое кресло Aerocool для долгих сессий за компьютером"

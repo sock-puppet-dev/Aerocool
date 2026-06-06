@@ -2,7 +2,7 @@
 title: "Крісло для постави й довгої роботи: вибір Aerocool без медичних обіцянок"
 linkTitle: "Крісло для постави"
 date: 2026-05-21T00:12:00+03:00
-lastmod: 2026-06-04
+lastmod: 2026-06-06
 slug: "chair-for-posture-and-long-work"
 description: "Практичний гайд Aerocool про вибір крісла для постави й довгої роботи: посадка, спинка, підлокітники, Synchronous Tilt, матеріали та серії SKY, WING і XTAL."
 summary: "Розбираємо, як вибрати крісло для довгої роботи й стабільнішої посадки без медичних обіцянок і рекламних спрощень."
@@ -35,16 +35,16 @@ mentions_entities:
   - "mesh-material"
   - "loft-air-material"
   - "racer-material"
-image: "01-front.png"
+image: "01-front.webp"
 cover:
-  image: "01-front.png"
+  image: "01-front.webp"
   alt: "Крісло Aerocool для довгої роботи й стабільної посадки"
   relative: true
   hiddenInSingle: true
 ---
 
 {{< seo-image
-  src="01-front.png"
+  src="01-front.webp"
   width="1536"
   height="1024"
   alt="Крісло Aerocool для довгої роботи й стабільної посадки"

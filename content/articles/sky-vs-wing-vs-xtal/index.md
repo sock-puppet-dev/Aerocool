@@ -2,7 +2,7 @@
 title: "Aerocool SKY, WING чи XTAL: повне порівняння серій крісел"
 linkTitle: "SKY, WING чи XTAL"
 date: 2026-05-21T01:00:00+03:00
-lastmod: 2026-06-05
+lastmod: 2026-06-06
 slug: "sky-vs-wing-vs-xtal"
 description: "Порівнюємо серії крісел Aerocool SKY, WING і XTAL за сценаріями роботи, home office, геймінгу, регулюваннями, матеріалами й конструкційною логікою."
 summary: "Допомагаємо вибрати між Aerocool SKY, WING і XTAL: яка серія краще підходить для офісу, home office, довгих сесій і практичного використання."
@@ -38,16 +38,16 @@ mentions_entities:
   - "mesh-material"
   - "sky-lite"
   - "sky-360"
-image: "01-front.png"
+image: "01-front.webp"
 cover:
-  image: "01-front.png"
+  image: "01-front.webp"
   alt: "Порівняння серій крісел Aerocool SKY WING і XTAL"
   relative: true
   hiddenInSingle: true
 ---
 
 {{< seo-image
-  src="01-front.png"
+  src="01-front.webp"
   width="1536"
   height="1024"
   alt="Порівняння серій крісел Aerocool SKY WING і XTAL"

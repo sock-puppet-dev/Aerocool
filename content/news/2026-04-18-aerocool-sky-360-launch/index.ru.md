@@ -4,7 +4,7 @@ linkTitle: "SKY 360"
 description: "Обзор ключевых особенностей Aerocool SKY 360: 11D регулировка, подлокотники 3D X 360, 2D сиденье, стальная база и ролики TX3 65 мм."
 summary: "Обзор SKY 360 как старшего офисного и компьютерного кресла серии SKY с 11D и более глубокой настройкой посадки."
 date: 2026-04-18T10:00:00+03:00
-lastmod: 2026-05-18
+lastmod: 2026-06-06
 slug: "sky-360-launch"
 schema_types: ["website", "news", "organization", "breadcrumbs"]
 about_entities:
@@ -17,16 +17,16 @@ mentions_entities:
   - "synchronous-tilt"
   - "home-office"
   - "computer-chair"
-image: "01-front.png"
+image: "01-front.webp"
 cover:
-  image: "01-front.png"
+  image: "01-front.webp"
   alt: "Кресло Aerocool SKY 360 в каталоге Aerocool"
   relative: true
   hiddenInSingle: true
 ---
 
 {{< seo-image
-  src="01-front.png"
+  src="01-front.webp"
   width="1536"
   height="1024"
   alt="Кресло Aerocool SKY 360 в каталоге Aerocool"

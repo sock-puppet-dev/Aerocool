@@ -4,7 +4,7 @@ linkTitle: "Старт SKY"
 description: "Официальный анонс серии Aerocool SKY в Украине: модели SKY Lite и SKY 360, Synchronous Tilt, регулируемая поясничная поддержка и вентилируемая поверхность."
 summary: "Запуск серии SKY в Украине: офисные и компьютерные кресла Lite и 360 для работы, home office и ежедневного использования."
 date: 2026-04-15T10:00:00+03:00
-lastmod: 2026-05-18
+lastmod: 2026-06-06
 slug: "sky-series-launch"
 schema_types: ["website", "news", "organization", "breadcrumbs"]
 about_entities:
@@ -15,16 +15,16 @@ mentions_entities:
   - "office-chair"
   - "computer-chair"
   - "home-office"
-image: "01-front.png"
+image: "01-front.webp"
 cover:
-  image: "01-front.png"
+  image: "01-front.webp"
   alt: "Запуск серии Aerocool SKY Lite и SKY 360 в Украине"
   relative: true
   hiddenInSingle: true
 ---
 
 {{< seo-image
-  src="01-front.png"
+  src="01-front.webp"
   width="1536"
   height="1024"
   alt="Запуск серии Aerocool SKY Lite и SKY 360 в Украине"

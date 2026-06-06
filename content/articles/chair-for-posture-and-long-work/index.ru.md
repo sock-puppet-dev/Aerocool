@@ -2,7 +2,7 @@
 title: "Кресло для осанки и долгой работы: выбор Aerocool без медицинских обещаний"
 linkTitle: "Кресло для осанки"
 date: 2026-05-21T00:12:00+03:00
-lastmod: 2026-06-04
+lastmod: 2026-06-06
 slug: "chair-for-posture-and-long-work"
 description: "Практический гид Aerocool о выборе кресла для осанки и долгой работы: посадка, спинка, подлокотники, Synchronous Tilt, материалы и серии SKY, WING и XTAL."
 summary: "Разбираем, как выбрать кресло для долгой работы и более устойчивой посадки без медицинских обещаний и рекламных упрощений."
@@ -35,16 +35,16 @@ mentions_entities:
   - "mesh-material"
   - "loft-air-material"
   - "racer-material"
-image: "01-front.png"
+image: "01-front.webp"
 cover:
-  image: "01-front.png"
+  image: "01-front.webp"
   alt: "Кресло Aerocool для долгой работы и устойчивой посадки"
   relative: true
   hiddenInSingle: true
 ---
 
 {{< seo-image
-  src="01-front.png"
+  src="01-front.webp"
   width="1536"
   height="1024"
   alt="Кресло Aerocool для долгой работы и устойчивой посадки"

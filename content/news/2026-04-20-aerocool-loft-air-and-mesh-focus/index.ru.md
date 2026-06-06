@@ -4,7 +4,7 @@ linkTitle: "Loft Air и Mesh"
 description: "Aerocool подчеркивает различия между Loft Air и Mesh в сериях WING и XTAL и объясняет, кому подойдет каждый формат поверхности."
 summary: "Объяснение разницы между Loft Air и Mesh в WING и XTAL для выбора офисного, компьютерного или home office кресла."
 date: 2026-04-20T10:00:00+03:00
-lastmod: 2026-05-18
+lastmod: 2026-06-06
 slug: "loft-air-and-mesh-focus"
 schema_types: ["website", "news", "organization", "breadcrumbs"]
 about_entities:
@@ -20,16 +20,16 @@ mentions_entities:
   - "office-chair"
   - "computer-chair"
   - "home-office"
-image: "01-front.png"
+image: "01-front.webp"
 cover:
-  image: "01-front.png"
+  image: "01-front.webp"
   alt: "Поверхности Aerocool Loft Air и Mesh для кресел"
   relative: true
   hiddenInSingle: true
 ---
 
 {{< seo-image
-  src="01-front.png"
+  src="01-front.webp"
   width="1536"
   height="1024"
   alt="Поверхности Aerocool Loft Air и Mesh для кресел"

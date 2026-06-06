@@ -2,7 +2,7 @@
 title: "Aerocool SKY Lite или SKY 360: какое кресло для работы выбрать"
 linkTitle: "SKY Lite или SKY 360"
 date: 2026-04-04T10:00:00+03:00
-lastmod: 2026-05-21
+lastmod: 2026-06-06
 slug: "sky-lite-vs-sky-360"
 description: "Детальное сравнение офисных и компьютерных кресел Aerocool SKY Lite и SKY 360: разница в регулировках, подлокотниках, базе, роликах и сценариях работы."
 summary: "Объясняем, чем отличаются офисные и компьютерные кресла SKY Lite и SKY 360 и кому подходит каждая модель."
@@ -24,16 +24,16 @@ mentions_entities:
   - "office-chair"
   - "computer-chair"
   - "home-office"
-image: "01-front.png"
+image: "01-front.webp"
 cover:
-  image: "01-front.png"
+  image: "01-front.webp"
   alt: "Сравнение кресел Aerocool SKY Lite и SKY 360"
   relative: true
   hiddenInSingle: true
 ---
 
 {{< seo-image
-  src="01-front.png"
+  src="01-front.webp"
   width="1536"
   height="1024"
   alt="Сравнение кресел Aerocool SKY Lite и SKY 360"

@@ -4,7 +4,7 @@ linkTitle: "Старт XTAL"
 description: "Офіційний анонс серії Aerocool XTAL: конструкція зі змінними елементами, можливість окремо замінити подушки, 3D підлокітники з подушками та Synchronous Tilt."
 summary: "Запуск серії XTAL: ергономічні й ігрові крісла з конструкцією зі змінними елементами, Synchronous Tilt і варіантами Racer, Loft Air, Mesh."
 date: 2026-04-17T10:00:00+03:00
-lastmod: 2026-05-18
+lastmod: 2026-06-06
 slug: "xtal-series-launch"
 schema_types: ["website", "news", "organization", "breadcrumbs"]
 about_entities:
@@ -22,16 +22,16 @@ mentions_entities:
   - "gaming-chair"
   - "computer-chair"
   - "synchronous-tilt"
-image: "01-front.png"
+image: "01-front.webp"
 cover:
-  image: "01-front.png"
+  image: "01-front.webp"
   alt: "Запуск серії Aerocool XTAL"
   relative: true
   hiddenInSingle: true
 ---
 
 {{< seo-image
-  src="01-front.png"
+  src="01-front.webp"
   width="1536"
   height="1024"
   alt="Запуск серії Aerocool XTAL"

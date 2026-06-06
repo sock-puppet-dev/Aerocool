@@ -2,7 +2,7 @@
 title: "7D, 8D чи 11D: як кількість регулювань впливає на вибір крісла Aerocool"
 linkTitle: "7D, 8D чи 11D"
 date: 2026-04-12T10:00:00+03:00
-lastmod: 2026-05-21
+lastmod: 2026-06-06
 slug: "how-to-choose-chair-by-adjustability"
 description: "Розбираємо, що означають 7D, 8D і 11D у кріслах Aerocool та як правильно вибирати модель за кількістю регулювань."
 summary: "Пояснюємо, коли достатньо 7D або 8D, а коли є сенс переходити на 11D."
@@ -27,16 +27,16 @@ mentions_entities:
   - "synchronous-tilt"
   - "sync4-mechanism"
   - "sync5-mechanism"
-image: "01-front.png"
+image: "01-front.webp"
 cover:
-  image: "01-front.png"
+  image: "01-front.webp"
   alt: "7D, 8D і 11D регулювання в кріслах Aerocool"
   relative: true
   hiddenInSingle: true
 ---
 
 {{< seo-image
-  src="01-front.png"
+  src="01-front.webp"
   width="1536"
   height="1024"
   alt="7D, 8D і 11D регулювання в кріслах Aerocool"

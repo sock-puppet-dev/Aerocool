@@ -4,7 +4,7 @@ linkTitle: "Новые гиды выбора"
 description: "Aerocool Украина обновляет раздел статей новыми гидами о выборе кресла для работы за компьютером, home office, долгих игровых сессий и сравнении SKY, WING и XTAL."
 summary: "В разделе статей Aerocool появился новый набор практических гидов для выбора между SKY, WING и XTAL по реальным сценариям использования."
 date: 2026-05-21T01:10:00+03:00
-lastmod: 2026-06-05
+lastmod: 2026-06-06
 slug: "aerocool-chair-selection-guides-update"
 schema_types: ["website", "news", "organization", "breadcrumbs"]
 about_entities:
@@ -19,16 +19,16 @@ mentions_entities:
   - "office-chair"
   - "computer-chair"
   - "home-office"
-image: "01-front.png"
+image: "01-front.webp"
 cover:
-  image: "01-front.png"
+  image: "01-front.webp"
   alt: "Новые гиды Aerocool по выбору кресел SKY WING и XTAL"
   relative: true
   hiddenInSingle: true
 ---
 
 {{< seo-image
-  src="01-front.png"
+  src="01-front.webp"
   width="1536"
   height="1024"
   alt="Новые гиды Aerocool по выбору кресел SKY WING и XTAL"

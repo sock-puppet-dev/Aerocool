@@ -2,7 +2,7 @@
 title: "Fully replaceable design у Aerocool XTAL: що означають змінні елементи"
 linkTitle: "Змінні елементи XTAL"
 date: 2026-05-21T00:50:00+03:00
-lastmod: 2026-06-05
+lastmod: 2026-06-06
 slug: "what-is-fully-replaceable-design"
 description: "Пояснюємо, що означає конструкція зі змінними елементами у кріслах Aerocool XTAL, як вона пов'язана з подушками, 7D, Synchronous Tilt і практичним використанням."
 summary: "Гайд про конструкцію зі змінними елементами Aerocool XTAL: кому вона потрібна, як порівнювати XTAL з WING і SKY та який матеріал вибрати."
@@ -32,16 +32,16 @@ mentions_entities:
   - "xtal-racer-dark-grey"
   - "xtal-loft-air-dark-grey"
   - "xtal-mesh-black"
-image: "01-front.png"
+image: "01-front.webp"
 cover:
-  image: "01-front.png"
+  image: "01-front.webp"
   alt: "Конструкція зі змінними елементами у кріслі Aerocool XTAL"
   relative: true
   hiddenInSingle: true
 ---
 
 {{< seo-image
-  src="01-front.png"
+  src="01-front.webp"
   width="1536"
   height="1024"
   alt="Конструкція зі змінними елементами у кріслі Aerocool XTAL"

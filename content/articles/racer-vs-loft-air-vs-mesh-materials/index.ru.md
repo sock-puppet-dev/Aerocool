@@ -2,7 +2,7 @@
 title: "Racer, Loft Air или Mesh: какую поверхность кресла Aerocool выбрать"
 linkTitle: "Racer, Loft Air или Mesh"
 date: 2026-04-08T10:00:00+03:00
-lastmod: 2026-05-31
+lastmod: 2026-06-06
 slug: "racer-vs-loft-air-vs-mesh"
 description: "Объясняем разницу между поверхностями Racer, Loft Air и Mesh в креслах Aerocool: контакт, вентиляция, уход и сценарии использования."
 summary: "Разбор выбора между Racer, Loft Air и Mesh для серий WING и XTAL."
@@ -24,16 +24,16 @@ mentions_entities:
   - "office-chair"
   - "computer-chair"
   - "home-office"
-image: "01-front.png"
+image: "01-front.webp"
 cover:
-  image: "01-front.png"
+  image: "01-front.webp"
   alt: "Поверхности Racer, Loft Air и Mesh в креслах Aerocool"
   relative: true
   hiddenInSingle: true
 ---
 
 {{< seo-image
-  src="01-front.png"
+  src="01-front.webp"
   width="1536"
   height="1024"
   alt="Поверхности Racer, Loft Air и Mesh в креслах Aerocool"

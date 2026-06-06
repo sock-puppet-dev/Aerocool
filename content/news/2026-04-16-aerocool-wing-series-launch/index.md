@@ -4,7 +4,7 @@ linkTitle: "Старт WING"
 description: "Офіційний запуск серії Aerocool WING: подвійна спинка, 11D регулювання, підлокітники 4D X 360 та моделі Racer, Loft Air, Mesh."
 summary: "Запуск серії WING: ігрові та комп'ютерні крісла з 11D, подвійна спинка і трьома форматами поверхні."
 date: 2026-04-16T10:00:00+03:00
-lastmod: 2026-06-01
+lastmod: 2026-06-06
 slug: "wing-series-launch"
 schema_types: ["website", "news", "organization", "breadcrumbs"]
 about_entities:
@@ -23,16 +23,16 @@ mentions_entities:
   - "office-chair"
   - "home-office"
   - "sync5-mechanism"
-image: "01-front.png"
+image: "01-front.webp"
 cover:
-  image: "01-front.png"
+  image: "01-front.webp"
   alt: "Запуск серії Aerocool WING"
   relative: true
   hiddenInSingle: true
 ---
 
 {{< seo-image
-  src="01-front.png"
+  src="01-front.webp"
   width="1536"
   height="1024"
   alt="Запуск серії Aerocool WING"

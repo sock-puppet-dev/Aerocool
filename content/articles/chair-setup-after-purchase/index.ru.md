@@ -2,7 +2,7 @@
 title: "Как настроить кресло Aerocool после покупки: посадка, высота и наклон"
 linkTitle: "Настройка кресла"
 date: 2026-05-21T00:14:00+03:00
-lastmod: 2026-06-04
+lastmod: 2026-06-06
 slug: "chair-setup-after-purchase"
 description: "Пошаговый гид по настройке кресла Aerocool после покупки: высота, глубина сиденья, подлокотники, спинка, Synchronous Tilt, материалы и проверка посадки."
 summary: "Практическая инструкция, как настроить кресло Aerocool под рабочий стол, руки, спину и долгий день после покупки."
@@ -35,16 +35,16 @@ mentions_entities:
   - "mesh-material"
   - "loft-air-material"
   - "racer-material"
-image: "01-front.png"
+image: "01-front.webp"
 cover:
-  image: "01-front.png"
+  image: "01-front.webp"
   alt: "Настройка кресла Aerocool после покупки"
   relative: true
   hiddenInSingle: true
 ---
 
 {{< seo-image
-  src="01-front.png"
+  src="01-front.webp"
   width="1536"
   height="1024"
   alt="Настройка кресла Aerocool после покупки"

@@ -2,7 +2,7 @@
 title: "Dual backrest в Aerocool WING: что такое двойная спинка"
 linkTitle: "Dual backrest"
 date: 2026-05-21T00:40:00+03:00
-lastmod: 2026-06-05
+lastmod: 2026-06-06
 slug: "what-is-dual-backrest"
 description: "Объясняем, что означает dual backrest в креслах Aerocool WING, как двойная спинка связана с поддержкой посадки, 11D регулировкой и долгой работой за компьютером."
 summary: "Гид по двойной спинке Aerocool WING: для чего она нужна, кому подходит и как сравнивать ее с SKY и XTAL."
@@ -32,16 +32,16 @@ mentions_entities:
   - "wing-racer-black"
   - "wing-loft-air-dark-grey"
   - "wing-mesh-black"
-image: "01-front.png"
+image: "01-front.webp"
 cover:
-  image: "01-front.png"
+  image: "01-front.webp"
   alt: "Двойная спинка Dual backrest в кресле Aerocool WING"
   relative: true
   hiddenInSingle: true
 ---
 
 {{< seo-image
-  src="01-front.png"
+  src="01-front.webp"
   width="1536"
   height="1024"
   alt="Двойная спинка Dual backrest в кресле Aerocool WING"

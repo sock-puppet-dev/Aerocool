@@ -2,7 +2,7 @@
 title: "Що таке Synchronous Tilt у кріслах Aerocool і чому цей механізм важливий"
 linkTitle: "Synchronous Tilt"
 date: 2026-04-10T10:00:00+03:00
-lastmod: 2026-05-21
+lastmod: 2026-06-06
 slug: "what-is-synchronous-tilt"
 description: "Пояснюємо, як працює Synchronous Tilt у кріслах Aerocool, чому він важливий для тривалого сидіння і в яких серіях використовується."
 summary: "Гайд про Synchronous Tilt у серіях SKY, WING і XTAL та його вплив на щоденний комфорт."
@@ -17,16 +17,16 @@ mentions_entities:
   - "office-chair"
   - "computer-chair"
   - "home-office"
-image: "01-front.png"
+image: "01-front.webp"
 cover:
-  image: "01-front.png"
+  image: "01-front.webp"
   alt: "Synchronous Tilt у кріслах Aerocool"
   relative: true
   hiddenInSingle: true
 ---
 
 {{< seo-image
-  src="01-front.png"
+  src="01-front.webp"
   width="1536"
   height="1024"
   alt="Synchronous Tilt у кріслах Aerocool"

@@ -2,7 +2,7 @@
 title: "Як вибрати крісло для home office: SKY, WING чи XTAL"
 linkTitle: "Крісло для home office"
 date: 2026-05-21T00:20:00+03:00
-lastmod: 2026-06-05
+lastmod: 2026-06-06
 slug: "best-chair-for-home-office"
 description: "Гайд Aerocool про вибір крісла для home office: як підібрати серію SKY, WING або XTAL під роботу вдома, відеодзвінки, довгі сесії та щоденний комфорт."
 summary: "Пояснюємо, яке крісло Aerocool краще підходить для home office залежно від площі кімнати, тривалості роботи, матеріалу й потрібного рівня регулювань."
@@ -29,16 +29,16 @@ mentions_entities:
   - "mesh-material"
   - "loft-air-material"
   - "racer-material"
-image: "01-front.png"
+image: "01-front.webp"
 cover:
-  image: "01-front.png"
+  image: "01-front.webp"
   alt: "Крісло Aerocool для home office та роботи вдома"
   relative: true
   hiddenInSingle: true
 ---
 
 {{< seo-image
-  src="01-front.png"
+  src="01-front.webp"
   width="1536"
   height="1024"
   alt="Крісло Aerocool для home office та роботи вдома"

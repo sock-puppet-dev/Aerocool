@@ -2,7 +2,7 @@
 title: "Як вибрати крісло Aerocool для роботи, home office та геймінгу"
 linkTitle: "Вибір крісла"
 date: 2026-04-14T10:00:00+03:00
-lastmod: 2026-05-21
+lastmod: 2026-06-06
 slug: "how-to-choose-aerocool-chair"
 description: "Практичний гайд про вибір ігрового, офісного або комп'ютерного крісла Aerocool: як співвіднести серії SKY, WING і XTAL зі своїм сценарієм роботи, home office і геймінгу."
 summary: "Пояснюємо, як вибрати ігрове, офісне або комп'ютерне крісло Aerocool не за картинкою, а за механікою, матеріалом і сценарієм використання."
@@ -26,16 +26,16 @@ mentions_entities:
   - "racer-material"
   - "loft-air-material"
   - "mesh-material"
-image: "01-front.png"
+image: "01-front.webp"
 cover:
-  image: "01-front.png"
+  image: "01-front.webp"
   alt: "Вибір крісла Aerocool для роботи, home office та геймінгу"
   relative: true
   hiddenInSingle: true
 ---
 
 {{< seo-image
-  src="01-front.png"
+  src="01-front.webp"
   width="1536"
   height="1024"
   alt="Вибір крісла Aerocool для роботи, home office та геймінгу"

@@ -2,7 +2,7 @@
 title: "Крісло для роботи за комп'ютером: як вибрати Aerocool на повний день"
 linkTitle: "Крісло для роботи"
 date: 2026-05-21T00:10:00+03:00
-lastmod: 2026-06-05
+lastmod: 2026-06-06
 slug: "chair-for-computer-work"
 description: "Практичний гайд про вибір крісла Aerocool для роботи за комп'ютером: як оцінити посадку, спинку, підлокітники, матеріал і серії SKY, WING та XTAL."
 summary: "Пояснюємо, як вибрати офісне або комп'ютерне крісло Aerocool для повного робочого дня без зайвої плутанини в характеристиках."
@@ -32,16 +32,16 @@ mentions_entities:
   - "mesh-material"
   - "loft-air-material"
   - "racer-material"
-image: "01-front.png"
+image: "01-front.webp"
 cover:
-  image: "01-front.png"
+  image: "01-front.webp"
   alt: "Крісло Aerocool для роботи за комп'ютером протягом повного дня"
   relative: true
   hiddenInSingle: true
 ---
 
 {{< seo-image
-  src="01-front.png"
+  src="01-front.webp"
   width="1536"
   height="1024"
   alt="Крісло Aerocool для роботи за комп'ютером протягом повного дня"
