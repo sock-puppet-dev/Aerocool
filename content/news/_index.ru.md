@@ -19,7 +19,7 @@ cover:
   alt: "Новости Aerocool в Украине о сериях SKY, WING и XTAL"
   relative: true
   hiddenInSingle: true
-lastmod: 2026-06-01
+lastmod: 2026-06-06
 summary: "Официальные новости Aerocool о запуске серий, отдельных моделях и обновлении каталога в Украине."
 ---
 

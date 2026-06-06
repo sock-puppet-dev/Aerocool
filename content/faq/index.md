@@ -5,7 +5,7 @@ slug: "faq"
 date: 2025-08-05T10:00:00+03:00
 description: "FAQ Aerocool в Україні: серії SKY, WING і XTAL, матеріали Racer, Loft Air і Mesh, Synchronous Tilt, гарантія, доставка, оплата й повернення."
 summary: "Практичний FAQ про крісла Aerocool: серії, матеріали, налаштування, сервіс і допомога з вибором."
-lastmod: 2026-06-04
+lastmod: 2026-06-06
 schema_types: ["website", "faq", "organization", "breadcrumbs"]
 about_entities:
   - "faq-page"
