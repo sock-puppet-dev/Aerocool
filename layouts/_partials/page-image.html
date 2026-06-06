@@ -13,11 +13,11 @@
   {{- end -}}
 {{- else -}}
   {{- if in $schemaTypes "product" -}}
-    {{- "images/default-product.jpg" | absURL -}}
+    {{- "images/default-product.webp" | absURL -}}
   {{- else if in $schemaTypes "news" -}}
-    {{- "images/default-news.jpg" | absURL -}}
+    {{- "images/default-news.webp" | absURL -}}
   {{- else if in $schemaTypes "article" -}}
-    {{- "images/default-article.jpg" | absURL -}}
+    {{- "images/default-article.webp" | absURL -}}
   {{- else -}}
     {{- "cover.webp" | absURL -}}
   {{- end -}}

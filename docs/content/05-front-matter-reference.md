@@ -1,6 +1,6 @@
 # Руководство По Полям Метаданных Страницы
 
-Обновлено: 2026-05-21.
+Обновлено: 2026-06-06.
 
 В проекте `Aerocool` использовать только поле `schema_types`. Поле `schema_type` не используется.
 
@@ -329,9 +329,9 @@ summary: ""
 date: 2026-04-22T10:00:00+03:00
 lastmod: 2026-04-30T10:00:00+03:00
 slug: "<slug>"
-image: "01-front.png"
+image: "01-front.webp"
 cover:
-  image: "01-front.png"
+  image: "01-front.webp"
   alt: "Тема статті Aerocool <TOPIC>"
   relative: true
   hiddenInSingle: true
@@ -339,7 +339,7 @@ schema_types: ["website", "article", "organization", "breadcrumbs"]
 ---
 ```
 
-Текущий стандарт для статей — локальная обложка `01-front.png` в папке страницы, `image + cover.image` во front matter и вывод изображения через shortcode `seo-image` в начале тела. Если `image`, `cover.image` и `seo-image src` совпадают, а `cover.hiddenInSingle: true`, главный image preload выводится в `<head>`. Если первое `seo-image` использует нестандартный `sizes`, добавить такой же `seo_image_sizes` во front matter. Fallback на `images/default-article.jpg` допустим только как запасной сценарий, если локальной обложки действительно нет.
+Текущий стандарт для статей — локальная обложка `01-front.webp` в папке страницы, `image + cover.image` во front matter и вывод изображения через shortcode `seo-image` в начале тела. Если `image`, `cover.image` и `seo-image src` совпадают, а `cover.hiddenInSingle: true`, главный image preload выводится в `<head>`. Если первое `seo-image` использует нестандартный `sizes`, добавить такой же `seo_image_sizes` во front matter. Fallback на `images/default-article.webp` допустим только как запасной сценарий, если локальной обложки действительно нет.
 Для проекта `Aerocool` основная постоянно актуальная статья обычно должна иметь `10000+` знаков основного текста на каждую языковую версию.
 Добор до `10000+` знаков должен быть редакционным, а не механическим: добавлять сценарии выбора, критерии, сравнения, практические проверки, FAQ и полезные внутренние ссылки.
 `description` и `summary` у статьи должны помогать покрывать не только бренд, но и релевантный широкий кластер: `игровое кресло`, `офисное кресло`, `компьютерное кресло`, `кресло для работы`, `home office`.
@@ -358,9 +358,9 @@ summary: ""
 date: 2026-04-22T10:00:00+03:00
 lastmod: 2026-04-30T10:00:00+03:00
 slug: "<slug>"
-image: "01-front.png"
+image: "01-front.webp"
 cover:
-  image: "01-front.png"
+  image: "01-front.webp"
   alt: "Новина Aerocool про <MODEL/SERIES>"
   relative: true
   hiddenInSingle: true
