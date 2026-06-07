@@ -1,6 +1,6 @@
 # Aerocool Ukraine
 
-Обновлено: 2026-06-05.
+Обновлено: 2026-06-07.
 
 `Aerocool Ukraine` — двуязычный маркетинговый и каталоговый сайт на `Hugo` для кресел Aerocool в Украине. Основной язык — украинский (`uk`), второй язык — русский (`ru`). Сайт собирается статически, деплоится через `Netlify` и использует локальные Hugo overrides поверх темы `PaperMod`.
 
@@ -18,6 +18,8 @@
 Для текущих задач по JSON-LD, schema.org, Entity Registry, `about_entities`, `mentions_entities`, `ProductGroup`, `sameAs` и graph-аудиту читать `docs/seo/23-entity-registry-2026.md`, `docs/seo/26-json-ld-graph-audit-roadmap-2026.md` и актуальный аудит `docs/audits/57-2026-05-31-schema-entity-full-audit-current.md`. Для ручной проверки через `validator.schema.org` использовать [docs/seo/60-schema-validator-url-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/60-schema-validator-url-checklist-2026.md).
 
 Для текущих задач по UX/UI, Tailwind Plus секциям, Tailwind CSS 4.3 visual layer, компонентам, каталогу, фильтрам и визуальной структуре страниц читать [docs/architecture/51-tailwind-plus-ui-section-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/51-tailwind-plus-ui-section-map-2026.md) и актуальный повторный полный аудит [docs/audits/65-2026-06-05-full-ux-ui-revalidation-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/65-2026-06-05-full-ux-ui-revalidation-audit.md). Для screenshot/evidence деталей использовать предыдущий полный visual audit [docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md).
+
+Для текущих задач по любым изображениям проекта - обложкам, fallback-картинкам, home hero, product gallery, inline-иллюстрациям, техническим схемам, AI-промптам и повторяемому high-tech стилю - читать [docs/content/67-image-design-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/67-image-design-playbook-2026.md).
 
 Проще говоря: `content/` отвечает за текст и данные страниц, `layouts/` отвечает за HTML/SEO/schema-логику, `assets/` отвечает за CSS/JS, а PageSpeed Insights используется для ручной проверки качества опубликованных URL.
 
@@ -537,7 +539,7 @@ git checkout dev
 
 1. `README.md` — главный вход в проект.
 2. `AGENTS.md` — правила безопасной работы для Codex/агентов.
-3. [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-65`.
+3. [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-67`.
 4. [docs/architecture/02-documentation-style-guide.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/02-documentation-style-guide.md) — стандарт русскоязычной, понятной и структурированной документации.
 5. [docs/architecture/03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md) — локальные Hugo helpers и partials.
 6. [docs/content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md) — поля front matter для страниц.
@@ -548,7 +550,7 @@ git checkout dev
 
 - `01` — карта документации.
 - `02-04` — архитектура и шаблонный слой.
-- `05-11` — контент, изображения и шаблоны материалов.
+- `05-11` и `67` — контент, изображения, обложки, AI-промпты и шаблоны материалов.
 - `12-14` — Core Web Vitals, PageSpeed Insights и production quality-gate.
 - `15-17` — локальные инструменты, Netlify routing и review-инфраструктура.
 - `18-28` — SEO, schema.org, Entity Registry и structured data.
