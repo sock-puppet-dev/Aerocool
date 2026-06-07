@@ -65,12 +65,8 @@
     Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self' data:; connect-src 'self'; manifest-src 'self'; worker-src 'self'; trusted-types aerocool-service-worker; require-trusted-types-for 'script'; upgrade-insecure-requests"
 
 # Netlify Lighthouse Build Plugin
-# Проверяет production URL сайта после деплоя.
-# Используем url, а не path, чтобы Lighthouse проверял конкретный публичный адрес.
+# Используем дефолтную конфигурацию Netlify, потому что кастомный summary/output_path
+# сейчас не формируется корректно на @netlify/plugin-lighthouse@6.0.1.
 
 [[plugins]]
   package = "@netlify/plugin-lighthouse"
-
-  [plugins.inputs.audits]
-    path = "/"
-    output_path = "reports/lighthouse-home.html"
