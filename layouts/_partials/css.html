@@ -5,13 +5,17 @@
 */}}
 
 {{- with resources.Get "css/main.css" }}
-    {{- /* Настройки для Tailwind: минификация отключается в режиме разработки (IsDevelopment) для удобства отладки. */ -}}
-    {{ $opts := dict "minify" (not hugo.IsDevelopment) }}
+    {{- /* В hugo server оставляем CSS читаемым, а опубликованные development/production builds минифицируем. */ -}}
+    {{ $opts := dict "minify" (not hugo.IsServer) }}
     {{ with . | css.TailwindCSS $opts }}
         {{- /* Fingerprint нужен и в development: без него браузер может держать старый /css/main.css,
              из-за чего новые Tailwind utilities и локальные component-классы визуально "не работают". */ -}}
-        {{ with . | fingerprint }}
+        {{- if site.Params.assets.inlineCSS }}
+            <style>{{ .Content | safeCSS }}</style>
+        {{- else }}
+        {{- with . | fingerprint }}
             <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
-        {{ end }}
+        {{- end }}
+        {{- end }}
     {{ end }}
 {{ end }}

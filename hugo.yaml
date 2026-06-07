@@ -198,6 +198,9 @@ params:
     safari_pinned_tab: "/safari-pinned-tab.svg"
     # Включает добавление хэшей к именам файлов для кэширования.
     disableFingerprinting: false
+    # Встраивает собранный CSS в <head>, чтобы убрать render-blocking CSS requests в PageSpeed.
+    # Если понадобится вернуть внешний кэшируемый CSS, переключить на false.
+    inlineCSS: true
   # Настройка блока socialIcons
   socialIcons:
     - name: youtube
