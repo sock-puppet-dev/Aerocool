@@ -1,0 +1,14 @@
+{{- $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) -}}
+{{- $pageImageID := printf "%s#primary-image" $pageURL -}}
+{{- $images := slice (dict "@id" $pageImageID) -}}
+{{- $schemaTypes := .Params.schema_types | default (slice) -}}
+{{- $isArticleOrNews := or (in $schemaTypes "article") (in $schemaTypes "news") -}}
+{{- $imageName := .Params.image | default "" -}}
+{{- if and .IsPage $isArticleOrNews (eq $imageName "01-front.webp") -}}
+  {{- range slice "01-front-16x9.webp" "01-front-4x3.webp" "01-front-1x1.webp" -}}
+    {{- with $.Resources.GetMatch . -}}
+      {{- $images = $images | append .Permalink -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $images -}}

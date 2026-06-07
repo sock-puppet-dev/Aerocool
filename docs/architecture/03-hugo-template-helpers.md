@@ -105,6 +105,7 @@
    - `contact-page.html`
    - `logo.html`
    - `page-image-object.html`
+   - `page-image-list.html`
    - `product.html`
    - `article.html`
    - `news.html`
@@ -841,6 +842,17 @@
 - добавляет image license metadata через [image-license-metadata.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/image-license-metadata.html): `license`, `acquireLicensePage`, `creator`, `creditText`, `copyrightNotice`;
 - дает стабильный `@id` вида `#primary-image`, на который ссылаются `WebPage`, `Product`, `Article` и `NewsArticle`.
 
+### `page-image-list.html`
+
+Файл: [page-image-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/page-image-list.html)
+
+Что делает:
+
+- возвращает список изображений для `Article.image` и `NewsArticle.image`;
+- первым элементом оставляет ссылку на основной `ImageObject` через `#primary-image`;
+- для статей и новостей с `image: "01-front.webp"` автоматически добавляет page resources `01-front-16x9.webp`, `01-front-4x3.webp`, `01-front-1x1.webp`, если они существуют;
+- не требует новых front matter полей и не рассинхронизирует `index.md` / `index.ru.md`.
+
 ### `image-license-metadata.html`
 
 Файл: [image-license-metadata.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/image-license-metadata.html)
@@ -969,7 +981,8 @@
 
 Что делает:
 
-- строит `Article` schema для evergreen-материалов.
+- строит `Article` schema для evergreen-материалов;
+- берет `image` через [page-image-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/page-image-list.html), чтобы основной `ImageObject` и дополнительные crops **16:9**, **4:3**, **1:1** попадали в JSON-LD одним списком.
 
 ### `news.html`
 
@@ -977,7 +990,8 @@
 
 Что делает:
 
-- строит `NewsArticle` schema для новостей.
+- строит `NewsArticle` schema для новостей;
+- берет `image` через [page-image-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/page-image-list.html), чтобы основной `ImageObject` и дополнительные crops **16:9**, **4:3**, **1:1** попадали в JSON-LD одним списком.
 
 ### `faq.html`
 

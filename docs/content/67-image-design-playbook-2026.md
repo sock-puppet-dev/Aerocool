@@ -190,7 +190,13 @@ magick input.png -auto-orient -resize 2000x2000\> -strip -quality 86 product-det
 - `content/news/cover.webp`;
 - будущим section covers, category covers и fallback-файлам **1536x1024**.
 
-Для других aspect ratio, например **16:9**, **4:3**, **1:1** или портретного home hero, logo lockup не переносится механически. Сначала нужно определить безопасные поля, затем зафиксировать отдельные координаты и размер для конкретного формата.
+Для дополнительных schema crops используется отдельный утвержденный lockup:
+
+- **16:9** `1600x900`: logo **214x117 px**, координаты **x=35**, **y=31**;
+- **4:3** `1200x900`: logo **160x87 px**, координаты **x=27**, **y=27**;
+- **1:1** `1200x1200`: logo **160x87 px**, координаты **x=27**, **y=27**.
+
+Портретный home hero не использует механический перенос этих координат: для него safe area и logo/brand treatment утверждаются отдельно.
 
 ## 6. Где Хранить И Как Называть
 
@@ -342,18 +348,20 @@ Create a premium high-tech service-oriented Aerocool cover image. Dark graphite 
 
 ## 12. Google / Schema Ratios
 
-Текущий основной стандарт **1536x1024** хорош для карточек и editorial covers, но не закрывает все рекомендации для `Article` / `NewsArticle`.
+Основной стандарт **1536x1024** остается видимой editorial-обложкой, а для `Article` / `NewsArticle` дополнительно поддерживаются crop-варианты под search surfaces и schema.org.
 
-Для топовых статей и новостей целевой P2-набор:
+Для статей и новостей с `image: "01-front.webp"` стандартный bundle-набор такой:
 
 - `01-front.webp` - **1536x1024**, видимая обложка и текущий primary image;
-- `01-front-16x9.webp` - например **1600x900**;
-- `01-front-4x3.webp` - например **1200x900**;
-- `01-front-1x1.webp` - например **1200x1200**.
+- `01-front-16x9.webp` - **1600x900**;
+- `01-front-4x3.webp` - **1200x900**;
+- `01-front-1x1.webp` - **1200x1200**.
 
 Эти дополнительные файлы должны быть не случайными crop-ами, а проверенными композициями: логотип не обрезан, кресло читается, ключевой объект остается в фокусе.
 
-Для этих дополнительных ratio нельзя автоматически использовать координаты **x=34**, **y=34**, **205x112 px** из горизонтального **1536x1024** cover-стандарта. У каждого ratio должны быть свои безопасные поля и отдельный утвержденный logo lockup, иначе логотип может стать слишком крупным, мелким или попасть в зону crop.
+Schema layer подключает эти файлы автоматически через `layouts/_partials/_schema/page-image-list.html`: первым элементом остается основной `ImageObject` `#primary-image`, затем добавляются существующие `01-front-16x9.webp`, `01-front-4x3.webp` и `01-front-1x1.webp`. Новые front matter поля для этого не нужны.
+
+Для schema crops нельзя использовать координаты **x=34**, **y=34**, **205x112 px** из горизонтального **1536x1024** cover-стандарта. У каждого ratio есть свой safe-area lockup из раздела **5.6**, иначе логотип может стать слишком крупным, мелким или попасть в зону crop.
 
 ## 13. QA-Чеклист Изображения
 
@@ -365,6 +373,7 @@ Create a premium high-tech service-oriented Aerocool cover image. Dark graphite 
 - [ ] Изображение присутствует в HTML через `<img>` / `<picture>`, если оно важно для SEO.
 - [ ] У изображения есть `width`, `height`, `alt`, корректные `sizes` и правильный `loading`.
 - [ ] Для cover/category/fallback **1536x1024** логотип Aerocool взят из `static/images/logo.svg`, имеет raster-lockup **205x112 px** и стоит строго в позиции **x=34**, **y=34**.
+- [ ] Для article/news schema crops логотип соответствует отдельным safe-area координатам: **16:9** `214x117` на **x=35/y=31**, **4:3** и **1:1** `160x87` на **x=27/y=27**.
 - [ ] Логотип Aerocool не обрезан, не искажен, не перегорел и не выглядит как случайно сгенерированный текст.
 - [ ] Нет второго логотипа внизу слева, справа, по центру или в других местах изображения.
 - [ ] Бренд на кресле выглядит как часть материала, а не наклейка.
@@ -385,26 +394,25 @@ Create a premium high-tech service-oriented Aerocool cover image. Dark graphite 
 | Репрезентативность | Каждое изображение обязано раскрывать страницу, продукт, материал, механизм или раздел. | Google Image SEO рекомендует релевантные representative images и не полагаться на generic logo-only preview. | **9/10** |
 | HTML / crawlability | Важные изображения выводятся через `seo-image`, `<picture>` и front matter `image`. | Google рекомендует стандартные `<img>` / `<picture>`, crawlable URL, supported formats и metadata. | **9/10** |
 | Performance | WebP, responsive pipeline Hugo, `width/height`, lazy/eager, осторожный `fetchpriority`. | web.dev указывает, что изображения часто самый тяжелый ресурс; нужны proper sizing, `srcset`, `sizes`, dimensions, lazy loading и аккуратный LCP priority. | **8.8/10** |
-| Article/News ratios | Основной cover **3:2**, целевой P2 добавляет **16:9**, **4:3**, **1:1**. | Google Article structured data рекомендует несколько high-resolution images в **16:9**, **4:3**, **1:1**. | **7.8/10** сейчас, **9/10** после P2 |
+| Article/News ratios | Основной cover **3:2** дополнен schema crops **16:9**, **4:3**, **1:1**, которые автоматически попадают в `Article.image` и `NewsArticle.image`. | Google Article structured data рекомендует несколько high-resolution images в **16:9**, **4:3**, **1:1**. | **9/10** |
 | Product UX | Товарный слой отделен от editorial covers; задана будущая gallery и in-scale логика. | Baymard подчеркивает, что пользователи оценивают размер и свойства по product images; in-scale images критичны. | **7.5/10** сейчас, **9/10** после gallery |
 | Tactile/high-tech 2026 | Материалы, отражения, mesh, тиснение, cinematic technical scenes. | Canva 2026 выделяет tactile textures, cinematic storytelling и AI как controlled creative tool; Adobe 2026 усиливает multisensory и useful storytelling. | **9/10** |
 | AI-assisted governance | Есть master prompts, negative prompt, role matrix и дефект-чеклист. | Adobe/Canva тренды 2026 сходятся в том, что AI полезен, когда бренд сохраняет creative control. | **9/10** |
 | Риск однотипности | Введено правило разнообразия по роли изображения. | 2026-тренды уходят от стерильной шаблонности к tactile, характерному и смысловому визуалу. | **8.5/10** |
 
-Итоговая оценка регламента: **8.8 / 10**.
+Итоговая оценка регламента: **9.1 / 10**.
 
 Почему не **10/10**:
 
-- дополнительные **16:9**, **4:3**, **1:1** image variants для article/news еще не внедрены системно;
 - product gallery пока не закрывает все ракурсы, material close-ups и in-scale images;
 - нет автоматического QA-скрипта, который проверяет размеры, вес, наличие `cover.alt`, тяжелые PNG и повторяемость fallback-стиля;
 - AI-генерация логотипа и бренда на кресле требует ручного визуального контроля.
 
 Что поднимет стандарт до **9.5/10**:
 
-1. Добавить article/news image variants **16:9**, **4:3**, **1:1** для топовых URL.
-2. Расширить product gallery: front, side, back, material, mechanism, in-scale.
-3. Добавить скрипт аудита изображений по размеру, весу, формату и ссылкам в front matter.
+1. Расширить product gallery: front, side, back, material, mechanism, in-scale.
+2. Добавить скрипт аудита изображений по размеру, весу, формату и ссылкам в front matter.
+3. Для самых важных URL делать ручную art-direction версий **16:9**, **4:3**, **1:1**, если механический crop хуже раскрывает смысл страницы.
 4. Хранить утвержденные визуальные референсы и reject examples в отдельной папке для QA.
 
 ## 15. Что Не Делать

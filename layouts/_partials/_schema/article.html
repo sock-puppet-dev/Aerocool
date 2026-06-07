@@ -3,7 +3,7 @@
 {{- $pageLanguage := partial "page-language.html" . -}}
 {{- $websiteId := partial "page-website-id.html" . -}}
 {{- $pageURL := .Scratch.Get "pagePermalink" | default (.Permalink | absURL) -}}
-{{- $pageImageID := printf "%s#primary-image" $pageURL -}}
+{{- $pageImages := partial "_schema/page-image-list.html" . -}}
 {{- $datePublished := .Date.Format "2006-01-02T15:04:05Z07:00" -}}
 {{- $dateModified := .Lastmod.Format "2006-01-02T15:04:05Z07:00" -}}
 {{- $aboutRefs := partial "_schema/entity-ref-list.html" (dict "site" .Site "ids" (.Params.about_entities | default (slice))) -}}
@@ -14,7 +14,7 @@
   "mainEntityOfPage" (dict "@id" (printf "%s#webpage" $pageURL))
   "headline" .Title
   "description" (.Params.description | default .Summary | plainify)
-  "image" (dict "@id" $pageImageID)
+  "image" $pageImages
   "datePublished" $datePublished
   "dateModified" $dateModified
   "author" (dict "@id" (printf "%s#organization" (.Site.BaseURL | absURL)))
