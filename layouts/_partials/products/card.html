@@ -88,24 +88,31 @@
 {{- $coverAlt := $page.Params.cover.alt | default $cardTitle -}}
 {{- $imageSrc := "" -}}
 {{- $imageSrcset := slice -}}
-{{- $imageWidth := 480 -}}
-{{- $imageHeight := 320 -}}
+{{- $imageWidth := 384 -}}
+{{- $imageHeight := 256 -}}
+{{- $imageSizes := "(min-width: 1280px) 360px, (min-width: 1024px) 30vw, (min-width: 640px) 320px, calc(100vw - 2rem)" -}}
+{{- if $isProductCard -}}
+  {{- $imageSizes = "(min-width: 1280px) 220px, (min-width: 1024px) 24vw, (min-width: 640px) 300px, calc(100vw - 2rem)" -}}
+{{- end -}}
 {{- with $coverImage -}}
   {{- $cardImage := ($page.Resources.ByType "image").GetMatch (printf "*%s*" .) -}}
   {{- $globalImage := (resources.ByType "image").GetMatch (printf "*%s*" .) -}}
   {{- $image := or $cardImage $globalImage -}}
   {{- if and $image (in (slice "jpg" "jpeg" "png" "webp") $image.MediaType.SubType) -}}
-    {{- $fallbackWidth := 480 -}}
+    {{- $fallbackWidth := 384 -}}
+    {{- if $isProductCard -}}
+      {{- $fallbackWidth = 320 -}}
+    {{- end -}}
     {{- if lt $image.Width $fallbackWidth -}}
       {{- $fallbackWidth = $image.Width -}}
     {{- end -}}
-    {{- $fallback := $image.Resize (printf "%dx webp q82" $fallbackWidth) -}}
+    {{- $fallback := $image.Resize (printf "%dx webp q72" $fallbackWidth) -}}
     {{- $imageSrc = $fallback.RelPermalink -}}
     {{- $imageWidth = $fallback.Width -}}
     {{- $imageHeight = $fallback.Height -}}
-    {{- range slice 240 320 360 480 -}}
+    {{- range slice 240 320 360 384 480 -}}
       {{- if le . $image.Width -}}
-        {{- $variant := $image.Resize (printf "%dx webp q82" .) -}}
+        {{- $variant := $image.Resize (printf "%dx webp q72" .) -}}
         {{- $imageSrcset = $imageSrcset | append (printf "%s %dw" $variant.RelPermalink $variant.Width) -}}
       {{- end -}}
     {{- end -}}
@@ -136,7 +143,7 @@
     src="{{ . }}"
     {{- if $imageSrcset }}
     srcset="{{ delimit $imageSrcset ", " }}"
-    sizes="(min-width: 1280px) 384px, (min-width: 1024px) 30vw, (min-width: 640px) 320px, calc(100vw - 2rem)"
+    sizes="{{ $imageSizes }}"
     {{- end }}
     width="{{ $imageWidth }}"
     height="{{ $imageHeight }}"

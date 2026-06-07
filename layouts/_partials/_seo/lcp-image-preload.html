@@ -15,15 +15,15 @@ late duplicate next to the <img>.
 {{- if and .IsHome (not $isPaginatedIndexPage) -}}
   {{- with resources.Get "images/home-hero85.webp" -}}
     {{- $hero := . -}}
-    {{- $heroSizes := "(min-width: 1280px) 34vw, (min-width: 1024px) 30vw, (min-width: 640px) 320px, 45vw" -}}
+    {{- $heroSizes := "(min-width: 1280px) 24vw, (min-width: 1024px) 24vw, (min-width: 640px) 320px, 45vw" -}}
     {{- $heroSrcset := slice -}}
-    {{- range (slice 320 360 480 640 768 900 1023) -}}
+    {{- range (slice 240 320 360 480 640 768 900 1023) -}}
       {{- if le . $hero.Width -}}
-        {{- $variant := $hero.Resize (printf "%dx webp q82" .) -}}
+        {{- $variant := $hero.Resize (printf "%dx webp q72" .) -}}
         {{- $heroSrcset = $heroSrcset | append (printf "%s %dw" $variant.RelPermalink $variant.Width) -}}
       {{- end -}}
     {{- end -}}
-    {{- $heroPreload := $hero.Resize "480x webp q82" -}}
+    {{- $heroPreload := $hero.Resize "360x webp q72" -}}
     {{- $heroSrcsetAttr := delimit $heroSrcset ", " -}}
 <link
   rel="preload"
