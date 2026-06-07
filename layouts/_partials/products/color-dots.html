@@ -25,7 +25,7 @@
 {{- end -}}
 
 {{- if gt (len $colors) 0 -}}
-  <div class="product-color-dots" aria-label="{{ delimit $labels ", " }}">
+  <div class="product-color-dots" role="img" aria-label="{{ delimit $labels ", " }}">
     {{- range $colors }}
       <span class="product-color-dot product-color-dot--{{ . | anchorize }}"></span>
     {{- end }}
