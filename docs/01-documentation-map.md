@@ -144,7 +144,7 @@
 
 ### Регламент Обложек И AI-Промптов
 
-67. [content/67-image-design-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/67-image-design-playbook-2026.md) — общий регламент изображений проекта: визуальный ДНК, high-tech/tactile стиль, factual product layer, reusable AI prompts, negative prompt, дефект-чеклист, технические параметры WebP и сравнение с Google/web.dev/Baymard/Adobe/Canva практиками 2026.
+67. [content/67-image-design-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/67-image-design-playbook-2026.md) — общий регламент изображений проекта: визуальный ДНК, high-tech/tactile стиль, единый logo lockup для обложек, factual product layer, reusable AI prompts, negative prompt, дефект-чеклист, технические параметры WebP и сравнение с Google/web.dev/Baymard/Adobe/Canva практиками 2026.
 
 ### Текущие Schema/Entity Аудиты
 

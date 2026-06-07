@@ -174,6 +174,7 @@
 - `alt` и `cover.alt` должны быть описательными и соответствовать языку страницы. Для `cover.alt` лучше называть сущность или тему изображения, а не начинать с общей формулы вроде `Обложка` / `Обкладинка`.
 - В проекте уже есть шаблоны schema.org-разметки для `website`, `organization`, `brand`, `collection`, `article`, `news`, `product`, `faq` и `breadcrumbs`.
 - Для всех изображений использовать регламент `docs/content/67-image-design-playbook-2026.md`: high-tech/tactile стиль для обложек, fallback, section covers и hero; factual product standard для товарных фото и галерей; отдельные правила для inline-иллюстраций, технических схем, логотипа и favicon.
+- Для горизонтальных брендово-редакционных обложек **1536x1024** (`content/articles/**/01-front.webp`, `content/news/**/01-front.webp`, section covers и fallback) официальный логотип брать из `static/images/logo.svg` и держать единым lockup: **205x112 px**, позиция **x=34**, **y=34**. AI-сгенерированный логотип, другой размер/позиция и нижний дубль логотипа не допускаются.
 
 ## Шаблоны И Стили
 
