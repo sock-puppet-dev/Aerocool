@@ -88,14 +88,14 @@
 {{- $coverAlt := $page.Params.cover.alt | default $cardTitle -}}
 {{- $imageSrc := "" -}}
 {{- $imageSrcset := slice -}}
-{{- $imageWidth := 720 -}}
-{{- $imageHeight := 480 -}}
+{{- $imageWidth := 480 -}}
+{{- $imageHeight := 320 -}}
 {{- with $coverImage -}}
   {{- $cardImage := ($page.Resources.ByType "image").GetMatch (printf "*%s*" .) -}}
   {{- $globalImage := (resources.ByType "image").GetMatch (printf "*%s*" .) -}}
   {{- $image := or $cardImage $globalImage -}}
   {{- if and $image (in (slice "jpg" "jpeg" "png" "webp") $image.MediaType.SubType) -}}
-    {{- $fallbackWidth := 720 -}}
+    {{- $fallbackWidth := 480 -}}
     {{- if lt $image.Width $fallbackWidth -}}
       {{- $fallbackWidth = $image.Width -}}
     {{- end -}}
@@ -103,7 +103,7 @@
     {{- $imageSrc = $fallback.RelPermalink -}}
     {{- $imageWidth = $fallback.Width -}}
     {{- $imageHeight = $fallback.Height -}}
-    {{- range slice 360 480 720 1080 -}}
+    {{- range slice 240 320 360 480 -}}
       {{- if le . $image.Width -}}
         {{- $variant := $image.Resize (printf "%dx webp q82" .) -}}
         {{- $imageSrcset = $imageSrcset | append (printf "%s %dw" $variant.RelPermalink $variant.Width) -}}
@@ -136,7 +136,7 @@
     src="{{ . }}"
     {{- if $imageSrcset }}
     srcset="{{ delimit $imageSrcset ", " }}"
-    sizes="(min-width: 1280px) 20vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, calc(100vw - 2rem)"
+    sizes="(min-width: 1280px) 384px, (min-width: 1024px) 30vw, (min-width: 640px) 320px, calc(100vw - 2rem)"
     {{- end }}
     width="{{ $imageWidth }}"
     height="{{ $imageHeight }}"

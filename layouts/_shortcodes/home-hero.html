@@ -5,16 +5,16 @@
 {{- if not $hero -}}
   {{- errorf "home-hero: image 'assets/images/home-hero85.webp' not found" -}}
 {{- end -}}
-{{- $heroSizes := "(min-width: 1280px) 40vw, (min-width: 1024px) 40vw, (min-width: 640px) 560px, calc(100vw - 64px)" -}}
+{{- $heroSizes := "(min-width: 1280px) 34vw, (min-width: 1024px) 30vw, (min-width: 640px) 320px, 45vw" -}}
 {{- $heroSrcset := slice -}}
-{{- range (slice 360 480 640 768 900 1023) -}}
+{{- range (slice 320 360 480 640 768 900 1023) -}}
   {{- if le . $hero.Width -}}
     {{- $variant := $hero.Resize (printf "%dx webp q82" .) -}}
     {{- $heroSrcset = $heroSrcset | append (printf "%s %dw" $variant.RelPermalink $variant.Width) -}}
   {{- end -}}
 {{- end -}}
 {{- $heroSrcsetAttr := delimit $heroSrcset ", " -}}
-{{- $heroFallback := $hero.Resize "768x webp q82" -}}
+{{- $heroFallback := $hero.Resize "480x webp q82" -}}
 <section class="home-hero relative overflow-hidden bg-white">
   <div class="home-hero__inner mx-auto max-w-7xl lg:grid lg:grid-cols-5 lg:gap-x-4 lg:px-8">
     <div class="px-6 pt-4 pb-12 sm:pt-6 sm:pb-16 lg:col-span-3 lg:px-0 lg:pt-10 lg:pb-24">
