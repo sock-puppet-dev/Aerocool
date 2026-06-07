@@ -1788,7 +1788,10 @@ textarea.ui-field {
 }
 
 .home-hero__image {
-    object-position: left center;
+    padding: 1rem;
+    object-position: center center;
+    transform: scale(1.08);
+    transform-origin: center center;
 }
 
 @media (min-width: 1024px) {
@@ -1815,8 +1818,8 @@ textarea.ui-field {
     .home-hero__image {
         padding-right: 0;
         padding-left: 0;
-        transform: translateX(1%) scale(1.08);
-        transform-origin: left center;
+        transform: scale(1.08);
+        transform-origin: center center;
     }
 }
 
