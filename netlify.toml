@@ -71,6 +71,6 @@
 [[plugins]]
   package = "@netlify/plugin-lighthouse"
 
-  [[plugins.inputs.audits]]
-    url = "https://aerocool.ua/"
+  [plugins.inputs.audits]
+    path = "/"
     output_path = "reports/lighthouse-home.html"
