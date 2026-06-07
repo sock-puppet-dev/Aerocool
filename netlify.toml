@@ -63,3 +63,14 @@
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
     Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self' data:; connect-src 'self'; manifest-src 'self'; worker-src 'self'; trusted-types aerocool-service-worker; require-trusted-types-for 'script'; upgrade-insecure-requests"
+
+# Netlify Lighthouse Build Plugin
+# Проверяет production URL сайта после деплоя.
+# Используем url, а не path, чтобы Lighthouse проверял конкретный публичный адрес.
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+  [[plugins.inputs.audits]]
+    url = "https://aerocool.ua/"
+    output_path = "reports/lighthouse-home.html"
