@@ -5,14 +5,21 @@
 {{- $items = $items | append (dict "badge" "02" "title" (cond $isRu "Консультация по сценарию" "Консультація за сценарієм") "description" (cond $isRu "Подбор начинается с задач пользователя: работа, home office, гейминг, вентиляция, активная поддержка или спокойная посадка." "Підбір починається із задач користувача: робота, home office, геймінг, вентиляція, активна підтримка або спокійна посадка.")) -}}
 {{- $items = $items | append (dict "badge" "03" "title" (cond $isRu "Сервисная коммуникация в Украине" "Сервісна комунікація в Україні") "description" (cond $isRu "FAQ, контакты и страницы товаров помогают уточнить гарантию, доставку, наличие и вопросы после покупки." "FAQ, контакти і сторінки товарів допомагають уточнити гарантію, доставку, наявність і питання після покупки.")) -}}
 
-<section class="about-service-features mt-12" aria-labelledby="about-service-features-title">
-  <h2 id="about-service-features-title" class="ui-section-title">{{ $heading }}</h2>
-  <ul role="list" class="mt-8 grid grid-cols-1 gap-x-8 gap-y-8 lg:grid-cols-3">
+<section class="about-service-features mt-4 bg-aero-soft px-4 pb-12 sm:px-6 lg:px-8" aria-labelledby="about-service-features-title">
+  <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+    <div class="max-w-3xl">
+      <p class="ui-eyebrow">{{ cond $isRu "Сервис" "Сервіс" }}</p>
+      <h2 id="about-service-features-title" class="ui-section-title mt-2">{{ $heading }}</h2>
+    </div>
+  </div>
+  <ul role="list" class="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-3">
     {{- range $items }}
-    <li>
-      <div class="ui-badge">{{ .badge }}</div>
-      <h3 class="ui-card-title mt-4">{{ .title }}</h3>
-      <p class="ui-card-text mt-2">{{ .description }}</p>
+    <li class="flex min-h-44 flex-col items-start gap-2 rounded-lg bg-aero-surface p-7 shadow-aero-soft sm:p-8">
+      <div class="inline-flex h-8 min-w-12 items-center justify-center rounded-full border border-aero-accent-border bg-aero-accent-soft px-3 text-sm font-semibold text-aero-accent">{{ .badge }}</div>
+      <div>
+        <h3 class="ui-card-title">{{ .title }}</h3>
+        <p class="ui-card-text mt-3">{{ .description }}</p>
+      </div>
     </li>
     {{- end }}
   </ul>

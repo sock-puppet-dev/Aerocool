@@ -10,11 +10,11 @@
 {{- $items = $items | append (dict "term" (cond $isRu "База и ролики" "База і ролики") "description" (cond $isRu "Практические элементы, которые влияют на стабильность, перемещение и ежедневное ощущение от кресла." "Практичні елементи, які впливають на стабільність, переміщення і щоденне відчуття від крісла.")) -}}
 
 <section class="about-product-facts mt-12" aria-labelledby="about-product-facts-title">
-  <div class="max-w-3xl">
+  <div class="max-w-5xl">
     <h2 id="about-product-facts-title" class="ui-section-title">{{ $heading }}</h2>
     <p class="ui-body mt-3">{{ $intro }}</p>
   </div>
-  <dl class="mt-8 grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+  <dl class="mt-8 grid grid-cols-1 gap-x-10 gap-y-6 lg:grid-cols-2">
     {{- range $items }}
     <div class="border-t border-aero-border pt-5">
       <dt class="ui-card-title">{{ .term }}</dt>

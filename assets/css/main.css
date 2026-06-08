@@ -2560,12 +2560,38 @@ textarea.ui-field {
     .about-service-features
 ) li {
     margin: 0;
-    padding-left: 0;
 }
 
 .post-content .about-product-facts dl,
 .post-content .about-product-facts dd {
     margin: 0;
+}
+
+.post-content .about-product-facts dl {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem 2.5rem;
+}
+
+.post-content .about-product-facts dl > div {
+    min-width: 0;
+}
+
+.post-content .about-product-facts dt,
+.post-content .about-product-facts dd {
+    width: auto;
+    padding-inline-start: 0;
+}
+
+.post-content .about-product-facts dd ~ dd,
+.post-content .about-product-facts dt ~ dt {
+    margin-top: 0;
+}
+
+@media (min-width: 1024px) {
+    .post-content .about-product-facts dl {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 .post-content :where(

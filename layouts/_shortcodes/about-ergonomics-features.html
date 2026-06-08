@@ -7,20 +7,23 @@
 {{- $items = $items | append (dict "badge" "Arm" "title" (cond $isRu "Подлокотники" "Підлокітники") "description" (cond $isRu "1D, 3D, 3D X 360 и 4D X 360 закрывают разные рабочие места и сценарии." "1D, 3D, 3D X 360 і 4D X 360 закривають різні робочі місця і сценарії.")) -}}
 {{- $items = $items | append (dict "badge" "Mesh" "title" (cond $isRu "Материалы" "Матеріали") "description" (cond $isRu "Leatherette, Loft Air и Mesh меняют вентиляцию, контакт и простоту ухода." "Leatherette, Loft Air і Mesh змінюють вентиляцію, контакт і простоту догляду.")) -}}
 
-<section class="about-ergonomics-features mt-12" aria-labelledby="about-ergonomics-features-title">
-  <div class="max-w-3xl">
-    <h2 id="about-ergonomics-features-title" class="ui-section-title">{{ $heading }}</h2>
-    <p class="ui-body mt-3">{{ $intro }}</p>
+<section class="about-ergonomics-features mt-12 bg-aero-soft px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="about-ergonomics-features-title">
+  <div class="grid gap-8 lg:grid-cols-3 lg:gap-10">
+    <div class="lg:col-span-1">
+      <p class="ui-eyebrow">{{ cond $isRu "Эргономика" "Ергономіка" }}</p>
+      <h2 id="about-ergonomics-features-title" class="ui-section-title mt-2">{{ $heading }}</h2>
+      <p class="ui-body mt-4">{{ $intro }}</p>
+    </div>
+    <ul role="list" class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:col-span-2">
+      {{- range $items }}
+      <li class="flex min-h-44 flex-col items-start gap-2 rounded-lg bg-aero-surface p-7 shadow-aero-soft sm:p-8">
+        <div class="inline-flex h-8 min-w-12 items-center justify-center rounded-full border border-aero-accent-border bg-aero-accent-soft px-3 text-sm font-semibold text-aero-accent">{{ .badge }}</div>
+        <div>
+          <h3 class="ui-card-title">{{ .title }}</h3>
+          <p class="ui-card-text mt-3">{{ .description }}</p>
+        </div>
+      </li>
+      {{- end }}
+    </ul>
   </div>
-  <ul role="list" class="mt-8 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2">
-    {{- range $items }}
-    <li class="flex gap-x-4">
-      <div class="ui-badge mt-1 flex-none">{{ .badge }}</div>
-      <div>
-        <h3 class="ui-card-title">{{ .title }}</h3>
-        <p class="ui-card-text mt-1">{{ .description }}</p>
-      </div>
-    </li>
-    {{- end }}
-  </ul>
 </section>
