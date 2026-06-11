@@ -1,6 +1,7 @@
 # Аудит Синхронизации Документации С Hugo 0.163.0
 
 Дата аудита: 2026-06-11.
+Повторная проверка: 2026-06-12.
 
 Этот документ фиксирует текущую синхронизацию документации проекта после перехода project pin на `Hugo 0.163.0`.
 
@@ -26,12 +27,16 @@
 - `README.md`
 - `AGENTS.md`
 - `docs/deploy/15-local-tooling-mise.md`
+- `layouts/baseof.html`
+- `scripts/script_setup.sh`
 
 На момент аудита:
 
 - `mise.toml` фиксирует `hugo = "0.163.0"` и `node = "24.16.0"`;
 - `netlify.toml` фиксирует `HUGO_VERSION = "0.163.0"` и `NODE_VERSION = "24.16.0"`;
 - `package.json` фиксирует Tailwind CLI как npm-зависимость проекта.
+- `layouts/baseof.html` требует минимум `hugo.Version "0.163.0"`;
+- `scripts/script_setup.sh` в fallback-сообщении указывает `Hugo 0.163.0` и `Node 24.16.0`.
 
 ## 3. Что Обновлено В Документации
 
@@ -46,6 +51,8 @@
 - `docs/architecture/03-hugo-template-helpers.md`;
 - `docs/architecture/51-tailwind-plus-ui-section-map-2026.md`;
 - `docs/content/06-seo-image-shortcode.md`;
+- `layouts/baseof.html`;
+- `scripts/script_setup.sh`;
 - архивная пометка в `docs/audits/29-2026-04-29-hugo-0-161-compliance-audit.md`.
 
 Аудиты `30`, `34`, `37`, `39`, `56`, `57` и `66` остаются историческими снимками своего времени. Если внутри них встречается Hugo `0.162.0` или старые JSON-LD счетчики, это не текущая инструкция по версиям.
@@ -66,18 +73,41 @@ Standalone Tailwind CLI не использовать.
 
 ## 5. Проверки Для Подтверждения
 
-После обновления документации нужно выполнить:
+Контрольные команды:
 
 ```bash
-hugo version
+git ls-remote --tags https://github.com/gohugoio/hugo.git refs/tags/v0.163.0
+mise exec -- hugo version
 mise exec -- node --version
 npm ls tailwindcss @tailwindcss/cli @netlify/database --depth=0
+mise exec -- npm run build
 ./scripts/script_check.sh
 npm run entity:report
 npm run build:production
 ```
 
 Дополнительно проверить rendered JSON-LD в `public/**/*.html`: все `application/ld+json` scripts должны парситься без ошибок.
+
+Фактически выполнено 2026-06-12:
+
+- upstream tag: `refs/tags/v0.163.0`;
+- Hugo: `v0.163.0-4a9485336a3ff2cea07ab88e2a17ec34d5baaa6e`;
+- Node: `v24.16.0`;
+- npm: `11.13.0`;
+- `tailwindcss`: `4.3.0`;
+- `@tailwindcss/cli`: `4.3.0`;
+- `@netlify/database`: `1.0.0`;
+- `mise exec -- npm run build`: success;
+- `./scripts/script_check.sh`: success.
+
+Результаты development-сборки:
+
+- Pages: `62` UK, `60` RU;
+- Paginator pages: `9` UK, `9` RU;
+- Non-page files: `124` UK;
+- Static files: `17` UK, `17` RU;
+- Processed images: `834` UK;
+- Aliases: `8` UK, `7` RU.
 
 ## 6. Вывод
 
