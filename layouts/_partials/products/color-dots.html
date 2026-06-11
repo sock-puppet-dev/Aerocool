@@ -20,6 +20,21 @@
 {{- end -}}
 
 {{- if eq (len $colors) 0 -}}
+  {{- range (.Params.about_entities | default (slice)) -}}
+    {{- if eq (len $colors) 0 -}}
+      {{- with index $entities . -}}
+        {{- $color := .color | default "" -}}
+        {{- if $color -}}
+          {{- $colors = $colors | append $color -}}
+          {{- $seen = merge $seen (dict $color true) -}}
+          {{- $labels = $labels | append (humanize $color) -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if eq (len $colors) 0 -}}
   {{- $colors = $colors | append "not-specified" -}}
   {{- $labels = $labels | append (cond (eq .Language.Name "ru") "цвет не указан" "колір не вказано") -}}
 {{- end -}}
