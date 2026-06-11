@@ -93,20 +93,6 @@ characteristics:
   - label: "Вес изделия"
     value: "26.3 кг"
 ---
-{{< seo-image 
-  src="01-front.png"
-  width="2000"
-  height="2000"
-  alt="Кресло Aerocool XTAL Mesh Black"
-  title="Aerocool XTAL Mesh Black"
-  loading="eager"
-  preload=true
-  fetchpriority=high
-  class="w-full rounded-2xl"
-  sizes="(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
-/>}}
-
-
 ## Aerocool XTAL Mesh Black — эргономичное кресло серии XTAL
 
 **Aerocool XTAL Mesh Black** — это модель серии XTAL с поверхностью из вентилируемой сетки, 7D регулировкой, Synchronous Tilt и сбалансированной эргономической платформой.

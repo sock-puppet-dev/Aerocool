@@ -18,14 +18,14 @@
   {{- errorf "seo-image: loading for '%s' must be lazy or eager, got '%s' (%s)" $src $loading $pagePath -}}
 {{- end -}}
 
-{{- $fetchpriority := .Get "fetchpriority" | default (cond (eq $loading "eager") "high" "auto") -}}
+{{- $preload := eq (printf "%v" (.Get "preload" | default false)) "true" -}}
+{{- $fetchpriority := .Get "fetchpriority" | default (cond $preload "high" "auto") -}}
 {{- if not (in (slice "auto" "high" "low") $fetchpriority) -}}
   {{- errorf "seo-image: fetchpriority for '%s' must be auto, high, or low, got '%s' (%s)" $src $fetchpriority $pagePath -}}
 {{- end -}}
 
 {{- $defaultSizes := "(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)" -}}
 {{- $sizes := .Get "sizes" | default $defaultSizes -}}
-{{- $preload := eq (printf "%v" (.Get "preload" | default false)) "true" -}}
 {{- if and $preload (ne $loading "eager") -}}
   {{- errorf "seo-image: preload=true requires loading=\"eager\" for '%s' (%s)" $src $pagePath -}}
 {{- end -}}
@@ -59,11 +59,29 @@
   {{- errorf "seo-image: image '%s' not found in page bundle (%s)" $src $pagePath -}}
 {{- end -}}
 
-{{- $processableFormats := slice "jpg" "jpeg" "png" "webp" -}}
-{{- $isProcessable := in $processableFormats $img.MediaType.SubType -}}
+{{- $isProcessable := reflect.IsImageResourceProcessable $img -}}
 {{- $schemaTypes := .Page.Params.schema_types | default (slice) -}}
+{{- $isProductPage := and .Page.IsPage (in $schemaTypes "product") -}}
 {{- $isPrimaryContentPage := and .Page.IsPage (or (in $schemaTypes "article") (in $schemaTypes "news") (in $schemaTypes "product")) -}}
 {{- $headPreloadExpected := and $preload $isPrimaryContentPage ((.Page.Param "cover.hiddenInSingle") | default false) (eq $src (.Page.Params.image | default "")) -}}
+{{- if $preload -}}
+  {{- $preloadKey := printf "seoImagePreloadOrdinal:%d" .Ordinal -}}
+  {{- if not (.Page.Scratch.Get $preloadKey) -}}
+    {{- .Page.Scratch.Set $preloadKey true -}}
+    {{- $preloadCount := .Page.Scratch.Get "seoImagePreloadCount" | default 0 -}}
+    {{- $preloadCount = add $preloadCount 1 -}}
+    {{- .Page.Scratch.Set "seoImagePreloadCount" $preloadCount -}}
+    {{- if gt $preloadCount 1 -}}
+      {{- errorf "seo-image: only one preload=true image is allowed per page; duplicate found for '%s' (%s)" $src $pagePath -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if and $preload $isProductPage -}}
+  {{- errorf "seo-image: product pages preload the primary image via layouts/_partials/products/gallery.html; remove preload=true from '%s' (%s)" $src $pagePath -}}
+{{- end -}}
+{{- if and $preload $isPrimaryContentPage (ne $src (.Page.Params.image | default "")) -}}
+  {{- errorf "seo-image: preload=true image '%s' must match front matter image on primary content pages (%s)" $src $pagePath -}}
+{{- end -}}
 
 {{- if eq $img.MediaType.SubType "svg" }}
   {{- if and $preload (not $headPreloadExpected) }}
@@ -90,6 +108,10 @@
   </figure>
 {{- else if $isProcessable }}
 
+{{- $allowCrop := eq (printf "%v" (.Get "crop" | default false)) "true" -}}
+{{- if and (not $allowCrop) (ne (mul $img.Width $targetHeight) (mul $img.Height $targetWidth)) -}}
+  {{- errorf "seo-image: target ratio %dx%d would crop source image %dx%d for '%s'; use matching width/height or explicit crop=true (%s)" $targetWidth $targetHeight $img.Width $img.Height $src $pagePath -}}
+{{- end -}}
 {{- $fallback := $img.Fill (printf "%dx%d" $targetWidth $targetHeight) -}}
 {{- $webp := $img.Fill (printf "%dx%d webp q82" $targetWidth $targetHeight) -}}
 

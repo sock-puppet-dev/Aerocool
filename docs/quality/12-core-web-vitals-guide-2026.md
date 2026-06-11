@@ -1,6 +1,6 @@
 # Руководство по Core Web Vitals 2026 для Aerocool
 
-Обновлено: 2026-06-02.
+Обновлено: 2026-06-12.
 
 Этот документ собирает в одном месте правила Core Web Vitals для проекта `Aerocool Ukraine`: что проверять, какие пороги считать хорошими, где искать причины просадки и как исправлять типовые проблемы на Hugo / Netlify / Tailwind CSS 4.3 сайте.
 
@@ -157,8 +157,8 @@ LCP состоит из четырех частей:
 |---|---|
 | LCP image lazy-loaded | Для первого экрана ставить `loading="eager"` |
 | LCP image низкого приоритета | Для единственного главного изображения ставить `fetchpriority="high"` |
-| LCP image поздно обнаруживается | Использовать `preload=true` только для главной картинки первого экрана; для article/news/product он выводится в `<head>` |
-| Слишком тяжелое изображение | Использовать WebP output из `seo-image`, правильные размеры, responsive `srcset`; AVIF добавлять отдельным pipeline, если он реально нужен |
+| LCP image поздно обнаруживается | Для article/news использовать `preload=true` только на главной картинке первого экрана; для product LCP использовать front matter `image` и product gallery, preload выводится в `<head>` |
+| Слишком тяжелое изображение | Для article/news использовать WebP output из `seo-image`; для product использовать responsive output из `products/gallery.html`; AVIF добавлять отдельным pipeline, если он реально нужен |
 | Нет `sizes` | Задать `sizes` под реальную ширину рендера |
 | CSS блокирует отрисовку | Убирать лишние правила, держать Tailwind purge через Hugo paths |
 | JS блокирует первый экран | Не добавлять тяжелые скрипты в head, держать JS минимальным |
@@ -173,7 +173,8 @@ LCP состоит из четырех частей:
 | Поверхность | Файл |
 |---|---|
 | Главная hero | `layouts/_shortcodes/home-hero.html` |
-| Product/article image shortcode | `layouts/_shortcodes/seo-image.html` |
+| Article/news image shortcode | `layouts/_shortcodes/seo-image.html` |
+| Product primary image | `layouts/_partials/products/gallery.html` |
 | Правила shortcode | `docs/content/06-seo-image-shortcode.md` |
 | Cover/listing image | `layouts/_partials/cover.html` |
 | CSS первого экрана | `assets/css/main.css` |
@@ -237,7 +238,7 @@ LCP состоит из четырех частей:
 | Причина | Что делать |
 |---|---|
 | Изображение без размеров | Всегда задавать `width` и `height` или стабильный aspect ratio |
-| Cover/product image поздно меняет размер | Проверить `cover.image`, `seo-image`, CSS контейнера |
+| Cover/product image поздно меняет размер | Проверить `cover.image`, `seo-image` для article/news, `products/gallery.html` для product, CSS контейнера |
 | Font swap меняет высоту строк | Использовать аккуратные font stacks, `font-display: swap`, не перегружать шрифты |
 | Поздно вставленный баннер | Резервировать место заранее или не вставлять над контентом |
 | JS меняет высоту первого экрана | Не делать layout mutation до/над основным контентом |
@@ -260,21 +261,23 @@ LCP состоит из четырех частей:
 
 Изображения — главная зона риска для LCP и CLS.
 
-В текущей реализации `seo-image` для `jpg` / `jpeg` / `png` / `webp` генерирует `<picture>` с WebP `srcset` и fallback `<img>` в исходном формате. Для типовых `article`, `news` и `product` страниц, где `image` во front matter совпадает с первым `seo-image`, а `cover.hiddenInSingle: true`, LCP preload выводится в `<head>` через `layouts/_partials/_seo/lcp-image-preload.html`.
+В текущей реализации `seo-image` в Hugo `0.163.0` сначала проверяет ресурс через `reflect.IsImageResourceProcessable`, а затем генерирует `<picture>` с WebP `srcset` и fallback `<img>` в исходном формате. Для типовых `article` и `news` страниц, где `image` во front matter совпадает с первым `seo-image`, а `cover.hiddenInSingle: true`, LCP preload выводится в `<head>` через `layouts/_partials/_seo/lcp-image-preload.html`.
 
 Главная страница остается отдельным shortcode-исключением: `layouts/_shortcodes/home-hero.html` берет `assets/images/home-hero85.webp` как Hugo global image resource и сам выводит responsive `srcset`. Для `/` и `/ru/` тот же набор размеров preloads в `<head>` через `layouts/_partials/_seo/lcp-image-preload.html`.
 
-Важно: preload в `<head>` должен использовать тот же `sizes`, что и первое видимое изображение. Если у первого `seo-image` нестандартный `sizes`, задайте такой же `seo_image_sizes` во front matter.
+Товарные страницы тоже являются отдельным сценарием: первый видимый кадр выводит `layouts/_partials/products/gallery.html` из front matter `image`. На product pages не добавлять стартовый `seo-image` в markdown; preload для product LCP строится в `<head>` теми же responsive candidates и `sizes`, что и gallery.
 
-Для главного изображения первого экрана:
+Важно: preload в `<head>` должен использовать тот же `sizes`, что и первое видимое изображение. Если у первого article/news `seo-image` нестандартный `sizes`, задайте такой же `seo_image_sizes` во front matter. Для товаров `seo_image_sizes` не нужен, потому что product preload синхронизирован с gallery `sizes`.
+
+Для главного изображения первого экрана статьи или новости:
 
 ```md
 {{< seo-image
-  src="01-front.png"
-  width="2000"
-  height="2000"
-  alt="Кресло Aerocool SKY 360 — эргономичная модель с 11D регулировкой"
-  title="Aerocool SKY 360"
+  src="01-front.webp"
+  width="1536"
+  height="1024"
+  alt="Описательное alt-описание изображения на языке страницы"
+  title="Короткий title изображения"
   loading="eager"
   preload=true
   fetchpriority=high
@@ -304,13 +307,14 @@ LCP состоит из четырех частей:
 
 1. `width` и `height` обязательны.
 2. `loading="eager"` только для изображения первого экрана.
-3. `preload=true` только для главного LCP-кандидата.
+3. `preload=true` только для главного LCP-кандидата article/news.
 4. `fetchpriority=high` только для главного LCP-кандидата.
 5. `lazy` для всех вторичных изображений.
 6. `alt` и `title` локализовать для `uk` и `ru`.
 7. Не использовать `jsonld` в shortcode: schema image берется из front matter `image`.
 8. `sizes="100vw"` не использовать для контентной колонки, если изображение не занимает весь viewport. Для full-width картинки внутри текущего `.main` использовать проектный `sizes` из примера.
-9. AVIF сейчас не генерируется Hugo pipeline проекта; текущий рабочий слой — WebP + fallback. AVIF добавлять только отдельным pipeline, если для него есть реальная задача.
+9. Primary product image выводится через `products/gallery.html`, а не через markdown `seo-image`.
+10. AVIF сейчас не является отдельным output-слоем проекта; текущий рабочий слой — WebP + fallback. AVIF добавлять только отдельным pipeline, если для него есть реальная задача.
 
 ## 10. CSS, Tailwind И Шрифты
 
@@ -394,7 +398,7 @@ https://pagespeed.web.dev/
 - service worker/cache;
 - mobile отдельно от desktop.
 
-Обычно первый фикс: привести главное изображение к стандарту `seo-image` или поправить `home-hero`.
+Обычно первый фикс: для article/news привести главное изображение к стандарту `seo-image`, для product проверить `products/gallery.html`, для главной поправить `home-hero`.
 
 ### INP Выше Цели
 
@@ -450,7 +454,7 @@ https://pagespeed.web.dev/
 - [ ] В PageSpeed Insights и browser console нет ошибок загрузки ресурсов или CSP.
 - [ ] LCP image не lazy-loaded.
 - [ ] Только один главный LCP preload на странице.
-- [ ] Главный LCP preload находится в `<head>`, если страница следует стандарту `image + cover.hiddenInSingle + seo-image`.
+- [ ] Главный LCP preload находится в `<head>`, если страница следует стандарту `image + cover.hiddenInSingle + seo-image` для article/news или `image + cover.hiddenInSingle + products/gallery.html` для product.
 - [ ] Все видимые изображения имеют `width` / `height` или стабильный aspect ratio.
 - [ ] Вторичные изображения lazy-loaded.
 - [ ] Нет layout shifts от header, cards, fonts или late content.

@@ -1,6 +1,6 @@
 # Шаблон Страницы Товара
 
-Обновлено: 2026-05-19.
+Обновлено: 2026-06-12.
 
 Использовать для новых карточек товаров в `content/products/<series>/<model>/index.md` и `index.ru.md`.
 
@@ -57,19 +57,6 @@ payment_methods:             # необязательно
 ## Структура Текста
 
 ```md
-{{< seo-image
-  src="<image-file>"
-  width="2000"
-  height="2000"
-  alt="Кресло Aerocool <MODEL> — краткое точное описание"
-  title="Aerocool <MODEL> — краткий SEO-дружественный заголовок"
-  loading="eager"
-  preload=true
-  fetchpriority=high
-  class="w-full rounded-2xl"
-  sizes="(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
-/>}}
-
 **Aerocool <MODEL>** — это ...
 
 ## Ключевые преимущества
@@ -154,16 +141,19 @@ payment_methods:             # необязательно
 ...
 ```
 
-Для `index.md` использовать локальные URL вида `/products/...`, `/contact/`. Для `index.ru.md` использовать `/ru/products/...`, `/ru/contact/`. Если shortcode `seo-image` вставляется и в перевод, локализовать `alt` и `title`; параметр `jsonld` не добавлять.
+Для `index.md` использовать локальные URL вида `/products/...`, `/contact/`. Для `index.ru.md` использовать `/ru/products/...`, `/ru/contact/`. Если вторичное inline-изображение позже вставляется через `seo-image` и в перевод, локализовать `alt` и `title`; параметр `jsonld` не добавлять.
 
 Текущий рабочий паттерн для product pages:
 
 - `image` — для SEO, OG, Twitter и schema;
 - `cover.image` — для preview в листингах;
-- `seo-image` — для основного изображения в теле страницы.
+- `products/gallery.html` — для основного видимого изображения и дополнительных кадров page bundle.
 
-Для первого товарного изображения сохранять полный LCP-набор из шаблона: `loading="eager"`, `preload=true`, `fetchpriority=high` и проектный `sizes` под `.main`. Shortcode сам создаст WebP `srcset` и fallback; отдельный `jsonld` в shortcode не добавлять.
-Если первое изображение использует нестандартный `sizes`, добавить такой же `seo_image_sizes` во front matter.
+Если `image` или fallback `cover.image` указывает на отсутствующий файл либо на ресурс, который Hugo не может обработать как processable image, product gallery должна остановить сборку. Это правильное поведение: лучше получить build error, чем production-страницу с битой LCP-картинкой.
+
+Первое товарное изображение не вставлять через shortcode `seo-image`. Товарный шаблон сам берет `image` из front matter, выводит первый кадр через [layouts/_partials/products/gallery.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/gallery.html), ставит `loading="eager"` и `fetchpriority="high"`, а [layouts/_partials/_seo/lcp-image-preload.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/lcp-image-preload.html) выводит matching responsive preload в `<head>` с gallery `sizes`.
+
+Если в описании товара позже нужна вторичная inline-иллюстрация, ее можно добавить через `seo-image`, но только как lazy image: `loading="lazy"`, `preload=false`, `fetchpriority=auto`.
 
 ## Редакционные Правила
 

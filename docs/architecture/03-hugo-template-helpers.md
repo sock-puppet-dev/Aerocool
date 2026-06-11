@@ -1,6 +1,6 @@
 # Руководство по шаблонным helper-файлам Hugo
 
-Обновлено: 2026-06-05.
+Обновлено: 2026-06-12.
 
 ## Зачем Нужен Этот Документ
 
@@ -165,10 +165,10 @@
 ## Быстрая Карта Product Helpers
 
 - [layouts/_partials/products/card.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/card.html) — товарная карточка для `/products/`, страниц серий, home-блоков и related-блоков. Выводит изображение, название, цену, наличие, rating summary при approved отзывах, color dots и product facts. Для фильтров и сортировки добавляет `data-product-*`: title, price, rating, order, series, material, adjustment, mechanism и availability. Поддерживает флаг `showSeriesInTitle`: в root-каталоге карточка показывает серию в названии товара, например `WING Mesh Black` и `XTAL Mesh Black`, а на страницах конкретных серий сохраняет короткий `linkTitle`, например `Mesh Black`.
-- [layouts/_partials/products/color-dots.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/color-dots.html) — компактные цветовые точки в карточках товаров. Это визуальный сигнал вариантов, а не замена отдельным variant URL.
+- [layouts/_partials/products/color-dots.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/color-dots.html) — компактные цветовые точки в карточках товаров. Для товаров с реальными вариантами главный источник — `product_group_id` и `data/entities.yaml`; если группы нет, helper берет `color` из главной product entity через `about_entities`. Это визуальный сигнал цвета в листинге, а не замена отдельным variant URL и не причина добавлять искусственный `product_group_id` одиночным товарам.
 - [layouts/_partials/products/filters.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/filters.html) — static-first фильтры каталога. На `/products/` показывает группы серии, материала, регулировок, механизма и наличия; на страницах конкретной серии скрывает группу серии. Фильтры не меняют URL и не создают индексируемые filter pages.
 - [layouts/_partials/products/sort.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/sort.html) — сортировка каталога: по названию, рейтингу, цене от дешевых и цене от дорогих. Работает вместе с фильтрами через `assets/js/site.js`.
-- [layouts/_partials/products/gallery.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/gallery.html) — товарная галерея на детальной странице товара. Первый кадр берет из `image` во front matter, остальные изображения из page bundle товара выводит как компактные миниатюры. Большие изображения получают responsive WebP `srcset`; первый кадр грузится eager/fetchpriority high, дополнительные кадры и миниатюры — lazy.
+- [layouts/_partials/products/gallery.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/gallery.html) — товарная галерея на детальной странице товара. Первый кадр берет из `image` во front matter и является видимым product LCP-кандидатом; остальные изображения из page bundle товара выводит как компактные миниатюры. Большие изображения получают responsive WebP `srcset`; первый кадр грузится eager/fetchpriority high, дополнительные кадры и миниатюры — lazy. Primary product image не вставляется через `seo-image` в markdown.
 - [layouts/_partials/products/variant-swatches.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/variant-swatches.html) — видимый выбор цвета/варианта товара. Список вариантов строит из `product_group_id` и `data/entities.yaml` только для реальных ProductGroup с несколькими вариантами, находит страницы текущего языка и выводит swatches как ссылки на соседние variant URL. Одиночные товары без соседних вариантов не получают `product_group_id`.
 
 Важно по единому UI-слою:
@@ -736,18 +736,21 @@
 Что делает:
 
 - выводит ранний responsive preload для главного изображения первого экрана;
-- работает только для типовых `article`, `news` и `product` страниц;
-- использует `image` из front matter, если `cover.hiddenInSingle: true` и первое видимое `seo-image` использует тот же файл;
+- работает для home hero, типовых `article`, `news` и `product` страниц;
+- для главной страницы использует Hugo global image resource `assets/images/home-hero85.webp` и те же `sizes`, что [home-hero.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero.html);
+- для статей и новостей использует `image` из front matter, если `cover.hiddenInSingle: true` и первое видимое `seo-image` использует тот же файл;
+- для товаров использует `image` из front matter и синхронизируется с [products/gallery.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/gallery.html), а не с markdown `seo-image`;
 - генерирует WebP `imagesrcset`, `imagesizes`, `type="image/webp"` и `fetchpriority="high"`;
-- берет `imagesizes` из `seo_image_sizes`, если поле задано во front matter, иначе использует проектный default для `.main`;
-- дополняет shortcode `seo-image`, который в этом сценарии не дублирует body-level preload.
+- берет `imagesizes` из `seo_image_sizes` только для статей и новостей, если поле задано во front matter; для товаров используются gallery `sizes`;
+- дополняет shortcode `seo-image` на article/news страницах, чтобы shortcode не дублировал body-level preload.
 
 Когда идти сюда:
 
 - если LCP-картинка не начинает грузиться из `<head>`;
-- если нужно изменить общий `sizes` для первого контентного изображения;
-- если у первого `seo-image` нестандартный `sizes` и нужно синхронизировать его с `seo_image_sizes`;
-- если меняется стандарт `image + cover.hiddenInSingle + seo-image`.
+- если нужно изменить общий `sizes` для первого article/news изображения;
+- если у первого article/news `seo-image` нестандартный `sizes` и нужно синхронизировать его с `seo_image_sizes`;
+- если меняется product gallery `sizes` или стандарт `image + cover.hiddenInSingle + products/gallery`;
+- если меняется стандарт `image + cover.hiddenInSingle + seo-image` для статей и новостей.
 
 ### `_seo/jsonld.html`
 

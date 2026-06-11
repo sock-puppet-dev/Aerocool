@@ -1,6 +1,6 @@
 # Карта Ключевых Слов 2026
 
-Актуально на 2026-05-21.
+Актуально на 2026-06-12.
 
 Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md). Карта ключей остается редакционным инструментом: она помогает покрывать интенты, но не заменяет people-first content, Search Essentials, Core Web Vitals и production-мониторинг.
 
@@ -130,6 +130,7 @@
 - `о бренде aerocool`
 - `гарантия aerocool`
 - `доставка aerocool`
+- `права на использование изображений aerocool`
 
 ## Мастер-Кластеры Проекта
 
@@ -383,6 +384,8 @@
 | `content/about/index.ru.md` | доверие | `о бренде aerocool`, `кресла aerocool украина` | `sky`, `wing`, `xtal`, `эргономика` |
 | `content/contact/index.md` | контакты | `контакти aerocool`, `купити крісло aerocool` | `консультація`, `доставка`, `гарантія` |
 | `content/contact/index.ru.md` | контакты | `контакты aerocool`, `купить кресло aerocool` | `консультация`, `доставка`, `гарантия` |
+| `content/image-license/index.md` | права на изображения | `права на використання зображень aerocool` | `ImageObject license`, `acquireLicensePage`, `Aerocool Ukraine`, `письмовий дозвіл` |
+| `content/image-license/index.ru.md` | права на изображения | `права на использование изображений aerocool` | `ImageObject license`, `acquireLicensePage`, `Aerocool Ukraine`, `письменное разрешение` |
 
 ## Что Уже Усилено В Этом Проходе
 
@@ -395,7 +398,7 @@
 - карточки товаров `SKY`, `WING`, `XTAL` в `uk/ru`
 - хаб статей `uk/ru`
 - ключевые гайды и статьи-сравнения
-- поддерживающие страницы `FAQ`, `About`, `Contact` в `uk/ru`
+- поддерживающие страницы `FAQ`, `About`, `Contact`, `Image License` в `uk/ru`
 
 Дополнительно в этом проходе:
 
@@ -403,6 +406,7 @@
 - все 9 ключевых новостей и хаб новостей заведены в карту ключей
 - слой статей и новостей усилен под широкое коммерческое покрытие, а не только под брендовые запросы о запусках
 - CSV-база расширена до аналитического формата: добавлены `target_scope`, `funnel_stage`, `business_value` и поля для будущего импорта Google Search Console
+- страницы `/image-license/` и `/ru/image-license/` заведены как support/legal URL, а не как коммерческие посадочные
 
 Главная цель этого обновления: убрать перекос только в брендовые запросы и запросы по функциям, а также добавить системное покрытие широких коммерческих кластеров:
 

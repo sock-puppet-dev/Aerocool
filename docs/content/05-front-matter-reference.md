@@ -1,6 +1,6 @@
 # Руководство По Полям Метаданных Страницы
 
-Обновлено: 2026-06-06.
+Обновлено: 2026-06-12.
 
 В проекте `Aerocool` использовать только поле `schema_types`. Поле `schema_type` не используется.
 
@@ -114,7 +114,7 @@ related_articles:
 
 `cover.alt` — локализованное описание темы или объекта изображения. Не писать пустой `alt`, не использовать keyword list и не начинать формулировку с “Обложка/Обкладинка”, если можно назвать саму сущность: модель, серию, раздел, FAQ, поиск или тему статьи.
 
-`seo_image_sizes` — необязательный override для head-preload главного контентного изображения. Поле нужно только тогда, когда первое видимое `seo-image` на странице использует нестандартный `sizes`. Если его не задать, [lcp-image-preload.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/lcp-image-preload.html) использует проектный default для `.main`: `(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)`.
+`seo_image_sizes` — необязательный override для head-preload главного контентного изображения статьи или новости. Поле нужно только тогда, когда первое видимое `seo-image` на странице использует нестандартный `sizes`. Если его не задать, [lcp-image-preload.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/lcp-image-preload.html) использует проектный default для `.main`: `(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)`. Для товарных страниц это поле не нужно: product LCP обслуживает [products/gallery.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/gallery.html) с собственным gallery `sizes`.
 
 Если у служебной, taxonomy или иной системной страницы нет собственного `image`, helper `page-image.html` использует root `cover.webp` как общий meaningful fallback.
 
@@ -129,7 +129,7 @@ cover:
   hiddenInSingle: true
 ```
 
-Если первое видимое `seo-image` не использует проектный default `sizes`, добавить отдельное поле на верхнем уровне front matter:
+Если первое видимое `seo-image` статьи или новости не использует проектный default `sizes`, добавить отдельное поле на верхнем уровне front matter:
 
 ```yaml
 seo_image_sizes: "(min-width: 848px) 800px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
@@ -426,7 +426,9 @@ characteristics:             # видимая вкладка "Характери
 ---
 ```
 
-`image` отвечает за SEO/OG/schema, а `cover.image` — за preview-карточки в листингах. Для большинства product pages в текущем проекте нужны оба поля сразу. Если `image`, `cover.image` и `seo-image src` совпадают, а `cover.hiddenInSingle: true`, главный product image preload выводится в `<head>`. Если первое `seo-image` использует нестандартный `sizes`, добавить такой же `seo_image_sizes` во front matter.
+`image` отвечает за SEO/OG/schema и за первый видимый кадр товарной gallery, а `cover.image` — за preview-карточки в листингах. Для большинства product pages в текущем проекте нужны оба поля сразу. Если `image`, `cover.image` и `cover.hiddenInSingle: true` совпадают с проектным стандартом, главный product image preload выводится в `<head>` и использует те же responsive candidates и `sizes`, что [layouts/_partials/products/gallery.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/gallery.html). Стартовый `seo-image` в markdown товара не добавлять.
+
+Product gallery должна получить реальный processable image resource из page bundle. Если файл из `image` или fallback `cover.image` отсутствует либо не поддерживает Hugo image processing, сборка останавливается, чтобы не выпустить битое LCP-изображение и не рассинхронизировать видимую страницу с SEO/OG/schema.
 
 Галерея товарной страницы собирается из изображений page bundle. Первым кадром всегда идет `image` из front matter, остальные файлы изображений рядом с товаром становятся дополнительными миниатюрами в галерее. Для дополнительных фото не нужно добавлять отдельное front matter поле: достаточно положить файл в папку товара и дать ему понятное имя. Если дополнительных файлов нет, товар показывает только основной кадр без пустой ленты миниатюр.
 
@@ -447,6 +449,8 @@ characteristics:             # видимая вкладка "Характери
 `review_target_id` — стабильный ID объекта отзывов. Для украинской и русской версии одного товара он должен быть одинаковым. Лучше использовать человекочитаемый slug модели, например `sky-lite`, а не URL. Это защищает отзывы от потери связи при изменении адреса страницы.
 
 Выбор цвета на товарной странице строится из `product_group_id` и `data/entities.yaml`: шаблон берет варианты реальной ProductGroup, находит страницы текущего языка и выводит swatches со ссылками на соседние цветовые варианты. Ручной список цветов в front matter товара не добавлять. Одиночные товары без соседних вариантов не получают `product_group_id`, поэтому блок выбора цвета для них не выводится.
+
+Цветовые точки в карточках товаров строятся похожим, но более компактным способом. Для товаров с реальными вариантами [layouts/_partials/products/color-dots.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/color-dots.html) сначала использует `product_group_id` и показывает цвета вариантов группы. Если `product_group_id` нет, partial берет `color` из главной product entity страницы через `about_entities` и [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml). Поэтому одиночным товарам не нужно добавлять искусственный `product_group_id` только ради цветовой точки в листинге.
 
 `reviews_enabled` включает вкладку и форму отзывов на странице товара только вместе с явным `review_target_id`. После проверки pipeline на `SKY Lite` поле `reviews_enabled: true` включено для всех текущих товарных страниц в `uk` и `ru`, чтобы `dev`-ветка могла тестировать отзывы по всему каталогу.
 

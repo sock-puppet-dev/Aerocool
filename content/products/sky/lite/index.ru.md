@@ -95,20 +95,6 @@ characteristics:
   - label: "Вес изделия"
     value: "15.0 кг"
 ---
-{{< seo-image 
-  src="01-front.png"
-  width="2000"
-  height="2000"
-  alt="Кресло Aerocool SKY Lite"
-  title="Aerocool SKY Lite"
-  loading="eager"
-  preload=true
-  fetchpriority=high
-  class="w-full rounded-2xl"
-  sizes="(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
-/>}}
-
-
 ## Aerocool SKY Lite — эргономичное кресло для ежедневного комфорта
 
 **Aerocool SKY Lite** — это модель серии SKY с вентилируемой сетчатой поверхностью, Synchronous Tilt и регулируемой поясничной поддержкой.

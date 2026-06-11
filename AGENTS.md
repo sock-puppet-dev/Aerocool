@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Обновлено: 2026-06-11.
+Обновлено: 2026-06-12.
 
 ## Обзор Проекта
 
@@ -164,10 +164,10 @@
 
 ## Изображения И SEO
 
-- Для контентных изображений по возможности использовать shortcode `seo-image`, а не сырые `<img>`.
+- Для article/news и вторичных контентных изображений по возможности использовать shortcode `seo-image`, а не сырые `<img>`.
 - Для каждого файла `content/**/*.md` поддерживать связку `image` + полный служебный `cover`-блок: `cover.image`, `cover.alt`, `cover.relative`, `cover.hiddenInSingle`.
-- Для товарных карточек текущий стандарт такой: `image` во front matter для SEO/OG/schema, `cover.image` для preview в листингах и `seo-image` в теле страницы для основного изображения.
-- Товарная галерея на `layouts/products/single.html` собирается partial `layouts/_partials/products/gallery.html`: первым кадром идет `image` из front matter, остальные изображения из page bundle товара становятся миниатюрами. Для дополнительных фото не добавлять отдельные front matter поля; класть файлы рядом с `index.md` / `index.ru.md`.
+- Для товарных страниц текущий стандарт такой: `image` во front matter для SEO/OG/schema и первого кадра product gallery, `cover.image` для preview в листингах, `layouts/_partials/products/gallery.html` для основного видимого изображения товара. Стартовый `seo-image` в markdown товара не добавлять.
+- Товарная галерея на `layouts/products/single.html` собирается partial `layouts/_partials/products/gallery.html`: первым кадром идет `image` из front matter, остальные изображения из page bundle товара становятся миниатюрами. Для дополнительных фото не добавлять отдельные front matter поля; класть файлы рядом с `index.md` / `index.ru.md`. Product LCP preload выводится в `<head>` через `layouts/_partials/_seo/lcp-image-preload.html` и должен совпадать с gallery `sizes`. Если primary product image отсутствует или не является processable Hugo image resource, сборка должна падать.
 - Выбор цвета на товарной странице выводит partial `layouts/_partials/products/variant-swatches.html`: swatches строятся из `product_group_id` и `data/entities.yaml` только для реальных ProductGroup с несколькими вариантами, являются ссылками на соседние variant URL текущего языка и не заменяют отдельные страницы вариантов.
 - Для главных изображений первого экрана (LCP) обычно нужен `eager loading`; для второстепенных изображений — `lazy loading`.
 - Hero-изображение главной страницы живет в `assets/images/home-hero85.webp` и выводится через `layouts/_shortcodes/home-hero.html` как Hugo global image resource с responsive `srcset`; там сохранять `loading="eager"` и `fetchpriority="high"`.

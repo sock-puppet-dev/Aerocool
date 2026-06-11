@@ -1,6 +1,6 @@
 # Практическое Руководство По Структурированным Данным Для E-Commerce 2026
 
-Актуально на 2026-05-31.
+Актуально на 2026-06-12.
 
 Этот документ переводит `Guide to E-Commerce Structured Data` от SchemaApp в локальные правила для товарного каталога `Aerocool Ukraine`.
 
@@ -69,7 +69,7 @@
 | Availability | front matter + visible commercial block | Обязательно |
 | Brand | schema `Brand @id` | Обязательно |
 | SKU | front matter + visible commercial block | Обязательно |
-| Product images | `image`, `cover.image`, visible `seo-image` | Обязательно |
+| Product images | `image`, `cover.image`, visible `products/gallery.html` | Обязательно |
 | Breadcrumbs | template layer | Обязательно для product pages |
 | Reviews / rating | только реальные видимые данные | Опционально и рискованно |
 | MPN / GTIN | front matter, если официально известны | Желательно |
@@ -156,7 +156,7 @@ FAQ полезен для e-commerce не как ставка на Google FAQ ri
 
 Правила:
 
-- сохранять текущий стандарт `image + cover.image + seo-image`;
+- сохранять текущий стандарт `image + cover.image + products/gallery.html`;
 - для товарной галереи класть дополнительные изображения в page bundle товара: шаблон сам выводит их как миниатюры и не требует отдельного front matter поля;
 - primary image должен показывать реальный товар, а не абстрактную иллюстрацию;
 - для product rich results и Google Images желательно иметь высокое разрешение;

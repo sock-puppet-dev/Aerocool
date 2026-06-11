@@ -94,20 +94,6 @@ characteristics:
   - label: "Вага виробу"
     value: "26.3 кг"
 ---
-{{< seo-image 
-  src="01-front.png"
-  width="2000"
-  height="2000"
-  alt="Крісло Aerocool XTAL Loft Air Light Grey"
-  title="Aerocool XTAL Loft Air Light Grey"
-  loading="eager"
-  preload=true
-  fetchpriority=high
-  class="w-full rounded-2xl"
-  sizes="(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
-/>}}
-
-
 ## Aerocool XTAL Loft Air Light Grey — ергономічне крісло серії XTAL
 
 **Aerocool XTAL Loft Air Light Grey** — це модель серії XTAL з багатошаровою вентильованою сітчастою тканиною, 7D регулюванням, Synchronous Tilt і збалансованою ергономічною платформою.

@@ -95,21 +95,6 @@ characteristics:
   - label: "Вес изделия"
     value: "23.9 кг"
 ---
-{{< seo-image 
-  src="01-front.png"
-  width="2000"
-  height="2000"
-  alt="Кресло Aerocool WING Mesh Black"
-  title="Aerocool WING Mesh Black"
-  loading="eager"
-  preload=true
-  fetchpriority=high
-  class="w-full rounded-2xl"
-  sizes="(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
-/>}}
-
-
-
 ## Aerocool WING Mesh Black — эргономичное кресло с правильной поддержкой осанки
 
 **Aerocool WING Mesh Black** — это модель серии WING с поверхностью из вентилируемой сетки, 11D регулировкой, Synchronous Tilt и фокусом на адаптации под пользователя.

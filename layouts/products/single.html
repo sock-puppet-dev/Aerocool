@@ -4,7 +4,6 @@
 {{- $contactURL := cond $isRu "/ru/contact/" "/contact/" -}}
 {{- $faqURL := cond $isRu "/ru/faq/" "/faq/" -}}
 {{- $content := .Content -}}
-{{- $content = replaceRE `(?s)^\s*<figure class="w-full rounded-2xl">.*?</figure>` "" $content -}}
 {{- $productTitle := partial "page-h1.html" . -}}
 {{- $productDescription := .Description | default .Summary | plainify | htmlUnescape -}}
 

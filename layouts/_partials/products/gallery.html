@@ -7,15 +7,25 @@
 {{- $seen := dict -}}
 
 {{- $resources := .Resources.ByType "image" -}}
+{{- if not $primaryName -}}
+  {{- errorf "products/gallery: product page requires params.image or cover.image (%s)" $page.Path -}}
+{{- end -}}
 {{- with $primaryName -}}
-  {{- with $resources.GetMatch (printf "*%s*" .) -}}
+  {{- $primaryResource := $resources.GetMatch (printf "*%s*" .) -}}
+  {{- if not $primaryResource -}}
+    {{- errorf "products/gallery: primary image '%s' not found in page bundle (%s)" . $page.Path -}}
+  {{- end -}}
+  {{- with $primaryResource -}}
+    {{- if not (reflect.IsImageResourceProcessable .) -}}
+      {{- errorf "products/gallery: primary image '%s' must be a processable Hugo image resource (%s)" .Name $page.Path -}}
+    {{- end -}}
     {{- $images = $images | append (dict "resource" . "alt" $primaryAlt "label" (cond $isRu "Основное фото" "Головне фото")) -}}
     {{- $seen = merge $seen (dict .Name true) -}}
   {{- end -}}
 {{- end -}}
 
 {{- range $resources -}}
-  {{- if and (in (slice "jpg" "jpeg" "png" "webp") .MediaType.SubType) (not (index $seen .Name)) -}}
+  {{- if and (reflect.IsImageResourceProcessable .) (not (index $seen .Name)) -}}
     {{- $label := cond $isRu "Дополнительное фото" "Додаткове фото" -}}
     {{- $images = $images | append (dict "resource" . "alt" (printf "%s — %s" $productTitle $label) "label" $label) -}}
     {{- $seen = merge $seen (dict .Name true) -}}

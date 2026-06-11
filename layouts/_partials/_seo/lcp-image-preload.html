@@ -8,6 +8,7 @@ late duplicate next to the <img>.
 */ -}}
 {{- $schemaTypes := .Params.schema_types | default (slice) -}}
 {{- $isPrimaryContentPage := and .IsPage (or (in $schemaTypes "article") (in $schemaTypes "news") (in $schemaTypes "product")) -}}
+{{- $isProductPage := and .IsPage (in $schemaTypes "product") -}}
 {{- $coverHiddenInSingle := (.Param "cover.hiddenInSingle") | default false -}}
 {{- $src := .Params.image | default "" -}}
 {{- $sizes := .Params.seo_image_sizes | default "(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)" -}}
@@ -39,8 +40,35 @@ late duplicate next to the <img>.
 {{- if and $isPrimaryContentPage $coverHiddenInSingle $src -}}
   {{- with .Resources.GetMatch $src -}}
     {{- $img := . -}}
-    {{- $processableFormats := slice "jpg" "jpeg" "png" "webp" -}}
-    {{- if in $processableFormats $img.MediaType.SubType -}}
+    {{- if and $isProductPage (reflect.IsImageResourceProcessable $img) -}}
+      {{- $gallerySizes := "(min-width: 1024px) 55vw, calc(100vw - 2rem)" -}}
+      {{- $fallbackWidth := 1200 -}}
+      {{- if lt $img.Width $fallbackWidth -}}
+        {{- $fallbackWidth = $img.Width -}}
+      {{- end -}}
+      {{- $webp := $img.Resize (printf "%dx webp q82" $fallbackWidth) -}}
+      {{- $webpSrcset := slice -}}
+      {{- range (slice 480 720 960 1200 1600) -}}
+        {{- if le . $img.Width -}}
+          {{- $variant := $img.Resize (printf "%dx webp q82" .) -}}
+          {{- $webpSrcset = $webpSrcset | append (printf "%s %dw" $variant.RelPermalink $variant.Width) -}}
+        {{- end -}}
+      {{- end -}}
+      {{- $fallbackSrcsetItem := printf "%s %dw" $webp.RelPermalink $webp.Width -}}
+      {{- if not (in $webpSrcset $fallbackSrcsetItem) -}}
+        {{- $webpSrcset = $webpSrcset | append $fallbackSrcsetItem -}}
+      {{- end -}}
+      {{- $webpSrcsetAttr := delimit $webpSrcset ", " -}}
+<link
+  rel="preload"
+  as="image"
+  href="{{ $webp.RelPermalink }}"
+  type="image/webp"
+  fetchpriority="high"
+  {{ printf "imagesrcset=%q" $webpSrcsetAttr | safeHTMLAttr }}
+  {{ printf "imagesizes=%q" $gallerySizes | safeHTMLAttr }}
+>
+    {{- else if reflect.IsImageResourceProcessable $img -}}
       {{- $webp := $img.Fill (printf "%dx%d webp q82" $img.Width $img.Height) -}}
       {{- $webpSrcset := slice -}}
       {{- $candidateWidths := slice 360 480 640 768 1024 1280 1536 1920 -}}

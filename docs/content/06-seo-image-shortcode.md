@@ -1,38 +1,24 @@
 # Руководство По Shortcode `seo-image`
 
-Обновлено: 2026-06-11.
+Обновлено: 2026-06-12.
 
 Короткое руководство по shortcode `seo-image` в текущем проекте `Aerocool`.
 
 Shortcode `seo-image` находится в [layouts/_shortcodes/seo-image.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/seo-image.html) и работает только с изображениями, которые лежат внутри папки страницы (`page bundle` в терминологии Hugo). Если файла нет рядом со страницей, сборка упадет с ошибкой.
 
-`seo-image` отвечает только за видимое HTML-изображение в теле страницы: responsive `srcset`, WebP-версии, fallback-изображение, `width` / `height`, `sizes`, `loading`, `decoding`, `fetchpriority` и стабильный `aspect-ratio`. Он не рендерит `H1`, не меняет SEO `title`, не управляет `og:image` и не выводит JSON-LD.
+`seo-image` отвечает только за видимое HTML-изображение в теле обычной контентной страницы: responsive `srcset`, WebP-версии, fallback-изображение, `width` / `height`, `sizes`, `loading`, `decoding`, `fetchpriority` и стабильный `aspect-ratio`. Он не рендерит `H1`, не меняет SEO `title`, не управляет `og:image` и не выводит JSON-LD.
 
-Hero-изображение главной страницы — отдельное исключение: оно живет в едином shortcode [home-hero.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero.html), не проходит через `seo-image`, но использует Hugo global image resource из `assets/images/home-hero85.webp`. Shortcode сам выводит responsive `srcset`, `sizes`, `loading="eager"` и `fetchpriority="high"`, а matching preload для главной страницы выводится в `<head>` через [lcp-image-preload.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/lcp-image-preload.html).
+В Hugo `0.163.0` shortcode проверяет processable image resources через `reflect.IsImageResourceProcessable` перед вызовами image pipeline. Это актуальный Hugo-подход вместо ручного списка расширений. Для processable-изображений проект выводит `<picture>` с WebP `srcset` и fallback `<img>` в исходном формате. SVG не является processable resource, поэтому выводится как обычный `<img>` с обязательными размерами.
+
+Hero-изображение главной страницы — отдельное исключение: оно живет в shortcode [home-hero.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero.html), не проходит через `seo-image`, но использует Hugo global image resource из `assets/images/home-hero85.webp`. Shortcode выводит responsive `srcset`, `sizes`, `loading="eager"` и `fetchpriority="high"`, а matching preload для главной страницы выводится в `<head>` через [lcp-image-preload.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/lcp-image-preload.html).
+
+Главное изображение товарной страницы — тоже отдельный сценарий. Оно не должно вставляться через `seo-image` в markdown. На товарных страницах первый видимый кадр выводит [products/gallery.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/gallery.html) из front matter `image`, а responsive preload для этого кадра выводится в `<head>` через [lcp-image-preload.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/lcp-image-preload.html) с тем же `sizes`, что и gallery.
 
 Общий визуальный стандарт изображений, включая обложки, fallback, section covers, home hero, product gallery, inline-иллюстрации, технические схемы и AI-промпты, описан отдельно в [67-image-design-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/67-image-design-playbook-2026.md). Этот документ отвечает за внешний вид и reusable prompts; текущий `seo-image` отвечает за HTML, responsive delivery и performance.
 
-Простыми словами для новичка: `seo-image` нужен, когда ты вставляешь изображение прямо в текст страницы. Он помогает Hugo собрать правильный HTML для картинки, чтобы PageSpeed Insights не ругался на размеры, загрузку и адаптивность.
+Простыми словами для новичка: `seo-image` нужен, когда ты вставляешь изображение прямо в текст статьи, новости или обычной страницы. Для главной и товарной страницы уже есть отдельные шаблоны первого экрана.
 
-Для processable-форматов Hugo (`jpg`, `jpeg`, `png`, `webp`) shortcode выводит `<picture>`:
-
-- `<source type="image/webp">` с WebP `srcset`;
-- fallback `<img>` в исходном формате;
-- `sizes`, `width`, `height` и стабильный `aspect-ratio`.
-
-Для других форматов shortcode выводит обычный `<img>` с обязательными размерами. SVG не обрабатывается через Hugo image pipeline, но получает `width`, `height`, `loading`, `decoding`, `fetchpriority` и `aspect-ratio`.
-
-AVIF сейчас не генерируется текущим shortcode проекта. Актуальная документация Hugo считает AVIF processable image resource, но `seo-image` в этом проекте намеренно выводит WebP-версии и fallback в исходном формате. Если AVIF понадобится позже, это должен быть отдельный проверенный asset/pipeline, а не случайный параметр `seo-image`.
-
-Если `preload=true` стоит на типовой странице `article`, `news` или `product`, где `image` во front matter совпадает с `src` shortcode и `cover.hiddenInSingle: true`, ранний responsive preload выводится в `<head>` через [lcp-image-preload.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/lcp-image-preload.html). Сам shortcode в этом случае не дублирует `<link rel="preload">` рядом с картинкой.
-
-Для полного Core Web Vitals workflow смотри [12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md).
-
-JSON-LD для основного изображения страницы собирается централизованно через `layouts/_partials/_schema/page-image-object.html` и попадает в общий `@graph`. Источник URL изображения - поле `image` во front matter через helper `page-image.html`.
-
-Image license metadata внедрена централизованно в schema partials. Не добавлять в content или shortcode параметры вроде `license`, `acquireLicensePage`, `creator`, `creditText` или `copyrightNotice`: эти поля единообразно задаются helper [image-license-metadata.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/image-license-metadata.html) и ведут на видимую страницу `/image-license/` или `/ru/image-license/`. Для контента по-прежнему обязательны crawlable image URL, точный `alt`, реальные размеры и соответствие изображения видимому товару или теме страницы.
-
-Официальная база этого правила:
+Официальная база правил:
 
 - Google Image SEO: https://developers.google.com/search/docs/appearance/google-images
 - web.dev Fetch Priority: https://web.dev/articles/fetch-priority
@@ -40,17 +26,45 @@ Image license metadata внедрена централизованно в schema
 - Hugo image processing: https://gohugo.io/content-management/image-processing/
 - Hugo page resources: https://gohugo.io/content-management/page-resources/
 
-Для товарных страниц текущий стандарт проекта такой:
-
-- `image` во front matter — для `og:image`, `twitter:image` и schema;
-- `cover.image` — для preview в листингах;
-- `seo-image` в теле страницы — для основного видимого изображения карточки.
-
-Для всех файлов `content/**/*.md` текущий общий стандарт — иметь `image` и полный служебный `cover`-блок. Даже если страница служебная, например `/search/` или `/contact/success/`, она должна иметь осмысленный `cover.alt` и корректный путь к preview-картинке. Если страница переиспользует root- или section-картинку, используйте site path и `relative: false`.
-
-## 1. Главное изображение товара в первом экране (LCP)
+## 1. Главное Изображение Статьи Или Новости
 
 Сначала во front matter:
+
+```yaml
+image: "01-front.webp"
+cover:
+  image: "01-front.webp"
+  alt: "Тема изображения на языке страницы"
+  relative: true
+  hiddenInSingle: true
+```
+
+Потом в начале markdown-тела:
+
+```md
+{{< seo-image
+  src="01-front.webp"
+  width="1536"
+  height="1024"
+  alt="Описательное alt-описание изображения на языке страницы"
+  title="Короткий title изображения"
+  loading="eager"
+  preload=true
+  fetchpriority=high
+  class="w-full rounded-2xl"
+  sizes="(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
+/>}}
+```
+
+Что делает эта связка:
+
+- `seo-image` выводит видимый `<picture>` в теле страницы;
+- [lcp-image-preload.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/lcp-image-preload.html) выводит один ранний responsive preload в `<head>`;
+- shortcode не дублирует body-level preload, если `image`, `src` и `cover.hiddenInSingle: true` совпадают.
+
+## 2. Товарная Страница
+
+Для товара первичное изображение задается только через front matter:
 
 ```yaml
 image: "01-front.png"
@@ -61,50 +75,19 @@ cover:
   hiddenInSingle: true
 ```
 
-Потом в теле страницы:
+В markdown-теле товара не добавлять стартовый `seo-image` для `01-front.png`. Товарный шаблон сам:
 
-```md
-{{< seo-image
-  src="01-front.png"
-  width="2000"
-  height="2000"
-  alt="Кресло Aerocool SKY 360 — эргономичная модель с 11D регулировкой"
-  title="Aerocool SKY 360"
-  loading="eager"
-  preload=true
-  fetchpriority=high
-  class="w-full rounded-2xl"
-  sizes="(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
-/>}}
-```
+- берет первый кадр из `image`;
+- выводит его через [products/gallery.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/gallery.html);
+- ставит `loading="eager"` и `fetchpriority="high"` на первый gallery image;
+- выводит дополнительные изображения page bundle как lazy-loaded миниатюры;
+- получает matching head preload из [lcp-image-preload.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/lcp-image-preload.html).
 
-- Для главного изображения товара использовать `loading="eager"`, `preload=true`, `fetchpriority=high`.
-- Для квадратного фронтального product image нормален точный размер `2000x2000`.
-- `sizes` должен отражать реальную ширину контентной колонки. Для full-width изображения внутри текущего `.main` используйте проектный стандарт `(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)`.
-- Если для LCP-изображения задается нестандартный `sizes`, то такое же значение нужно задать во front matter как `seo_image_sizes`, чтобы head preload и `<picture>` выбирали один и тот же ресурс.
-- Не добавлять параметр `jsonld`: schema для primary image берется из `image` во front matter.
+Если `image` или `cover.image` товарной страницы указывает на отсутствующий файл либо на image resource, который Hugo не может обработать через `reflect.IsImageResourceProcessable`, сборка должна остановиться. Это намеренная защита от битой LCP-картинки и рассинхронизации SEO/OG/schema с видимой gallery.
 
-## 2. Основное контентное изображение
+Если в товарной странице позже понадобится вторичная inline-иллюстрация внутри описания, ее можно вставить через `seo-image`, но только с `loading="lazy"`, `preload=false` и без `fetchpriority=high`.
 
-```md
-{{< seo-image
-  src="wing-mesh-black.png"
-  width="1200"
-  height="800"
-  alt="Кресло Aerocool WING Mesh Black"
-  title="Aerocool WING Mesh Black"
-  loading="lazy"
-  preload=false
-  fetchpriority=auto
-  class="w-full rounded-2xl"
-  sizes="(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
-/>}}
-```
-
-- Для обычных изображений внутри страницы использовать `loading="lazy"`.
-- `width` и `height` обязательны, потому что shortcode строит адаптивный рендер и помогает избежать `CLS`.
-
-## 3. Второстепенное или галерейное изображение
+## 3. Второстепенное Контентное Изображение
 
 ```md
 {{< seo-image
@@ -123,26 +106,36 @@ cover:
 
 ## Параметры
 
-- `src`: имя файла внутри папки страницы
-- `alt`: обязательное описание изображения; пустой `alt` остановит сборку
-- `title`: необязательный короткий заголовок для интерфейса страницы; не дублировать `alt` слово в слово
-- `width` / `height`: обязательные размеры целевого рендера; shortcode остановит сборку, если их нет или они равны `0`
-- `loading`: `eager` для LCP, `lazy` для всего остального
-- `preload`: использовать только для главных изображений первого экрана
-- `fetchpriority`: `high` только для главных изображений первого экрана
-- `sizes`: media query для адаптивной загрузки; если не задан, используется проектный full-width default для `.main`
-- `class`: Tailwind-классы
+- `src`: имя файла внутри папки страницы.
+- `alt`: обязательное описание изображения; пустой `alt` остановит сборку.
+- `title`: необязательный короткий заголовок для интерфейса страницы; не дублировать `alt` слово в слово.
+- `width` / `height`: обязательные размеры целевого рендера; shortcode остановит сборку, если их нет или они равны `0`.
+- `loading`: `eager` для LCP-картинки статьи/новости, `lazy` для всего остального.
+- `preload`: `true` только для главной LCP-картинки статьи/новости; на товарных страницах не использовать.
+- `fetchpriority`: `high` только для главного LCP-кандидата; если параметр не задан, shortcode ставит `high` только при `preload=true`, иначе `auto`.
+- `sizes`: media query для адаптивной загрузки; если не задан, используется проектный full-width default для `.main`.
+- `crop`: необязательный `true`, только если нужно намеренно обрезать изображение через Hugo `Fill`.
+- `class`: Tailwind-классы.
+
+## Guardrails
+
+1. `src`, `alt`, `width` и `height` обязательны.
+2. `preload=true` требует `loading="eager"` и `fetchpriority=high`.
+3. На странице допускается только один уникальный shortcode-вызов с `preload=true`.
+4. На типовой `article` или `news` странице `preload=true` должен совпадать с front matter `image`.
+5. На `product` странице `preload=true` в `seo-image` запрещен: product LCP обслуживает gallery.
+6. Если `width` / `height` не совпадают с ratio исходника, сборка остановится. Для намеренного crop нужно явно добавить `crop=true`.
+7. Параметр `jsonld` не использовать: `ImageObject` собирается централизованно из front matter `image`.
+8. `sizes="100vw"` не использовать для контентной колонки, если изображение не занимает весь viewport.
 
 ## Важно
 
-1. Текущий рекомендуемый стандарт для всех content-страниц — `image + cover.image + cover.alt + cover.relative + cover.hiddenInSingle`; для статей, новостей и товаров с локальной обложкой дополнительно использовать `seo-image` в теле страницы.
-2. Не вставлять через shortcode изображения, которых нет в папке страницы.
-3. На переведенной странице локализовать `alt` и `title`, даже если используется тот же исходный файл изображения.
-4. Для product page не забывать, что `cover.image` нужен отдельно: без него картинка появится в теле страницы, но не появится в preview-листингах.
-5. Для schema.org основным источником изображения остается front matter `image`, а не параметры shortcode.
-6. `cover.alt` не должен быть пустым, шаблонным или набитым ключевыми словами. Лучше назвать сущность или тему: `Кресло Aerocool SKY 360`, `Серия Aerocool WING`, `FAQ Aerocool в Украине`.
-7. Не ставить `preload=true` на вторичные изображения. Для страницы должен быть только один главный LCP preload.
-8. Не добавлять неподдерживаемые параметры вроде `jsonld`. Если такой параметр встретится в старом контенте, его можно удалить: текущий JSON-LD слой его не читает.
-9. Для новых глобальных файлов использовать короткие описательные имена. Для page bundle допускается стабильный проектный паттерн `01-front.png`, потому что контекст URL, `alt`, `title`, видимый текст и `ImageObject` задаются страницей.
-10. Не переименовывать массово уже опубликованные изображения без отдельного SEO/redirect-плана: это меняет URL image resources.
-11. Image license metadata не управляется shortcode: если меняются условия использования изображений, сначала обновить страницы `/image-license/` и `/ru/image-license/`, затем проверить rendered `ImageObject`.
+1. Текущий рекомендуемый стандарт для всех content-страниц — `image + cover.image + cover.alt + cover.relative + cover.hiddenInSingle`.
+2. Для статей и новостей с локальной обложкой первое видимое изображение выводить через `seo-image`.
+3. Для товаров первичный кадр не вставлять через `seo-image`: его выводит product gallery.
+4. Не вставлять через shortcode изображения, которых нет в папке страницы.
+5. На переведенной странице локализовать `alt` и `title`, даже если используется тот же исходный файл изображения.
+6. Для schema.org основным источником изображения остается front matter `image`, а не параметры shortcode.
+7. `cover.alt` не должен быть пустым, шаблонным или набитым ключевыми словами. Лучше назвать сущность или тему: `Кресло Aerocool SKY 360`, `Серия Aerocool WING`, `FAQ Aerocool в Украине`.
+8. Не переименовывать массово уже опубликованные изображения без отдельного SEO/redirect-плана: это меняет URL image resources.
+9. Image license metadata не управляется shortcode: если меняются условия использования изображений, сначала обновить страницы `/image-license/` и `/ru/image-license/`, затем проверить rendered `ImageObject`.

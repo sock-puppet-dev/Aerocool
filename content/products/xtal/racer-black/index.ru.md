@@ -94,20 +94,6 @@ characteristics:
   - label: "Вес изделия"
     value: "26.3 кг"
 ---
-{{< seo-image 
-  src="01-front.png"
-  width="2000"
-  height="2000"
-  alt="Кресло Aerocool XTAL Racer Black"
-  title="Aerocool XTAL Racer Black"
-  loading="eager"
-  preload=true
-  fetchpriority=high
-  class="w-full rounded-2xl"
-  sizes="(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
-/>}}
-
-
 ## Aerocool XTAL Racer Black — эргономичное кресло серии XTAL
 
 **Aerocool XTAL Racer Black** — это модель серии XTAL с обивкой Leatherette, 7D регулировкой, Synchronous Tilt и сбалансированной эргономической платформой.

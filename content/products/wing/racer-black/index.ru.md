@@ -96,21 +96,6 @@ characteristics:
   - label: "Вес изделия"
     value: "23.9 кг"
 ---
-{{< seo-image 
-  src="01-front.png"
-  width="2000"
-  height="2000"
-  alt="Кресло Aerocool WING Racer Black"
-  title="Aerocool WING Racer Black"
-  loading="eager"
-  preload=true
-  fetchpriority=high
-  class="w-full rounded-2xl"
-  sizes="(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
-/>}}
-
-
-
 ## Aerocool WING Racer Black — эргономичное кресло с правильной поддержкой осанки
 
 **Aerocool WING Racer Black** — это модель серии WING с обивкой Leatherette, 11D регулировкой, Synchronous Tilt и фокусом на адаптации под пользователя.

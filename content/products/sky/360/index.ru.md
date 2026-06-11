@@ -96,20 +96,6 @@ characteristics:
   - label: "Вес изделия"
     value: "17.0 кг"
 ---
-{{< seo-image 
-  src="01-front.png"
-  width="2000"
-  height="2000"
-  alt="Кресло Aerocool SKY 360"
-  title="Aerocool SKY 360"
-  loading="eager"
-  preload=true
-  fetchpriority=high
-  class="w-full rounded-2xl"
-  sizes="(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
-/>}}
-
-
 ## Aerocool SKY 360 — расширенная адаптация под тело и сценарий использования
 
 **Aerocool SKY 360** — это модель серии SKY с вентилируемой сетчатой поверхностью, Synchronous Tilt и регулируемой поясничной поддержкой.

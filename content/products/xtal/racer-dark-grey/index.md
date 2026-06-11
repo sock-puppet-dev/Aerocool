@@ -94,20 +94,6 @@ characteristics:
   - label: "Вага виробу"
     value: "26.3 кг"
 ---
-{{< seo-image 
-  src="01-front.png"
-  width="2000"
-  height="2000"
-  alt="Крісло Aerocool XTAL Racer Dark Grey"
-  title="Aerocool XTAL Racer Dark Grey"
-  loading="eager"
-  preload=true
-  fetchpriority=high
-  class="w-full rounded-2xl"
-  sizes="(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
-/>}}
-
-
 ## Aerocool XTAL Racer Dark Grey — ергономічне крісло серії XTAL
 
 **Aerocool XTAL Racer Dark Grey** — це модель серії XTAL з оббивкою Leatherette, 7D регулюванням, Synchronous Tilt і збалансованою ергономічною платформою.
