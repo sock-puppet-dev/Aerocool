@@ -1,6 +1,6 @@
 # Аудит Совместимости С Hugo v0.161.0
 
-> Архивный документ. Текущая версия проекта — Hugo `0.162.0`, Node `24.16.0`; актуальный аудит перехода находится в [56-2026-05-26-hugo-0-162-compliance-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/56-2026-05-26-hugo-0-162-compliance-audit.md).
+> Архивный документ. Текущая версия проекта — Hugo `0.163.0`, Node `24.16.0`; актуальный аудит синхронизации находится в [68-2026-06-11-hugo-0-163-documentation-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md).
 
 Дата аудита: 2026-04-29.
 Актуализировано: 2026-05-05.

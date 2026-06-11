@@ -4,6 +4,8 @@
 Актуализировано: 2026-05-17.
 Проект: `Aerocool Ukraine` / Hugo / двуязычный сайт `uk` + `ru`
 
+> Исторический audit snapshot. Версии Hugo и текущие tooling-правила после обновления проекта смотреть в [68-2026-06-11-hugo-0-163-documentation-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md); текущие schema/entity-счетчики — в [59-entity-performance-report-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md) и [60-schema-validator-url-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/60-schema-validator-url-checklist-2026.md).
+
 ## Область Проверки
 
 Проверено:

@@ -1,5 +1,7 @@
 # Полный Аудит Документации По Hugo 0.162.0
 
+> Исторический документ. Текущий project pin после обновления — `Hugo 0.163.0`; актуальный аудит синхронизации находится в [68-2026-06-11-hugo-0-163-documentation-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md).
+
 Дата аудита: 2026-06-05  
 Проект: Aerocool Ukraine  
 Текущий Hugo target: `0.162.0`  

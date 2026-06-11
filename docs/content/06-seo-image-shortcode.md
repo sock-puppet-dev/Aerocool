@@ -1,6 +1,6 @@
 # Руководство По Shortcode `seo-image`
 
-Обновлено: 2026-06-07.
+Обновлено: 2026-06-11.
 
 Короткое руководство по shortcode `seo-image` в текущем проекте `Aerocool`.
 
@@ -22,7 +22,7 @@ Hero-изображение главной страницы — отдельно
 
 Для других форматов shortcode выводит обычный `<img>` с обязательными размерами. SVG не обрабатывается через Hugo image pipeline, но получает `width`, `height`, `loading`, `decoding`, `fetchpriority` и `aspect-ratio`.
 
-AVIF сейчас не генерируется текущим Hugo pipeline проекта: в Hugo 0.162.0 AVIF является image resource, но не processable output-форматом. Если AVIF понадобится позже, это должен быть отдельный подготовленный asset/pipeline, а не параметр `seo-image`.
+AVIF сейчас не генерируется текущим shortcode проекта. Актуальная документация Hugo считает AVIF processable image resource, но `seo-image` в этом проекте намеренно выводит WebP-версии и fallback в исходном формате. Если AVIF понадобится позже, это должен быть отдельный проверенный asset/pipeline, а не случайный параметр `seo-image`.
 
 Если `preload=true` стоит на типовой странице `article`, `news` или `product`, где `image` во front matter совпадает с `src` shortcode и `cover.hiddenInSingle: true`, ранний responsive preload выводится в `<head>` через [lcp-image-preload.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/lcp-image-preload.html). Сам shortcode в этом случае не дублирует `<link rel="preload">` рядом с картинкой.
 

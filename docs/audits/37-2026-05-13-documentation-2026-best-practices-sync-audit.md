@@ -2,6 +2,8 @@
 
 Дата аудита: 2026-05-13.
 
+> Исторический sync snapshot. Он не является текущим source of truth по версиям инструментов после перехода на Hugo 0.163.0; актуальный tooling-аудит смотреть в [68-2026-06-11-hugo-0-163-documentation-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md).
+
 Этот документ фиксирует проверку всей проектной документации `Aerocool Ukraine` на актуальность, взаимную согласованность и соответствие лучшим практикам 2026 года для Hugo / Netlify / Tailwind, Google SEO, Core Web Vitals, structured data, e-commerce, multilingual SEO и AI Search readiness.
 
 ## 1. Область Проверки

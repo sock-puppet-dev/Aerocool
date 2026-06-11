@@ -2,6 +2,8 @@
 
 Дата аудита: 2026-05-07.
 
+> Исторический action-plan snapshot. Он показывает состояние проекта на 2026-05-07; текущие версии Hugo/Node/Tailwind и актуальные маршруты проверки смотреть в [68-2026-06-11-hugo-0-163-documentation-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md) и [01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md).
+
 Этот документ фиксирует актуальное состояние документации после интеграции материалов SchemaApp и переводит обновленные знания в практический план для текущего проекта `Aerocool Ukraine`.
 
 Главная идея: документация уже описывает сильный SEO/schema/AI Search-фундамент. Следующий этап — не добавлять новые schema-типы “для красоты”, а закрыть реальные риски перед production, затем последовательно развивать entity graph, ProductGroup, AI Search-аудит и reusable content components.
