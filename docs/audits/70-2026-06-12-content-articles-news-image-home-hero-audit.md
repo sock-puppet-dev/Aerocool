@@ -102,8 +102,9 @@
 
 - `assets/images/home-hero85.webp` имеет размер из hero-кода **2102x1401**;
 - формат: WebP;
-- вес: около **122 KB**;
-- визуальный слой: dark graphite high-tech studio, cold cyan/violet light, reflective floor, right-side split hero composition;
+- вес после финальной оптимизации: около **83 KB**;
+- визуальный слой: calm light-to-graphite high-tech studio, cold cyan/violet light, soft reflective floor, right-side split hero composition и чистый переход в белый canvas сайта;
+- верхний, нижний и левый края визуально согласованы: без жесткой темной рамки и без отдельного неравного скругления нижнего края;
 - бренд Aerocool виден на самом кресле как интегрированная печать/тиснение на материале;
 - corner logo отсутствует, потому что home hero не использует cover lockup;
 - заголовков, бейджей, случайного текста и рекламных плашек нет.
