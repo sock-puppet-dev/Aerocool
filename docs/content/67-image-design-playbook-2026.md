@@ -137,10 +137,11 @@ Fallback-файл не должен выглядеть как аварийная
 - Render-код: `aspect-3/2 w-full object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:h-full`.
 - Responsive `sizes`: `(min-width: 1280px) 50vw, (min-width: 1024px) 42vw, 100vw`.
 - Srcset widths: **320**, **480**, **640**, **768**, **1024**, **1280**, **1600**, **2102**.
-- Сцена: landscape high-tech hero image для правой части маркетингового первого экрана, без заголовков и бейджей.
+- Сцена: landscape high-tech hero image для правой части маркетингового первого экрана, без заголовков и бейджей; фон должен быть **light-to-graphite studio**, чтобы внешний левый край естественно переходил в белый canvas сайта без CSS-дымки и без жесткой темной прямоугольной рамки.
 - Важно: главный объект должен держаться в центрально-правой safe area, потому что на desktop изображение работает как `object-cover` в правой половине hero, а на mobile показывается как `aspect-3/2`.
+- Кресло не должно выглядеть как generic racing chair: для home hero использовать продуктово узнаваемую Aerocool-геометрию, например XTAL/WING-like эргономичную форму с разделенной спинкой, отдельным подголовником, корректной базой, колесами, подлокотниками и механизмом.
 - Home hero не использует механический верхний левый logo lockup из cover-стандарта. Для главной важнее clean product scene, а бренд должен быть виден на самом кресле как печать, тиснение или вышивка на материале.
-- Белый factual product cutout не подходит для hero главной: нужен high-tech/tactile editorial слой с темным graphite studio, холодным cyan/violet светом и читаемым креслом.
+- Белый factual product cutout не подходит для hero главной: нужен high-tech/tactile editorial слой со светлым canvas-переходом, graphite/glass глубиной, холодным cyan/violet светом и читаемым креслом.
 
 ### 5.4. Product Primary И Product Gallery
 
@@ -325,9 +326,9 @@ Create a 1536x1024 high-tech single-product fallback cover with one Aerocool erg
 ### 11.11. Home Hero Landscape
 
 ```text
-Create a 2102x1401 landscape premium high-tech hero image for Aerocool Ukraine, designed for a Tailwind Plus split marketing hero section. The image is used as the right-side hero image with `object-cover` on desktop and `aspect-3/2` full-width on mobile. One real Aerocool ergonomic chair is the main object, positioned slightly right of center, with enough safe space around the headrest, armrests, base and wheels. Dark graphite futuristic studio, cold cyan rim light, subtle violet depth, reflective floor, premium product photography mood. The chair must carry integrated Aerocool branding on the headrest or seat material. Keep the composition clean for a website homepage hero, with no text, no badges and no people.
+Create a 2102x1401 landscape premium high-tech hero image for Aerocool Ukraine, designed for a Tailwind Plus split marketing hero section. The image is used as the right-side hero image with `object-cover` on desktop and `aspect-3/2` full-width on mobile. One real Aerocool ergonomic chair is the main object, positioned slightly right of center, with enough safe space around the headrest, armrests, base and wheels. The chair should resemble a product-accurate Aerocool XTAL/WING-like ergonomic chair, not a generic racing chair: split backrest geometry, separate headrest, dark grey tactile material, correct armrests, five-star base and wheels. Use a light-to-graphite futuristic studio that naturally blends into a white website canvas on the left and outer edges, with subtle glass panels, cold cyan rim light, restrained violet depth, reflective floor and premium product photography mood. The chair must carry integrated Aerocool branding on the headrest or seat material. Keep the composition clean for a website homepage hero, with no text, no badges and no people.
 
-Do not add a corner logo to the home hero. Do not use a white studio background or a flat factual product cutout. Branding on the chair must look printed, embossed or stitched into the material, not like a sticker.
+Do not add a corner logo to the home hero. Do not create a hard dark rectangular frame. Do not use a flat factual product cutout. Branding on the chair must look printed, embossed or stitched into the material, not like a sticker.
 ```
 
 ### 11.12. Product Gallery: Material Close-Up
