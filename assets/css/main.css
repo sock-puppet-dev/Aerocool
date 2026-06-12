@@ -1855,10 +1855,18 @@ textarea.ui-field {
 
 .home-hero__media {
     min-height: 0;
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+.home-hero__media picture {
+    display: block;
+    border-radius: inherit;
 }
 
 .home-hero__image {
     object-position: center center;
+    border-radius: inherit;
 }
 
 @media (min-width: 1024px) {
