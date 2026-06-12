@@ -108,7 +108,6 @@
 - corner logo отсутствует, потому что home hero не использует cover lockup;
 - заголовков, бейджей, случайного текста и рекламных плашек нет.
 - `layouts/_shortcodes/home-hero.html` и `layouts/_partials/_seo/lcp-image-preload.html` используют одинаковые `sizes` и `srcset` под Tailwind Plus hero image: **320**, **480**, **640**, **768**, **1024**, **1280**, **1600**, **2102**.
-- `package.json` и `netlify.toml` используют `--cacheDir "$PWD/resources/_gen"`, чтобы после `scripts/script_clean.sh` global image resources вроде `assets/images/home-hero85.webp` заново публиковались в `public/images`.
 
 ## 6. Текущая Оценка
 
