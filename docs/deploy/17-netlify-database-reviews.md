@@ -396,7 +396,7 @@ data/generated/reviews.json
 node scripts/export_reviews.mjs
 ```
 
-В `package.json` этот шаг встроен в `npm run build` и `npm run build:production`. В `netlify.toml` он встроен в Netlify build command перед `hugo --environment development --gc --minify`.
+В `package.json` этот шаг встроен в `npm run build` и `npm run build:production`. В `netlify.toml` он встроен в Netlify build command перед `hugo --environment development --gc --minify --cacheDir "$PWD/resources/_gen"`.
 
 Текущий временный режим для `dev`: export сохраняет отзывы и по языкам (`uk`, `ru`), и в общей группе `all`. Шаблон видимых отзывов пока берет группу `all`, чтобы украинская и русская страницы товара показывали одинаковый набор approved отзывов до внедрения нормальных переводов. Это переходное решение для тестирования UI, рейтинга и будущей SEO-логики. Для production SEO-режима нужно вернуться к языковым текстам или добавить поля переводов, чтобы текст отзыва соответствовал языку страницы.
 

@@ -6,6 +6,8 @@
 
 Этот документ фиксирует точечную синхронизацию документации после обновления `seo-image`, LCP preload и image delivery слоя.
 
+Внимание: это исторический audit snapshot на 2026-05-14. С 2026-06-12 текущий product primary image больше не вставляется через `seo-image` в markdown: его выводит `layouts/_partials/products/gallery.html`, а product preload синхронизируется с gallery `sizes` через `layouts/_partials/_seo/lcp-image-preload.html`. Актуальные правила смотреть в [docs/content/06-seo-image-shortcode.md](/Users/stadnyk/MEGA/Aerocool/docs/content/06-seo-image-shortcode.md), [docs/content/templates/10-product-template.md](/Users/stadnyk/MEGA/Aerocool/docs/content/templates/10-product-template.md) и [docs/content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md).
+
 Обновлены основные рабочие документы:
 
 - [README.md](/Users/stadnyk/MEGA/Aerocool/README.md)
@@ -28,11 +30,13 @@
 2. Формулировки про AVIF могли читаться как текущая возможность проекта. Это уточнено: текущий Hugo image pipeline проекта генерирует WebP + fallback, а AVIF возможен только отдельным pipeline.
 3. Старые примеры с `sizes="100vw"` для контентной колонки были заменены на реальные размеры текущего `.main`.
 4. Формулировки про "ТОП-1" были смягчены там, где они звучали как обещание. Новая формула: документация повышает шансы на сильное ранжирование, но не гарантирует позицию.
-5. Head preload был описан недостаточно точно. Теперь зафиксировано, что он выводится через [lcp-image-preload.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/lcp-image-preload.html) только для типовых `article`, `news` и `product` страниц при совпадении `image`, `cover.image`, первого `seo-image src` и `cover.hiddenInSingle: true`.
+5. Head preload был описан недостаточно точно. На момент этого аудита было зафиксировано, что он выводится через [lcp-image-preload.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/lcp-image-preload.html) для типовых `article`, `news` и `product` страниц при совпадении `image`, `cover.image`, первого `seo-image src` и `cover.hiddenInSingle: true`. Для текущего product pipeline эта формулировка устарела: product preload теперь связан с `products/gallery.html`, а не с markdown `seo-image`.
 
-## Текущий Точный Стандарт
+## Исторический Стандарт На 2026-05-14
 
-Для статей, новостей и товаров с локальным главным изображением:
+Этот раздел оставлен как исторический контекст. Для текущих товарных страниц не использовать пример ниже как product-инструкцию. Для статей и новостей общий принцип `image + cover.image + seo-image` остается актуальным.
+
+На 2026-05-14 для статей, новостей и товаров с локальным главным изображением использовался такой пример:
 
 ```yaml
 image: "01-front.png"

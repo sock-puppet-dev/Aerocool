@@ -5,19 +5,19 @@
 {{- if not $hero -}}
   {{- errorf "home-hero: image 'assets/images/home-hero85.webp' not found" -}}
 {{- end -}}
-{{- $heroSizes := "(min-width: 1280px) 24vw, (min-width: 1024px) 24vw, (min-width: 640px) 320px, 45vw" -}}
+{{- $heroSizes := "(min-width: 1280px) 50vw, (min-width: 1024px) 42vw, 100vw" -}}
 {{- $heroSrcset := slice -}}
-{{- range (slice 240 320 360 480 640 768 900 1023) -}}
+{{- range (slice 320 480 640 768 1024 1280 1600 2102) -}}
   {{- if le . $hero.Width -}}
     {{- $variant := $hero.Resize (printf "%dx webp q72" .) -}}
     {{- $heroSrcset = $heroSrcset | append (printf "%s %dw" $variant.RelPermalink $variant.Width) -}}
   {{- end -}}
 {{- end -}}
 {{- $heroSrcsetAttr := delimit $heroSrcset ", " -}}
-{{- $heroFallback := $hero.Resize "360x webp q72" -}}
+{{- $heroFallback := $hero.Resize "768x webp q72" -}}
 <section class="home-hero relative overflow-hidden bg-white">
-  <div class="home-hero__inner mx-auto max-w-7xl lg:grid lg:grid-cols-5 lg:gap-x-4 lg:px-8">
-    <div class="px-6 pt-4 pb-12 sm:pt-6 sm:pb-16 lg:col-span-3 lg:px-0 lg:pt-10 lg:pb-24">
+  <div class="home-hero__inner mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
+    <div class="px-6 pt-4 pb-12 sm:pt-6 sm:pb-16 lg:col-span-7 lg:px-0 lg:pt-10 lg:pb-24 xl:col-span-6">
       <div class="home-hero__copy mx-auto lg:mx-0">
         <div class="hidden sm:flex">
           <div class="home-hero__announcement relative rounded-full px-3 py-1 text-sm/6 ring-1">
@@ -67,7 +67,7 @@
       </div>
     </div>
 
-    <div class="home-hero__media relative lg:col-span-2">
+    <div class="home-hero__media relative lg:col-span-5 lg:-mr-8 xl:absolute xl:inset-0 xl:left-1/2 xl:mr-0">
       <picture>
         <source
           type="image/webp"
@@ -83,7 +83,7 @@
           loading="eager"
           decoding="async"
           fetchpriority="high"
-          class="home-hero__image aspect-3/2 w-full object-contain px-8 py-8 lg:absolute lg:inset-0 lg:aspect-auto lg:h-full lg:px-4 xl:px-6" />
+          class="home-hero__image aspect-3/2 w-full object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:h-full" />
       </picture>
     </div>
   </div>

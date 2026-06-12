@@ -1,6 +1,6 @@
 # Aerocool Ukraine
 
-Обновлено: 2026-06-11.
+Обновлено: 2026-06-12.
 
 `Aerocool Ukraine` — двуязычный маркетинговый и каталоговый сайт на `Hugo` для кресел Aerocool в Украине. Основной язык — украинский (`uk`), второй язык — русский (`ru`). Сайт собирается статически, деплоится через `Netlify` и использует локальные Hugo overrides поверх темы `PaperMod`.
 
@@ -17,9 +17,11 @@
 
 Для текущих задач по JSON-LD, schema.org, Entity Registry, `about_entities`, `mentions_entities`, `ProductGroup`, `sameAs` и graph-аудиту читать `docs/seo/23-entity-registry-2026.md`, `docs/seo/26-json-ld-graph-audit-roadmap-2026.md` и текущий generated report [docs/seo/59-entity-performance-report-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md). Для ручной проверки через `validator.schema.org` использовать [docs/seo/60-schema-validator-url-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/60-schema-validator-url-checklist-2026.md). Полный schema/entity-аудит `57` оставлен как исторический snapshot на 2026-05-31.
 
+Для текущих задач по ключевым словам, семантике, каннибализации и планированию посадочных страниц читать [docs/seo/18-seo-keyword-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/18-seo-keyword-map-2026.md) и [docs/seo/53-keyword-database-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/53-keyword-database-2026.md). Актуальная keyword-база содержит `257` строк, покрывает `100` markdown-страниц, включает support/legal URL `/image-license/` и `/ru/image-license/`, а поля `gsc_*` заполняются только после импорта реальных данных Google Search Console.
+
 Для текущих задач по UX/UI, Tailwind Plus секциям, Tailwind CSS 4.3 visual layer, компонентам, каталогу, фильтрам и визуальной структуре страниц читать [docs/architecture/51-tailwind-plus-ui-section-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/51-tailwind-plus-ui-section-map-2026.md) и актуальный повторный полный аудит [docs/audits/65-2026-06-05-full-ux-ui-revalidation-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/65-2026-06-05-full-ux-ui-revalidation-audit.md). Для screenshot/evidence деталей использовать предыдущий полный visual audit [docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md).
 
-Для текущих задач по любым изображениям проекта - обложкам, fallback-картинкам, home hero, product gallery, inline-иллюстрациям, техническим схемам, AI-промптам и повторяемому high-tech стилю - читать [docs/content/67-image-design-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/67-image-design-playbook-2026.md).
+Для текущих задач по любым изображениям проекта - обложкам, fallback-картинкам, home hero, product gallery, inline-иллюстрациям, техническим схемам, AI-промптам и повторяемому high-tech стилю - читать [docs/content/67-image-design-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/67-image-design-playbook-2026.md). Для текущего состояния `content/articles`, `content/news`, article/news covers, schema crops и `assets/images/home-hero85.webp` использовать аудит [docs/audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md).
 
 Для текущих задач по Hugo, Node, Tailwind и локальным инструментам читать [docs/deploy/15-local-tooling-mise.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/15-local-tooling-mise.md) и актуальный tooling-аудит [docs/audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md).
 
@@ -72,7 +74,7 @@
 Сейчас `netlify.toml` намеренно собирает сайт в `development`:
 
 ```toml
-command = "git submodule update --init --recursive && node scripts/export_reviews.mjs && hugo --environment development --gc --minify"
+command = "git submodule update --init --recursive && node scripts/export_reviews.mjs && hugo --environment development --gc --minify --cacheDir \"$PWD/resources/_gen\""
 HUGO_ENVIRONMENT = "development"
 ```
 
@@ -85,7 +87,7 @@ HUGO_ENVIRONMENT = "development"
 Когда сайт готов к индексации, нужно отдельно поменять Netlify на:
 
 ```toml
-command = "git submodule update --init --recursive && node scripts/export_reviews.mjs && hugo --environment production --gc --minify"
+command = "git submodule update --init --recursive && node scripts/export_reviews.mjs && hugo --environment production --gc --minify --cacheDir \"$PWD/resources/_gen\""
 HUGO_ENVIRONMENT = "production"
 ```
 
@@ -260,6 +262,18 @@ cover:
 3. `image` — основная картинка для SEO/OG/Twitter/schema.
 4. Товарная галерея — автоматический visible UI на `layouts/products/single.html`, который берет первый кадр из `image`, а остальные изображения из page bundle товара показывает как миниатюры.
 
+Если коротко для новичка:
+
+| Что | За Что Отвечает | Где Заполнять Или Править |
+|---|---|---|
+| `image` | SEO-картинка страницы: `og:image`, Twitter image, schema.org `ImageObject`, product gallery primary frame | front matter страницы |
+| `cover.image` | Картинка preview в карточках, листингах и cover-логике темы | front matter `cover` |
+| `cover.alt` | Текстовое описание картинки для доступности и понятного preview | front matter `cover` |
+| `seo-image` | Видимая картинка внутри текста статьи/новости/обычной страницы: `<picture>`, WebP, `srcset`, `sizes`, lazy/eager | markdown-тело страницы |
+| `products/gallery.html` | Первый видимый кадр товара и дополнительные миниатюры товара | шаблон + файлы изображений в product page bundle |
+| `lcp-image-preload.html` | Ранний preload главной картинки первого экрана в `<head>` | SEO partial, обычно не трогать в контенте |
+| `seo_image_sizes` | Синхронизация нестандартного `sizes` между первым article/news `seo-image` и head preload | front matter статьи или новости |
+
 Для главного изображения статьи или новости в markdown использовать shortcode:
 
 ```go-html-template
@@ -291,7 +305,7 @@ cover:
 `image` идет в SEO/OG/schema, `cover.image` — в визуальный preview.
 `seo-image` в Hugo `0.163.0` проверяет processable image resource через `reflect.IsImageResourceProcessable`, выводит WebP `srcset` через `<picture>`, fallback `<img>`, размеры и приоритет загрузки. Для типовых статей и новостей главный `preload=true` попадает в `<head>`, если `image` совпадает с `src` shortcode и `cover.hiddenInSingle: true`.
 Если первое article/news контентное изображение использует нестандартный `sizes`, такое же значение нужно задать во front matter как `seo_image_sizes`, иначе head preload и `<picture>` могут выбрать разные responsive candidates.
-На товарной странице primary image не вставляется через `seo-image`. `layouts/_partials/products/gallery.html` берет первый кадр из `image`, выводит его как eager/fetchpriority high LCP-кандидат и дополнительно собирает галерею из файлов изображений рядом с товаром. Product preload в `<head>` использует те же responsive candidates и `sizes`, что gallery. Если в page bundle есть только основной файл `image`, лента миниатюр не выводится. Если добавить второе и последующие изображения, они автоматически появятся как компактные миниатюры с lazy loading.
+На товарной странице primary image не вставляется через `seo-image`. `layouts/_partials/products/gallery.html` берет первый кадр из `image`, выводит его как eager/fetchpriority high LCP-кандидат и дополнительно собирает галерею из файлов изображений рядом с товаром. Product preload в `<head>` использует те же responsive candidates и `sizes`, что gallery. Если primary image отсутствует в page bundle или Hugo не может обработать его как processable image resource, сборка должна упасть. Если в page bundle есть только основной файл `image`, лента миниатюр не выводится. Если добавить второе и последующие изображения, они автоматически появятся как компактные миниатюры с lazy loading.
 Для всех `content/**/*.md` в проекте нужен служебный `cover`-блок. `cover.alt` должен описывать тему или объект изображения на языке страницы; не оставляйте пустой `alt` и не превращайте его в список ключевых слов.
 Для служебных, taxonomy и других страниц без собственного `image` fallback теперь идет в root `cover.webp`, а не в `images/logo.svg`.
 
@@ -427,9 +441,9 @@ npm run build:production
 - `mise install` — читает `mise.toml` и ставит нужные версии Hugo/Node.
 - `npm install` — ставит npm-зависимости проекта.
 - `npm run dev` — запускает `hugo server`.
-- `npm run build` — сначала запускает `node scripts/export_reviews.mjs`, затем development-сборку Hugo, безопасную для noindex.
+- `npm run build` — сначала запускает `node scripts/export_reviews.mjs`, затем development-сборку Hugo, безопасную для noindex; Hugo cache держится в `resources/_gen`, чтобы `script_clean.sh` очищал и generated image pipeline.
 - `npm run entity:report` — запускает `node scripts/generate_entity_performance_report.mjs`; после сборки обновляет [docs/seo/59-entity-performance-report-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md) и generated CSV по Entity Registry, `about_entities`, `mentions_entities`, `product_group_id` и rendered JSON-LD refs; будущие GSC/AI/business-метрики вносить в [docs/seo/59-entity-performance-overrides.csv](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-overrides.csv).
-- `npm run build:production` — сначала запускает `node scripts/export_reviews.mjs`, затем локальную production-сборку Hugo для финальной проверки index/follow.
+- `npm run build:production` — сначала запускает `node scripts/export_reviews.mjs`, затем локальную production-сборку Hugo для финальной проверки index/follow; Hugo cache также держится в `resources/_gen`.
 
 Для ежедневной работы удобнее использовать helper-скрипты из папки `scripts/`. Они запускаются из корня проекта и содержат комментарии с назначением и инструкцией.
 
@@ -543,7 +557,7 @@ git checkout dev
 
 1. `README.md` — главный вход в проект.
 2. `AGENTS.md` — правила безопасной работы для Codex/агентов.
-3. [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-68`.
+3. [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-70`.
 4. [docs/architecture/02-documentation-style-guide.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/02-documentation-style-guide.md) — стандарт русскоязычной, понятной и структурированной документации.
 5. [docs/architecture/03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md) — локальные Hugo helpers и partials.
 6. [docs/content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md) — поля front matter для страниц.

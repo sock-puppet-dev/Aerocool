@@ -1786,6 +1786,7 @@ textarea.ui-field {
 }
 
 .home-hero__copy {
+    min-width: 0;
     max-width: 100%;
 }
 
@@ -1804,14 +1805,15 @@ textarea.ui-field {
 }
 
 .home-hero__title {
-    max-width: none;
+    min-width: 0;
+    max-width: 100%;
     color: var(--primary);
     font-size: 1.75rem;
     line-height: 1.875rem;
     font-weight: var(--ui-font-semibold);
     letter-spacing: var(--ui-tracking);
     word-break: normal;
-    overflow-wrap: normal;
+    overflow-wrap: anywhere;
     hyphens: none;
 }
 
@@ -1835,10 +1837,12 @@ textarea.ui-field {
 }
 
 .home-hero__lead {
-    max-width: 42rem;
+    min-width: 0;
+    max-width: 100%;
     color: var(--content);
     font-size: var(--ui-text-lg);
     line-height: var(--ui-text-lg-line-height);
+    overflow-wrap: anywhere;
 }
 
 .home-hero__actions {
@@ -1850,27 +1854,14 @@ textarea.ui-field {
 }
 
 .home-hero__media {
-    min-height: 22rem;
+    min-height: 0;
 }
 
 .home-hero__image {
-    padding: 1rem;
     object-position: center center;
-    transform: scale(1.08);
-    transform-origin: center center;
 }
 
 @media (min-width: 1024px) {
-    .home-hero__inner {
-        grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-        column-gap: 1rem;
-    }
-
-    .home-hero__inner > div:first-child,
-    .home-hero__media {
-        grid-column: auto;
-    }
-
     .home-hero__copy,
     .home-hero__title,
     .home-hero__lead {
@@ -1879,23 +1870,6 @@ textarea.ui-field {
 
     .home-hero__media {
         min-height: 30rem;
-    }
-
-    .home-hero__image {
-        padding-right: 0;
-        padding-left: 0;
-        transform: scale(1.08);
-        transform-origin: center center;
-    }
-}
-
-@media (min-width: 1280px) {
-    .home-hero__inner {
-        column-gap: 0.75rem;
-    }
-
-    .home-hero__image {
-        transform: translateX(0) scale(1.1);
     }
 }
 

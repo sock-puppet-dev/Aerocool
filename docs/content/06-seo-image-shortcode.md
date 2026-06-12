@@ -18,6 +18,31 @@ Hero-изображение главной страницы — отдельно
 
 Простыми словами для новичка: `seo-image` нужен, когда ты вставляешь изображение прямо в текст статьи, новости или обычной страницы. Для главной и товарной страницы уже есть отдельные шаблоны первого экрана.
 
+## Что За Что Отвечает
+
+Эта таблица нужна, чтобы не смешивать SEO-метаданные, preview-картинки и видимые изображения внутри страницы.
+
+| Элемент | За Что Отвечает | Где Используется | Что Новичку Важно Помнить |
+|---|---|---|---|
+| `image` | Главный image URL страницы для SEO/OG/Twitter/schema. На product page это еще и первый кадр visible gallery. | front matter страницы, helpers `page-image.html`, JSON-LD, social previews, product gallery | Заполнять почти всегда. Для товара файл должен реально лежать в page bundle и быть processable image resource. |
+| `cover.image` | Preview-изображение для карточек, списков и cover-логики. | front matter `cover`, листинги, карточки, fallback preview | Обычно совпадает с `image`, но отвечает за визуальное preview, а не за schema напрямую. |
+| `cover.alt` | Описание изображения на языке страницы. | карточки, cover UI, product gallery primary alt fallback | Писать человеческое описание объекта или темы, не список ключевых слов. |
+| `cover.relative` | Объясняет Hugo/PaperMod, что путь к cover лежит рядом со страницей. | front matter `cover` | Для page bundle обычно `true`; для root `/cover.webp` или `/images/...` использовать `false`. |
+| `cover.hiddenInSingle` | Скрывает стандартный cover темы на одиночной странице, когда видимое изображение выводит другой слой. | front matter `cover` | Для article/news с первым `seo-image` и для product gallery обычно `true`, чтобы не получить дубль. |
+| `seo-image` | Видимое изображение в markdown-теле: `<picture>`, WebP, fallback `<img>`, `srcset`, `sizes`, размеры и loading strategy. | markdown статей, новостей и обычных страниц | Не управляет SEO title, `og:image` или JSON-LD. Для primary product image не использовать. |
+| `products/gallery.html` | Product primary image и дополнительные фото товара. | `layouts/products/single.html` | Первый кадр берет из `image`; дополнительные кадры берет из остальных image-файлов page bundle. |
+| `lcp-image-preload.html` | Ранний preload главной картинки первого экрана в `<head>`. | SEO partial, вызывается шаблонным слоем | Для article/news синхронизируется с первым `seo-image`; для product синхронизируется с gallery. |
+| `seo_image_sizes` | Override для `imagesizes` в head preload article/news. | front matter статьи или новости | Нужен только если первый `seo-image` использует нестандартный `sizes`; для product не нужен. |
+| `alt` в `seo-image` | Описание конкретного видимого inline-изображения. | параметр shortcode | Должен быть на языке страницы и описывать картинку, а не SEO-фразу. |
+| `title` в `seo-image` | Короткий дополнительный title для изображения. | параметр shortcode | Не обязан повторять `alt`; если нечего добавить, лучше не усложнять. |
+| `loading` | Когда браузеру начинать загрузку изображения. | параметр shortcode или gallery | `eager` только для главной LCP-картинки, `lazy` для остальных. |
+| `fetchpriority` | Насколько срочно браузеру загрузить изображение. | параметр shortcode или gallery | `high` только для одного главного LCP-кандидата; вторичные изображения держать `auto`. |
+| `preload` | Добавляет раннюю подсказку загрузки для главной article/news картинки. | параметр shortcode и head partial | `true` только для главной LCP-картинки статьи/новости; на product page запрещен. |
+| `sizes` | Подсказывает браузеру, какой реальный размер изображения будет на разных ширинах экрана. | параметр shortcode, gallery, preload | Должен совпадать у видимой картинки и preload; `100vw` не ставить для обычной контентной колонки. |
+| `crop` | Разрешает намеренную обрезку через Hugo `Fill`, если ratio отличается. | параметр shortcode | По умолчанию сборка падает при неявной обрезке. Добавлять `crop=true` только осознанно. |
+
+Самое короткое правило: `image` отвечает за SEO и главный источник картинки, `cover.image` отвечает за preview, `seo-image` отвечает за видимую картинку в тексте, а product primary image отвечает product gallery.
+
 Официальная база правил:
 
 - Google Image SEO: https://developers.google.com/search/docs/appearance/google-images

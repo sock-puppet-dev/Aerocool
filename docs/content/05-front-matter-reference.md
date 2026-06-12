@@ -116,6 +116,17 @@ related_articles:
 
 `seo_image_sizes` — необязательный override для head-preload главного контентного изображения статьи или новости. Поле нужно только тогда, когда первое видимое `seo-image` на странице использует нестандартный `sizes`. Если его не задать, [lcp-image-preload.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/lcp-image-preload.html) использует проектный default для `.main`: `(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)`. Для товарных страниц это поле не нужно: product LCP обслуживает [products/gallery.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/gallery.html) с собственным gallery `sizes`.
 
+Простая схема для новичка:
+
+| Поле | Роль |
+|---|---|
+| `image` | Главная картинка страницы для SEO/social/schema; у товара также первый кадр product gallery. |
+| `cover.image` | Preview-картинка для карточек и листингов. |
+| `cover.alt` | Человеческое описание картинки на языке страницы. |
+| `cover.relative` | Показывает, локальный это файл page bundle или абсолютный site path. |
+| `cover.hiddenInSingle` | Скрывает стандартный cover темы, если картинку уже выводит `seo-image` или product gallery. |
+| `seo_image_sizes` | Только для article/news: синхронизирует нестандартный размер первого `seo-image` с head preload. |
+
 Если у служебной, taxonomy или иной системной страницы нет собственного `image`, helper `page-image.html` использует root `cover.webp` как общий meaningful fallback.
 
 Для page bundle и section bundle использовать относительный путь:
