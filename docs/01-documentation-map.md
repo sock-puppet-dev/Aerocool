@@ -186,7 +186,7 @@
 
 69. [audits/69-2026-06-12-seo-image-product-gallery-documentation-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/69-2026-06-12-seo-image-product-gallery-documentation-audit.md) — текущий аудит документации по `seo-image`, product gallery, LCP preload и front matter изображениям; фиксирует объяснение “что за что отвечает” для новичка и оценку **9.0/10**.
 
-70. [audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md) — текущий полный аудит `content/articles`, `content/news`, article/news обложек, schema crops и `assets/images/home-hero85.webp`; фиксирует результат **9.4/10**, отсутствие активных P1-дефектов в articles/news и обновление portrait home hero.
+70. [audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md) — текущий полный аудит `content/articles`, `content/news`, article/news обложек, schema crops и `assets/images/home-hero85.webp`; фиксирует результат **9.4/10**, отсутствие активных P1-дефектов в articles/news и обновление landscape home hero.
 
 ## Маршруты По Задачам
 

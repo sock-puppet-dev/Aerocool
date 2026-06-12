@@ -322,7 +322,7 @@ Create a 1536x1024 premium high-tech product catalog cover for Aerocool Ukraine.
 Create a 1536x1024 high-tech single-product fallback cover with one Aerocool ergonomic chair centered as a hero object. Dark graphite studio, cool cyan backlight, subtle reflective floor, minimal glass-panel background, realistic product geometry and premium material texture. The image should be generic enough for product fallback use but still feel like an Aerocool cover, not a placeholder. Official Aerocool logo upper-left, brand printed or embossed on the chair material.
 ```
 
-### 11.11. Home Hero Portrait
+### 11.11. Home Hero Landscape
 
 ```text
 Create a 2102x1401 landscape premium high-tech hero image for Aerocool Ukraine, designed for a Tailwind Plus split marketing hero section. The image is used as the right-side hero image with `object-cover` on desktop and `aspect-3/2` full-width on mobile. One real Aerocool ergonomic chair is the main object, positioned slightly right of center, with enough safe space around the headrest, armrests, base and wheels. Dark graphite futuristic studio, cold cyan rim light, subtle violet depth, reflective floor, premium product photography mood. The chair must carry integrated Aerocool branding on the headrest or seat material. Keep the composition clean for a website homepage hero, with no text, no badges and no people.
