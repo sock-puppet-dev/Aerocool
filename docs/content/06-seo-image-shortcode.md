@@ -142,7 +142,7 @@ cover:
 - `crop`: необязательный `true`, только если нужно намеренно обрезать изображение через Hugo `Fill`.
 - `class`: Tailwind-классы.
 
-## Guardrails
+## Защитные Правила
 
 1. `src`, `alt`, `width` и `height` обязательны.
 2. `preload=true` требует `loading="eager"` и `fetchpriority=high`.

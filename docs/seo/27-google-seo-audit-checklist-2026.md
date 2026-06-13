@@ -76,7 +76,7 @@ PageSpeed Insights помогает проверить конкретный оп
 
 ---
 
-## 3. Google Search Console
+## 3. Проверка Через Google Search Console
 
 Google Search Console — обязательный инструмент. Без него невозможно понять, как Google реально воспринимает сайт.
 

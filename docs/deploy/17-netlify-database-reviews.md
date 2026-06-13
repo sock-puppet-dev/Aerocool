@@ -162,7 +162,7 @@ approved review в Netlify Database
 -> visible review + Product JSON-LD
 ```
 
-## 3.1. Database Branching
+## 3.1. Ветвление Базы Данных
 
 `Netlify Database` использует ветки базы.
 
@@ -362,7 +362,7 @@ content/products/xtal/mesh-black/index.ru.md
 
 Для production SEO-режима лучше показывать на каждой языковой странице отзывы на языке этой страницы. До внедрения переводов на branch `dev` временно используется общий вывод approved отзывов для `uk` и `ru`, чтобы проверить интерфейс и расчет рейтинга на обеих версиях товара.
 
-## 8. SEO-First Pipeline
+## 8. SEO-First Pipeline Для Отзывов
 
 Для максимального SEO нельзя полагаться только на клиентский `fetch`.
 
@@ -426,7 +426,7 @@ node scripts/export_reviews.mjs
 }
 ```
 
-## 9. Netlify Functions
+## 9. Netlify Functions Для API Отзывов
 
 Для review-системы нужны функции:
 

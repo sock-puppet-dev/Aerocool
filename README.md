@@ -21,7 +21,7 @@
 
 Для текущих задач по UX/UI, Tailwind Plus секциям, Tailwind CSS 4.3 visual layer, компонентам, каталогу, фильтрам и визуальной структуре страниц читать [docs/architecture/51-tailwind-plus-ui-section-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/51-tailwind-plus-ui-section-map-2026.md) и актуальный повторный полный аудит [docs/audits/65-2026-06-05-full-ux-ui-revalidation-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/65-2026-06-05-full-ux-ui-revalidation-audit.md). Для screenshot/evidence деталей использовать предыдущий полный visual audit [docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md).
 
-Для текущих задач по любым изображениям проекта - обложкам, fallback-картинкам, home hero, product gallery, inline-иллюстрациям, техническим схемам, AI-промптам и повторяемому high-tech стилю - читать [docs/content/67-image-design-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/67-image-design-playbook-2026.md). Для текущего полного состояния всех изображений проекта, section/root/series covers, fallback, product gallery hygiene и ручной проверки использовать аудит [docs/audits/71-2026-06-13-full-project-image-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/71-2026-06-13-full-project-image-audit.md). Для специализированного состояния `content/articles`, `content/news`, article/news covers, schema crops и `assets/images/home-hero85.webp` использовать аудит [docs/audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md).
+Для текущих задач по любым изображениям проекта - обложкам, fallback-картинкам, home hero, product gallery, inline-иллюстрациям, техническим схемам, AI-промптам и повторяемому high-tech стилю - читать [docs/content/67-image-design-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/67-image-design-playbook-2026.md). Для `seo-image`, product gallery, LCP preload и ролей `image` / `cover.image` / `seo-image` использовать аудит [docs/audits/69-2026-06-12-seo-image-product-gallery-documentation-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/69-2026-06-12-seo-image-product-gallery-documentation-audit.md). Для текущего полного состояния всех изображений проекта, section/root/series covers, fallback, product gallery hygiene и ручной проверки использовать аудит [docs/audits/71-2026-06-13-full-project-image-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/71-2026-06-13-full-project-image-audit.md). Для специализированного состояния `content/articles`, `content/news`, article/news covers, schema crops и `assets/images/home-hero85.webp` использовать аудит [docs/audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md).
 
 Для текущих задач по Hugo, Node, Tailwind и локальным инструментам читать [docs/deploy/15-local-tooling-mise.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/15-local-tooling-mise.md) и актуальный tooling-аудит [docs/audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md).
 
@@ -401,7 +401,7 @@ JSON-LD генерируется централизованно через `layo
 
 Подробно смотри [docs/deploy/16-netlify-routing.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/16-netlify-routing.md).
 
-## 13. PageSpeed Insights
+## 13. Проверка Через PageSpeed Insights
 
 В проекте больше нет локального браузерного quality-аудита и Netlify post-deploy browser plugin. Это осознанное упрощение: Netlify собирает и публикует Hugo-сайт, а качество опубликованных URL проверяется вручную через [PageSpeed Insights](https://pagespeed.web.dev/).
 
@@ -415,7 +415,7 @@ JSON-LD генерируется централизованно через `layo
 
 Подробно смотри [docs/quality/13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md).
 
-## 14. Production-Gate
+## 14. Контроль Перед Production-Релизом
 
 Перед переносом в `main` и включением production-индексации вручную проверить:
 
@@ -557,19 +557,19 @@ git checkout dev
 
 1. `README.md` — главный вход в проект.
 2. `AGENTS.md` — правила безопасной работы для Codex/агентов.
-3. [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-70`.
+3. [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-71`.
 4. [docs/architecture/02-documentation-style-guide.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/02-documentation-style-guide.md) — стандарт русскоязычной, понятной и структурированной документации.
 5. [docs/architecture/03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md) — локальные Hugo helpers и partials.
 6. [docs/content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md) — поля front matter для страниц.
 7. [docs/quality/13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md) — ручная проверка опубликованных URL через PageSpeed Insights.
-8. [docs/quality/14-production-quality-gate-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/14-production-quality-gate-2026.md) — финальный production quality-gate.
+8. [docs/quality/14-production-quality-gate-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/14-production-quality-gate-2026.md) — финальный контроль качества перед production-релизом.
 
 Диапазоны нумерации внутри `docs/`:
 
 - `01` — карта документации.
 - `02-04` — архитектура и шаблонный слой.
 - `05-11` и `67` — контент, изображения, обложки, AI-промпты и шаблоны материалов.
-- `12-14` — Core Web Vitals, PageSpeed Insights и production quality-gate.
+- `12-14` — Core Web Vitals, PageSpeed Insights и контроль качества перед production-релизом.
 - `15-17` — локальные инструменты, Netlify routing и review-инфраструктура.
 - `18-28` — SEO, schema.org, Entity Registry и structured data.
 - `29-50` — audit-снимки и исторические оценки до UI-карты.

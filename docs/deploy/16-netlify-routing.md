@@ -109,7 +109,7 @@ Netlify обрабатывает `_redirects` раньше правил из `ne
 
 Для всех несуществующих URL Netlify сам использует корневой `public/404.html`. Отдельные правила в `static/_redirects` нужны только там, где важен forced `404!` или более явная обработка scanner-noise.
 
-## 6. `layouts/404.html`
+## 6. Шаблон `layouts/404.html`
 
 HTML кастомной страницы ошибки задается в `layouts/404.html`.
 

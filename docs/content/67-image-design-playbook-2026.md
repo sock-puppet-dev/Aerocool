@@ -130,7 +130,7 @@ cover:
 
 Fallback-файл не должен выглядеть как аварийная заглушка. Он должен быть полноценным изображением в стиле утвержденных обложек.
 
-### 5.3. Home Hero
+### 5.3. Hero Главной Страницы
 
 - Файл: `assets/images/home-hero85.webp`.
 - Размер из hero-кода Tailwind Plus: **2102x1401**.
@@ -146,7 +146,7 @@ Fallback-файл не должен выглядеть как аварийная
 - Home hero не использует верхний левый corner logo. Для главной бренд должен быть виден на самом кресле как печать, тиснение или вышивка на материале; отдельный логотип в кадре не нужен, потому что рядом уже есть логотип сайта в шапке.
 - Белый factual product cutout не подходит для hero главной: нужен high-tech/tactile editorial слой со светлым canvas-переходом, graphite/glass глубиной, холодным cyan/violet светом и читаемым креслом.
 
-### 5.4. Product Primary И Product Gallery
+### 5.4. Главное Изображение Товара И Product Gallery
 
 Текущие product primary images в проекте в основном `01-front.png`. Их не нужно автоматически превращать в темные high-tech обложки. Это товарные доказательства, а не рекламные постеры.
 
@@ -302,31 +302,31 @@ Create a 1536x1024 premium high-tech product launch cover for Aerocool chairs. S
 Create a 1536x1024 high-tech logistics and availability cover for Aerocool chairs without showing trucks or warehouse clutter. Use a dark premium product staging area with multiple Aerocool chairs arranged as a ready-to-ship fleet, subtle glowing floor routes, clean inventory-light accents and a corporate technology mood. The idea should communicate availability and updated catalog selection through arrangement and lighting only. Official Aerocool logo upper-left, brand marks printed or embossed on chairs.
 ```
 
-### 11.7. Category: Articles
+### 11.7. Категория: Статьи
 
 ```text
 Create a 1536x1024 high-tech editorial knowledge hub cover for Aerocool articles. Show several Aerocool chairs in a dark premium studio with holographic comparison paths, technical material panels and a clean workstation in the background. The scene should communicate guides, comparison and practical chair selection, without text or UI. Official Aerocool logo upper-left, integrated branding on chairs.
 ```
 
-### 11.8. Category: News
+### 11.8. Категория: Новости
 
 ```text
 Create a 1536x1024 high-tech Aerocool news hub cover with a product announcement mood. Use a dark futuristic showroom, spotlighted Aerocool chairs, subtle launch-stage lighting, cyan-blue and amber accents, and clean depth. The image should feel like official brand updates and new arrivals, not a generic blog cover. No text except official Aerocool logo upper-left and subtle chair branding.
 ```
 
-### 11.9. Category: Products
+### 11.9. Категория: Товары
 
 ```text
 Create a 1536x1024 premium high-tech product catalog cover for Aerocool Ukraine. Show a curated lineup of Aerocool SKY, WING and XTAL chairs in a dark graphite showroom, with clear product silhouettes, realistic materials, reflective floor, and clean cyan-violet technical lighting. The composition should feel like a catalog entrance: broad, trustworthy and product-focused. Official Aerocool logo upper-left, integrated Aerocool branding on every visible chair.
 ```
 
-### 11.10. Default Product Fallback
+### 11.10. Fallback По Умолчанию Для Товаров
 
 ```text
 Create a 1536x1024 high-tech single-product fallback cover with one Aerocool ergonomic chair centered as a hero object. Dark graphite studio, cool cyan backlight, subtle reflective floor, minimal glass-panel background, realistic product geometry and premium material texture. The image should be generic enough for product fallback use but still feel like an Aerocool cover, not a placeholder. Official Aerocool logo upper-left, brand printed or embossed on the chair material.
 ```
 
-### 11.11. Home Hero Landscape
+### 11.11. Landscape Hero Главной Страницы
 
 ```text
 Create a 2102x1401 landscape premium high-tech hero image for Aerocool Ukraine, designed for a Tailwind Plus split marketing hero section. The image is used as the right-side hero image with `object-cover` on desktop and `aspect-3/2` full-width on mobile. One real Aerocool ergonomic chair is the main object, positioned slightly right of center, with enough safe space around the headrest, armrests, base and wheels. The chair should resemble a product-accurate Aerocool XTAL/WING-like ergonomic chair, not a generic racing chair: split backrest geometry, separate headrest, dark grey tactile material, correct armrests, five-star base and wheels. Use either a calm light-to-graphite futuristic studio that naturally blends into a white website canvas, or an approved dark article-cover direction based on the accepted how-to-choose-aerocool-chair cover. Use subtle glass panels, cold cyan rim light, restrained violet depth, soft reflective floor and premium product photography mood. The upper, lower and left edges must feel equally intentional: no mismatched rounded bottom edge, no hard bottom strip, no accidental frame. The chair must carry integrated Aerocool branding on the headrest or seat material. Keep the composition clean for a website homepage hero, with no article title text, no badges and no people.
@@ -334,31 +334,31 @@ Create a 2102x1401 landscape premium high-tech hero image for Aerocool Ukraine, 
 Do not add a corner logo to the home hero, including approved dark article-cover variants. Do not create a hard dark rectangular frame. Do not use a flat factual product cutout. Do not create a bottom edge that looks rounded, pasted, darker or retouched differently from the top edge. Branding on the chair must look printed, embossed or stitched into the material, not like a sticker.
 ```
 
-### 11.12. Product Gallery: Material Close-Up
+### 11.12. Product Gallery: Крупный План Материала
 
 ```text
 Create a photorealistic close-up product image of Aerocool chair material. Focus on tactile surface quality: weave, mesh ventilation, Loft Air texture, Racer pattern, stitching and subtle embossed Aerocool branding. Clean studio lighting, high detail, no decorative text, no fake specifications. The material must look touchable and commercially realistic.
 ```
 
-### 11.13. Product Gallery: In-Scale Context
+### 11.13. Product Gallery: Контекст Масштаба
 
 ```text
 Create an accurate contextual product image of an Aerocool chair in a clean modern workstation, with a desk and monitor as scale references. No people. Keep the full chair visible and product-accurate. Lighting should be premium but neutral enough to judge the size, height, wheels, backrest and seat depth. Integrated Aerocool branding must appear naturally on the chair material.
 ```
 
-### 11.14. Technical Diagram Or Mechanism Image
+### 11.14. Техническая Схема Или Изображение Механизма
 
 ```text
 Create a clean high-tech technical visual explaining an Aerocool chair mechanism or adjustment area without text labels. Use realistic close-up product geometry, subtle cyan technical light lines, visible lever or hinge details, and a dark neutral background. Do not invent specifications, dimensions, icons or medical symbols.
 ```
 
-### 11.15. About, FAQ, Contact
+### 11.15. About, FAQ И Contact
 
 ```text
 Create a premium high-tech service-oriented Aerocool cover image. Dark graphite corporate studio, clean cyan lighting, Aerocool chair or chair lineup as supporting object, calm trustworthy mood. The image should communicate official brand support, information clarity or contact readiness without text, people, badges or fake UI. Official Aerocool logo upper-left and subtle integrated chair branding.
 ```
 
-## 12. Google / Schema Ratios
+## 12. Соотношения Для Google И Schema
 
 Основной стандарт **1536x1024** остается видимой editorial-обложкой, а для `Article` / `NewsArticle` дополнительно поддерживаются crop-варианты под search surfaces и schema.org.
 
