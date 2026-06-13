@@ -97,6 +97,27 @@
 | Build output hygiene | **MANUAL** | `public/` чистится вручную владельцем проекта при необходимости. |
 | Visual density | **P3 WATCH** | Явных дефектов обрезки или дублей логотипа нет; часть hub/section сцен остается плотной по UI-like панелям и может быть упрощена в следующем дизайн-проходе. |
 
+### 4.1. Последняя Проверка Сборки
+
+Команда:
+
+```bash
+npm run build
+```
+
+Результат текущей обычной сборки без автоочистки publishDir:
+
+| Метрика | UK | RU |
+|---|---:|---:|
+| Pages | 62 | 60 |
+| Paginator pages | 9 | 9 |
+| Non-page files | 124 | 0 |
+| Static files | 17 | 17 |
+| Processed images | 618 | 0 |
+| Aliases | 8 | 7 |
+
+`content/products/sky/lite/lite.png` и `content/products/sky/360/360.png` присутствуют в source и после сборки в `public/`, что соответствует принятому решению оставить их как тестовые product gallery assets.
+
 ## 5. Оценка
 
 Текущая оценка image-системы проекта: **9.0 / 10**.
