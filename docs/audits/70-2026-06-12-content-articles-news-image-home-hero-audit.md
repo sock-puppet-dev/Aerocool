@@ -102,11 +102,11 @@
 
 - `assets/images/home-hero85.webp` имеет размер из hero-кода **2102x1401**;
 - формат: WebP;
-- вес после финальной оптимизации: около **72 KB**;
-- визуальный слой: calm light-to-graphite high-tech studio, cold cyan/violet light, soft reflective floor, right-side split hero composition и чистый переход в белый canvas сайта;
-- верхний, нижний и левый края визуально согласованы: без жесткой темной рамки и без отдельного неравного скругления нижнего края;
+- вес после финальной оптимизации: около **61 KB**;
+- визуальный слой: утвержденный dark article-cover direction на основе обложки `content/articles/how-to-choose-aerocool-chair/01-front.webp`: темный graphite high-tech studio, cold cyan light, центральная продуктовая композиция;
+- верхний, нижний и боковые края визуально согласованы для темного cover-derived hero;
 - бренд Aerocool виден на самом кресле как интегрированная печать/тиснение на материале;
-- corner logo отсутствует, потому что home hero не использует cover lockup;
+- corner logo отсутствует: бренд остается только на самом кресле, чтобы не дублировать логотип сайта в шапке;
 - заголовков, бейджей, случайного текста и рекламных плашек нет.
 - `layouts/_shortcodes/home-hero.html` и `layouts/_partials/_seo/lcp-image-preload.html` используют одинаковые `sizes` и `srcset` под Tailwind Plus hero image: **320**, **480**, **640**, **768**, **1024**, **1280**, **1600**, **2102**.
 
