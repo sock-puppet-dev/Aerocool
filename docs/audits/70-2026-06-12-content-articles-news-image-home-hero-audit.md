@@ -109,6 +109,8 @@
 - corner logo отсутствует: бренд остается только на самом кресле, чтобы не дублировать логотип сайта в шапке;
 - заголовков, бейджей, случайного текста и рекламных плашек нет.
 - `layouts/_shortcodes/home-hero.html` и `layouts/_partials/_seo/lcp-image-preload.html` используют одинаковые `sizes` и `srcset` под Tailwind Plus hero image: **320**, **480**, **640**, **768**, **1024**, **1280**, **1600**, **2102**.
+- Дополнительная проверка **2026-06-13**: browser-аудит локальной главной показал, что глобальное правило темы `.post-content img` добавляло hero-картинке `margin: 1rem 0`; на desktop изображение выходило ниже hero-секции на **16 px**, а секция с `overflow-hidden` визуально подрезала низ. В `assets/css/main.css` добавлена более специфичная защита `.post-content .home-hero__image` с `margin: 0`, `border-radius: 0.375rem` и `object-position: center bottom`.
+- В `public/images` удалены stale generated variants `home-hero85_hu_*.webp` от прошлых hero-версий; после сборки должны остаться только актуальные 8 responsive-файлов.
 
 ## 6. Текущая Оценка
 
