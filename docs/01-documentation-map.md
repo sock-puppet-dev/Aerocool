@@ -9,7 +9,7 @@
 - [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) — краткая карта проекта, стека, структуры и основных команд.
 - [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md) — правила безопасной работы для Codex/агентов.
 
-Все файлы внутри `docs/` пронумерованы глобально от `01` до `71`. Номер в начале имени показывает рекомендуемый порядок чтения.
+Все файлы внутри `docs/` пронумерованы глобально от `01` до `72`. Номер в начале имени показывает рекомендуемый порядок чтения.
 
 ## Как Пользоваться Новичку
 
@@ -126,7 +126,7 @@
 
 ### SEO Базы После Аудитов
 
-53. [seo/53-keyword-database-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/53-keyword-database-2026.md) — рабочая база ключевых слов проекта: `257` строк, покрытие `100` markdown-страниц, support/legal URL `/image-license/`, CSV-поля для Google Search Console, аналитики, развития контента и проверки каннибализации.
+53. [seo/53-keyword-database-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/53-keyword-database-2026.md) — рабочая база ключевых слов проекта: `277` строк, покрытие `100` markdown-страниц, support/legal URL `/image-license/`, CSV-поля для Google Search Console, аналитики, развития контента и проверки каннибализации.
 
 ### Актуальные CWV Аудиты
 
@@ -190,6 +190,10 @@
 
 71. [audits/71-2026-06-13-full-project-image-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/71-2026-06-13-full-project-image-audit.md) — текущий полный ручной аудит всех изображений проекта: section/root/series covers, fallback, home hero, article/news bundles, product gallery hygiene, favicon/logo assets и осознанная политика по тестовым product gallery assets; фиксирует результат **9.0/10** и asset-долг по одинаковым product primary images.
 
+### Стратегия Семантического Ядра
+
+72. [seo/72-semantic-core-keyword-strategy-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/72-semantic-core-keyword-strategy-2026.md) — текущая стратегия семантического ядра и ключевых слов на 2026 год: оценка **9.1/10**, правила развития keyword-базы, GSC-план, anti-cannibalization matrix и roadmap расширения посадочных страниц.
+
 ## Маршруты По Задачам
 
 Для контентной правки читать:
@@ -237,7 +241,8 @@
 
 1. [seo/18-seo-keyword-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/18-seo-keyword-map-2026.md)
 2. [seo/53-keyword-database-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/53-keyword-database-2026.md)
-3. [content/07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md)
+3. [seo/72-semantic-core-keyword-strategy-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/72-semantic-core-keyword-strategy-2026.md)
+4. [content/07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md)
 
 После добавления, удаления или переименования любой индексируемой страницы в `content/` нужно проверить, есть ли у нее строка в keyword-базе или явное объяснение, почему страница не является SEO-посадочной.
 
@@ -269,7 +274,7 @@
 - поменял `seo-image` — проверь [content/06-seo-image-shortcode.md](/Users/stadnyk/MEGA/Aerocool/docs/content/06-seo-image-shortcode.md), [architecture/03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md), [quality/12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md) и [content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md), если менялись `image`, `cover` или `seo_image_sizes`;
 - поменял product gallery, product primary image или LCP preload — проверь [content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md), [content/templates/10-product-template.md](/Users/stadnyk/MEGA/Aerocool/docs/content/templates/10-product-template.md), [architecture/03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md), [quality/12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md) и [seo/21-ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/21-ecommerce-structured-data-playbook-2026.md);
 - поменял изображения, AI prompts, fallback-картинки, section covers, inline-иллюстрации, технические схемы или визуальный стиль изображений — проверь [content/67-image-design-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/67-image-design-playbook-2026.md), [content/06-seo-image-shortcode.md](/Users/stadnyk/MEGA/Aerocool/docs/content/06-seo-image-shortcode.md), [content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md), [content/07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md) и текущий ручной аудит изображений;
-- поменял keyword-базу, карту интентов, новую посадочную страницу, slug, canonical URL или статус индексируемости страницы — проверь [seo/18-seo-keyword-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/18-seo-keyword-map-2026.md), [seo/53-keyword-database-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/53-keyword-database-2026.md), [content/07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md) и убедись, что не появились битые `target_url`, дубликаты ключей или новая каннибализация;
+- поменял keyword-базу, карту интентов, новую посадочную страницу, slug, canonical URL или статус индексируемости страницы — проверь [seo/18-seo-keyword-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/18-seo-keyword-map-2026.md), [seo/53-keyword-database-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/53-keyword-database-2026.md), [seo/72-semantic-core-keyword-strategy-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/72-semantic-core-keyword-strategy-2026.md), [content/07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md) и убедись, что не появились битые `target_url`, дубликаты ключей или новая каннибализация;
 - поменял schema.org partials — проверь [seo/19-schema-types-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/19-schema-types-reference.md), [seo/20-schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/20-schema-markup-quality-checklist-2026.md), [seo/26-json-ld-graph-audit-roadmap-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/26-json-ld-graph-audit-roadmap-2026.md) и после сборки обнови [seo/59-entity-performance-report-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md);
 - поменял product facts, товарный front matter, цвет, характеристики, гарантию, доставку, возврат, оплату или `priceValidUntil` — проверь [seo/58-product-facts-maintenance-process-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/58-product-facts-maintenance-process-2026.md), [content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md), [seo/21-ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/21-ecommerce-structured-data-playbook-2026.md) и после сборки обнови [seo/59-entity-performance-report-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md);
 - поменял review-систему, Netlify Database migrations, `review_target_id`, moderation flow или build-time export отзывов — проверь [deploy/17-netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/17-netlify-database-reviews.md), [content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md), [seo/21-ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/21-ecommerce-structured-data-playbook-2026.md) и [seo/20-schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/20-schema-markup-quality-checklist-2026.md);

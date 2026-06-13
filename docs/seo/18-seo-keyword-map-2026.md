@@ -1,10 +1,10 @@
 # Карта Ключевых Слов 2026
 
-Актуально на 2026-06-12.
+Актуально на 2026-06-13.
 
 Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md). Карта ключей остается редакционным инструментом: она помогает покрывать интенты, но не заменяет people-first content, Search Essentials, Core Web Vitals и production-мониторинг.
 
-Этот документ фиксирует стратегию по ключевым словам для всего проекта `Aerocool` и распределение поисковых кластеров по страницам сайта.
+Этот документ фиксирует стратегию по ключевым словам для всего проекта `Aerocool` и распределение поисковых кластеров по страницам сайта. Рабочая CSV-база находится в [53-keyword-database-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/53-keyword-database-2026.md), а отдельный план развития семантического ядра на 2026 год — в [72-semantic-core-keyword-strategy-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/72-semantic-core-keyword-strategy-2026.md).
 
 Как пользоваться новичку: эта карта не нужна для технической сборки сайта. Она нужна, когда ты пишешь или переписываешь контент. Сначала находишь тип страницы, потом смотришь основной интент, ключевые фразы и соседние страницы, чтобы не создать две страницы под один и тот же запрос.
 
@@ -105,6 +105,12 @@
 - `игровое кресло для длительных сессий`
 - `офисное кресло для home office`
 - `компьютерное кресло с регулировками`
+- `как ухаживать за креслом aerocool`
+- `кресло с хорошей вентиляцией`
+- `wing mesh или wing loft air`
+- `xtal racer или xtal mesh`
+- `кресла для переговорной`
+- `кресла для команды разработчиков`
 
 ### Новости
 
@@ -222,6 +228,12 @@
 - `dark grey`
 - `light grey`
 - `black chair`
+- `уход за leatherette`
+- `уход за mesh`
+- `кресло с хорошей вентиляцией`
+- `крісло з хорошою вентиляцією`
+- `wing mesh или wing loft air`
+- `xtal racer или xtal mesh`
 
 ### 5. Кластеры По Сценариям Использования
 
@@ -233,6 +245,10 @@
 - `для длительных игровых сессий`
 - `для вентиляции`
 - `для поддержки осанки`
+- `для переговорной`
+- `для команды разработчиков`
+- `для офісної команди`
+- `для команди розробників`
 
 ### 6. Кластеры По Функциям И Характеристикам
 
@@ -320,8 +336,8 @@
 | `content/articles/how-to-choose-aerocool-chair/index.ru.md` | общий гайд | `как выбрать кресло aerocool`, `кресло для работы`, `кресло для home office` | `игровое кресло`, `офисное кресло`, `компьютерное кресло` |
 | `content/articles/how-to-choose-chair-by-adjustability/index.md` | гайд по регулировкам | `регулювання крісла`, `7D 8D 11D`, `як вибрати ергономічне крісло` | `підлокітники`, `сидіння`, `поперекова підтримка`, `Synchronous Tilt` |
 | `content/articles/how-to-choose-chair-by-adjustability/index.ru.md` | гайд по регулировкам | `регулировки кресла`, `7D 8D 11D`, `как выбрать эргономичное кресло` | `подлокотники`, `сиденье`, `поясничная поддержка`, `Synchronous Tilt` |
-| `content/articles/racer-vs-loft-air-vs-mesh-materials/index.md` | сравнение материалов | `Racer Loft Air Mesh`, `матеріали крісла Aerocool`, `яку поверхню обрати` | `leatherette`, `вентильована тканина`, `сітка`, `home office` |
-| `content/articles/racer-vs-loft-air-vs-mesh-materials/index.ru.md` | сравнение материалов | `Racer Loft Air Mesh`, `материалы кресла Aerocool`, `какую поверхность выбрать` | `leatherette`, `вентилируемая ткань`, `сетка`, `home office` |
+| `content/articles/racer-vs-loft-air-vs-mesh-materials/index.md` | сравнение материалов | `Racer Loft Air Mesh`, `матеріали крісла Aerocool`, `яку поверхню обрати` | `leatherette`, `вентильована тканина`, `сітка`, `догляд за leatherette`, `догляд за mesh`, `крісло з хорошою вентиляцією`, `wing mesh чи wing loft air`, `xtal racer чи xtal mesh` |
+| `content/articles/racer-vs-loft-air-vs-mesh-materials/index.ru.md` | сравнение материалов | `Racer Loft Air Mesh`, `материалы кресла Aerocool`, `какую поверхность выбрать` | `leatherette`, `вентилируемая ткань`, `сетка`, `уход за leatherette`, `уход за mesh`, `кресло с хорошей вентиляцией`, `wing mesh или wing loft air`, `xtal racer или xtal mesh` |
 | `content/articles/sky-lite-vs-sky-360-guide/index.md` | сравнение | `sky lite чи sky 360`, `яке крісло для роботи обрати` | `8d`, `11d`, `office`, `home office` |
 | `content/articles/sky-lite-vs-sky-360-guide/index.ru.md` | сравнение | `sky lite или sky 360`, `какое кресло для работы выбрать` | `8d`, `11d`, `office`, `home office` |
 | `content/articles/what-is-synchronous-tilt-guide/index.md` | объяснение механизма | `що таке Synchronous Tilt`, `синхронний нахил крісла`, `механізм крісла Aerocool` | `ергономіка`, `Multi-angle`, `Weight sensitive`, `SYNC5` |
@@ -346,8 +362,8 @@
 | `content/articles/chair-for-posture-and-long-work/index.ru.md` | посадка и долгая работа | `кресло для осанки`, `кресло для долгой работы` | `спинка`, `подлокотники`, `Synchronous Tilt`, `без медицинских обещаний` |
 | `content/articles/chair-setup-after-purchase/index.md` | post-purchase инструкция | `як налаштувати крісло`, `налаштування крісла після покупки` | `висота`, `сидіння`, `підлокітники`, `нахил` |
 | `content/articles/chair-setup-after-purchase/index.ru.md` | post-purchase инструкция | `как настроить кресло`, `настройка кресла после покупки` | `высота`, `сиденье`, `подлокотники`, `наклон` |
-| `content/articles/chairs-for-office-team/index.md` | офисная команда | `крісла для офісної команди`, `як вибрати крісла для офісу` | `робочі місця`, `закупка`, `SKY`, `WING`, `XTAL` |
-| `content/articles/chairs-for-office-team/index.ru.md` | офисная команда | `кресла для офисной команды`, `как выбрать кресла для офиса` | `рабочие места`, `закупка`, `SKY`, `WING`, `XTAL` |
+| `content/articles/chairs-for-office-team/index.md` | офисная команда | `крісла для офісної команди`, `як вибрати крісла для офісу` | `робочі місця`, `закупка`, `SKY`, `WING`, `XTAL`, `крісла для переговорної`, `крісла для команди розробників` |
+| `content/articles/chairs-for-office-team/index.ru.md` | офисная команда | `кресла для офисной команды`, `как выбрать кресла для офиса` | `рабочие места`, `закупка`, `SKY`, `WING`, `XTAL`, `кресла для переговорной`, `кресла для команды разработчиков` |
 
 ### Новости
 
@@ -407,6 +423,9 @@
 - слой статей и новостей усилен под широкое коммерческое покрытие, а не только под брендовые запросы о запусках
 - CSV-база расширена до аналитического формата: добавлены `target_scope`, `funnel_stage`, `business_value` и поля для будущего импорта Google Search Console
 - страницы `/image-license/` и `/ru/image-license/` заведены как support/legal URL, а не как коммерческие посадочные
+- материаловый гайд получил дополнительные long-tail интенты по уходу, вентиляции и сравнению поверхностей внутри `WING` и `XTAL`
+- B2B-гайд по офисной команде получил long-tail интенты для переговорной и команды разработчиков
+- purchase-слой расширен запросами `купити/купить ігрове/офисное крісло Aerocool` без добавления неподтвержденных обещаний цены, наличия или доставки
 
 Главная цель этого обновления: убрать перекос только в брендовые запросы и запросы по функциям, а также добавить системное покрытие широких коммерческих кластеров:
 
@@ -433,26 +452,25 @@
 - `наличие кресла Aerocool`
 - `доставка кресла Aerocool`
 - `гарантия на кресло Aerocool`
-- `уход за Leatherette`
-- `уход за Mesh`
-- `WING Mesh или WING Loft Air`
-- `XTAL Racer или XTAL Mesh`
-- `кресла для переговорной`
-- `кресла для команды разработчиков`
+- `оплата кресла Aerocool`
+- `возврат кресла Aerocool`
+- `гарантийный ремонт кресла Aerocool`
+- `где посмотреть кресла Aerocool в Украине`
+- `сравнение серий Aerocool по бюджету`
 
 Под эти кластеры лучше всего делать:
 
-- большие статьи-сравнения
-- гайды по сценариям использования
-- FAQ-блоки на сериях
-- усиленные вводные блоки на карточках товаров
+- FAQ-блоки на товарах и `/faq/`, если бизнес-условия подтверждены
+- усиленные блоки на карточках товаров и сериях, если есть подтвержденные product facts
+- отдельные страницы только после данных Google Search Console или рекламных кампаний
+- короткие внутренние ссылки из статей к каталогу, сериям, FAQ и контактам
 
 ## Источники Для Подхода
 
-- Google Search Essentials
-- Google Helpful Content guidance
-- Google title links guidance
-- Google meta descriptions guidance
-- Google product structured data guidance
+- [Google Search Essentials](https://developers.google.com/search/docs/essentials)
+- [Google SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide)
+- [Google Creating Helpful, Reliable, People-First Content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content)
+- [Google Search Console start guide](https://developers.google.com/search/docs/monitor-debug/search-console-start)
+- [Google ecommerce SEO best practices](https://developers.google.com/search/docs/specialty/ecommerce)
 
 Логика этого документа основана на лучших практиках SEO и на текущей архитектуре проекта `Aerocool`, а не на обещании автоматического `топ-1`.
