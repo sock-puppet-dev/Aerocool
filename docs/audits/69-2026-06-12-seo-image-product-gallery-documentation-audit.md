@@ -1,6 +1,6 @@
 # Аудит Документации По `seo-image` И Product Gallery — 2026-06-12
 
-Обновлено: 2026-06-12.
+Обновлено: 2026-06-13.
 
 ## Краткий Вывод
 
@@ -10,7 +10,7 @@
 
 Оценка не равна `10/10`, потому что остаются два практических ограничения:
 
-1. Product gallery все еще автоматически добавляет все processable image-файлы из product page bundle. Это удобно, но требует дисциплины: в папке товара не должно быть тестовых, служебных или черновых изображений.
+1. Product gallery все еще автоматически добавляет все processable image-файлы из product page bundle. Это удобно, но требует дисциплины: тестовые файлы `lite.png` и `360.png` сознательно оставлены владельцем проекта и не удаляются автоматически.
 2. Локальная сборка подтверждает корректность Hugo/HTML pipeline, но финальная SEO/CWV-уверенность требует проверки опубликованных URL через PageSpeed Insights, Google Search Console и rich results validators.
 
 ## Что Сейчас Считается Актуальным
@@ -57,20 +57,20 @@
 | SEO/schema-ясность | **9.2/10** | Зафиксировано, что `image` отвечает за SEO/OG/schema, а `seo-image` — только за видимое HTML-изображение. |
 | Core Web Vitals/LCP | **9.0/10** | Разделены article/news LCP, home hero и product gallery; описано требование совпадения visible `sizes` и preload `imagesizes`. |
 | Понятность для новичка | **9.3/10** | Добавлены таблицы “что за что отвечает” в README, shortcode guide и front matter reference. |
-| Product gallery governance | **8.0/10** | Текущий шаблон удобен, но автоматически подхватывает все image-файлы page bundle; нужен контроль, чтобы не попадали тестовые изображения. |
-| Практическая проверяемость | **8.8/10** | Локальная production-сборка проходит, но финальная валидация должна идти на опубликованных URL через PageSpeed/GSC/Rich Results. |
+| Product gallery governance | **8.0/10** | Auto-include удобен, но тестовые `lite.png` и `360.png` остаются в product bundles по решению владельца проекта. |
+| Практическая проверяемость | **8.8/10** | Локальная сборка проходит, но финальная валидация должна идти на опубликованных URL через PageSpeed/GSC/Rich Results. |
 
 Итоговая оценка: **9.0/10**.
 
 ## Актуальные Остаточные Риски
 
-1. **Product gallery auto-include**: если в product page bundle лежит служебный image-файл, он может стать видимой галереей. Это уже отмечено в [65-2026-06-05-full-ux-ui-revalidation-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/65-2026-06-05-full-ux-ui-revalidation-audit.md) как `UX-65-01`.
+1. **Product gallery auto-include**: шаблон по-прежнему автоматически берет processable image-файлы из product page bundle. Тестовые `lite.png` и `360.png` оставлены намеренно, поэтому перед production-проверкой нужно вручную понимать, должны ли они быть видимыми на PDP.
 2. **Нет live CWV-подтверждения в этом аудите**: локальный build не заменяет PageSpeed Insights по опубликованному URL.
 3. **Нет гарантии позиции Google**: корректные изображения, schema и preload повышают техническое качество страницы, но не гарантируют `топ-1`; ранжирование зависит от контента, интента, ссылок, конкурентов, спроса и поведения пользователей.
 
 ## Следующие Действия Для Оценки 9.5+
 
-1. Решить product gallery allowlist: либо явный front matter список галереи, либо правило исключения служебных файлов.
+1. Решить product gallery allowlist: либо явный front matter список галереи, либо сохранить auto-include и ручной контроль test fixtures.
 2. Проверить опубликованные product/article/news URL через PageSpeed Insights после deploy.
 3. Проверить rich results / schema image output для одной статьи, одной новости и одного товара.
 4. Расширить реальные product gallery images: front, side, back, material close-up, mechanism, in-scale photo.

@@ -2,9 +2,13 @@
 
 Дата аудита: 2026-06-05.
 
+Обновление статуса: 2026-06-13.
+
 Этот документ фиксирует повторную проверку UX/UI-состояния проекта `Aerocool Ukraine` после полного аудита `64`. Цель проверки — подтвердить, какие выводы полного visual audit остаются актуальными, какие риски все еще открыты и какой порядок работ считать текущим.
 
 Исторический полный аудит [64-2026-06-04-full-ux-ui-tailwind-audit.md](64-2026-06-04-full-ux-ui-tailwind-audit.md) не переписывается задним числом. Этот документ является свежим revalidation-снимком на 2026-06-05.
+
+Статусное уточнение от 2026-06-13: файлы `content/products/sky/lite/lite.png` и `content/products/sky/360/360.png` оставлены в проекте как тестовые product gallery assets по решению владельца проекта. Исторические цифры сборки ниже не пересчитывались.
 
 ## Короткий Вывод
 
@@ -66,7 +70,7 @@ mise exec -- hugo --environment development --gc --minify --cacheDir /Users/stad
 
 | ID | Статус | Что Проверено | Где Подтверждено | Почему Важно | Следующее Действие |
 |---|---|---|---|---|---|
-| UX-65-01 | Открыто | В PDP-галерею все еще может попасть служебный/test image asset `lite.png`. | `content/products/sky/lite/lite.png`; `layouts/_partials/products/gallery.html` автоматически добавляет все images из page bundle. | Товарная галерея должна показывать только реальные фото товара. Служебная картинка в PDP снижает доверие к странице. | Удалить или заменить `lite.png`; затем решить правило включения изображений в gallery. |
+| UX-65-01 | Принято как test fixture | В PDP-галерею могут попадать тестовые image assets `lite.png` и `360.png`. | `content/products/sky/lite/lite.png`, `content/products/sky/360/360.png`; `layouts/_partials/products/gallery.html` автоматически добавляет все images из page bundle. | Для production-UX товарная галерея должна показывать только реальные фото товара, но эти файлы сознательно оставлены для локального тестирования. | Не удалять эти файлы без отдельного решения владельца проекта. Если нужно скрыть их с PDP, решать это шаблонно или вручную перед production-проверкой. |
 | UX-65-02 | Открыто | Верхние карточки серий в root-каталоге используют слабые `cover.webp` preview. | `content/products/sky/_index.md`, `content/products/wing/_index.md`, `content/products/xtal/_index.md`. | Category preview должен помогать выбрать `SKY`, `WING`, `XTAL`, а не быть декоративным блоком. | Заменить cover серий на реальные product/series preview images или сделать отдельный category-preview partial. |
 | UX-65-03 | Закрыто | Root-каталог больше не показывает неоднозначные короткие titles. | `layouts/products/list.html` передает `showSeriesInTitle`; `layouts/_partials/products/card.html` выводит `WING Mesh Black`, `XTAL Mesh Black`, `WING Racer Black`, `XTAL Racer Black` только в root-каталоге. | Пользователь в `/products/` сразу видит серию и не воспринимает одинаковые материалы/цвета как дубликаты. | Поддерживать правило: в `/products/` title = серия + короткое название, на страницах серий можно оставлять короткий `linkTitle`. |
 | UX-65-04 | Открыто | Search page все еще не соответствует Application UI `Input Groups`. | `layouts/search.html` использует старый `page-header`, `#searchbox` и input без `.ui-field`. | Поиск должен помогать находить модели, серии, материалы, `11D`, `Mesh`, доставку, гарантию и статьи. Сейчас он выглядит как техническая страница. | Пересобрать `/search/` как Application UI search/input group: label, `.ui-field`, подсказки, quick links, empty state и result cards. |
@@ -96,23 +100,23 @@ mise exec -- hugo --environment development --gc --minify --cacheDir /Users/stad
 | Tailwind Plus map execution | 8.1/10 | Много блоков реализовано, но applied chips, comparison table и search UI все еще backlog. |
 | E-commerce product finding | 7.5/10 | Фильтры и сортировка есть, но не хватает видимых активных условий, сравнения и сильного поиска. |
 | Product list UX | 7.5/10 | Root titles стали однозначными. Открытый риск — часть важных facts все еще частично завязана на hover. |
-| PDP UX | 8.0/10 | Первый экран сильный, но gallery asset rule и alternatives/features нужно довести. |
+| PDP UX | 8.0/10 | Первый экран сильный. Product gallery содержит осознанные test fixtures; alternatives/features и реальные разные product primary images еще нужно довести. |
 | Forms and feedback | 7.8/10 | Contact layout и success alert есть. Нужно добавить placeholders и доступнее оформить состояния. |
 | Accessibility basics | 8.0/10 | Labels, native controls, keyboard tabs/gallery есть. Нужны live regions и ручная mobile/focus проверка. |
 | Search UX | 5.5/10 | Самая слабая зона из основных пользовательских маршрутов. |
 
 ## Текущий Приоритет Работ
 
-1. Убрать `TEST/lite.png` из PDP-галереи и определить правило включения изображений.
-2. Заменить series/category previews в `/products/` на реальные product/series visuals.
-3. Добавить comparison table для `/products/`.
-4. Добавить applied filter chips и `aria-live` для count/empty state.
-5. Переделать `/search/` под Application UI Input Group.
-6. Добавить placeholders в contact form.
-7. Добавить `data-product-sort-current` в sort button.
-8. Дочистить Tailwind 4.3 token debt.
-9. Добавить material blocks и series-specific FAQ.
-10. Добавить PDP alternatives/features.
+1. Заменить series/category previews в `/products/` на реальные product/series visuals.
+2. Добавить comparison table для `/products/`.
+3. Добавить applied filter chips и `aria-live` для count/empty state.
+4. Переделать `/search/` под Application UI Input Group.
+5. Добавить placeholders в contact form.
+6. Добавить `data-product-sort-current` в sort button.
+7. Дочистить Tailwind 4.3 token debt.
+8. Добавить material blocks и series-specific FAQ.
+9. Добавить PDP alternatives/features.
+10. Заменить одинаковые product primary images официальными разными product assets по SKU/MPN/GTIN.
 11. Довести footer до компактного 4-column pattern.
 
 ## Что Считать Готовностью К Следующей Оценке 8.5/10
