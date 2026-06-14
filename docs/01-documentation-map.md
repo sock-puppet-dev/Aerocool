@@ -1,6 +1,6 @@
 # Документация Aerocool
 
-Обновлено: 2026-06-13.
+Обновлено: 2026-06-14.
 
 Этот файл — главная карта всей документации проекта. Его задача простая: показать новичку, что читать сначала, что читать потом и какие документы нужны только для профильных задач.
 
@@ -9,7 +9,7 @@
 - [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) — краткая карта проекта, стека, структуры и основных команд.
 - [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md) — правила безопасной работы для Codex/агентов.
 
-Все файлы внутри `docs/` пронумерованы глобально от `01` до `72`. Номер в начале имени показывает рекомендуемый порядок чтения.
+Все файлы внутри `docs/` пронумерованы глобально от `01` до `73`. Номер в начале имени показывает рекомендуемый порядок чтения.
 
 ## Как Пользоваться Новичку
 
@@ -194,6 +194,10 @@
 
 72. [seo/72-semantic-core-keyword-strategy-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/72-semantic-core-keyword-strategy-2026.md) — текущая стратегия семантического ядра и ключевых слов на 2026 год: оценка **9.1/10**, правила развития keyword-базы, GSC-план, anti-cannibalization matrix и roadmap расширения посадочных страниц.
 
+### Inline-Изображения Статей И Новостей
+
+73. [audits/73-2026-06-14-articles-news-inline-image-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/73-2026-06-14-articles-news-inline-image-plan.md) — текущий план inline-изображений для всех `content/articles` и `content/news`: рекомендации по каждому материалу, места вставки, размеры, форматы, вес, shortcode-правила и SEO/image best practices 2026.
+
 ## Маршруты По Задачам
 
 Для контентной правки читать:
@@ -203,7 +207,8 @@
 3. нужный шаблон из `content/templates/`
 4. [content/67-image-design-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/67-image-design-playbook-2026.md), если задача касается любых изображений: обложек, AI-промптов, fallback-картинок, product gallery, inline-иллюстраций, технических схем или визуального стиля.
 5. [audits/71-2026-06-13-full-project-image-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/71-2026-06-13-full-project-image-audit.md), если нужна текущая ручная проверка всех изображений проекта, fallback, section covers и product gallery hygiene.
-6. [audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md), если нужна специализированная проверка `content/articles`, `content/news`, обложек, crops и home hero.
+6. [audits/73-2026-06-14-articles-news-inline-image-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/73-2026-06-14-articles-news-inline-image-plan.md), если нужна рекомендация по inline-изображениям внутри каждой статьи или новости.
+7. [audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md), если нужна специализированная проверка `content/articles`, `content/news`, обложек, crops и home hero.
 
 Для изображений, AI-промптов и визуального стиля читать:
 
@@ -214,7 +219,8 @@
 5. [content/07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md)
 6. [quality/12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md)
 7. [audits/71-2026-06-13-full-project-image-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/71-2026-06-13-full-project-image-audit.md), если задача касается текущего ручного состояния всех изображений проекта.
-8. [audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md), если задача касается только article/news covers, schema crops или `assets/images/home-hero85.webp`.
+8. [audits/73-2026-06-14-articles-news-inline-image-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/73-2026-06-14-articles-news-inline-image-plan.md), если задача касается inline-иллюстраций в теле статей и новостей.
+9. [audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md), если задача касается только article/news covers, schema crops или `assets/images/home-hero85.webp`.
 
 Для schema.org или rich results читать:
 

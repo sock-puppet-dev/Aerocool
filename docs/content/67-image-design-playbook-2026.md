@@ -1,6 +1,6 @@
 # Playbook Изображений И AI-Промптов Aerocool 2026
 
-Обновлено: 2026-06-13.
+Обновлено: 2026-06-14.
 
 Этот документ фиксирует повторяемый стандарт для всех изображений проекта `Aerocool Ukraine`: обложек статей и новостей, section covers, fallback-изображений, home hero, товарных фото, product gallery, контентных иллюстраций, технических схем, логотипов и служебных иконок.
 
@@ -15,7 +15,8 @@
 - [07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md) - редакционный SEO-чеклист;
 - [12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md) - LCP, responsive images и производительность;
 - [20-schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/20-schema-markup-quality-checklist-2026.md) - `ImageObject` и schema.org;
-- [21-ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/21-ecommerce-structured-data-playbook-2026.md) - product images, Product/Offer и e-commerce structured data.
+- [21-ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/21-ecommerce-structured-data-playbook-2026.md) - product images, Product/Offer и e-commerce structured data;
+- [73-2026-06-14-articles-news-inline-image-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/73-2026-06-14-articles-news-inline-image-plan.md) - текущий план inline-иллюстраций для всех статей и новостей.
 
 ## 1. Как Пользоваться Новичку
 
@@ -96,7 +97,8 @@
 | Home hero | `assets/images/home-hero85.webp` | **2102x1401**, WebP | Первый экран главной | Tailwind Plus split hero image |
 | Product primary | `content/products/**/01-front.png` сейчас, целевой WebP/JPEG позже | исходный product size | Точное фото товара | Neutral factual |
 | Product gallery | рядом с товаром | WebP/JPEG/PNG по источнику | Ракурсы, детали, масштаб | Factual + optional context |
-| Inline article image | page bundle | WebP | Объяснить блок текста | High-tech или factual по смыслу |
+| Inline article/news image | page bundle | **1200x800**, WebP | Объяснить конкретный блок текста | High-tech или factual по смыслу |
+| Inline technical/detail image | page bundle | **1200x800** WebP или SVG | Механизм, регулировки, материал | Clean technical/factual |
 | Technical diagram | page bundle или `static/images` | SVG/WebP | Механизм, регулировки, размеры | Clean technical, без fake specs |
 | Logo/favicon | `static/` | SVG/PNG | Идентичность сайта | Только brand source |
 
@@ -118,6 +120,37 @@ cover:
 - Ratio: **3:2**.
 - Первое видимое изображение article/news в теле страницы выводить через `seo-image`.
 - Для топовых article/news URL в P2 подготовить дополнительные crops **16:9**, **4:3**, **1:1** для schema.org и Search surfaces.
+
+### 5.1.1. Inline-Изображения В Теле Статей И Новостей
+
+Inline-изображения нужны не для украшения, а для объяснения конкретного блока текста: сравнения серий, материала, механизма, сценария посадки, настройки после покупки или новостного инфоповода.
+
+Технический стандарт:
+
+- основной размер: **1200x800**, ratio **3:2**, WebP;
+- допустимый широкий вариант: **1200x675**, ratio **16:9**, WebP, если изображение должно работать как узкий сравнительный баннер внутри текста;
+- техническая схема: SVG, если это чистая векторная схема без фотореалистичных материалов; WebP, если есть свет, фактуры, кресло или 3D-сцена;
+- целевой вес: **120-280 КБ** для WebP; максимально допустимо **350 КБ**, если есть сложные фактуры материала;
+- имя файла: `02-<topic>.webp`, `03-<topic>.webp`, далее по порядку внутри page bundle;
+- для украинской и русской версии использовать один и тот же файл, если в изображении нет текста; если текст внутри изображения неизбежен, нужны отдельные локализованные файлы, но по умолчанию текст внутри изображения не использовать;
+- выводить через shortcode `seo-image`, не сырым HTML;
+- для inline-изображений использовать `loading="lazy"` и `decoding="async"`; не ставить `preload=true` и не использовать `fetchpriority="high"`;
+- `alt` должен описывать смысл изображения на языке страницы и быть рядом с релевантным текстом;
+- не дублировать обложку: inline-изображение должно раскрывать новый аспект, которого нет в `01-front.webp`.
+
+Количество:
+
+- evergreen article до **2000** слов: обычно **2** inline-изображения после обложки;
+- evergreen article более **2000** слов или с несколькими сравнениями: **2-3** inline-изображения;
+- news до **1000** слов: обычно **1** inline-изображение после первого смыслового блока;
+- news с запуском серии или несколькими моделями: **1-2** inline-изображения.
+
+SEO-логика:
+
+- изображение должно быть вставлено рядом с текстом, который оно объясняет;
+- filename, `alt`, surrounding heading и абзац должны говорить об одной теме;
+- сравнение, таблицу или FAQ не превращать в картинку, если это можно сделать HTML-текстом: поисковику и пользователю нужен индексируемый текст;
+- для `Article` / `NewsArticle` schema главным image-set остается `01-front.webp` + crops; inline-изображения могут усиливать страницу, но не заменяют primary image.
 
 ### 5.2. Section Covers И Fallback
 
