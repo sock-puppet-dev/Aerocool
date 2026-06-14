@@ -32,7 +32,7 @@
 - `01-...` — главный вход в документацию;
 - `02-04` — архитектура и шаблонный слой;
 - `05-11` — контент, front matter, изображения и шаблоны материалов;
-- `12-14` — качество, Core Web Vitals, PageSpeed Insights и production quality-gate;
+- `12-14` — качество, Core Web Vitals, PageSpeed Insights и контроль перед production-релизом;
 - `15-17` — локальные инструменты, Netlify routing и Netlify Database reviews;
 - `18-28` — SEO, schema.org, entity registry и structured data;
 - `29-50` — исторические и текущие audit-снимки до UI-карты;
@@ -67,7 +67,7 @@
 
 12. [quality/12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md) — полный Core Web Vitals playbook для Hugo/Netlify/Tailwind сайта.
 13. [quality/13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md) — ручная проверка опубликованных URL через PageSpeed Insights.
-14. [quality/14-production-quality-gate-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/14-production-quality-gate-2026.md) — финальный production quality-gate перед релизом.
+14. [quality/14-production-quality-gate-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/14-production-quality-gate-2026.md) — финальный контроль качества перед production-релизом.
 
 ### Деплой И Инфраструктура
 

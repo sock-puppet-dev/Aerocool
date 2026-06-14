@@ -23,16 +23,16 @@
 Официальные источники, с которыми сверены правила:
 
 - Google Search Essentials: https://developers.google.com/search/docs/essentials
-- Google technical requirements: https://developers.google.com/search/docs/essentials/technical
+- Технические требования Google Search: https://developers.google.com/search/docs/essentials/technical
 - Helpful, reliable, people-first content: https://developers.google.com/search/docs/fundamentals/creating-helpful-content
-- Google page experience: https://developers.google.com/search/docs/appearance/page-experience
+- Page experience в Google Search: https://developers.google.com/search/docs/appearance/page-experience
 - Core Web Vitals: https://developers.google.com/search/docs/appearance/core-web-vitals
-- Structured data general guidelines: https://developers.google.com/search/docs/appearance/structured-data/sd-policies
-- Product structured data overview: https://developers.google.com/search/docs/appearance/structured-data/product
+- Общие правила structured data: https://developers.google.com/search/docs/appearance/structured-data/sd-policies
+- Обзор Product structured data: https://developers.google.com/search/docs/appearance/structured-data/product
 - Merchant listing structured data: https://developers.google.com/search/docs/appearance/structured-data/merchant-listing
 - Product variants structured data: https://developers.google.com/search/docs/appearance/structured-data/product-variants
-- Localized versions / hreflang: https://developers.google.com/search/docs/specialty/international/localized-versions
-- Google Images SEO best practices: https://developers.google.com/search/docs/appearance/google-images
+- Локализованные версии / hreflang: https://developers.google.com/search/docs/specialty/international/localized-versions
+- Лучшие практики Google Images SEO: https://developers.google.com/search/docs/appearance/google-images
 - Hugo `css.TailwindCSS`: https://gohugo.io/functions/css/tailwindcss/
 - Hugo security configuration: https://gohugo.io/configuration/security/
 - Hugo security model: https://gohugo.io/about/security/
@@ -45,93 +45,93 @@
 
 | Область | Текущее Состояние | Статус |
 |---|---|---|
-| Hugo | `0.162.0` pinned in `mise.toml` and `netlify.toml` | OK; keep pinned until explicit upgrade task |
-| Node | `24.16.0` pinned locally and on Netlify | OK |
-| Tailwind | Tailwind CSS 4 via npm dependency and Hugo `css.TailwindCSS` | OK |
-| Netlify | Build remains `development/noindex` intentionally | OK for pre-production; production gate remains open |
-| SEO docs | Google SEO, SSG SEO, content, schema, entity and e-commerce docs exist | OK |
-| Core Web Vitals | New standalone CWV guide added and linked | OK |
-| Structured data | Local JSON-LD graph docs are strong and conservative | OK with rating/source caveat |
-| Multilingual | `uk` default + `/ru/`, page bundles, hreflang/canonical documented | OK |
-| Redirects/404 | Netlify `_redirects` and forced `404!` rules documented | OK |
-| AI Search | Covered as monitoring/entity layer, not as replacement for classic SEO | OK |
+| Hugo | `0.162.0` зафиксирован в `mise.toml` и `netlify.toml` | OK; держать pinned-версию до отдельной задачи обновления |
+| Node | `24.16.0` зафиксирован локально и на Netlify | OK |
+| Tailwind | Tailwind CSS 4 работает через npm-зависимость и Hugo `css.TailwindCSS` | OK |
+| Netlify | Сборка намеренно остается в режиме `development/noindex` | OK для pre-production; production gate остается открытым |
+| SEO docs | Документы по Google SEO, SSG SEO, контенту, schema, entity и e-commerce существуют | OK |
+| Core Web Vitals | Добавлен и связан отдельный CWV-гайд | OK |
+| Structured data | Документация локального JSON-LD graph сильная и консервативная | OK с оговоркой по источнику ratings/reviews |
+| Multilingual | `uk` по умолчанию + `/ru/`, page bundles, hreflang/canonical задокументированы | OK |
+| Redirects/404 | Netlify `_redirects` и forced `404!` правила задокументированы | OK |
+| AI Search | Описан как monitoring/entity layer, а не как замена классического SEO | OK |
 
 ## 4. Замечания
 
 ### Исправлено В Этой Синхронизации
 
-- Added standalone Core Web Vitals guide for Hugo / Netlify / Tailwind.
-- Linked CWV guide from `README.md`, `AGENTS.md`, `docs/01-documentation-map.md`, PageSpeed workflow and SEO checklists.
-- Added this current documentation sync audit to preserve a single 2026-05-13 snapshot.
-- Updated active documentation dates and cross-links where files were touched.
-- Fixed stale browser-audit references in quality docs.
-- Added current-source notes for Google Search Essentials, people-first content, page experience, structured data, product/merchant listing docs, Hugo Node security, Tailwind source detection and Netlify routing/cache/header behavior.
+- Добавлен отдельный Core Web Vitals guide для Hugo / Netlify / Tailwind.
+- CWV-гайд связан из `README.md`, `AGENTS.md`, `docs/01-documentation-map.md`, PageSpeed workflow и SEO checklists.
+- Добавлен этот аудит синхронизации документации, чтобы сохранить единый snapshot на 2026-05-13.
+- Обновлены даты активной документации и cross-links в затронутых файлах.
+- Исправлены устаревшие ссылки на browser audit в quality docs.
+- Добавлены заметки по актуальным источникам для Google Search Essentials, people-first content, page experience, structured data, product/merchant listing docs, Hugo Node security, Tailwind source detection и Netlify routing/cache/header behavior.
 
 ### Намеренно Оставлено Открытым
 
 | Пункт | Почему Открыто | Следующий Шаг |
 |---|---|---|
-| Netlify production switch | Site intentionally remains `development/noindex` | Switch only after final production approval |
-| Search Console field data | Requires production indexing and traffic | Monitor after production |
-| Product ratings source | Google rich result risk if rating source is not real/visible | Confirm source or remove/avoid `aggregateRating` |
-| ProductGroup | Entities are staged/planned | Add visible variant navigation before confirming |
-| AI Search baseline | Needs production index and real prompt monitoring | Start monthly baseline after launch |
-| Future Hugo releases | Project pins `0.162.0` for reproducibility | Evaluate upgrades separately, do not drift silently |
+| Netlify production switch | Сайт намеренно остается в `development/noindex` | Переключать только после финального production approval |
+| Search Console field data | Требует production-индексации и трафика | Мониторить после production |
+| Источник product ratings | Риск для Google rich result, если источник рейтинга не реальный/видимый | Подтвердить источник или убрать/не выводить `aggregateRating` |
+| ProductGroup | Сущности находятся в staged/planned состоянии | Добавить видимую навигацию вариантов перед подтверждением |
+| AI Search baseline | Нужен production index и реальный prompt monitoring | Запустить ежемесячный baseline после launch |
+| Future Hugo releases | Проект фиксирует `0.162.0` для воспроизводимости | Оценивать upgrades отдельно, без тихого version drift |
 
 ## 5. Соответствие Лучшим Практикам
 
 ### Google SEO
 
-The documentation is aligned with 2026 Google guidance:
+Документация соответствует рекомендациям Google 2026 года:
 
-- no guarantee of crawl/index/rank, even when requirements are met;
-- people-first content over search-engine-first content;
-- no fixed Google word-count requirement;
-- Search Essentials and technical accessibility remain the baseline;
-- page experience and CWV matter, but are not a single magic ranking switch;
-- Search Console monitoring is required after production.
+- нет гарантии crawl/index/rank даже при выполнении требований;
+- people-first content важнее search-engine-first content;
+- у Google нет фиксированного требования к количеству слов;
+- Search Essentials и техническая доступность остаются базой;
+- page experience и CWV важны, но не являются единственным “магическим” ranking switch;
+- после production обязателен monitoring в Search Console.
 
 ### Структурированные Данные
 
-The documentation is aligned with current Google structured data guidance:
+Документация соответствует текущим правилам Google structured data:
 
-- JSON-LD is the preferred local implementation format;
-- structured data must represent visible page content;
-- hidden or misleading product/rating/review facts remain a risk;
-- Product/Offer/merchant facts must stay synchronized with front matter, visible product content and `/faq/`;
-- Product variants should wait for visible variant navigation and stable ProductGroup entities.
+- JSON-LD остается предпочтительным локальным форматом реализации;
+- structured data должна отражать видимый контент страницы;
+- скрытые или вводящие в заблуждение product/rating/review facts остаются риском;
+- Product/Offer/merchant facts должны быть синхронизированы с front matter, видимым товарным контентом и `/faq/`;
+- Product variants должны ждать видимой навигации вариантов и стабильных ProductGroup-сущностей.
 
 ### Core Web Vitals
 
-The current CWV layer is aligned with 2026 metrics:
+Текущий CWV-слой соответствует метрикам 2026 года:
 
-- primary metrics: `LCP`, `INP`, `CLS`;
-- `FID` is not treated as a current core target;
-- Search Console and PageSpeed field data are separated from immediate lab/browser diagnostics;
-- image, CSS, JS, font and TTFB risks are documented for the current Hugo/Netlify implementation.
+- основные метрики: `LCP`, `INP`, `CLS`;
+- `FID` больше не считается текущей core target;
+- field data из Search Console и PageSpeed отделены от быстрых lab/browser diagnostics;
+- риски image, CSS, JS, font и TTFB описаны для текущей реализации Hugo/Netlify.
 
 ### Hugo / Tailwind
 
-The documentation is aligned with Hugo 0.162-era behavior:
+Документация соответствует поведению Hugo 0.162-era:
 
-- Tailwind remains an npm dependency;
-- standalone Tailwind CLI is not used as project workflow;
-- Hugo `css.TailwindCSS` and `hugo_stats.json` are the project path;
-- Tailwind classes should remain statically discoverable;
-- Node permission model is treated as part of the build contract.
+- Tailwind остается npm-зависимостью;
+- standalone Tailwind CLI не используется как project workflow;
+- Hugo `css.TailwindCSS` и `hugo_stats.json` являются проектным путем;
+- Tailwind classes должны оставаться статически обнаруживаемыми;
+- Node permission model рассматривается как часть build contract.
 
 ### Netlify
 
-The documentation is aligned with Netlify behavior:
+Документация соответствует поведению Netlify:
 
-- `_redirects` and `netlify.toml` responsibilities are separated;
-- forced `404!` is reserved for scanner/sensitive URL handling;
-- no broad `/* -> /404.html 404` fallback is used;
-- header and cache rules are documented as deploy-level behavior that must be verified on Deploy Preview or production.
+- зоны ответственности `_redirects` и `netlify.toml` разделены;
+- forced `404!` зарезервирован для scanner/sensitive URL handling;
+- широкий fallback `/* -> /404.html 404` не используется;
+- правила headers и cache описаны как deploy-level behavior, который нужно проверять на Deploy Preview или production.
 
 ## 6. Рекомендуемый Порядок Чтения После Этой Синхронизации
 
-For a new contributor:
+Для нового участника проекта:
 
 1. [README.md](/Users/stadnyk/MEGA/Aerocool/README.md)
 2. [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md)
@@ -139,7 +139,7 @@ For a new contributor:
 4. [docs/architecture/03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md)
 5. [docs/quality/13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md)
 
-For SEO/schema work:
+Для SEO/schema-задач:
 
 1. [docs/content/07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md)
 2. [docs/seo/27-google-seo-audit-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/27-google-seo-audit-checklist-2026.md)
@@ -147,7 +147,7 @@ For SEO/schema work:
 4. [docs/seo/20-schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/20-schema-markup-quality-checklist-2026.md)
 5. [docs/seo/21-ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/21-ecommerce-structured-data-playbook-2026.md)
 
-For performance/CWV work:
+Для performance/CWV-задач:
 
 1. [docs/quality/12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md)
 2. [docs/quality/13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md)
@@ -156,19 +156,19 @@ For performance/CWV work:
 
 ## 7. Итоговая Оценка
 
-Documentation state after this sync:
+Состояние документации после этой синхронизации:
 
 ```text
 Project documentation: 9.5 / 10
 ```
 
-The remaining `0.5` is not a documentation gap. It is the pre-production boundary:
+Оставшиеся `0.5` балла — не пробел документации, а граница pre-production:
 
-- production mode is not enabled yet;
-- Search Console field data cannot be finalized yet;
-- rich result eligibility must be rechecked on production URLs;
-- rating/review source still needs a business decision.
+- production mode еще не включен;
+- Search Console field data еще нельзя финализировать;
+- rich result eligibility нужно перепроверить на production URL;
+- источник rating/review все еще требует бизнес-решения.
 
 Текущий вывод:
 
-> The documentation is current for May 13, 2026 and aligned with 2026 best practices for a Hugo / Netlify / Tailwind static SEO site. The next decisive step is not more documentation, but the controlled production switch and post-launch Search Console / PageSpeed / rich results monitoring.
+> Документация актуальна на 13 мая 2026 года и соответствует практикам 2026 для статического SEO-сайта на Hugo / Netlify / Tailwind. Следующий решающий шаг — не новая документация, а контролируемое переключение production и post-launch monitoring через Search Console / PageSpeed / rich results.

@@ -326,16 +326,16 @@ function buildNotes(entity, aboutPages, mentionPages, groupPages, rendered, over
     notes.push("do-not-markup");
   }
   if (entity.status === "confirmed" && aboutPages.length === 0 && mentionPages.length === 0 && groupPages.length === 0 && rendered.idRefs === 0) {
-    notes.push("no current usage");
+    notes.push("нет текущего использования");
   }
   if (entity.entity_class === "ProductGroup" && groupPages.length > 0) {
-    notes.push("active ProductGroup");
+    notes.push("активный ProductGroup");
   }
   if (rendered.nodeDefs === 0 && rendered.idRefs > 0) {
-    notes.push("referenced without own node definition");
+    notes.push("есть ссылки без собственного node definition");
   }
   if (notes.length === 0) {
-    notes.push("ok");
+    notes.push("OK");
   }
   if (overrideNotes) {
     notes.push(overrideNotes);
@@ -380,10 +380,10 @@ CSV-версия отчета: [59-entity-performance-report-2026.csv](/Users/st
 | Front matter \`about_entities\` | заполнено из \`content/**/*.md\` |
 | Front matter \`mentions_entities\` | заполнено из \`content/**/*.md\` |
 | Front matter \`product_group_id\` | заполнено из \`content/**/*.md\` |
-| Rendered JSON-LD refs | заполнено из \`public/**/*.html\` после \`npm run build\` |
+| Ссылки в rendered JSON-LD | заполнено из \`public/**/*.html\` после \`npm run build\` |
 | GSC impressions/clicks/CTR | из \`docs/seo/59-entity-performance-overrides.csv\`, сейчас \`pending-production\` |
 | AI citations | из \`docs/seo/59-entity-performance-overrides.csv\`, сейчас \`pending-production\` |
-| Business signal | из \`docs/seo/59-entity-performance-overrides.csv\`, сейчас \`pending-production\` |
+| Бизнес-сигнал | из \`docs/seo/59-entity-performance-overrides.csv\`, сейчас \`pending-production\` |
 
 ## 2. Сводка Данных
 
@@ -396,8 +396,8 @@ CSV-версия отчета: [59-entity-performance-report-2026.csv](/Users/st
 | Разобранные content-страницы | \`${contentPages.length}\` |
 | Разобранные JSON-LD scripts | \`${renderedGraph.scripts.length}\` |
 | Ошибки парсинга JSON-LD | \`${renderedGraph.parseErrors.length}\` |
-| Сущности с about usage | \`${rowsWithAbout}\` |
-| Сущности с mentions usage | \`${rowsWithMentions}\` |
+| Сущности с использованием в about | \`${rowsWithAbout}\` |
+| Сущности с использованием в mentions | \`${rowsWithMentions}\` |
 | Сущности с rendered \`@id\` refs | \`${rowsWithRenderedRefs}\` |
 
 ${renderedGraph.parseErrors.length > 0 ? buildParseErrorBlock(renderedGraph.parseErrors) : "Ошибки парсинга JSON-LD не найдены."}
@@ -416,7 +416,7 @@ ${buildSmallTable(topRendered, "rendered")}
 
 ## 6. Полная Таблица Сущностей
 
-| Сущность | Статус | Класс | Entity Home | About | Mentions | Группы | Rendered refs | Node defs | GSC | AI | Business | Заметки |
+| Сущность | Статус | Класс | URL Сущности | About | Mentions | Группы | Rendered refs | Node defs | GSC | AI | Бизнес | Заметки |
 | --- | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- | --- | --- | --- |
 ${rows.map((row) => [
     md(row.entityID),
@@ -440,11 +440,11 @@ ${rows.map((row) => [
 2. Проверять, что важные confirmed сущности не потеряли \`about\`, \`mentions\` или rendered refs.
 3. После production-перехода добавить GSC impressions, clicks и CTR в \`docs/seo/59-entity-performance-overrides.csv\`.
 4. После AI Search baseline добавить AI citations и ошибки представления бренда/товаров в \`docs/seo/59-entity-performance-overrides.csv\`.
-5. После появления бизнес-событий добавить business signal: консультации, заявки, покупки или другие подтвержденные действия в \`docs/seo/59-entity-performance-overrides.csv\`.
+5. После появления бизнес-событий добавить бизнес-сигнал: консультации, заявки, покупки или другие подтвержденные действия в \`docs/seo/59-entity-performance-overrides.csv\`.
 
 ## 8. Текущий Вывод
 
-Локальный entity reporting теперь создан: registry, front matter usage и rendered JSON-LD refs измеряются автоматически. Внешние performance-поля остаются \`pending-production\`, потому что до production/indexability gate реальные GSC, AI citations и business signals нельзя считать честными метриками.
+Локальный entity reporting теперь создан: registry, использование front matter и rendered JSON-LD refs измеряются автоматически. Внешние performance-поля остаются \`pending-production\`, потому что до production/indexability gate реальные GSC, AI citations и business signals нельзя считать честными метриками.
 `;
 }
 
@@ -457,7 +457,7 @@ function buildSmallTable(rows, metricName) {
     return "Нет данных.";
   }
 
-  return `| Сущность | Количество | Entity Home |
+  return `| Сущность | Количество | URL Сущности |
 | --- | ---: | --- |
 ${rows.map((row) => {
     const count = metricName === "about"

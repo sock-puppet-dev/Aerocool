@@ -258,7 +258,7 @@ git diff --check
 - Aliases: `8` UK, `7` RU.
 - I18n warnings: none.
 - Path warnings: none.
-- Template metrics hints: no actionable warnings.
+- Подсказки template metrics: нет actionable warnings.
 - `git diff --check`: clean.
 - Template metrics подтверждают использование `rss.xml`, `search.html` и `_partials/translation-list.html`.
 
@@ -278,7 +278,7 @@ hugo = "0.161.0"
 HUGO_VERSION = "0.161.0"
 ```
 
-Impact: local/default tooling and Netlify build use Hugo `0.161.0`.
+Влияние: локальный/default tooling и Netlify build используют Hugo `0.161.0`.
 
 ### Намеренно: Сборка Netlify Пока Использует Development-Окружение
 
@@ -290,7 +290,7 @@ File: `netlify.toml:12`
 HUGO_ENVIRONMENT = "development"
 ```
 
-Impact: Netlify build uses the official Hugo environment variable, but intentionally remains in `development` until production mode is approved.
+Влияние: Netlify build использует официальную переменную окружения Hugo, но намеренно остается в `development`, пока production mode не утвержден.
 
 Build command:
 
@@ -309,19 +309,19 @@ params:
   env: development
 ```
 
-Impact: this is a theme/project param, not the same as Hugo's build environment. For the current project phase it intentionally stays `development`, matching `HUGO_ENVIRONMENT = "development"` and the temporary noindex behavior. Do not switch it to `production` until the separate production-readiness check is approved.
+Влияние: это theme/project parameter, а не build environment Hugo. Для текущей фазы проекта он намеренно остается `development`, совпадает с `HUGO_ENVIRONMENT = "development"` и временным noindex-поведением. Не переключать его в `production`, пока не утверждена отдельная проверка production-readiness.
 
 ### Закрыто: RSS Больше Не Использует Устаревший `site.Author`
 
 File: `layouts/rss.xml`
 
-The local RSS template uses only `site.Params.author` for author metadata. Fallback branches for deprecated `site.Author.email` and `site.Author.name` were removed.
+Локальный RSS-шаблон использует только `site.Params.author` для author metadata. Fallback-ветки для устаревших `site.Author.email` и `site.Author.name` удалены.
 
-Impact: local RSS output no longer depends on deprecated author configuration keys.
+Влияние: локальный RSS output больше не зависит от устаревших author configuration keys.
 
 ### P3: Подмодуль PaperMod Все Еще Содержит Устаревший Language API
 
-Files in `themes/PaperMod/layouts/` still reference deprecated language fields. Active project output is safe because local overrides replace those paths. Keep this on the checklist for future theme updates.
+Файлы в `themes/PaperMod/layouts/` все еще ссылаются на deprecated language fields. Active project output безопасен, потому что локальные overrides заменяют эти пути. Оставить это в чек-листе для будущих theme updates.
 
 ## Текущий Чек-Лист Hugo 0.161.0
 
@@ -345,9 +345,9 @@ node = "24"
   NODE_VERSION = "24"
 ```
 
-3. Keep `HUGO_ENVIRONMENT = "development"` until production mode is approved.
+3. Держать `HUGO_ENVIRONMENT = "development"`, пока production mode не утвержден.
 
-4. Keep `params.env = development` until the separate production-readiness check is approved.
+4. Держать `params.env = development`, пока не утверждена отдельная production-readiness check.
 
 5. Re-run:
 
@@ -360,4 +360,4 @@ mise x hugo@0.161.0 node@24 -- npm run build
 
 ## Итоговая Оценка
 
-Hugo `0.161.0` is adopted in project tooling and Netlify configuration. The project code, local templates, i18n, Tailwind pipeline, SEO/schema templates, sitemap/RSS output and multilingual content model are compatible. The build environment remains `development` by design until production mode is approved.
+Hugo `0.161.0` принят в project tooling и Netlify configuration. Код проекта, локальные шаблоны, i18n, Tailwind pipeline, SEO/schema templates, sitemap/RSS output и multilingual content model совместимы. Build environment намеренно остается `development`, пока production mode не утвержден.

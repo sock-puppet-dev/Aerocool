@@ -22,11 +22,11 @@
   - Article / NewsArticle;
   - Organization;
   - WebSite / SearchAction;
-  - supporting nodes: Brand, ImageObject, WebPage, CollectionPage, AboutPage, ContactPage.
+  - поддерживающие nodes: Brand, ImageObject, WebPage, CollectionPage, AboutPage, ContactPage.
 
 Официальные источники Google:
 
-- General structured data guidelines: https://developers.google.com/search/docs/appearance/structured-data/sd-policies
+- Общие правила structured data: https://developers.google.com/search/docs/appearance/structured-data/sd-policies
 - Product snippet: https://developers.google.com/search/docs/appearance/structured-data/product-snippet
 - Merchant listing: https://developers.google.com/search/docs/appearance/structured-data/merchant-listing
 - Review snippet: https://developers.google.com/search/docs/appearance/structured-data/review-snippet
@@ -34,7 +34,7 @@
 - Article: https://developers.google.com/search/docs/appearance/structured-data/article
 - Breadcrumb: https://developers.google.com/search/docs/appearance/structured-data/breadcrumb
 - Organization: https://developers.google.com/search/docs/appearance/structured-data/organization
-- Sitelinks search box removal: https://developers.google.com/search/blog/2024/10/sitelinks-search-box
+- Удаление sitelinks search box: https://developers.google.com/search/blog/2024/10/sitelinks-search-box
 
 ## Результат Сборки
 
@@ -61,7 +61,7 @@ npm run build
 
 Фактически найдено 88 HTML-страниц с JSON-LD.
 
-| Type | Count | Google rich result role |
+| Тип | Количество | Роль Для Google Rich Result |
 |---|---:|---|
 | `Product` | 24 | Да: Product snippet / Merchant listing |
 | `BreadcrumbList` | 76 | Да: Breadcrumb rich result |
@@ -142,7 +142,7 @@ npm run build
   - цена в UAH;
   - наличие;
   - SKU;
-  - MPN / GTIN when available;
+  - MPN / GTIN, если доступны;
   - гарантия;
   - краткие условия доставки и возврата;
   - рейтинг только если реальные отзывы существуют и показаны пользователю.
@@ -181,12 +181,12 @@ npm run build
 
 Риск:
 
-Merchant listing documentation is aimed at product pages where shoppers can purchase products. If these are catalog pages without direct purchase, Google may treat them as weaker product snippets rather than full merchant listings.
+Документация Merchant listing рассчитана на товарные страницы, где покупатель может купить товар. Если это страницы каталога без прямой покупки, Google может воспринимать их как более слабые product snippets, а не как полноценные merchant listings.
 
 Рекомендованное исправление:
 
-- Either make product pages merchant-ready with visible price, availability, purchase/contact CTA, delivery/return/payment facts;
-- or keep schema conservative and focus on Product snippet rather than full Merchant listing.
+- Либо сделать товарные страницы merchant-ready: видимая цена, наличие, purchase/contact CTA, доставка, возврат и способы оплаты;
+- либо держать schema консервативной и фокусироваться на Product snippet, а не на полноценном Merchant listing.
 
 ### P2: Качество Изображений `Article` И `NewsArticle` Можно Улучшить
 
@@ -234,14 +234,14 @@ Merchant listing documentation is aimed at product pages where shoppers can purc
 }
 ```
 
-This aligns more closely with Google author markup best practices.
+Это ближе к лучшим практикам Google author markup.
 
 ### P2: Узлы Organization Дублируются На Многих Страницах
 
 Затронуто:
 
-- 86 pages with local `Organization`;
-- 86 pages with global parent `Organization`.
+- 86 страниц с локальной `Organization`;
+- 86 страниц с глобальной parent `Organization`.
 
 Google рекомендует размещать информацию об организации на главной странице или на отдельной странице, которая описывает организацию. Текущее дублирование не является синтаксической ошибкой, но утяжеляет каждую страницу и повышает риск повторения устаревших данных.
 
@@ -267,30 +267,30 @@ Google удалил визуальный элемент sitelinks search box с 
 
 | URL | Язык | Цена | Полнота ID | Видимые Коммерческие Поля | Риск |
 |---|---|---:|---|---|---|
-| `/products/sky/360/` | uk | 12400 | missing MPN, GTIN | no | P1 |
-| `/products/sky/lite/` | uk | 8500 | missing MPN, GTIN | no | P1 |
-| `/products/wing/loft-air-dark-grey/` | uk | 12000 | ok | no | P1 |
-| `/products/wing/loft-air-light-grey/` | uk | 12000 | ok | no | P1 |
-| `/products/wing/mesh-black/` | uk | 11000 | ok | no | P1 |
-| `/products/wing/racer-black/` | uk | 11500 | ok | no | P1 |
-| `/products/wing/racer-dark-grey/` | uk | 11500 | ok | no | P1 |
-| `/products/xtal/loft-air-dark-grey/` | uk | 12500 | ok | no | P1 |
-| `/products/xtal/loft-air-light-grey/` | uk | 12500 | ok | no | P1 |
-| `/products/xtal/mesh-black/` | uk | 12000 | ok | no | P1 |
-| `/products/xtal/racer-black/` | uk | 12000 | ok | no | P1 |
-| `/products/xtal/racer-dark-grey/` | uk | 12000 | ok | no | P1 |
-| `/ru/products/sky/360/` | ru | 12400 | missing MPN, GTIN | no | P1 |
-| `/ru/products/sky/lite/` | ru | 8500 | missing MPN, GTIN | no | P1 |
-| `/ru/products/wing/loft-air-dark-grey/` | ru | 12000 | ok | no | P1 |
-| `/ru/products/wing/loft-air-light-grey/` | ru | 12000 | ok | no | P1 |
-| `/ru/products/wing/mesh-black/` | ru | 11000 | ok | no | P1 |
-| `/ru/products/wing/racer-black/` | ru | 11500 | ok | no | P1 |
-| `/ru/products/wing/racer-dark-grey/` | ru | 11500 | ok | no | P1 |
-| `/ru/products/xtal/loft-air-dark-grey/` | ru | 12500 | ok | no | P1 |
-| `/ru/products/xtal/loft-air-light-grey/` | ru | 12500 | ok | no | P1 |
-| `/ru/products/xtal/mesh-black/` | ru | 12000 | ok | no | P1 |
-| `/ru/products/xtal/racer-black/` | ru | 12000 | ok | no | P1 |
-| `/ru/products/xtal/racer-dark-grey/` | ru | 12000 | ok | no | P1 |
+| `/products/sky/360/` | uk | 12400 | нет MPN, GTIN | нет | P1 |
+| `/products/sky/lite/` | uk | 8500 | нет MPN, GTIN | нет | P1 |
+| `/products/wing/loft-air-dark-grey/` | uk | 12000 | OK | нет | P1 |
+| `/products/wing/loft-air-light-grey/` | uk | 12000 | OK | нет | P1 |
+| `/products/wing/mesh-black/` | uk | 11000 | OK | нет | P1 |
+| `/products/wing/racer-black/` | uk | 11500 | OK | нет | P1 |
+| `/products/wing/racer-dark-grey/` | uk | 11500 | OK | нет | P1 |
+| `/products/xtal/loft-air-dark-grey/` | uk | 12500 | OK | нет | P1 |
+| `/products/xtal/loft-air-light-grey/` | uk | 12500 | OK | нет | P1 |
+| `/products/xtal/mesh-black/` | uk | 12000 | OK | нет | P1 |
+| `/products/xtal/racer-black/` | uk | 12000 | OK | нет | P1 |
+| `/products/xtal/racer-dark-grey/` | uk | 12000 | OK | нет | P1 |
+| `/ru/products/sky/360/` | ru | 12400 | нет MPN, GTIN | нет | P1 |
+| `/ru/products/sky/lite/` | ru | 8500 | нет MPN, GTIN | нет | P1 |
+| `/ru/products/wing/loft-air-dark-grey/` | ru | 12000 | OK | нет | P1 |
+| `/ru/products/wing/loft-air-light-grey/` | ru | 12000 | OK | нет | P1 |
+| `/ru/products/wing/mesh-black/` | ru | 11000 | OK | нет | P1 |
+| `/ru/products/wing/racer-black/` | ru | 11500 | OK | нет | P1 |
+| `/ru/products/wing/racer-dark-grey/` | ru | 11500 | OK | нет | P1 |
+| `/ru/products/xtal/loft-air-dark-grey/` | ru | 12500 | OK | нет | P1 |
+| `/ru/products/xtal/loft-air-light-grey/` | ru | 12500 | OK | нет | P1 |
+| `/ru/products/xtal/mesh-black/` | ru | 12000 | OK | нет | P1 |
+| `/ru/products/xtal/racer-black/` | ru | 12000 | OK | нет | P1 |
+| `/ru/products/xtal/racer-dark-grey/` | ru | 12000 | OK | нет | P1 |
 
 ### Узел Product
 
@@ -361,11 +361,11 @@ Google удалил визуальный элемент sitelinks search box с 
 
 Рекомендация:
 
-- Display ratings or remove them.
+- Показывать ratings или удалить их.
 
 ## Аудит Article И NewsArticle
 
-All articles/news have:
+Все articles/news имеют:
 
 - `headline`;
 - `description`;
@@ -378,11 +378,11 @@ All articles/news have:
 - `mainEntityOfPage`;
 - `image` reference.
 
-Common warnings:
+Общие предупреждения:
 
-- single image reference;
-- primary image ratio `1.5`, not recommended `1:1`, `4:3`, `16:9`;
-- author is referenced by `@id`, not inline with `name` / `url`.
+- одна ссылка на изображение;
+- primary image ratio `1.5`, а не рекомендуемые `1:1`, `4:3`, `16:9`;
+- author указан через `@id`, а не inline с `name` / `url`.
 
 | URL | Тип | Слова | Изображение | Опубликовано | Изменено | Риск |
 |---|---|---:|---|---|---|---|
@@ -415,50 +415,50 @@ Common warnings:
 | `/ru/news/wing-series-launch/` | NewsArticle | 835 | 1536x1024 | 2026-04-16 | 2026-04-30 | P2 image/author |
 | `/ru/news/xtal-series-launch/` | NewsArticle | 804 | 1536x1024 | 2026-04-17 | 2026-04-30 | P2 image/author |
 
-Note:
+Примечание:
 
-- At the time of this audit, local content rules targeted 10000 characters for evergreen articles and 5000 characters for news. The current 2026-05-06 documentation also defines 6000 characters for product pages, 6000 for series pages, 7000 for `/products/`, `/articles/` and `/news/` hubs, and 10000 for `/about/`. These are content-depth SEO targets rather than structured-data eligibility requirements.
+- На момент этого аудита локальные content rules задавали цель 10000 знаков для evergreen articles и 5000 знаков для news. Текущая документация на 2026-05-06 также задает 6000 знаков для товарных страниц, 6000 для страниц серий, 7000 для hubs `/products/`, `/articles/` и `/news/`, а также 10000 для `/about/`. Это content-depth SEO targets, а не требования eligibility для structured data.
 
 ## Аудит Breadcrumb
 
 Текущее состояние:
 
 - 76 `BreadcrumbList` nodes.
-- 0 bad position/item checks.
-- All have at least two items.
+- 0 плохих проверок position/item.
+- У всех есть минимум два элемента.
 
 Статус:
 
-- Good.
+- Хорошо.
 
 Рекомендация:
 
-- Оставить current logic.
-- Optionally shorten very long breadcrumb names for search presentation quality, especially section titles.
+- Оставить текущую логику.
+- При необходимости сократить очень длинные breadcrumb names для качества отображения в поиске, особенно названия разделов.
 
 ## Аудит FAQ
 
-| URL | Questions | Visible Q/A | Google FAQ rich-result expectation |
+| URL | Вопросы | Видимые Q/A | Ожидание Google FAQ Rich Result |
 |---|---:|---|---|
-| `/faq/` | 33 | yes | very low |
-| `/ru/faq/` | 33 | yes | very low |
+| `/faq/` | 33 | да | очень низкое |
+| `/ru/faq/` | 33 | да | очень низкое |
 
 Статус:
 
-- Technical: OK.
-- Content visibility: OK.
+- Технически: OK.
+- Видимость контента: OK.
 - Rich result: не считать целью для Google Search; с `2026-05-07` FAQ rich results больше не показываются.
 
 Рекомендация:
 
-- Оставить FAQPage if it helps semantic clarity.
-- Do not treat FAQPage as a Google traffic/rich-result lever.
+- Оставить FAQPage, если это помогает semantic clarity.
+- Не считать FAQPage рычагом Google traffic/rich-result.
 
 ## Аудит CollectionPage
 
 Текущее состояние:
 
-| URL | Items |
+| URL | Элементы |
 |---|---:|
 | `/articles/` | 5 |
 | `/articles/page/2/` | 1 |

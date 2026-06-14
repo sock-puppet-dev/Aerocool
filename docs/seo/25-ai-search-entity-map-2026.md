@@ -91,7 +91,7 @@ Customer stories Wells Fargo, Henry Ford Health и MasterControl усилива�
 
 Минимальная таблица:
 
-| Entity | Entity Home | URL Cluster | GSC Queries | Clicks/CTR | AI Citations | Business Actions | Next Action |
+| Сущность | Entity Home | URL-Кластер | GSC Queries | Clicks/CTR | AI Citations | Бизнес-Действия | Следующее Действие |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `mesh-material` | `/articles/racer-vs-loft-air-vs-mesh/` | material article + product pages | mesh / сетка / сітка | значение после production | да/нет | переходы в каталог | усилить или оставить |
 

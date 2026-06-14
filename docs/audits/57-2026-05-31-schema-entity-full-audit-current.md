@@ -213,19 +213,19 @@ npm run build
 | `warranty-policy` | `confirmed` | `Policy` | `WarrantyPromise` | 2 | 26 | 0 | 56 | 28 | OK |
 | `wing-loft-air-dark-grey` | `confirmed` | `ProductVariant` | `Product` | 2 | 8 | 0 | 24 | 1 | OK |
 | `wing-loft-air-light-grey` | `confirmed` | `ProductVariant` | `Product` | 2 | 6 | 0 | 20 | 1 | OK |
-| `wing-loft-air-product-group` | `confirmed` | `ProductGroup` | `ProductGroup` | 0 | 0 | 4 | 8 | 4 | OK, active ProductGroup |
+| `wing-loft-air-product-group` | `confirmed` | `ProductGroup` | `ProductGroup` | 0 | 0 | 4 | 8 | 4 | OK, активный ProductGroup |
 | `wing-mesh-black` | `confirmed` | `Product` | `Product` | 2 | 8 | 0 | 20 | 1 | OK |
 | `wing-racer-black` | `confirmed` | `ProductVariant` | `Product` | 2 | 6 | 0 | 20 | 1 | OK |
 | `wing-racer-dark-grey` | `confirmed` | `ProductVariant` | `Product` | 2 | 4 | 0 | 16 | 1 | OK |
-| `wing-racer-product-group` | `confirmed` | `ProductGroup` | `ProductGroup` | 0 | 0 | 4 | 8 | 4 | OK, active ProductGroup |
+| `wing-racer-product-group` | `confirmed` | `ProductGroup` | `ProductGroup` | 0 | 0 | 4 | 8 | 4 | OK, активный ProductGroup |
 | `wing-series` | `confirmed` | `ProductSeries` | `CollectionPage` | 20 | 36 | 0 | 410 | 1 | OK |
 | `xtal-loft-air-dark-grey` | `confirmed` | `ProductVariant` | `Product` | 2 | 8 | 0 | 24 | 1 | OK |
 | `xtal-loft-air-light-grey` | `confirmed` | `ProductVariant` | `Product` | 2 | 6 | 0 | 20 | 1 | OK |
-| `xtal-loft-air-product-group` | `confirmed` | `ProductGroup` | `ProductGroup` | 0 | 0 | 4 | 8 | 4 | OK, active ProductGroup |
+| `xtal-loft-air-product-group` | `confirmed` | `ProductGroup` | `ProductGroup` | 0 | 0 | 4 | 8 | 4 | OK, активный ProductGroup |
 | `xtal-mesh-black` | `confirmed` | `Product` | `Product` | 2 | 8 | 0 | 20 | 1 | OK |
 | `xtal-racer-black` | `confirmed` | `ProductVariant` | `Product` | 2 | 4 | 0 | 16 | 1 | OK |
 | `xtal-racer-dark-grey` | `confirmed` | `ProductVariant` | `Product` | 2 | 6 | 0 | 20 | 1 | OK |
-| `xtal-racer-product-group` | `confirmed` | `ProductGroup` | `ProductGroup` | 0 | 0 | 4 | 8 | 4 | OK, active ProductGroup |
+| `xtal-racer-product-group` | `confirmed` | `ProductGroup` | `ProductGroup` | 0 | 0 | 4 | 8 | 4 | OK, активный ProductGroup |
 | `xtal-series` | `confirmed` | `ProductSeries` | `CollectionPage` | 20 | 36 | 0 | 386 | 1 | OK |
 
 ## 7. Что Сейчас `planned`

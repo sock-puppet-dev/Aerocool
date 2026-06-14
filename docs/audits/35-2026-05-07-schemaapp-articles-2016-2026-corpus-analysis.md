@@ -137,9 +137,9 @@
 
 Полезно для проекта:
 
-- AI agents need verified structured data, not vague website copy;
-- MCP/NLWeb/RAG are useful only when the underlying data layer is trustworthy;
-- for Aerocool this is future infrastructure, not immediate SEO work.
+- AI agents требуют проверенных structured data, а не расплывчатого website copy;
+- MCP/NLWeb/RAG полезны только тогда, когда базовый data layer заслуживает доверия;
+- для Aerocool это будущая инфраструктура, а не срочная SEO-задача.
 
 Что делать в Aerocool:
 
@@ -248,18 +248,18 @@ Corpus подтверждает текущие документы:
 ### Сделать Сначала
 
 1. Production gate.
-2. Rating source или removal of `aggregateRating`.
+2. Источник rating или удаление `aggregateRating`.
 3. Выполнено `2026-05-07`: local organization facts и `sameAs`.
-4. Выполнено `2026-05-07`: product facts source of truth, owner and `priceValidUntil` are fixed; product front matter is canonical, команда Aerocool Украина owns business values, `priceValidUntil: 2027-12-31` is confirmed, UI, `/faq/` and `Product` JSON-LD mirror it.
-5. Выполнено `2026-05-07`: entity registry, entity homes, `data/entities.yaml` and safe resolver.
+4. Выполнено `2026-05-07`: product facts source of truth, owner и `priceValidUntil` зафиксированы; product front matter является каноническим источником, команда Aerocool Украина владеет business values, `priceValidUntil: 2027-12-31` подтвержден, UI, `/faq/` и `Product` JSON-LD отражают эти данные.
+5. Выполнено `2026-05-07`: entity registry, entity homes, `data/entities.yaml` и safe resolver.
 
 ### Сделать Далее
 
-1. Visible variant navigation and ProductGroup confirmation.
-2. Visible content QA for existing page-by-page `about_entities` / `mentions_entities`.
-3. ProductGroup visible variant navigation and confirmation.
+1. Видимая навигация вариантов и подтверждение ProductGroup.
+2. QA видимого контента для существующих постраничных `about_entities` / `mentions_entities`.
+3. Видимая навигация ProductGroup и подтверждение.
 4. AI Search prompt baseline.
-5. Article/News image ratios.
+5. Соотношения изображений Article/News.
 
 ### Отложить
 

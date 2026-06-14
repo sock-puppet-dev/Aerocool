@@ -377,7 +377,7 @@ Customer stories подтверждают текущую стратегию Aero
 
 Минимальная таблица:
 
-| Entity | Entity Home | Pages About | Pages Mentions | Rendered Node | GSC Signal | AI Citation | Business Action | Next Step |
+| Сущность | Entity Home | Страницы About | Страницы Mentions | Rendered Node | GSC-Сигнал | AI Citation | Бизнес-Действие | Следующий Шаг |
 | --- | --- | ---: | ---: | --- | --- | --- | --- | --- |
 | `mesh-material` | `/articles/racer-vs-loft-air-vs-mesh/` | count | count | yes/no | impressions/clicks | yes/no | product visits | strengthen/hold |
 
