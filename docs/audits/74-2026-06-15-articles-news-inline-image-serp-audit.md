@@ -1,6 +1,6 @@
 # Аудит Inline-Изображений Articles/News И SERP-Стандарт Изображений 2026
 
-Актуально на 2026-06-15.
+Актуально на 2026-06-16.
 
 Этот документ фиксирует текущий ручной анализ всех текстов `content/articles` и `content/news`: какие изображения нужны внутри тела каждой статьи и новости, где их ставить, какие форматы использовать и какие технические правила соблюдать, чтобы изображения помогали пользователю, SEO, schema.org и Core Web Vitals.
 
@@ -42,19 +42,19 @@
 
 - во всех статьях и новостях сейчас есть главное изображение `01-front.webp`;
 - у всех article/news bundles есть schema crops для `16:9`, `4:3`, `1:1`;
-- у `7` статей уже внедрены дополнительные inline-изображения `02-*` / `03-*`: `how-to-choose-aerocool-chair`, `chair-for-computer-work`, `best-chair-for-home-office`, `chair-for-posture-and-long-work`, `racer-vs-loft-air-vs-mesh-materials`, `sync4-sync5-mechanism-guide`, `what-is-synchronous-tilt-guide`;
-- всего в `content/articles` сейчас есть `14` активных inline WebP-файлов после обложек, все они имеют размер **1200x800** и вес примерно **61-216 КБ**;
-- `9` статей пока остаются без дополнительных inline-изображений после `01-front.webp`;
+- у `12` статей уже внедрены дополнительные inline-изображения `02-*` / `03-*`: `how-to-choose-aerocool-chair`, `how-to-choose-chair-by-adjustability`, `chair-for-computer-work`, `best-chair-for-home-office`, `chair-for-posture-and-long-work`, `chair-setup-after-purchase`, `racer-vs-loft-air-vs-mesh-materials`, `sky-lite-vs-sky-360-guide`, `sky-vs-wing-vs-xtal`, `wing-vs-xtal-comparison`, `sync4-sync5-mechanism-guide`, `what-is-synchronous-tilt-guide`;
+- всего в `content/articles` сейчас есть `24` активных inline WebP-файлов после обложек, все они имеют размер **1200x800** и вес примерно **61-216 КБ**;
+- `4` статей пока остаются без дополнительных inline-изображений после `01-front.webp`;
 - все `9` новостей пока остаются без дополнительных inline-изображений после `01-front.webp`;
 - значит текущий слой inline-иллюстраций нужно считать частично внедренным: P1-ядро уже закрыто, но P1/P2-backlog по оставшимся статьям и новостям остается активным.
 
-Оценка текущего visual content depth для `content/articles` и `content/news`: **8.1 / 10**.
+Оценка текущего visual content depth для `content/articles` и `content/news`: **8.6 / 10**.
 
 Почему не выше:
 
 - primary covers и schema crops уже закрыты хорошо;
 - часть evergreen-статей уже получила второй визуальный слой;
-- но статьи про настройку, регулировки, сравнения серий, dual backrest и replaceable design пока визуально объясняются только одной обложкой;
+- но часть статей про dual backrest, replaceable design и пользовательские сценарии пока визуально объясняется только одной обложкой;
 - новости про запуск серий и моделей все еще не показывают второй уровень инфоповода: состав серии, материал, механизм или практическое изменение для покупателя;
 - последние визуальные итерации показали отдельный риск AI-кресел: бренд на подголовнике нельзя дорисовывать как заметную наклейку или грубый overlay.
 
@@ -216,14 +216,14 @@
 
 ### `chair-setup-after-purchase`
 
-Статус: нет активных inline-изображений.
+Статус: внедрено 2026-06-15.
 
-Нужно:
+Внедрено:
 
 - `02-chair-setup-sequence.webp` — последовательность настройки высоты, глубины, спинки, подлокотников и наклона без цифр внутри изображения.
 - `03-tilt-armrest-headrest-details.webp` — крупные планы узлов настройки: наклон, подлокотники, подголовник.
 
-Где ставить:
+Где стоит:
 
 - после блока про шаг 4;
 - после блока про шаг 6.
@@ -280,14 +280,14 @@
 
 ### `how-to-choose-chair-by-adjustability`
 
-Статус: нет активных inline-изображений.
+Статус: внедрено 2026-06-15.
 
-Нужно:
+Внедрено:
 
 - `02-7d-8d-11d-adjustment-zones.webp` — три кресла с растущим количеством подсвеченных зон без цифр и labels внутри изображения.
 - `03-adjustment-priority-details.webp` — подлокотники, сиденье, спинка и подголовник крупным планом.
 
-Где ставить:
+Где стоит:
 
 - после блока про 7D/8D/11D;
 - после блока про реально важные регулировки.
@@ -312,14 +312,14 @@
 
 ### `sky-lite-vs-sky-360-guide`
 
-Статус: нет активных inline-изображений.
+Статус: внедрено 2026-06-16.
 
-Нужно:
+Внедрено:
 
 - `02-sky-lite-sky-360-side-by-side.webp` — SKY Lite и SKY 360 рядом в office-tech среде.
 - `03-sky-adjustment-difference.webp` — визуальный акцент на различие глубины настройки SKY 360.
 
-Где ставить:
+Где стоит:
 
 - после блока о том, что добавляет SKY 360;
 - после блока о целесообразности доплаты.
@@ -328,14 +328,14 @@
 
 ### `sky-vs-wing-vs-xtal`
 
-Статус: нет активных inline-изображений.
+Статус: внедрено 2026-06-16.
 
-Нужно:
+Внедрено:
 
 - `02-series-comparison-map.webp` — три серии как продуктовая линейка с разными ролями.
 - `03-series-scenario-routing.webp` — работа, gaming, практичная эксплуатация как маршруты выбора.
 
-Где ставить:
+Где стоит:
 
 - после сравнительной таблицы серий;
 - после блока выбора по сценарию.
@@ -408,14 +408,14 @@
 
 ### `wing-vs-xtal-comparison`
 
-Статус: нет активных inline-изображений.
+Статус: внедрено 2026-06-16.
 
-Нужно:
+Внедрено:
 
 - `02-wing-xtal-platforms.webp` — WING и XTAL рядом как разные эргономические платформы.
 - `03-11d-vs-7d-practical-choice.webp` — регулировки как практический выбор, без тезиса “больше всегда лучше”.
 
-Где ставить:
+Где стоит:
 
 - после блока о силе WING/XTAL;
 - после блока “11D против 7D”.
@@ -554,19 +554,22 @@
 4. `racer-vs-loft-air-vs-mesh-materials` — материал нельзя хорошо закрыть без фактуры.
 5. `sync4-sync5-mechanism-guide` и `what-is-synchronous-tilt-guide` — механизмы требуют visual explainer.
 6. `chair-for-posture-and-long-work` — эргономический visual без medical claims, собранный через official product reference и проверенный на отсутствие наклеечного бренда.
+7. `chair-setup-after-purchase` — пошаговая настройка получила отдельный setup sequence и detail close-up без текста внутри изображения.
+8. `how-to-choose-chair-by-adjustability` — уровни **7D**, **8D** и **11D** получили визуальное объяснение через зоны регулировки и close-up важных узлов.
+9. `sky-vs-wing-vs-xtal` — центральное сравнение серий получило product-line map и routing visual по сценариям.
+10. `wing-vs-xtal-comparison` — сравнение WING и XTAL получило отдельную визуализацию платформ и практического выбора между **11D** и **7D**.
+11. `sky-lite-vs-sky-360-guide` — сравнение SKY Lite и SKY 360 получило office-tech side-by-side и отдельный visual explainer по глубине настройки SKY 360.
 
 Следующий P1:
 
-1. `chair-setup-after-purchase` — пошаговая статья требует visual sequence настройки.
-2. `how-to-choose-chair-by-adjustability` — числа **7D**, **8D**, **11D** нужно объяснить через зоны регулировки.
+1. Текущее P1-ядро по evergreen-статьям закрыто; дальше идти в P2 feature/scenario backlog.
 
 P2:
 
-1. `sky-vs-wing-vs-xtal`, `wing-vs-xtal-comparison`, `sky-lite-vs-sky-360-guide` — comparison articles.
-2. `what-is-dual-backrest`, `what-is-fully-replaceable-design` — feature articles.
-3. `chairs-for-office-team`, `gaming-chair-long-sessions` — scenario articles.
-4. Новости о запуске серий WING/XTAL/SKY.
-5. Новости о материалах и механизмах.
+1. `what-is-dual-backrest`, `what-is-fully-replaceable-design` — feature articles.
+2. `chairs-for-office-team`, `gaming-chair-long-sessions` — scenario articles.
+3. Новости о запуске серий WING/XTAL/SKY.
+4. Новости о материалах и механизмах.
 
 P3:
 
