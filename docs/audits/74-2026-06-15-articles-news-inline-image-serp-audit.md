@@ -42,19 +42,19 @@
 
 - во всех статьях и новостях сейчас есть главное изображение `01-front.webp`;
 - у всех article/news bundles есть schema crops для `16:9`, `4:3`, `1:1`;
-- у `6` статей уже внедрены дополнительные inline-изображения `02-*` / `03-*`: `how-to-choose-aerocool-chair`, `chair-for-computer-work`, `best-chair-for-home-office`, `racer-vs-loft-air-vs-mesh-materials`, `sync4-sync5-mechanism-guide`, `what-is-synchronous-tilt-guide`;
-- всего в `content/articles` сейчас есть `12` активных inline WebP-файлов после обложек, все они имеют размер **1200x800** и вес примерно **64-216 КБ**;
-- `10` статей пока остаются без дополнительных inline-изображений после `01-front.webp`;
+- у `7` статей уже внедрены дополнительные inline-изображения `02-*` / `03-*`: `how-to-choose-aerocool-chair`, `chair-for-computer-work`, `best-chair-for-home-office`, `chair-for-posture-and-long-work`, `racer-vs-loft-air-vs-mesh-materials`, `sync4-sync5-mechanism-guide`, `what-is-synchronous-tilt-guide`;
+- всего в `content/articles` сейчас есть `14` активных inline WebP-файлов после обложек, все они имеют размер **1200x800** и вес примерно **61-216 КБ**;
+- `9` статей пока остаются без дополнительных inline-изображений после `01-front.webp`;
 - все `9` новостей пока остаются без дополнительных inline-изображений после `01-front.webp`;
 - значит текущий слой inline-иллюстраций нужно считать частично внедренным: P1-ядро уже закрыто, но P1/P2-backlog по оставшимся статьям и новостям остается активным.
 
-Оценка текущего visual content depth для `content/articles` и `content/news`: **8.0 / 10**.
+Оценка текущего visual content depth для `content/articles` и `content/news`: **8.1 / 10**.
 
 Почему не выше:
 
 - primary covers и schema crops уже закрыты хорошо;
 - часть evergreen-статей уже получила второй визуальный слой;
-- но `chair-for-posture-and-long-work`, статьи про настройку, регулировки, сравнения серий, dual backrest и replaceable design пока визуально объясняются только одной обложкой;
+- но статьи про настройку, регулировки, сравнения серий, dual backrest и replaceable design пока визуально объясняются только одной обложкой;
 - новости про запуск серий и моделей все еще не показывают второй уровень инфоповода: состав серии, материал, механизм или практическое изменение для покупателя;
 - последние визуальные итерации показали отдельный риск AI-кресел: бренд на подголовнике нельзя дорисовывать как заметную наклейку или грубый overlay.
 
@@ -200,14 +200,14 @@
 
 ### `chair-for-posture-and-long-work`
 
-Статус: нет активных inline-изображений.
+Статус: внедрено 2026-06-15.
 
-Нужно:
+Внедрено:
 
 - `02-neutral-posture-support.webp` — нейтральная поддержка спинки, сиденья и подлокотников без медицинских символов.
 - `03-workplace-check-before-buying.webp` — проверка стола, монитора, клавиатуры и положения кресла перед покупкой.
 
-Где ставить:
+Где стоит:
 
 - после блока про спинку как главный ориентир;
 - после блока про проверку рабочего места перед покупкой.
@@ -553,12 +553,12 @@
 3. `best-chair-for-home-office` — home office кластер.
 4. `racer-vs-loft-air-vs-mesh-materials` — материал нельзя хорошо закрыть без фактуры.
 5. `sync4-sync5-mechanism-guide` и `what-is-synchronous-tilt-guide` — механизмы требуют visual explainer.
+6. `chair-for-posture-and-long-work` — эргономический visual без medical claims, собранный через official product reference и проверенный на отсутствие наклеечного бренда.
 
 Следующий P1:
 
-1. `chair-for-posture-and-long-work` — нужен аккуратный ergonomic visual без медицинских символов; для крупного кресла предпочтителен official product asset или композит, чтобы бренд на подголовнике был настоящим, а не дорисованным.
-2. `chair-setup-after-purchase` — пошаговая статья требует visual sequence настройки.
-3. `how-to-choose-chair-by-adjustability` — числа **7D**, **8D**, **11D** нужно объяснить через зоны регулировки.
+1. `chair-setup-after-purchase` — пошаговая статья требует visual sequence настройки.
+2. `how-to-choose-chair-by-adjustability` — числа **7D**, **8D**, **11D** нужно объяснить через зоны регулировки.
 
 P2:
 
