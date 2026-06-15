@@ -2,7 +2,7 @@
 title: "SYNC4 і SYNC5 multi-adjustable у кріслах Aerocool: різниця механізмів"
 linkTitle: "SYNC4 і SYNC5"
 date: 2026-04-30T00:00:00+03:00
-lastmod: 2026-06-06
+lastmod: 2026-06-15
 slug: "sync4-sync5-mechanism-guide"
 description: "Пояснюємо, які крісла Aerocool використовують механізми SYNC4 і SYNC5 multi-adjustable: усі версії XTAL, усі версії WING, SKY 360 і SKY Lite."
 summary: "Практичний гайд про механізми SYNC4 і SYNC5 multi-adjustable у кріслах Aerocool: Synchronous Tilt, multi-angle lock, weight sensitive і регулювання сидіння."
@@ -89,6 +89,16 @@ cover:
 5. Front & back adjustment.
 
 Саме тому для моделей **XTAL**, **WING** і **SKY 360** механізм **SYNC5 multi-adjustable** є важливою частиною позиціонування. Він працює не окремо від решти конструкції, а разом із підлокітниками, сидінням, спинкою, підголівником і типом поверхні.
+
+{{< seo-image
+  src="02-sync4-sync5-mechanism-diagram.webp"
+  width="1200"
+  height="800"
+  alt="Технічна схема різниці між механізмами SYNC4 і SYNC5 у кріслах Aerocool"
+  loading="lazy"
+  preload=false
+  fetchpriority=auto
+/>}}
 
 ## Що означає Synchronous Tilt
 
