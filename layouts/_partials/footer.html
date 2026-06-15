@@ -10,6 +10,13 @@
   {{- $seriesTitle = "Серии кресел" -}}
   {{- $footerText = "Официальный сайт Aerocool в Украине: игровые, офисные и компьютерные кресла для работы, учебы и home office." -}}
 {{- end -}}
+{{- $logoHeight := site.Params.label.iconHeight | default 30 -}}
+{{- $logoWidth := site.Params.label.iconWidth -}}
+{{- $logoStyle := printf "height: %dpx; width: auto;" $logoHeight -}}
+{{- with $logoWidth -}}
+  {{- $logoStyle = printf "width: %dpx; height: %dpx; object-fit: contain;" . $logoHeight -}}
+{{- end -}}
+{{- $logoSrc := site.Params.label.icon | default "/images/logo.svg" -}}
 {{- $pagesScratch := newScratch -}}
 {{- with site.GetPage "/products" }}{{- $pagesScratch.SetInMap "sections" .RelPermalink . -}}{{- end -}}
 {{- with site.GetPage "/articles" }}{{- $pagesScratch.SetInMap "sections" .RelPermalink . -}}{{- end -}}
@@ -31,12 +38,13 @@
         <a href="{{ site.Home.RelPermalink }}" class="site-footer__logo inline-flex">
           <span class="sr-only">{{ site.Title }}</span>
           <img
-            src="{{ "/images/logo.svg" | relURL }}"
+            src="{{ $logoSrc | relURL }}"
             alt=""
             aria-hidden="true"
-            width="512"
-            height="279"
-            class="h-9 w-auto brightness-0 invert"
+            width="{{ $logoWidth | default 512 }}"
+            height="{{ $logoHeight }}"
+            style="{{ $logoStyle | safeCSS }}"
+            class="brightness-0 invert"
           />
         </a>
         <p class="site-footer__description ui-footer-text text-balance">{{ $footerText }}</p>

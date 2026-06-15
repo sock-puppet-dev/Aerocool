@@ -1,6 +1,6 @@
 # Netlify Database Для SEO-First Отзывов
 
-Обновлено: 2026-05-28.
+Обновлено: 2026-06-15.
 
 Этот документ объясняет, как в проекте `Aerocool Ukraine` использовать `Netlify Database` для собственной системы отзывов к товарам и статьям.
 
@@ -396,7 +396,7 @@ data/generated/reviews.json
 node scripts/export_reviews.mjs
 ```
 
-В `package.json` этот шаг встроен в `npm run build` и `npm run build:production`. В `netlify.toml` он встроен в Netlify build command перед `hugo --environment development --gc --minify`.
+В `package.json` этот шаг встроен в `npm run build` и `npm run build:production`. В `netlify.toml` он встроен в Netlify build command перед `hugo --environment development --gc --minify`. Поэтому `npm run build` — нормальная команда полной локальной проверки: она не считается рискованной для отзывов, а повторяет штатный dev pipeline проекта.
 
 Текущий временный режим для `dev`: export сохраняет отзывы и по языкам (`uk`, `ru`), и в общей группе `all`. Шаблон видимых отзывов пока берет группу `all`, чтобы украинская и русская страницы товара показывали одинаковый набор approved отзывов до внедрения нормальных переводов. Это переходное решение для тестирования UI, рейтинга и будущей SEO-логики. Для production SEO-режима нужно вернуться к языковым текстам или добавить поля переводов, чтобы текст отзыва соответствовал языку страницы.
 
@@ -408,7 +408,7 @@ node scripts/export_reviews.mjs
 }
 ```
 
-Это сохраняет локальную сборку рабочей, но отзывы появятся только в окружении, где build видит Netlify Database.
+Это сохраняет локальную сборку рабочей. На Netlify Branch Deploy `dev` build видит database branch `dev`, поэтому approved отзывы появляются на dev-версии сайта после нового deploy/rebuild.
 
 Пример структуры:
 

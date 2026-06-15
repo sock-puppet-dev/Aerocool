@@ -2749,9 +2749,12 @@ textarea.ui-field {
 /* Единый широкий контейнер для локальных Tailwind Plus-блоков:
    полезная сетка до 1440px плюс одинаковый боковой gutter. */
 .home-hero > .mx-auto,
-.contact-section > .mx-auto,
 .faq-block > .mx-auto {
     max-width: var(--main-width);
+}
+
+.contact-section > .mx-auto {
+    max-width: var(--content-section-width);
 }
 
 .home-hero > .mx-auto,
@@ -2778,14 +2781,15 @@ textarea.ui-field {
 
 @media (min-width: 1024px) {
     .contact-section > .mx-auto {
-        grid-template-columns: minmax(0, 32rem) minmax(0, 32rem);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         justify-content: center;
-        column-gap: 2.5rem;
+        column-gap: clamp(3rem, 6vw, 4rem);
     }
 
     .contact-section > .mx-auto > div > div,
     .contact-section > .mx-auto > form > div {
-        max-width: 32rem;
+        width: 100%;
+        max-width: none;
         margin-right: 0;
         margin-left: 0;
     }
@@ -2849,8 +2853,7 @@ textarea.ui-field {
 }
 
 .site-footer__logo img {
-    width: auto;
-    height: 2.25rem;
+    display: block;
     filter: brightness(0) invert(1);
 }
 

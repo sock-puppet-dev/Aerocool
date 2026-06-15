@@ -200,6 +200,7 @@
 - Локальная разработка: `./scripts/script_start.sh` или `hugo server`.
 - Tailwind компилируется через `css.TailwindCSS` внутри Hugo; отдельный watch-процесс Tailwind не нужен.
 - `npm run dev` — это удобный алиас для `hugo server`.
+- `npm run build` — штатная development-сборка: сначала запускает `node scripts/export_reviews.mjs`, затем `hugo --environment development --gc --minify`. Использовать ее для полной локальной проверки, когда после правок нужна именно сборка проекта; review export является частью нормального dev workflow.
 - Build в `Netlify`: `git submodule update --init --recursive && node scripts/export_reviews.mjs && hugo --environment development --gc --minify`.
 - `scripts/script_clean.sh` — мягкая очистка Hugo-артефактов: удаляет `public`, `resources`, `.hugo_build.lock` и `hugo_stats.json`, но не трогает `node_modules`, `.cache` и `package-lock.json`.
 - `scripts/script_reset_full.sh` — тяжелый reset зависимостей: удаляет Hugo-артефакты, `node_modules` и `.cache`, затем запускает `npm install`; `package-lock.json` удаляется только при явном флаге `--with-lockfile`.
