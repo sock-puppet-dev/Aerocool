@@ -1,6 +1,6 @@
 # Playbook Изображений И AI-Промптов Aerocool 2026
 
-Обновлено: 2026-06-14.
+Обновлено: 2026-06-15.
 
 Этот документ фиксирует повторяемый стандарт для всех изображений проекта `Aerocool Ukraine`: обложек статей и новостей, section covers, fallback-изображений, home hero, товарных фото, product gallery, контентных иллюстраций, технических схем, логотипов и служебных иконок.
 
@@ -16,7 +16,7 @@
 - [12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md) - LCP, responsive images и производительность;
 - [20-schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/20-schema-markup-quality-checklist-2026.md) - `ImageObject` и schema.org;
 - [21-ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/21-ecommerce-structured-data-playbook-2026.md) - product images, Product/Offer и e-commerce structured data;
-- [73-2026-06-14-articles-news-inline-image-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/73-2026-06-14-articles-news-inline-image-plan.md) - текущий план inline-иллюстраций для всех статей и новостей.
+- [74-2026-06-15-articles-news-inline-image-serp-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/74-2026-06-15-articles-news-inline-image-serp-audit.md) - текущий аудит inline-иллюстраций для всех статей и новостей и SERP-стандарт изображений 2026.
 
 ## 1. Как Пользоваться Новичку
 
@@ -137,6 +137,10 @@ Inline-изображения нужны не для украшения, а дл
 - для inline-изображений использовать `loading="lazy"` и `decoding="async"`; не ставить `preload=true` и не использовать `fetchpriority="high"`;
 - `alt` должен описывать смысл изображения на языке страницы и быть рядом с релевантным текстом;
 - не дублировать обложку: inline-изображение должно раскрывать новый аспект, которого нет в `01-front.webp`.
+- не использовать production-имена с `candidate`, `test`, `final`, `new` или `v2`; такие файлы допустимы только на этапе визуального утверждения;
+- не публиковать inline-изображение, если бренд на кресле выглядит как наклейка, случайный AI-текст или чужой логотип;
+- если изображение объясняет материал, нужен крупный tactile/factual фокус; если объясняет механизм, нужны motion arcs или реальные узлы, но не фальшивые specs;
+- если изображение объясняет сценарий, рядом должны быть понятные предметы среды: стол, монитор, рабочая зона, несколько моделей или материал, а не просто кресло в пустой темной комнате.
 
 Количество:
 
@@ -151,6 +155,25 @@ SEO-логика:
 - filename, `alt`, surrounding heading и абзац должны говорить об одной теме;
 - сравнение, таблицу или FAQ не превращать в картинку, если это можно сделать HTML-текстом: поисковику и пользователю нужен индексируемый текст;
 - для `Article` / `NewsArticle` schema главным image-set остается `01-front.webp` + crops; inline-изображения могут усиливать страницу, но не заменяют primary image.
+
+Текущий поштучный план по всем `content/articles` и `content/news` находится в [74-2026-06-15-articles-news-inline-image-serp-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/74-2026-06-15-articles-news-inline-image-serp-audit.md). Перед созданием нового inline-изображения сначала сверяться с ним: там указаны файл, место вставки и смысловая роль для каждой статьи и новости.
+
+### 5.1.2. SERP-Стандарт Для Image Surfaces
+
+Для важных article/news URL нужно поддерживать два слоя изображений:
+
+- primary editorial image: `01-front.webp` **1536x1024**;
+- schema/search variants: `01-front-16x9.webp` **1600x900**, `01-front-4x3.webp` **1200x900**, `01-front-1x1.webp` **1200x1200**;
+- inline explainers: `02-*` / `03-*` **1200x800** или **1200x675**.
+
+Правила:
+
+- primary и schema variants отвечают за сниппеты, social preview, `Article.image` / `NewsArticle.image` и search surfaces;
+- inline explainers отвечают за понимание текста внутри страницы и не заменяют primary image;
+- filename, `alt`, соседний heading и соседний абзац должны описывать один и тот же смысл;
+- важные изображения должны рендериться через HTML `<img>` / `<picture>`, а не только как CSS background;
+- bitmap-изображение не должно быть единственным носителем таблиц, характеристик, FAQ, цены, условий, размеров или сравнения;
+- top-1 в SERP не гарантируется изображениями, но плохой visual layer снижает доверие, CTR, image-search пригодность и качество ответа страницы.
 
 ### 5.2. Section Covers И Fallback
 

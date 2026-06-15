@@ -1,6 +1,6 @@
 # Руководство По Shortcode `seo-image`
 
-Обновлено: 2026-06-12.
+Обновлено: 2026-06-15.
 
 Короткое руководство по shortcode `seo-image` в текущем проекте `Aerocool`.
 
@@ -14,7 +14,7 @@ Hero-изображение главной страницы — отдельно
 
 Главное изображение товарной страницы — тоже отдельный сценарий. Оно не должно вставляться через `seo-image` в markdown. На товарных страницах первый видимый кадр выводит [products/gallery.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/gallery.html) из front matter `image`, а responsive preload для этого кадра выводится в `<head>` через [lcp-image-preload.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/lcp-image-preload.html) с тем же `sizes`, что и gallery.
 
-Общий визуальный стандарт изображений, включая обложки, fallback, section covers, home hero, product gallery, inline-иллюстрации, технические схемы и AI-промпты, описан отдельно в [67-image-design-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/67-image-design-playbook-2026.md). Этот документ отвечает за внешний вид и reusable prompts; текущий `seo-image` отвечает за HTML, responsive delivery и performance.
+Общий визуальный стандарт изображений, включая обложки, fallback, section covers, home hero, product gallery, inline-иллюстрации, технические схемы и AI-промпты, описан отдельно в [67-image-design-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/67-image-design-playbook-2026.md). Текущий поштучный план inline-изображений для всех статей и новостей находится в [74-2026-06-15-articles-news-inline-image-serp-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/74-2026-06-15-articles-news-inline-image-serp-audit.md). Эти документы отвечают за внешний вид, смысл и SERP-стандарт; текущий `seo-image` отвечает за HTML, responsive delivery и performance.
 
 Простыми словами для новичка: `seo-image` нужен, когда ты вставляешь изображение прямо в текст статьи, новости или обычной страницы. Для главной и товарной страницы уже есть отдельные шаблоны первого экрана.
 
@@ -114,17 +114,30 @@ cover:
 
 ## 3. Второстепенное Контентное Изображение
 
+Для статей и новостей стандартный secondary inline image:
+
+- файл лежит рядом с `index.md` и `index.ru.md`;
+- размер обычно **1200x800**;
+- формат WebP;
+- filename `02-<topic>.webp`, `03-<topic>.webp`;
+- `loading="lazy"`;
+- `preload=false`;
+- `fetchpriority=auto`;
+- `width` и `height` указаны явно;
+- `alt` локализован для каждой языковой версии;
+- изображение стоит рядом с блоком текста, который оно объясняет.
+
 ```md
 {{< seo-image
-  src="wing-mesh-side.png"
-  width="800"
-  height="600"
-  alt="Вид сбоку кресла Aerocool WING Mesh Black"
-  title="Aerocool WING Mesh Black — вид сбоку"
+  src="02-material-macro-panels.webp"
+  width="1200"
+  height="800"
+  alt="Порівняння поверхонь Racer, Loft Air і Mesh у кріслах Aerocool"
+  title="Матеріали Racer, Loft Air і Mesh"
   loading="lazy"
   preload=false
   fetchpriority=auto
-  class="mx-auto w-full max-w-[800px] rounded-xl"
+  class="mx-auto w-full rounded-xl"
   sizes="(min-width: 848px) 800px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
 />}}
 ```
@@ -164,3 +177,5 @@ cover:
 7. `cover.alt` не должен быть пустым, шаблонным или набитым ключевыми словами. Лучше назвать сущность или тему: `Кресло Aerocool SKY 360`, `Серия Aerocool WING`, `FAQ Aerocool в Украине`.
 8. Не переименовывать массово уже опубликованные изображения без отдельного SEO/redirect-плана: это меняет URL image resources.
 9. Image license metadata не управляется shortcode: если меняются условия использования изображений, сначала обновить страницы `/image-license/` и `/ru/image-license/`, затем проверить rendered `ImageObject`.
+10. Для `content/articles` и `content/news` не публиковать `candidate` / `test` / `final-v*` файлы и не ссылаться на них из markdown. Такие файлы допустимы только для визуального утверждения.
+11. Для secondary inline image не использовать `preload=true` и `fetchpriority=high`: это резерв только для одного LCP-кандидата страницы.
