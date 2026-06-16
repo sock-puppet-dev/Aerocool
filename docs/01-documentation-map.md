@@ -1,6 +1,6 @@
 # Документация Aerocool
 
-Обновлено: 2026-06-15.
+Обновлено: 2026-06-16.
 
 Этот файл — главная карта всей документации проекта. Его задача простая: показать новичку, что читать сначала, что читать потом и какие документы нужны только для профильных задач.
 
@@ -9,7 +9,7 @@
 - [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) — краткая карта проекта, стека, структуры и основных команд.
 - [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md) — правила безопасной работы для Codex/агентов.
 
-Все файлы внутри `docs/` пронумерованы глобально от `01` до `74`. Номер в начале имени показывает рекомендуемый порядок чтения.
+Все файлы внутри `docs/` пронумерованы глобально от `01` до `76`. Номер в начале имени показывает рекомендуемый порядок чтения.
 
 ## Как Пользоваться Новичку
 
@@ -196,8 +196,13 @@
 
 ### Inline-Изображения Статей И Новостей
 
-73. [audits/73-2026-06-14-articles-news-inline-image-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/73-2026-06-14-articles-news-inline-image-plan.md) — исторический snapshot плана inline-изображений на 2026-06-14. Для текущего состояния использовать аудит `74`.
-74. [audits/74-2026-06-15-articles-news-inline-image-serp-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/74-2026-06-15-articles-news-inline-image-serp-audit.md) — текущий аудит всех текстов `content/articles` и `content/news` по inline-изображениям: фактическое состояние, рекомендации по каждому материалу, SERP-стандарт размеров/форматов/веса, shortcode-правила и приоритет внедрения.
+73. [audits/73-2026-06-14-articles-news-inline-image-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/73-2026-06-14-articles-news-inline-image-plan.md) — исторический snapshot плана inline-изображений на 2026-06-14. Для текущего состояния использовать аудиты `74` и `75`.
+74. [audits/74-2026-06-15-articles-news-inline-image-serp-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/74-2026-06-15-articles-news-inline-image-serp-audit.md) — подробная матрица всех текстов `content/articles` и `content/news` по inline-изображениям: фактическое состояние, рекомендации по каждому материалу, SERP-стандарт размеров/форматов/веса, shortcode-правила и закрытый backlog внедрения.
+75. [audits/75-2026-06-16-articles-news-text-image-revalidation.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/75-2026-06-16-articles-news-text-image-revalidation.md) — текущий итоговый аудит текстов и изображений `content/articles` / `content/news` после закрытия inline backlog; фиксирует оценку **9.1/10**, остаточные P2/P3 рекомендации и правила для будущего развития.
+
+### Hugo.yaml И SERP-Технический Контракт
+
+76. [seo/76-hugo-yaml-serp-technical-contract-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/76-hugo-yaml-serp-technical-contract-2026.md) — текущий полный аудит `hugo.yaml` как технического SERP-фундамента проекта на `Hugo 0.163.0`, `Tailwind CSS 4.3` и `Netlify`; фиксирует оценку **9.4/10**, production gate, рекомендации по sitemap, robots, canonical, hreflang, Tailwind build stats и правила проверки после любых правок конфига.
 
 ## Маршруты По Задачам
 
@@ -208,8 +213,9 @@
 3. нужный шаблон из `content/templates/`
 4. [content/67-image-design-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/67-image-design-playbook-2026.md), если задача касается любых изображений: обложек, AI-промптов, fallback-картинок, product gallery, inline-иллюстраций, технических схем или визуального стиля.
 5. [audits/71-2026-06-13-full-project-image-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/71-2026-06-13-full-project-image-audit.md), если нужна текущая ручная проверка всех изображений проекта, fallback, section covers и product gallery hygiene.
-6. [audits/74-2026-06-15-articles-news-inline-image-serp-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/74-2026-06-15-articles-news-inline-image-serp-audit.md), если нужна рекомендация по inline-изображениям внутри каждой статьи или новости.
-7. [audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md), если нужна специализированная проверка `content/articles`, `content/news`, обложек, crops и home hero.
+6. [audits/75-2026-06-16-articles-news-text-image-revalidation.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/75-2026-06-16-articles-news-text-image-revalidation.md), если нужна текущая итоговая оценка текстов, картинок, остаточных рекомендаций и готовности `content/articles` / `content/news`.
+7. [audits/74-2026-06-15-articles-news-inline-image-serp-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/74-2026-06-15-articles-news-inline-image-serp-audit.md), если нужна подробная рекомендация по inline-изображениям внутри каждой статьи или новости.
+8. [audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md), если нужна специализированная проверка `content/articles`, `content/news`, обложек, crops и home hero.
 
 Для изображений, AI-промптов и визуального стиля читать:
 
@@ -220,8 +226,9 @@
 5. [content/07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md)
 6. [quality/12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md)
 7. [audits/71-2026-06-13-full-project-image-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/71-2026-06-13-full-project-image-audit.md), если задача касается текущего ручного состояния всех изображений проекта.
-8. [audits/74-2026-06-15-articles-news-inline-image-serp-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/74-2026-06-15-articles-news-inline-image-serp-audit.md), если задача касается inline-иллюстраций в теле статей и новостей.
-9. [audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md), если задача касается только article/news covers, schema crops или `assets/images/home-hero85.webp`.
+8. [audits/75-2026-06-16-articles-news-text-image-revalidation.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/75-2026-06-16-articles-news-text-image-revalidation.md), если задача касается текущего итогового состояния текстов и изображений `content/articles` / `content/news`.
+9. [audits/74-2026-06-15-articles-news-inline-image-serp-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/74-2026-06-15-articles-news-inline-image-serp-audit.md), если задача касается подробной матрицы inline-иллюстраций в теле статей и новостей.
+10. [audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md), если задача касается только article/news covers, schema crops или `assets/images/home-hero85.webp`.
 
 Для schema.org или rich results читать:
 
@@ -250,6 +257,7 @@
 2. [seo/53-keyword-database-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/53-keyword-database-2026.md)
 3. [seo/72-semantic-core-keyword-strategy-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/72-semantic-core-keyword-strategy-2026.md)
 4. [content/07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md)
+5. [seo/76-hugo-yaml-serp-technical-contract-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/76-hugo-yaml-serp-technical-contract-2026.md), если меняются URL, индексация, sitemap, canonical, hreflang или `hugo.yaml`
 
 После добавления, удаления или переименования любой индексируемой страницы в `content/` нужно проверить, есть ли у нее строка в keyword-базе или явное объяснение, почему страница не является SEO-посадочной.
 
@@ -260,6 +268,14 @@
 3. [quality/14-production-quality-gate-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/14-production-quality-gate-2026.md)
 4. [audits/54-2026-05-26-core-web-vitals-current-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/54-2026-05-26-core-web-vitals-current-audit.md)
 5. [audits/61-2026-06-02-pagespeed-insights-quality-simplification.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/61-2026-06-02-pagespeed-insights-quality-simplification.md), если задача касается текущего PageSpeed-only quality workflow
+
+Для `hugo.yaml`, production gate и технического SERP-фундамента читать:
+
+1. [seo/76-hugo-yaml-serp-technical-contract-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/76-hugo-yaml-serp-technical-contract-2026.md)
+2. [deploy/15-local-tooling-mise.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/15-local-tooling-mise.md)
+3. [audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md)
+4. [quality/14-production-quality-gate-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/14-production-quality-gate-2026.md)
+5. [seo/27-google-seo-audit-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/27-google-seo-audit-checklist-2026.md)
 
 Для UI-блоков, Tailwind Plus и визуальной структуры страниц читать:
 
@@ -276,11 +292,12 @@
 Примеры:
 
 - поменял `layouts/_partials/head.html` — проверь [architecture/03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md);
+- поменял `hugo.yaml`, languages, menus, permalinks, sitemap, robots, canonical, hreflang или `params.env` — проверь [seo/76-hugo-yaml-serp-technical-contract-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/76-hugo-yaml-serp-technical-contract-2026.md), [quality/14-production-quality-gate-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/14-production-quality-gate-2026.md) и [deploy/15-local-tooling-mise.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/15-local-tooling-mise.md);
 - поменял front matter поля — проверь [content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md);
 - поменял видимую meta-строку, `post_meta`, `translation-list`, `single`, `faq/single`, `list` или `search` — проверь [architecture/03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md), [content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md), [content/07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md) и [seo/19-schema-types-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/19-schema-types-reference.md);
 - поменял `seo-image` — проверь [content/06-seo-image-shortcode.md](/Users/stadnyk/MEGA/Aerocool/docs/content/06-seo-image-shortcode.md), [architecture/03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md), [quality/12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md) и [content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md), если менялись `image`, `cover` или `seo_image_sizes`;
 - поменял product gallery, product primary image или LCP preload — проверь [content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md), [content/templates/10-product-template.md](/Users/stadnyk/MEGA/Aerocool/docs/content/templates/10-product-template.md), [architecture/03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md), [quality/12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md) и [seo/21-ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/21-ecommerce-structured-data-playbook-2026.md);
-- поменял изображения, AI prompts, fallback-картинки, section covers, inline-иллюстрации, технические схемы или визуальный стиль изображений — проверь [content/67-image-design-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/67-image-design-playbook-2026.md), [content/06-seo-image-shortcode.md](/Users/stadnyk/MEGA/Aerocool/docs/content/06-seo-image-shortcode.md), [content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md), [content/07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md) и текущий ручной аудит изображений;
+- поменял изображения, AI prompts, fallback-картинки, section covers, inline-иллюстрации, технические схемы или визуальный стиль изображений — проверь [content/67-image-design-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/67-image-design-playbook-2026.md), [content/06-seo-image-shortcode.md](/Users/stadnyk/MEGA/Aerocool/docs/content/06-seo-image-shortcode.md), [content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md), [content/07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md), [audits/75-2026-06-16-articles-news-text-image-revalidation.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/75-2026-06-16-articles-news-text-image-revalidation.md) и текущий ручной аудит изображений;
 - поменял keyword-базу, карту интентов, новую посадочную страницу, slug, canonical URL или статус индексируемости страницы — проверь [seo/18-seo-keyword-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/18-seo-keyword-map-2026.md), [seo/53-keyword-database-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/53-keyword-database-2026.md), [seo/72-semantic-core-keyword-strategy-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/72-semantic-core-keyword-strategy-2026.md), [content/07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md) и убедись, что не появились битые `target_url`, дубликаты ключей или новая каннибализация;
 - поменял schema.org partials — проверь [seo/19-schema-types-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/19-schema-types-reference.md), [seo/20-schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/20-schema-markup-quality-checklist-2026.md), [seo/26-json-ld-graph-audit-roadmap-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/26-json-ld-graph-audit-roadmap-2026.md) и после сборки обнови [seo/59-entity-performance-report-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md);
 - поменял product facts, товарный front matter, цвет, характеристики, гарантию, доставку, возврат, оплату или `priceValidUntil` — проверь [seo/58-product-facts-maintenance-process-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/58-product-facts-maintenance-process-2026.md), [content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md), [seo/21-ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/21-ecommerce-structured-data-playbook-2026.md) и после сборки обнови [seo/59-entity-performance-report-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md);
@@ -289,5 +306,5 @@
 - поменял entity registry, `about_entities`, `mentions_entities`, `product_group_id` или rendered JSON-LD graph — после `npm run build` запусти `npm run entity:report` и проверь [seo/59-entity-performance-report-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md);
 - поменял hero, изображения первого экрана, CSS, JS или performance-sensitive layout — проверь [quality/12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md), [quality/13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md) и [quality/14-production-quality-gate-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/14-production-quality-gate-2026.md);
 - поменял PageSpeed-only quality workflow — проверь [quality/13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md), [deploy/16-netlify-routing.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/16-netlify-routing.md) и [audits/61-2026-06-02-pagespeed-insights-quality-simplification.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/61-2026-06-02-pagespeed-insights-quality-simplification.md);
-- поменял версии Hugo/Node — проверь [deploy/15-local-tooling-mise.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/15-local-tooling-mise.md), [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) и `netlify.toml`;
+- поменял версии Hugo/Node — проверь [deploy/15-local-tooling-mise.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/15-local-tooling-mise.md), [seo/76-hugo-yaml-serp-technical-contract-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/76-hugo-yaml-serp-technical-contract-2026.md), [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) и `netlify.toml`;
 - поменял `static/_redirects`, `layouts/404.html` или routing/headers в `netlify.toml` — проверь [deploy/16-netlify-routing.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/16-netlify-routing.md), [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) и [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md).

@@ -1,6 +1,6 @@
 # Полный SEO-аудит сайта для сильного ранжирования в Google
 
-Актуально на 2026-06-02.
+Актуально на 2026-06-16.
 
 > Контекст: сайт на Hugo / Netlify, качество published URL проверяется через PageSpeed Insights.
 > Цель: не обещать позицию, а пройти полный SEO-контур: индексация, Core Web Vitals, structured data, контент, доверие, UX, конкуренты, ссылки и постоянный мониторинг.
@@ -10,6 +10,7 @@
 
 > Практический порядок внедрения для текущего проекта: [34-2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md).
 > Базовый sync-аудит документации: [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md).
+> Текущий технический контракт `hugo.yaml` для SERP-фундамента: [76-hugo-yaml-serp-technical-contract-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/76-hugo-yaml-serp-technical-contract-2026.md).
 
 Официальная база для этого чек-листа:
 

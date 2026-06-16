@@ -16,7 +16,8 @@
 - [12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md) - LCP, responsive images и производительность;
 - [20-schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/20-schema-markup-quality-checklist-2026.md) - `ImageObject` и schema.org;
 - [21-ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/21-ecommerce-structured-data-playbook-2026.md) - product images, Product/Offer и e-commerce structured data;
-- [74-2026-06-15-articles-news-inline-image-serp-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/74-2026-06-15-articles-news-inline-image-serp-audit.md) - текущий аудит inline-иллюстраций для всех статей и новостей и SERP-стандарт изображений 2026.
+- [74-2026-06-15-articles-news-inline-image-serp-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/74-2026-06-15-articles-news-inline-image-serp-audit.md) - подробная матрица inline-иллюстраций для всех статей и новостей и SERP-стандарт изображений 2026;
+- [75-2026-06-16-articles-news-text-image-revalidation.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/75-2026-06-16-articles-news-text-image-revalidation.md) - текущий итоговый аудит текстов и изображений `content/articles` / `content/news` после закрытия inline backlog.
 
 ## 0. Source-Backed SERP Contract 2026
 
@@ -206,7 +207,7 @@ SEO-логика:
 - сравнение, таблицу или FAQ не превращать в картинку, если это можно сделать HTML-текстом: поисковику и пользователю нужен индексируемый текст;
 - для `Article` / `NewsArticle` schema главным image-set остается `01-front.webp` + crops; inline-изображения могут усиливать страницу, но не заменяют primary image.
 
-Текущий поштучный план по всем `content/articles` и `content/news` находится в [74-2026-06-15-articles-news-inline-image-serp-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/74-2026-06-15-articles-news-inline-image-serp-audit.md). Перед созданием нового inline-изображения сначала сверяться с ним: там указаны файл, место вставки и смысловая роль для каждой статьи и новости.
+Текущий поштучный план по всем `content/articles` и `content/news` находится в [74-2026-06-15-articles-news-inline-image-serp-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/74-2026-06-15-articles-news-inline-image-serp-audit.md), а итоговое состояние после закрытия backlog - в [75-2026-06-16-articles-news-text-image-revalidation.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/75-2026-06-16-articles-news-text-image-revalidation.md). Перед созданием нового inline-изображения сначала сверяться с ними: `74` показывает файл, место вставки и смысловую роль, `75` показывает, нужно ли вообще добавлять новый визуальный или текстовый блок.
 
 ### 5.1.2. SERP-Стандарт Для Image Surfaces
 

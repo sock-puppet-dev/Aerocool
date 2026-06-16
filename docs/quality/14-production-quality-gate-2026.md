@@ -1,8 +1,10 @@
 # Финальный Контроль Качества Перед Production-Релизом
 
-Обновлено: 2026-06-02.
+Обновлено: 2026-06-16.
 
 Этот документ фиксирует короткий финальный чек перед production-релизом `Aerocool Ukraine`. Он дополняет [13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md), но не заменяет SEO/schema-проверки.
+
+Если релиз затрагивает `hugo.yaml`, языки, URL, `params.env`, sitemap, robots, canonical, hreflang или production indexing, сначала читать [76-hugo-yaml-serp-technical-contract-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/76-hugo-yaml-serp-technical-contract-2026.md).
 
 ## 1. Когда Использовать
 
@@ -20,6 +22,8 @@
 ```bash
 ./scripts/script_check.sh
 npm run build:production
+mise exec -- hugo config --format json --lang uk
+mise exec -- hugo config --format json --lang ru
 ```
 
 Если менялись redirects, headers, CSP или 404:
@@ -44,6 +48,17 @@ npm run build:production
 - robots meta, canonical, hreflang;
 - JSON-LD через `validator.schema.org`;
 - PageSpeed Insights для ключевых URL.
+
+Если менялся `hugo.yaml`, дополнительно локально открыть после production-сборки:
+
+- `public/robots.txt`;
+- `public/sitemap.xml`;
+- `public/uk/sitemap.xml`;
+- `public/ru/sitemap.xml`;
+- `public/index.html`;
+- `public/ru/index.html`;
+- `public/index.json`;
+- `public/ru/index.json`.
 
 ## 4. Критерий Готовности
 

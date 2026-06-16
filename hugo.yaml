@@ -103,9 +103,11 @@ markup:
 # params — проектные и theme-параметры.
 # Их читают локальные partials в layouts/_partials и часть шаблонов PaperMod.
 params:
-  # Временный режим проекта.
-  # Пока env: development, опубликованные HTML-страницы получают noindex,nofollow через head.html.
-  # Production включать только отдельной задачей после SEO/indexability проверки.
+  # Временный режим проекта для theme-compatible проверок.
+  # Индексируемость в head.html зависит от двух условий: Hugo production environment или params.env: production.
+  # Netlify сейчас собирает с --environment development, поэтому опубликованный branch deploy остается noindex,nofollow.
+  # Локальная команда npm run build:production собирает index,follow даже при этом fallback-значении.
+  # Production в Netlify включать только отдельной задачей после SEO/indexability проверки.
   env: development
 
   # Заголовок для theme-совместимости.
