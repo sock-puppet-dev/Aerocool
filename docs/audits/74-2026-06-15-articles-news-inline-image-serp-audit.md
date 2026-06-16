@@ -42,19 +42,19 @@
 
 - во всех статьях и новостях сейчас есть главное изображение `01-front.webp`;
 - у всех article/news bundles есть schema crops для `16:9`, `4:3`, `1:1`;
-- у `12` статей уже внедрены дополнительные inline-изображения `02-*` / `03-*`: `how-to-choose-aerocool-chair`, `how-to-choose-chair-by-adjustability`, `chair-for-computer-work`, `best-chair-for-home-office`, `chair-for-posture-and-long-work`, `chair-setup-after-purchase`, `racer-vs-loft-air-vs-mesh-materials`, `sky-lite-vs-sky-360-guide`, `sky-vs-wing-vs-xtal`, `wing-vs-xtal-comparison`, `sync4-sync5-mechanism-guide`, `what-is-synchronous-tilt-guide`;
-- всего в `content/articles` сейчас есть `24` активных inline WebP-файлов после обложек, все они имеют размер **1200x800** и вес примерно **61-216 КБ**;
-- `4` статей пока остаются без дополнительных inline-изображений после `01-front.webp`;
+- у `14` статей уже внедрены дополнительные inline-изображения `02-*` / `03-*`: `how-to-choose-aerocool-chair`, `how-to-choose-chair-by-adjustability`, `chair-for-computer-work`, `best-chair-for-home-office`, `chair-for-posture-and-long-work`, `chair-setup-after-purchase`, `racer-vs-loft-air-vs-mesh-materials`, `sky-lite-vs-sky-360-guide`, `sky-vs-wing-vs-xtal`, `what-is-dual-backrest`, `what-is-fully-replaceable-design`, `wing-vs-xtal-comparison`, `sync4-sync5-mechanism-guide`, `what-is-synchronous-tilt-guide`;
+- всего в `content/articles` сейчас есть `28` активных inline WebP-файлов после обложек, все они имеют размер **1200x800** и вес примерно **61-216 КБ**;
+- `2` статей пока остаются без дополнительных inline-изображений после `01-front.webp`;
 - все `9` новостей пока остаются без дополнительных inline-изображений после `01-front.webp`;
 - значит текущий слой inline-иллюстраций нужно считать частично внедренным: P1-ядро уже закрыто, но P1/P2-backlog по оставшимся статьям и новостям остается активным.
 
-Оценка текущего visual content depth для `content/articles` и `content/news`: **8.6 / 10**.
+Оценка текущего visual content depth для `content/articles` и `content/news`: **8.8 / 10**.
 
 Почему не выше:
 
 - primary covers и schema crops уже закрыты хорошо;
 - часть evergreen-статей уже получила второй визуальный слой;
-- но часть статей про dual backrest, replaceable design и пользовательские сценарии пока визуально объясняется только одной обложкой;
+- но часть статей про пользовательские сценарии пока визуально объясняется только одной обложкой;
 - новости про запуск серий и моделей все еще не показывают второй уровень инфоповода: состав серии, материал, механизм или практическое изменение для покупателя;
 - последние визуальные итерации показали отдельный риск AI-кресел: бренд на подголовнике нельзя дорисовывать как заметную наклейку или грубый overlay.
 
@@ -360,14 +360,14 @@
 
 ### `what-is-dual-backrest`
 
-Статус: нет активных inline-изображений.
+Статус: внедрено 2026-06-16.
 
-Нужно:
+Внедрено:
 
 - `02-dual-backrest-closeup.webp` — крупный план разделенной спинки WING.
 - `03-dual-vs-single-backrest-support.webp` — сравнение двойной и цельной логики спинки без текста внутри изображения.
 
-Где ставить:
+Где стоит:
 
 - после блока о связи Dual backrest с WING;
 - после блока сравнения с SKY.
@@ -376,14 +376,14 @@
 
 ### `what-is-fully-replaceable-design`
 
-Статус: нет активных inline-изображений.
+Статус: внедрено 2026-06-16.
 
-Нужно:
+Внедрено:
 
 - `02-xtal-replaceable-components.webp` — модульная логика XTAL и сменные элементы.
 - `03-xtal-practical-maintenance.webp` — практический сценарий долгого использования и обслуживания.
 
-Где ставить:
+Где стоит:
 
 - после блока о конструкции со сменными элементами;
 - после блока о практической важности этой идеи.
@@ -559,17 +559,18 @@
 9. `sky-vs-wing-vs-xtal` — центральное сравнение серий получило product-line map и routing visual по сценариям.
 10. `wing-vs-xtal-comparison` — сравнение WING и XTAL получило отдельную визуализацию платформ и практического выбора между **11D** и **7D**.
 11. `sky-lite-vs-sky-360-guide` — сравнение SKY Lite и SKY 360 получило office-tech side-by-side и отдельный visual explainer по глубине настройки SKY 360.
+12. `what-is-dual-backrest` — feature-статья получила крупный план разделенной спинки WING и сравнение dual/single support logic без текста внутри изображения.
+13. `what-is-fully-replaceable-design` — feature-статья получила модульную визуализацию сменных элементов XTAL и практический maintenance visual по долгому использованию.
 
 Следующий P1:
 
-1. Текущее P1-ядро по evergreen-статьям закрыто; дальше идти в P2 feature/scenario backlog.
+1. Текущее P1-ядро и feature backlog по evergreen-статьям закрыты; дальше идти в P2 scenario backlog.
 
 P2:
 
-1. `what-is-dual-backrest`, `what-is-fully-replaceable-design` — feature articles.
-2. `chairs-for-office-team`, `gaming-chair-long-sessions` — scenario articles.
-3. Новости о запуске серий WING/XTAL/SKY.
-4. Новости о материалах и механизмах.
+1. `chairs-for-office-team`, `gaming-chair-long-sessions` — scenario articles.
+2. Новости о запуске серий WING/XTAL/SKY.
+3. Новости о материалах и механизмах.
 
 P3:
 
