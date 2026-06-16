@@ -4,7 +4,7 @@ linkTitle: "Старт WING"
 description: "Официальный запуск серии Aerocool WING: двойная спинка, 11D регулировка, подлокотники 4D X 360 и модели Racer, Loft Air, Mesh."
 summary: "Запуск серии WING: игровые и компьютерные кресла с 11D, двойная спинка и тремя форматами поверхности."
 date: 2026-04-16T10:00:00+03:00
-lastmod: 2026-06-06
+lastmod: 2026-06-16
 slug: "wing-series-launch"
 schema_types: ["website", "news", "organization", "breadcrumbs"]
 about_entities:
@@ -59,6 +59,19 @@ Aerocool официально запускает на сайте серию **WI
 
 Все модели серии имеют **11D** регулировку, Synchronous Tilt, **2D** сиденье, стальную базу **350 мм**, тихие ролики **75 мм** и вес **23.9 кг**.
 
+{{< seo-image
+  src="02-wing-dual-backrest-11d.webp"
+  width="1200"
+  height="800"
+  alt="Aerocool WING с двойной спинкой и акцентом на активную поддержку в серии"
+  title="Двойная спинка и активная поддержка WING"
+  loading="lazy"
+  preload=false
+  fetchpriority=auto
+  class="w-full rounded-2xl"
+  sizes="(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
+/>}}
+
 ## Три направления внутри серии
 
 ### Racer
@@ -72,6 +85,19 @@ Aerocool официально запускает на сайте серию **WI
 ### Mesh
 
 Модель **Mesh Black** использует **вентилируемую сетку** и делает акцент на максимальном воздухообмене.
+
+{{< seo-image
+  src="03-wing-material-variants.webp"
+  width="1200"
+  height="800"
+  alt="Варианты поверхности WING Racer, Loft Air и Mesh в разных сценариях использования"
+  title="Racer, Loft Air и Mesh в серии Aerocool WING"
+  loading="lazy"
+  preload=false
+  fetchpriority=auto
+  class="w-full rounded-2xl"
+  sizes="(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
+/>}}
 
 ## Где смотреть серию
 

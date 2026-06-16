@@ -62,22 +62,22 @@
 
 Оставшийся production backlog:
 
-- `2` статьи без inline-изображений: `chairs-for-office-team`, `gaming-chair-long-sessions`;
-- для этих статей нужно `4` WebP-файла **1200x800**;
-- `9` новостей без inline-изображений;
-- для новостей нужно `12` WebP-файлов **1200x800**;
-- всего осталось создать и внедрить `16` inline-изображений.
+- `0` статей без inline-изображений;
+- article backlog по inline-изображениям закрыт;
+- `0` новостей без inline-изображений;
+- news backlog по inline-изображениям закрыт;
+- всего осталось создать и внедрить `0` inline-изображений.
 
-Рекомендованный порядок: сначала закрыть `chairs-for-office-team` и `gaming-chair-long-sessions`, затем новости о запуске серий `SKY/WING/XTAL`, затем модельные новости `SKY 360` и `SKY Lite`, затем материал/механизм, затем контентные update-новости.
+Рекомендованный порядок после закрытия production backlog: ручная визуальная приемка всех новых inline-изображений, затем точечный переэкспорт только тех файлов, где будут найдены визуальные дефекты.
 
 ## 2.1. SERP-Вывод После Повторного Анализа Текстов
 
 Повторная проверка всех украинских и русских текстов показывает:
 
 - длинные evergreen-статьи уже в основном закрыты вторым визуальным слоем: сравнения, механизмы, материалы, настройка, posture и feature-объяснения получили `02-*` / `03-*`;
-- два оставшихся article gaps относятся к scenario intent, а не к механике: командный офисный выбор и длительные игровые сессии;
-- новости пока визуально слабее статей: cover есть, schema crops есть, но внутри тела новости нет второго кадра, который объясняет инфоповод;
-- для top SERP-подхода новости не должны выглядеть как короткие анонсы с одной обложкой: запуск серии должен показывать состав серии, модельная новость - ключевую особенность модели, material update - фактуру материала, content update - карту новых гайдов;
+- article gaps закрыты: все evergreen-статьи получили второй визуальный слой;
+- новости получили второй визуальный слой: запуск серии показывает состав серии, модельная новость - ключевую особенность модели, material update - фактуру материала, content update - карту новых гайдов;
+- следующий риск уже не в отсутствии изображений, а в ручной приемке качества: отсутствие случайного текста, корректная геометрия кресел, отсутствие corner-logo в inline-кадрах и достаточное разнообразие композиций;
 - дополнительные inline-изображения не должны подменять индексируемый текст: таблицы, списки моделей, отличия **7D/8D/11D**, условия и FAQ остаются HTML-текстом.
 
 ## 3. Единый SERP-Стандарт Для Изображений Проекта
@@ -252,9 +252,9 @@
 
 ### `chairs-for-office-team`
 
-Статус: нет активных inline-изображений.
+Статус: внедрено 2026-06-16.
 
-Нужно:
+Внедрено:
 
 - `02-office-workstation-map.webp` — карта рабочих мест команды: оператор, менеджер, гибридный сотрудник, переговорная зона.
 - `03-team-chair-distribution.webp` — несколько моделей Aerocool, распределенных под разные роли команды.
@@ -268,9 +268,9 @@
 
 ### `gaming-chair-long-sessions`
 
-Статус: нет активных inline-изображений.
+Статус: внедрено 2026-06-16.
 
-Нужно:
+Внедрено:
 
 - `02-long-gaming-session-support.webp` — игровое место с акцентом на спину, руки и смену позы.
 - `03-gaming-material-surfaces.webp` — Racer, Loft Air и Mesh в игровых сценариях.
@@ -446,9 +446,9 @@
 
 ### `2026-04-15-aerocool-sky-series-launch`
 
-Статус: нет активных inline-изображений.
+Статус: внедрено 2026-06-16.
 
-Нужно:
+Внедрено:
 
 - `02-sky-lite-360-lineup.webp` — SKY Lite и SKY 360 рядом, без текста внутри изображения.
 
@@ -458,9 +458,9 @@
 
 ### `2026-04-16-aerocool-wing-series-launch`
 
-Статус: нет активных inline-изображений.
+Статус: внедрено 2026-06-16.
 
-Нужно:
+Внедрено:
 
 - `02-wing-dual-backrest-11d.webp` — WING с акцентом на dual backrest и зоны регулировок.
 - `03-wing-material-variants.webp` — Racer, Loft Air и Mesh внутри WING.
@@ -474,9 +474,9 @@
 
 ### `2026-04-17-aerocool-xtal-series-launch`
 
-Статус: нет активных inline-изображений.
+Статус: внедрено 2026-06-16.
 
-Нужно:
+Внедрено:
 
 - `02-xtal-replaceable-design.webp` — модульная/replaceable логика XTAL.
 - `03-xtal-material-variants.webp` — XTAL Racer, Loft Air и Mesh.
@@ -490,9 +490,9 @@
 
 ### `2026-04-18-aerocool-sky-360-launch`
 
-Статус: нет активных inline-изображений.
+Статус: внедрено 2026-06-16.
 
-Нужно:
+Внедрено:
 
 - `02-sky-360-adjustment-zones.webp` — зоны регулировок SKY 360 без текстовых labels.
 
@@ -502,9 +502,9 @@
 
 ### `2026-04-19-aerocool-sky-lite-launch`
 
-Статус: нет активных inline-изображений.
+Статус: внедрено 2026-06-16.
 
-Нужно:
+Внедрено:
 
 - `02-sky-lite-daily-work.webp` — SKY Lite в спокойной ежедневной workstation-сцене.
 
@@ -514,9 +514,9 @@
 
 ### `2026-04-20-aerocool-loft-air-and-mesh-focus`
 
-Статус: нет активных inline-изображений.
+Статус: внедрено 2026-06-16.
 
-Нужно:
+Внедрено:
 
 - `02-loft-air-mesh-material-macro.webp` — две поверхности крупным планом.
 - `03-ventilation-material-choice.webp` — сценарии выбора вентиляции и материала.
@@ -530,9 +530,9 @@
 
 ### `2026-04-30-aerocool-sync4-sync5-mechanism-update`
 
-Статус: нет активных inline-изображений.
+Статус: внедрено 2026-06-16.
 
-Нужно:
+Внедрено:
 
 - `02-sync4-sync5-update-diagram.webp` — визуальное сравнение SYNC4/SYNC5 без лишних specs.
 
@@ -542,9 +542,9 @@
 
 ### `2026-05-21-aerocool-chair-selection-guides-update`
 
-Статус: нет активных inline-изображений.
+Статус: внедрено 2026-06-16.
 
-Нужно:
+Внедрено:
 
 - `02-chair-selection-guides-map.webp` — карта guide-кластеров: работа, home office, gaming, материалы.
 
@@ -554,9 +554,9 @@
 
 ### `2026-05-21-aerocool-practical-chair-guides-update`
 
-Статус: нет активных inline-изображений.
+Статус: внедрено 2026-06-16.
 
-Нужно:
+Внедрено:
 
 - `02-practical-guides-map.webp` — посадка, настройка после покупки, выбор для команды как практический маршрут.
 
@@ -581,27 +581,36 @@
 11. `sky-lite-vs-sky-360-guide` — сравнение SKY Lite и SKY 360 получило office-tech side-by-side и отдельный visual explainer по глубине настройки SKY 360.
 12. `what-is-dual-backrest` — feature-статья получила крупный план разделенной спинки WING и сравнение dual/single support logic без текста внутри изображения.
 13. `what-is-fully-replaceable-design` — feature-статья получила модульную визуализацию сменных элементов XTAL и практический maintenance visual по долгому использованию.
+14. `chairs-for-office-team` — B2B/scenario-статья получила карту рабочих мест и fleet-распределение моделей Aerocool под роли команды.
+15. `gaming-chair-long-sessions` — gaming/scenario-статья получила visual support для долгой сессии и отдельный material surfaces visual для Racer, Loft Air и Mesh.
+16. `2026-04-15-aerocool-sky-series-launch` — новость получила lineup-визуал SKY Lite и SKY 360.
+17. `2026-04-16-aerocool-wing-series-launch` — новость получила visual по dual backrest и отдельный visual по материалам WING.
+18. `2026-04-17-aerocool-xtal-series-launch` — новость получила visual по replaceable design и отдельный visual по материалам XTAL.
+19. `2026-04-18-aerocool-sky-360-launch` — новость получила visual по зонам настройки SKY 360.
+20. `2026-04-19-aerocool-sky-lite-launch` — новость получила daily-work visual для SKY Lite.
+21. `2026-04-20-aerocool-loft-air-and-mesh-focus` — новость получила material macro и material-choice visual.
+22. `2026-04-30-aerocool-sync4-sync5-mechanism-update` — новость получила visual по механикам SYNC4/SYNC5.
+23. `2026-05-21-aerocool-chair-selection-guides-update` — новость получила guide-cluster map.
+24. `2026-05-21-aerocool-practical-chair-guides-update` — новость получила practical-guides map.
 
 Следующий P1:
 
-1. Текущее P1-ядро и feature backlog по evergreen-статьям закрыты; дальше идти в P2 scenario backlog.
+1. Production backlog по inline-изображениям `content/articles` и `content/news` закрыт; дальше нужна ручная визуальная приемка и точечная коррекция только при найденных дефектах.
 
 P2:
 
-1. `chairs-for-office-team`, `gaming-chair-long-sessions` — scenario articles.
-2. Новости о запуске серий WING/XTAL/SKY.
-3. Новости о материалах и механизмах.
+1. Дополнительные factual close-ups после появления разных официальных product gallery assets.
+2. Точечные schema crops для новых будущих article/news URL.
 
 P3:
 
-1. Новости о контентных обновлениях.
-2. Дополнительные factual close-ups после появления разных официальных product gallery assets.
+1. Новые сезонные или продуктовые новости, если появятся реальные инфоповоды.
 
 К созданию осталось:
 
-- articles: `4` inline-файла;
-- news: `12` inline-файлов;
-- всего: `16` inline-файлов.
+- articles: `0` inline-файлов;
+- news: `0` inline-файлов;
+- всего: `0` inline-файлов.
 
 ## 7. Правила Вставки В Markdown
 

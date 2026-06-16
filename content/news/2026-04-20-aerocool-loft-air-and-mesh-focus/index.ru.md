@@ -4,7 +4,7 @@ linkTitle: "Loft Air и Mesh"
 description: "Aerocool подчеркивает различия между Loft Air и Mesh в сериях WING и XTAL и объясняет, кому подойдет каждый формат поверхности."
 summary: "Объяснение разницы между Loft Air и Mesh в WING и XTAL для выбора офисного, компьютерного или home office кресла."
 date: 2026-04-20T10:00:00+03:00
-lastmod: 2026-06-06
+lastmod: 2026-06-16
 slug: "loft-air-and-mesh-focus"
 schema_types: ["website", "news", "organization", "breadcrumbs"]
 about_entities:
@@ -54,6 +54,19 @@ Aerocool обращает отдельное внимание на модели 
 
 **Mesh** — это **вентилируемая сетка**, максимально ориентированный на воздухообмен. Такой формат особенно хорошо подходит тем, кто хочет более легкое ощущение от посадки и делает ставку именно на вентиляцию.
 
+{{< seo-image
+  src="02-loft-air-mesh-material-macro.webp"
+  width="1200"
+  height="800"
+  alt="Крупное сравнение поверхностей Loft Air и Mesh для кресел Aerocool"
+  title="Фактура Loft Air и Mesh в креслах Aerocool"
+  loading="lazy"
+  preload=false
+  fetchpriority=auto
+  class="w-full rounded-2xl"
+  sizes="(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
+/>}}
+
 ## Где смотреть модели
 
 - [WING Loft Air Dark Grey](/ru/products/wing/loft-air-dark-grey/)
@@ -96,6 +109,19 @@ Aerocool обращает отдельное внимание на модели 
 - максимально легкое ощущение от посадки.
 
 То есть эта новость помогает не просто показать две поверхности, а объяснить, какому типу пользователя подходит каждый вариант.
+
+{{< seo-image
+  src="03-ventilation-material-choice.webp"
+  width="1200"
+  height="800"
+  alt="Выбор между Loft Air и Mesh по вентиляции, мягкости и сценарию использования"
+  title="Как выбирать между Loft Air и Mesh в реальном сценарии"
+  loading="lazy"
+  preload=false
+  fetchpriority=auto
+  class="w-full rounded-2xl"
+  sizes="(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
+/>}}
 
 ## Для кого этот материал особенно полезен
 

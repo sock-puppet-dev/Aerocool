@@ -4,7 +4,7 @@ linkTitle: "Практичні гіди"
 description: "Aerocool Україна доповнює розділ статей новими практичними матеріалами про посадку, налаштування крісла після покупки та вибір крісел для офісної команди."
 summary: "У розділі статей Aerocool з'явилися нові гіди для довгої роботи, первинного налаштування крісла та командного вибору моделей SKY, WING і XTAL."
 date: 2026-05-21T00:18:00+03:00
-lastmod: 2026-06-06
+lastmod: 2026-06-16
 slug: "aerocool-practical-chair-guides-update"
 schema_types: ["website", "news", "organization", "breadcrumbs"]
 about_entities:
@@ -53,6 +53,19 @@ Aerocool Україна доповнює розділ [статей](/articles/)
 - [крісла Aerocool для офісної команди](/articles/chairs-for-office-team/).
 
 Кожен матеріал відповідає на окрему практичну ситуацію. Перший допомагає вибирати крісло без медичних обіцянок і рекламних спрощень. Другий працює як практичний чек-лист перших днів після покупки. Третій показує, як дивитися на [SKY](/products/sky/), [WING](/products/wing/) і [XTAL](/products/xtal/) не як на окремі картки, а як на систему рішень для різних робочих місць.
+
+{{< seo-image
+  src="02-practical-guides-map.webp"
+  width="1200"
+  height="800"
+  alt="Карта практичних гайдів Aerocool про посадку, налаштування крісла і вибір для офісної команди"
+  title="Карта практичних гайдів Aerocool після вибору крісла"
+  loading="lazy"
+  preload=false
+  fetchpriority=auto
+  class="w-full rounded-2xl"
+  sizes="(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
+/>}}
 
 ## Чому це важливо
 

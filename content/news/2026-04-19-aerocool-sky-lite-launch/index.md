@@ -4,7 +4,7 @@ linkTitle: "SKY Lite"
 description: "Огляд Aerocool SKY Lite: 8D регулювання, 1D підлокітники, 1D сидіння, breathable mesh, нейлонова база і логіка щоденного ергономічного використання."
 summary: "Огляд SKY Lite як базового офісного та home office крісла серії SKY з 8D і вентильованою поверхнею."
 date: 2026-04-19T10:00:00+03:00
-lastmod: 2026-06-06
+lastmod: 2026-06-16
 slug: "sky-lite-launch"
 schema_types: ["website", "news", "organization", "breadcrumbs"]
 about_entities:
@@ -57,6 +57,19 @@ cover:
 ## Для кого створена ця модель
 
 SKY Lite адресована користувачам, яким потрібне сучасне крісло для домашньої роботи, навчання та щоденного використання без складної надлишкової механіки.
+
+{{< seo-image
+  src="02-sky-lite-daily-work.webp"
+  width="1200"
+  height="800"
+  alt="Aerocool SKY Lite у спокійному щоденному робочому сценарії для дому та офісу"
+  title="SKY Lite як базова модель для щоденної роботи"
+  loading="lazy"
+  preload=false
+  fetchpriority=auto
+  class="w-full rounded-2xl"
+  sizes="(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
+/>}}
 
 - [Подивитися SKY Lite](/products/sky/lite/)
 - [Уся серія SKY](/products/sky/)

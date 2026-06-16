@@ -4,7 +4,7 @@ linkTitle: "SYNC4 и SYNC5"
 description: "Aerocool уточняет, какие кресла XTAL, WING, SKY 360 и SKY Lite используют механизмы SYNC4 и SYNC5 multi-adjustable."
 summary: "Обновление о механизмах Aerocool: все версии XTAL и WING, а также SKY 360 имеют SYNC5 multi-adjustable, а SKY Lite — SYNC4 multi-adjustable."
 date: 2026-04-30T00:00:00+03:00
-lastmod: 2026-06-06
+lastmod: 2026-06-16
 slug: "sync4-sync5-mechanism-update"
 schema_types: ["website", "news", "organization", "breadcrumbs"]
 about_entities:
@@ -58,6 +58,19 @@ Aerocool Украина публикует отдельное пояснение
 | [SKY Lite](/ru/products/sky/lite/) | **SYNC4 multi-adjustable** |
 
 Выбор между материалами **Racer**, **Loft Air** и **Mesh** в сериях XTAL и WING не меняет тип механизма. Все варианты этих серий остаются на базе **SYNC5 multi-adjustable**, поэтому поверхность можно выбирать по ощущению, вентиляции и сценарию ухода без потери ключевых возможностей механики.
+
+{{< seo-image
+  src="02-sync4-sync5-update-diagram.webp"
+  width="1200"
+  height="800"
+  alt="Визуальное сравнение механизмов SYNC4 и SYNC5 в креслах Aerocool"
+  title="Обновленная карта механизмов SYNC4 и SYNC5"
+  loading="lazy"
+  preload=false
+  fetchpriority=auto
+  class="w-full rounded-2xl"
+  sizes="(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)"
+/>}}
 
 ## Почему это важно для выбора кресла
 
