@@ -1,6 +1,6 @@
 # Playbook Изображений И AI-Промптов Aerocool 2026
 
-Обновлено: 2026-06-15.
+Обновлено: 2026-06-16.
 
 Этот документ фиксирует повторяемый стандарт для всех изображений проекта `Aerocool Ukraine`: обложек статей и новостей, section covers, fallback-изображений, home hero, товарных фото, product gallery, контентных иллюстраций, технических схем, логотипов и служебных иконок.
 
@@ -17,6 +17,25 @@
 - [20-schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/20-schema-markup-quality-checklist-2026.md) - `ImageObject` и schema.org;
 - [21-ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/21-ecommerce-structured-data-playbook-2026.md) - product images, Product/Offer и e-commerce structured data;
 - [74-2026-06-15-articles-news-inline-image-serp-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/74-2026-06-15-articles-news-inline-image-serp-audit.md) - текущий аудит inline-иллюстраций для всех статей и новостей и SERP-стандарт изображений 2026.
+
+## 0. Source-Backed SERP Contract 2026
+
+Этот регламент не обещает `top-1` в SERP только за счет картинок. Изображения работают как часть системы: полезный текст, релевантный интент, технически корректный HTML, быстрый LCP, structured data, понятные `alt`, representative covers и доверие к товару.
+
+Основание: Google Image SEO best practices, Google Article structured data, web.dev Image performance, web.dev Responsive images и web.dev Fetch Priority API. Проверять актуальность этих источников при любом крупном пересмотре графического стандарта.
+
+Практический контракт для проекта:
+
+- каждая важная картинка должна быть репрезентативной для страницы, а не декоративной;
+- важные изображения должны быть доступны в HTML через `<img>` / `<picture>`, а не только через CSS background;
+- для `Article` / `NewsArticle` нужен image set с несколькими соотношениями сторон: **16:9**, **4:3**, **1:1**;
+- первый видимый image candidate может быть LCP и получает controlled priority: `loading="eager"`, `preload=true`, `fetchpriority=high`;
+- все вторичные inline-изображения остаются lazy и не конкурируют с LCP;
+- bitmap не должен быть единственным носителем текста, таблиц, цены, характеристик, FAQ или сравнений;
+- filename, `alt`, соседний heading и соседний абзац должны раскрывать один и тот же смысл;
+- AI-изображение допускается только после ручной проверки геометрии кресла, бренда, колес, подлокотников, материала и отсутствия случайного текста.
+
+Если картинка красивая, но не помогает понять статью, новость, материал, механизм, серию или товарный выбор, для SEO и UX она считается слабой.
 
 ## 1. Как Пользоваться Новичку
 
