@@ -1,7 +1,7 @@
 {{- define "main" }}
 
 {{- $pageDescription := .Description | default (partial "page-description.html" .) }}
-{{- $paginator := .Paginate .Pages 6 }}
+{{- $paginator := .Paginate .Pages }}
 {{- $isRu := eq .Language.Name "ru" }}
 
 {{- if .Title }}

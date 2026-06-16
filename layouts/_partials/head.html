@@ -23,7 +23,7 @@
     {{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true" -}}
   {{- end -}}
   {{- if or .IsHome (and .IsSection (in (slice "articles" "news") .Section)) -}}
-    {{- $paginator := .Paginate $pages 6 -}}
+    {{- $paginator := .Paginate $pages -}}
     {{- $pageNumber = $paginator.PageNumber -}}
     {{- if gt $pageNumber 1 -}}
       {{- $pagePermalink = $paginator.URL | absURL -}}

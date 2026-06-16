@@ -45,7 +45,7 @@
 {{- if .IsHome }}
 {{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
 {{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true" }}
-{{- $paginator = .Paginate $pages 6 }}
+{{- $paginator = .Paginate $pages }}
 {{- end }}
 
 {{- if and .IsHome site.Params.homeInfoParams (eq $paginator.PageNumber 1) }}

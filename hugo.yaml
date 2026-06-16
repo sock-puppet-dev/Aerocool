@@ -1,48 +1,70 @@
-# Основной URL вашего сайта. В Hugo нужен для генерации абсолютных ссылок.
+# Базовый публичный адрес сайта.
+# Hugo использует его для абсолютных canonical URL, sitemap, RSS, Open Graph и JSON-LD.
 baseURL: https://aerocool.ua/
-# Локаль сайта по умолчанию в формате языкового тега RFC 5646.
+
+# Локаль сайта по умолчанию.
+# Для языковых версий ниже локаль переопределяется в languages.uk.locale и languages.ru.locale.
 locale: uk-UA
-# Заголовок сайта, обычно выводится в <title> и в логотипе.
+
+# Техническое имя сайта по умолчанию.
+# Для видимого title каждой языковой версии используются languages.uk.title и languages.ru.title.
 title: Aerocool
-# Переключение между темами, у меня установлены PaperMod, Eclectic
+
+# Активная Hugo-тема.
+# Локальные шаблоны в layouts/ имеют приоритет над файлами темы PaperMod.
 theme: PaperMod
-# Определяет, будет ли Hugo автоматически приводить все части URL к нижнему регистру.
+
+# false означает, что Hugo приводит части URL к нижнему регистру.
+# Это важно для стабильных SEO-адресов и отсутствия дублей с разным регистром.
 disablePathToLower: false
-# Определяет формат конечных URL, false — Hugo создаёт чистые URL без .html на конце.
+
+# false включает чистые URL без .html на конце.
+# Пример: /products/sky/lite/ вместо /products/sky/lite.html.
 uglyURLs: false
-# Делает все относительные ссылки абсолютными на основе baseURL (для каноничных URL).
+
+# false оставляет относительные ссылки относительными.
+# Canonical, sitemap и schema.org все равно получают абсолютные URL через baseURL и локальные шаблоны.
 canonifyURLs: false
-# Отключаем генерацию низкоценных taxonomy/term URL, чтобы вес не уходил в служебные архивы.
+
+# Taxonomy и term страницы сейчас отключены.
+# На сайте нет SEO-стратегии под /tags/ или /categories/, поэтому эти служебные архивы не генерируются.
 disableKinds:
   - taxonomy
   - term
-# Hugo Pipes и минификация
-# Hugo использует встроенный минификатор для HTML, CSS, JS и JSON.
-# Управляет включением автоматической минификации (сжатия) сгенерированного HTML, CSS, JavaScript
-# и других текстовых файлов при сборке сайта.
+
+# Минификация HTML, CSS, JS и XML при сборке.
+# npm-скрипты и Netlify дополнительно запускают Hugo с --minify; это дублирование не меняет результат,
+# но оставляет намерение явно видимым в конфиге.
 minify:
-  minifyOutput: true     # включить глобальную минификацию HTML/CSS/JS
-  disableCSS: false      # минификация CSS
-  disableJS: false       # минификация JS
-  disableHTML: false     # минификация HTML
-  disableXML: false      # минификация XML (опционально)
-# выключения поддержки языков с иероглифическим письмом
+  minifyOutput: true
+  disableCSS: false
+  disableJS: false
+  disableHTML: false
+  disableXML: false
+
+# На сайте украинский и русский языки, поэтому специальные правила подсчета CJK-текста не нужны.
 hasCJKLanguage: false
-# Количество элементов (постов, страниц) на одной странице пагинации
+
+# Единый размер пагинации для главной, /articles/ и /news/.
+# Шаблоны используют .Paginate без hardcode-числа, поэтому менять размер нужно здесь.
 pagination:
-  pagerSize: 5
-# Флаг включения автоматической генерации файла robots.txt
+  pagerSize: 6
+
+# Генерирует robots.txt.
+# Реальное содержание robots.txt приходит из PaperMod override и зависит от Hugo environment / params.env.
 enableRobotsTXT: true
-# Отключает сбор статистики по ID, классам и тегам, которые Hugo встречает в контенте и шаблонах
-# Это полезно, если ты хочешь автоматически очищать CSS от неиспользуемого кода
-# Позволяет Hugo автоматически обновлять кэш браузера, когда изменяются определённые файлы.
-# BUILD & MODULE BLOCKS
+
+# Блок build нужен для Hugo Pipes и Tailwind CSS 4.
+# buildStats записывает hugo_stats.json, чтобы Tailwind видел CSS-классы из шаблонов и контента.
 build:
   buildStats:
     enable: true
     disableClasses: false
     disableIDs: false
     disableTags: false
+
+  # cachebusters говорят Hugo, когда нужно пересобрать resource pipeline.
+  # Это защищает от ситуации, когда CSS, JS или Tailwind-классы изменились, а старый asset остался в кэше.
   cachebusters:
     - source: assets/.*\.(css|scss|sass)
       target: css
@@ -54,8 +76,14 @@ build:
       target: css
     - source: package(-lock)?\.json
       target: css
+
+  # always разрешает Hugo использовать resource cache максимально агрессивно.
+  # Если появится подозрение на старые assets после правок, сначала запускать сборку с --gc или project clean script.
   useResourceCacheWhen: always
 
+# module.mounts подключает дополнительные источники файлов к виртуальной файловой системе Hugo.
+# Первый mount оставляет обычную папку assets доступной как assets/.
+# Второй mount делает hugo_stats.json доступным Tailwind через assets/notwatching/hugo_stats.json.
 module:
   mounts:
     - source: assets
@@ -64,95 +92,73 @@ module:
       source: hugo_stats.json
       target: assets/notwatching/hugo_stats.json
 
-# Оптимизация изображений, используйте возможности Hugo для обработки изображений,
-# чтобы обеспечить их оптимальный размер и качество. Это улучшит время загрузки страниц и SEO.
-# Поддержка современных форматов изображений для SEO и скорости
-# mediaTypes:
-#   image/jpeg:
-#     suffixes: ["jpg", "jpeg"]
-#   image/png:
-#     suffixes: ["png"]
-#   image/gif:
-#     suffixes: ["gif"]
-#   image/svg+xml:
-#     suffixes: ["svg"]
-#   image/webp:
-#     suffixes: ["webp"]
-#   image/avif:
-#     suffixes: ["avif"]
-
-# outputFormats:
-#   WebP:
-#     mediaType: image/webp
-#     isPlainText: false
-#     isHTML: false
-#     permalinkable: true
-
-# Настройки обработки Markdown (Goldmark)
-# Позволяет использовать сырой HTML внутри .md файлов, что необходимо для Tailwind.
+# Настройки Markdown-рендера Goldmark.
+# unsafe: true разрешает HTML внутри content/**/*.md; это нужно для локальных UI-блоков и shortcode-разметки.
+# Не использовать это как повод вставлять случайный HTML: для повторяемых блоков лучше делать shortcode или partial.
 markup:
   goldmark:
     renderer:
-      # Включает рендеринг сырого HTML в Markdown-файлах.
-      # Необходимо для использования HTML-блоков с классами Tailwind.
       unsafe: true
-#   AVIF:
-#     mediaType: image/avif
-#     isPlainText: false
-#     isHTML: false
-#     permalinkable: true
 
+# params — проектные и theme-параметры.
+# Их читают локальные partials в layouts/_partials и часть шаблонов PaperMod.
 params:
-# настраиваемый параметр, используемый внутри темы или шаблонов
-# для определения окружения (environment), в котором работает сайт.
-# production: cайт в боевом режиме, публикуется в интернет, всё реально
-# development: cайт в режиме разработки, локально, можно включить отладку
+  # Временный режим проекта.
+  # Пока env: development, опубликованные HTML-страницы получают noindex,nofollow через head.html.
+  # Production включать только отдельной задачей после SEO/indexability проверки.
   env: development
-# Пользовательский параметр темы, используется: шаблоны, кастомные блоки темы
+
+  # Заголовок для theme-совместимости.
+  # Основные языковые title заданы ниже в languages.
   title: Aerocool
-# Задает тему сайта по умолчанию, обязательно
-# Значение "light" означает, что при загрузке сайта будет использоваться светлая тема
+
+  # Сайт работает только в светлой теме.
+  # Темная тема PaperMod не используется в текущем visual layer.
   defaultTheme: light
-# Отключает кнопку переключения темы (светлая/темная) на сайте
-# Если true — пользователи не смогут менять тему вручную
   disableThemeToggle: true
-# Формат даты для вывода на страницах
+
+  # Формат дат для видимых meta-строк, editorial note и похожих блоков.
+  # Локализация месяца зависит от language locale.
   DateFormat: "02 January 2006"
-# Разрешает расчет времени чтения. Локальный page-meta.html показывает его только для страниц со schema_types article.
-  disableLanguagesRedirect: true
+
+  # Время чтения считается Hugo и показывается локальным page-meta.html только для статей.
   ShowReadingTime: true
-# Кнопки социальных сетей (если используются)
+
+  # Share buttons и комментарии PaperMod выключены.
+  # Их нельзя включать без отдельного UX/SEO решения.
   ShowShareButtons: false
-# Ссылки "предыдущая/следующая статья"
+  comments: false
+
+  # Навигация между соседними материалами включена для обычных single pages.
   ShowPostNavLinks: true
-# Хлебные крошки (навигация)
+
+  # Хлебные крошки включены.
+  # Видимые breadcrumbs и JSON-LD BreadcrumbList должны оставаться синхронными через breadcrumb-label.html.
   ShowBreadCrumbs: true
-# Включает встроенную функцию Hugo для генерации оглавления (TOC, Table of Contents) на странице.
-# Рекомендовано для блогов и сайтов с длинными статьями, чтобы улучшить навигацию по контенту.
-# Работает с нативной функцией Hugo, что даёт быстрый и качественный результат.
+
+  # Использовать встроенное оглавление Hugo, если шаблон или страница его выводит.
   UseHugoToc: true
-# Путь к логотипу
+
+  # Логотип для локальных и theme-шаблонов.
+  # Файл лежит в static/images/logo.svg и доступен на сайте как /images/logo.svg.
   logo: /images/logo.svg
   label:
     icon: /images/logo.svg
-# Высота логотипа
     iconHeight: 50
-# Ширина логотипа
     iconWidth: 150
-# Скрывает текст рядом с логотипом
     text: " "
-# Включение поддержки структурированных данных (JSON-LD):
-# Это поможет поисковым системам лучше понимать содержание вашего сайта.
-  structuredData: true
-# Полная поддержка JSON-LD в PaperMod.
-  enableJSONLD: true
-# Для максимально SEO-оптимизированного описания (description) нужно использовать ключевые фразы,
-# релевантные теме сайта, которые чаще всего ищут пользователи,
-# а также сохранить естественность текста.
+
+  # JSON-LD не включается отдельным флагом здесь.
+  # Schema-слой управляется локальными partials и front matter полем schema_types.
+
+  # Глобальное описание используется как fallback, если у страницы нет своего description.
+  # Языковые версии ниже задают более точные локализованные fallback-описания.
   description: >
     Официальный сайт Aerocool в Украине: игровые, офисные и компьютерные кресла серий SKY, WING и XTAL
     для работы, home office и гейминга.
-# Многострочный формат с дефисами - — расширенный список
+
+  # Глобальный семантический список тем.
+  # Это не meta keywords стратегия для Google; список остается как внутренний fallback/theme-compatible параметр.
   keywords:
     - aerocool кресло
     - aerocool украина
@@ -169,39 +175,48 @@ params:
     - кресло для работы за компьютером
     - кресло для гейминга
     - Synchronous Tilt кресло
-# Автор
+
+  # Организация-автор для RSS и совместимости с theme partials.
+  # Видимый author в meta-строке не выводится.
   author: "Aerocool Advanced Technologies Corp."
-# PaperMod-параметр количества слов. Локальный page-meta.html намеренно не выводит word count в интерфейсе.
+
+  # PaperMod умеет выводить word count, но локальный page-meta.html намеренно его скрывает.
   ShowWordCount: true
-# Управляет особым оформлением первого поста на главной странице (или в списке постов).
+
+  # Отключает особое оформление первого поста PaperMod.
+  # Главная страница использует собственный layout и карточки.
   disableSpecial1stPost: true
-# false — Кнопка “Scroll to Top” включена и отображается на странице.
+
+  # Кнопка Scroll to top включена.
   disableScrollToTop: false
-# false — комментарии отключены. Пользователи не увидят блок с комментариями под постами.
-  comments: false
-# false оставляет meta-слой доступным для локального page-meta.html.
-# Фактический видимый вывод задается по типу страницы: article, news или скрыто.
+
+  # hidemeta оставлен false, чтобы локальный page-meta.html мог сам решать,
+  # какие типы страниц показывают дату и время чтения.
   hidemeta: false
-# false — если хочешь показывать краткие анонсы статей на главной странице или в разделах,
-# чтобы читатели сразу видели суть поста.
+
+  # Краткие summary в карточках разрешены.
+  # Отдельные страницы могут скрывать их через front matter hideSummary.
   hideSummary: false
-# Настройка блока картинок для фавиконов
+
+  # Пути к favicon и related browser icons.
+  # Все эти файлы должны лежать в static/ и отдаваться от корня сайта.
   assets:
-    # путь к фавиконке (иконка сайта на вкладке браузера), основной favicon для браузеров (обычно .ico).
     favicon: "/favicon.ico"
-    # PNG-иконки для поддержки различных разрешений
     favicon16x16: "/favicon-16x16.png"
     favicon32x32: "/favicon-32x32.png"
-    # Иконка для iOS-устройств.
     apple_touch_icon: "/apple-touch-icon.png"
-    # SVG-иконка для закрепленных вкладок в Safari (поддержка темного режима).
     safari_pinned_tab: "/safari-pinned-tab.svg"
-    # Включает добавление хэшей к именам файлов для кэширования.
+
+    # false включает fingerprint для внешних CSS/JS assets.
+    # Сейчас CSS в основном inline, но параметр нужен для search.js и будущих внешних assets.
     disableFingerprinting: false
-    # Встраивает собранный CSS в <head>, чтобы убрать render-blocking CSS requests в PageSpeed.
-    # Если понадобится вернуть внешний кэшируемый CSS, переключить на false.
+
+    # true встраивает собранный CSS в <head>, чтобы убрать render-blocking CSS request.
+    # Если понадобится вернуть внешний кэшируемый CSS, менять только после PageSpeed/CWV проверки.
     inlineCSS: true
-  # Настройка блока socialIcons
+
+  # Глобальные social links бренда.
+  # Они могут использоваться footer/schema/theme-совместимыми partials.
   socialIcons:
     - name: youtube
       url: "https://www.youtube.com/user/Aerocooladmin"
@@ -213,67 +228,76 @@ params:
       url: "https://x.com/AerocoolGlobal"
     - name: tiktok
       url: "https://www.tiktok.com/@aerocool_global"
-  # Блок управления обложками
+
+  # Глобальные defaults для cover images.
+  # Конкретные страницы должны задавать image и cover-блок в front matter по локальным правилам.
   cover:
-    # Показывать обложку (cover image) вообще или полностью скрыть.
-    # false — обложка показывается.
-    # true — обложка скрыта во всех местах, кроме структурированных данных SEO.
     hidden: false
-    # Показывать ли обложку на страницах со списком контента.
-    # Например, на главной странице, странице категории, теге, архиве.
-    # false — показывать обложку.
-    # true — скрывать обложку на списках.
     hiddenInList: false
-    # Показывать ли обложку на одиночной странице контента — например, на странице конкретной статьи или продукта.
-    # false — показывать обложку.
-    # true — скрывать обложку на одиночных страницах.
     hiddenInSingle: false
-  # изображение по умолчанию для Open Graph / Twitter Cards (например, логотип)
+
+  # Fallback для Open Graph / Twitter Cards, если страница не дала собственного image.
   images: ["/images/logo.svg"]
-# Настройки блока sitemap
+
+# Настройка имени sitemap-файла.
+# В проекте есть локальные layouts/sitemap.xml и layouts/sitemapindex.xml для multilingual sitemap.
 sitemap:
-  # Имя файла карты сайта
   filename: sitemap.xml
-# Добавить генерацию index.json для поиска
+
+# Главная страница генерирует HTML, RSS и JSON.
+# JSON нужен локальной странице поиска: /search/ и /ru/search/.
 outputs:
   home:
     - HTML
     - RSS
     - JSON
 
-# !!! МАКСИМАЛЬНО УТОЧНИТЬ,
-# указываем Hugo, какие разделы контента считать главными (используется на главной, в RSS и sitemap)
+# Основные разделы сайта для списков материалов.
+# Главная страница берет из них последние статьи и новости.
 mainSections: ["articles", "news"]
-# настройка структуры URL (человекочитаемые адреса) для разных типов контента
+
+# Человекочитаемые URL для основных типов контента.
+# Front matter url имеет больший приоритет, но обычно использовать slug.
 permalinks:
-  # продукты
   products: /:sections/:slug/
-  # статьи
   articles: /articles/:slug/
-  # новости
   news: /news/:slug/
 
-# Устанавливает язык по умолчанию (используется, если язык не указан явно)
+# Язык по умолчанию — украинский.
+# Так как defaultContentLanguageInSubdir: false, украинские URL живут в корне сайта.
 defaultContentLanguage: uk
-# Включает добавление к URL подкаталога для языка по умолчанию (например, /en/)
-# Это важно для SEO и симметрии всех URL между языками
+
+# false сохраняет украинскую версию в корне сайта: /, /products/, /articles/.
+# Русская версия остается в языковом подкаталоге: /ru/.
 defaultContentLanguageInSubdir: false
 
-# Определение доступных языков на сайте
-# ==== Украинская версия сайта ====
+# Настройки языков.
+# Контентный паттерн проекта: index.md для uk и index.ru.md для ru в одном page bundle.
 languages:
   uk:
-    label: Українська                     # Название языка для отображения в переключателе
-    locale: uk-UA                         # Полный код языка и региона (используется в <html lang="uk-UA"> для SEO)
-    direction: ltr                        # Направление текста для HTML dir
-    title: "Aerocool Україна"             # Заголовок сайта на украинском языке
-    weight: 1                             # Чем меньше число, тем выше в списке языков
+    # Текст в переключателе языка.
+    label: Українська
+
+    # Полная локаль для html lang, RSS language, Open Graph locale и форматирования дат.
+    locale: uk-UA
+
+    # Направление текста для html dir.
+    direction: ltr
+
+    # Название сайта в украинской версии.
+    title: "Aerocool Україна"
+
+    # Первый язык в переключателе и build order.
+    weight: 1
+
     params:
-      # Мета-описание для SEO, можно использовать в <meta name="description">
+      # Украинский fallback description для страниц без собственного description.
       description: >
         Офіційний сайт Aerocool в Україні. Ігрові, офісні та комп'ютерні крісла серій SKY, WING і XTAL
         для роботи, home office та геймінгу.
-      # Ключевые слова для SEO (можно использовать в <meta name="keywords">)
+
+      # Украинский семантический список тем.
+      # Не превращать в механический список meta keywords.
       keywords:
         - aerocool крісло
         - крісло aerocool
@@ -291,12 +315,15 @@ languages:
         - крісло для роботи за комп'ютером
         - крісло для геймінгу
         - Synchronous Tilt крісло
+
+    # Главное меню украинской версии.
+    # URL остаются без /uk/ из-за defaultContentLanguageInSubdir: false.
     menu:
-      main:                               # Главное меню (будет отображаться в шапке или навигации)
-        - identifier: products            # Уникальный ID пункта меню, нужен Hugo для сопоставления с другими языками
-          name: Ігрові крісла             # Название пункта меню, отображаемое в интерфейсе
-          url: /products/                 # Относительный URL. Hugo сам добавит /en/ или /uk/ в зависимости от языка
-          weight: 10                      # Вес — чем меньше, тем выше в списке меню
+      main:
+        - identifier: products
+          name: Ігрові крісла
+          url: /products/
+          weight: 10
         - identifier: about
           name: Про Aerocool
           url: /about/
@@ -317,17 +344,31 @@ languages:
           name: Контакти
           url: /contact/
           weight: 60
-# ==== Русская версия сайта ====
+
   ru:
-    label: Русский                        # Название языка для отображения в переключателе
-    locale: ru-UA                         # Полный код языка и региона для русской версии сайта в Украине
-    direction: ltr                        # Направление текста для HTML dir
-    title: "Aerocool Украина"             # Заголовок сайта на русском языке
-    weight: 2                             # Порядок отображения языков (второй после английского)
+    # Текст в переключателе языка.
+    label: Русский
+
+    # Русская версия ориентирована на пользователей в Украине, поэтому используется ru-UA.
+    locale: ru-UA
+
+    # Направление текста для html dir.
+    direction: ltr
+
+    # Название сайта в русской версии.
+    title: "Aerocool Украина"
+
+    # Второй язык после украинского.
+    weight: 2
+
     params:
+      # Русский fallback description для страниц без собственного description.
       description: >
         Официальный сайт Aerocool в Украине. Игровые, офисные и компьютерные кресла серий SKY, WING и XTAL
         для работы, home office и гейминга.
+
+      # Русский семантический список тем.
+      # Не превращать в механический список meta keywords.
       keywords:
         - aerocool кресло
         - кресло aerocool
@@ -345,11 +386,15 @@ languages:
         - кресло для работы за компьютером
         - кресло для гейминга
         - Synchronous Tilt кресло
+
+    # Главное меню русской версии.
+    # URL пишутся так же, как в украинском меню; Hugo сам добавляет /ru/.
+    # identifier должен совпадать с украинским меню, чтобы переключение языков и порядок были стабильными.
     menu:
       main:
-        - identifier: products              # Тот же identifier, что и в английской версии — это важно
-          name: Игровые кресла              # Переведённое название пункта меню
-          url: /products/                   # URL тот же — Hugo сам поставит /ru/ в начале
+        - identifier: products
+          name: Игровые кресла
+          url: /products/
           weight: 10
         - identifier: about
           name: Про Aerocool
