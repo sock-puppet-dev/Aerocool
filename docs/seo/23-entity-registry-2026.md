@@ -2,11 +2,11 @@
 
 Обновлено: 2026-06-14.
 
-Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md). PDF-аудит Schema App по connected graph, Content Knowledge Graphs, impact и Agentic Web зафиксирован в [44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md). Актуальный полный audit registry и rendered graph зафиксирован в [57-2026-05-31-schema-entity-full-audit-current.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/57-2026-05-31-schema-entity-full-audit-current.md). Реестр остается governance-документом: `confirmed` сущности можно использовать в JSON-LD, а новые staged/planned сущности не должны становиться сильными связями без видимого подтверждения на странице.
+Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](../audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md). PDF-аудит Schema App по connected graph, Content Knowledge Graphs, impact и Agentic Web зафиксирован в [44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](../audits/44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md). Актуальный полный audit registry и rendered graph зафиксирован в [57-2026-05-31-schema-entity-full-audit-current.md](../audits/57-2026-05-31-schema-entity-full-audit-current.md). Реестр остается governance-документом: `confirmed` сущности можно использовать в JSON-LD, а новые staged/planned сущности не должны становиться сильными связями без видимого подтверждения на странице.
 
-Этот документ — канонический реестр сущностей проекта `Aerocool Ukraine`. Он нужен для управляемого Entity SEO, AI Search, `about_entities`, `mentions_entities`, `ProductGroup`, `Product.color`, `additionalProperty`, `llms.txt`, будущего `Callable Actions Registry` и структурированного [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml).
+Этот документ — канонический реестр сущностей проекта `Aerocool Ukraine`. Он нужен для управляемого Entity SEO, AI Search, `about_entities`, `mentions_entities`, `ProductGroup`, `Product.color`, `additionalProperty`, `llms.txt`, будущего `Callable Actions Registry` и структурированного [data/entities.yaml](../../data/entities.yaml).
 
-Если вы впервые работаете с entity-полями, сначала прочитайте [Entity Registry: гайд для новичка](/Users/stadnyk/MEGA/Aerocool/docs/seo/22-entity-registry-beginner-guide-2026.md).
+Если вы впервые работаете с entity-полями, сначала прочитайте [Entity Registry: гайд для новичка](22-entity-registry-beginner-guide-2026.md).
 
 Реестр не заменяет `schema_types`. Поле `schema_types` по-прежнему выбирает типы JSON-LD, а registry фиксирует стабильные сущности, `@id`, entity home, связи, владельца фактов и условия внедрения.
 
@@ -24,8 +24,8 @@
 
 - не создавать ProductGroup для одиночных товаров без соседних вариантов;
 - добавлять новые `planned` feature/use case/material entities только после видимого объяснения и entity home;
-- поддерживать регулярный [отчет по эффективности сущностей (Entity Performance Report)](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md) через `npm run entity:report`;
-- исполнять операционный процесс поддержки product front matter из [58-product-facts-maintenance-process-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/58-product-facts-maintenance-process-2026.md);
+- поддерживать регулярный [отчет по эффективности сущностей (Entity Performance Report)](59-entity-performance-report-2026.md) через `npm run entity:report`;
+- исполнять операционный процесс поддержки product front matter из [58-product-facts-maintenance-process-2026.md](58-product-facts-maintenance-process-2026.md);
 - поддерживать страницу `/image-license/` и `/ru/image-license/`, если меняются права на изображения, владелец или порядок запроса разрешения;
 - поддерживать review governance через approved reviews pipeline и не возвращать ручные rating-поля во front matter.
 
@@ -47,7 +47,7 @@
 - Внешние профили Aerocool остаются у `https://aerocool.io/#brand` и `https://aerocool.io/#organization`.
 - Официальный реестр `sameAs` проверять раз в квартал: URL должен быть живым, стабильным и по-прежнему представлять ту же global Aerocool entity.
 - `additionalType` не является заменой `sameAs`. Его можно рассматривать только для уточнения типа через внешний словарь, если внешний термин является более узким типом текущей сущности.
-- Product facts canonical source — product front matter; владелец business values — команда Aerocool Украина; процесс подтверждения, внесения и QA описан в [58-product-facts-maintenance-process-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/58-product-facts-maintenance-process-2026.md).
+- Product facts canonical source — product front matter; владелец business values — команда Aerocool Украина; процесс подтверждения, внесения и QA описан в [58-product-facts-maintenance-process-2026.md](58-product-facts-maintenance-process-2026.md).
 - Не добавлять entity fields в `content/`, пока Hugo templates не умеют безопасно читать эти поля.
 - Не создавать новые schema nodes, если человек не видит соответствующий факт на странице.
 - Hugo генерирует отдельные registry-based JSON-LD nodes для `confirmed` сущностей классов `Material`, `Mechanism`, `Feature`, `UseCase`, `ContentTopic` и `Policy`, если они используются в `about_entities` или `mentions_entities`. Product, Organization, Brand, WebPage и Collection nodes не дублируются, потому что для них уже есть отдельные schema partials.
@@ -327,7 +327,7 @@ mentions_entities:
 
 ## 20. Структура `data/entities.yaml`
 
-Структурированный источник resolver теперь находится в [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml). Его форма соответствует такому паттерну:
+Структурированный источник resolver теперь находится в [data/entities.yaml](../../data/entities.yaml). Его форма соответствует такому паттерну:
 
 ```yaml
 wing-racer-black:
@@ -415,10 +415,10 @@ Action нельзя создавать как “идею”. Он должен 
 1. Держать этот markdown-файл как канонический registry во время первого прохода внедрения.
 2. Добавить видимую навигацию вариантов для product groups с несколькими вариантами.
 3. Добавить видимые таблицы характеристик товара.
-4. Выполнено `2026-05-07`: добавить структурированный [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml).
+4. Выполнено `2026-05-07`: добавить структурированный [data/entities.yaml](../../data/entities.yaml).
 5. Выполнено `2026-05-07`: внедрить safe entity resolver partials.
 6. Выполнено `2026-05-07`: выводить optional `about` и `mentions` из resolver, когда поля есть во front matter.
-7. Выполнено `2026-05-07`: добавить [22-entity-registry-beginner-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/22-entity-registry-beginner-guide-2026.md).
+7. Выполнено `2026-05-07`: добавить [22-entity-registry-beginner-guide-2026.md](22-entity-registry-beginner-guide-2026.md).
 8. Выполнено `2026-05-07`: заполнить `about_entities`, `mentions_entities` и staged `product_group_id` на приоритетных страницах.
 9. Выполнено `2026-05-31`: удалить одиночные ProductGroup-записи и оставить `product_group_id` только для реальных цветовых групп вариантов WING/XTAL.
 10. Выполнено `2026-05-31`: удалить дубликат `products-collection` и оставить `aerocool-catalog` как единственную каноническую сущность каталога.

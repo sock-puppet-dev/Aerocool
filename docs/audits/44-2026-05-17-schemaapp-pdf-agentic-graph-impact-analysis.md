@@ -1,13 +1,13 @@
 # Анализ 4 PDF Schema App: Connected Markup, Content Knowledge Graphs, Impact И Agentic Web
 
-Дата анализа: 2026-05-17.
+Дата аудита: 2026-05-17.
 
 Источник: 4 PDF-файла, предоставленные пользователем:
 
-- `/Users/stadnyk/Desktop/Guide-to-Connected-Schema-Markup.pdf`
-- `/Users/stadnyk/Desktop/How-to-Drive-Your-Content-Marketing-Strategy-Using-Content-Knowledge-Graphs.pdf`
-- `/Users/stadnyk/Desktop/Impact-of-Schema-Markup.pdf`
-- `/Users/stadnyk/Desktop/How-Marketers-Can-Prepare-Their-Organization-for-the-Agentic-Web.pdf`
+- `Guide-to-Connected-Schema-Markup.pdf`
+- `How-to-Drive-Your-Content-Marketing-Strategy-Using-Content-Knowledge-Graphs.pdf`
+- `Impact-of-Schema-Markup.pdf`
+- `How-Marketers-Can-Prepare-Their-Organization-for-the-Agentic-Web.pdf`
 
 Все 4 файла были прочитаны и сопоставлены с текущим состоянием проекта `Aerocool Ukraine`: `data/entities.yaml`, `about_entities`, `mentions_entities`, Product schema, ProductGroup roadmap, AI Search-документация и schema governance.
 
@@ -172,10 +172,10 @@
 
 ### P1
 
-1. В [20-schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/20-schema-markup-quality-checklist-2026.md) усилить измерение schema как performance layer.
-2. В [25-ai-search-entity-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/25-ai-search-entity-map-2026.md) добавить entity-level performance и AI citation monitoring как post-production baseline.
-3. В [24-entities-knowledge-graph-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/24-entities-knowledge-graph-playbook-2026.md) добавить lifecycle: creation, hosting, curation, deployment/reuse.
-4. В [23-entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/23-entity-registry-2026.md) добавить будущую секцию `Callable Actions Registry` как P3, без текущего JSON-LD вывода.
+1. В [20-schema-markup-quality-checklist-2026.md](../seo/20-schema-markup-quality-checklist-2026.md) усилить измерение schema как performance layer.
+2. В [25-ai-search-entity-map-2026.md](../seo/25-ai-search-entity-map-2026.md) добавить entity-level performance и AI citation monitoring как post-production baseline.
+3. В [24-entities-knowledge-graph-playbook-2026.md](../seo/24-entities-knowledge-graph-playbook-2026.md) добавить lifecycle: creation, hosting, curation, deployment/reuse.
+4. В [23-entity-registry-2026.md](../seo/23-entity-registry-2026.md) добавить будущую секцию `Callable Actions Registry` как P3, без текущего JSON-LD вывода.
 
 ### P2
 
@@ -209,4 +209,3 @@
 - Agentic Web добавляет P3-направление: callable actions registry и governed access layer.
 
 Главный практический вывод: текущий проект уже идет в правильном направлении. Следующий прирост качества будет не от количества новых schema-типов, а от production-перехода, подтвержденных ratings, ProductGroup/variant navigation, регулярного schema drift процесса и entity-level reporting.
-

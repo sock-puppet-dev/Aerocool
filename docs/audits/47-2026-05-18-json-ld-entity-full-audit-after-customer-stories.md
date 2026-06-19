@@ -2,7 +2,7 @@
 
 Дата аудита: 2026-05-18.
 
-Контекст: аудит выполнен после анализа `21` Schema App customer stories/case studies. Базовый разбор источников зафиксирован в [46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md).
+Контекст: аудит выполнен после анализа `21` Schema App customer stories/case studies. Базовый разбор источников зафиксирован в [46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md](46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md).
 
 Этот документ отвечает на практический вопрос: что изменилось в оценке JSON-LD, Entity Registry, Product graph и AI Search readiness проекта после новых данных из реальных внедрений Schema App.
 
@@ -12,7 +12,7 @@
 
 - единый JSON-LD graph через Hugo partials;
 - стабильные `@id`;
-- Entity Registry в [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml);
+- Entity Registry в [data/entities.yaml](../../data/entities.yaml);
 - `about_entities` и `mentions_entities`;
 - Product facts из product front matter;
 - `ProductGroup` только после видимой навигации вариантов;
@@ -40,13 +40,13 @@ Customer stories усилили несколько задач, которые р
 
 Проверено:
 
-- [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml);
+- [data/entities.yaml](../../data/entities.yaml);
 - content front matter в `content/**/*.md`;
 - schema partials в `layouts/_partials/_schema`;
-- JSON-LD partial [jsonld.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/jsonld.html);
+- JSON-LD partial [jsonld.html](../../layouts/_partials/_seo/jsonld.html);
 - rendered HTML в `public/**/*.html` после `npm run build`;
 - текущие SEO/entity документы в `docs/seo`;
-- review-процесс в [17-netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/17-netlify-database-reviews.md);
+- review-процесс в [17-netlify-database-reviews.md](../deploy/17-netlify-database-reviews.md);
 - предыдущие full audits в `docs/audits`.
 
 Команды проверки:
@@ -56,7 +56,7 @@ npm run build
 git diff --check
 ```
 
-## 4. Rendered Graph Snapshot
+## 4. Снимок Сгенерированного Графа
 
 После сборки:
 
@@ -99,7 +99,7 @@ git diff --check
 
 Вывод: graph уже выглядит как начальный Content Knowledge Graph. `DefinedTerm` и `Thing` nodes создаются из Entity Registry для материалов, механизмов, сценариев, тем и политик.
 
-## 6. Entity Registry
+## 6. Реестр Сущностей
 
 | Метрика | Значение |
 | --- | ---: |
@@ -145,7 +145,7 @@ git diff --check
 
 Вывод: правила Entity Registry соблюдены. Сильные `about` и `mentions` используют только `confirmed` сущности. `ProductGroup` подготовлен как staged data, но не выводится в JSON-LD.
 
-## 8. Connected Schema
+## 8. Связанная Schema-Разметка
 
 Что работает хорошо:
 
@@ -169,7 +169,7 @@ git diff --check
 
 Вывод: после support-статей и customer stories структура `sameAs`, `about`, `mentions`, `additionalType` и entity refs выглядит корректно.
 
-## 9. Product Graph
+## 9. Граф Товаров
 
 | Метрика | Значение |
 | --- | ---: |
@@ -265,17 +265,17 @@ Customer story Wells Fargo усиливает этот блок: structured data
 
 ## 15. Актуальные Проблемы
 
-### P0. Production Gate
+### P0. Контроль Перед Production
 
 Все `86` страниц с JSON-LD сейчас имеют `noindex,nofollow`, потому что сборка идет в `development`. Перед production нужно переключить окружение, проверить `index,follow`, sitemap, robots, canonical, hreflang, headers, кастомную 404 и опубликованный URL.
 
-### P0/P1. Ratings/Reviews Source Of Truth
+### P0/P1. Источник Правды Для Рейтингов И Отзывов
 
 `Product.aggregateRating` выводится из legacy `rating` front matter на всех `24` товарах. При этом целевой approved reviews pipeline еще не внедрен.
 
 Это главный quality risk перед production. Его нужно закрыть бизнесово и технически: либо подтвердить рейтинги и связать их с approved reviews, либо убрать `aggregateRating`.
 
-### P1. Entity Performance Report
+### P1. Отчет Об Эффективности Сущностей
 
 Нужен регулярный отчет:
 
@@ -301,23 +301,23 @@ Customer story Wells Fargo усиливает этот блок: structured data
 
 Видимые характеристики уже есть, но еще не размечены как `PropertyValue`. Это следующий логичный шаг после ratings и ProductGroup.
 
-### P2. Post-Production AI Search Baseline
+### P2. Базовые Метрики Поиска С AI После Production
 
 После индексации нужно измерить AI Search visibility: бренд, локальная организация, серии, модели, материалы, механизмы, delivery/warranty/return.
 
-### P2. Migration/Rebrand Schema Checklist
+### P2. Чек-Лист Schema Для Миграции И Ребрендинга
 
 Перед любыми изменениями URL, структуры каталога, дизайна или production-переходом нужен отдельный schema migration checklist: `@id`, canonical, sitemap, breadcrumbs, redirects, hreflang, Product/Offer, entity homes.
 
-### P2. Image License Metadata
+### P2. Метаданные Лицензии Изображений
 
 Внедрять только после юридического подтверждения прав и страницы условий.
 
-### P2. Quarterly `sameAs` Review
+### P2. Ежеквартальная Проверка `sameAs`
 
 Официальные social URLs нужно проверять регулярно. Сейчас модель корректная: global social profiles принадлежат global Brand/Organization, local Aerocool Ukraine не использует global social `sameAs`.
 
-### P3. Agentic Actions / MCP / NLWeb / `llms.txt`
+### P3. Агентские Действия, MCP, NLWeb И `llms.txt`
 
 Не внедрять сейчас. Вернуться после production, ratings/reviews, ProductGroup, entity reporting и появления реального бизнес-сценария.
 

@@ -2,7 +2,7 @@
 
 Дата аудита: 2026-05-15.
 
-> Исторический full-audit snapshot. Он фиксирует состояние документации на 2026-05-15; текущий tooling target и свежие правила синхронизации смотреть в [68-2026-06-11-hugo-0-163-documentation-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md).
+> Исторический full-audit snapshot. Он фиксирует состояние документации на 2026-05-15; текущий tooling target и свежие правила синхронизации смотреть в [68-2026-06-11-hugo-0-163-documentation-sync-audit.md](68-2026-06-11-hugo-0-163-documentation-sync-audit.md).
 
 Этот документ фиксирует полный аудит документационного слоя проекта `Aerocool Ukraine`: `README.md`, `AGENTS.md`, `docs/`, связанные references/playbooks, audit-снимки, а также соответствие документации фактическим файлам проекта.
 

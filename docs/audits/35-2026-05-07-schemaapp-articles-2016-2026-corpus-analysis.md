@@ -1,6 +1,6 @@
 # Анализ Корпуса Статей SchemaApp 2016-2026
 
-Дата анализа: 2026-05-07.
+Дата аудита: 2026-05-07.
 
 Источник: 126 статей из раздела `https://www.schemaapp.com/schema-markup/`, опубликованных или обновлявшихся с `2016` по `2026`.
 
@@ -24,7 +24,7 @@
 4. Priority pages получили `about_entities`, `mentions_entities` и staged `product_group_id` `2026-05-07`; дальше поддерживать visible entity linking, ProductGroup QA и AI Search baseline.
 5. `llms.txt`, MCP, NLWeb, agentic commerce и chatbot рассматривать только после production-стабилизации и готового knowledge graph.
 
-Практический план уже зафиксирован в [34-2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md).
+Практический план уже зафиксирован в [34-2026-05-07-documentation-refresh-and-project-action-plan.md](34-2026-05-07-documentation-refresh-and-project-action-plan.md).
 
 ## 2. Самое Новое И Важное Для Aerocool
 
@@ -60,7 +60,7 @@
 
 Что делать в Aerocool:
 
-- использовать созданные [23-entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/23-entity-registry-2026.md) и [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml) как канонический список entity IDs;
+- использовать созданные [23-entity-registry-2026.md](../seo/23-entity-registry-2026.md) и [data/entities.yaml](../../data/entities.yaml) как канонический список entity IDs;
 - поддерживать `entity home` для бренда, локальной организации, серий, моделей, материалов, механизмов и service policies;
 - поддерживать `about_entities`, `mentions_entities`, `product_group_id` только там, где связь подтверждена видимым контентом.
 
@@ -236,12 +236,12 @@
 
 Corpus подтверждает текущие документы:
 
-- [25-ai-search-entity-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/25-ai-search-entity-map-2026.md) — оставить AI Search baseline, prompt matrix, citation ownership, AI referrals.
-- [24-entities-knowledge-graph-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/24-entities-knowledge-graph-playbook-2026.md) — entity registry и entity home уже заложены; следующий шаг — точечное заполнение связей.
-- [20-schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/20-schema-markup-quality-checklist-2026.md) — усилить governance, freshness, ownership.
-- [21-ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/21-ecommerce-structured-data-playbook-2026.md) — `ProductGroup`, reviews/rating policy и product facts остаются P0/P1.
-- [26-json-ld-graph-audit-roadmap-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/26-json-ld-graph-audit-roadmap-2026.md) — roadmap правильный, но его нужно выполнять в порядке P0 -> P1 -> P2.
-- [34-2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md) — остается главным practical execution документом.
+- [25-ai-search-entity-map-2026.md](../seo/25-ai-search-entity-map-2026.md) — оставить AI Search baseline, prompt matrix, citation ownership, AI referrals.
+- [24-entities-knowledge-graph-playbook-2026.md](../seo/24-entities-knowledge-graph-playbook-2026.md) — entity registry и entity home уже заложены; следующий шаг — точечное заполнение связей.
+- [20-schema-markup-quality-checklist-2026.md](../seo/20-schema-markup-quality-checklist-2026.md) — усилить governance, freshness, ownership.
+- [21-ecommerce-structured-data-playbook-2026.md](../seo/21-ecommerce-structured-data-playbook-2026.md) — `ProductGroup`, reviews/rating policy и product facts остаются P0/P1.
+- [26-json-ld-graph-audit-roadmap-2026.md](../seo/26-json-ld-graph-audit-roadmap-2026.md) — roadmap правильный, но его нужно выполнять в порядке P0 -> P1 -> P2.
+- [34-2026-05-07-documentation-refresh-and-project-action-plan.md](34-2026-05-07-documentation-refresh-and-project-action-plan.md) — остается главным practical execution документом.
 
 ## 7. Итоговые Приоритеты
 

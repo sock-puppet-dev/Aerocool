@@ -28,7 +28,7 @@
 
 - `Netlify CLI` установлен через `brew`;
 - версия CLI: `netlify-cli/26.0.0` локально проверялась через `netlify dev`;
-- локальная папка `/Users/Vladimir/aerocool` связана с Netlify-проектом `hugo-aerocool`;
+- локальная копия репозитория связана с Netlify-проектом `hugo-aerocool`;
 - production URL проекта: `https://aerocool.ua`;
 - `Netlify Database` включена для проекта;
 - пакет `@netlify/database` установлен в корневой `package.json`;
@@ -565,8 +565,8 @@ netlify dev
 
 ## 14. Связанные Документы
 
-- [docs/content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md)
-- [docs/seo/21-ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/21-ecommerce-structured-data-playbook-2026.md)
-- [docs/seo/20-schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/20-schema-markup-quality-checklist-2026.md)
-- [docs/seo/26-json-ld-graph-audit-roadmap-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/26-json-ld-graph-audit-roadmap-2026.md)
-- [docs/deploy/16-netlify-routing.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/16-netlify-routing.md)
+- [docs/content/05-front-matter-reference.md](../content/05-front-matter-reference.md)
+- [docs/seo/21-ecommerce-structured-data-playbook-2026.md](../seo/21-ecommerce-structured-data-playbook-2026.md)
+- [docs/seo/20-schema-markup-quality-checklist-2026.md](../seo/20-schema-markup-quality-checklist-2026.md)
+- [docs/seo/26-json-ld-graph-audit-roadmap-2026.md](../seo/26-json-ld-graph-audit-roadmap-2026.md)
+- [docs/deploy/16-netlify-routing.md](16-netlify-routing.md)

@@ -1,5 +1,7 @@
 # Аудит Документации По `seo-image` И Product Gallery — 2026-06-12
 
+Дата аудита: 2026-06-12.
+
 Обновлено: 2026-06-13.
 
 ## Краткий Вывод
@@ -33,19 +35,19 @@
 
 Актуальные рабочие документы:
 
-- [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) — добавлена таблица для новичка по ролям `image`, `cover.image`, `seo-image`, gallery и preload.
-- [docs/content/06-seo-image-shortcode.md](/Users/stadnyk/MEGA/Aerocool/docs/content/06-seo-image-shortcode.md) — добавлен подробный раздел “Что За Что Отвечает”.
-- [docs/content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md) — добавлена простая схема ролей front matter полей.
-- [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md) — обновлены маршруты чтения для image/product gallery/LCP preload задач.
-- [docs/audits/38-2026-05-14-seo-image-documentation-cleanup.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/38-2026-05-14-seo-image-documentation-cleanup.md) — помечен как исторический snapshot, чтобы старый product пример через `seo-image` не воспринимался как текущая инструкция.
+- [README.md](../../README.md) — добавлена таблица для новичка по ролям `image`, `cover.image`, `seo-image`, gallery и preload.
+- [docs/content/06-seo-image-shortcode.md](../content/06-seo-image-shortcode.md) — добавлен подробный раздел “Что За Что Отвечает”.
+- [docs/content/05-front-matter-reference.md](../content/05-front-matter-reference.md) — добавлена простая схема ролей front matter полей.
+- [docs/01-documentation-map.md](../01-documentation-map.md) — обновлены маршруты чтения для image/product gallery/LCP preload задач.
+- [docs/audits/38-2026-05-14-seo-image-documentation-cleanup.md](38-2026-05-14-seo-image-documentation-cleanup.md) — помечен как исторический snapshot, чтобы старый product пример через `seo-image` не воспринимался как текущая инструкция.
 
 ## Проверенное Поведение
 
 1. Для article/news первое видимое изображение может идти через `seo-image`, если файл лежит в page bundle.
 2. Для article/news `preload=true` должен быть только у одного главного LCP-кандидата.
 3. Для product page стартовый `seo-image` в markdown не используется.
-4. Product primary image выводится через [products/gallery.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/gallery.html).
-5. Product LCP preload выводится через [lcp-image-preload.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/lcp-image-preload.html) и должен совпадать с gallery `sizes`.
+4. Product primary image выводится через [products/gallery.html](../../layouts/_partials/products/gallery.html).
+5. Product LCP preload выводится через [lcp-image-preload.html](../../layouts/_partials/_seo/lcp-image-preload.html) и должен совпадать с gallery `sizes`.
 6. `jsonld` в shortcode не используется: JSON-LD image собирается централизованно из front matter `image`.
 7. Для Hugo `0.163.0` актуальная проверка processable images — `reflect.IsImageResourceProcessable`.
 

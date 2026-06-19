@@ -1,6 +1,6 @@
 # Core Web Vitals аудит проекта
 
-Дата: 2026-05-17.
+Дата аудита: 2026-05-17.
 
 Цель: проверить текущее состояние Core Web Vitals-подготовки проекта `Aerocool Ukraine`, локальную документацию, шаблоны, изображения, CSS/JS и browser lab baseline для ключевых типов страниц.
 
@@ -8,8 +8,8 @@
 
 - Google Core Web Vitals: https://developers.google.com/search/docs/appearance/core-web-vitals
 - Google Page Experience: https://developers.google.com/search/docs/appearance/page-experience
-- Локальный playbook: [12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md)
-- PageSpeed workflow: [13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md)
+- Локальный playbook: [12-core-web-vitals-guide-2026.md](../quality/12-core-web-vitals-guide-2026.md)
+- PageSpeed workflow: [13-pagespeed-insights-audit.md](../quality/13-pagespeed-insights-audit.md)
 
 Актуальные целевые метрики Google:
 
@@ -52,7 +52,7 @@
 
 Решение: удалить глобальный menu prefetch из `layouts/_partials/head.html`.
 
-### 2. Search index preload
+### 2. Предзагрузка Поискового Индекса
 
 До правки search-страница preloaded `index.json` в `<head>`. Размер локального search index — около `407 KB`. Это не нужно для первого рендера search-страницы и ухудшало LCP.
 
@@ -60,7 +60,7 @@
 
 ### 3. Документация
 
-Обновлен [12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md):
+Обновлен [12-core-web-vitals-guide-2026.md](../quality/12-core-web-vitals-guide-2026.md):
 
 - дата обновления: `2026-05-17`;
 - добавлено правило не prefetch-ить навигационные HTML-страницы из `<head>`;

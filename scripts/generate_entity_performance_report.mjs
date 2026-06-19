@@ -370,13 +370,13 @@ npm run build
 npm run entity:report
 \`\`\`
 
-CSV-версия отчета: [59-entity-performance-report-2026.csv](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.csv). Ручные GSC/AI/business-метрики добавлять не в generated CSV, а в [59-entity-performance-overrides.csv](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-overrides.csv), чтобы следующий запуск не потерял данные.
+CSV-версия отчета: [59-entity-performance-report-2026.csv](59-entity-performance-report-2026.csv). Ручные GSC/AI/business-метрики добавлять не в generated CSV, а в [59-entity-performance-overrides.csv](59-entity-performance-overrides.csv), чтобы следующий запуск не потерял данные.
 
 ## 1. Статус Данных
 
 | Источник | Статус |
 | --- | --- |
-| Entity Registry | заполнено из [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml) |
+| Entity Registry | заполнено из [data/entities.yaml](../../data/entities.yaml) |
 | Front matter \`about_entities\` | заполнено из \`content/**/*.md\` |
 | Front matter \`mentions_entities\` | заполнено из \`content/**/*.md\` |
 | Front matter \`product_group_id\` | заполнено из \`content/**/*.md\` |

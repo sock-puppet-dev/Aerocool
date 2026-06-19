@@ -1,6 +1,6 @@
 # Аудит Контентных Изображений, Cover И Alt
 
-Дата: 2026-05-13.
+Дата аудита: 2026-05-13.
 
 ## Цель
 
@@ -62,13 +62,13 @@ cover:
 
 ## Обновленная Документация
 
-- [README.md](/Users/stadnyk/MEGA/Aerocool/README.md)
-- [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md)
-- [docs/content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md)
-- [docs/content/07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md)
-- [docs/content/06-seo-image-shortcode.md](/Users/stadnyk/MEGA/Aerocool/docs/content/06-seo-image-shortcode.md)
-- [docs/content/templates/08-article-template.md](/Users/stadnyk/MEGA/Aerocool/docs/content/templates/08-article-template.md)
-- [docs/content/templates/09-news-template.md](/Users/stadnyk/MEGA/Aerocool/docs/content/templates/09-news-template.md)
-- [docs/content/templates/11-series-template.md](/Users/stadnyk/MEGA/Aerocool/docs/content/templates/11-series-template.md)
-- [docs/quality/13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md)
-- [layouts/_partials/page-image.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-image.html)
+- [README.md](../../README.md)
+- [AGENTS.md](../../AGENTS.md)
+- [docs/content/05-front-matter-reference.md](../content/05-front-matter-reference.md)
+- [docs/content/07-content-seo-checklist-2026.md](../content/07-content-seo-checklist-2026.md)
+- [docs/content/06-seo-image-shortcode.md](../content/06-seo-image-shortcode.md)
+- [docs/content/templates/08-article-template.md](../content/templates/08-article-template.md)
+- [docs/content/templates/09-news-template.md](../content/templates/09-news-template.md)
+- [docs/content/templates/11-series-template.md](../content/templates/11-series-template.md)
+- [docs/quality/13-pagespeed-insights-audit.md](../quality/13-pagespeed-insights-audit.md)
+- [layouts/_partials/page-image.html](../../layouts/_partials/page-image.html)

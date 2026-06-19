@@ -2,9 +2,9 @@
 
 Актуально на 2026-06-13.
 
-Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md). Карта ключей остается редакционным инструментом: она помогает покрывать интенты, но не заменяет people-first content, Search Essentials, Core Web Vitals и production-мониторинг.
+Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](../audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md). Карта ключей остается редакционным инструментом: она помогает покрывать интенты, но не заменяет people-first content, Search Essentials, Core Web Vitals и production-мониторинг.
 
-Этот документ фиксирует стратегию по ключевым словам для всего проекта `Aerocool` и распределение поисковых кластеров по страницам сайта. Рабочая CSV-база находится в [53-keyword-database-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/53-keyword-database-2026.md), а отдельный план развития семантического ядра на 2026 год — в [72-semantic-core-keyword-strategy-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/72-semantic-core-keyword-strategy-2026.md).
+Этот документ фиксирует стратегию по ключевым словам для всего проекта `Aerocool` и распределение поисковых кластеров по страницам сайта. Рабочая CSV-база находится в [53-keyword-database-2026.md](53-keyword-database-2026.md), а отдельный план развития семантического ядра на 2026 год — в [72-semantic-core-keyword-strategy-2026.md](72-semantic-core-keyword-strategy-2026.md).
 
 Как пользоваться новичку: эта карта не нужна для технической сборки сайта. Она нужна, когда ты пишешь или переписываешь контент. Сначала находишь тип страницы, потом смотришь основной интент, ключевые фразы и соседние страницы, чтобы не создать две страницы под один и тот же запрос.
 

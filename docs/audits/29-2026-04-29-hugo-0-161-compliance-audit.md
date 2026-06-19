@@ -1,6 +1,6 @@
 # Аудит Совместимости С Hugo v0.161.0
 
-> Архивный документ. Текущая версия проекта — Hugo `0.163.0`, Node `24.16.0`; актуальный аудит синхронизации находится в [68-2026-06-11-hugo-0-163-documentation-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md).
+> Архивный документ. Текущая версия проекта — Hugo `0.163.0`, Node `24.16.0`; актуальный аудит синхронизации находится в [68-2026-06-11-hugo-0-163-documentation-sync-audit.md](68-2026-06-11-hugo-0-163-documentation-sync-audit.md).
 
 Дата аудита: 2026-04-29.
 Актуализировано: 2026-05-05.
@@ -174,7 +174,7 @@ allowworker = ['tailwindcss']
 
 Вывод: content model совместим с Hugo `0.161.0` и локальными правилами проекта.
 
-### 9. SEO, schema.org, robots
+### 9. SEO, schema.org И Robots
 
 Проверка generated output:
 
@@ -215,7 +215,7 @@ allowworker = ['tailwindcss']
 
 Вывод: текущая тема не блокирует переход, но при обновлении PaperMod нужно повторно прогнать grep по deprecated language API.
 
-### 12. Netlify
+### 12. Настройки Netlify
 
 Текущее состояние:
 

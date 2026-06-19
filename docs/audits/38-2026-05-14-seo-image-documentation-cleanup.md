@@ -1,28 +1,28 @@
 # Очистка Документации По SEO-Изображениям — 2026-05-14
 
-Обновлено: 2026-05-14.
+Дата аудита: 2026-05-14.
 
 ## Что Обновлено
 
 Этот документ фиксирует точечную синхронизацию документации после обновления `seo-image`, LCP preload и image delivery слоя.
 
-Внимание: это исторический audit snapshot на 2026-05-14. С 2026-06-12 текущий product primary image больше не вставляется через `seo-image` в markdown: его выводит `layouts/_partials/products/gallery.html`, а product preload синхронизируется с gallery `sizes` через `layouts/_partials/_seo/lcp-image-preload.html`. Актуальные правила смотреть в [docs/content/06-seo-image-shortcode.md](/Users/stadnyk/MEGA/Aerocool/docs/content/06-seo-image-shortcode.md), [docs/content/templates/10-product-template.md](/Users/stadnyk/MEGA/Aerocool/docs/content/templates/10-product-template.md) и [docs/content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md).
+Внимание: это исторический audit snapshot на 2026-05-14. С 2026-06-12 текущий product primary image больше не вставляется через `seo-image` в markdown: его выводит `layouts/_partials/products/gallery.html`, а product preload синхронизируется с gallery `sizes` через `layouts/_partials/_seo/lcp-image-preload.html`. Актуальные правила смотреть в [docs/content/06-seo-image-shortcode.md](../content/06-seo-image-shortcode.md), [docs/content/templates/10-product-template.md](../content/templates/10-product-template.md) и [docs/content/05-front-matter-reference.md](../content/05-front-matter-reference.md).
 
 Обновлены основные рабочие документы:
 
-- [README.md](/Users/stadnyk/MEGA/Aerocool/README.md)
-- [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md)
-- [docs/content/06-seo-image-shortcode.md](/Users/stadnyk/MEGA/Aerocool/docs/content/06-seo-image-shortcode.md)
-- [docs/content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md)
-- [docs/content/07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md)
-- [docs/content/templates/08-article-template.md](/Users/stadnyk/MEGA/Aerocool/docs/content/templates/08-article-template.md)
-- [docs/content/templates/09-news-template.md](/Users/stadnyk/MEGA/Aerocool/docs/content/templates/09-news-template.md)
-- [docs/content/templates/10-product-template.md](/Users/stadnyk/MEGA/Aerocool/docs/content/templates/10-product-template.md)
-- [docs/architecture/03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md)
-- [docs/quality/12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md)
-- [docs/quality/13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md)
-- [docs/seo/27-google-seo-audit-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/27-google-seo-audit-checklist-2026.md)
-- [docs/seo/28-ssg-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/28-ssg-seo-checklist-2026.md)
+- [README.md](../../README.md)
+- [docs/01-documentation-map.md](../01-documentation-map.md)
+- [docs/content/06-seo-image-shortcode.md](../content/06-seo-image-shortcode.md)
+- [docs/content/05-front-matter-reference.md](../content/05-front-matter-reference.md)
+- [docs/content/07-content-seo-checklist-2026.md](../content/07-content-seo-checklist-2026.md)
+- [docs/content/templates/08-article-template.md](../content/templates/08-article-template.md)
+- [docs/content/templates/09-news-template.md](../content/templates/09-news-template.md)
+- [docs/content/templates/10-product-template.md](../content/templates/10-product-template.md)
+- [docs/architecture/03-hugo-template-helpers.md](../architecture/03-hugo-template-helpers.md)
+- [docs/quality/12-core-web-vitals-guide-2026.md](../quality/12-core-web-vitals-guide-2026.md)
+- [docs/quality/13-pagespeed-insights-audit.md](../quality/13-pagespeed-insights-audit.md)
+- [docs/seo/27-google-seo-audit-checklist-2026.md](../seo/27-google-seo-audit-checklist-2026.md)
+- [docs/seo/28-ssg-seo-checklist-2026.md](../seo/28-ssg-seo-checklist-2026.md)
 
 ## Что Считалось Устаревшим
 
@@ -30,7 +30,7 @@
 2. Формулировки про AVIF могли читаться как текущая возможность проекта. Это уточнено: текущий Hugo image pipeline проекта генерирует WebP + fallback, а AVIF возможен только отдельным pipeline.
 3. Старые примеры с `sizes="100vw"` для контентной колонки были заменены на реальные размеры текущего `.main`.
 4. Формулировки про "ТОП-1" были смягчены там, где они звучали как обещание. Новая формула: документация повышает шансы на сильное ранжирование, но не гарантирует позицию.
-5. Head preload был описан недостаточно точно. На момент этого аудита было зафиксировано, что он выводится через [lcp-image-preload.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/lcp-image-preload.html) для типовых `article`, `news` и `product` страниц при совпадении `image`, `cover.image`, первого `seo-image src` и `cover.hiddenInSingle: true`. Для текущего product pipeline эта формулировка устарела: product preload теперь связан с `products/gallery.html`, а не с markdown `seo-image`.
+5. Head preload был описан недостаточно точно. На момент этого аудита было зафиксировано, что он выводится через [lcp-image-preload.html](../../layouts/_partials/_seo/lcp-image-preload.html) для типовых `article`, `news` и `product` страниц при совпадении `image`, `cover.image`, первого `seo-image src` и `cover.hiddenInSingle: true`. Для текущего product pipeline эта формулировка устарела: product preload теперь связан с `products/gallery.html`, а не с markdown `seo-image`.
 
 ## Исторический Стандарт На 2026-05-14
 

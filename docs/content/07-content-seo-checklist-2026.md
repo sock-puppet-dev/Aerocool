@@ -6,19 +6,19 @@
 
 Важно: ни один чек-лист не гарантирует `топ-1` в Google. По официальным рекомендациям Google, даже если страница соблюдает Search Essentials и лучшие практики, это не означает гарантированный обход, индексирование или ранжирование. Цель этого документа — максимально повысить вероятность сильного ранжирования, высокого CTR и коммерческой полезности.
 
-Синхронизация всей документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md).
+Синхронизация всей документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](../audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md).
 
-Текущий практический порядок работ после обновления документации описан в [34-2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md).
+Текущий практический порядок работ после обновления документации описан в [34-2026-05-07-documentation-refresh-and-project-action-plan.md](../audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md).
 
-Как пользоваться новичку: перед публикацией страницы бери нужный раздел этого чек-листа, проходи пункты сверху вниз и отмечай только то, что действительно выполнено в тексте, front matter, изображениях, ссылках и schema.org. Если пункт непонятен, сначала смотри [README.md](/Users/stadnyk/MEGA/Aerocool/README.md), [05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md) и [03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md).
+Как пользоваться новичку: перед публикацией страницы бери нужный раздел этого чек-листа, проходи пункты сверху вниз и отмечай только то, что действительно выполнено в тексте, front matter, изображениях, ссылках и schema.org. Если пункт непонятен, сначала смотри [README.md](../../README.md), [05-front-matter-reference.md](05-front-matter-reference.md) и [03-hugo-template-helpers.md](../architecture/03-hugo-template-helpers.md).
 
 ## 1. Что Уже Есть В Проекте
 
-- [ ] В проекте уже реализованы `robots`, `canonical`, `hreflang`, Open Graph и Twitter Cards через [layouts/_partials/head.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/head.html#L14), а JSON-LD выводится через [layouts/_partials/footer.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/footer.html#L30) и [layouts/_partials/_seo/jsonld.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/jsonld.html#L1).
-- [ ] Для сайта уже есть `WebSite` schema с `SearchAction` через [layouts/_partials/_schema/website.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/website.html#L1).
-- [ ] Для товарных страниц уже есть `Product`, `Offer`, данные по доставке и политике возврата через [layouts/_partials/_schema/product.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/product.html#L1). Рейтинги остаются отдельным SEO-риском до переключения на approved отзывы из Netlify Database.
-- [ ] Для статей уже есть `Article` schema через [layouts/_partials/_schema/article.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/article.html#L1).
-- [ ] Для бренда и локальной организации уже есть отдельные schema partials через [layouts/_partials/_schema/brand.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/brand.html#L1) и [layouts/_partials/_schema/local-organization.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/local-organization.html#L1).
+- [ ] В проекте уже реализованы `robots`, `canonical`, `hreflang`, Open Graph и Twitter Cards через [layouts/_partials/head.html](../../layouts/_partials/head.html#L14), а JSON-LD выводится через [layouts/_partials/footer.html](../../layouts/_partials/footer.html#L30) и [layouts/_partials/_seo/jsonld.html](../../layouts/_partials/_seo/jsonld.html#L1).
+- [ ] Для сайта уже есть `WebSite` schema с `SearchAction` через [layouts/_partials/_schema/website.html](../../layouts/_partials/_schema/website.html#L1).
+- [ ] Для товарных страниц уже есть `Product`, `Offer`, данные по доставке и политике возврата через [layouts/_partials/_schema/product.html](../../layouts/_partials/_schema/product.html#L1). Рейтинги остаются отдельным SEO-риском до переключения на approved отзывы из Netlify Database.
+- [ ] Для статей уже есть `Article` schema через [layouts/_partials/_schema/article.html](../../layouts/_partials/_schema/article.html#L1).
+- [ ] Для бренда и локальной организации уже есть отдельные schema partials через [layouts/_partials/_schema/brand.html](../../layouts/_partials/_schema/brand.html#L1) и [layouts/_partials/_schema/local-organization.html](../../layouts/_partials/_schema/local-organization.html#L1).
 - [ ] Это означает, что главный резерв роста сейчас не в “базовом техническом SEO”, а в качестве контента, полноте товарных страниц, внутренней перелинковке, покрытии изображениями, доверии к авторам и доработке после публикации.
 
 ## 2. Неподвижные Правила Для Любой Страницы
@@ -169,14 +169,14 @@
 - [ ] Если статья использует сторонние данные, она не должна просто пересказывать их без добавления собственной пользы.
 - [ ] У статьи должны быть ясные подзапросы в H2/H3, а не искусственные SEO-заголовки.
 - [ ] У статьи должна быть авторская или редакторская ответственность.
-- [ ] В текущем проекте видимая редакционная ответственность для статей и новостей выводится через [layouts/_partials/editorial-note.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/editorial-note.html).
+- [ ] В текущем проекте видимая редакционная ответственность для статей и новостей выводится через [layouts/_partials/editorial-note.html](../../layouts/_partials/editorial-note.html).
 - [ ] Желательно указывать автора или редактора, потому что сейчас разметка `Article` в проекте указывает только `Organization`.
 - [ ] Дата публикации должна быть видна в meta-строке статьи, а дата обновления — в редакционном блоке, если `lastmod` заполнен.
 - [ ] Даты статьи должны быть согласованы со structured data.
 - [ ] Не менять дату ради “свежести”, если содержание не обновлено по существу.
 - [ ] Изображения статьи должны быть не только декоративными, а раскрывать тему.
 - [ ] Для длинной evergreen-статьи после primary cover обычно нужны **2** secondary inline-изображения: одно объясняет главный сценарий или сравнение, второе раскрывает материал, механизм, настройку или практическую проверку.
-- [ ] Secondary inline-изображения статьи должны соответствовать [67-image-design-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/67-image-design-playbook-2026.md) и текущему аудиту [77-2026-06-18-articles-news-content-image-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/77-2026-06-18-articles-news-content-image-audit.md): обычно **1200x800** WebP, `loading="lazy"`, `preload=false`, `fetchpriority=auto`, локализованный `alt`.
+- [ ] Secondary inline-изображения статьи должны соответствовать [67-image-design-playbook-2026.md](67-image-design-playbook-2026.md) и текущему аудиту [77-2026-06-18-articles-news-content-image-audit.md](../audits/77-2026-06-18-articles-news-content-image-audit.md): обычно **1200x800** WebP, `loading="lazy"`, `preload=false`, `fetchpriority=auto`, локализованный `alt`.
 - [ ] Новый inline visual добавляется только под новый смысл; при закрытом image backlog приоритет имеет замена AI-имитации официальным factual asset, а не увеличение количества картинок.
 - [ ] Для разметки `Article` также желательно иметь несколько изображений в пропорциях `16:9`, `4:3`, `1:1`.
 - [ ] В конце статьи должен быть следующий шаг: перейти в серию, модель, FAQ или связаться за подбором.
@@ -202,7 +202,7 @@
 - [ ] Новость должна расширять покрытие не только брендовых, но и широких коммерческих запросов, если инфоповод связан с серией, моделью, материалом или сценарием выбора.
 - [ ] Для новости с запуском серии, модели, материала или механизма после primary cover обычно нужно **1** secondary inline-изображение; для новости с несколькими моделями или материалами допустимо **2**.
 - [ ] Secondary inline-изображение новости должно показывать инфоповод: lineup, feature, материал, механизм или карту новых гайдов, а не повторять обложку.
-- [ ] Для текущей поштучной проверки news visuals использовать [77-2026-06-18-articles-news-content-image-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/77-2026-06-18-articles-news-content-image-audit.md).
+- [ ] Для текущей поштучной проверки news visuals использовать [77-2026-06-18-articles-news-content-image-audit.md](../audits/77-2026-06-18-articles-news-content-image-audit.md).
 - [ ] В новости есть прямые ссылки на соответствующие товары, коллекции или страницу контактов.
 - [ ] Если новость чувствительна ко времени, нужно следить, чтобы старые акции не выглядели актуальными спустя месяцы.
 - [ ] Если новость больше похожа на гайд или сравнение, ее нужно публиковать в `articles`, а не в `news`.
@@ -211,7 +211,7 @@
 
 - [ ] FAQ должен отвечать на реальные вопросы пользователей, саппорта и отдела продаж.
 - [ ] Все вопросы и ответы должны быть видимы на странице.
-- [ ] Для текущего проекта канонический FAQ хранится в `faq_groups:` во front matter, а видимый FAQ на `/faq/` рендерится из него через [layouts/_shortcodes/faq-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq-list.html), который выводится в [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html). Старый плоский `faq:` поддерживается только как fallback.
+- [ ] Для текущего проекта канонический FAQ хранится в `faq_groups:` во front matter, а видимый FAQ на `/faq/` рендерится из него через [layouts/_shortcodes/faq-list.html](../../layouts/_shortcodes/faq-list.html), который выводится в [layouts/faq/single.html](../../layouts/faq/single.html). Старый плоский `faq:` поддерживается только как fallback.
 - [ ] Не держать второй полный экземпляр FAQ в markdown-теле страницы без отдельной необходимости: это снова создаст лишнюю точку рассинхрона.
 - [ ] FAQ должен снимать возражения и помогать конверсии.
 - [ ] FAQ полезен как контентный слой, structured data и источник ответов для пользователей, но нельзя строить стратегию на ожидании Google FAQ rich result.
@@ -340,7 +340,7 @@
 - [ ] Для товарных страниц обязательно заполнять `title`, `description`, `summary`, `date`, `lastmod`, `slug`, `categories`, `tags`, `image`, `schema_types`, `price`, `sku`, `availability`, `priceValidUntil`.
 - [ ] Для товарных страниц желательно заполнять `mpn`, `gtin13`, `warranty`, `review_target_id`, `reviews_enabled`, `return_days`, `return_method`, `return_fees`, `shipping_country`, `shipping_rate`, `shipping_currency`, `shipping_handling_min`, `shipping_handling_max`, `shipping_transit_min`, `shipping_transit_max`, `payment_methods`, если эти данные доступны.
 - [ ] Не добавлять `rating.value` и `rating.count` в товарный front matter: SEO-рейтинги должны приходить из approved отзывов, а не из ручных полей.
-- [ ] Бизнес-значения product facts должны быть подтверждены командой Aerocool Украина перед изменением front matter по регламенту [58-product-facts-maintenance-process-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/58-product-facts-maintenance-process-2026.md).
+- [ ] Бизнес-значения product facts должны быть подтверждены командой Aerocool Украина перед изменением front matter по регламенту [58-product-facts-maintenance-process-2026.md](../seo/58-product-facts-maintenance-process-2026.md).
 - [ ] Если меняются цена, наличие, гарантия, доставка, возврат, способы оплаты, `priceValidUntil`, цвет или характеристики, сначала обновлять product front matter или registry, затем синхронно проверять `Product` JSON-LD, видимый коммерческий блок товарных страниц и `/faq/`, если изменение относится к общей политике.
 - [ ] Для статей обязательно заполнять `title`, `description`, `summary`, `date`, `lastmod`, `slug`, `image`, `schema_types`.
 - [ ] Для статей желательно заполнять `tags`, `categories` или иной тематический классификатор, если он используется в перелинковке.

@@ -19,7 +19,7 @@ schema_types: ["website", "product", "organization", "breadcrumbs"]
 Важно:
 
 - `schema_types` определяет, какие schema.org-сущности включает шаблонный слой.
-- `schema_types` также используется локальным helper [page-meta.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-meta.html) для видимой meta-строки: `article` показывает дату и время чтения, `news` показывает только дату, остальные типы страниц meta-строку не получают.
+- `schema_types` также используется локальным helper [page-meta.html](../../layouts/_partials/page-meta.html) для видимой meta-строки: `article` показывает дату и время чтения, `news` показывает только дату, остальные типы страниц meta-строку не получают.
 - `website`, `organization`, `brand`, `collection`, `article`, `news`, `product`, `faq`, `breadcrumbs`, `about-page`, `contact-page` являются рабочими флагами.
 - Опорные узлы вроде `logo` и `brand` могут подключаться автоматически как зависимости выбранных сущностей, чтобы в графе не было висячих `@id`-ссылок.
 - Registry-based узлы для `confirmed` materials, mechanisms, features, use cases, topics и policies подключаются автоматически из `about_entities` и `mentions_entities`. Они усиливают graph как `DefinedTerm` или объяснительные `Thing` nodes и не заменяют основные Product/Offer/Article/Page partials.
@@ -34,12 +34,12 @@ schema_types: ["website", "product", "organization", "breadcrumbs"]
 - `additionalType` пока не является рабочим front matter полем проекта. Если оно понадобится, сначала документировать источник, внешний термин и причину, почему базового Schema.org типа недостаточно.
 - Image license metadata (`license`, `acquireLicensePage`, `creator`, `creditText`, `copyrightNotice`) внедрена централизованно для `ImageObject`: основное изображение страницы и логотип получают эти поля через schema partials, а видимая страница условий находится по `/image-license/` и `/ru/image-license/`.
 - Чистый Schema Validator не равен гарантии rich results: для Google данные в JSON-LD должны совпадать с видимым контентом страницы.
-- Для `product` source of truth по коммерческим фактам — front matter товарной страницы; schema partial читает эти поля, а видимый товарный блок и `/faq/` должны подтверждать их. Операционный процесс поддержки этих фактов описан в [58-product-facts-maintenance-process-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/58-product-facts-maintenance-process-2026.md).
-- Текущий roadmap усиления графа и rich-results качества хранится в [26-json-ld-graph-audit-roadmap-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/26-json-ld-graph-audit-roadmap-2026.md).
-- QA-правила schema.org-графа, schema drift и ownership описаны в [20-schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/20-schema-markup-quality-checklist-2026.md).
-- Entity strategy, `@id`, `sameAs`, `about` и `mentions` проектируются через [23-entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/23-entity-registry-2026.md), [22-entity-registry-beginner-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/22-entity-registry-beginner-guide-2026.md), [24-entities-knowledge-graph-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/24-entities-knowledge-graph-playbook-2026.md) и [25-ai-search-entity-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/25-ai-search-entity-map-2026.md).
-- Product/Offer/rating/variant/image policy для каталога описана в [21-ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/21-ecommerce-structured-data-playbook-2026.md).
-- Базовая синхронизация документации с лучшими практиками 2026 описана в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md).
+- Для `product` source of truth по коммерческим фактам — front matter товарной страницы; schema partial читает эти поля, а видимый товарный блок и `/faq/` должны подтверждать их. Операционный процесс поддержки этих фактов описан в [58-product-facts-maintenance-process-2026.md](58-product-facts-maintenance-process-2026.md).
+- Текущий roadmap усиления графа и rich-results качества хранится в [26-json-ld-graph-audit-roadmap-2026.md](26-json-ld-graph-audit-roadmap-2026.md).
+- QA-правила schema.org-графа, schema drift и ownership описаны в [20-schema-markup-quality-checklist-2026.md](20-schema-markup-quality-checklist-2026.md).
+- Entity strategy, `@id`, `sameAs`, `about` и `mentions` проектируются через [23-entity-registry-2026.md](23-entity-registry-2026.md), [22-entity-registry-beginner-guide-2026.md](22-entity-registry-beginner-guide-2026.md), [24-entities-knowledge-graph-playbook-2026.md](24-entities-knowledge-graph-playbook-2026.md) и [25-ai-search-entity-map-2026.md](25-ai-search-entity-map-2026.md).
+- Product/Offer/rating/variant/image policy для каталога описана в [21-ecommerce-structured-data-playbook-2026.md](21-ecommerce-structured-data-playbook-2026.md).
+- Базовая синхронизация документации с лучшими практиками 2026 описана в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](../audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md).
 
 Главная `content/_index.md`
 `schema_types: ["website", "organization", "brand"]`

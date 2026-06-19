@@ -9,7 +9,7 @@
 - `Impact-of-Schema-Markup.pdf`;
 - `How-Marketers-Can-Prepare-Their-Organization-for-the-Agentic-Web.pdf`.
 
-Базовый PDF-анализ зафиксирован в [44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md).
+Базовый PDF-анализ зафиксирован в [44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md).
 
 Этот документ отвечает на вопрос: что изменилось в оценке проекта после новых данных и какие проблемы сейчас актуальны.
 
@@ -37,10 +37,10 @@
 
 Проверено:
 
-- [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml);
+- [data/entities.yaml](../../data/entities.yaml);
 - content front matter в `content/**/*.md`;
 - schema partials в `layouts/_partials/_schema`;
-- JSON-LD partial [jsonld.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/jsonld.html);
+- JSON-LD partial [jsonld.html](../../layouts/_partials/_seo/jsonld.html);
 - rendered HTML в `public/**/*.html` после `npm run build`;
 - актуальные SEO/entity документы в `docs/seo`;
 - предыдущие аудиты в `docs/audits`.
@@ -52,7 +52,7 @@ npm run build
 git diff --check
 ```
 
-## 3. Rendered Graph Snapshot
+## 3. Снимок Сгенерированного Графа
 
 После сборки:
 
@@ -94,7 +94,7 @@ git diff --check
 
 Вывод: graph стал не просто набором page schema, а реально связанным набором сущностей. Высокое количество `DefinedTerm` и `Thing` объясняется registry-based nodes для материалов, механизмов, сценариев и политик.
 
-## 5. Entity Registry
+## 5. Реестр Сущностей
 
 | Метрика | Значение |
 | --- | ---: |
@@ -137,7 +137,7 @@ git diff --check
 
 Вывод: новые правила Schema App support и PDF-гайдов соблюдены. Сильные `about` / `mentions` сейчас используют только `confirmed` сущности. `ProductGroup` подготовлен как staged field, но не выводится в JSON-LD.
 
-## 7. Connected Schema
+## 7. Связанная Schema-Разметка
 
 Что хорошо:
 
@@ -156,7 +156,7 @@ git diff --check
 
 Это не ошибка JSON-LD. Это следующий уровень управления Content Knowledge Graph.
 
-## 8. Product Graph
+## 8. Граф Товаров
 
 | Метрика | Значение |
 | --- | ---: |
@@ -246,7 +246,7 @@ Image license metadata остается P2. Добавлять `license`, `creat
 
 ## 13. Актуальные Проблемы
 
-### P0. Production Gate
+### P0. Контроль Перед Production
 
 Все `86` страниц с JSON-LD сейчас имеют `noindex`, потому что сборка идет в development environment. Для production нужно отдельно переключить режим, проверить `index,follow`, sitemap, robots, служебные `noindex` URL и published headers.
 
@@ -258,7 +258,7 @@ Image license metadata остается P2. Добавлять `license`, `creat
 
 `product_group_id` подготовлен, но все группы остаются `planned`. Нужна видимая навигация вариантов перед JSON-LD `ProductGroup`.
 
-### P1. Entity Coverage Report
+### P1. Отчет О Покрытии Сущностей
 
 Новые PDF усиливают эту задачу. Нужно регулярно видеть:
 
@@ -268,7 +268,7 @@ Image license metadata остается P2. Добавлять `license`, `creat
 - какие rendered nodes появляются;
 - какие сущности дают GSC/AI citation/business signal после production.
 
-### P1. Post-Production Performance Baseline
+### P1. Базовые Показатели После Production
 
 После индексации нужно измерять не только validator pass:
 
@@ -286,15 +286,15 @@ Image license metadata остается P2. Добавлять `license`, `creat
 
 Добавлять можно только после проектирования стабильного mapping из видимых specs/front matter.
 
-### P2. Image License Metadata
+### P2. Метаданные Лицензии Изображений
 
 Полезно для Google Images, но только после подтверждения прав и license page.
 
-### P2. Quarterly `sameAs` Review
+### P2. Ежеквартальная Проверка `sameAs`
 
 Нужно ввести регулярную проверку official global social URLs.
 
-### P3. Agentic Actions / MCP / NLWeb / `llms.txt`
+### P3. Агентские Действия, MCP, NLWeb И `llms.txt`
 
 Не внедрять сейчас. Вернуться после production, ratings/ProductGroup и появления реальной business-задачи.
 

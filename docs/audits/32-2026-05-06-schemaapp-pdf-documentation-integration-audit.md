@@ -62,6 +62,6 @@
 
 Главный практический результат после этой интеграции: product facts source of truth подтвержден как front matter, local organization facts подтверждены бизнесово, entity registry и safe resolver добавлены, а priority pages получили `about_entities`, `mentions_entities` и staged `product_group_id`. Следующий шаг — не добавлять новые schema-типы “для красоты”, а подтвердить источник rating/reviews, сделать visible variant navigation и переводить ProductGroup в JSON-LD только там, где связь видима пользователю.
 
-Актуальный порядок внедрения после повторной ревизии `2026-05-07` зафиксирован в [34-2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md).
+Актуальный порядок внедрения после повторной ревизии `2026-05-07` зафиксирован в [34-2026-05-07-documentation-refresh-and-project-action-plan.md](34-2026-05-07-documentation-refresh-and-project-action-plan.md).
 
-Отдельная ревизия 126 статей SchemaApp за `2016-2026` хранится в [35-2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/35-2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md).
+Отдельная ревизия 126 статей SchemaApp за `2016-2026` хранится в [35-2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md](35-2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md).

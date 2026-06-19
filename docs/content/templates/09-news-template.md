@@ -116,4 +116,4 @@ schema_types: ["website", "news", "organization", "breadcrumbs"]
 - Если первое изображение использует нестандартный `sizes`, добавить такой же `seo_image_sizes` во front matter.
 - Если у новости нет собственного изображения в папке страницы, допустим fallback `image: "images/default-news.webp"`, но это уже запасной сценарий, а не основной стандарт.
 - Новость должна усиливать не только брендовые запросы, но и широкие коммерческие кластеры, если инфоповод действительно это позволяет.
-- Перед добавлением нового visual проверить [77-2026-06-18-articles-news-content-image-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/77-2026-06-18-articles-news-content-image-audit.md): при закрытом backlog приоритет имеет official factual replacement, а не дополнительная AI-сцена.
+- Перед добавлением нового visual проверить [77-2026-06-18-articles-news-content-image-audit.md](../../audits/77-2026-06-18-articles-news-content-image-audit.md): при закрытом backlog приоритет имеет official factual replacement, а не дополнительная AI-сцена.

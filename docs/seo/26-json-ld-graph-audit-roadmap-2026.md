@@ -8,10 +8,10 @@
 
 Актуализация `2026-05-17`: по официальной документации Google, с `2026-05-07` FAQ rich results больше не показываются в Google Search. Для Aerocool `FAQPage` остается полезным как структурированное описание видимого FAQ и сервисных условий, но не как SERP-enhancement цель.
 
-Текущий практический план внедрения roadmap-задач описан в [34-2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md).
-Базовый sync-аудит документации и 2026 best-practices alignment описан в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md).
-Актуальный полный schema/entity-срез зафиксирован в [57-2026-05-31-schema-entity-full-audit-current.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/57-2026-05-31-schema-entity-full-audit-current.md).
-Операционный регламент поддержки product facts зафиксирован в [58-product-facts-maintenance-process-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/58-product-facts-maintenance-process-2026.md).
+Текущий практический план внедрения roadmap-задач описан в [34-2026-05-07-documentation-refresh-and-project-action-plan.md](../audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md).
+Базовый sync-аудит документации и 2026 best-practices alignment описан в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](../audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md).
+Актуальный полный schema/entity-срез зафиксирован в [57-2026-05-31-schema-entity-full-audit-current.md](../audits/57-2026-05-31-schema-entity-full-audit-current.md).
+Операционный регламент поддержки product facts зафиксирован в [58-product-facts-maintenance-process-2026.md](58-product-facts-maintenance-process-2026.md).
 
 Простыми словами для новичка: JSON-LD — это машинное описание страницы для поисковика. Оно должно подтверждать то, что человек реально видит на странице. Если в JSON-LD указать цену, рейтинг или наличие, но не показать их пользователю, это становится риском для Google rich results.
 
@@ -67,7 +67,7 @@ Google отличает технически валидную structured data о
 
 Статус `2026-05-07`: merchant-условия `Product` JSON-LD читаются из product front matter и подтверждаются видимым FAQ: доставка по Украине `Новой Почтой`, доставка `0 грн`, передача в отправку `0-1 день`, транзит `1-3 дня`, возврат `14 дней`, бесплатный возврат, оплата наличными/картой.
 
-Статус `2026-05-26`: источник рейтингов должен быть не front matter, а approved reviews snapshot из `Netlify Database`. Документ внедрения: [17-netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/17-netlify-database-reviews.md).
+Статус `2026-05-26`: источник рейтингов должен быть не front matter, а approved reviews snapshot из `Netlify Database`. Документ внедрения: [17-netlify-database-reviews.md](../deploy/17-netlify-database-reviews.md).
 
 ## 3. Что Нужно Доделать Для `10/10` По Google Rich Results
 
@@ -100,7 +100,7 @@ Google отличает технически валидную structured data о
 - рейтинг;
 - количество отзывов.
 
-Если меняются цена, наличие, доставка, возврат, гарантия, способы оплаты, `priceValidUntil`, цвет или характеристики, проходить регламент [58-product-facts-maintenance-process-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/58-product-facts-maintenance-process-2026.md): бизнес-подтверждение, product front matter или registry, видимый HTML, `/faq/` при policy-wide изменении, JSON-LD QA и post-deploy проверка. [layouts/_partials/_schema/product.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/product.html) менять нужно только при изменении mapping или добавлении новых полей.
+Если меняются цена, наличие, доставка, возврат, гарантия, способы оплаты, `priceValidUntil`, цвет или характеристики, проходить регламент [58-product-facts-maintenance-process-2026.md](58-product-facts-maintenance-process-2026.md): бизнес-подтверждение, product front matter или registry, видимый HTML, `/faq/` при policy-wide изменении, JSON-LD QA и post-deploy проверка. [layouts/_partials/_schema/product.html](../../layouts/_partials/_schema/product.html) менять нужно только при изменении mapping или добавлении новых полей.
 
 ### Выполнено. ProductGroup Для Вариантов
 
@@ -123,7 +123,7 @@ Rendered graph сейчас содержит:
 
 Видимые характеристики уже есть в product content/front matter. На `2026-05-31` Product schema усилена двумя безопасными слоями:
 
-- `color` берется из [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml);
+- `color` берется из [data/entities.yaml](../../data/entities.yaml);
 - `additionalProperty` через `PropertyValue` для видимых технических параметров:
   - механизм;
   - уровень регулировок;
@@ -185,7 +185,7 @@ Rendered graph сейчас содержит:
 
 ### Закрыто. Метаданные Лицензии Изображений (Image License Metadata)
 
-Выполнено `2026-05-31`: для `ImageObject` внедрены `license`, `acquireLicensePage`, `creator`, `creditText` и `copyrightNotice`. Поля добавляются централизованно через [image-license-metadata.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/image-license-metadata.html), а видимые условия находятся на `/image-license/` и `/ru/image-license/`.
+Выполнено `2026-05-31`: для `ImageObject` внедрены `license`, `acquireLicensePage`, `creator`, `creditText` и `copyrightNotice`. Поля добавляются централизованно через [image-license-metadata.html](../../layouts/_partials/_schema/image-license-metadata.html), а видимые условия находятся на `/image-license/` и `/ru/image-license/`.
 
 Порядок поддержки:
 
@@ -214,11 +214,11 @@ Rendered graph сейчас содержит:
 
 1. Закрыть production gate: переключить окружение только после финальной проверки `index,follow`, sitemap, canonical, hreflang и published URL.
 2. Подтвердить MPN/GTIN для `SKY 360` и `SKY Lite`.
-3. Поддерживать регулярный [отчет по эффективности сущностей (Entity Performance Report)](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md) через `npm run entity:report`; GSC/AI/business-поля заполнить после production.
+3. Поддерживать регулярный [отчет по эффективности сущностей (Entity Performance Report)](59-entity-performance-report-2026.md) через `npm run entity:report`; GSC/AI/business-поля заполнить после production.
 4. Исполнять регламент product facts при каждом изменении коммерческих и товарных данных.
 5. После production-перехода контролировать approved reviews snapshot, GSC product reports и rich-results eligibility на published URL.
 6. Поддерживать image license metadata через видимую страницу условий и централизованный schema helper.
-7. Вести entity/schema изменения через [20-schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/20-schema-markup-quality-checklist-2026.md), [24-entities-knowledge-graph-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/24-entities-knowledge-graph-playbook-2026.md), [21-ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/21-ecommerce-structured-data-playbook-2026.md), [58-product-facts-maintenance-process-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/58-product-facts-maintenance-process-2026.md) и [57-2026-05-31-schema-entity-full-audit-current.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/57-2026-05-31-schema-entity-full-audit-current.md).
+7. Вести entity/schema изменения через [20-schema-markup-quality-checklist-2026.md](20-schema-markup-quality-checklist-2026.md), [24-entities-knowledge-graph-playbook-2026.md](24-entities-knowledge-graph-playbook-2026.md), [21-ecommerce-structured-data-playbook-2026.md](21-ecommerce-structured-data-playbook-2026.md), [58-product-facts-maintenance-process-2026.md](58-product-facts-maintenance-process-2026.md) и [57-2026-05-31-schema-entity-full-audit-current.md](../audits/57-2026-05-31-schema-entity-full-audit-current.md).
 
 ## 6. Контроль Перед Деплоем
 

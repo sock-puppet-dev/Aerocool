@@ -1,6 +1,6 @@
 # Руководство По Полям Метаданных Страницы
 
-Обновлено: 2026-06-12.
+Обновлено: 2026-06-19.
 
 В проекте `Aerocool` использовать только поле `schema_types`. Поле `schema_type` не используется.
 
@@ -14,7 +14,7 @@
 4. Не добавляй поля “на всякий случай”, если шаблоны проекта их не используют.
 5. После правки запусти `npm run build`.
 
-Практический план entity/product fields (`about_entities`, `mentions_entities`, `product_group_id`, `variant_attributes`, `rating_source`) описан в [34-2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md). Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md). Entity IDs и entity homes зафиксированы в [23-entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/23-entity-registry-2026.md), а структурированный источник для шаблонов — [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml). Для первого знакомства с этим слоем читайте [22-entity-registry-beginner-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/22-entity-registry-beginner-guide-2026.md). Hugo templates уже безопасно читают `about_entities`, `mentions_entities`, `product_group_id`, `related_series` и `related_products`, но добавлять их в `content/` нужно только точечно: значение должно быть подтверждено видимым содержанием страницы. Для JSON-LD resolver выводит только `confirmed` сущности; `product_group_id` допустим только для реальных групп вариантов одной модели и начнет давать `isVariantOf` только после подтверждения ProductGroup.
+Практический план entity/product fields (`about_entities`, `mentions_entities`, `product_group_id`, `variant_attributes`, `rating_source`) описан в [34-2026-05-07-documentation-refresh-and-project-action-plan.md](../audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md). Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](../audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md). Entity IDs и entity homes зафиксированы в [23-entity-registry-2026.md](../seo/23-entity-registry-2026.md), а структурированный источник для шаблонов — [data/entities.yaml](../../data/entities.yaml). Для первого знакомства с этим слоем читайте [22-entity-registry-beginner-guide-2026.md](../seo/22-entity-registry-beginner-guide-2026.md). Hugo templates уже безопасно читают `about_entities`, `mentions_entities`, `product_group_id`, `related_series` и `related_products`, но добавлять их в `content/` нужно только точечно: значение должно быть подтверждено видимым содержанием страницы. Для JSON-LD resolver выводит только `confirmed` сущности; `product_group_id` допустим только для реальных групп вариантов одной модели и начнет давать `isVariantOf` только после подтверждения ProductGroup.
 
 ## Поля Сущностей Во Front Matter
 
@@ -80,9 +80,9 @@ related_articles:
 - **служебные SEO/schema-данные** во front matter, head и JSON-LD;
 - **видимая meta-строка** под `H1` или в карточке листинга.
 
-Поле `date` нужно сохранять почти на всех контентных страницах, даже если дата не показывается пользователю. Оно участвует в сортировке, RSS, schema.org и других шаблонных сценариях. Поле `lastmod` обновляется при содержательной правке и используется SEO/schema-слоем; для статей и новостей оно дополнительно видно в редакционном блоке [editorial-note.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/editorial-note.html).
+Поле `date` нужно сохранять почти на всех контентных страницах, даже если дата не показывается пользователю. Оно участвует в сортировке, RSS, schema.org и других шаблонных сценариях. Поле `lastmod` обновляется при содержательной правке и используется SEO/schema-слоем; для статей и новостей оно дополнительно видно в редакционном блоке [editorial-note.html](../../layouts/_partials/editorial-note.html).
 
-Видимую meta-строку контролирует [page-meta.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-meta.html). Она не равна всему front matter и не должна превращаться в универсальный вывод всех полей.
+Видимую meta-строку контролирует [page-meta.html](../../layouts/_partials/page-meta.html). Она не равна всему front matter и не должна превращаться в универсальный вывод всех полей.
 
 Текущая политика:
 
@@ -101,7 +101,7 @@ related_articles:
 - количество слов не показывается в интерфейсе;
 - автор организации не показывается в видимой meta-строке;
 - список переводов не выводится под `H1`;
-- переключение языка живет в шапке сайта через [header.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/header.html);
+- переключение языка живет в шапке сайта через [header.html](../../layouts/_partials/header.html);
 - `hideMeta: true` использовать только как точечный ручной override, а не как способ массово чинить типы страниц.
 
 ## Стандарт `image` И `cover`
@@ -114,7 +114,7 @@ related_articles:
 
 `cover.alt` — локализованное описание темы или объекта изображения. Не писать пустой `alt`, не использовать keyword list и не начинать формулировку с “Обложка/Обкладинка”, если можно назвать саму сущность: модель, серию, раздел, FAQ, поиск или тему статьи.
 
-`seo_image_sizes` — необязательный override для head-preload главного контентного изображения статьи или новости. Поле нужно только тогда, когда первое видимое `seo-image` на странице использует нестандартный `sizes`. Если его не задать, [lcp-image-preload.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/lcp-image-preload.html) использует проектный default для `.main`: `(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)`. Для товарных страниц это поле не нужно: product LCP обслуживает [products/gallery.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/gallery.html) с собственным gallery `sizes`.
+`seo_image_sizes` — необязательный override для head-preload главного контентного изображения статьи или новости. Поле нужно только тогда, когда первое видимое `seo-image` на странице использует нестандартный `sizes`. Если его не задать, [lcp-image-preload.html](../../layouts/_partials/_seo/lcp-image-preload.html) использует проектный default для `.main`: `(min-width: 1198px) 1150px, (max-width: 768px) calc(100vw - 28px), calc(100vw - 48px)`. Для товарных страниц это поле не нужно: product LCP обслуживает [products/gallery.html](../../layouts/_partials/products/gallery.html) с собственным gallery `sizes`.
 
 Простая схема для новичка:
 
@@ -241,13 +241,29 @@ schema_types: ["website", "organization", "contact-page", "breadcrumbs"]
 
 Для `/contact/` видимая meta-строка не выводится. Контакты должны сразу вести к способам связи, консультации, доставке, гарантии и сервису, а не показывать блоговые признаки вроде даты публикации, времени чтения, количества слов или автора.
 
-Текущий видимый контактный интерфейс рендерится через [layouts/_shortcodes/contact.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/contact.html), поэтому тело `content/contact/index.md` и `content/contact/index.ru.md` обычно содержит только:
+Текущий видимый контактный интерфейс рендерится через [layouts/_shortcodes/contact.html](../../layouts/_shortcodes/contact.html), поэтому тело `content/contact/index.md` и `content/contact/index.ru.md` обычно содержит только:
 
 ```gohtml
 {{< contact >}}
 ```
 
-Не дублировать в markdown адрес, телефоны, email, сценарии обращения, график работы, быстрые ссылки или отдельный список соцсетей. Эти данные уже находятся в shortcode и должны оставаться согласованными с JSON-LD `Organization` в [local-organization.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/local-organization.html). Если меняется график работы, телефон, email или адрес, нужно обновить и видимый shortcode, и schema partial.
+Не дублировать в markdown адрес, телефоны, email, сценарии обращения, график работы, быстрые ссылки или отдельный список соцсетей. Эти данные уже находятся в shortcode и должны оставаться согласованными с JSON-LD `Organization` в [local-organization.html](../../layouts/_partials/_schema/local-organization.html). Если меняется график работы, телефон, email или адрес, нужно обновить и видимый shortcode, и schema partial.
+
+### 3.1. Служебная Страница Успешной Отправки
+
+Файлы `content/contact-success/index.md` и `content/contact-success/index.ru.md` используют три дополнительных служебных поля:
+
+```yaml
+url: "/contact/success/"
+searchHidden: true
+disableShare: true
+```
+
+- `url` задает точный адрес страницы. Использовать его только для осознанного исключения, потому что поле обходит обычное построение URL через `slug` и permalink-настройки.
+- `searchHidden: true` исключает страницу из внутреннего поиска.
+- `disableShare: true` отключает кнопки публикации в социальных сетях для служебного результата формы.
+
+Для русской версии `url` должен быть `/ru/contact/success/`. Страница дополнительно использует `robotsNoIndex: true`, поэтому не должна попадать в поисковый индекс или sitemap индексируемых URL.
 
 ## 4. Поиск `content/search.md` и `content/search.ru.md`
 
@@ -350,7 +366,7 @@ schema_types: ["website", "article", "organization", "breadcrumbs"]
 ---
 ```
 
-Текущий стандарт для статей — локальная обложка `01-front.webp` в папке страницы, `image + cover.image` во front matter и вывод изображения через shortcode `seo-image` в начале тела. Рядом с основной обложкой можно хранить schema crops `01-front-16x9.webp`, `01-front-4x3.webp` и `01-front-1x1.webp`: шаблон [page-image-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/page-image-list.html) добавляет их в `Article.image` автоматически, без новых front matter полей. Если `image`, `cover.image` и `seo-image src` совпадают, а `cover.hiddenInSingle: true`, главный image preload выводится в `<head>`. Если первое `seo-image` использует нестандартный `sizes`, добавить такой же `seo_image_sizes` во front matter. Fallback на `images/default-article.webp` допустим только как запасной сценарий, если локальной обложки действительно нет.
+Текущий стандарт для статей — локальная обложка `01-front.webp` в папке страницы, `image + cover.image` во front matter и вывод изображения через shortcode `seo-image` в начале тела. Рядом с основной обложкой можно хранить schema crops `01-front-16x9.webp`, `01-front-4x3.webp` и `01-front-1x1.webp`: шаблон [page-image-list.html](../../layouts/_partials/_schema/page-image-list.html) добавляет их в `Article.image` автоматически, без новых front matter полей. Если `image`, `cover.image` и `seo-image src` совпадают, а `cover.hiddenInSingle: true`, главный image preload выводится в `<head>`. Если первое `seo-image` использует нестандартный `sizes`, добавить такой же `seo_image_sizes` во front matter. Fallback на `images/default-article.webp` допустим только как запасной сценарий, если локальной обложки действительно нет.
 Для проекта `Aerocool` основная постоянно актуальная статья обычно должна иметь `10000+` знаков основного текста на каждую языковую версию.
 Добор до `10000+` знаков должен быть редакционным, а не механическим: добавлять сценарии выбора, критерии, сравнения, практические проверки, FAQ и полезные внутренние ссылки.
 `description` и `summary` у статьи должны помогать покрывать не только бренд, но и релевантный широкий кластер: `игровое кресло`, `офисное кресло`, `компьютерное кресло`, `кресло для работы`, `home office`.
@@ -382,7 +398,7 @@ schema_types: ["website", "news", "organization", "breadcrumbs"]
 Для проекта `Aerocool` новость, которая поддерживает ранжирование, обычно должна иметь `5000+` знаков тела на каждую языковую версию.
 Добор до `5000+` знаков должен раскрывать инфоповод, сценарии выбора, модели, материалы, коммерческую значимость и следующий шаг, а не превращать новость в псевдостатейный SEO-текст.
 Если новость используется как SEO-посадочная страница для серии, модели или запуска, поле `summary` нужно заполнять обязательно.
-Если у новости есть локальная обложка в папке страницы, текущий стандарт проекта — использовать ее как `image`, дублировать в `cover.image` для preview и выводить в начале тела через shortcode `seo-image`. Рядом с основной обложкой можно хранить schema crops `01-front-16x9.webp`, `01-front-4x3.webp` и `01-front-1x1.webp`: шаблон [page-image-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/page-image-list.html) добавляет их в `NewsArticle.image` автоматически, без новых front matter полей. Если `image`, `cover.image` и `seo-image src` совпадают, а `cover.hiddenInSingle: true`, главный image preload выводится в `<head>`. Если первое `seo-image` использует нестандартный `sizes`, добавить такой же `seo_image_sizes` во front matter.
+Если у новости есть локальная обложка в папке страницы, текущий стандарт проекта — использовать ее как `image`, дублировать в `cover.image` для preview и выводить в начале тела через shortcode `seo-image`. Рядом с основной обложкой можно хранить schema crops `01-front-16x9.webp`, `01-front-4x3.webp` и `01-front-1x1.webp`: шаблон [page-image-list.html](../../layouts/_partials/_schema/page-image-list.html) добавляет их в `NewsArticle.image` автоматически, без новых front matter полей. Если `image`, `cover.image` и `seo-image src` совпадают, а `cover.hiddenInSingle: true`, главный image preload выводится в `<head>`. Если первое `seo-image` использует нестандартный `sizes`, добавить такой же `seo_image_sizes` во front matter.
 
 Видимая meta-строка новости выводит только дату публикации. Время чтения, количество слов, автор организации и список переводов для новости не выводятся, потому что для новостного интента важнее свежесть события и переход к актуальным сериям, товарам или FAQ.
 
@@ -437,7 +453,7 @@ characteristics:             # видимая вкладка "Характери
 ---
 ```
 
-`image` отвечает за SEO/OG/schema и за первый видимый кадр товарной gallery, а `cover.image` — за preview-карточки в листингах. Для большинства product pages в текущем проекте нужны оба поля сразу. Если `image`, `cover.image` и `cover.hiddenInSingle: true` совпадают с проектным стандартом, главный product image preload выводится в `<head>` и использует те же responsive candidates и `sizes`, что [layouts/_partials/products/gallery.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/gallery.html). Стартовый `seo-image` в markdown товара не добавлять.
+`image` отвечает за SEO/OG/schema и за первый видимый кадр товарной gallery, а `cover.image` — за preview-карточки в листингах. Для большинства product pages в текущем проекте нужны оба поля сразу. Если `image`, `cover.image` и `cover.hiddenInSingle: true` совпадают с проектным стандартом, главный product image preload выводится в `<head>` и использует те же responsive candidates и `sizes`, что [layouts/_partials/products/gallery.html](../../layouts/_partials/products/gallery.html). Стартовый `seo-image` в markdown товара не добавлять.
 
 Product gallery должна получить реальный processable image resource из page bundle. Если файл из `image` или fallback `cover.image` отсутствует либо не поддерживает Hugo image processing, сборка останавливается, чтобы не выпустить битое LCP-изображение и не рассинхронизировать видимую страницу с SEO/OG/schema.
 
@@ -453,21 +469,21 @@ Product gallery должна получить реальный processable image
 
 `characteristics` — видимый список технических характеристик товара во вкладке “Характеристики”. Использовать пары `label` + `value`, локализованные под язык страницы. Это поле нужно для технических фактов модели: общая регулировка, подголовник, поверхность, спинка, поясничная поддержка, подлокотники, механизм, сиденье, тип наклона, база, ролики и вес. Эти пары также выводятся в `Product.additionalProperty` как `PropertyValue`, поэтому сюда нельзя добавлять маркетинговые фразы, скрытые факты или данные, которые не должны становиться частью schema.org. Не смешивать сюда цену, доставку, возврат и оплату: коммерческие условия остаются в отдельных merchant fields и во вкладке условий.
 
-Владелец бизнес-значений — команда Aerocool Украина. Она подтверждает цену, наличие, гарантию, доставку, возврат, оплату, SKU, MPN, GTIN и срок актуальности цены. Контент-редактор или Codex вносит подтвержденные значения в front matter и синхронизирует видимый товарный текст. По состоянию на `2026-05-07` значение `priceValidUntil: 2027-12-31` подтверждено для текущих товарных цен. Полный операционный процесс ролей, подтверждений, `/faq/`, JSON-LD QA и post-deploy проверки описан в [58-product-facts-maintenance-process-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/58-product-facts-maintenance-process-2026.md).
+Владелец бизнес-значений — команда Aerocool Украина. Она подтверждает цену, наличие, гарантию, доставку, возврат, оплату, SKU, MPN, GTIN и срок актуальности цены. Контент-редактор или Codex вносит подтвержденные значения в front matter и синхронизирует видимый товарный текст. По состоянию на `2026-05-07` значение `priceValidUntil: 2027-12-31` подтверждено для текущих товарных цен. Полный операционный процесс ролей, подтверждений, `/faq/`, JSON-LD QA и post-deploy проверки описан в [58-product-facts-maintenance-process-2026.md](../seo/58-product-facts-maintenance-process-2026.md).
 
-[layouts/_partials/_schema/product.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/product.html) читает merchant facts из front matter и строит `Offer`, `OfferShippingDetails`, `MerchantReturnPolicy`, `acceptedPaymentMethod` и `WarrantyPromise`. Этот же partial берет `color` из [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml) для главной product entity страницы и строит `additionalProperty` из видимого `characteristics`. Видимый коммерческий блок товарной страницы и `/faq/` должны подтверждать merchant facts, но не являются первичным источником. Если меняется цена, наличие, SKU, GTIN, гарантия, доставка, возврат или оплата, сначала обновлять product front matter, затем в том же изменении синхронизировать видимый product copy и `/faq/`, если это изменение policy-wide. Если меняется цвет товара, обновлять registry и видимую характеристику цвета одновременно. Сам partial менять нужно только при изменении schema mapping или добавлении новых полей.
+[layouts/_partials/_schema/product.html](../../layouts/_partials/_schema/product.html) читает merchant facts из front matter и строит `Offer`, `OfferShippingDetails`, `MerchantReturnPolicy`, `acceptedPaymentMethod` и `WarrantyPromise`. Этот же partial берет `color` из [data/entities.yaml](../../data/entities.yaml) для главной product entity страницы и строит `additionalProperty` из видимого `characteristics`. Видимый коммерческий блок товарной страницы и `/faq/` должны подтверждать merchant facts, но не являются первичным источником. Если меняется цена, наличие, SKU, GTIN, гарантия, доставка, возврат или оплата, сначала обновлять product front matter, затем в том же изменении синхронизировать видимый product copy и `/faq/`, если это изменение policy-wide. Если меняется цвет товара, обновлять registry и видимую характеристику цвета одновременно. Сам partial менять нужно только при изменении schema mapping или добавлении новых полей.
 
 `review_target_id` — стабильный ID объекта отзывов. Для украинской и русской версии одного товара он должен быть одинаковым. Лучше использовать человекочитаемый slug модели, например `sky-lite`, а не URL. Это защищает отзывы от потери связи при изменении адреса страницы.
 
 Выбор цвета на товарной странице строится из `product_group_id` и `data/entities.yaml`: шаблон берет варианты реальной ProductGroup, находит страницы текущего языка и выводит swatches со ссылками на соседние цветовые варианты. Ручной список цветов в front matter товара не добавлять. Одиночные товары без соседних вариантов не получают `product_group_id`, поэтому блок выбора цвета для них не выводится.
 
-Цветовые точки в карточках товаров строятся похожим, но более компактным способом. Для товаров с реальными вариантами [layouts/_partials/products/color-dots.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/color-dots.html) сначала использует `product_group_id` и показывает цвета вариантов группы. Если `product_group_id` нет, partial берет `color` из главной product entity страницы через `about_entities` и [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml). Поэтому одиночным товарам не нужно добавлять искусственный `product_group_id` только ради цветовой точки в листинге.
+Цветовые точки в карточках товаров строятся похожим, но более компактным способом. Для товаров с реальными вариантами [layouts/_partials/products/color-dots.html](../../layouts/_partials/products/color-dots.html) сначала использует `product_group_id` и показывает цвета вариантов группы. Если `product_group_id` нет, partial берет `color` из главной product entity страницы через `about_entities` и [data/entities.yaml](../../data/entities.yaml). Поэтому одиночным товарам не нужно добавлять искусственный `product_group_id` только ради цветовой точки в листинге.
 
 `reviews_enabled` включает вкладку и форму отзывов на странице товара только вместе с явным `review_target_id`. После проверки pipeline на `SKY Lite` поле `reviews_enabled: true` включено для всех текущих товарных страниц в `uk` и `ru`, чтобы `dev`-ветка могла тестировать отзывы по всему каталогу.
 
 Включение формы не означает автоматическое включение SEO-рейтинга: `AggregateRating` можно выводить только после того, как approved отзывы попали в build-time export `data/generated/reviews.json` и видимо выводятся на той же странице. Если у товара нет approved отзывов, рейтинг в карточке, на странице товара и в `Product` JSON-LD не выводится.
 
-Поля `rating.value` и `rating.count` больше не использовать в товарном front matter. SEO-first архитектура описана в [17-netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/17-netlify-database-reviews.md): рейтинг приходит не из front matter, а из approved отзывов в `Netlify Database`, выгруженных на build в `data/generated/reviews.json` и видимо показанных на странице.
+Поля `rating.value` и `rating.count` больше не использовать в товарном front matter. SEO-first архитектура описана в [17-netlify-database-reviews.md](../deploy/17-netlify-database-reviews.md): рейтинг приходит не из front matter, а из approved отзывов в `Netlify Database`, выгруженных на build в `data/generated/reviews.json` и видимо показанных на странице.
 
 Если рейтинг или количество отзывов не подтверждены реальными approved отзывами, их нельзя выводить в `AggregateRating` и нельзя усиливать дополнительной `Review`-разметкой.
 
@@ -504,7 +520,7 @@ faq_groups:
 ---
 ```
 
-Для FAQ-страницы в текущем проекте `faq_groups:` — это канонический источник тематически сгруппированных вопросов и ответов. Видимый FAQ берется из этого массива через [layouts/_shortcodes/faq-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq-list.html), который выводится в [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html), а `FAQPage` schema читает тот же массив через [layouts/_partials/_schema/faq.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/faq.html). Старый плоский массив `faq:` остается поддержанным fallback для совместимости, но новые FAQ-страницы должны использовать `faq_groups:`.
+Для FAQ-страницы в текущем проекте `faq_groups:` — это канонический источник тематически сгруппированных вопросов и ответов. Видимый FAQ берется из этого массива через [layouts/_shortcodes/faq-list.html](../../layouts/_shortcodes/faq-list.html), который выводится в [layouts/faq/single.html](../../layouts/faq/single.html), а `FAQPage` schema читает тот же массив через [layouts/_partials/_schema/faq.html](../../layouts/_partials/_schema/faq.html). Старый плоский массив `faq:` остается поддержанным fallback для совместимости, но новые FAQ-страницы должны использовать `faq_groups:`.
 
 В markdown-теле FAQ-страницы сейчас нужен не второй полный экземпляр вопросов, а только supporting-контент и точка вывода FAQ:
 

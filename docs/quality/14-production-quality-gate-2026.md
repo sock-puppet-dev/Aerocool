@@ -2,9 +2,9 @@
 
 Обновлено: 2026-06-16.
 
-Этот документ фиксирует короткий финальный чек перед production-релизом `Aerocool Ukraine`. Он дополняет [13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md), но не заменяет SEO/schema-проверки.
+Этот документ фиксирует короткий финальный чек перед production-релизом `Aerocool Ukraine`. Он дополняет [13-pagespeed-insights-audit.md](13-pagespeed-insights-audit.md), но не заменяет SEO/schema-проверки.
 
-Если релиз затрагивает `hugo.yaml`, языки, URL, `params.env`, sitemap, robots, canonical, hreflang или production indexing, сначала читать [76-hugo-yaml-serp-technical-contract-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/76-hugo-yaml-serp-technical-contract-2026.md).
+Если релиз затрагивает `hugo.yaml`, языки, URL, `params.env`, sitemap, robots, canonical, hreflang или production indexing, сначала читать [76-hugo-yaml-serp-technical-contract-2026.md](../seo/76-hugo-yaml-serp-technical-contract-2026.md).
 
 ## 1. Когда Использовать
 
@@ -45,7 +45,7 @@ mise exec -- hugo config --format json --lang ru
 - одну новость в двух языках;
 - `/faq/`, `/contact/`, `/search/`, `/404.html`;
 - sitemap index и языковые sitemap;
-- robots meta, canonical, hreflang;
+- meta-тег robots, canonical и hreflang;
 - JSON-LD через `validator.schema.org`;
 - PageSpeed Insights для ключевых URL.
 

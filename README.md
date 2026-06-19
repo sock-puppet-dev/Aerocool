@@ -1,6 +1,6 @@
 # Aerocool Ukraine
 
-Обновлено: 2026-06-18.
+Обновлено: 2026-06-19.
 
 `Aerocool Ukraine` — двуязычный маркетинговый и каталоговый сайт на `Hugo` для кресел Aerocool в Украине. Основной язык — украинский (`uk`), второй язык — русский (`ru`). Сайт собирается статически, деплоится через `Netlify` и использует локальные Hugo overrides поверх темы `PaperMod`.
 
@@ -15,19 +15,21 @@
 
 Для текущих задач по Core Web Vitals читать `docs/quality/12-core-web-vitals-guide-2026.md` и актуальный аудит `docs/audits/54-2026-05-26-core-web-vitals-current-audit.md`.
 
-Для текущих задач по JSON-LD, schema.org, Entity Registry, `about_entities`, `mentions_entities`, `ProductGroup`, `sameAs` и graph-аудиту читать `docs/seo/23-entity-registry-2026.md`, `docs/seo/26-json-ld-graph-audit-roadmap-2026.md` и текущий generated report [docs/seo/59-entity-performance-report-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md). Для ручной проверки через `validator.schema.org` использовать [docs/seo/60-schema-validator-url-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/60-schema-validator-url-checklist-2026.md). Полный schema/entity-аудит `57` оставлен как исторический snapshot на 2026-05-31.
+Для текущих задач по JSON-LD, schema.org, Entity Registry, `about_entities`, `mentions_entities`, `ProductGroup`, `sameAs` и graph-аудиту читать `docs/seo/23-entity-registry-2026.md`, `docs/seo/26-json-ld-graph-audit-roadmap-2026.md` и текущий generated report [docs/seo/59-entity-performance-report-2026.md](docs/seo/59-entity-performance-report-2026.md). Для ручной проверки через `validator.schema.org` использовать [docs/seo/60-schema-validator-url-checklist-2026.md](docs/seo/60-schema-validator-url-checklist-2026.md). Полный schema/entity-аудит `57` оставлен как исторический snapshot на 2026-05-31.
 
-Для текущих задач по ключевым словам, семантике, каннибализации и планированию посадочных страниц читать [docs/seo/18-seo-keyword-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/18-seo-keyword-map-2026.md), [docs/seo/53-keyword-database-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/53-keyword-database-2026.md) и [docs/seo/72-semantic-core-keyword-strategy-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/72-semantic-core-keyword-strategy-2026.md). Для задач по `hugo.yaml`, индексации, sitemap, robots, canonical, hreflang, production gate и техническому SERP-фундаменту читать [docs/seo/76-hugo-yaml-serp-technical-contract-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/76-hugo-yaml-serp-technical-contract-2026.md). Актуальная keyword-база содержит `277` строк, покрывает `100` markdown-страниц, включает support/legal URL `/image-license/` и `/ru/image-license/`, а поля `gsc_*` заполняются только после импорта реальных данных Google Search Console.
+Для текущих задач по ключевым словам, семантике, каннибализации и планированию посадочных страниц читать [docs/seo/18-seo-keyword-map-2026.md](docs/seo/18-seo-keyword-map-2026.md), [docs/seo/53-keyword-database-2026.md](docs/seo/53-keyword-database-2026.md) и [docs/seo/72-semantic-core-keyword-strategy-2026.md](docs/seo/72-semantic-core-keyword-strategy-2026.md). Для задач по `hugo.yaml`, индексации, sitemap, robots, canonical, hreflang, production gate и техническому SERP-фундаменту читать [docs/seo/76-hugo-yaml-serp-technical-contract-2026.md](docs/seo/76-hugo-yaml-serp-technical-contract-2026.md). Актуальная keyword-база содержит `277` строк, покрывает `100` markdown-страниц, включает support/legal URL `/image-license/` и `/ru/image-license/`, а поля `gsc_*` заполняются только после импорта реальных данных Google Search Console.
 
-Для текущих задач по UX/UI, Tailwind Plus секциям, Tailwind CSS 4.3 visual layer, компонентам, каталогу, фильтрам и визуальной структуре страниц читать [docs/architecture/51-tailwind-plus-ui-section-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/51-tailwind-plus-ui-section-map-2026.md) и актуальный повторный полный аудит [docs/audits/65-2026-06-05-full-ux-ui-revalidation-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/65-2026-06-05-full-ux-ui-revalidation-audit.md). Для screenshot/evidence деталей использовать предыдущий полный visual audit [docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md).
+Для текущих задач по UX/UI, Tailwind Plus секциям, Tailwind CSS 4.3 visual layer, компонентам, каталогу, фильтрам и визуальной структуре страниц читать [docs/architecture/51-tailwind-plus-ui-section-map-2026.md](docs/architecture/51-tailwind-plus-ui-section-map-2026.md) и актуальный повторный полный аудит [docs/audits/65-2026-06-05-full-ux-ui-revalidation-audit.md](docs/audits/65-2026-06-05-full-ux-ui-revalidation-audit.md). Для screenshot/evidence деталей использовать предыдущий полный visual audit [docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md](docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md).
 
-Для текущих задач по любым изображениям проекта - обложкам, fallback-картинкам, home hero, product gallery, inline-иллюстрациям, техническим схемам, AI-промптам и повторяемому high-tech стилю - читать [docs/content/67-image-design-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/67-image-design-playbook-2026.md). Для `seo-image`, product gallery, LCP preload и ролей `image` / `cover.image` / `seo-image` использовать аудит [docs/audits/69-2026-06-12-seo-image-product-gallery-documentation-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/69-2026-06-12-seo-image-product-gallery-documentation-audit.md). Для текущего полного состояния всех изображений проекта, section/root/series covers, fallback, product gallery hygiene и ручной проверки использовать аудит [docs/audits/71-2026-06-13-full-project-image-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/71-2026-06-13-full-project-image-audit.md). Для текущего глубокого состояния текстов и изображений `content/articles` / `content/news`, выполненных P1/P3-исправлений, остаточных factual-image рекомендаций и оценки **9.1/10** использовать [docs/audits/77-2026-06-18-articles-news-content-image-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/77-2026-06-18-articles-news-content-image-audit.md). Для подробной исторической матрицы внедрения inline-изображений использовать [docs/audits/74-2026-06-15-articles-news-inline-image-serp-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/74-2026-06-15-articles-news-inline-image-serp-audit.md). Для специализированного состояния article/news covers, schema crops и `assets/images/home-hero85.webp` использовать аудит [docs/audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md).
+Для текущих задач по любым изображениям проекта - обложкам, fallback-картинкам, home hero, product gallery, inline-иллюстрациям, техническим схемам, AI-промптам и повторяемому high-tech стилю - читать [docs/content/67-image-design-playbook-2026.md](docs/content/67-image-design-playbook-2026.md). Для `seo-image`, product gallery, LCP preload и ролей `image` / `cover.image` / `seo-image` использовать аудит [docs/audits/69-2026-06-12-seo-image-product-gallery-documentation-audit.md](docs/audits/69-2026-06-12-seo-image-product-gallery-documentation-audit.md). Для текущего полного состояния всех изображений проекта, section/root/series covers, fallback, product gallery hygiene и ручной проверки использовать аудит [docs/audits/71-2026-06-13-full-project-image-audit.md](docs/audits/71-2026-06-13-full-project-image-audit.md). Для текущего глубокого состояния текстов и изображений `content/articles` / `content/news`, выполненных P1/P3-исправлений, остаточных factual-image рекомендаций и оценки **9.1/10** использовать [docs/audits/77-2026-06-18-articles-news-content-image-audit.md](docs/audits/77-2026-06-18-articles-news-content-image-audit.md). Для подробной исторической матрицы внедрения inline-изображений использовать [docs/audits/74-2026-06-15-articles-news-inline-image-serp-audit.md](docs/audits/74-2026-06-15-articles-news-inline-image-serp-audit.md). Для специализированного состояния article/news covers, schema crops и `assets/images/home-hero85.webp` использовать аудит [docs/audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md](docs/audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md).
 
-Для текущих задач по Hugo, Node, Tailwind и локальным инструментам читать [docs/deploy/15-local-tooling-mise.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/15-local-tooling-mise.md), актуальный tooling-аудит [docs/audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md) и SERP-контракт [docs/seo/76-hugo-yaml-serp-technical-contract-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/76-hugo-yaml-serp-technical-contract-2026.md), если меняется `hugo.yaml`.
+Для текущих задач по Hugo, Node, Tailwind и локальным инструментам читать [docs/deploy/15-local-tooling-mise.md](docs/deploy/15-local-tooling-mise.md), актуальный tooling-аудит [docs/audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md](docs/audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md) и SERP-контракт [docs/seo/76-hugo-yaml-serp-technical-contract-2026.md](docs/seo/76-hugo-yaml-serp-technical-contract-2026.md), если меняется `hugo.yaml`.
 
 Проще говоря: `content/` отвечает за текст и данные страниц, `layouts/` отвечает за HTML/SEO/schema-логику, `assets/` отвечает за CSS/JS, а PageSpeed Insights используется для ручной проверки качества опубликованных URL.
 
-Вся документация проекта должна быть русскоязычной, понятной новичку и структурированной. Единый стандарт стиля описан в [docs/architecture/02-documentation-style-guide.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/02-documentation-style-guide.md).
+Вся документация проекта должна быть русскоязычной, понятной новичку и структурированной. Единый стандарт стиля описан в [docs/architecture/02-documentation-style-guide.md](docs/architecture/02-documentation-style-guide.md).
+
+Текущий полный аудит документации, синхронизации с кодом и официальными практиками 2026 года находится в [docs/audits/78-2026-06-19-full-documentation-project-sync-audit.md](docs/audits/78-2026-06-19-full-documentation-project-sync-audit.md). Итоговая оценка после исправлений: **9.8/10**.
 
 ## 1. Главная идея проекта
 
@@ -107,7 +109,7 @@ npm run build:production
 - публиковать сайт;
 - создавать Branch Deploy для `dev`.
 
-Для системы отзывов подключен `Netlify Database`. Целевая архитектура описана в [docs/deploy/17-netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/17-netlify-database-reviews.md): отзывы хранятся в PostgreSQL, проходят модерацию, выгружаются в `data/generated/reviews.json` на этапе build и только после этого попадают в видимый HTML и `Product` JSON-LD. На текущем этапе создана первая миграция `reviews`, добавлен `POST /api/reviews`, полный цикл проверен на ветке `dev`, а все текущие товарные страницы получили `review_target_id` и `reviews_enabled: true`. Рейтинг в HTML, карточках товаров и `Product.aggregateRating` строится только из approved отзывов, выгруженных в Hugo snapshot перед сборкой.
+Для системы отзывов подключен `Netlify Database`. Целевая архитектура описана в [docs/deploy/17-netlify-database-reviews.md](docs/deploy/17-netlify-database-reviews.md): отзывы хранятся в PostgreSQL, проходят модерацию, выгружаются в `data/generated/reviews.json` на этапе build и только после этого попадают в видимый HTML и `Product` JSON-LD. На текущем этапе создана первая миграция `reviews`, добавлен `POST /api/reviews`, полный цикл проверен на ветке `dev`, а все текущие товарные страницы получили `review_target_id` и `reviews_enabled: true`. Рейтинг в HTML, карточках товаров и `Product.aggregateRating` строится только из approved отзывов, выгруженных в Hugo snapshot перед сборкой.
 
 Текущий правильный workflow такой:
 
@@ -170,7 +172,7 @@ index.ru.md   русская версия
 
 Во front matter использовать `schema_types`.
 
-Видимая meta-строка управляется локальным helper [layouts/_partials/page-meta.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-meta.html), а не прямым выводом PaperMod `post_meta.html`.
+Видимая meta-строка управляется локальным helper [layouts/_partials/page-meta.html](layouts/_partials/page-meta.html), а не прямым выводом PaperMod `post_meta.html`.
 
 Текущая политика:
 
@@ -182,7 +184,7 @@ index.ru.md   русская версия
 
 `date` и `lastmod` при этом не удаляются из front matter: они нужны для сортировки, RSS, head/schema-слоя и редакционного блока статей/новостей.
 
-Для товарных страниц product facts хранятся в front matter конкретного `content/products/<series>/<model>/index*.md`. Это единый источник правды для цены, наличия, SKU, MPN, GTIN, гарантии, доставки, возврата и способов оплаты. Владелец бизнес-значений — команда Aerocool Украина; `Product` JSON-LD, видимый товарный блок и `/faq/` должны быть синхронизированы с front matter. Операционный процесс ролей, подтверждений и QA описан в [docs/seo/58-product-facts-maintenance-process-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/58-product-facts-maintenance-process-2026.md).
+Для товарных страниц product facts хранятся в front matter конкретного `content/products/<series>/<model>/index*.md`. Это единый источник правды для цены, наличия, SKU, MPN, GTIN, гарантии, доставки, возврата и способов оплаты. Владелец бизнес-значений — команда Aerocool Украина; `Product` JSON-LD, видимый товарный блок и `/faq/` должны быть синхронизированы с front matter. Операционный процесс ролей, подтверждений и QA описан в [docs/seo/58-product-facts-maintenance-process-2026.md](docs/seo/58-product-facts-maintenance-process-2026.md).
 
 Для отзывов и рейтингов целевой источник правды другой: `Netlify Database` с approved отзывами и build-time export в Hugo data. Поля `rating.value` и `rating.count` удалены из товарного front matter; рейтинг в HTML, карточках товаров и `Product.aggregateRating` строится только из approved отзывов, выгруженных в `data/generated/reviews.json`.
 
@@ -340,7 +342,7 @@ static/offline.js
 - закрытие групп фильтра на mobile при загрузке;
 - view transitions;
 - code copy buttons, если они включены;
-- service worker registration.
+- регистрация service worker.
 
 Это сделано, чтобы `Content-Security-Policy` мог быть строже и чтобы внешние quality-проверки не ругались на inline scripts.
 
@@ -399,7 +401,7 @@ JSON-LD генерируется централизованно через `layo
 - общий fallback `/* -> /404.html 404` не нужен: Netlify автоматически использует `public/404.html` для несуществующих URL;
 - после правок проверять, что `public/_redirects` обновился после сборки, `/` отдает `200`, scanner URL отдают `404`, а `/404.html` остается `noindex,nofollow`.
 
-Подробно смотри [docs/deploy/16-netlify-routing.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/16-netlify-routing.md).
+Подробно смотри [docs/deploy/16-netlify-routing.md](docs/deploy/16-netlify-routing.md).
 
 ## 13. Проверка Через PageSpeed Insights
 
@@ -413,7 +415,7 @@ JSON-LD генерируется централизованно через `layo
 4. Проверить ключевые URL в PageSpeed Insights, сначала mobile, затем desktop.
 5. Если менялись schema.org, дополнительно проверить URL через `validator.schema.org`.
 
-Подробно смотри [docs/quality/13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md).
+Подробно смотри [docs/quality/13-pagespeed-insights-audit.md](docs/quality/13-pagespeed-insights-audit.md).
 
 ## 14. Контроль Перед Production-Релизом
 
@@ -442,7 +444,7 @@ npm run build:production
 - `npm install` — ставит npm-зависимости проекта.
 - `npm run dev` — запускает `hugo server`.
 - `npm run build` — сначала запускает `node scripts/export_reviews.mjs`, затем development-сборку Hugo, безопасную для noindex.
-- `npm run entity:report` — запускает `node scripts/generate_entity_performance_report.mjs`; после сборки обновляет [docs/seo/59-entity-performance-report-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md) и generated CSV по Entity Registry, `about_entities`, `mentions_entities`, `product_group_id` и rendered JSON-LD refs; будущие GSC/AI/business-метрики вносить в [docs/seo/59-entity-performance-overrides.csv](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-overrides.csv).
+- `npm run entity:report` — запускает `node scripts/generate_entity_performance_report.mjs`; после сборки обновляет [docs/seo/59-entity-performance-report-2026.md](docs/seo/59-entity-performance-report-2026.md) и generated CSV по Entity Registry, `about_entities`, `mentions_entities`, `product_group_id` и rendered JSON-LD refs; будущие GSC/AI/business-метрики вносить в [docs/seo/59-entity-performance-overrides.csv](docs/seo/59-entity-performance-overrides.csv).
 - `npm run build:production` — сначала запускает `node scripts/export_reviews.mjs`, затем локальную production-сборку Hugo для финальной проверки index/follow.
 
 Для ежедневной работы удобнее использовать helper-скрипты из папки `scripts/`. Они запускаются из корня проекта и содержат комментарии с назначением и инструкцией.
@@ -557,12 +559,12 @@ git checkout dev
 
 1. `README.md` — главный вход в проект.
 2. `AGENTS.md` — правила безопасной работы для Codex/агентов.
-3. [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-72`.
-4. [docs/architecture/02-documentation-style-guide.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/02-documentation-style-guide.md) — стандарт русскоязычной, понятной и структурированной документации.
-5. [docs/architecture/03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md) — локальные Hugo helpers и partials.
-6. [docs/content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md) — поля front matter для страниц.
-7. [docs/quality/13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md) — ручная проверка опубликованных URL через PageSpeed Insights.
-8. [docs/quality/14-production-quality-gate-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/14-production-quality-gate-2026.md) — финальный контроль качества перед production-релизом.
+3. [docs/01-documentation-map.md](docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-78`.
+4. [docs/architecture/02-documentation-style-guide.md](docs/architecture/02-documentation-style-guide.md) — стандарт русскоязычной, понятной и структурированной документации.
+5. [docs/architecture/03-hugo-template-helpers.md](docs/architecture/03-hugo-template-helpers.md) — локальные Hugo helpers и partials.
+6. [docs/content/05-front-matter-reference.md](docs/content/05-front-matter-reference.md) — поля front matter для страниц.
+7. [docs/quality/13-pagespeed-insights-audit.md](docs/quality/13-pagespeed-insights-audit.md) — ручная проверка опубликованных URL через PageSpeed Insights.
+8. [docs/quality/14-production-quality-gate-2026.md](docs/quality/14-production-quality-gate-2026.md) — финальный контроль качества перед production-релизом.
 
 Диапазоны нумерации внутри `docs/`:
 
@@ -576,4 +578,4 @@ git checkout dev
 - `51` — прикладная карта UI/UX-внедрения Tailwind Plus.
 - `52+` — новые audit-снимки, SEO-базы и последующие проектные документы.
 
-Весь полный список файлов и их порядок чтения поддерживается в [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md). Если добавляется новый документ, сначала выбирается следующий свободный номер, затем обновляются `docs/01-documentation-map.md`, `README.md`, `AGENTS.md` и локальные ссылки.
+Весь полный список файлов и их порядок чтения поддерживается в [docs/01-documentation-map.md](docs/01-documentation-map.md). Если добавляется новый документ, сначала выбирается следующий свободный номер, затем обновляются `docs/01-documentation-map.md`, `README.md`, `AGENTS.md` и локальные ссылки.

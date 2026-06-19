@@ -7,11 +7,11 @@
 
 Базовые документы, на которые опирается этот срез:
 
-- [47-2026-05-18-json-ld-entity-full-audit-after-customer-stories.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/47-2026-05-18-json-ld-entity-full-audit-after-customer-stories.md);
-- [49-2026-05-19-documentation-current-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/49-2026-05-19-documentation-current-audit.md);
-- [50-2026-05-19-visible-page-meta-policy-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/50-2026-05-19-visible-page-meta-policy-audit.md);
-- [03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md);
-- [26-json-ld-graph-audit-roadmap-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/26-json-ld-graph-audit-roadmap-2026.md).
+- [47-2026-05-18-json-ld-entity-full-audit-after-customer-stories.md](47-2026-05-18-json-ld-entity-full-audit-after-customer-stories.md);
+- [49-2026-05-19-documentation-current-audit.md](49-2026-05-19-documentation-current-audit.md);
+- [50-2026-05-19-visible-page-meta-policy-audit.md](50-2026-05-19-visible-page-meta-policy-audit.md);
+- [03-hugo-template-helpers.md](../architecture/03-hugo-template-helpers.md);
+- [26-json-ld-graph-audit-roadmap-2026.md](../seo/26-json-ld-graph-audit-roadmap-2026.md).
 
 ## 1. Главный Вывод
 
@@ -32,8 +32,8 @@
 
 После расширения контента и добавления keyword database rendered graph вырос, но архитектурные правила не изменились. Реальное изменение в project governance:
 
-1. Документация получила глобальную нумерацию и главный вход [01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md).
-2. Видимые breadcrumbs и schema.org `BreadcrumbList` используют общий helper [breadcrumb-label.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/breadcrumb-label.html).
+1. Документация получила глобальную нумерацию и главный вход [01-documentation-map.md](../01-documentation-map.md).
+2. Видимые breadcrumbs и schema.org `BreadcrumbList` используют общий helper [breadcrumb-label.html](../../layouts/_partials/breadcrumb-label.html).
 3. Поле `linkTitle` стало официальным способом задавать короткое имя страницы для навигации и breadcrumbs.
 4. Видимая meta-строка страниц отделена от head/schema-слоя и описана как отдельная policy.
 5. Документация синхронизирована до документа `53`, поэтому карта документации, `README.md` и `AGENTS.md` должны учитывать диапазон `01-53`.
@@ -44,14 +44,14 @@
 
 Проверено:
 
-- [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml);
+- [data/entities.yaml](../../data/entities.yaml);
 - content front matter в `content/**/*.md`;
 - rendered HTML в `public/**/*.html` после `npm run build`;
 - schema partials в `layouts/_partials/_schema`;
 - breadcrumb helpers в `layouts/_partials/breadcrumbs.html`, `layouts/_partials/breadcrumb-label.html` и `layouts/_partials/_schema/breadcrumbs.html`;
-- product JSON-LD partial [product.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/product.html);
-- review roadmap [17-netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/17-netlify-database-reviews.md);
-- документационная карта [01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md).
+- product JSON-LD partial [product.html](../../layouts/_partials/_schema/product.html);
+- review roadmap [17-netlify-database-reviews.md](../deploy/17-netlify-database-reviews.md);
+- документационная карта [01-documentation-map.md](../01-documentation-map.md).
 
 Команды проверки:
 
@@ -60,7 +60,7 @@ npm run build
 git diff --check
 ```
 
-## 4. Rendered Graph Snapshot
+## 4. Снимок Сгенерированного Графа
 
 После сборки:
 
@@ -105,7 +105,7 @@ git diff --check
 
 Вывод: graph расширился вместе с контентом, но остается тем же типом Content Knowledge Graph, который был зафиксирован после customer stories.
 
-## 6. Entity Registry
+## 6. Реестр Сущностей
 
 | Метрика | Значение |
 | --- | ---: |
@@ -162,14 +162,14 @@ git diff --check
 - visible breadcrumbs найдены на `102` rendered pages;
 - `BreadcrumbList` nodes есть на `100` JSON-LD pages;
 - `BreadcrumbList` position issues: `0`;
-- видимый helper и schema helper используют [breadcrumb-label.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/breadcrumb-label.html);
+- видимый helper и schema helper используют [breadcrumb-label.html](../../layouts/_partials/breadcrumb-label.html);
 - `breadcrumb-label.html` берет `.LinkTitle`, а если его нет, `.Title`.
 
 Разница между `102` visible breadcrumb pages и `100` `BreadcrumbList` nodes ожидаема: служебные страницы вроде search/contact-success не должны получать JSON-LD, даже если видимая навигация на странице может существовать.
 
 Вывод: текущая архитектура снижает риск schema drift между видимой навигацией и `BreadcrumbList`.
 
-## 9. Connected Schema
+## 9. Связанная Schema-Разметка
 
 Что работает:
 
@@ -192,7 +192,7 @@ git diff --check
 
 Вывод: структура связей остается правильной. Local Aerocool Ukraine не смешивается с global social profiles через `sameAs`; связь с глобальной сущностью идет через `parentOrganization` и `brand`.
 
-## 10. Product Graph
+## 10. Граф Товаров
 
 | Метрика | Значение |
 | --- | ---: |
@@ -265,7 +265,7 @@ Product/Offer facts стабильны: цена, валюта, наличие, 
 
 Базовая image schema работает. License metadata не добавлять без подтвержденных прав, license page и юридически корректных формулировок.
 
-## 15. Documentation Governance
+## 15. Управление Документацией
 
 В `docs/` сейчас `53` markdown-файла, все с глобальным числовым префиксом. Ненумерованных файлов внутри `docs/` не найдено.
 
@@ -275,15 +275,15 @@ Product/Offer facts стабильны: цена, валюта, наличие, 
 
 ## 16. Актуальные Проблемы
 
-### P0. Production Gate
+### P0. Контроль Перед Production
 
 Все `116` страниц с JSON-LD имеют `noindex,nofollow`, потому что сборка идет в `development`. Перед production нужно переключить окружение, проверить `index,follow`, sitemap, robots, canonical, hreflang, headers, кастомную 404 и published URL.
 
-### P0/P1. Ratings/Reviews Source Of Truth
+### P0/P1. Источник Правды Для Рейтингов И Отзывов
 
 `Product.aggregateRating` выводится из legacy `rating` front matter, а целевой approved reviews pipeline еще не реализован. Это главный structured data risk.
 
-### P1. Entity Performance Report
+### P1. Отчет Об Эффективности Сущностей
 
 Нужен регулярный отчет: entity ID, entity home, pages about, pages mentions, rendered node, GSC signal, AI citation signal, business action signal.
 
@@ -299,19 +299,19 @@ Product/Offer facts стабильны: цена, валюта, наличие, 
 
 Видимые характеристики есть, но еще не размечены как `PropertyValue`.
 
-### P2. Post-Production AI Search Baseline
+### P2. Базовые Метрики Поиска С AI После Production
 
 После индексации нужно измерить AI Search visibility и hallucination risk по бренду, локальной организации, сериям, моделям, материалам, механизмам и policies.
 
-### P2. Migration/Rebrand Schema Checklist
+### P2. Чек-Лист Schema Для Миграции И Ребрендинга
 
 Перед любыми изменениями URL, структуры каталога, дизайна или production-переходом нужен отдельный schema migration checklist.
 
-### P2. Image License Metadata
+### P2. Метаданные Лицензии Изображений
 
 Внедрять только после подтверждения прав и license page.
 
-### P3. Agentic Actions / MCP / NLWeb / `llms.txt`
+### P3. Агентские Действия, MCP, NLWeb И `llms.txt`
 
 Не внедрять сейчас. Вернуться после production, ratings/reviews, ProductGroup, entity reporting и появления реального бизнес-сценария.
 

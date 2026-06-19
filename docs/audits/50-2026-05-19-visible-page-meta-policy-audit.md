@@ -20,14 +20,14 @@
 
 Добавлен единый helper:
 
-- [page-meta.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-meta.html).
+- [page-meta.html](../../layouts/_partials/page-meta.html).
 
 Он заменил прямой вызов `post_meta.html` и `translation-list.html` в локальных шаблонах:
 
-- [single.html](/Users/stadnyk/MEGA/Aerocool/layouts/single.html);
-- [faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html);
-- [list.html](/Users/stadnyk/MEGA/Aerocool/layouts/list.html);
-- [search.html](/Users/stadnyk/MEGA/Aerocool/layouts/search.html).
+- [single.html](../../layouts/single.html);
+- [faq/single.html](../../layouts/faq/single.html);
+- [list.html](../../layouts/list.html);
+- [search.html](../../layouts/search.html).
 
 `search.html` больше не выводит список переводов под заголовком поиска.
 
@@ -64,21 +64,21 @@ Meta-строка не выводит:
 - `canonical` остается в `<head>`;
 - `hreflang` остается в `<head>`;
 - `author` может оставаться в head/schema-слое, но не выводится как UI-текст под `H1`;
-- языковой переключатель остается в [header.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/header.html).
+- языковой переключатель остается в [header.html](../../layouts/_partials/header.html).
 
-Для статей и новостей дата обновления видимо выводится через [editorial-note.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/editorial-note.html), а не через `page-meta.html`.
+Для статей и новостей дата обновления видимо выводится через [editorial-note.html](../../layouts/_partials/editorial-note.html), а не через `page-meta.html`.
 
 ## 5. Обновленная Документация
 
 Правило описано в активных документах:
 
-- [README.md](/Users/stadnyk/MEGA/Aerocool/README.md);
-- [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md);
-- [01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md);
-- [03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md);
-- [05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md);
-- [07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md);
-- [19-schema-types-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/19-schema-types-reference.md).
+- [README.md](../../README.md);
+- [AGENTS.md](../../AGENTS.md);
+- [01-documentation-map.md](../01-documentation-map.md);
+- [03-hugo-template-helpers.md](../architecture/03-hugo-template-helpers.md);
+- [05-front-matter-reference.md](../content/05-front-matter-reference.md);
+- [07-content-seo-checklist-2026.md](../content/07-content-seo-checklist-2026.md);
+- [19-schema-types-reference.md](../seo/19-schema-types-reference.md).
 
 ## 6. Проверки
 
@@ -100,4 +100,4 @@ Meta-строка не выводит:
 
 Оценка: `9/10`.
 
-Оставшийся контролируемый риск: helper [page-meta.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-meta.html) определяет статьи и новости через `schema_types`. Это правильно для текущей архитектуры проекта, но требует дисциплины: новые статьи должны иметь `schema_types: ["website", "article", "organization", "breadcrumbs"]`, а новости — `schema_types: ["website", "news", "organization", "breadcrumbs"]`.
+Оставшийся контролируемый риск: helper [page-meta.html](../../layouts/_partials/page-meta.html) определяет статьи и новости через `schema_types`. Это правильно для текущей архитектуры проекта, но требует дисциплины: новые статьи должны иметь `schema_types: ["website", "article", "organization", "breadcrumbs"]`, а новости — `schema_types: ["website", "news", "organization", "breadcrumbs"]`.

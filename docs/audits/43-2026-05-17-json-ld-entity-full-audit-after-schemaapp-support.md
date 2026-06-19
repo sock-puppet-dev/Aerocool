@@ -4,7 +4,7 @@
 
 Этот документ фиксирует контрольный снимок состояния `JSON-LD`, `Entity Registry`, `sameAs`, `additionalType`, breadcrumbs, image metadata, product facts и ProductGroup после анализа 9 support-статей Schema App.
 
-Связанный источник: [42-2026-05-17-schemaapp-support-knowledge-base-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/42-2026-05-17-schemaapp-support-knowledge-base-audit.md).
+Связанный источник: [42-2026-05-17-schemaapp-support-knowledge-base-audit.md](42-2026-05-17-schemaapp-support-knowledge-base-audit.md).
 
 ## 1. Итоговая Оценка
 
@@ -116,7 +116,7 @@ Rendered graph содержит `84` `additionalType`:
 
 Вывод: это допустимое текущее применение, потому что оно уточняет service policy nodes и не используется как замена `sameAs`. Но добавлять `additionalType` для Wikipedia/Wikidata или общих терминов нельзя без ручной проверки.
 
-## 6. Breadcrumbs
+## 6. Хлебные Крошки
 
 Rendered graph:
 
@@ -150,7 +150,7 @@ Core pages уже имеют корректную primary entity модель:
 
 Вывод: product facts заполнены системно, но `aggregateRating` остается главным P0/P1 quality risk, пока источник рейтингов не подтвержден видимо и операционно.
 
-## 9. ProductGroup
+## 9. Тип ProductGroup
 
 `product_group_id` заполнен на всех `24` товарных языковых страницах. Все ProductGroup-сущности имеют статус `planned`.
 
@@ -211,4 +211,3 @@ Rendered graph:
 - будущая image license metadata только после legal/business подтверждения.
 
 Текущий правильный курс: не расширять graph хаотично, а закрыть P0, затем ProductGroup/variant navigation, затем image license и более глубокие product properties.
-

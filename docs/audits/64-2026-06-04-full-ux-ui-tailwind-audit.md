@@ -79,7 +79,7 @@ Audit `63` остается быстрым snapshot по карте `51`. Это
 | Contact | `/contact/` соответствует side-by-side grid: слева контекст и контакты, справа форма. Labels, required, pattern/title, honeypot и success URL есть. |
 | Success state | `/contact/success/` оформлен как alert with actions, а не как обычный markdown. |
 
-## P1 Findings
+## Находки P1
 
 | ID | Finding | Evidence | Почему Это Важно | Рекомендация |
 |---|---|---|---|---|
@@ -90,7 +90,7 @@ Audit `63` остается быстрым snapshot по карте `51`. Это
 | UX-64-05 | Нет comparison table для каталога и страниц серий. | В `51` и `63` стоит backlog; в rendered `/products/` таблицы нет. | Для кресел сравнение серии, материала, регулировок, механизма, цены и наличия критичнее, чем для простого блога. | Реализовать Application UI `Tables / With stacked columns on mobile`. Начать с `/products/`, затем повторить/сузить на страницах серий. |
 | UX-64-06 | Нет applied filter chips. | `products/filters.html` выводит count и reset, `site.js` считает active filters, но UI для chips отсутствует. | Пользователь видит количество найденных товаров, но не видит компактный список активных условий и не может снять одно условие отдельно. | Добавить область `[data-product-filter-active]` над результатами, chip на каждый выбранный checkbox и remove action для каждого chip. |
 
-## P2 Findings
+## Находки P2
 
 | ID | Finding | Evidence | Почему Это Важно | Рекомендация |
 |---|---|---|---|---|
@@ -104,7 +104,7 @@ Audit `63` остается быстрым snapshot по карте `51`. Это
 | UX-64-14 | Series-specific FAQ отсутствует. | В `51/63` отмечено как P2. | Общий FAQ есть, но сомнения по конкретной серии лучше закрывать прямо на series page. | Добавить `faq_groups` или отдельный shortcode/partial для FAQ конкретной серии. |
 | UX-64-15 | PDP alternatives/features еще не закрыты. | В `layouts/products/single.html` есть overview/facts/tabs/incentives, но нет related alternatives и visual feature sections. | После просмотра товара пользователь должен легко перейти к соседнему материалу/серии/ценовому уровню. | Добавить related products внутри серии и product feature blocks только там, где есть реальные изображения и данные. |
 
-## P3 Findings
+## Находки P3
 
 | ID | Finding | Evidence | Почему Это Важно | Рекомендация |
 |---|---|---|---|---|

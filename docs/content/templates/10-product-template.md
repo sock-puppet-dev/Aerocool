@@ -151,7 +151,7 @@ payment_methods:             # необязательно
 
 Если `image` или fallback `cover.image` указывает на отсутствующий файл либо на ресурс, который Hugo не может обработать как processable image, product gallery должна остановить сборку. Это правильное поведение: лучше получить build error, чем production-страницу с битой LCP-картинкой.
 
-Первое товарное изображение не вставлять через shortcode `seo-image`. Товарный шаблон сам берет `image` из front matter, выводит первый кадр через [layouts/_partials/products/gallery.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/gallery.html), ставит `loading="eager"` и `fetchpriority="high"`, а [layouts/_partials/_seo/lcp-image-preload.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/lcp-image-preload.html) выводит matching responsive preload в `<head>` с gallery `sizes`.
+Первое товарное изображение не вставлять через shortcode `seo-image`. Товарный шаблон сам берет `image` из front matter, выводит первый кадр через [layouts/_partials/products/gallery.html](../../../layouts/_partials/products/gallery.html), ставит `loading="eager"` и `fetchpriority="high"`, а [layouts/_partials/_seo/lcp-image-preload.html](../../../layouts/_partials/_seo/lcp-image-preload.html) выводит matching responsive preload в `<head>` с gallery `sizes`.
 
 Если в описании товара позже нужна вторичная inline-иллюстрация, ее можно добавить через `seo-image`, но только как lazy image: `loading="lazy"`, `preload=false`, `fetchpriority=auto`.
 

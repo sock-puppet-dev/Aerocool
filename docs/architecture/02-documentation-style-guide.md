@@ -1,6 +1,6 @@
 # Руководство по стилю документации
 
-Обновлено: 2026-06-02.
+Обновлено: 2026-06-19.
 
 Этот документ задает единый стандарт для всей документации проекта `Aerocool Ukraine`.
 
@@ -142,9 +142,28 @@
 
 1. Выбрать следующий свободный номер.
 2. Назвать файл через `NN-topic.md`.
-3. Добавить файл в [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md).
-4. Обновить ссылки в [README.md](/Users/stadnyk/MEGA/Aerocool/README.md), [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md) и связанных документах.
+3. Добавить файл в [docs/01-documentation-map.md](../01-documentation-map.md).
+4. Обновить ссылки в [README.md](../../README.md), [AGENTS.md](../../AGENTS.md) и связанных документах.
 5. Проверить локальные markdown-ссылки.
+
+### Переносимые Ссылки
+
+Ссылки на файлы репозитория должны быть относительными к текущему документу.
+
+Правильно:
+
+```md
+[README.md](../../README.md)
+[справочник front matter](../content/05-front-matter-reference.md)
+```
+
+Неправильно:
+
+```md
+`/Users/name/project/README.md`
+```
+
+Абсолютный путь привязывает документацию к одному компьютеру и не открывается у другого разработчика или в GitHub. Абсолютные URL допустимы только для страниц сайта и внешних официальных источников.
 
 ## 9. Проверка После Правок Документации
 
@@ -159,6 +178,7 @@ npm run build
 - проверить, что новые документы добавлены в `docs/01-documentation-map.md`;
 - проверить, что root `README.md` ведет к полной карте документации и не противоречит новым audit-снимкам;
 - проверить, что ссылки на локальные файлы открываются;
+- проверить, что в локальных markdown-ссылках нет пути `/Users/...` или другого абсолютного пути рабочей машины;
 - проверить, что новые правила не противоречат `AGENTS.md`;
 - проверить, что кодовые имена полей совпадают с реальными шаблонами.
 
@@ -180,14 +200,14 @@ rg --files README.md AGENTS.md docs
 
 3. Проверить, что у всех рабочих документов есть дата. Исключение — шаблоны в `docs/content/templates/`.
 
-4. Проверить, что [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md) перечисляет все документы внутри `docs/`.
+4. Проверить, что [docs/01-documentation-map.md](../01-documentation-map.md) перечисляет все документы внутри `docs/`.
 
-5. Проверить, что root [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) ведет к полной карте документации, а [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md) перечисляет актуальные локальные гайды.
+5. Проверить, что root [README.md](../../README.md) ведет к полной карте документации, а [AGENTS.md](../../AGENTS.md) перечисляет актуальные локальные гайды.
 
 6. Сверить документацию с фактическими файлами проекта:
 
-- `layouts/` и [03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md);
-- `content/` и [05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md);
+- `layouts/` и [03-hugo-template-helpers.md](03-hugo-template-helpers.md);
+- `content/` и [05-front-matter-reference.md](../content/05-front-matter-reference.md);
 - `data/`, `data/entities.yaml` и entity-документы;
 - `package.json`, `mise.toml`, `netlify.toml` и deploy-документы;
 - quality-документы и PageSpeed workflow.

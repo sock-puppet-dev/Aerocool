@@ -3,7 +3,7 @@
 Дата аудита: 2026-05-18.
 Актуализировано: 2026-05-21.
 
-Примечание от 2026-05-21: это исторический audit-снимок состояния на 2026-05-18. Текущий порядок документации, актуальные счетчики файлов и последнюю оценку нужно смотреть в [01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md), [03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md), [52-2026-05-20-json-ld-entity-full-audit-current.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/52-2026-05-20-json-ld-entity-full-audit-current.md) и [53-keyword-database-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/53-keyword-database-2026.md). Числа `01-48`, `48` docs, `55` layout-файлов и `76` content-файлов ниже оставлены как значение исторического среза, а не как текущая инструкция.
+Примечание от 2026-05-21: это исторический audit-снимок состояния на 2026-05-18. Текущий порядок документации, актуальные счетчики файлов и последнюю оценку нужно смотреть в [01-documentation-map.md](../01-documentation-map.md), [03-hugo-template-helpers.md](../architecture/03-hugo-template-helpers.md), [52-2026-05-20-json-ld-entity-full-audit-current.md](52-2026-05-20-json-ld-entity-full-audit-current.md) и [53-keyword-database-2026.md](../seo/53-keyword-database-2026.md). Числа `01-48`, `48` docs, `55` layout-файлов и `76` content-файлов ниже оставлены как значение исторического среза, а не как текущая инструкция.
 
 Этот audit-снимок фиксирует актуальное состояние документации проекта `Aerocool Ukraine` после добавления новых материалов `2026-05-18`, обновления порядка чтения `01-48`, контрольного JSON-LD/entity graph аудита и повторной проверки шаблонов документации.
 
@@ -11,12 +11,12 @@
 
 Проверены:
 
-- [README.md](/Users/stadnyk/MEGA/Aerocool/README.md);
-- [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md);
-- [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md);
+- [README.md](../../README.md);
+- [AGENTS.md](../../AGENTS.md);
+- [docs/01-documentation-map.md](../01-documentation-map.md);
 - все документы внутри `docs/`;
 - все audit-снимки внутри `docs/audits/`;
-- соответствие [03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md) текущим файлам `layouts/`;
+- соответствие [03-hugo-template-helpers.md](../architecture/03-hugo-template-helpers.md) текущим файлам `layouts/`;
 - соответствие review/rating документации текущему `Netlify Database` и Google Review Snippet подходу;
 - открытые project gates: `development/noindex`, `AggregateRating`, `ProductGroup`, production monitoring.
 
@@ -46,9 +46,9 @@
 Контроль:
 
 - все рабочие документы имеют явную дату или явную дату аудита;
-- [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md) перечисляет все документы внутри `docs/` в порядке чтения `01-48`;
-- [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) ведет к полной карте документации, а [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md) перечисляет все `48` файлов из `docs/`;
-- [03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md) упоминает все `55` текущих layout-файлов;
+- [docs/01-documentation-map.md](../01-documentation-map.md) перечисляет все документы внутри `docs/` в порядке чтения `01-48`;
+- [README.md](../../README.md) ведет к полной карте документации, а [AGENTS.md](../../AGENTS.md) перечисляет все `48` файлов из `docs/`;
+- [03-hugo-template-helpers.md](../architecture/03-hugo-template-helpers.md) упоминает все `55` текущих layout-файлов;
 - служебные англоязычные заголовки вроде `Scope`, `Findings`, `Current Status`, `Implementation Backlog`, `Executive Summary`, `Prioritized Fix Plan` не найдены;
 - локальные markdown-ссылки проверены;
 - ссылочные заглушки с троеточием вместо URL не найдены;
@@ -70,14 +70,14 @@
 - `18-28` — SEO/schema/entity слой;
 - `29-48` — audit-снимки.
 
-[docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md) стал главным источником порядка чтения и описывает назначение каждого файла.
+[docs/01-documentation-map.md](../01-documentation-map.md) стал главным источником порядка чтения и описывает назначение каждого файла.
 
 ### P1. Новые Audit-Снимки 2026-05-18 Добавлены В Главные Карты
 
-В [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md) и [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md) добавлены:
+В [AGENTS.md](../../AGENTS.md) и [docs/01-documentation-map.md](../01-documentation-map.md) добавлены:
 
-- [46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md);
-- [47-2026-05-18-json-ld-entity-full-audit-after-customer-stories.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/47-2026-05-18-json-ld-entity-full-audit-after-customer-stories.md);
+- [46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md](46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md);
+- [47-2026-05-18-json-ld-entity-full-audit-after-customer-stories.md](47-2026-05-18-json-ld-entity-full-audit-after-customer-stories.md);
 - этот текущий documentation audit.
 
 ### P2. Даты В Новых Audit-Файлах Приведены К Стандарту
@@ -93,18 +93,18 @@
 
 Активные SEO/entity документы уже ссылаются на новый customer stories audit:
 
-- [25-ai-search-entity-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/25-ai-search-entity-map-2026.md);
-- [24-entities-knowledge-graph-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/24-entities-knowledge-graph-playbook-2026.md);
-- [20-schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/20-schema-markup-quality-checklist-2026.md);
-- [21-ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/21-ecommerce-structured-data-playbook-2026.md).
+- [25-ai-search-entity-map-2026.md](../seo/25-ai-search-entity-map-2026.md);
+- [24-entities-knowledge-graph-playbook-2026.md](../seo/24-entities-knowledge-graph-playbook-2026.md);
+- [20-schema-markup-quality-checklist-2026.md](../seo/20-schema-markup-quality-checklist-2026.md);
+- [21-ecommerce-structured-data-playbook-2026.md](../seo/21-ecommerce-structured-data-playbook-2026.md).
 
 ### P2. Шаблоны Контента И Финальный SEO-Чеклист Очищены
 
 В повторной проверке исправлены мелкие дефекты структуры:
 
-- в [08-article-template.md](/Users/stadnyk/MEGA/Aerocool/docs/content/templates/08-article-template.md), [09-news-template.md](/Users/stadnyk/MEGA/Aerocool/docs/content/templates/09-news-template.md), [10-product-template.md](/Users/stadnyk/MEGA/Aerocool/docs/content/templates/10-product-template.md) и [11-series-template.md](/Users/stadnyk/MEGA/Aerocool/docs/content/templates/11-series-template.md) добавлена явная дата обновления;
+- в [08-article-template.md](../content/templates/08-article-template.md), [09-news-template.md](../content/templates/09-news-template.md), [10-product-template.md](../content/templates/10-product-template.md) и [11-series-template.md](../content/templates/11-series-template.md) добавлена явная дата обновления;
 - ссылочные заглушки `(...)` в шаблонах статьи и новости заменены на понятные site-path примеры;
-- в [28-ssg-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/28-ssg-seo-checklist-2026.md) второй активный `# H1` заменен на обычный раздел `## 19. Финальная Формула`.
+- в [28-ssg-seo-checklist-2026.md](../seo/28-ssg-seo-checklist-2026.md) второй активный `# H1` заменен на обычный раздел `## 19. Финальная Формула`.
 
 ## 5. Текущий Вывод
 

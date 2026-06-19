@@ -1,12 +1,12 @@
 # Руководство по шаблонным helper-файлам Hugo
 
-Обновлено: 2026-06-12.
+Обновлено: 2026-06-19.
 
 ## Зачем Нужен Этот Документ
 
 Этот документ объясняет логику локальных `helpers` и `partials` проекта `Aerocool` так, чтобы в ней мог быстро разобраться новичок.
 
-Текущая синхронизация документации с Hugo 0.163.0, Tailwind CSS 4.3, SEO/schema и CWV-практиками 2026 зафиксирована в [68-2026-06-11-hugo-0-163-documentation-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md). Историческая синхронизация лучших практик 2026 остается в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md).
+Текущая синхронизация документации с Hugo 0.163.0, Tailwind CSS 4.3, SEO/schema и CWV-практиками 2026 зафиксирована в [68-2026-06-11-hugo-0-163-documentation-sync-audit.md](../audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md). Историческая синхронизация лучших практик 2026 остается в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](../audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md).
 
 Главная цель:
 
@@ -107,6 +107,7 @@
    - `page-image-object.html`
    - `page-image-list.html`
    - `product.html`
+   - `product-group.html`
    - `article.html`
    - `news.html`
    - `faq.html`
@@ -119,61 +120,78 @@
 
 Эта карта нужна новичку, чтобы не искать точку входа по всему проекту.
 
-- [layouts/baseof.html](/Users/stadnyk/MEGA/Aerocool/layouts/baseof.html) — общий HTML-каркас.
-- [layouts/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/single.html) — обычная детальная страница.
-- [layouts/list.html](/Users/stadnyk/MEGA/Aerocool/layouts/list.html) — списковые страницы и хабы.
-- [layouts/products/list.html](/Users/stadnyk/MEGA/Aerocool/layouts/products/list.html) — специализированный листинг каталога и серий товаров: breadcrumbs, page heading, быстрые ссылки между сериями, `products/filters.html`, `products/sort.html`, счетчик результатов, empty state и каталоговая сетка карточек.
-- [layouts/articles/list.html](/Users/stadnyk/MEGA/Aerocool/layouts/articles/list.html) — специализированный листинг статей: заголовок, breadcrumbs, карточки, изображения, meta-строка, пагинация и контент первой страницы листинга.
-- [layouts/search.html](/Users/stadnyk/MEGA/Aerocool/layouts/search.html) — страница поиска; должна оставаться `noindex,nofollow`.
-- [layouts/404.html](/Users/stadnyk/MEGA/Aerocool/layouts/404.html) — кастомная 404; должна оставаться `noindex,nofollow`.
-- [layouts/alias.html](/Users/stadnyk/MEGA/Aerocool/layouts/alias.html) — служебные alias-страницы; не использовать как SEO-посадочные.
-- [layouts/rss.xml](/Users/stadnyk/MEGA/Aerocool/layouts/rss.xml) — RSS.
-- [layouts/sitemap.xml](/Users/stadnyk/MEGA/Aerocool/layouts/sitemap.xml) — языковые sitemap-файлы.
-- [layouts/sitemapindex.xml](/Users/stadnyk/MEGA/Aerocool/layouts/sitemapindex.xml) — корневой sitemap index.
-- [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html) — детальная страница FAQ с видимым выводом вопросов.
+- [layouts/baseof.html](../../layouts/baseof.html) — общий HTML-каркас.
+- [layouts/single.html](../../layouts/single.html) — обычная детальная страница.
+- [layouts/list.html](../../layouts/list.html) — списковые страницы и хабы.
+- [layouts/products/list.html](../../layouts/products/list.html) — специализированный листинг каталога и серий товаров: breadcrumbs, page heading, быстрые ссылки между сериями, `products/filters.html`, `products/sort.html`, счетчик результатов, empty state и каталоговая сетка карточек.
+- [layouts/products/single.html](../../layouts/products/single.html) — детальная товарная страница: галерея, характеристики, варианты, коммерческие данные, отзывы и основной markdown-текст.
+- [layouts/articles/list.html](../../layouts/articles/list.html) — специализированный листинг статей: заголовок, breadcrumbs, карточки, изображения, meta-строка, пагинация и контент первой страницы листинга.
+- [layouts/news/list.html](../../layouts/news/list.html) — специализированный листинг новостей с тем же общим контрактом заголовка, breadcrumbs, карточек, пагинации и контента первой страницы.
+- [layouts/search.html](../../layouts/search.html) — страница поиска; должна оставаться `noindex,nofollow`.
+- [layouts/404.html](../../layouts/404.html) — кастомная 404; должна оставаться `noindex,nofollow`.
+- [layouts/alias.html](../../layouts/alias.html) — служебные alias-страницы; не использовать как SEO-посадочные.
+- [layouts/rss.xml](../../layouts/rss.xml) — RSS.
+- [layouts/sitemap.xml](../../layouts/sitemap.xml) — языковые sitemap-файлы.
+- [layouts/sitemapindex.xml](../../layouts/sitemapindex.xml) — корневой sitemap index.
+- [layouts/faq/single.html](../../layouts/faq/single.html) — детальная страница FAQ с видимым выводом вопросов.
 
 ## Быстрая Карта Shortcode-Файлов
 
-- [layouts/_shortcodes/home-hero.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero.html) — hero главной страницы и ее H1.
-- [layouts/_shortcodes/home-product-lines.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-product-lines.html) — три входа в серии `SKY`, `WING`, `XTAL` на главной.
-- [layouts/_shortcodes/home-top-rated-products.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-top-rated-products.html) — товарный блок главной на базе approved отзывов: до 10 товаров на desktop и 6 на mobile.
-- [layouts/_shortcodes/home-choice-benefits.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-choice-benefits.html) — блок преимуществ выбора: механика, регулировки, материалы и сценарии.
-- [layouts/_shortcodes/seo-image.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/seo-image.html) — контентные изображения с контролем LCP/lazy loading.
-- [layouts/_shortcodes/faq-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq-list.html) — видимый список FAQ из front matter.
-- [layouts/_shortcodes/contact.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/contact.html) — контактная `side-by-side` секция для `/contact/` и `/ru/contact/`.
-- [layouts/_shortcodes/contact-success-alert.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/contact-success-alert.html) — success alert после отправки контактной формы на `/contact/success/` и `/ru/contact/success/`.
-- [layouts/_shortcodes/about-intro.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/about-intro.html) — верхний two-column description блок на `/about/` и `/ru/about/`.
-- [layouts/_shortcodes/about-series-preview.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/about-series-preview.html) — три входа в серии `SKY`, `WING`, `XTAL` на about-странице.
-- [layouts/_shortcodes/about-ergonomics-features.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/about-ergonomics-features.html) — feature-блок подхода к эргономике на about-странице.
-- [layouts/_shortcodes/about-service-features.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/about-service-features.html) — feature-блок причин работать с Aerocool на about-странице.
-- [layouts/_shortcodes/about-product-facts.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/about-product-facts.html) — description list ключевых терминов и характеристик Aerocool.
-- [layouts/_shortcodes/about-next-steps.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/about-next-steps.html) — финальный CTA на about-странице.
-- [layouts/_shortcodes/section-highlights-articles.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/section-highlights-articles.html) — краткий feature-блок “Что вы найдете в этом разделе” на `/articles/` и `/ru/articles/`.
-- [layouts/_shortcodes/section-highlights-news.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/section-highlights-news.html) — краткий feature-блок “Что уже обновлено” на `/news/` и `/ru/news/`.
-- [layouts/_shortcodes/recommended-links-articles.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/recommended-links-articles.html) — управляемый блок стартовых материалов на `/articles/` и `/ru/articles/`.
-- [layouts/_shortcodes/recommended-links-news.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/recommended-links-news.html) — управляемый блок рекомендованных новостей на `/news/` и `/ru/news/`.
-- [layouts/_shortcodes/recommended-links-faq.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/recommended-links-faq.html) — блок следующих шагов после FAQ на `/faq/` и `/ru/faq/`.
+- [layouts/_shortcodes/home-hero.html](../../layouts/_shortcodes/home-hero.html) — hero главной страницы и ее H1.
+- [layouts/_shortcodes/home-product-lines.html](../../layouts/_shortcodes/home-product-lines.html) — три входа в серии `SKY`, `WING`, `XTAL` на главной.
+- [layouts/_shortcodes/home-top-rated-products.html](../../layouts/_shortcodes/home-top-rated-products.html) — товарный блок главной на базе approved отзывов: до 10 товаров на desktop и 6 на mobile.
+- [layouts/_shortcodes/home-choice-benefits.html](../../layouts/_shortcodes/home-choice-benefits.html) — блок преимуществ выбора: механика, регулировки, материалы и сценарии.
+- [layouts/_shortcodes/seo-image.html](../../layouts/_shortcodes/seo-image.html) — контентные изображения с контролем LCP/lazy loading.
+- [layouts/_shortcodes/faq-list.html](../../layouts/_shortcodes/faq-list.html) — видимый список FAQ из front matter.
+- [layouts/_shortcodes/contact.html](../../layouts/_shortcodes/contact.html) — контактная `side-by-side` секция для `/contact/` и `/ru/contact/`.
+- [layouts/_shortcodes/contact-success-alert.html](../../layouts/_shortcodes/contact-success-alert.html) — success alert после отправки контактной формы на `/contact/success/` и `/ru/contact/success/`.
+- [layouts/_shortcodes/about-intro.html](../../layouts/_shortcodes/about-intro.html) — верхний two-column description блок на `/about/` и `/ru/about/`.
+- [layouts/_shortcodes/about-series-preview.html](../../layouts/_shortcodes/about-series-preview.html) — три входа в серии `SKY`, `WING`, `XTAL` на about-странице.
+- [layouts/_shortcodes/about-ergonomics-features.html](../../layouts/_shortcodes/about-ergonomics-features.html) — feature-блок подхода к эргономике на about-странице.
+- [layouts/_shortcodes/about-service-features.html](../../layouts/_shortcodes/about-service-features.html) — feature-блок причин работать с Aerocool на about-странице.
+- [layouts/_shortcodes/about-product-facts.html](../../layouts/_shortcodes/about-product-facts.html) — description list ключевых терминов и характеристик Aerocool.
+- [layouts/_shortcodes/about-next-steps.html](../../layouts/_shortcodes/about-next-steps.html) — финальный CTA на about-странице.
+- [layouts/_shortcodes/section-highlights-articles.html](../../layouts/_shortcodes/section-highlights-articles.html) — краткий feature-блок “Что вы найдете в этом разделе” на `/articles/` и `/ru/articles/`.
+- [layouts/_shortcodes/section-highlights-news.html](../../layouts/_shortcodes/section-highlights-news.html) — краткий feature-блок “Что уже обновлено” на `/news/` и `/ru/news/`.
+- [layouts/_shortcodes/recommended-links-articles.html](../../layouts/_shortcodes/recommended-links-articles.html) — управляемый блок стартовых материалов на `/articles/` и `/ru/articles/`.
+- [layouts/_shortcodes/recommended-links-news.html](../../layouts/_shortcodes/recommended-links-news.html) — управляемый блок рекомендованных новостей на `/news/` и `/ru/news/`.
+- [layouts/_shortcodes/recommended-links-faq.html](../../layouts/_shortcodes/recommended-links-faq.html) — блок следующих шагов после FAQ на `/faq/` и `/ru/faq/`.
 
 ## Быстрая Карта Article Helpers
 
-- [layouts/_partials/articles/card-image.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/articles/card-image.html) — responsive-изображение для карточек на листинге статей; берет `cover.image` или `image` из page bundle, строит WebP `srcset`, задает стабильные размеры и использует `lazy` loading.
+- [layouts/_partials/articles/card-image.html](../../layouts/_partials/articles/card-image.html) — responsive-изображение для карточек на листинге статей; берет `cover.image` или `image` из page bundle, строит WebP `srcset`, задает стабильные размеры и использует `lazy` loading.
 
 ## Быстрая Карта Home Helpers
 
-- [layouts/_partials/home-final-cta.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/home-final-cta.html) — финальный CTA главной страницы. Подключается в `layouts/list.html` после блока материалов, ведет в каталог и контакты, не имитирует checkout-flow.
+- [layouts/_partials/home-final-cta.html](../../layouts/_partials/home-final-cta.html) — финальный CTA главной страницы. Подключается в `layouts/list.html` после блока материалов, ведет в каталог и контакты, не имитирует checkout-flow.
+
+## Быстрая Карта Общих Helpers
+
+- [layouts/_partials/pagination.html](../../layouts/_partials/pagination.html) — единый интерфейс перехода между страницами листинга. Используется там, где Hugo создает paginator, и не должен дублироваться отдельной разметкой в каждом list-шаблоне.
 
 ## Быстрая Карта Product Helpers
 
-- [layouts/_partials/products/card.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/card.html) — товарная карточка для `/products/`, страниц серий, home-блоков и related-блоков. Выводит изображение, название, цену, наличие, rating summary при approved отзывах, color dots и product facts. Для фильтров и сортировки добавляет `data-product-*`: title, price, rating, order, series, material, adjustment, mechanism и availability. Поддерживает флаг `showSeriesInTitle`: в root-каталоге карточка показывает серию в названии товара, например `WING Mesh Black` и `XTAL Mesh Black`, а на страницах конкретных серий сохраняет короткий `linkTitle`, например `Mesh Black`.
-- [layouts/_partials/products/color-dots.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/color-dots.html) — компактные цветовые точки в карточках товаров. Для товаров с реальными вариантами главный источник — `product_group_id` и `data/entities.yaml`; если группы нет, helper берет `color` из главной product entity через `about_entities`. Это визуальный сигнал цвета в листинге, а не замена отдельным variant URL и не причина добавлять искусственный `product_group_id` одиночным товарам.
-- [layouts/_partials/products/filters.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/filters.html) — static-first фильтры каталога. На `/products/` показывает группы серии, материала, регулировок, механизма и наличия; на страницах конкретной серии скрывает группу серии. Фильтры не меняют URL и не создают индексируемые filter pages.
-- [layouts/_partials/products/sort.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/sort.html) — сортировка каталога: по названию, рейтингу, цене от дешевых и цене от дорогих. Работает вместе с фильтрами через `assets/js/site.js`.
-- [layouts/_partials/products/gallery.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/gallery.html) — товарная галерея на детальной странице товара. Первый кадр берет из `image` во front matter и является видимым product LCP-кандидатом; остальные изображения из page bundle товара выводит как компактные миниатюры. Большие изображения получают responsive WebP `srcset`; первый кадр грузится eager/fetchpriority high, дополнительные кадры и миниатюры — lazy. Primary product image не вставляется через `seo-image` в markdown.
-- [layouts/_partials/products/variant-swatches.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/variant-swatches.html) — видимый выбор цвета/варианта товара. Список вариантов строит из `product_group_id` и `data/entities.yaml` только для реальных ProductGroup с несколькими вариантами, находит страницы текущего языка и выводит swatches как ссылки на соседние variant URL. Одиночные товары без соседних вариантов не получают `product_group_id`.
+- [layouts/_partials/products/card.html](../../layouts/_partials/products/card.html) — товарная карточка для `/products/`, страниц серий, home-блоков и related-блоков. Выводит изображение, название, цену, наличие, rating summary при approved отзывах, color dots и product facts. Для фильтров и сортировки добавляет `data-product-*`: title, price, rating, order, series, material, adjustment, mechanism и availability. Поддерживает флаг `showSeriesInTitle`: в root-каталоге карточка показывает серию в названии товара, например `WING Mesh Black` и `XTAL Mesh Black`, а на страницах конкретных серий сохраняет короткий `linkTitle`, например `Mesh Black`.
+- [layouts/_partials/products/color-dots.html](../../layouts/_partials/products/color-dots.html) — компактные цветовые точки в карточках товаров. Для товаров с реальными вариантами главный источник — `product_group_id` и `data/entities.yaml`; если группы нет, helper берет `color` из главной product entity через `about_entities`. Это визуальный сигнал цвета в листинге, а не замена отдельным variant URL и не причина добавлять искусственный `product_group_id` одиночным товарам.
+- [layouts/_partials/products/filters.html](../../layouts/_partials/products/filters.html) — static-first фильтры каталога. На `/products/` показывает группы серии, материала, регулировок, механизма и наличия; на страницах конкретной серии скрывает группу серии. Фильтры не меняют URL и не создают индексируемые filter pages.
+- [layouts/_partials/products/sort.html](../../layouts/_partials/products/sort.html) — сортировка каталога: по названию, рейтингу, цене от дешевых и цене от дорогих. Работает вместе с фильтрами через `assets/js/site.js`.
+- [layouts/_partials/products/gallery.html](../../layouts/_partials/products/gallery.html) — товарная галерея на детальной странице товара. Первый кадр берет из `image` во front matter и является видимым product LCP-кандидатом; остальные изображения из page bundle товара выводит как компактные миниатюры. Большие изображения получают responsive WebP `srcset`; первый кадр грузится eager/fetchpriority high, дополнительные кадры и миниатюры — lazy. Primary product image не вставляется через `seo-image` в markdown.
+- [layouts/_partials/products/variant-swatches.html](../../layouts/_partials/products/variant-swatches.html) — видимый выбор цвета/варианта товара. Список вариантов строит из `product_group_id` и `data/entities.yaml` только для реальных ProductGroup с несколькими вариантами, находит страницы текущего языка и выводит swatches как ссылки на соседние variant URL. Одиночные товары без соседних вариантов не получают `product_group_id`.
+
+## Быстрая Карта Review Helpers
+
+- [layouts/_partials/reviews/form.html](../../layouts/_partials/reviews/form.html) — форма отправки отзыва в `POST /api/reviews`; выводится только для товара с включенными отзывами.
+- [layouts/_partials/reviews/list.html](../../layouts/_partials/reviews/list.html) — список approved отзывов текущего товара и языка из build-time snapshot.
+- [layouts/_partials/reviews/stars.html](../../layouts/_partials/reviews/stars.html) — единый визуальный вывод шкалы рейтинга без собственной логики источника данных.
+- [layouts/_partials/reviews/summary-data.html](../../layouts/_partials/reviews/summary-data.html) — получает агрегированные данные рейтинга по `review_target_id` из `data/generated/reviews.json`.
+- [layouts/_partials/reviews/summary-inline.html](../../layouts/_partials/reviews/summary-inline.html) — компактный рейтинг для строк и небольших интерфейсных блоков.
+- [layouts/_partials/reviews/summary-card.html](../../layouts/_partials/reviews/summary-card.html) — вариант рейтинга для карточек товара.
+
+Review helpers не читают ручные `rating.value` или `rating.count` из front matter. Их единственный источник для опубликованного рейтинга — approved отзывы, выгруженные скриптом `scripts/export_reviews.mjs`.
 
 Важно по единому UI-слою:
 
-- базовая типографика, accent-цвет, радиус кнопок и общие UI-классы задаются в [assets/css/main.css](/Users/stadnyk/MEGA/Aerocool/assets/css/main.css), а не разрозненно в каждом shortcode;
+- базовая типографика, accent-цвет, радиус кнопок и общие UI-классы задаются в [assets/css/main.css](../../assets/css/main.css), а не разрозненно в каждом shortcode;
 - проектный подход соответствует `Tailwind CSS 4.3`: дизайн-токены сначала задаются через `@theme`, а затем совместимо пробрасываются в `:root` для PaperMod-переменных и локальных semantic-классов;
 - в шаблонах использовать utilities, сгенерированные из `@theme`: `text-aero-*`, `bg-aero-*`, `border-aero-*`, `ring-aero-*`, `stroke-aero-*`, `fill-aero-*`; дефолтные `text-gray-*`, `bg-red-*`, `border-gray-*` и похожие цветовые классы не добавлять в локальные shortcodes/partials без отдельной причины;
 - для новых управляемых блоков сначала использовать классы `.ui-page-title`, `.ui-eyebrow`, `.ui-section-title`, `.ui-group-title`, `.ui-section-lead`, `.ui-body`, `.ui-card-title`, `.ui-card-text`, `.ui-meta`, `.ui-link`, `.ui-icon`, `.ui-surface`, `.ui-badge`, `.ui-alert`, `.ui-button`, `.ui-button-primary`, `.ui-button-secondary`, `.ui-footer-title`, `.ui-footer-text`, `.ui-footer-link`, `.ui-form-label` и `.ui-field`;
@@ -215,7 +233,7 @@
 - `about-service-features.html` соответствует Tailwind Plus `Marketing -> Feature Sections -> Simple three column with small icons`;
 - `about-product-facts.html` соответствует Tailwind Plus `Application UI -> Description Lists -> Two-column`;
 - `about-next-steps.html` соответствует Tailwind Plus `Marketing -> CTA Sections -> Simple justified`;
-- CSS-хуки `.about-intro`, `.about-series-preview`, `.about-ergonomics-features`, `.about-service-features`, `.about-product-facts` и `.about-next-steps` сбрасываются в [assets/css/main.css](/Users/stadnyk/MEGA/Aerocool/assets/css/main.css);
+- CSS-хуки `.about-intro`, `.about-series-preview`, `.about-ergonomics-features`, `.about-service-features`, `.about-product-facts` и `.about-next-steps` сбрасываются в [assets/css/main.css](../../assets/css/main.css);
 - длинные доверительные SEO-разделы ниже компонентов остаются в markdown, чтобы не превращать `/about/` в декоративный лендинг.
 
 Важно по `section-highlights-*`:
@@ -224,7 +242,7 @@
 - каждый shortcode сам переключает украинский и русский текст по языку страницы;
 - `section-highlights-news.html` соответствует Tailwind Plus `Marketing -> Feature Sections -> Simple 3x2 grid`;
 - `section-highlights-articles.html` соответствует Tailwind Plus `Marketing -> Feature Sections -> Simple three column with small icons`;
-- визуальные сбросы для списков держатся в [assets/css/main.css](/Users/stadnyk/MEGA/Aerocool/assets/css/main.css) через CSS-хуки `.section-highlights-news` и `.section-highlights-articles`;
+- визуальные сбросы для списков держатся в [assets/css/main.css](../../assets/css/main.css) через CSS-хуки `.section-highlights-news` и `.section-highlights-articles`;
 - если нужно изменить состав пунктов “Что уже обновлено” или “Что вы найдете в этом разделе”, сначала идти в соответствующий shortcode, а не возвращать markdown-список в content-файл.
 
 Важно по `recommended-links-*`:
@@ -232,7 +250,7 @@
 - эти shortcodes заменяют длинные markdown-списки на управляемые UI-блоки;
 - каждый shortcode сам переключает украинский и русский текст по языку страницы;
 - URL внутри shortcode должны оставаться локализованными: обычные страницы ведут на `/.../`, русские страницы — на `/ru/.../`;
-- визуальные стили этих блоков держатся в [assets/css/main.css](/Users/stadnyk/MEGA/Aerocool/assets/css/main.css) через CSS-хуки `.recommended-links-articles`, `.recommended-links-news` и `.recommended-links-faq`;
+- визуальные стили этих блоков держатся в [assets/css/main.css](../../assets/css/main.css) через CSS-хуки `.recommended-links-articles`, `.recommended-links-news` и `.recommended-links-faq`;
 - если нужно изменить состав ссылок на хабе статей, новостей или FAQ, сначала идти в соответствующий shortcode, а не возвращать большой markdown-список в content-файл.
 
 Важно по `contact.html`:
@@ -256,7 +274,7 @@
 
 ### `page-title.html`
 
-Файл: [page-title.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-title.html)
+Файл: [page-title.html](../../layouts/_partials/page-title.html)
 
 Что делает:
 
@@ -273,7 +291,7 @@
 
 ### `page-description.html`
 
-Файл: [page-description.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-description.html)
+Файл: [page-description.html](../../layouts/_partials/page-description.html)
 
 Что делает:
 
@@ -290,7 +308,7 @@
 
 ### `page-h1.html`
 
-Файл: [page-h1.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-h1.html)
+Файл: [page-h1.html](../../layouts/_partials/page-h1.html)
 
 Что делает:
 
@@ -306,7 +324,7 @@
 - если в front matter задан `h1`, берем его;
 - если `h1` не задан, берем `title`.
 - Для большинства страниц проекта это и есть основной источник видимого `H1`.
-- Текущее исключение — главная страница: ее hero и видимый `H1` сейчас живут в едином [home-hero.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero.html), который сам переключает украинский/русский текст по языку страницы.
+- Текущее исключение — главная страница: ее hero и видимый `H1` сейчас живут в едином [home-hero.html](../../layouts/_shortcodes/home-hero.html), который сам переключает украинский/русский текст по языку страницы.
 
 Когда идти сюда:
 
@@ -316,7 +334,7 @@
 
 ### `breadcrumb-label.html`
 
-Файл: [breadcrumb-label.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/breadcrumb-label.html)
+Файл: [breadcrumb-label.html](../../layouts/_partials/breadcrumb-label.html)
 
 Что делает:
 
@@ -332,7 +350,7 @@
 
 ### `page-meta.html`
 
-Файл: [page-meta.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-meta.html)
+Файл: [page-meta.html](../../layouts/_partials/page-meta.html)
 
 Что делает:
 
@@ -345,9 +363,9 @@
 
 Где используется:
 
-- [layouts/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/single.html) — обычные одиночные страницы;
-- [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html) — FAQ-страница;
-- [layouts/list.html](/Users/stadnyk/MEGA/Aerocool/layouts/list.html) — footer карточек в листингах.
+- [layouts/single.html](../../layouts/single.html) — обычные одиночные страницы;
+- [layouts/faq/single.html](../../layouts/faq/single.html) — FAQ-страница;
+- [layouts/list.html](../../layouts/list.html) — footer карточек в листингах.
 
 Текущая политика видимого вывода:
 
@@ -364,16 +382,16 @@
 Важно:
 
 - `date` и `lastmod` остаются во front matter и используются SEO/schema-слоем, даже если дата не показана в интерфейсе;
-- `lastmod` для статей и новостей видимо выводится редакционным блоком [editorial-note.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/editorial-note.html), а не `page-meta.html`;
-- `ShowWordCount: true` может оставаться в [hugo.yaml](/Users/stadnyk/MEGA/Aerocool/hugo.yaml), но локальный `page-meta.html` намеренно не показывает количество слов;
+- `lastmod` для статей и новостей видимо выводится редакционным блоком [editorial-note.html](../../layouts/_partials/editorial-note.html), а не `page-meta.html`;
+- `ShowWordCount: true` может оставаться в [hugo.yaml](../../hugo.yaml), но локальный `page-meta.html` намеренно не показывает количество слов;
 - `author` может оставаться в head/schema-слое, но не должен возвращаться в видимую meta-строку без отдельного решения по реальным авторам или редакторам;
-- переключатель языка остается в шапке сайта через [header.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/header.html), а не в контентной meta-строке;
+- переключатель языка остается в шапке сайта через [header.html](../../layouts/_partials/header.html), а не в контентной meta-строке;
 - `hideMeta: true` остается ручным override для страниц, где нужно принудительно скрыть meta-строку.
 
 Что не делать:
 
-- не возвращать `post_meta.html` в [layouts/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/single.html) и [layouts/list.html](/Users/stadnyk/MEGA/Aerocool/layouts/list.html), потому что он снова выведет глобальные PaperMod-поля вроде автора, времени чтения и количества слов;
-- не вставлять [translation-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/translation-list.html) под `H1`;
+- не возвращать `post_meta.html` в [layouts/single.html](../../layouts/single.html) и [layouts/list.html](../../layouts/list.html), потому что он снова выведет глобальные PaperMod-поля вроде автора, времени чтения и количества слов;
+- не вставлять [translation-list.html](../../layouts/_partials/translation-list.html) под `H1`;
 - не решать задачу через массовое `hideMeta: true` в контенте, если поведение относится к типу страницы.
 
 Как проверять после изменения:
@@ -386,7 +404,7 @@
 
 ### `page-image.html`
 
-Файл: [page-image.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-image.html)
+Файл: [page-image.html](../../layouts/_partials/page-image.html)
 
 Что делает:
 
@@ -412,7 +430,7 @@
 
 ### `cover.html`
 
-Файл: [cover.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/cover.html)
+Файл: [cover.html](../../layouts/_partials/cover.html)
 
 Что делает:
 
@@ -430,7 +448,7 @@
 
 ### `page-language.html`
 
-Файл: [page-language.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-language.html)
+Файл: [page-language.html](../../layouts/_partials/page-language.html)
 
 Что делает:
 
@@ -445,7 +463,7 @@
 
 ### `page-website-id.html`
 
-Файл: [page-website-id.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-website-id.html)
+Файл: [page-website-id.html](../../layouts/_partials/page-website-id.html)
 
 Что делает:
 
@@ -460,7 +478,7 @@
 
 ### `page-series-slugs.html`
 
-Файл: [page-series-slugs.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-series-slugs.html)
+Файл: [page-series-slugs.html](../../layouts/_partials/page-series-slugs.html)
 
 Что делает:
 
@@ -501,7 +519,7 @@
 
 ### `head.html`
 
-Файл: [head.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/head.html)
+Файл: [head.html](../../layouts/_partials/head.html)
 
 Что делает:
 
@@ -529,7 +547,7 @@
 
 ### `header.html`
 
-Файл: [header.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/header.html)
+Файл: [header.html](../../layouts/_partials/header.html)
 
 Что делает:
 
@@ -551,7 +569,7 @@
 
 ### `footer.html`
 
-Файл: [footer.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/footer.html)
+Файл: [footer.html](../../layouts/_partials/footer.html)
 
 Что делает:
 
@@ -570,7 +588,7 @@
 
 ### `footer-links.html`
 
-Файл: [footer-links.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/footer-links.html)
+Файл: [footer-links.html](../../layouts/_partials/footer-links.html)
 
 Что делает:
 
@@ -584,13 +602,13 @@
 
 ### `translation-list.html`
 
-Файл: [translation-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/translation-list.html)
+Файл: [translation-list.html](../../layouts/_partials/translation-list.html)
 
 Что делает:
 
 - выводит список переводов текущей страницы;
 - использует актуальные Hugo language fields `.Language.Name` и `.Language.Label`;
-- оставлен как локальный helper для совместимости, но обычные страницы сейчас используют языковой переключатель в [header.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/header.html), а не список переводов под `H1`.
+- оставлен как локальный helper для совместимости, но обычные страницы сейчас используют языковой переключатель в [header.html](../../layouts/_partials/header.html), а не список переводов под `H1`.
 
 Важно:
 
@@ -600,7 +618,7 @@
 
 ### `post-footer-navigation.html`
 
-Файл: [post-footer-navigation.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/post-footer-navigation.html)
+Файл: [post-footer-navigation.html](../../layouts/_partials/post-footer-navigation.html)
 
 Что делает:
 
@@ -609,7 +627,7 @@
   - ключевые разделы
   - похожие модели
   - полезные материалы
-- учитывает `related_series` через [page-series-slugs.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-series-slugs.html);
+- учитывает `related_series` через [page-series-slugs.html](../../layouts/_partials/page-series-slugs.html);
 - если в front matter есть `related_products`, ставит эти товары первыми в блоке похожих моделей;
 - если в front matter есть `related_articles` или `related_news`, ставит эти материалы первыми в блоке полезных материалов;
 - если страница связана сразу с несколькими сериями и ручных `related_products` нет, сначала старается показать по одной модели из каждой серии, а потом добавляет остальные.
@@ -632,7 +650,7 @@
 
 ### `editorial-note.html`
 
-Файл: [editorial-note.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/editorial-note.html)
+Файл: [editorial-note.html](../../layouts/_partials/editorial-note.html)
 
 Что делает:
 
@@ -651,7 +669,7 @@
 
 ### `css.html`
 
-Файл: [css.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/css.html)
+Файл: [css.html](../../layouts/_partials/css.html)
 
 Что делает:
 
@@ -666,7 +684,7 @@
 
 ### `extend_footer.html`
 
-Файл: [extend_footer.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/extend_footer.html)
+Файл: [extend_footer.html](../../layouts/_partials/extend_footer.html)
 
 Что делает:
 
@@ -677,11 +695,11 @@
 Важно:
 
 - не возвращать сюда inline scripts без отдельной причины;
-- клиентское поведение сайта сейчас нужно менять в [assets/js/site.js](/Users/stadnyk/MEGA/Aerocool/assets/js/site.js).
+- клиентское поведение сайта сейчас нужно менять в [assets/js/site.js](../../assets/js/site.js).
 
 ### `script-theme.html`
 
-Файл: [script-theme.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/script-theme.html)
+Файл: [script-theme.html](../../layouts/_partials/script-theme.html)
 
 Что делает:
 
@@ -698,7 +716,7 @@
 
 ### `_seo/opengraph.html`
 
-Файл: [opengraph.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/opengraph.html)
+Файл: [opengraph.html](../../layouts/_partials/_seo/opengraph.html)
 
 Что делает:
 
@@ -718,7 +736,7 @@
 
 ### `_seo/twitter_cards.html`
 
-Файл: [twitter_cards.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/twitter_cards.html)
+Файл: [twitter_cards.html](../../layouts/_partials/_seo/twitter_cards.html)
 
 Что делает:
 
@@ -731,15 +749,15 @@
 
 ### `_seo/lcp-image-preload.html`
 
-Файл: [lcp-image-preload.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/lcp-image-preload.html)
+Файл: [lcp-image-preload.html](../../layouts/_partials/_seo/lcp-image-preload.html)
 
 Что делает:
 
 - выводит ранний responsive preload для главного изображения первого экрана;
 - работает для home hero, типовых `article`, `news` и `product` страниц;
-- для главной страницы использует Hugo global image resource `assets/images/home-hero85.webp` и те же `sizes`, что [home-hero.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero.html);
+- для главной страницы использует Hugo global image resource `assets/images/home-hero85.webp` и те же `sizes`, что [home-hero.html](../../layouts/_shortcodes/home-hero.html);
 - для статей и новостей использует `image` из front matter, если `cover.hiddenInSingle: true` и первое видимое `seo-image` использует тот же файл;
-- для товаров использует `image` из front matter и синхронизируется с [products/gallery.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/gallery.html), а не с markdown `seo-image`;
+- для товаров использует `image` из front matter и синхронизируется с [products/gallery.html](../../layouts/_partials/products/gallery.html), а не с markdown `seo-image`;
 - генерирует WebP `imagesrcset`, `imagesizes`, `type="image/webp"` и `fetchpriority="high"`;
 - берет `imagesizes` из `seo_image_sizes` только для статей и новостей, если поле задано во front matter; для товаров используются gallery `sizes`;
 - дополняет shortcode `seo-image` на article/news страницах, чтобы shortcode не дублировал body-level preload.
@@ -754,7 +772,7 @@
 
 ### `_seo/jsonld.html`
 
-Файл: [jsonld.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/jsonld.html)
+Файл: [jsonld.html](../../layouts/_partials/_seo/jsonld.html)
 
 Что делает:
 
@@ -794,7 +812,7 @@
 
 ### `website.html`
 
-Файл: [website.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/website.html)
+Файл: [website.html](../../layouts/_partials/_schema/website.html)
 
 Что делает:
 
@@ -805,7 +823,7 @@
 
 ### `webpage.html`
 
-Файл: [webpage.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/webpage.html)
+Файл: [webpage.html](../../layouts/_partials/_schema/webpage.html)
 
 Что делает:
 
@@ -816,7 +834,7 @@
 
 ### `about-page.html`
 
-Файл: [about-page.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/about-page.html)
+Файл: [about-page.html](../../layouts/_partials/_schema/about-page.html)
 
 Что делает:
 
@@ -826,7 +844,7 @@
 
 ### `contact-page.html`
 
-Файл: [contact-page.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/contact-page.html)
+Файл: [contact-page.html](../../layouts/_partials/_schema/contact-page.html)
 
 Что делает:
 
@@ -836,18 +854,18 @@
 
 ### `page-image-object.html`
 
-Файл: [page-image-object.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/page-image-object.html)
+Файл: [page-image-object.html](../../layouts/_partials/_schema/page-image-object.html)
 
 Что делает:
 
 - строит единый `ImageObject` для основного изображения страницы;
 - использует `image` во front matter через `page-image.html`;
-- добавляет image license metadata через [image-license-metadata.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/image-license-metadata.html): `license`, `acquireLicensePage`, `creator`, `creditText`, `copyrightNotice`;
+- добавляет image license metadata через [image-license-metadata.html](../../layouts/_partials/_schema/image-license-metadata.html): `license`, `acquireLicensePage`, `creator`, `creditText`, `copyrightNotice`;
 - дает стабильный `@id` вида `#primary-image`, на который ссылаются `WebPage`, `Product`, `Article` и `NewsArticle`.
 
 ### `page-image-list.html`
 
-Файл: [page-image-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/page-image-list.html)
+Файл: [page-image-list.html](../../layouts/_partials/_schema/page-image-list.html)
 
 Что делает:
 
@@ -858,7 +876,7 @@
 
 ### `image-license-metadata.html`
 
-Файл: [image-license-metadata.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/image-license-metadata.html)
+Файл: [image-license-metadata.html](../../layouts/_partials/_schema/image-license-metadata.html)
 
 Что делает:
 
@@ -869,7 +887,7 @@
 
 ### `logo.html`
 
-Файл: [logo.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/logo.html)
+Файл: [logo.html](../../layouts/_partials/_schema/logo.html)
 
 Что делает:
 
@@ -881,7 +899,7 @@
 
 ### `local-organization.html`
 
-Файл: [local-organization.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/local-organization.html)
+Файл: [local-organization.html](../../layouts/_partials/_schema/local-organization.html)
 
 Что делает:
 
@@ -892,7 +910,7 @@
 
 ### `global-organization.html`
 
-Файл: [global-organization.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/global-organization.html)
+Файл: [global-organization.html](../../layouts/_partials/_schema/global-organization.html)
 
 Что делает:
 
@@ -901,7 +919,7 @@
 
 ### `brand.html`
 
-Файл: [brand.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/brand.html)
+Файл: [brand.html](../../layouts/_partials/_schema/brand.html)
 
 Что делает:
 
@@ -910,7 +928,7 @@
 
 ### `product.html`
 
-Файл: [product.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/product.html)
+Файл: [product.html](../../layouts/_partials/_schema/product.html)
 
 Что делает:
 
@@ -935,13 +953,29 @@
 - если в rich results у товара странные данные;
 - если front matter заполнен верно, но цена, наличие, доставка, возврат, payment methods или seller schema рендерятся не так.
 
-### `entity-ref.html`
+### `product-group.html`
 
-Файл: [entity-ref.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/entity-ref.html)
+Файл: [product-group.html](../../layouts/_partials/_schema/product-group.html)
 
 Что делает:
 
-- безопасно резолвит один `entity_id` из [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml);
+- описывает реальную группу вариантов одной модели как `ProductGroup`;
+- связывает варианты через стабильный `product_group_id` из `data/entities.yaml`;
+- не создает группу для одиночного товара без соседних вариантов.
+
+Когда идти сюда:
+
+- если `Product.isVariantOf` или узел `ProductGroup` собраны неверно;
+- если добавляется подтвержденная группа цветовых вариантов одной модели;
+- если нужно проверить согласованность schema-графа и видимых ссылок `variant-swatches.html`.
+
+### `entity-ref.html`
+
+Файл: [entity-ref.html](../../layouts/_partials/_schema/entity-ref.html)
+
+Что делает:
+
+- безопасно резолвит один `entity_id` из [data/entities.yaml](../../data/entities.yaml);
 - возвращает JSON-LD reference вида `{"@id": "...", "@type": "..."}`, если у сущности есть `schema_candidate`;
 - по умолчанию выводит только сущности со статусом `confirmed`;
 - игнорирует неизвестные, `planned`, `needs-review` и `do-not-markup` сущности, чтобы front matter не ломал сборку;
@@ -949,18 +983,18 @@
 
 ### `entity-node.html`
 
-Файл: [entity-node.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/entity-node.html)
+Файл: [entity-node.html](../../layouts/_partials/_schema/entity-node.html)
 
 Что делает:
 
-- строит полноценный JSON-LD узел сущности из [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml);
+- строит полноценный JSON-LD узел сущности из [data/entities.yaml](../../data/entities.yaml);
 - используется для подтвержденных сущностей, которые нужно вывести как часть общего graph;
 - для `DefinedTerm` выводит только validator-safe поля: `@id`, `name`, `alternateName`, `identifier`, `termCode`, `url`, `subjectOf`;
 - не заменяет видимый контент страницы: сущность должна быть раскрыта на странице или в связанном контенте.
 
 ### `entity-node-list.html`
 
-Файл: [entity-node-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/entity-node-list.html)
+Файл: [entity-node-list.html](../../layouts/_partials/_schema/entity-node-list.html)
 
 Что делает:
 
@@ -970,7 +1004,7 @@
 
 ### `entity-ref-list.html`
 
-Файл: [entity-ref-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/entity-ref-list.html)
+Файл: [entity-ref-list.html](../../layouts/_partials/_schema/entity-ref-list.html)
 
 Что делает:
 
@@ -980,34 +1014,34 @@
 
 ### `article.html`
 
-Файл: [article.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/article.html)
+Файл: [article.html](../../layouts/_partials/_schema/article.html)
 
 Что делает:
 
 - строит `Article` schema для evergreen-материалов;
-- берет `image` через [page-image-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/page-image-list.html), чтобы основной `ImageObject` и дополнительные crops **16:9**, **4:3**, **1:1** попадали в JSON-LD одним списком.
+- берет `image` через [page-image-list.html](../../layouts/_partials/_schema/page-image-list.html), чтобы основной `ImageObject` и дополнительные crops **16:9**, **4:3**, **1:1** попадали в JSON-LD одним списком.
 
 ### `news.html`
 
-Файл: [news.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/news.html)
+Файл: [news.html](../../layouts/_partials/_schema/news.html)
 
 Что делает:
 
 - строит `NewsArticle` schema для новостей;
-- берет `image` через [page-image-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/page-image-list.html), чтобы основной `ImageObject` и дополнительные crops **16:9**, **4:3**, **1:1** попадали в JSON-LD одним списком.
+- берет `image` через [page-image-list.html](../../layouts/_partials/_schema/page-image-list.html), чтобы основной `ImageObject` и дополнительные crops **16:9**, **4:3**, **1:1** попадали в JSON-LD одним списком.
 
 ### `faq.html`
 
-Файл: [faq.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/faq.html)
+Файл: [faq.html](../../layouts/_partials/_schema/faq.html)
 
 Что делает:
 
 - рендерит `FAQPage` на основе `.Params.faq_groups` или fallback `.Params.faq`, если в `schema_types` есть `faq`.
-- Предпочтительный источник для страницы `/faq/` — `.Params.faq_groups`: видимый FAQ выводится тематическими группами через shortcode [layouts/_shortcodes/faq-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq-list.html), а schema flatten-ит все `items` в единый `FAQPage.mainEntity`. Старый `.Params.faq` остается fallback для плоских FAQ-массивов.
+- Предпочтительный источник для страницы `/faq/` — `.Params.faq_groups`: видимый FAQ выводится тематическими группами через shortcode [layouts/_shortcodes/faq-list.html](../../layouts/_shortcodes/faq-list.html), а schema flatten-ит все `items` в единый `FAQPage.mainEntity`. Старый `.Params.faq` остается fallback для плоских FAQ-массивов.
 
 ### `collection.html`
 
-Файл: [collection.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/collection.html)
+Файл: [collection.html](../../layouts/_partials/_schema/collection.html)
 
 Что делает:
 
@@ -1016,7 +1050,7 @@
 
 ### `breadcrumbs.html`
 
-Файл видимых хлебных крошек: [breadcrumbs.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/breadcrumbs.html)
+Файл видимых хлебных крошек: [breadcrumbs.html](../../layouts/_partials/breadcrumbs.html)
 
 Что делает:
 
@@ -1027,7 +1061,7 @@
 - задает локализованный `aria-label`: `Хлібні крихти` для `uk` и `Хлебные крошки` для `ru`;
 - защищает длинные названия через Tailwind-классы `min-w-0`, `overflow-hidden` и `truncate`.
 
-Файл schema-разметки: [breadcrumbs.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/breadcrumbs.html)
+Файл schema-разметки: [breadcrumbs.html](../../layouts/_partials/_schema/breadcrumbs.html)
 
 Что делает:
 
@@ -1039,25 +1073,25 @@
 
 Если проблема такая:
 
-- неправильный `<title>` -> [page-title.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-title.html)
-- плохой `description` -> [page-description.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-description.html)
-- странный `H1` на большинстве страниц -> [page-h1.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-h1.html)
-- странный `H1` или hero на главной -> [home-hero.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero.html)
-- лишняя дата, время чтения, количество слов или автор под `H1` -> [page-meta.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-meta.html)
-- проблема с видимым FAQ на `/faq/` -> [layouts/faq/single.html](/Users/stadnyk/MEGA/Aerocool/layouts/faq/single.html) и [faq-list.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/faq-list.html)
-- проблема с feature-блоком “Что вы найдете” на `/articles/` -> [section-highlights-articles.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/section-highlights-articles.html)
-- проблема с feature-блоком “Что уже обновлено” на `/news/` -> [section-highlights-news.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/section-highlights-news.html)
-- проблема с блоком стартовых статей на `/articles/` -> [recommended-links-articles.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/recommended-links-articles.html)
-- проблема с блоком рекомендованных новостей на `/news/` -> [recommended-links-news.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/recommended-links-news.html)
-- проблема с блоком следующих шагов на `/faq/` -> [recommended-links-faq.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/recommended-links-faq.html)
-- проблема с success-сообщением после контактной формы -> [contact-success-alert.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/contact-success-alert.html)
-- нет редакционного trust-блока на статье или новости -> [editorial-note.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/editorial-note.html) и вызов в [single.html](/Users/stadnyk/MEGA/Aerocool/layouts/single.html)
-- не та картинка в соцсетях -> [page-image.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-image.html), [opengraph.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/opengraph.html), [twitter_cards.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/twitter_cards.html)
-- canonical / robots / hreflang -> [head.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/head.html)
-- schema не та -> [jsonld.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/jsonld.html) и нужный файл в `_schema`
-- шапка сайта -> [header.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/header.html)
-- footer -> [footer.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/footer.html)
-- “похожие материалы” -> [post-footer-navigation.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/post-footer-navigation.html)
+- неправильный `<title>` -> [page-title.html](../../layouts/_partials/page-title.html)
+- плохой `description` -> [page-description.html](../../layouts/_partials/page-description.html)
+- странный `H1` на большинстве страниц -> [page-h1.html](../../layouts/_partials/page-h1.html)
+- странный `H1` или hero на главной -> [home-hero.html](../../layouts/_shortcodes/home-hero.html)
+- лишняя дата, время чтения, количество слов или автор под `H1` -> [page-meta.html](../../layouts/_partials/page-meta.html)
+- проблема с видимым FAQ на `/faq/` -> [layouts/faq/single.html](../../layouts/faq/single.html) и [faq-list.html](../../layouts/_shortcodes/faq-list.html)
+- проблема с feature-блоком “Что вы найдете” на `/articles/` -> [section-highlights-articles.html](../../layouts/_shortcodes/section-highlights-articles.html)
+- проблема с feature-блоком “Что уже обновлено” на `/news/` -> [section-highlights-news.html](../../layouts/_shortcodes/section-highlights-news.html)
+- проблема с блоком стартовых статей на `/articles/` -> [recommended-links-articles.html](../../layouts/_shortcodes/recommended-links-articles.html)
+- проблема с блоком рекомендованных новостей на `/news/` -> [recommended-links-news.html](../../layouts/_shortcodes/recommended-links-news.html)
+- проблема с блоком следующих шагов на `/faq/` -> [recommended-links-faq.html](../../layouts/_shortcodes/recommended-links-faq.html)
+- проблема с success-сообщением после контактной формы -> [contact-success-alert.html](../../layouts/_shortcodes/contact-success-alert.html)
+- нет редакционного trust-блока на статье или новости -> [editorial-note.html](../../layouts/_partials/editorial-note.html) и вызов в [single.html](../../layouts/single.html)
+- не та картинка в соцсетях -> [page-image.html](../../layouts/_partials/page-image.html), [opengraph.html](../../layouts/_partials/_seo/opengraph.html), [twitter_cards.html](../../layouts/_partials/_seo/twitter_cards.html)
+- проблема с canonical, robots или hreflang -> [head.html](../../layouts/_partials/head.html)
+- schema не та -> [jsonld.html](../../layouts/_partials/_seo/jsonld.html) и нужный файл в `_schema`
+- шапка сайта -> [header.html](../../layouts/_partials/header.html)
+- footer -> [footer.html](../../layouts/_partials/footer.html)
+- “похожие материалы” -> [post-footer-navigation.html](../../layouts/_partials/post-footer-navigation.html)
 
 ## Что Лучше Не Делать Новичку
 
@@ -1090,10 +1124,10 @@
 
 Если ты не уверен, с какого файла начать, почти всегда сначала смотри:
 
-1. [head.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/head.html)
-2. [page-title.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-title.html)
-3. [page-description.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-description.html)
-4. [page-image.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/page-image.html)
-5. [jsonld.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/jsonld.html)
+1. [head.html](../../layouts/_partials/head.html)
+2. [page-title.html](../../layouts/_partials/page-title.html)
+3. [page-description.html](../../layouts/_partials/page-description.html)
+4. [page-image.html](../../layouts/_partials/page-image.html)
+5. [jsonld.html](../../layouts/_partials/_seo/jsonld.html)
 
 Этого обычно достаточно, чтобы новичок уже начал уверенно ориентироваться в helper-слое проекта.

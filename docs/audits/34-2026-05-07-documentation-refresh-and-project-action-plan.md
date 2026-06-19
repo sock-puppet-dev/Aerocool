@@ -2,15 +2,15 @@
 
 Дата аудита: 2026-05-07.
 
-> Исторический action-plan snapshot. Он показывает состояние проекта на 2026-05-07; текущие версии Hugo/Node/Tailwind и актуальные маршруты проверки смотреть в [68-2026-06-11-hugo-0-163-documentation-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md) и [01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md).
+> Исторический action-plan snapshot. Он показывает состояние проекта на 2026-05-07; текущие версии Hugo/Node/Tailwind и актуальные маршруты проверки смотреть в [68-2026-06-11-hugo-0-163-documentation-sync-audit.md](68-2026-06-11-hugo-0-163-documentation-sync-audit.md) и [01-documentation-map.md](../01-documentation-map.md).
 
 Этот документ фиксирует актуальное состояние документации после интеграции материалов SchemaApp и переводит обновленные знания в практический план для текущего проекта `Aerocool Ukraine`.
 
 Главная идея: документация уже описывает сильный SEO/schema/AI Search-фундамент. Следующий этап — не добавлять новые schema-типы “для красоты”, а закрыть реальные риски перед production, затем последовательно развивать entity graph, ProductGroup, AI Search-аудит и reusable content components.
 
-Текущая синхронизация всей документации с лучшими практиками 2026 от `2026-05-13` хранится в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md). Этот файл остается практическим action plan, а новый audit — свежим контрольным снимком документации.
+Текущая синхронизация всей документации с лучшими практиками 2026 от `2026-05-13` хранится в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](37-2026-05-13-documentation-2026-best-practices-sync-audit.md). Этот файл остается практическим action plan, а новый audit — свежим контрольным снимком документации.
 
-Дополнительный corpus-анализ 126 статей SchemaApp за `2016-2026` хранится в [35-2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/35-2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md). Он подтверждает этот порядок работ.
+Дополнительный corpus-анализ 126 статей SchemaApp за `2016-2026` хранится в [35-2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md](35-2026-05-07-schemaapp-articles-2016-2026-corpus-analysis.md). Он подтверждает этот порядок работ.
 
 ## 1. Текущее Состояние
 
@@ -146,7 +146,7 @@ Product schema уже содержит price, availability, SKU, MPN, GTIN, deli
 
 ### P1.1. Создать Реестр Сущностей
 
-Статус `2026-05-07`: initial entity registry создан в [23-entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/23-entity-registry-2026.md), beginner-гайд добавлен в [22-entity-registry-beginner-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/22-entity-registry-beginner-guide-2026.md), структурированный слой добавлен в [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml), а safe resolver подключен к schema partials. Пункт “нет entity registry” закрыт на уровне документации, шаблонной инфраструктуры и priority content.
+Статус `2026-05-07`: initial entity registry создан в [23-entity-registry-2026.md](../seo/23-entity-registry-2026.md), beginner-гайд добавлен в [22-entity-registry-beginner-guide-2026.md](../seo/22-entity-registry-beginner-guide-2026.md), структурированный слой добавлен в [data/entities.yaml](../../data/entities.yaml), а safe resolver подключен к schema partials. Пункт “нет entity registry” закрыт на уровне документации, шаблонной инфраструктуры и priority content.
 
 Отдельный реестр сущностей нужен прежде, чем добавлять новые entity front matter поля. Initial registry уже создан и подключен к шаблонам; priority pages уже получили `about_entities`, `mentions_entities` и staged `product_group_id`. Новые страницы должны следовать тому же правилу: поле добавляется только когда сущность есть в registry и видимо раскрыта на странице.
 
@@ -163,7 +163,7 @@ Product schema уже содержит price, availability, SKU, MPN, GTIN, deli
 
 Рекомендуемый новый документ:
 
-- [docs/seo/23-entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/23-entity-registry-2026.md)
+- [docs/seo/23-entity-registry-2026.md](../seo/23-entity-registry-2026.md)
 
 Критерий готовности:
 

@@ -11,16 +11,16 @@
 
 Документ использовать вместе с:
 
-- [06-seo-image-shortcode.md](/Users/stadnyk/MEGA/Aerocool/docs/content/06-seo-image-shortcode.md) - технический вывод изображений через Hugo;
-- [07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md) - редакционный SEO-чеклист;
-- [12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md) - LCP, responsive images и производительность;
-- [20-schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/20-schema-markup-quality-checklist-2026.md) - `ImageObject` и schema.org;
-- [21-ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/21-ecommerce-structured-data-playbook-2026.md) - product images, Product/Offer и e-commerce structured data;
-- [74-2026-06-15-articles-news-inline-image-serp-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/74-2026-06-15-articles-news-inline-image-serp-audit.md) - подробная матрица inline-иллюстраций для всех статей и новостей и SERP-стандарт изображений 2026;
-- [75-2026-06-16-articles-news-text-image-revalidation.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/75-2026-06-16-articles-news-text-image-revalidation.md) - исторический snapshot после закрытия inline backlog;
-- [77-2026-06-18-articles-news-content-image-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/77-2026-06-18-articles-news-content-image-audit.md) - текущий глубокий аудит текстов, изображений, visual diversity и factual evidence для `content/articles` / `content/news`.
+- [06-seo-image-shortcode.md](06-seo-image-shortcode.md) - технический вывод изображений через Hugo;
+- [07-content-seo-checklist-2026.md](07-content-seo-checklist-2026.md) - редакционный SEO-чеклист;
+- [12-core-web-vitals-guide-2026.md](../quality/12-core-web-vitals-guide-2026.md) - LCP, responsive images и производительность;
+- [20-schema-markup-quality-checklist-2026.md](../seo/20-schema-markup-quality-checklist-2026.md) - `ImageObject` и schema.org;
+- [21-ecommerce-structured-data-playbook-2026.md](../seo/21-ecommerce-structured-data-playbook-2026.md) - product images, Product/Offer и e-commerce structured data;
+- [74-2026-06-15-articles-news-inline-image-serp-audit.md](../audits/74-2026-06-15-articles-news-inline-image-serp-audit.md) - подробная матрица inline-иллюстраций для всех статей и новостей и SERP-стандарт изображений 2026;
+- [75-2026-06-16-articles-news-text-image-revalidation.md](../audits/75-2026-06-16-articles-news-text-image-revalidation.md) - исторический snapshot после закрытия inline backlog;
+- [77-2026-06-18-articles-news-content-image-audit.md](../audits/77-2026-06-18-articles-news-content-image-audit.md) - текущий глубокий аудит текстов, изображений, visual diversity и factual evidence для `content/articles` / `content/news`.
 
-## 0. Source-Backed SERP Contract 2026
+## 0. SERP-Контракт, Подтвержденный Источниками
 
 Этот регламент не обещает `top-1` в SERP только за счет картинок. Изображения работают как часть системы: полезный текст, релевантный интент, технически корректный HTML, быстрый LCP, structured data, понятные `alt`, representative covers и доверие к товару.
 
@@ -64,7 +64,7 @@
 
 Обязательные признаки:
 
-- photorealistic high-tech product editorial;
+- фотореалистичная высокотехнологичная продуктовая редакционная съемка;
 - темный graphite / blue-black технологичный интерьер;
 - холодные cyan, blue, violet акценты, точечно amber или green-cyan;
 - tactile материалы: ткань, mesh, Loft Air, Racer surface, швы, перфорация, тиснение;
@@ -106,7 +106,7 @@
 - source of truth для логотипа - существующий брендовый SVG/официальный asset;
 - изменения логотипа проверять отдельно от обложек.
 
-### 2.4. Brand-On-Chair Governance
+### 2.4. Правила Брендинга На Кресле
 
 Это правило появилось после ручной проверки новых inline-изображений: бренд на кресле должен выглядеть как часть товара, а не как наклейка поверх готовой картинки.
 
@@ -213,14 +213,14 @@ SEO-логика:
 - сравнение, таблицу или FAQ не превращать в картинку, если это можно сделать HTML-текстом: поисковику и пользователю нужен индексируемый текст;
 - для `Article` / `NewsArticle` schema главным image-set остается `01-front.webp` + crops; inline-изображения могут усиливать страницу, но не заменяют primary image.
 
-Поштучный план внедрения находится в [74-2026-06-15-articles-news-inline-image-serp-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/74-2026-06-15-articles-news-inline-image-serp-audit.md), а текущее состояние - в [77-2026-06-18-articles-news-content-image-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/77-2026-06-18-articles-news-content-image-audit.md). Перед созданием нового inline-изображения сначала проверять, нужен ли новый visual вообще: текущий backlog закрыт, а приоритет смещен к factual replacement и разнообразию.
+Поштучный план внедрения находится в [74-2026-06-15-articles-news-inline-image-serp-audit.md](../audits/74-2026-06-15-articles-news-inline-image-serp-audit.md), а текущее состояние - в [77-2026-06-18-articles-news-content-image-audit.md](../audits/77-2026-06-18-articles-news-content-image-audit.md). Перед созданием нового inline-изображения сначала проверять, нужен ли новый visual вообще: текущий backlog закрыт, а приоритет смещен к factual replacement и разнообразию.
 
 ### 5.1.2. SERP-Стандарт Для Image Surfaces
 
 Для важных article/news URL нужно поддерживать два слоя изображений:
 
-- primary editorial image: `01-front.webp` **1536x1024**;
-- schema/search variants: `01-front-16x9.webp` **1600x900**, `01-front-4x3.webp` **1200x900**, `01-front-1x1.webp` **1200x1200**;
+- главное редакционное изображение: `01-front.webp` **1536x1024**;
+- варианты для schema и поиска: `01-front-16x9.webp` **1600x900**, `01-front-4x3.webp` **1200x900**, `01-front-1x1.webp` **1200x1200**;
 - inline explainers: `02-*` / `03-*` **1200x800** или **1200x675**.
 
 Правила:

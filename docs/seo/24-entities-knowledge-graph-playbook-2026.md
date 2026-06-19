@@ -2,7 +2,7 @@
 
 Актуально на 2026-05-25.
 
-Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md). Дополнительный PDF-аудит Schema App по connected schema, Content Knowledge Graphs, impact и Agentic Web зафиксирован в [44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md). Customer stories/case studies Schema App по real-world entity linking, migrations и product visibility зафиксированы в [46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md). Обновление `2026-05-25` учитывает статью Schema App [Stop Chasing Visibility. Build Understanding.](https://www.schemaapp.com/schema-markup/stop-chasing-visibility-build-understanding/) и официальный Google guide [Optimizing your website for generative AI features on Google Search](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide).
+Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](../audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md). Дополнительный PDF-аудит Schema App по connected schema, Content Knowledge Graphs, impact и Agentic Web зафиксирован в [44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](../audits/44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md). Customer stories/case studies Schema App по real-world entity linking, migrations и product visibility зафиксированы в [46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md](../audits/46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md). Обновление `2026-05-25` учитывает статью Schema App [Stop Chasing Visibility. Build Understanding.](https://www.schemaapp.com/schema-markup/stop-chasing-visibility-build-understanding/) и официальный Google guide [Optimizing your website for generative AI features on Google Search](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide).
 
 Этот документ переводит `Guide to Entities & Knowledge Graphs for SEO`, `Guide to Connected Schema Markup` и `How to Drive Your Content Marketing Strategy Using Content Knowledge Graphs` от SchemaApp в локальные правила для проекта `Aerocool Ukraine`.
 
@@ -10,7 +10,7 @@
 
 Уточнение `2026-05-25`: structured data не считать магическим способом попасть в AI-ответы. Для Aerocool цель knowledge graph — не “поймать видимость”, а дать поиску и AI-системам управляемый, проверяемый слой понимания: кто такой бренд, что продает локальная организация, какие есть серии и модели, какие факты подтверждены, как связаны страницы и где находится источник правды.
 
-Текущий порядок внедрения entity registry, entity home, `about`, `mentions` и `ProductGroup` описан в [34-2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md). Актуальный реестр сущностей находится в [23-entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/23-entity-registry-2026.md).
+Текущий порядок внедрения entity registry, entity home, `about`, `mentions` и `ProductGroup` описан в [34-2026-05-07-documentation-refresh-and-project-action-plan.md](../audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md). Актуальный реестр сущностей находится в [23-entity-registry-2026.md](23-entity-registry-2026.md).
 
 ## 1. Что Такое Сущность
 
@@ -56,7 +56,7 @@ Knowledge graph — это сеть отношений между сущност
 Для Aerocool это значит:
 
 - `data/entities.yaml` и `docs/seo/23-entity-registry-2026.md` являются governance-слоем сущностей, а не справочником “для красоты”;
-- product front matter является источником правды для merchant facts, а не дублем JSON-LD; поддерживать его нужно по регламенту [58-product-facts-maintenance-process-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/58-product-facts-maintenance-process-2026.md);
+- product front matter является источником правды для merchant facts, а не дублем JSON-LD; поддерживать его нужно по регламенту [58-product-facts-maintenance-process-2026.md](58-product-facts-maintenance-process-2026.md);
 - `/faq/`, `/contact/`, `/about/`, серии, товары и статьи должны взаимно подтверждать факты, а не рассказывать разные версии;
 - `about_entities`, `mentions_entities`, `product_group_id`, `related_*` и видимые внутренние ссылки должны усиливать одну и ту же карту связей;
 - graph-аудит должен проверять не только валидность JSON, но и то, насколько уверенно машина может понять бренд, товар, серию, материал, механизм и условия покупки.
@@ -71,7 +71,7 @@ Knowledge graph — это сеть отношений между сущност
 
 Эти шаги должны быть частью редакционного процесса, а не только технического SEO.
 
-Customer stories Schema App подтверждают практическую сторону этой модели: knowledge graph должен быть измеримым. Для Aerocool это означает регулярный [отчет по эффективности сущностей (Entity Performance Report)](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-report-2026.md) `entity -> entity home -> pages about -> pages mentions -> rendered node -> GSC/AI/business signal`, а не только наличие `data/entities.yaml`.
+Customer stories Schema App подтверждают практическую сторону этой модели: knowledge graph должен быть измеримым. Для Aerocool это означает регулярный [отчет по эффективности сущностей (Entity Performance Report)](59-entity-performance-report-2026.md) `entity -> entity home -> pages about -> pages mentions -> rendered node -> GSC/AI/business signal`, а не только наличие `data/entities.yaml`.
 
 ### Граф Знаний Контента Жизненного Цикла (Lifecycle Content Knowledge Graph)
 
@@ -164,12 +164,12 @@ Knowledge graph можно проектировать через тройки:
 
 - product -> brand;
 - product -> seller;
-- product -> page image;
+- товар -> изображение страницы;
 - product -> collection/series через visible links; только реальные варианты одной модели дополнительно связывать через `ProductGroup`;
-- article/news -> publisher;
+- статья или новость -> издатель;
 - article/news -> related series/products через visible links и точечные `about` / `mentions`;
-- FAQ -> organization/service policy;
-- local organization -> global organization / brand.
+- FAQ -> организация или сервисная политика;
+- локальная организация -> глобальная организация или бренд.
 
 Если связь важна для SEO или AI Search, она должна быть понятна не только из текста, но и из структуры страницы.
 
@@ -246,7 +246,7 @@ Aerocool уже находится выше уровня keyword/topics благ
 - если entity `confirmed`, но нет `Pages About`, статус завышен или не хватает entity home;
 - если entity часто попадает в `mentions`, но редко в `about`, возможно нужен сильный объясняющий материал;
 - если важная коммерческая сущность не имеет AI/GSC signal после индексации, нужен контентный или внутренний linking-аудит;
-- если rendered node отсутствует для confirmed dictionary/policy entity, проверить resolver и статус в [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml).
+- если rendered node отсутствует для confirmed dictionary/policy entity, проверить resolver и статус в [data/entities.yaml](../../data/entities.yaml).
 
 ## 11. Что Дает Knowledge Graph Кроме SEO
 
@@ -273,7 +273,7 @@ Knowledge graph может быть переиспользован за пред
 
 ### P1
 
-1. Выполнено `2026-05-07`: initial entity registry создан в [23-entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/23-entity-registry-2026.md).
+1. Выполнено `2026-05-07`: initial entity registry создан в [23-entity-registry-2026.md](23-entity-registry-2026.md).
 2. Выполнено `2026-05-07`: entity home для `Synchronous Tilt`, `SYNC4`, `SYNC5`, `Mesh`, `Racer`, `Loft Air`, `Dual backrest` зафиксированы.
 3. Выполнено `2026-05-07`: front matter для `about_entities` и `mentions_entities` спроектирован и подключен к safe resolver.
 4. Выполнено `2026-05-07`: `ProductGroup` и `product_group_id` спроектированы; ProductGroup выводится только для confirmed entity.
@@ -315,7 +315,7 @@ Knowledge graph может быть переиспользован за пред
 - entity home для каждой важной сущности;
 - стабильные URI / `@id`;
 - semantic triples для проектирования связей;
-- internal + external entity linking;
+- внутренняя и внешняя перелинковка сущностей;
 - content gap audit по entities;
 - reusable knowledge graph для SEO и будущих AI-сценариев.
 - lifecycle поддержки graph: creation, hosting, curation, deployment/reuse.

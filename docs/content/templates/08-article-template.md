@@ -150,4 +150,4 @@ schema_types: ["website", "article", "organization", "breadcrumbs"]
 - Если у статьи нет собственной обложки в папке страницы, допустим fallback `image: "images/default-article.webp"`, но это запасной сценарий, а не основной стандарт.
 - Для `index.md` и `index.ru.md` держать факты синхронно, меняя только язык и локальные ссылки.
 - В статье желательно иметь 3-8 осмысленных внутренних ссылок: серия, товар, FAQ, контакты, связанные гайды.
-- Перед созданием нового изображения проверить [77-2026-06-18-articles-news-content-image-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/77-2026-06-18-articles-news-content-image-audit.md): текущий mandatory image backlog закрыт, поэтому чаще нужна factual replacement, а не третья AI-иллюстрация.
+- Перед созданием нового изображения проверить [77-2026-06-18-articles-news-content-image-audit.md](../../audits/77-2026-06-18-articles-news-content-image-audit.md): текущий mandatory image backlog закрыт, поэтому чаще нужна factual replacement, а не третья AI-иллюстрация.

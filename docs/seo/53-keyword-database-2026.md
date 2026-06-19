@@ -2,7 +2,7 @@
 
 Обновлено: 2026-06-13.
 
-Этот документ фиксирует рабочую базу ключевых слов проекта `Aerocool Ukraine` после анализа всего публичного контента сайта и текущей SEO-документации. Полная табличная база находится рядом в [53-keyword-database-2026.csv](/Users/stadnyk/MEGA/Aerocool/docs/seo/53-keyword-database-2026.csv), а стратегический порядок развития семантического ядра описан в [72-semantic-core-keyword-strategy-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/72-semantic-core-keyword-strategy-2026.md).
+Этот документ фиксирует рабочую базу ключевых слов проекта `Aerocool Ukraine` после анализа всего публичного контента сайта и текущей SEO-документации. Полная табличная база находится рядом в [53-keyword-database-2026.csv](53-keyword-database-2026.csv), а стратегический порядок развития семантического ядра описан в [72-semantic-core-keyword-strategy-2026.md](72-semantic-core-keyword-strategy-2026.md).
 
 Документ не обещает позиции в Google. Его задача — дать команде единый словарь для аналитики, развития контента, расширения семантики, проверки каннибализации и планирования новых страниц.
 
@@ -17,7 +17,7 @@
 - `16` evergreen-статей в двух языках.
 - `9` новостей в двух языках.
 - `hugo.yaml`, где заданы глобальные `description` и `params.keywords`.
-- [18-seo-keyword-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/18-seo-keyword-map-2026.md), где уже описана стратегическая карта интентов.
+- [18-seo-keyword-map-2026.md](18-seo-keyword-map-2026.md), где уже описана стратегическая карта интентов.
 
 Служебные страницы `/search/` и страницы подтверждения формы не считаются SEO-посадочными, но учитывались как часть корпуса, чтобы не принять их за новые цели для ранжирования. Страницы `/image-license/` и `/ru/image-license/` считаются поддерживающими legal/trust URL: они не являются коммерческими посадочными, но заведены в базу, потому что поддерживают ImageObject license metadata и доверительный слой сайта.
 
@@ -133,11 +133,11 @@ CSV-файл содержит строки вида:
 
 ## Связь С Остальной Документацией
 
-- Стратегическая карта интентов: [18-seo-keyword-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/18-seo-keyword-map-2026.md).
-- Стратегия развития семантического ядра: [72-semantic-core-keyword-strategy-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/72-semantic-core-keyword-strategy-2026.md).
-- Контентные правила: [07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md).
-- Front matter и SEO-поля: [05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md).
-- Entity strategy: [24-entities-knowledge-graph-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/24-entities-knowledge-graph-playbook-2026.md).
+- Стратегическая карта интентов: [18-seo-keyword-map-2026.md](18-seo-keyword-map-2026.md).
+- Стратегия развития семантического ядра: [72-semantic-core-keyword-strategy-2026.md](72-semantic-core-keyword-strategy-2026.md).
+- Контентные правила: [07-content-seo-checklist-2026.md](../content/07-content-seo-checklist-2026.md).
+- Front matter и SEO-поля: [05-front-matter-reference.md](../content/05-front-matter-reference.md).
+- Entity strategy: [24-entities-knowledge-graph-playbook-2026.md](24-entities-knowledge-graph-playbook-2026.md).
 
 ## Краткий Снимок Базы
 

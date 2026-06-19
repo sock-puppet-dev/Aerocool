@@ -8,9 +8,9 @@
 
 > Примечание для текущего проекта Aerocool: Netlify сейчас намеренно собирает сайт в `development/noindex`, поэтому финальную проверку индексируемости нужно делать только после отдельного production-переключения. Автоматический browser-аудит в Netlify и GitHub Actions gate сейчас не используются.
 
-> Практический порядок внедрения для текущего проекта: [34-2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md).
-> Базовый sync-аудит документации: [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md).
-> Текущий технический контракт `hugo.yaml` для SERP-фундамента: [76-hugo-yaml-serp-technical-contract-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/76-hugo-yaml-serp-technical-contract-2026.md).
+> Практический порядок внедрения для текущего проекта: [34-2026-05-07-documentation-refresh-and-project-action-plan.md](../audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md).
+> Базовый sync-аудит документации: [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](../audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md).
+> Текущий технический контракт `hugo.yaml` для SERP-фундамента: [76-hugo-yaml-serp-technical-contract-2026.md](76-hugo-yaml-serp-technical-contract-2026.md).
 
 Официальная база для этого чек-листа:
 
@@ -104,7 +104,7 @@ Google Search Console — обязательный инструмент. Без 
 
 Цель — не просто 100 в отчете, а хорошие полевые данные у реальных пользователей.
 
-Подробный локальный playbook для проекта: [12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md).
+Подробный локальный playbook для проекта: [12-core-web-vitals-guide-2026.md](../quality/12-core-web-vitals-guide-2026.md).
 
 Проверять:
 
@@ -375,7 +375,7 @@ FAQ
 | file name | Для page bundle допустим `01-front.png`; для глобальных файлов использовать описательные имена, а не `img123` |
 | hero preload | Только для главной LCP-картинки |
 | lazy loading | Для нижних изображений |
-| responsive images | `srcset` / Hugo image processing |
+| адаптивные изображения | `srcset` / обработка изображений Hugo |
 | `sizes` | Должен соответствовать реальной ширине рендера; не ставить `100vw` для контентной колонки |
 | image sitemap | Желательно для больших каталогов |
 
@@ -464,9 +464,9 @@ Accessibility напрямую не гарантирует позиции, но 
 
 Профильные документы:
 
-- [25-ai-search-entity-map-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/25-ai-search-entity-map-2026.md)
-- [24-entities-knowledge-graph-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/24-entities-knowledge-graph-playbook-2026.md)
-- [20-schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/20-schema-markup-quality-checklist-2026.md)
+- [25-ai-search-entity-map-2026.md](25-ai-search-entity-map-2026.md)
+- [24-entities-knowledge-graph-playbook-2026.md](24-entities-knowledge-graph-playbook-2026.md)
+- [20-schema-markup-quality-checklist-2026.md](20-schema-markup-quality-checklist-2026.md)
 
 ---
 

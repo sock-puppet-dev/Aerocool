@@ -1,6 +1,6 @@
 # Полный Ручной Аудит Изображений Проекта — 2026-06-13
 
-Актуально на 2026-06-13.
+Дата аудита: 2026-06-13.
 
 Этот документ фиксирует текущий ручной аудит всех проектных изображений `Aerocool Ukraine` и связанных правил вывода: content covers, article/news bundles, schema crops, fallback, home hero, product gallery, favicon/logo assets и build hygiene.
 

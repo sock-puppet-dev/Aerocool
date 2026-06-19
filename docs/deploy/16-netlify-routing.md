@@ -4,9 +4,9 @@
 
 Этот документ описывает, как в проекте устроены Netlify redirects, HTTP headers и кастомная `404`.
 
-Базовая синхронизация с Netlify redirects, headers и caching docs зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md).
+Базовая синхронизация с Netlify redirects, headers и caching docs зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](../audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md).
 
-Решение убрать локальный browser-аудит из Netlify и перейти на PageSpeed Insights зафиксировано в [61-2026-06-02-pagespeed-insights-quality-simplification.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/61-2026-06-02-pagespeed-insights-quality-simplification.md).
+Решение убрать локальный browser-аудит из Netlify и перейти на PageSpeed Insights зафиксировано в [61-2026-06-02-pagespeed-insights-quality-simplification.md](../audits/61-2026-06-02-pagespeed-insights-quality-simplification.md).
 
 ## 1. Где Живут Правила
 
@@ -28,15 +28,15 @@ Netlify обрабатывает `_redirects` раньше правил из `ne
 
 Основные группы scanner/sensitive правил:
 
-- WordPress scanner URL: `/wp-login.php`, `/wp-admin/*`, `/xmlrpc.php`;
-- WordPress API probes: `/wp-json/*`;
-- duplicated leading slash WordPress probes: `//blog/wp-includes/wlwmanifest.xml`;
+- URL сканеров WordPress: `/wp-login.php`, `/wp-admin/*`, `/xmlrpc.php`;
+- запросы к API WordPress: `/wp-json/*`;
+- запросы WordPress с дублированным начальным слешем: `//blog/wp-includes/wlwmanifest.xml`;
 - sensitive files: `/.env`, `/.git/*`, `/.aws/*`;
-- framework/cloud config probes: `/_nuxt/*`, `/.vite/*`, `/__/firebase/*`, `/runtime-config.js`, `/openapi.json`;
-- Joomla/filemanager probes: `/media/system/js/*`, `/filemanager/*`, `/assets/plugins/filemanager/*`;
-- PHP/debug/backup probes: `/info.php`, `/test.php`, `/dev/phpinfo.php`, `/wp-config.php.backup`, `/license.txt`;
-- common backup/config probes: `/config.php`, `/database.sql`, `/backup.sql`;
-- cPanel/OpenID probes: `/cpanel/*`, `/openid_connect/*`.
+- запросы конфигурации фреймворков и облачных сервисов: `/_nuxt/*`, `/.vite/*`, `/__/firebase/*`, `/runtime-config.js`, `/openapi.json`;
+- запросы Joomla и файловых менеджеров: `/media/system/js/*`, `/filemanager/*`, `/assets/plugins/filemanager/*`;
+- запросы PHP, debug и резервных копий: `/info.php`, `/test.php`, `/dev/phpinfo.php`, `/wp-config.php.backup`, `/license.txt`;
+- типовые запросы резервных копий и конфигурации: `/config.php`, `/database.sql`, `/backup.sql`;
+- запросы cPanel и OpenID: `/cpanel/*`, `/openid_connect/*`.
 
 Для таких правил используется статус `404!`.
 
@@ -219,4 +219,4 @@ Netlify CLI может создать локальные артефакты `.ne
 https://pagespeed.web.dev/
 ```
 
-Минимальный набор URL и целевые ориентиры описаны в [quality/13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md). Если менялись `static/_redirects`, CSP, headers или 404, сначала выполнить routing-проверки из раздела 8, затем уже смотреть PageSpeed.
+Минимальный набор URL и целевые ориентиры описаны в [quality/13-pagespeed-insights-audit.md](../quality/13-pagespeed-insights-audit.md). Если менялись `static/_redirects`, CSP, headers или 404, сначала выполнить routing-проверки из раздела 8, затем уже смотреть PageSpeed.

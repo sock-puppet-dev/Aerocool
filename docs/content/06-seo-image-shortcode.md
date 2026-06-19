@@ -4,17 +4,17 @@
 
 Короткое руководство по shortcode `seo-image` в текущем проекте `Aerocool`.
 
-Shortcode `seo-image` находится в [layouts/_shortcodes/seo-image.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/seo-image.html) и работает только с изображениями, которые лежат внутри папки страницы (`page bundle` в терминологии Hugo). Если файла нет рядом со страницей, сборка упадет с ошибкой.
+Shortcode `seo-image` находится в [layouts/_shortcodes/seo-image.html](../../layouts/_shortcodes/seo-image.html) и работает только с изображениями, которые лежат внутри папки страницы (`page bundle` в терминологии Hugo). Если файла нет рядом со страницей, сборка упадет с ошибкой.
 
 `seo-image` отвечает только за видимое HTML-изображение в теле обычной контентной страницы: responsive `srcset`, WebP-версии, fallback-изображение, `width` / `height`, `sizes`, `loading`, `decoding`, `fetchpriority` и стабильный `aspect-ratio`. Он не рендерит `H1`, не меняет SEO `title`, не управляет `og:image` и не выводит JSON-LD.
 
 В Hugo `0.163.0` shortcode проверяет processable image resources через `reflect.IsImageResourceProcessable` перед вызовами image pipeline. Это актуальный Hugo-подход вместо ручного списка расширений. Для processable-изображений проект выводит `<picture>` с WebP `srcset` и fallback `<img>` в исходном формате. SVG не является processable resource, поэтому выводится как обычный `<img>` с обязательными размерами.
 
-Hero-изображение главной страницы — отдельное исключение: оно живет в shortcode [home-hero.html](/Users/stadnyk/MEGA/Aerocool/layouts/_shortcodes/home-hero.html), не проходит через `seo-image`, но использует Hugo global image resource из `assets/images/home-hero85.webp`. Shortcode выводит responsive `srcset`, `sizes`, `loading="eager"` и `fetchpriority="high"`, а matching preload для главной страницы выводится в `<head>` через [lcp-image-preload.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/lcp-image-preload.html).
+Hero-изображение главной страницы — отдельное исключение: оно живет в shortcode [home-hero.html](../../layouts/_shortcodes/home-hero.html), не проходит через `seo-image`, но использует Hugo global image resource из `assets/images/home-hero85.webp`. Shortcode выводит responsive `srcset`, `sizes`, `loading="eager"` и `fetchpriority="high"`, а matching preload для главной страницы выводится в `<head>` через [lcp-image-preload.html](../../layouts/_partials/_seo/lcp-image-preload.html).
 
-Главное изображение товарной страницы — тоже отдельный сценарий. Оно не должно вставляться через `seo-image` в markdown. На товарных страницах первый видимый кадр выводит [products/gallery.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/gallery.html) из front matter `image`, а responsive preload для этого кадра выводится в `<head>` через [lcp-image-preload.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/lcp-image-preload.html) с тем же `sizes`, что и gallery.
+Главное изображение товарной страницы — тоже отдельный сценарий. Оно не должно вставляться через `seo-image` в markdown. На товарных страницах первый видимый кадр выводит [products/gallery.html](../../layouts/_partials/products/gallery.html) из front matter `image`, а responsive preload для этого кадра выводится в `<head>` через [lcp-image-preload.html](../../layouts/_partials/_seo/lcp-image-preload.html) с тем же `sizes`, что и gallery.
 
-Общий визуальный стандарт изображений, включая обложки, fallback, section covers, home hero, product gallery, inline-иллюстрации, технические схемы и AI-промпты, описан отдельно в [67-image-design-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/67-image-design-playbook-2026.md). Текущее состояние статей и новостей находится в [77-2026-06-18-articles-news-content-image-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/77-2026-06-18-articles-news-content-image-audit.md), а историческая поштучная матрица внедрения - в [74-2026-06-15-articles-news-inline-image-serp-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/74-2026-06-15-articles-news-inline-image-serp-audit.md). Эти документы отвечают за внешний вид, смысл и SERP-стандарт; текущий `seo-image` отвечает за HTML, responsive delivery и performance.
+Общий визуальный стандарт изображений, включая обложки, fallback, section covers, home hero, product gallery, inline-иллюстрации, технические схемы и AI-промпты, описан отдельно в [67-image-design-playbook-2026.md](67-image-design-playbook-2026.md). Текущее состояние статей и новостей находится в [77-2026-06-18-articles-news-content-image-audit.md](../audits/77-2026-06-18-articles-news-content-image-audit.md), а историческая поштучная матрица внедрения - в [74-2026-06-15-articles-news-inline-image-serp-audit.md](../audits/74-2026-06-15-articles-news-inline-image-serp-audit.md). Эти документы отвечают за внешний вид, смысл и SERP-стандарт; текущий `seo-image` отвечает за HTML, responsive delivery и performance.
 
 Простыми словами для новичка: `seo-image` нужен, когда ты вставляешь изображение прямо в текст статьи, новости или обычной страницы. Для главной и товарной страницы уже есть отдельные шаблоны первого экрана.
 
@@ -84,7 +84,7 @@ cover:
 Что делает эта связка:
 
 - `seo-image` выводит видимый `<picture>` в теле страницы;
-- [lcp-image-preload.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/lcp-image-preload.html) выводит один ранний responsive preload в `<head>`;
+- [lcp-image-preload.html](../../layouts/_partials/_seo/lcp-image-preload.html) выводит один ранний responsive preload в `<head>`;
 - shortcode не дублирует body-level preload, если `image`, `src` и `cover.hiddenInSingle: true` совпадают.
 
 ## 2. Товарная Страница
@@ -103,10 +103,10 @@ cover:
 В markdown-теле товара не добавлять стартовый `seo-image` для `01-front.png`. Товарный шаблон сам:
 
 - берет первый кадр из `image`;
-- выводит его через [products/gallery.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/products/gallery.html);
+- выводит его через [products/gallery.html](../../layouts/_partials/products/gallery.html);
 - ставит `loading="eager"` и `fetchpriority="high"` на первый gallery image;
 - выводит дополнительные изображения page bundle как lazy-loaded миниатюры;
-- получает matching head preload из [lcp-image-preload.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_seo/lcp-image-preload.html).
+- получает matching head preload из [lcp-image-preload.html](../../layouts/_partials/_seo/lcp-image-preload.html).
 
 Если `image` или `cover.image` товарной страницы указывает на отсутствующий файл либо на image resource, который Hugo не может обработать через `reflect.IsImageResourceProcessable`, сборка должна остановиться. Это намеренная защита от битой LCP-картинки и рассинхронизации SEO/OG/schema с видимой gallery.
 

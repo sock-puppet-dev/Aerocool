@@ -1,12 +1,14 @@
 # Аудит Inline-Изображений Articles/News И SERP-Стандарт Изображений 2026
 
-Актуально на 2026-06-16.
+Дата аудита: 2026-06-15.
 
-Статус: историческая матрица внедрения inline-изображений. Текущий глубокий аудит текстов и изображений находится в [77-2026-06-18-articles-news-content-image-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/77-2026-06-18-articles-news-content-image-audit.md).
+Обновлено: 2026-06-16.
+
+Статус: историческая матрица внедрения inline-изображений. Текущий глубокий аудит текстов и изображений находится в [77-2026-06-18-articles-news-content-image-audit.md](77-2026-06-18-articles-news-content-image-audit.md).
 
 Этот документ фиксирует текущий ручной анализ всех текстов `content/articles` и `content/news`: какие изображения нужны внутри тела каждой статьи и новости, где их ставить, какие форматы использовать и какие технические правила соблюдать, чтобы изображения помогали пользователю, SEO, schema.org и Core Web Vitals.
 
-Документ заменил план [73-2026-06-14-articles-news-inline-image-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/73-2026-06-14-articles-news-inline-image-plan.md) на этапе внедрения. Аудиты `73` и `74` теперь остаются историческими snapshot.
+Документ заменил план [73-2026-06-14-articles-news-inline-image-plan.md](73-2026-06-14-articles-news-inline-image-plan.md) на этапе внедрения. Аудиты `73` и `74` теперь остаются историческими snapshot.
 
 ## 1. Проверенные Источники
 

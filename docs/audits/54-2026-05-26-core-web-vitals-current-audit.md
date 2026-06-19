@@ -1,6 +1,6 @@
 # Core Web Vitals аудит проекта на 2026-05-26
 
-Дата: 2026-05-26.
+Дата аудита: 2026-05-26.
 
 Цель: проверить весь текущий Core Web Vitals-контур проекта `Aerocool Ukraine`, синхронизировать связанную документацию с лучшими практиками 2026 года и зафиксировать актуальный lab baseline.
 
@@ -11,8 +11,8 @@
 - web.dev LCP optimization: https://web.dev/articles/optimize-lcp
 - web.dev INP optimization: https://web.dev/articles/optimize-inp
 - web.dev CLS optimization: https://web.dev/optimize-cls
-- Локальный playbook: [12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md)
-- PageSpeed workflow: [13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md)
+- Локальный playbook: [12-core-web-vitals-guide-2026.md](../quality/12-core-web-vitals-guide-2026.md)
+- PageSpeed workflow: [13-pagespeed-insights-audit.md](../quality/13-pagespeed-insights-audit.md)
 
 Актуальные пороги Google на дату проверки:
 

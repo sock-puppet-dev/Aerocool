@@ -2,7 +2,7 @@
 
 Дата аудита: 2026-05-13.
 
-> Исторический sync snapshot. Он не является текущим source of truth по версиям инструментов после перехода на Hugo 0.163.0; актуальный tooling-аудит смотреть в [68-2026-06-11-hugo-0-163-documentation-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md).
+> Исторический sync snapshot. Он не является текущим source of truth по версиям инструментов после перехода на Hugo 0.163.0; актуальный tooling-аудит смотреть в [68-2026-06-11-hugo-0-163-documentation-sync-audit.md](68-2026-06-11-hugo-0-163-documentation-sync-audit.md).
 
 Этот документ фиксирует проверку всей проектной документации `Aerocool Ukraine` на актуальность, взаимную согласованность и соответствие лучшим практикам 2026 года для Hugo / Netlify / Tailwind, Google SEO, Core Web Vitals, structured data, e-commerce, multilingual SEO и AI Search readiness.
 
@@ -80,7 +80,7 @@
 
 ## 5. Соответствие Лучшим Практикам
 
-### Google SEO
+### Проверка Google SEO
 
 Документация соответствует рекомендациям Google 2026 года:
 
@@ -101,7 +101,7 @@
 - Product/Offer/merchant facts должны быть синхронизированы с front matter, видимым товарным контентом и `/faq/`;
 - Product variants должны ждать видимой навигации вариантов и стабильных ProductGroup-сущностей.
 
-### Core Web Vitals
+### Проверка Core Web Vitals
 
 Текущий CWV-слой соответствует метрикам 2026 года:
 
@@ -110,7 +110,7 @@
 - field data из Search Console и PageSpeed отделены от быстрых lab/browser diagnostics;
 - риски image, CSS, JS, font и TTFB описаны для текущей реализации Hugo/Netlify.
 
-### Hugo / Tailwind
+### Связка Hugo И Tailwind
 
 Документация соответствует поведению Hugo 0.162-era:
 
@@ -120,7 +120,7 @@
 - Tailwind classes должны оставаться статически обнаруживаемыми;
 - Node permission model рассматривается как часть build contract.
 
-### Netlify
+### Настройки Netlify
 
 Документация соответствует поведению Netlify:
 
@@ -133,26 +133,26 @@
 
 Для нового участника проекта:
 
-1. [README.md](/Users/stadnyk/MEGA/Aerocool/README.md)
-2. [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md)
-3. [docs/content/05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md)
-4. [docs/architecture/03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md)
-5. [docs/quality/13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md)
+1. [README.md](../../README.md)
+2. [docs/01-documentation-map.md](../01-documentation-map.md)
+3. [docs/content/05-front-matter-reference.md](../content/05-front-matter-reference.md)
+4. [docs/architecture/03-hugo-template-helpers.md](../architecture/03-hugo-template-helpers.md)
+5. [docs/quality/13-pagespeed-insights-audit.md](../quality/13-pagespeed-insights-audit.md)
 
 Для SEO/schema-задач:
 
-1. [docs/content/07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md)
-2. [docs/seo/27-google-seo-audit-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/27-google-seo-audit-checklist-2026.md)
-3. [docs/seo/19-schema-types-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/19-schema-types-reference.md)
-4. [docs/seo/20-schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/20-schema-markup-quality-checklist-2026.md)
-5. [docs/seo/21-ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/21-ecommerce-structured-data-playbook-2026.md)
+1. [docs/content/07-content-seo-checklist-2026.md](../content/07-content-seo-checklist-2026.md)
+2. [docs/seo/27-google-seo-audit-checklist-2026.md](../seo/27-google-seo-audit-checklist-2026.md)
+3. [docs/seo/19-schema-types-reference.md](../seo/19-schema-types-reference.md)
+4. [docs/seo/20-schema-markup-quality-checklist-2026.md](../seo/20-schema-markup-quality-checklist-2026.md)
+5. [docs/seo/21-ecommerce-structured-data-playbook-2026.md](../seo/21-ecommerce-structured-data-playbook-2026.md)
 
 Для performance/CWV-задач:
 
-1. [docs/quality/12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md)
-2. [docs/quality/13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md)
-3. [docs/quality/12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md)
-4. [docs/content/06-seo-image-shortcode.md](/Users/stadnyk/MEGA/Aerocool/docs/content/06-seo-image-shortcode.md)
+1. [docs/quality/12-core-web-vitals-guide-2026.md](../quality/12-core-web-vitals-guide-2026.md)
+2. [docs/quality/13-pagespeed-insights-audit.md](../quality/13-pagespeed-insights-audit.md)
+3. [docs/quality/12-core-web-vitals-guide-2026.md](../quality/12-core-web-vitals-guide-2026.md)
+4. [docs/content/06-seo-image-shortcode.md](../content/06-seo-image-shortcode.md)
 
 ## 7. Итоговая Оценка
 

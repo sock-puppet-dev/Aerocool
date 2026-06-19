@@ -4,7 +4,7 @@
 
 `mise` — это менеджер версий инструментов. В этом проекте он нужен, чтобы локально запускать те же версии `Hugo` и `Node`, которые используются в `Netlify`.
 
-Текущая синхронизация tooling-документации с Hugo 0.163.0, Node 24.16.0 и Tailwind CSS 4.3 зафиксирована в [68-2026-06-11-hugo-0-163-documentation-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md).
+Текущая синхронизация tooling-документации с Hugo 0.163.0, Node 24.16.0 и Tailwind CSS 4.3 зафиксирована в [68-2026-06-11-hugo-0-163-documentation-sync-audit.md](../audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md).
 
 Проще говоря:
 
@@ -143,7 +143,7 @@ npm run build
 npm run entity:report
 ```
 
-Generated CSV отчета не редактировать вручную: внешние GSC/AI/business-метрики добавлять в [59-entity-performance-overrides.csv](/Users/stadnyk/MEGA/Aerocool/docs/seo/59-entity-performance-overrides.csv).
+Generated CSV отчета не редактировать вручную: внешние GSC/AI/business-метрики добавлять в [59-entity-performance-overrides.csv](../seo/59-entity-performance-overrides.csv).
 
 Локальная production-сборка:
 

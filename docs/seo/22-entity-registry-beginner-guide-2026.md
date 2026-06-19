@@ -2,7 +2,7 @@
 
 Обновлено: 2026-05-13.
 
-Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md).
+Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](../audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md).
 
 Этот гайд объясняет `Entity Registry` простым языком. Его задача — помочь человеку, который впервые открыл проект `Aerocool Ukraine`, понять, зачем нужен реестр сущностей, где он живет и как аккуратно добавлять `about_entities`, `mentions_entities` и `product_group_id` в страницы сайта.
 
@@ -44,13 +44,13 @@ Entity Registry решает эту проблему. Он говорит:
 
 ### Документ-реестр
 
-[23-entity-registry-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/23-entity-registry-2026.md)
+[23-entity-registry-2026.md](23-entity-registry-2026.md)
 
 Это человеческая карта. Здесь объяснены правила, статусы, связи, entity homes, ProductGroup, service policies и roadmap.
 
 ### Структурированный Слой Данных
 
-[data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml)
+[data/entities.yaml](../../data/entities.yaml)
 
 Это машинный источник для Hugo-шаблонов. Если `entity_id` отсутствует здесь, шаблон не сможет превратить его в JSON-LD reference.
 
@@ -74,7 +74,7 @@ product_group_id: "wing-racer-product-group"
 
 ### Schema-Partial-Файлы Hugo
 
-Шаблоны в `layouts/_partials/_schema/` читают front matter, проверяют `entity_id` через [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml) и выводят JSON-LD только для безопасных сущностей.
+Шаблоны в `layouts/_partials/_schema/` читают front matter, проверяют `entity_id` через [data/entities.yaml](../../data/entities.yaml) и выводят JSON-LD только для безопасных сущностей.
 
 Для части `confirmed` сущностей шаблоны теперь создают не только ссылку вида `{ "@id": "..." }`, но и отдельный небольшой JSON-LD node. Это касается материалов, механизмов, фич, сценариев, тем и service policy сущностей. Например `gaming-chair` может стать `DefinedTerm`, а `delivery-policy` — объяснительным `Thing` с `name`, `url`, `identifier` и `subjectOf`. Product, Brand, Organization и WebPage так не дублируются, потому что для них уже есть отдельные schema partials.
 
@@ -84,7 +84,7 @@ product_group_id: "wing-racer-product-group"
 
 Перед добавлением нужно ответить на три вопроса:
 
-1. Эта сущность есть в [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml)?
+1. Эта сущность есть в [data/entities.yaml](../../data/entities.yaml)?
 2. Она реально видна или объяснена на странице?
 3. Связь помогает понять страницу, а не просто украшает JSON-LD?
 
@@ -175,7 +175,7 @@ product_group_id: "wing-racer-product-group"
 
 ## 9. Как Выбрать Правильные ID Сущностей
 
-Сначала открой [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml).
+Сначала открой [data/entities.yaml](../../data/entities.yaml).
 
 Найди нужную сущность по понятному имени:
 
@@ -272,7 +272,7 @@ mentions_entities:
 product_group_id: "wing-racer-product-group"
 ```
 
-### FAQ
+### Раздел FAQ
 
 FAQ объясняет сервисные условия.
 
@@ -296,7 +296,7 @@ about_entities:
 
 ## 14. Быстрый Чеклист Перед Коммитом
 
-- Entity IDs есть в [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml).
+- Entity IDs есть в [data/entities.yaml](../../data/entities.yaml).
 - Для JSON-LD используются только `confirmed` сущности.
 - Для `confirmed` materials/mechanisms/features/use cases/topics/policies registry node появляется только если сущность реально используется в `about_entities` или `mentions_entities`.
 - `product_group_id` заполнен только на товарных страницах с реальными соседними вариантами.

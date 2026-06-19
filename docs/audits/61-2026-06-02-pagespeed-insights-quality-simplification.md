@@ -27,7 +27,7 @@
 
 Добавлен новый активный документ:
 
-- [docs/quality/13-pagespeed-insights-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/13-pagespeed-insights-audit.md)
+- [docs/quality/13-pagespeed-insights-audit.md](../quality/13-pagespeed-insights-audit.md)
 
 ## 3. Новый Production-Gate
 

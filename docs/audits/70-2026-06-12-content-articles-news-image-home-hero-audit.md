@@ -1,8 +1,8 @@
 # Аудит Content Articles/News И Home Hero 2026-06-12
 
-Актуально на 2026-06-12.
+Дата аудита: 2026-06-12.
 
-Этот документ фиксирует полный текущий аудит `content/articles`, `content/news` и связанного image-слоя после приведения обложек, schema crops и `assets/images/home-hero85.webp` к регламенту [67-image-design-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/67-image-design-playbook-2026.md).
+Этот документ фиксирует полный текущий аудит `content/articles`, `content/news` и связанного image-слоя после приведения обложек, schema crops и `assets/images/home-hero85.webp` к регламенту [67-image-design-playbook-2026.md](../content/67-image-design-playbook-2026.md).
 
 ## 1. Область Проверки
 
@@ -19,11 +19,11 @@
 
 Аудит выполнен по проектным документам:
 
-- [05-front-matter-reference.md](/Users/stadnyk/MEGA/Aerocool/docs/content/05-front-matter-reference.md);
-- [07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md);
-- [67-image-design-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/67-image-design-playbook-2026.md);
-- [20-schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/20-schema-markup-quality-checklist-2026.md);
-- [12-core-web-vitals-guide-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/quality/12-core-web-vitals-guide-2026.md).
+- [05-front-matter-reference.md](../content/05-front-matter-reference.md);
+- [07-content-seo-checklist-2026.md](../content/07-content-seo-checklist-2026.md);
+- [67-image-design-playbook-2026.md](../content/67-image-design-playbook-2026.md);
+- [20-schema-markup-quality-checklist-2026.md](../seo/20-schema-markup-quality-checklist-2026.md);
+- [12-core-web-vitals-guide-2026.md](../quality/12-core-web-vitals-guide-2026.md).
 
 Проверка включала:
 

@@ -2,7 +2,7 @@
 
 Актуально на 2026-06-16.
 
-Этот документ объясняет, как текущий [hugo.yaml](/Users/stadnyk/MEGA/Aerocool/hugo.yaml) влияет на SEO, индексацию, мультиязычность, Core Web Vitals, structured data и готовность проекта `Aerocool Ukraine` к борьбе за сильные позиции в Google Search.
+Этот документ объясняет, как текущий [hugo.yaml](../../hugo.yaml) влияет на SEO, индексацию, мультиязычность, Core Web Vitals, structured data и готовность проекта `Aerocool Ukraine` к борьбе за сильные позиции в Google Search.
 
 Важно: никакой конфиг, schema.org-разметка, PageSpeed score или объем текста не гарантируют `топ-1`. Цель этого документа - убрать технические причины проигрыша, зафиксировать лучшие практики стека `Hugo 0.163.0`, `Tailwind CSS 4.3`, `Netlify`, `PaperMod`, `Netlify Database` и дать понятный порядок проверки перед production.
 
@@ -86,7 +86,7 @@
    - `/products/`, серия, товар, статья, новость в двух языках;
    - `robots.txt`;
    - `sitemap.xml`, `/uk/sitemap.xml`, `/ru/sitemap.xml`;
-   - canonical, hreflang, robots meta;
+- canonical, hreflang и meta-тег robots;
    - служебные страницы `noindex`;
    - пагинация `noindex,follow`.
 3. Подключить Google Search Console и отправить sitemap index `https://aerocool.ua/sitemap.xml`.
@@ -112,7 +112,7 @@
 2. После появления реальных данных Search Console обновлять:
    - `docs/seo/59-entity-performance-overrides.csv`;
    - keyword priority;
-   - internal linking map;
+- карта внутренней перелинковки;
    - title/description для страниц с высоким impression, но низким CTR.
 3. Для товаров поддерживать `priceValidUntil`, наличие, гарантию, доставку и возврат через `docs/seo/58-product-facts-maintenance-process-2026.md`.
 4. Не добавлять fake reviews или ручные рейтинги: `AggregateRating` должен идти только из approved reviews snapshot.

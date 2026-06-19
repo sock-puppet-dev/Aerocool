@@ -40,11 +40,11 @@ Product facts — это факты о товаре и условиях поку
 -> /faq/, если факт относится ко всему магазину или политике сервиса
 ```
 
-Главное правило: сначала обновляется front matter товара, потом видимый контент и проверки. Шаблон [layouts/_partials/_schema/product.html](/Users/stadnyk/MEGA/Aerocool/layouts/_partials/_schema/product.html) читает данные из front matter и registry. Его не нужно менять ради одной новой цены, срока доставки или способа оплаты.
+Главное правило: сначала обновляется front matter товара, потом видимый контент и проверки. Шаблон [layouts/_partials/_schema/product.html](../../layouts/_partials/_schema/product.html) читает данные из front matter и registry. Его не нужно менять ради одной новой цены, срока доставки или способа оплаты.
 
-Если меняется цвет товара, источник правды для schema-цвета — [data/entities.yaml](/Users/stadnyk/MEGA/Aerocool/data/entities.yaml), а видимая характеристика цвета должна быть обновлена в той же задаче.
+Если меняется цвет товара, источник правды для schema-цвета — [data/entities.yaml](../../data/entities.yaml), а видимая характеристика цвета должна быть обновлена в той же задаче.
 
-Если меняется rating/review слой, источник правды — approved отзывы в `Netlify Database` и build-time export в [data/generated/reviews.json](/Users/stadnyk/MEGA/Aerocool/data/generated/reviews.json), а не product front matter.
+Если меняется rating/review слой, источник правды — approved отзывы в `Netlify Database` и build-time export `data/generated/reviews.json`, а не product front matter. Этот JSON-файл генерируется перед сборкой и не хранится в Git.
 
 ## 3. Роли
 
@@ -66,10 +66,10 @@ Product facts — это факты о товаре и условиях поку
 | --- | --- | --- | --- |
 | Цена | Product Facts Owner | Content/Schema Editor | QA Reviewer |
 | Наличие | Product Facts Owner | Content/Schema Editor | QA Reviewer |
-| `priceValidUntil` | Commercial Policy Owner | Content/Schema Editor | QA Reviewer |
-| SKU | Product Facts Owner | Content/Schema Editor | QA Reviewer |
-| MPN | Product Facts Owner | Content/Schema Editor | QA Reviewer |
-| GTIN | Product Facts Owner | Content/Schema Editor | QA Reviewer |
+| `priceValidUntil` | владелец коммерческих условий | редактор контента/schema | специалист QA |
+| SKU | владелец товарных фактов | редактор контента/schema | специалист QA |
+| MPN | владелец товарных фактов | редактор контента/schema | специалист QA |
+| GTIN | владелец товарных фактов | редактор контента/schema | специалист QA |
 | Гарантия | Commercial Policy Owner | Content/Schema Editor | QA Reviewer |
 | Доставка | Commercial Policy Owner | Content/Schema Editor | QA Reviewer |
 | Возврат | Commercial Policy Owner | Content/Schema Editor | QA Reviewer |

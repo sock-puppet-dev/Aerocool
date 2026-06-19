@@ -3,7 +3,7 @@
 Дата аудита: 2026-05-17.
 Актуализировано: 2026-05-21.
 
-Примечание от 2026-05-21: это исторический audit-снимок состояния на 2026-05-17. Текущий порядок документации, актуальные счетчики файлов и последнюю оценку нужно смотреть в [01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md), [03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md), [52-2026-05-20-json-ld-entity-full-audit-current.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/52-2026-05-20-json-ld-entity-full-audit-current.md) и [53-keyword-database-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/53-keyword-database-2026.md). Старые счетчики ниже оставлены как значение исторического среза, а не как текущая инструкция.
+Примечание от 2026-05-21: это исторический audit-снимок состояния на 2026-05-17. Текущий порядок документации, актуальные счетчики файлов и последнюю оценку нужно смотреть в [01-documentation-map.md](../01-documentation-map.md), [03-hugo-template-helpers.md](../architecture/03-hugo-template-helpers.md), [52-2026-05-20-json-ld-entity-full-audit-current.md](52-2026-05-20-json-ld-entity-full-audit-current.md) и [53-keyword-database-2026.md](../seo/53-keyword-database-2026.md). Старые счетчики ниже оставлены как значение исторического среза, а не как текущая инструкция.
 
 Этот документ фиксирует проверку текущей документации проекта `Aerocool Ukraine` на понятность для новичка, русский язык, строгую структуру, полноту оглавления, актуальность по фактическим файлам проекта и внешним SEO/Hugo/Netlify/Tailwind правилам.
 
@@ -11,8 +11,8 @@
 
 Проверены:
 
-- корневые документы: [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) и [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md);
-- оглавление [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md);
+- корневые документы: [README.md](../../README.md) и [AGENTS.md](../../AGENTS.md);
+- оглавление [docs/01-documentation-map.md](../01-documentation-map.md);
 - все markdown-файлы в `docs/`;
 - активные гайды в `docs/content`, `docs/architecture`, `docs/deploy`, `docs/quality`, `docs/seo`;
 - audit-снимки в `docs/audits`;
@@ -42,10 +42,10 @@
 - покрытие `docs/01-documentation-map.md`: все документы из `docs/` перечислены в оглавлении;
 - отсутствие служебных англоязычных заголовков вроде `Scope`, `Findings`, `Current Status`, `Implementation Backlog`, `Executive Summary`, `Prioritized Fix Plan`;
 - явные даты есть у всех рабочих документов и audit-снимков, кроме шаблонов в `docs/content/templates/`, где дата не нужна;
-- [03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md) упоминает все `55` текущих файлов из `layouts/`;
-- root [README.md](/Users/stadnyk/MEGA/Aerocool/README.md) и [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md) синхронизированы с новыми audit-снимками `2026-05-17`;
+- [03-hugo-template-helpers.md](../architecture/03-hugo-template-helpers.md) упоминает все `55` текущих файлов из `layouts/`;
+- root [README.md](../../README.md) и [AGENTS.md](../../AGENTS.md) синхронизированы с новыми audit-снимками `2026-05-17`;
 - review-документация синхронизирована с текущим Netlify Database и Google Review Snippet слоем;
-- актуальный алгоритм полного обновления документации закреплен в [02-documentation-style-guide.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/02-documentation-style-guide.md);
+- актуальный алгоритм полного обновления документации закреплен в [02-documentation-style-guide.md](../architecture/02-documentation-style-guide.md);
 - локальные markdown-ссылки на файлы проекта;
 - сборка Hugo через `npm run build`.
 
@@ -68,19 +68,19 @@
 
 Обновлены:
 
-- [content/07-content-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/content/07-content-seo-checklist-2026.md);
-- [seo/21-ecommerce-structured-data-playbook-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/21-ecommerce-structured-data-playbook-2026.md);
-- [seo/26-json-ld-graph-audit-roadmap-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/26-json-ld-graph-audit-roadmap-2026.md);
-- [seo/20-schema-markup-quality-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/20-schema-markup-quality-checklist-2026.md);
-- [seo/27-google-seo-audit-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/27-google-seo-audit-checklist-2026.md);
-- [seo/28-ssg-seo-checklist-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/28-ssg-seo-checklist-2026.md);
-- [audits/30-2026-04-29-google-rich-results-quality-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/30-2026-04-29-google-rich-results-quality-audit.md).
+- [content/07-content-seo-checklist-2026.md](../content/07-content-seo-checklist-2026.md);
+- [seo/21-ecommerce-structured-data-playbook-2026.md](../seo/21-ecommerce-structured-data-playbook-2026.md);
+- [seo/26-json-ld-graph-audit-roadmap-2026.md](../seo/26-json-ld-graph-audit-roadmap-2026.md);
+- [seo/20-schema-markup-quality-checklist-2026.md](../seo/20-schema-markup-quality-checklist-2026.md);
+- [seo/27-google-seo-audit-checklist-2026.md](../seo/27-google-seo-audit-checklist-2026.md);
+- [seo/28-ssg-seo-checklist-2026.md](../seo/28-ssg-seo-checklist-2026.md);
+- [audits/30-2026-04-29-google-rich-results-quality-audit.md](30-2026-04-29-google-rich-results-quality-audit.md).
 
 Текущий стандарт: `FAQPage` можно оставлять для видимого FAQ, структуры страницы, AI/search-понимания и подтверждения сервисных фактов. Нельзя планировать SEO-результат вокруг Google FAQ rich result.
 
 ### P2. Helper-Гайд Не Покрывал Все Важные Layout-Файлы
 
-Проверка `layouts/` показала, что [03-hugo-template-helpers.md](/Users/stadnyk/MEGA/Aerocool/docs/architecture/03-hugo-template-helpers.md) не называл часть верхнеуровневых layout-файлов и shortcode-файлов.
+Проверка `layouts/` показала, что [03-hugo-template-helpers.md](../architecture/03-hugo-template-helpers.md) не называл часть верхнеуровневых layout-файлов и shortcode-файлов.
 
 Добавлены понятные для новичка карты:
 
@@ -97,13 +97,13 @@
 
 Новый audit-снимок добавлен в:
 
-- [README.md](/Users/stadnyk/MEGA/Aerocool/README.md);
-- [docs/01-documentation-map.md](/Users/stadnyk/MEGA/Aerocool/docs/01-documentation-map.md);
-- [AGENTS.md](/Users/stadnyk/MEGA/Aerocool/AGENTS.md).
+- [README.md](../../README.md);
+- [docs/01-documentation-map.md](../01-documentation-map.md);
+- [AGENTS.md](../../AGENTS.md).
 
 ### P2. Review-Слой Требовал Синхронизации С Новым Netlify Database Документом
 
-После добавления [17-netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/17-netlify-database-reviews.md) проверены связанные документы по `AggregateRating`, `Review`, `review_target_id`, `data/generated/reviews.json` и moderation flow.
+После добавления [17-netlify-database-reviews.md](../deploy/17-netlify-database-reviews.md) проверены связанные документы по `AggregateRating`, `Review`, `review_target_id`, `data/generated/reviews.json` и moderation flow.
 
 Текущий стандарт: `rating.value` и `rating.count` во front matter считать legacy-риском. Целевая схема — `Netlify Database` -> approved reviews -> build-time export -> видимые отзывы -> `Product` JSON-LD.
 

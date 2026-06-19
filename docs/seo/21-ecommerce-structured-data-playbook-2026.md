@@ -8,10 +8,10 @@
 
 Документ синхронизирован с текущими Google Search Central правилами для `Product`, merchant listings и product variants. Внешние SchemaApp материалы используются как стратегический слой, но eligibility для Google rich results всегда проверять по официальной документации Google.
 
-Текущий порядок внедрения для ratings, product facts, `ProductGroup` и production gate описан в [34-2026-05-07-documentation-refresh-and-project-action-plan.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md).
-Реальные e-commerce customer stories Schema App по InSinkErator, Avid, CAPREIT, KEEN и Home Hardware разобраны в [46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md).
-Актуальный полный schema/entity audit зафиксирован в [57-2026-05-31-schema-entity-full-audit-current.md](/Users/stadnyk/MEGA/Aerocool/docs/audits/57-2026-05-31-schema-entity-full-audit-current.md).
-Операционный регламент поддержки product facts зафиксирован в [58-product-facts-maintenance-process-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/58-product-facts-maintenance-process-2026.md).
+Текущий порядок внедрения для ratings, product facts, `ProductGroup` и production gate описан в [34-2026-05-07-documentation-refresh-and-project-action-plan.md](../audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md).
+Реальные e-commerce customer stories Schema App по InSinkErator, Avid, CAPREIT, KEEN и Home Hardware разобраны в [46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md](../audits/46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md).
+Актуальный полный schema/entity audit зафиксирован в [57-2026-05-31-schema-entity-full-audit-current.md](../audits/57-2026-05-31-schema-entity-full-audit-current.md).
+Операционный регламент поддержки product facts зафиксирован в [58-product-facts-maintenance-process-2026.md](58-product-facts-maintenance-process-2026.md).
 
 ## 1. Связь С Текущими Документами
 
@@ -54,7 +54,7 @@
 
 Главный риск: данные e-commerce schema должны совпадать с видимым контентом и единым источником правды. Для merchant facts таким источником является product front matter; владелец бизнес-значений — команда Aerocool Украина. Видимый commercial block и `/faq/` подтверждают те же значения. Это касается цены, `priceValidUntil`, наличия, доставки, возврата и гарантии. Текущее значение `priceValidUntil: 2027-12-31` подтверждено командой Aerocool Украина `2026-05-07`.
 
-Для рейтингов и отзывов целевой источник правды другой: `Netlify Database` с approved отзывами и build-time export в `data/generated/reviews.json`. Это решение зафиксировано в [17-netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/17-netlify-database-reviews.md). `Product` JSON-LD уже переключен на этот snapshot, а legacy `rating.value` и `rating.count` удалены из товарного front matter.
+Для рейтингов и отзывов целевой источник правды другой: `Netlify Database` с approved отзывами и build-time export в `data/generated/reviews.json`. Это решение зафиксировано в [17-netlify-database-reviews.md](../deploy/17-netlify-database-reviews.md). `Product` JSON-LD уже переключен на этот snapshot, а legacy `rating.value` и `rating.count` удалены из товарного front matter.
 
 ## 3. Обязательные И Важные Свойства Товара
 
@@ -208,14 +208,14 @@ Schema помогает E-E-A-T только тогда, когда усилив
 
 ### P0
 
-1. Поддерживать актуальный алгоритм review-системы из [17-netlify-database-reviews.md](/Users/stadnyk/MEGA/Aerocool/docs/deploy/17-netlify-database-reviews.md): миграция `reviews`, `POST /api/reviews`, moderation flow, build-time export и Hugo review block. Базовый pipeline готов.
+1. Поддерживать актуальный алгоритм review-системы из [17-netlify-database-reviews.md](../deploy/17-netlify-database-reviews.md): миграция `reviews`, `POST /api/reviews`, moderation flow, build-time export и Hugo review block. Базовый pipeline готов.
 2. Внедрить `review_target_id` и `reviews_enabled` сначала только на одном тестовом товаре в `uk` и `ru`, затем масштабировать на текущий каталог. Готово для текущих товаров.
 3. Переключить `Product.aggregateRating` на generated reviews snapshot из `data/generated/reviews.json`. Готово; legacy `rating` удален из товарного front matter.
 4. Проверить правило: без approved отзывов нет `AggregateRating`; с approved отзывом есть visible review block и `AggregateRating`.
 5. Проверить branch-сайт `dev` с тестовыми approved отзывами для остальных товаров перед переносом в `main`.
 6. Поддерживать product front matter как единый источник правды для merchant facts.
 7. Держать видимый commercial block, `/faq/` и `Product` JSON-LD синхронными с front matter по доставке, возврату, оплате и гарантии.
-8. При каждом изменении product facts брать подтверждение у команды Aerocool Украина и проходить регламент [58-product-facts-maintenance-process-2026.md](/Users/stadnyk/MEGA/Aerocool/docs/seo/58-product-facts-maintenance-process-2026.md).
+8. При каждом изменении product facts брать подтверждение у команды Aerocool Украина и проходить регламент [58-product-facts-maintenance-process-2026.md](58-product-facts-maintenance-process-2026.md).
 
 ### P1
 
