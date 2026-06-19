@@ -1,6 +1,6 @@
 # Регламент Поддержки Product Facts 2026
 
-Актуально на 2026-06-02.
+Актуально на 2026-06-19.
 
 Этот документ описывает операционный процесс поддержки товарных фактов для каталога `Aerocool Ukraine`: кто подтверждает данные, где их менять, что проверять после изменения и как не допустить schema drift между front matter, видимой страницей, JSON-LD и `/faq/`.
 
@@ -21,7 +21,7 @@ Product facts — это факты о товаре и условиях поку
 | Возврат | `return_days`, `return_method`, `return_fees` | товарная страница, `/faq/` |
 | Оплата | `payment_methods` | товарная страница, `/faq/` |
 | Характеристики | `characteristics` | вкладка или блок характеристик товара |
-| Цвет | `color` в `data/entities.yaml` + видимая характеристика цвета | товарная страница, swatches для вариантов |
+| Цвет | `color` в `data/entities.yaml` + видимая характеристика цвета | товарная страница, color dots в карточках, swatches для вариантов |
 | Варианты | `product_group_id`, entity registry | swatches и соседние variant pages |
 | Отзывы | `review_target_id`, `reviews_enabled`, `data/generated/reviews.json` | видимый блок отзывов |
 
@@ -42,7 +42,7 @@ Product facts — это факты о товаре и условиях поку
 
 Главное правило: сначала обновляется front matter товара, потом видимый контент и проверки. Шаблон [layouts/_partials/_schema/product.html](../../layouts/_partials/_schema/product.html) читает данные из front matter и registry. Его не нужно менять ради одной новой цены, срока доставки или способа оплаты.
 
-Если меняется цвет товара, источник правды для schema-цвета — [data/entities.yaml](../../data/entities.yaml), а видимая характеристика цвета должна быть обновлена в той же задаче.
+Если меняется цвет товара, источник правды для schema-цвета — [data/entities.yaml](../../data/entities.yaml), а видимая характеристика цвета должна быть обновлена в той же задаче. В листингах [layouts/_partials/products/color-dots.html](../../layouts/_partials/products/color-dots.html) сначала использует цвета реальной группы из `product_group_id`; для одиночного товара без группы берет `color` из главной product entity через `about_entities`.
 
 Если меняется rating/review слой, источник правды — approved отзывы в `Netlify Database` и build-time export `data/generated/reviews.json`, а не product front matter. Этот JSON-файл генерируется перед сборкой и не хранится в Git.
 
@@ -93,6 +93,7 @@ Product facts — это факты о товаре и условиях поку
 - русский front matter `content/products/<series>/<model>/index.ru.md`;
 - видимый товарный текст или характеристики в обеих языковых версиях;
 - `data/entities.yaml`, если меняется registry-факт, например `color`;
+- цветовую точку в карточках `/products/`, страницы серии и обоих языков;
 - `lastmod` в измененных content-файлах.
 
 `/faq/` менять не нужно, если изменение касается только одного товара и не меняет общую политику магазина.
@@ -119,6 +120,7 @@ Product facts — это факты о товаре и условиях поку
 - `data/entities.yaml`;
 - `product_group_id` только если это реальная группа вариантов одной модели;
 - видимую variant-навигацию через swatches;
+- color dots карточек: для группы они должны отражать цвета вариантов, для одиночного товара — цвет его product entity;
 - `about_entities` и `mentions_entities`, если новая сущность уже `confirmed`.
 
 Одиночный товар не получает `product_group_id`. Он связывается с серией через `about_entities`, `series` в registry и страницу серии.
@@ -149,7 +151,7 @@ git diff --check
 
 | Проверка | Что Должно Быть Верно |
 | --- | --- |
-| HTML товара | Цена, наличие, SKU, гарантия, доставка, возврат, оплата и характеристики видны пользователю, если они попадают в JSON-LD |
+| HTML товара и листингов | Цена, наличие, SKU, гарантия, доставка, возврат, оплата и характеристики видны пользователю, если они попадают в JSON-LD; color dots совпадают с registry-цветом и реальными вариантами |
 | JSON-LD товара | `Product`, `Offer`, `price`, `availability`, `priceValidUntil`, `sku`, `mpn`, `gtin13`, `color`, `additionalProperty`, shipping, return, payment и warranty совпадают с front matter |
 | Локализация | `index.md` и `index.ru.md` описывают одни и те же факты разными языками |
 | `/faq/` | Политики доставки, оплаты, возврата и гарантии не противоречат товарным страницам |
