@@ -1,6 +1,6 @@
 # Playbook Изображений И AI-Промптов Aerocool 2026
 
-Обновлено: 2026-06-18.
+Обновлено: 2026-06-19.
 
 Этот документ фиксирует повторяемый стандарт для всех изображений проекта `Aerocool Ukraine`: обложек статей и новостей, section covers, fallback-изображений, home hero, товарных фото, product gallery, контентных иллюстраций, технических схем, логотипов и служебных иконок.
 
@@ -18,7 +18,9 @@
 - [21-ecommerce-structured-data-playbook-2026.md](../seo/21-ecommerce-structured-data-playbook-2026.md) - product images, Product/Offer и e-commerce structured data;
 - [74-2026-06-15-articles-news-inline-image-serp-audit.md](../audits/74-2026-06-15-articles-news-inline-image-serp-audit.md) - подробная матрица inline-иллюстраций для всех статей и новостей и SERP-стандарт изображений 2026;
 - [75-2026-06-16-articles-news-text-image-revalidation.md](../audits/75-2026-06-16-articles-news-text-image-revalidation.md) - исторический snapshot после закрытия inline backlog;
-- [77-2026-06-18-articles-news-content-image-audit.md](../audits/77-2026-06-18-articles-news-content-image-audit.md) - текущий глубокий аудит текстов, изображений, visual diversity и factual evidence для `content/articles` / `content/news`.
+- [77-2026-06-18-articles-news-content-image-audit.md](../audits/77-2026-06-18-articles-news-content-image-audit.md) - глубокий аудит текстов, изображений, visual diversity и factual evidence для `content/articles` / `content/news`;
+- [79-page-content-design-dna-2026.md](79-page-content-design-dna-2026.md) - единый текстовый и визуальный DNA всех типов страниц;
+- [80-2026-06-19-full-site-content-image-audit.md](../audits/80-2026-06-19-full-site-content-image-audit.md) - текущее полное состояние всех текстов и изображений сайта, включая product image P1.
 
 ## 0. SERP-Контракт, Подтвержденный Источниками
 
@@ -95,6 +97,14 @@
 - дополнительные изображения должны раскрывать ракурсы, механизмы, текстуры, посадку, масштаб и детали;
 - high-tech контекст допустим только как вторичное contextual image, если он не мешает распознать товар.
 
+Жесткий production gate:
+
+- один primary-файл нельзя выдавать за разные SKU, серии, цвета или материалы;
+- `TEST`, placeholder, mockup label, watermark поставщика, случайный AI-текст и candidate-файлы в product gallery запрещены;
+- для `Light Grey`, `Dark Grey`, `Black`, `Racer`, `Loft Air` и `Mesh` изображение обязано визуально подтверждать именно заявленный вариант;
+- временный общий fallback должен оставаться явно общим fallback, а не маскироваться под точное фото товара;
+- минимальный целевой набор gallery: front three-quarter, side/back, material, controls/mechanism и in-scale.
+
 ### 2.3. Служебный Слой
 
 Этот слой использовать для `static/images/logo.svg`, favicon, touch icons и pinned tab.
@@ -149,7 +159,7 @@
 | Root cover | `content/cover.webp` | **1536x1024**, WebP | Базовый brand/site image | Broad Aerocool showroom |
 | Default article/news/product | `static/images/default-*.webp` | **1536x1024**, WebP | Качественный fallback | Не заглушка, а полноценная сцена |
 | Home hero | `assets/images/home-hero85.webp` | **2102x1401**, WebP | Первый экран главной | Tailwind Plus split hero image |
-| Product primary | `content/products/**/01-front.png` сейчас, целевой WebP/JPEG позже | исходный product size | Точное фото товара | Neutral factual |
+| Product primary | `content/products/**/01-front.*` | минимум **1600x1600**, целевой **2000x2000** | Точное фото конкретного варианта | Neutral factual |
 | Product gallery | рядом с товаром | WebP/JPEG/PNG по источнику | Ракурсы, детали, масштаб | Factual + optional context |
 | Inline article/news image | page bundle | **1200x800**, WebP | Объяснить конкретный блок текста | High-tech или factual по смыслу |
 | Inline technical/detail image | page bundle | **1200x800** WebP или SVG | Механизм, регулировки, материал | Clean technical/factual |

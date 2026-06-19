@@ -9,7 +9,7 @@
 - [README.md](../README.md) — краткая карта проекта, стека, структуры и основных команд.
 - [AGENTS.md](../AGENTS.md) — правила безопасной работы для Codex/агентов.
 
-Все файлы внутри `docs/` пронумерованы глобально от `01` до `78`. Номер в начале имени показывает рекомендуемый порядок чтения.
+Все файлы внутри `docs/` пронумерованы глобально от `01` до `80`. Номер в начале имени показывает рекомендуемый порядок чтения.
 
 ## Как Пользоваться Новичку
 
@@ -188,7 +188,7 @@
 
 70. [audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md](audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md) — текущий полный аудит `content/articles`, `content/news`, article/news обложек, schema crops и `assets/images/home-hero85.webp`; фиксирует результат **9.4/10**, отсутствие активных P1-дефектов в articles/news и обновление landscape home hero.
 
-71. [audits/71-2026-06-13-full-project-image-audit.md](audits/71-2026-06-13-full-project-image-audit.md) — текущий полный ручной аудит всех изображений проекта: section/root/series covers, fallback, home hero, article/news bundles, product gallery hygiene, favicon/logo assets и осознанная политика по тестовым product gallery assets; фиксирует результат **9.0/10** и asset-долг по одинаковым product primary images.
+71. [audits/71-2026-06-13-full-project-image-audit.md](audits/71-2026-06-13-full-project-image-audit.md) — исторический ручной аудит изображений на 2026-06-13. Для текущего полного состояния, где test product assets переведены в P1, использовать аудит `80`.
 
 ### Стратегия Семантического Ядра
 
@@ -212,6 +212,11 @@
 
 78. [audits/78-2026-06-19-full-documentation-project-sync-audit.md](audits/78-2026-06-19-full-documentation-project-sync-audit.md) — текущая полная проверка всей документации, переносимости ссылок, русского языка, структуры, стека, layout-слоя, front matter, сборки, JSON-LD и официальных практик 2026 года; итоговая оценка **9.8/10**.
 
+### Единый DNA Контента И Текущий Полный Content/Image Аудит
+
+79. [content/79-page-content-design-dna-2026.md](content/79-page-content-design-dna-2026.md) — постоянный контракт текстов и изображений всех типов страниц: voice, anti-AI правила, доказательность, visual DNA, размеры, форматы, product image gates и workflow.
+80. [audits/80-2026-06-19-full-site-content-image-audit.md](audits/80-2026-06-19-full-site-content-image-audit.md) — текущий постраничный аудит всех **50** логических URL и **181** project image asset: рекомендации для каждой страницы, P1 по одинаковым product primary и SKY `TEST`-файлам, техническая матрица и итоговая оценка **7.8/10**.
+
 ## Маршруты По Задачам
 
 Для проверки или обновления всей документации читать:
@@ -225,24 +230,26 @@
 1. [content/05-front-matter-reference.md](content/05-front-matter-reference.md)
 2. [content/07-content-seo-checklist-2026.md](content/07-content-seo-checklist-2026.md)
 3. нужный шаблон из `content/templates/`
-4. [content/67-image-design-playbook-2026.md](content/67-image-design-playbook-2026.md), если задача касается любых изображений: обложек, AI-промптов, fallback-картинок, product gallery, inline-иллюстраций, технических схем или визуального стиля.
-5. [audits/71-2026-06-13-full-project-image-audit.md](audits/71-2026-06-13-full-project-image-audit.md), если нужна текущая ручная проверка всех изображений проекта, fallback, section covers и product gallery hygiene.
-6. [audits/77-2026-06-18-articles-news-content-image-audit.md](audits/77-2026-06-18-articles-news-content-image-audit.md), если нужна текущая итоговая оценка текстов, картинок, выполненных P1/P3-исправлений, остаточных P2-рекомендаций и готовности `content/articles` / `content/news`.
-7. [audits/74-2026-06-15-articles-news-inline-image-serp-audit.md](audits/74-2026-06-15-articles-news-inline-image-serp-audit.md), если нужна подробная рекомендация по inline-изображениям внутри каждой статьи или новости.
-8. [audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md](audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md), если нужна специализированная проверка `content/articles`, `content/news`, обложек, crops и home hero.
+4. [content/79-page-content-design-dna-2026.md](content/79-page-content-design-dna-2026.md), если задача касается текста страницы, tone of voice, anti-AI правил, доказательности или совместной работы текста и изображения.
+5. [content/67-image-design-playbook-2026.md](content/67-image-design-playbook-2026.md), если задача касается обложек, AI-промптов, fallback-картинок, product gallery, inline-иллюстраций, технических схем или визуального стиля.
+6. [audits/80-2026-06-19-full-site-content-image-audit.md](audits/80-2026-06-19-full-site-content-image-audit.md), если нужно текущее состояние и постраничный backlog всего сайта.
+7. [audits/77-2026-06-18-articles-news-content-image-audit.md](audits/77-2026-06-18-articles-news-content-image-audit.md), если нужна специализированная детализация `content/articles` / `content/news`.
+8. [audits/74-2026-06-15-articles-news-inline-image-serp-audit.md](audits/74-2026-06-15-articles-news-inline-image-serp-audit.md), если нужна историческая матрица inline-изображений.
+9. [audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md](audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md), если нужна специализированная проверка обложек, crops и home hero.
 
 Для изображений, AI-промптов и визуального стиля читать:
 
-1. [content/67-image-design-playbook-2026.md](content/67-image-design-playbook-2026.md)
-2. [content/06-seo-image-shortcode.md](content/06-seo-image-shortcode.md)
-3. [content/05-front-matter-reference.md](content/05-front-matter-reference.md)
-4. [content/templates/10-product-template.md](content/templates/10-product-template.md), если задача касается product primary image или gallery
-5. [content/07-content-seo-checklist-2026.md](content/07-content-seo-checklist-2026.md)
-6. [quality/12-core-web-vitals-guide-2026.md](quality/12-core-web-vitals-guide-2026.md)
-7. [audits/71-2026-06-13-full-project-image-audit.md](audits/71-2026-06-13-full-project-image-audit.md), если задача касается текущего ручного состояния всех изображений проекта.
-8. [audits/77-2026-06-18-articles-news-content-image-audit.md](audits/77-2026-06-18-articles-news-content-image-audit.md), если задача касается текущего итогового состояния текстов и изображений `content/articles` / `content/news`.
-9. [audits/74-2026-06-15-articles-news-inline-image-serp-audit.md](audits/74-2026-06-15-articles-news-inline-image-serp-audit.md), если задача касается подробной матрицы inline-иллюстраций в теле статей и новостей.
-10. [audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md](audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md), если задача касается только article/news covers, schema crops или `assets/images/home-hero85.webp`.
+1. [content/79-page-content-design-dna-2026.md](content/79-page-content-design-dna-2026.md)
+2. [content/67-image-design-playbook-2026.md](content/67-image-design-playbook-2026.md)
+3. [content/06-seo-image-shortcode.md](content/06-seo-image-shortcode.md)
+4. [content/05-front-matter-reference.md](content/05-front-matter-reference.md)
+5. [content/templates/10-product-template.md](content/templates/10-product-template.md), если задача касается product primary image или gallery
+6. [content/07-content-seo-checklist-2026.md](content/07-content-seo-checklist-2026.md)
+7. [quality/12-core-web-vitals-guide-2026.md](quality/12-core-web-vitals-guide-2026.md)
+8. [audits/80-2026-06-19-full-site-content-image-audit.md](audits/80-2026-06-19-full-site-content-image-audit.md), если нужна текущая ручная проверка всех изображений и page-level backlog.
+9. [audits/77-2026-06-18-articles-news-content-image-audit.md](audits/77-2026-06-18-articles-news-content-image-audit.md), если задача касается `content/articles` / `content/news`.
+10. [audits/74-2026-06-15-articles-news-inline-image-serp-audit.md](audits/74-2026-06-15-articles-news-inline-image-serp-audit.md), если нужна историческая матрица inline-иллюстраций.
+11. [audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md](audits/70-2026-06-12-content-articles-news-image-home-hero-audit.md), если задача касается только covers, schema crops или `assets/images/home-hero85.webp`.
 
 Для schema.org или rich results читать:
 
@@ -311,7 +318,7 @@
 - поменял видимую meta-строку, `post_meta`, `translation-list`, `single`, `faq/single`, `list` или `search` — проверь [architecture/03-hugo-template-helpers.md](architecture/03-hugo-template-helpers.md), [content/05-front-matter-reference.md](content/05-front-matter-reference.md), [content/07-content-seo-checklist-2026.md](content/07-content-seo-checklist-2026.md) и [seo/19-schema-types-reference.md](seo/19-schema-types-reference.md);
 - поменял `seo-image` — проверь [content/06-seo-image-shortcode.md](content/06-seo-image-shortcode.md), [architecture/03-hugo-template-helpers.md](architecture/03-hugo-template-helpers.md), [quality/12-core-web-vitals-guide-2026.md](quality/12-core-web-vitals-guide-2026.md) и [content/05-front-matter-reference.md](content/05-front-matter-reference.md), если менялись `image`, `cover` или `seo_image_sizes`;
 - поменял product gallery, product primary image или LCP preload — проверь [content/05-front-matter-reference.md](content/05-front-matter-reference.md), [content/templates/10-product-template.md](content/templates/10-product-template.md), [architecture/03-hugo-template-helpers.md](architecture/03-hugo-template-helpers.md), [quality/12-core-web-vitals-guide-2026.md](quality/12-core-web-vitals-guide-2026.md) и [seo/21-ecommerce-structured-data-playbook-2026.md](seo/21-ecommerce-structured-data-playbook-2026.md);
-- поменял изображения, AI prompts, fallback-картинки, section covers, inline-иллюстрации, технические схемы или визуальный стиль изображений — проверь [content/67-image-design-playbook-2026.md](content/67-image-design-playbook-2026.md), [content/06-seo-image-shortcode.md](content/06-seo-image-shortcode.md), [content/05-front-matter-reference.md](content/05-front-matter-reference.md), [content/07-content-seo-checklist-2026.md](content/07-content-seo-checklist-2026.md), [audits/77-2026-06-18-articles-news-content-image-audit.md](audits/77-2026-06-18-articles-news-content-image-audit.md) и текущий ручной аудит изображений;
+- поменял тексты, изображения, AI prompts, fallback-картинки, product gallery, inline-иллюстрации, технические схемы или visual DNA — проверь [content/79-page-content-design-dna-2026.md](content/79-page-content-design-dna-2026.md), [content/67-image-design-playbook-2026.md](content/67-image-design-playbook-2026.md), [content/06-seo-image-shortcode.md](content/06-seo-image-shortcode.md), [content/07-content-seo-checklist-2026.md](content/07-content-seo-checklist-2026.md) и [audits/80-2026-06-19-full-site-content-image-audit.md](audits/80-2026-06-19-full-site-content-image-audit.md);
 - поменял keyword-базу, карту интентов, новую посадочную страницу, slug, canonical URL или статус индексируемости страницы — проверь [seo/18-seo-keyword-map-2026.md](seo/18-seo-keyword-map-2026.md), [seo/53-keyword-database-2026.md](seo/53-keyword-database-2026.md), [seo/72-semantic-core-keyword-strategy-2026.md](seo/72-semantic-core-keyword-strategy-2026.md), [content/07-content-seo-checklist-2026.md](content/07-content-seo-checklist-2026.md) и убедись, что не появились битые `target_url`, дубликаты ключей или новая каннибализация;
 - поменял schema.org partials — проверь [seo/19-schema-types-reference.md](seo/19-schema-types-reference.md), [seo/20-schema-markup-quality-checklist-2026.md](seo/20-schema-markup-quality-checklist-2026.md), [seo/26-json-ld-graph-audit-roadmap-2026.md](seo/26-json-ld-graph-audit-roadmap-2026.md) и после сборки обнови [seo/59-entity-performance-report-2026.md](seo/59-entity-performance-report-2026.md);
 - поменял product facts, товарный front matter, цвет, характеристики, гарантию, доставку, возврат, оплату или `priceValidUntil` — проверь [seo/58-product-facts-maintenance-process-2026.md](seo/58-product-facts-maintenance-process-2026.md), [content/05-front-matter-reference.md](content/05-front-matter-reference.md), [seo/21-ecommerce-structured-data-playbook-2026.md](seo/21-ecommerce-structured-data-playbook-2026.md) и после сборки обнови [seo/59-entity-performance-report-2026.md](seo/59-entity-performance-report-2026.md);
