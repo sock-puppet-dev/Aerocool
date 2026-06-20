@@ -1,6 +1,6 @@
 # Руководство по шаблонным helper-файлам Hugo
 
-Обновлено: 2026-06-19.
+Обновлено: 2026-06-21.
 
 ## Зачем Нужен Этот Документ
 
@@ -171,7 +171,7 @@
 
 ## Быстрая Карта Product Helpers
 
-- [layouts/_partials/products/card.html](../../layouts/_partials/products/card.html) — товарная карточка для `/products/`, страниц серий, home-блоков и related-блоков. Выводит изображение, название, цену, наличие, rating summary при approved отзывах, color dots и product facts. Для фильтров и сортировки добавляет `data-product-*`: title, price, rating, order, series, material, adjustment, mechanism и availability. Поддерживает флаг `showSeriesInTitle`: в root-каталоге карточка показывает серию в названии товара, например `WING Mesh Black` и `XTAL Mesh Black`, а на страницах конкретных серий сохраняет короткий `linkTitle`, например `Mesh Black`.
+- [layouts/_partials/products/card.html](../../layouts/_partials/products/card.html) — товарная карточка для `/products/`, страниц серий, home-блоков и related-блоков. Выводит изображение, название, цену, наличие, rating summary при approved отзывах, color dots и product facts. Для фильтров и сортировки добавляет `data-product-*`: title, price, rating, order, series, material, adjustment, mechanism и availability. Поддерживает флаг `showSeriesInTitle`: в root-каталоге карточка показывает серию в названии товара, например `WING Mesh Black` и `XTAL Mesh Black`, а на страницах конкретных серий сохраняет короткий `linkTitle`, например `Mesh Black`. Видимый CTA остается компактным `Подробнее` / `Детальніше`, а его полное доступное имя формируется через `sr-only` и `$page.Title`, например `Подробнее о модели Aerocool WING Racer Black`.
 - [layouts/_partials/products/color-dots.html](../../layouts/_partials/products/color-dots.html) — компактные цветовые точки в карточках товаров. Для товаров с реальными вариантами главный источник — `product_group_id` и `data/entities.yaml`; если группы нет, helper берет `color` из главной product entity через `about_entities`. Это визуальный сигнал цвета в листинге, а не замена отдельным variant URL и не причина добавлять искусственный `product_group_id` одиночным товарам.
 - [layouts/_partials/products/filters.html](../../layouts/_partials/products/filters.html) — static-first фильтры каталога. На `/products/` показывает группы серии, материала, регулировок, механизма и наличия; на страницах конкретной серии скрывает группу серии. Фильтры не меняют URL и не создают индексируемые filter pages.
 - [layouts/_partials/products/sort.html](../../layouts/_partials/products/sort.html) — сортировка каталога: по названию, рейтингу, цене от дешевых и цене от дорогих. Работает вместе с фильтрами через `assets/js/site.js`.

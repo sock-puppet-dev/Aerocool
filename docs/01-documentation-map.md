@@ -1,6 +1,6 @@
 # Документация Aerocool
 
-Обновлено: 2026-06-19.
+Обновлено: 2026-06-21.
 
 Этот файл — главная карта всей документации проекта. Его задача простая: показать новичку, что читать сначала, что читать потом и какие документы нужны только для профильных задач.
 
@@ -9,7 +9,7 @@
 - [README.md](../README.md) — краткая карта проекта, стека, структуры и основных команд.
 - [AGENTS.md](../AGENTS.md) — правила безопасной работы для Codex/агентов.
 
-Все файлы внутри `docs/` пронумерованы глобально от `01` до `80`. Номер в начале имени показывает рекомендуемый порядок чтения.
+Все файлы внутри `docs/` пронумерованы глобально от `01` до `81`. Номер в начале имени показывает рекомендуемый порядок чтения.
 
 ## Как Пользоваться Новичку
 
@@ -217,6 +217,10 @@
 79. [content/79-page-content-design-dna-2026.md](content/79-page-content-design-dna-2026.md) — постоянный контракт текстов и изображений всех типов страниц: voice, anti-AI правила, доказательность, visual DNA, размеры, форматы, product image gates и workflow.
 80. [audits/80-2026-06-19-full-site-content-image-audit.md](audits/80-2026-06-19-full-site-content-image-audit.md) — текущий постраничный аудит всех **50** логических URL и **181** project image asset: рекомендации для каждой страницы, P1 по одинаковым product primary и SKY `TEST`-файлам, техническая матрица и итоговая оценка **7.8/10**.
 
+### Текущий Контракт Перелинковки И Ссылок
+
+81. [seo/81-internal-linking-strategy-2026.md](seo/81-internal-linking-strategy-2026.md) — полный аудит и постоянный контракт внутренней перелинковки, анкоров, глубины, breadcrumbs, related-блоков, пагинации и внешних ссылок; структурная оценка **9.5/10**, текущие метрики двух языков и P0-P3 roadmap.
+
 ## Маршруты По Задачам
 
 Для проверки или обновления всей документации читать:
@@ -282,6 +286,13 @@
 
 После добавления, удаления или переименования любой индексируемой страницы в `content/` нужно проверить, есть ли у нее строка в keyword-базе или явное объяснение, почему страница не является SEO-посадочной.
 
+Для внутренней перелинковки, анкоров, breadcrumbs, related-блоков, пагинации и внешних ссылок читать:
+
+1. [seo/81-internal-linking-strategy-2026.md](seo/81-internal-linking-strategy-2026.md)
+2. [architecture/03-hugo-template-helpers.md](architecture/03-hugo-template-helpers.md)
+3. [content/07-content-seo-checklist-2026.md](content/07-content-seo-checklist-2026.md)
+4. [seo/76-hugo-yaml-serp-technical-contract-2026.md](seo/76-hugo-yaml-serp-technical-contract-2026.md), если меняются URL, canonical, hreflang, sitemap, robots или индексируемость
+
 Для performance/Core Web Vitals читать:
 
 1. [quality/12-core-web-vitals-guide-2026.md](quality/12-core-web-vitals-guide-2026.md)
@@ -320,6 +331,7 @@
 - поменял product gallery, product primary image или LCP preload — проверь [content/05-front-matter-reference.md](content/05-front-matter-reference.md), [content/templates/10-product-template.md](content/templates/10-product-template.md), [architecture/03-hugo-template-helpers.md](architecture/03-hugo-template-helpers.md), [quality/12-core-web-vitals-guide-2026.md](quality/12-core-web-vitals-guide-2026.md) и [seo/21-ecommerce-structured-data-playbook-2026.md](seo/21-ecommerce-structured-data-playbook-2026.md);
 - поменял тексты, изображения, AI prompts, fallback-картинки, product gallery, inline-иллюстрации, технические схемы или visual DNA — проверь [content/79-page-content-design-dna-2026.md](content/79-page-content-design-dna-2026.md), [content/67-image-design-playbook-2026.md](content/67-image-design-playbook-2026.md), [content/06-seo-image-shortcode.md](content/06-seo-image-shortcode.md), [content/07-content-seo-checklist-2026.md](content/07-content-seo-checklist-2026.md) и [audits/80-2026-06-19-full-site-content-image-audit.md](audits/80-2026-06-19-full-site-content-image-audit.md);
 - поменял keyword-базу, карту интентов, новую посадочную страницу, slug, canonical URL или статус индексируемости страницы — проверь [seo/18-seo-keyword-map-2026.md](seo/18-seo-keyword-map-2026.md), [seo/53-keyword-database-2026.md](seo/53-keyword-database-2026.md), [seo/72-semantic-core-keyword-strategy-2026.md](seo/72-semantic-core-keyword-strategy-2026.md), [content/07-content-seo-checklist-2026.md](content/07-content-seo-checklist-2026.md) и убедись, что не появились битые `target_url`, дубликаты ключей или новая каннибализация;
+- поменял внутренние или внешние ссылки, анкоры, header/footer navigation, breadcrumbs, related-блок, пагинацию, product cards или variant swatches — проверь [seo/81-internal-linking-strategy-2026.md](seo/81-internal-linking-strategy-2026.md), [architecture/03-hugo-template-helpers.md](architecture/03-hugo-template-helpers.md) и [content/07-content-seo-checklist-2026.md](content/07-content-seo-checklist-2026.md);
 - поменял schema.org partials — проверь [seo/19-schema-types-reference.md](seo/19-schema-types-reference.md), [seo/20-schema-markup-quality-checklist-2026.md](seo/20-schema-markup-quality-checklist-2026.md), [seo/26-json-ld-graph-audit-roadmap-2026.md](seo/26-json-ld-graph-audit-roadmap-2026.md) и после сборки обнови [seo/59-entity-performance-report-2026.md](seo/59-entity-performance-report-2026.md);
 - поменял product facts, товарный front matter, цвет, характеристики, гарантию, доставку, возврат, оплату или `priceValidUntil` — проверь [seo/58-product-facts-maintenance-process-2026.md](seo/58-product-facts-maintenance-process-2026.md), [content/05-front-matter-reference.md](content/05-front-matter-reference.md), [seo/21-ecommerce-structured-data-playbook-2026.md](seo/21-ecommerce-structured-data-playbook-2026.md) и после сборки обнови [seo/59-entity-performance-report-2026.md](seo/59-entity-performance-report-2026.md);
 - поменял review-систему, Netlify Database migrations, `review_target_id`, moderation flow или build-time export отзывов — проверь [deploy/17-netlify-database-reviews.md](deploy/17-netlify-database-reviews.md), [content/05-front-matter-reference.md](content/05-front-matter-reference.md), [seo/21-ecommerce-structured-data-playbook-2026.md](seo/21-ecommerce-structured-data-playbook-2026.md) и [seo/20-schema-markup-quality-checklist-2026.md](seo/20-schema-markup-quality-checklist-2026.md);

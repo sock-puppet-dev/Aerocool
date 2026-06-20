@@ -206,7 +206,7 @@
       {{- end }}
     </div>
     <a href="{{ $page.RelPermalink }}" class="products-list__details ui-link">
-      {{ cond $isRu "Подробнее" "Детальніше" }} <span aria-hidden="true">→</span>
+      {{ cond $isRu "Подробнее" "Детальніше" }}<span class="sr-only">{{ cond $isRu " о модели " " про модель " }}{{ $page.Title }}</span> <span aria-hidden="true">→</span>
     </a>
     {{- else }}
     {{- with $cardSummary }}
