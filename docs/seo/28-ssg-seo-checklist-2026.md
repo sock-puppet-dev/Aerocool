@@ -6,7 +6,7 @@
 
 Синхронизировано с текущей проектной документацией и лучшими практиками 2026: [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](../audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md).
 
-Примечание для новичка: это общий стратегический чеклист, а не список файлов, которые нужно сразу менять. Для текущего проекта Aerocool фактические правила лежат в [README.md](../../README.md), [AGENTS.md](../../AGENTS.md), [content/07-content-seo-checklist-2026.md](../content/07-content-seo-checklist-2026.md), [content/05-front-matter-reference.md](../content/05-front-matter-reference.md), [seo/20-schema-markup-quality-checklist-2026.md](20-schema-markup-quality-checklist-2026.md), [seo/24-entities-knowledge-graph-playbook-2026.md](24-entities-knowledge-graph-playbook-2026.md), [quality/13-pagespeed-insights-audit.md](../quality/13-pagespeed-insights-audit.md), [seo/76-hugo-yaml-serp-technical-contract-2026.md](76-hugo-yaml-serp-technical-contract-2026.md) и [34-2026-05-07-documentation-refresh-and-project-action-plan.md](../audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md).
+Примечание для новичка: это общий стратегический чеклист, а не список файлов, которые нужно сразу менять. Для текущего проекта Aerocool фактические правила лежат в [README.md](../../README.md), [AGENTS.md](../../AGENTS.md), [content/07-content-seo-checklist-2026.md](../content/07-content-seo-checklist-2026.md), [content/05-front-matter-reference.md](../content/05-front-matter-reference.md), [seo/20-schema-markup-quality-checklist-2026.md](20-schema-markup-quality-checklist-2026.md), [seo/24-entities-knowledge-graph-playbook-2026.md](24-entities-knowledge-graph-playbook-2026.md), [seo/76-hugo-yaml-serp-technical-contract-2026.md](76-hugo-yaml-serp-technical-contract-2026.md), [seo/81-internal-linking-strategy-2026.md](81-internal-linking-strategy-2026.md), [quality/13-pagespeed-insights-audit.md](../quality/13-pagespeed-insights-audit.md) и [34-2026-05-07-documentation-refresh-and-project-action-plan.md](../audits/34-2026-05-07-documentation-refresh-and-project-action-plan.md).
 
 ---
 
@@ -164,6 +164,10 @@
 | Ссылки из сравнений на товары | Да |
 | Footer links | Да |
 | Описательные contextual anchors | Да; неинформативный CTA дополняется названием страницы назначения в видимом или `sr-only` тексте |
+| Прямые ссылки на canonical URL | Да; без alias и redirect |
+| Валидные fragment links | Да; каждый `#fragment` существует в rendered HTML |
+| Orphan indexable pages | Нет |
+| Self-links текущего состояния | По возможности заменять неинтерактивным current-state элементом |
 | HTML sitemap | Желательно |
 | Hub pages | Да |
 | Topic clusters | Да |
@@ -225,7 +229,7 @@
 |---|---|
 | Отдельные URL для языков | Да |
 | hreflang | Да |
-| `x-default` | Да |
+| `x-default` | Не обязателен; добавлять только при наличии подходящей fallback-страницы для пользователей без совпавшего языка |
 | Canonical внутри своей языковой версии | Да |
 | Переводы без машинного мусора | Да |
 | Уникальные meta title/description | Да |
