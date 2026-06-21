@@ -9,7 +9,7 @@
 - [README.md](../README.md) — краткая карта проекта, стека, структуры и основных команд.
 - [AGENTS.md](../AGENTS.md) — правила безопасной работы для Codex/агентов.
 
-Все файлы внутри `docs/` пронумерованы глобально от `01` до `81`. Номер в начале имени показывает рекомендуемый порядок чтения.
+Все файлы внутри `docs/` пронумерованы глобально от `01` до `82`. Номер в начале имени показывает рекомендуемый порядок чтения.
 
 ## Как Пользоваться Новичку
 
@@ -104,7 +104,7 @@
 37. [audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md](audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md) — историческая синхронизация документации с практиками 2026 на 2026-05-13.
 38. [audits/38-2026-05-14-seo-image-documentation-cleanup.md](audits/38-2026-05-14-seo-image-documentation-cleanup.md) — очистка документации по `seo-image`.
 39. [audits/39-2026-05-15-documentation-full-audit.md](audits/39-2026-05-15-documentation-full-audit.md) — исторический полный аудит документационного слоя на 2026-05-15.
-40. [audits/40-2026-05-17-documentation-current-audit.md](audits/40-2026-05-17-documentation-current-audit.md) — текущий аудит документации на 2026-05-17.
+40. [audits/40-2026-05-17-documentation-current-audit.md](audits/40-2026-05-17-documentation-current-audit.md) — исторический аудит документации на 2026-05-17.
 41. [audits/41-2026-05-17-core-web-vitals-project-audit.md](audits/41-2026-05-17-core-web-vitals-project-audit.md) — Core Web Vitals аудит проекта.
 42. [audits/42-2026-05-17-schemaapp-support-knowledge-base-audit.md](audits/42-2026-05-17-schemaapp-support-knowledge-base-audit.md) — аудит support-статей Schema App.
 43. [audits/43-2026-05-17-json-ld-entity-full-audit-after-schemaapp-support.md](audits/43-2026-05-17-json-ld-entity-full-audit-after-schemaapp-support.md) — контрольный аудит JSON-LD после support-данных Schema App.
@@ -113,16 +113,16 @@
 46. [audits/46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md](audits/46-2026-05-18-schemaapp-customer-stories-case-studies-audit.md) — анализ Schema App customer stories/case studies.
 47. [audits/47-2026-05-18-json-ld-entity-full-audit-after-customer-stories.md](audits/47-2026-05-18-json-ld-entity-full-audit-after-customer-stories.md) — контрольный JSON-LD/entity audit после customer stories.
 48. [audits/48-2026-05-18-documentation-current-audit.md](audits/48-2026-05-18-documentation-current-audit.md) — аудит всей документации на 2026-05-18.
-49. [audits/49-2026-05-19-documentation-current-audit.md](audits/49-2026-05-19-documentation-current-audit.md) — текущий аудит всей документации на 2026-05-19.
+49. [audits/49-2026-05-19-documentation-current-audit.md](audits/49-2026-05-19-documentation-current-audit.md) — исторический аудит всей документации на 2026-05-19.
 50. [audits/50-2026-05-19-visible-page-meta-policy-audit.md](audits/50-2026-05-19-visible-page-meta-policy-audit.md) — аудит новой политики видимой meta-строки страниц.
 
 ### UI/UX Карты
 
 51. [architecture/51-tailwind-plus-ui-section-map-2026.md](architecture/51-tailwind-plus-ui-section-map-2026.md) — карта внедрения Tailwind Plus UI-секций для главной, каталога, серий, товаров, FAQ, контактов, форм и footer.
 
-### Свежие Аудиты После UI/UX Карты
+### Исторические Schema/Entity Аудиты После UI/UX Карты
 
-52. [audits/52-2026-05-20-json-ld-entity-full-audit-current.md](audits/52-2026-05-20-json-ld-entity-full-audit-current.md) — свежий полный аудит JSON-LD, Entity Registry, Product graph, breadcrumbs, ratings/reviews, ProductGroup и актуальных P0/P1/P2/P3 задач на 2026-05-20.
+52. [audits/52-2026-05-20-json-ld-entity-full-audit-current.md](audits/52-2026-05-20-json-ld-entity-full-audit-current.md) — исторический полный аудит JSON-LD, Entity Registry, Product graph, breadcrumbs, ratings/reviews и ProductGroup на 2026-05-20. Для текущих машинных счетчиков использовать документы `59` и `60`.
 
 ### SEO Базы После Аудитов
 
@@ -208,9 +208,9 @@
 
 77. [audits/77-2026-06-18-articles-news-content-image-audit.md](audits/77-2026-06-18-articles-news-content-image-audit.md) — текущий полный аудит `content/articles` и `content/news`: тексты двух языков, выполненная реструктуризация шести статей, 146 WebP-файлов, visual diversity, factual evidence, технические правила и итоговая оценка **9.1/10**.
 
-### Текущий Полный Аудит Документации
+### Исторический Полный Аудит Документации
 
-78. [audits/78-2026-06-19-full-documentation-project-sync-audit.md](audits/78-2026-06-19-full-documentation-project-sync-audit.md) — текущая полная проверка всей документации, переносимости ссылок, русского языка, структуры, стека, layout-слоя, front matter, сборки, JSON-LD и официальных практик 2026 года; итоговая оценка **9.8/10**.
+78. [audits/78-2026-06-19-full-documentation-project-sync-audit.md](audits/78-2026-06-19-full-documentation-project-sync-audit.md) — исторический снимок полной проверки документации на 2026-06-19. Для текущего состояния использовать аудит `82`.
 
 ### Единый DNA Контента И Текущий Полный Content/Image Аудит
 
@@ -221,12 +221,16 @@
 
 81. [seo/81-internal-linking-strategy-2026.md](seo/81-internal-linking-strategy-2026.md) — полный аудит и постоянный контракт внутренней перелинковки, анкоров, глубины, breadcrumbs, related-блоков, пагинации и внешних ссылок; структурная оценка **9.5/10**, текущие метрики двух языков и P0-P3 roadmap.
 
+### Текущий Полный Аудит Документации
+
+82. [audits/82-2026-06-21-full-documentation-project-sync-audit.md](audits/82-2026-06-21-full-documentation-project-sync-audit.md) — текущая полная проверка всех **82** документов, русского языка, порядка чтения, ссылок, стека, изменений после аудита `78`, development/production-сборок, JSON-LD и официальных практик 2026 года; итоговая оценка **9.8/10**.
+
 ## Маршруты По Задачам
 
 Для проверки или обновления всей документации читать:
 
 1. [architecture/02-documentation-style-guide.md](architecture/02-documentation-style-guide.md)
-2. [audits/78-2026-06-19-full-documentation-project-sync-audit.md](audits/78-2026-06-19-full-documentation-project-sync-audit.md)
+2. [audits/82-2026-06-21-full-documentation-project-sync-audit.md](audits/82-2026-06-21-full-documentation-project-sync-audit.md)
 3. текущий профильный гайд или аудит из разделов ниже
 
 Для контентной правки читать:

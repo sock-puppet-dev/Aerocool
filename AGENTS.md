@@ -141,8 +141,9 @@
 - `docs/content/79-page-content-design-dna-2026.md`
 - `docs/audits/80-2026-06-19-full-site-content-image-audit.md`
 - `docs/seo/81-internal-linking-strategy-2026.md`
+- `docs/audits/82-2026-06-21-full-documentation-project-sync-audit.md`
 
-Текущий полный аудит всей проектной документации: `docs/audits/78-2026-06-19-full-documentation-project-sync-audit.md`.
+Текущий полный аудит всей проектной документации: `docs/audits/82-2026-06-21-full-documentation-project-sync-audit.md`. Аудит `78` использовать как исторический снимок на 2026-06-19.
 
 Текущий полный постраничный аудит текстов и изображений всего сайта: `docs/audits/80-2026-06-19-full-site-content-image-audit.md`. Постоянный контракт tone of voice, anti-AI правил, доказательности, visual DNA, размеров и product image gates: `docs/content/79-page-content-design-dna-2026.md`.
 

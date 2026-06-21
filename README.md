@@ -19,7 +19,7 @@
 
 Для текущих задач по ключевым словам, семантике, каннибализации и планированию посадочных страниц читать [docs/seo/18-seo-keyword-map-2026.md](docs/seo/18-seo-keyword-map-2026.md), [docs/seo/53-keyword-database-2026.md](docs/seo/53-keyword-database-2026.md) и [docs/seo/72-semantic-core-keyword-strategy-2026.md](docs/seo/72-semantic-core-keyword-strategy-2026.md). Для задач по `hugo.yaml`, индексации, sitemap, robots, canonical, hreflang, production gate и техническому SERP-фундаменту читать [docs/seo/76-hugo-yaml-serp-technical-contract-2026.md](docs/seo/76-hugo-yaml-serp-technical-contract-2026.md). Актуальная keyword-база содержит `277` строк, покрывает `100` markdown-страниц, включает support/legal URL `/image-license/` и `/ru/image-license/`, а поля `gsc_*` заполняются только после импорта реальных данных Google Search Console.
 
-Для задач по внутренней перелинковке, анкорам, breadcrumbs, related-блокам, пагинации и внешним ссылкам использовать [docs/seo/81-internal-linking-strategy-2026.md](docs/seo/81-internal-linking-strategy-2026.md). Текущая структурная оценка ссылочного графа — **9.5/10**; практический SEO-эффект основного домена остается заблокирован, пока production-сборка возвращает `noindex,nofollow`.
+Для задач по внутренней перелинковке, анкорам, breadcrumbs, related-блокам, пагинации и внешним ссылкам использовать [docs/seo/81-internal-linking-strategy-2026.md](docs/seo/81-internal-linking-strategy-2026.md). Текущая структурная оценка ссылочного графа — **9.5/10**; практический SEO-эффект основного домена остается заблокирован, пока Netlify собирает опубликованный сайт с `--environment development` и возвращает `noindex,nofollow`.
 
 Для текущих задач по UX/UI, Tailwind Plus секциям, Tailwind CSS 4.3 visual layer, компонентам, каталогу, фильтрам и визуальной структуре страниц читать [docs/architecture/51-tailwind-plus-ui-section-map-2026.md](docs/architecture/51-tailwind-plus-ui-section-map-2026.md) и актуальный повторный полный аудит [docs/audits/65-2026-06-05-full-ux-ui-revalidation-audit.md](docs/audits/65-2026-06-05-full-ux-ui-revalidation-audit.md). Для screenshot/evidence деталей использовать предыдущий полный visual audit [docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md](docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md).
 
@@ -31,7 +31,7 @@
 
 Вся документация проекта должна быть русскоязычной, понятной новичку и структурированной. Единый стандарт стиля описан в [docs/architecture/02-documentation-style-guide.md](docs/architecture/02-documentation-style-guide.md).
 
-Текущий полный аудит документации, синхронизации с кодом и официальными практиками 2026 года находится в [docs/audits/78-2026-06-19-full-documentation-project-sync-audit.md](docs/audits/78-2026-06-19-full-documentation-project-sync-audit.md). Итоговая оценка после исправлений: **9.8/10**.
+Текущий полный аудит документации, синхронизации с кодом и официальными практиками 2026 года находится в [docs/audits/82-2026-06-21-full-documentation-project-sync-audit.md](docs/audits/82-2026-06-21-full-documentation-project-sync-audit.md). Итоговая оценка после исправлений: **9.8/10**. Аудит `78` остается историческим снимком на 2026-06-19.
 
 ## 1. Главная идея проекта
 
@@ -561,7 +561,7 @@ git checkout dev
 
 1. `README.md` — главный вход в проект.
 2. `AGENTS.md` — правила безопасной работы для Codex/агентов.
-3. [docs/01-documentation-map.md](docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-81`.
+3. [docs/01-documentation-map.md](docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-82`.
 4. [docs/architecture/02-documentation-style-guide.md](docs/architecture/02-documentation-style-guide.md) — стандарт русскоязычной, понятной и структурированной документации.
 5. [docs/architecture/03-hugo-template-helpers.md](docs/architecture/03-hugo-template-helpers.md) — локальные Hugo helpers и partials.
 6. [docs/content/05-front-matter-reference.md](docs/content/05-front-matter-reference.md) — поля front matter для страниц.
