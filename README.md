@@ -13,7 +13,7 @@
 5. `docs/architecture/03-hugo-template-helpers.md` — какие шаблоны за что отвечают.
 6. `docs/quality/13-pagespeed-insights-audit.md` — как проверять опубликованные URL через PageSpeed Insights.
 
-Для текущих задач по Core Web Vitals читать `docs/quality/12-core-web-vitals-guide-2026.md` и актуальный аудит `docs/audits/54-2026-05-26-core-web-vitals-current-audit.md`.
+Для текущих задач по Core Web Vitals читать `docs/quality/12-core-web-vitals-guide-2026.md` и актуальный полевой аудит `docs/audits/83-2026-06-21-netlify-rum-core-web-vitals-baseline.md`. Аудит `54` остается историческим lab baseline на 2026-05-26.
 
 Для текущих задач по JSON-LD, schema.org, Entity Registry, `about_entities`, `mentions_entities`, `ProductGroup`, `sameAs` и graph-аудиту читать `docs/seo/23-entity-registry-2026.md`, `docs/seo/26-json-ld-graph-audit-roadmap-2026.md` и текущий generated report [docs/seo/59-entity-performance-report-2026.md](docs/seo/59-entity-performance-report-2026.md). Для ручной проверки через `validator.schema.org` использовать [docs/seo/60-schema-validator-url-checklist-2026.md](docs/seo/60-schema-validator-url-checklist-2026.md). Полный schema/entity-аудит `57` оставлен как исторический snapshot на 2026-05-31.
 
@@ -561,7 +561,7 @@ git checkout dev
 
 1. `README.md` — главный вход в проект.
 2. `AGENTS.md` — правила безопасной работы для Codex/агентов.
-3. [docs/01-documentation-map.md](docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-82`.
+3. [docs/01-documentation-map.md](docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-83`.
 4. [docs/architecture/02-documentation-style-guide.md](docs/architecture/02-documentation-style-guide.md) — стандарт русскоязычной, понятной и структурированной документации.
 5. [docs/architecture/03-hugo-template-helpers.md](docs/architecture/03-hugo-template-helpers.md) — локальные Hugo helpers и partials.
 6. [docs/content/05-front-matter-reference.md](docs/content/05-front-matter-reference.md) — поля front matter для страниц.

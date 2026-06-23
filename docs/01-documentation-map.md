@@ -9,7 +9,7 @@
 - [README.md](../README.md) — краткая карта проекта, стека, структуры и основных команд.
 - [AGENTS.md](../AGENTS.md) — правила безопасной работы для Codex/агентов.
 
-Все файлы внутри `docs/` пронумерованы глобально от `01` до `82`. Номер в начале имени показывает рекомендуемый порядок чтения.
+Основные документационные позиции внутри `docs/` пронумерованы глобально от `01` до `83`. Номер в начале имени показывает рекомендуемый порядок чтения. Три сопутствующих CSV-файла используют номера своих основных документов `53` и `59`, поэтому физически внутри `docs/` находится 86 файлов.
 
 ## Как Пользоваться Новичку
 
@@ -130,7 +130,7 @@
 
 ### Актуальные CWV Аудиты
 
-54. [audits/54-2026-05-26-core-web-vitals-current-audit.md](audits/54-2026-05-26-core-web-vitals-current-audit.md) — актуальный аудит Core Web Vitals проекта и CWV-документации на 2026-05-26.
+54. [audits/54-2026-05-26-core-web-vitals-current-audit.md](audits/54-2026-05-26-core-web-vitals-current-audit.md) — исторический lab baseline Core Web Vitals проекта на 2026-05-26.
 
 ### Schema/Entity Аудит 2026-05-26
 
@@ -223,7 +223,11 @@
 
 ### Текущий Полный Аудит Документации
 
-82. [audits/82-2026-06-21-full-documentation-project-sync-audit.md](audits/82-2026-06-21-full-documentation-project-sync-audit.md) — текущая полная проверка всех **82** документов, русского языка, порядка чтения, ссылок, стека, изменений после аудита `78`, development/production-сборок, JSON-LD и официальных практик 2026 года; итоговая оценка **9.8/10**.
+82. [audits/82-2026-06-21-full-documentation-project-sync-audit.md](audits/82-2026-06-21-full-documentation-project-sync-audit.md) — текущая полная проверка документационного слоя, русского языка, порядка чтения, ссылок, стека, development/production-сборок, JSON-LD и официальных практик 2026 года; после добавления профильного аудита `83` счетчики синхронизированы до **83** нумерованных позиций и **86** физических файлов, итоговая оценка **9.8/10**.
+
+### Текущий Полевой CWV Аудит
+
+83. [audits/83-2026-06-21-netlify-rum-core-web-vitals-baseline.md](audits/83-2026-06-21-netlify-rum-core-web-vitals-baseline.md) — текущий Netlify Real User Monitoring baseline: `Good` по p75 для `LCP`, `INP`, `CLS` и оценка CWV field readiness **9.5/10**.
 
 ## Маршруты По Задачам
 
@@ -302,8 +306,9 @@
 1. [quality/12-core-web-vitals-guide-2026.md](quality/12-core-web-vitals-guide-2026.md)
 2. [quality/13-pagespeed-insights-audit.md](quality/13-pagespeed-insights-audit.md)
 3. [quality/14-production-quality-gate-2026.md](quality/14-production-quality-gate-2026.md)
-4. [audits/54-2026-05-26-core-web-vitals-current-audit.md](audits/54-2026-05-26-core-web-vitals-current-audit.md)
-5. [audits/61-2026-06-02-pagespeed-insights-quality-simplification.md](audits/61-2026-06-02-pagespeed-insights-quality-simplification.md), если задача касается текущего PageSpeed-only quality workflow
+4. [audits/83-2026-06-21-netlify-rum-core-web-vitals-baseline.md](audits/83-2026-06-21-netlify-rum-core-web-vitals-baseline.md)
+5. [audits/54-2026-05-26-core-web-vitals-current-audit.md](audits/54-2026-05-26-core-web-vitals-current-audit.md), если нужен исторический lab baseline
+6. [audits/61-2026-06-02-pagespeed-insights-quality-simplification.md](audits/61-2026-06-02-pagespeed-insights-quality-simplification.md), если задача касается текущего PageSpeed-only quality workflow
 
 Для `hugo.yaml`, production gate и технического SERP-фундамента читать:
 

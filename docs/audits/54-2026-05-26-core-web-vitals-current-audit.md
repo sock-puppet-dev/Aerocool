@@ -2,6 +2,8 @@
 
 Дата аудита: 2026-05-26.
 
+Статус: исторический lab baseline. Текущие полевые данные реальных production-посетителей зафиксированы в [аудите 83](83-2026-06-21-netlify-rum-core-web-vitals-baseline.md).
+
 Цель: проверить весь текущий Core Web Vitals-контур проекта `Aerocool Ukraine`, синхронизировать связанную документацию с лучшими практиками 2026 года и зафиксировать актуальный lab baseline.
 
 ## Проверенные Источники
@@ -99,7 +101,7 @@ browser-audit <url> --categories=performance,accessibility,best-practices,seo
 
 Почему не `10 / 10`:
 
-- нет field data из Search Console / CrUX;
+- на дату этого снимка не было field data из Search Console / CrUX;
 - текущий `netlify.toml` намеренно держит published build в `development/noindex`;
 - lab LCP главной в проверке колебался около `2.3-2.6 s`, то есть рядом с порогом Google и выше внутренней строгой цели `≤ 2.0 s`.
 
