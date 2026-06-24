@@ -1,10 +1,10 @@
 ---
-title: "Aerocool расширяет гиды по выбору кресел для работы, home office и гейминга"
+title: "Aerocool: новые гиды по выбору кресел для работы и гейминга"
 linkTitle: "Новые гиды выбора"
 description: "Aerocool Украина обновляет раздел статей новыми гидами о выборе кресла для работы за компьютером, home office, долгих игровых сессий и сравнении SKY, WING и XTAL."
 summary: "В разделе статей Aerocool появился новый набор практических гидов для выбора между SKY, WING и XTAL по реальным сценариям использования."
 date: 2026-05-21T01:10:00+03:00
-lastmod: 2026-06-16
+lastmod: 2026-06-24
 slug: "aerocool-chair-selection-guides-update"
 schema_types: ["website", "news", "organization", "breadcrumbs"]
 about_entities:

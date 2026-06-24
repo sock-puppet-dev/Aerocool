@@ -2,9 +2,9 @@
 title: "Крісла Aerocool для офісної команди: вибір моделей під робочі місця"
 linkTitle: "Крісла для команди"
 date: 2026-05-21T00:16:00+03:00
-lastmod: 2026-06-21
+lastmod: 2026-06-24
 slug: "chairs-for-office-team"
-description: "Гайд для офісного вибору Aerocool: як підібрати крісла для команди, робочих місць, home office співробітників, переговорних і змішаних сценаріїв без зайвих дублювань."
+description: "Гайд Aerocool для офісного вибору: як підібрати крісла для команди, робочих місць, home office, переговорних і змішаних сценаріїв."
 summary: "Пояснюємо, як вибирати крісла Aerocool для команди: за сценаріями роботи, рівнем регулювань, матеріалами, серіями SKY, WING і XTAL."
 schema_types: ["website", "article", "organization", "breadcrumbs"]
 about_entities:

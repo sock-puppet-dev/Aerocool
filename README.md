@@ -1,6 +1,6 @@
 # Aerocool Ukraine
 
-Обновлено: 2026-06-21.
+Обновлено: 2026-06-24.
 
 `Aerocool Ukraine` — двуязычный маркетинговый и каталоговый сайт на `Hugo` для кресел Aerocool в Украине. Основной язык — украинский (`uk`), второй язык — русский (`ru`). Сайт собирается статически, деплоится через `Netlify` и использует локальные Hugo overrides поверх темы `PaperMod`.
 
@@ -19,11 +19,11 @@
 
 Для текущих задач по ключевым словам, семантике, каннибализации и планированию посадочных страниц читать [docs/seo/18-seo-keyword-map-2026.md](docs/seo/18-seo-keyword-map-2026.md), [docs/seo/53-keyword-database-2026.md](docs/seo/53-keyword-database-2026.md) и [docs/seo/72-semantic-core-keyword-strategy-2026.md](docs/seo/72-semantic-core-keyword-strategy-2026.md). Для задач по `hugo.yaml`, индексации, sitemap, robots, canonical, hreflang, production gate и техническому SERP-фундаменту читать [docs/seo/76-hugo-yaml-serp-technical-contract-2026.md](docs/seo/76-hugo-yaml-serp-technical-contract-2026.md). Актуальная keyword-база содержит `277` строк, покрывает `100` markdown-страниц, включает support/legal URL `/image-license/` и `/ru/image-license/`, а поля `gsc_*` заполняются только после импорта реальных данных Google Search Console.
 
-Для задач по внутренней перелинковке, анкорам, breadcrumbs, related-блокам, пагинации и внешним ссылкам использовать [docs/seo/81-internal-linking-strategy-2026.md](docs/seo/81-internal-linking-strategy-2026.md). Текущая структурная оценка ссылочного графа — **9.5/10**; практический SEO-эффект основного домена остается заблокирован, пока Netlify собирает опубликованный сайт с `--environment development` и возвращает `noindex,nofollow`.
+Для задач по внутренней перелинковке, анкорам, breadcrumbs, related-блокам, пагинации и внешним ссылкам использовать [docs/seo/81-internal-linking-strategy-2026.md](docs/seo/81-internal-linking-strategy-2026.md), [docs/seo/85-content-linking-editorial-standard-2026.md](docs/seo/85-content-linking-editorial-standard-2026.md) и текущий аудит [docs/audits/84-2026-06-24-full-link-content-seo-audit.md](docs/audits/84-2026-06-24-full-link-content-seo-audit.md). Проверка ссылок остается ручной после production-сборки; текущая структурная оценка ссылочного графа — **9.5/10**. Практический SEO-эффект основного домена остается заблокирован, пока Netlify собирает опубликованный сайт с `--environment development` и возвращает `noindex,nofollow`.
 
 Для текущих задач по UX/UI, Tailwind Plus секциям, Tailwind CSS 4.3 visual layer, компонентам, каталогу, фильтрам и визуальной структуре страниц читать [docs/architecture/51-tailwind-plus-ui-section-map-2026.md](docs/architecture/51-tailwind-plus-ui-section-map-2026.md) и актуальный повторный полный аудит [docs/audits/65-2026-06-05-full-ux-ui-revalidation-audit.md](docs/audits/65-2026-06-05-full-ux-ui-revalidation-audit.md). Для screenshot/evidence деталей использовать предыдущий полный visual audit [docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md](docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md).
 
-Для работы с текстами и изображениями любой страницы сначала читать [docs/content/79-page-content-design-dna-2026.md](docs/content/79-page-content-design-dna-2026.md): это единый контракт tone of voice, anti-AI правил, доказательности, visual DNA, размеров и product image gates. Подробные image prompts и технический playbook находятся в [docs/content/67-image-design-playbook-2026.md](docs/content/67-image-design-playbook-2026.md), а текущее постраничное состояние всех **50** логических URL и всего image-слоя — в [docs/audits/80-2026-06-19-full-site-content-image-audit.md](docs/audits/80-2026-06-19-full-site-content-image-audit.md). Аудиты `69`, `70`, `71`, `74` и `77` остаются профильными или историческими детализациями.
+Для работы с текстами и изображениями любой страницы сначала читать [docs/content/79-page-content-design-dna-2026.md](docs/content/79-page-content-design-dna-2026.md): это единый контракт tone of voice, anti-AI правил, доказательности, visual DNA, размеров и product image gates. Для вопроса “где какой контент должен быть, какие ссылки нужны и как делать литературную обработку” читать [docs/seo/85-content-linking-editorial-standard-2026.md](docs/seo/85-content-linking-editorial-standard-2026.md), а для текущего состояния content + links — [docs/audits/84-2026-06-24-full-link-content-seo-audit.md](docs/audits/84-2026-06-24-full-link-content-seo-audit.md). Подробные image prompts и технический playbook находятся в [docs/content/67-image-design-playbook-2026.md](docs/content/67-image-design-playbook-2026.md), а постраничное состояние image-слоя — в [docs/audits/80-2026-06-19-full-site-content-image-audit.md](docs/audits/80-2026-06-19-full-site-content-image-audit.md). Аудиты `69`, `70`, `71`, `74` и `77` остаются профильными или историческими детализациями.
 
 Для текущих задач по Hugo, Node, Tailwind и локальным инструментам читать [docs/deploy/15-local-tooling-mise.md](docs/deploy/15-local-tooling-mise.md), актуальный tooling-аудит [docs/audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md](docs/audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md) и SERP-контракт [docs/seo/76-hugo-yaml-serp-technical-contract-2026.md](docs/seo/76-hugo-yaml-serp-technical-contract-2026.md), если меняется `hugo.yaml`.
 
@@ -413,9 +413,10 @@ JSON-LD генерируется централизованно через `layo
 
 1. Запустить `./scripts/script_check.sh`.
 2. Запустить `npm run build:production`.
-3. Дождаться Netlify Branch Deploy или production deploy.
-4. Проверить ключевые URL в PageSpeed Insights, сначала mobile, затем desktop.
-5. Если менялись schema.org, дополнительно проверить URL через `validator.schema.org`.
+3. Если менялись ссылки, сниппеты, контентные маршруты, URL, breadcrumbs, related-блоки, меню или карточки, вручную проверить ключевые URL, sitemap, canonical, `hreflang`, локальные якоря и доступность целевых страниц в собранном сайте.
+4. Дождаться Netlify Branch Deploy или production deploy.
+5. Проверить ключевые URL в PageSpeed Insights, сначала mobile, затем desktop.
+6. Если менялись schema.org, дополнительно проверить URL через `validator.schema.org`.
 
 Подробно смотри [docs/quality/13-pagespeed-insights-audit.md](docs/quality/13-pagespeed-insights-audit.md).
 
@@ -561,7 +562,7 @@ git checkout dev
 
 1. `README.md` — главный вход в проект.
 2. `AGENTS.md` — правила безопасной работы для Codex/агентов.
-3. [docs/01-documentation-map.md](docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-83`.
+3. [docs/01-documentation-map.md](docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-85`.
 4. [docs/architecture/02-documentation-style-guide.md](docs/architecture/02-documentation-style-guide.md) — стандарт русскоязычной, понятной и структурированной документации.
 5. [docs/architecture/03-hugo-template-helpers.md](docs/architecture/03-hugo-template-helpers.md) — локальные Hugo helpers и partials.
 6. [docs/content/05-front-matter-reference.md](docs/content/05-front-matter-reference.md) — поля front matter для страниц.

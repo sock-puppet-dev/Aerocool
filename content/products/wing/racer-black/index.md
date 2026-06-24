@@ -1,10 +1,10 @@
 ---
 title: "Ергономічне ігрове крісло Aerocool WING Racer Black"
 linkTitle: "Racer Black"
-description: "Купити Aerocool WING Racer Black в Україні — ергономічне ігрове та комп'ютерне крісло серії WING з 11D регулюванням, Synchronous Tilt, подвійною спинкою та поверхнею Leatherette."
+description: "Купити Aerocool WING Racer Black в Україні: крісло WING з 11D, Synchronous Tilt, подвійною спинкою та поверхнею Leatherette."
 summary: "Aerocool WING Racer Black — ігрове та комп'ютерне крісло серії WING з 11D регулюванням, подвійною спинкою й поверхнею Leatherette."
 date: 2026-03-19
-lastmod: 2026-06-05
+lastmod: 2026-06-24
 schema_types: ["website", "product", "organization", "breadcrumbs"]
 about_entities:
   - "wing-racer-black"

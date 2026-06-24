@@ -1,10 +1,10 @@
 ---
 title: "Эргономичное игровое кресло Aerocool XTAL Racer Black"
 linkTitle: "Racer Black"
-description: "Купить Aerocool XTAL Racer Black в Украине — эргономичное игровое и компьютерное кресло серии XTAL с 7D регулировкой, Synchronous Tilt, сменными элементами и обивкой Leatherette."
+description: "Купить Aerocool XTAL Racer Black в Украине: кресло XTAL с 7D, Synchronous Tilt, сменными элементами и Leatherette."
 summary: "Aerocool XTAL Racer Black — игровое и компьютерное кресло серии XTAL с 7D регулировкой, сменными элементами и обивкой Leatherette."
 date: 2026-03-19
-lastmod: 2026-06-05
+lastmod: 2026-06-24
 schema_types: ["website", "product", "organization", "breadcrumbs"]
 about_entities:
   - "xtal-racer-black"
