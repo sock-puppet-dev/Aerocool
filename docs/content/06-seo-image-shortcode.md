@@ -1,6 +1,6 @@
 # Руководство По Shortcode `seo-image`
 
-Обновлено: 2026-06-18.
+Обновлено: 2026-06-24.
 
 Короткое руководство по shortcode `seo-image` в текущем проекте `Aerocool`.
 
@@ -14,7 +14,7 @@ Hero-изображение главной страницы — отдельно
 
 Главное изображение товарной страницы — тоже отдельный сценарий. Оно не должно вставляться через `seo-image` в markdown. На товарных страницах первый видимый кадр выводит [products/gallery.html](../../layouts/_partials/products/gallery.html) из front matter `image`, а responsive preload для этого кадра выводится в `<head>` через [lcp-image-preload.html](../../layouts/_partials/_seo/lcp-image-preload.html) с тем же `sizes`, что и gallery.
 
-Общий визуальный стандарт изображений, включая обложки, fallback, section covers, home hero, product gallery, inline-иллюстрации, технические схемы и AI-промпты, описан отдельно в [67-image-design-playbook-2026.md](67-image-design-playbook-2026.md). Текущее состояние статей и новостей находится в [77-2026-06-18-articles-news-content-image-audit.md](../audits/77-2026-06-18-articles-news-content-image-audit.md), а историческая поштучная матрица внедрения - в [74-2026-06-15-articles-news-inline-image-serp-audit.md](../audits/74-2026-06-15-articles-news-inline-image-serp-audit.md). Эти документы отвечают за внешний вид, смысл и SERP-стандарт; текущий `seo-image` отвечает за HTML, responsive delivery и performance.
+Общий визуальный стандарт изображений, включая обложки, fallback, section covers, home hero, product gallery, inline-иллюстрации, технические схемы и AI-промпты, описан отдельно в [67-image-design-playbook-2026.md](67-image-design-playbook-2026.md). Текущая проверка `image` + служебного `cover`-блока, размеров, форматов, crop-наборов и product primary дублей находится в [89-2026-06-24-cover-block-image-seo-audit.md](../audits/89-2026-06-24-cover-block-image-seo-audit.md). Текущее состояние статей и новостей находится в [77-2026-06-18-articles-news-content-image-audit.md](../audits/77-2026-06-18-articles-news-content-image-audit.md), а историческая поштучная матрица внедрения - в [74-2026-06-15-articles-news-inline-image-serp-audit.md](../audits/74-2026-06-15-articles-news-inline-image-serp-audit.md). Эти документы отвечают за внешний вид, смысл и SERP-стандарт; текущий `seo-image` отвечает за HTML, responsive delivery и performance.
 
 Простыми словами для новичка: `seo-image` нужен, когда ты вставляешь изображение прямо в текст статьи, новости или обычной страницы. Для главной и товарной страницы уже есть отдельные шаблоны первого экрана.
 
@@ -110,6 +110,8 @@ cover:
 
 Если `image` или `cover.image` товарной страницы указывает на отсутствующий файл либо на image resource, который Hugo не может обработать через `reflect.IsImageResourceProcessable`, сборка должна остановиться. Это намеренная защита от битой LCP-картинки и рассинхронизации SEO/OG/schema с видимой gallery.
 
+Важно: пример выше отражает текущее состояние части каталога, где product primary еще использует `01-front.png`. Для новых и заменяемых товарных assets целевой стандарт проекта — уникальный `01-front.webp` **2000x2000** для конкретного SKU/цвета/материала. Аудит [89-2026-06-24-cover-block-image-seo-audit.md](../audits/89-2026-06-24-cover-block-image-seo-audit.md) фиксирует открытый P1: `12` текущих product primary PNG имеют одинаковый байтовый хэш и должны заменяться точными уникальными изображениями, а не просто массовой конвертацией формата.
+
 Если в товарной странице позже понадобится вторичная inline-иллюстрация внутри описания, ее можно вставить через `seo-image`, но только с `loading="lazy"`, `preload=false` и без `fetchpriority=high`.
 
 ## 3. Второстепенное Контентное Изображение
@@ -179,3 +181,4 @@ cover:
 9. Image license metadata не управляется shortcode: если меняются условия использования изображений, сначала обновить страницы `/image-license/` и `/ru/image-license/`, затем проверить rendered `ImageObject`.
 10. Для `content/articles` и `content/news` не публиковать `candidate` / `test` / `final-v*` файлы и не ссылаться на них из markdown. Такие файлы допустимы только для визуального утверждения.
 11. Для secondary inline image не использовать `preload=true` и `fetchpriority=high`: это резерв только для одного LCP-кандидата страницы.
+12. Текущий cover-contract проверен в аудите `89`: `100/100` markdown-страниц имеют полный `image` + `cover`, но product primary дубли остаются отдельным P1-backlog товарного слоя.

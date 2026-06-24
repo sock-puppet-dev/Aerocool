@@ -21,6 +21,7 @@
 - [77-2026-06-18-articles-news-content-image-audit.md](../audits/77-2026-06-18-articles-news-content-image-audit.md) - глубокий аудит текстов, изображений, visual diversity и factual evidence для `content/articles` / `content/news`;
 - [79-page-content-design-dna-2026.md](79-page-content-design-dna-2026.md) - единый текстовый и визуальный DNA всех типов страниц;
 - [80-2026-06-19-full-site-content-image-audit.md](../audits/80-2026-06-19-full-site-content-image-audit.md) - текущее полное состояние всех текстов и изображений сайта, включая product image P1.
+- [89-2026-06-24-cover-block-image-seo-audit.md](../audits/89-2026-06-24-cover-block-image-seo-audit.md) - текущая проверка `image` + `cover` по всем `100` markdown-файлам, размеров, форматов, article/news crops и product primary дублей.
 
 ## 0. SERP-Контракт, Подтвержденный Источниками
 
@@ -184,6 +185,7 @@ cover:
 - Ratio: **3:2**.
 - Первое видимое изображение article/news в теле страницы выводить через `seo-image`.
 - Для топовых article/news URL в P2 подготовить дополнительные crops **16:9**, **4:3**, **1:1** для schema.org и Search surfaces.
+- Состояние на 2026-06-24: аудит `89` подтвердил, что все `25` article/news page bundles уже имеют `01-front.webp`, `01-front-16x9.webp`, `01-front-4x3.webp` и `01-front-1x1.webp` в целевых размерах. Новые материалы должны сохранять этот набор с момента публикации, а не добавлять crops позже.
 
 ### 5.1.1. Inline-Изображения В Теле Статей И Новостей
 
@@ -272,6 +274,8 @@ Fallback-файл не должен выглядеть как аварийная
 ### 5.4. Главное Изображение Товара И Product Gallery
 
 Товарные изображения не нужно автоматически превращать в темные high-tech обложки. Это товарные доказательства, а не рекламные постеры. Для новых и заменяемых файлов использовать единый порядок имен во всех product page bundles: папка уже содержит серию, модель и цвет, поэтому в имя файла не добавлять SKU, модель или цвет.
+
+Текущий аудит [89-2026-06-24-cover-block-image-seo-audit.md](../audits/89-2026-06-24-cover-block-image-seo-audit.md) фиксирует открытый P1: `12` товарных `01-front.png` имеют разные пути, но один и тот же байтовый хэш. Это нужно исправлять не массовой конвертацией PNG в WebP, а заменой на уникальные product primary images, которые реально показывают конкретные модель, цвет и материал.
 
 Целевой порядок имен:
 

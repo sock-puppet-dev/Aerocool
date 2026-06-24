@@ -108,6 +108,8 @@ related_articles:
 
 В текущем проекте каждый файл `content/**/*.md` должен иметь не только `image`, но и служебный `cover`-блок.
 
+Актуальная проверка на 2026-06-24 зафиксирована в [89-2026-06-24-cover-block-image-seo-audit.md](../audits/89-2026-06-24-cover-block-image-seo-audit.md): `100/100` markdown-файлов имеют полный `image` + `cover`-блок, все файлы существуют, `cover.alt` заполнены, а `25/25` article/news bundles имеют полный crop-набор для schema/search surfaces. Этот результат нужно сохранять при любых новых страницах и правках front matter.
+
 `image` — источник для SEO/OG/Twitter/schema через локальный helper `layouts/_partials/page-image.html`.
 
 `cover.image` — источник для визуальных preview-карточек и PaperMod cover partial.
@@ -128,6 +130,14 @@ related_articles:
 | `seo_image_sizes` | Только для article/news: синхронизирует нестандартный размер первого `seo-image` с head preload. |
 
 Если у служебной, taxonomy или иной системной страницы нет собственного `image`, helper `page-image.html` использует root `cover.webp` как общий meaningful fallback.
+
+Текущие размеры и форматы по типам страниц:
+
+| Тип страницы | Рекомендуемый `image` / `cover.image` |
+|---|---|
+| Статьи и новости | `01-front.webp`, **1536x1024**, WebP; для schema/search surfaces рядом держать `16:9`, `4:3`, `1:1` crops. |
+| Хабы, статичные страницы, section covers, series covers | `cover.webp`, **1536x1024**, WebP. |
+| Товары | целевой replacement standard `01-front.webp`, минимум **1600x1600**, лучше **2000x2000**; текущие `01-front.png` допустимы только как временный/официальный asset, но не должны быть одинаковыми для разных SKU. |
 
 Для page bundle и section bundle использовать относительный путь:
 
