@@ -75,7 +75,7 @@
 1. `how-to-choose-aerocool-chair`;
 2. `how-to-choose-chair-by-adjustability`;
 3. `racer-vs-loft-air-vs-mesh-materials`;
-4. `sky-lite-vs-sky-360-guide`;
+4. `sky-light-vs-sky-360-guide`;
 5. `what-is-synchronous-tilt-guide`;
 6. `wing-vs-xtal-comparison`.
 
@@ -129,7 +129,7 @@
 | `how-to-choose-aerocool-chair` | Исправлено: одна последовательная аргументация и один финальный вывод. | Текущих двух visuals достаточно; обновлять только при изменении линейки. |
 | `how-to-choose-chair-by-adjustability` | Исправлено: ранний дубль удален, объяснение **7D/8D/11D** собрано в одной последовательности. | Future replacement: реальные control close-ups для каждого уровня. |
 | `racer-vs-loft-air-vs-mesh-materials` | Исправлено: повторяющиеся material sections объединены, один вывод оставлен в конце. | Priority replacement: official macro Racer/Loft Air/Mesh; новых AI-картинок не добавлять. |
-| `sky-lite-vs-sky-360-guide` | Исправлено: ранний итог удален, decision path ведет к одному финальному выводу. | Future replacement: exact SKU side/back comparison. |
+| `sky-light-vs-sky-360-guide` | Исправлено: ранний итог удален, decision path ведет к одному финальному выводу. | Future replacement: exact SKU side/back comparison. |
 | `sky-vs-wing-vs-xtal` | Текст логичный и полный. Обновлять при изменении состава серий. | Текущих двух visuals достаточно; future exact lineup предпочтительнее новой иллюстрации. |
 | `sync4-sync5-mechanism-guide` | Не расширять. Добавить visible source/provenance только при наличии официальной инструкции или product sheet. | Priority replacement: factual underside/mechanism photos. |
 | `what-is-dual-backrest` | Текст полный. Усиливать только проверяемым описанием конструкции. | Future replacement: official close-up dual backrest. |
@@ -141,11 +141,11 @@
 
 | Новость | Текст | Изображения |
 |---|---|---|
-| `2026-04-15-aerocool-sky-series-launch` | Новые блоки не нужны; обновлять только при реальном изменении линейки или поставки. | Future replacement: official SKY Lite/360 lineup. |
+| `2026-04-15-aerocool-sky-series-launch` | Новые блоки не нужны; обновлять только при реальном изменении линейки или поставки. | Future replacement: official SKY Light/360 lineup. |
 | `2026-04-16-aerocool-wing-series-launch` | Не расширять evergreen-объяснения; вести в WING guide/product pages. | Future replacement: official dual-backrest и material variants. |
 | `2026-04-17-aerocool-xtal-series-launch` | Не добавлять обещания о сменных деталях без подтвержденной доступности. | Future replacement: official replaceable component detail. |
 | `2026-04-18-aerocool-sky-360-launch` | Добавлять только подтвержденные изменения товара, availability или specification. | Future replacement: official adjustment controls/mechanism close-up. |
-| `2026-04-19-aerocool-sky-lite-launch` | Текст достаточен; не превращать новость в второй evergreen guide. | Future replacement: real compact workplace photo. |
+| `2026-04-19-aerocool-sky-light-launch` | Текст достаточен; не превращать новость в второй evergreen guide. | Future replacement: real compact workplace photo. |
 | `2026-04-20-aerocool-loft-air-and-mesh-focus` | Не расширять: evergreen material intent принадлежит статье. | Cover и 16:9 crop оптимизированы; future official material macro. |
 | `2026-04-30-aerocool-sync4-sync5-mechanism-update` | Сократить повтор evergreen-объяснения при будущей редактуре; новость фиксирует изменение, статья объясняет механизм. | Future replacement: official SYNC4/SYNC5 product evidence. |
 | `2026-05-21-aerocool-chair-selection-guides-update` | Обновлять список только при выпуске новых guides. | Текущего одного inline visual достаточно. |

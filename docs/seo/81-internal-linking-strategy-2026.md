@@ -249,7 +249,7 @@ npm run build:production
 
 - `chairs-for-office-team` — **11**;
 - `gaming-chair-long-sessions` — **11**;
-- `sky-lite-vs-sky-360` — **12**;
+- `sky-light-vs-sky-360` — **12**;
 - `sky-vs-wing-vs-xtal` — **12**;
 - `sync4-sync5-mechanism-guide` — **12**.
 
@@ -273,7 +273,7 @@ UK/RU-показатели совпадают. Дополнительное ма
 
 Допустимые примеры:
 
-- `порівняння SKY Lite і SKY 360`;
+- `порівняння SKY Light і SKY 360`;
 - `гид по механизмам SYNC4 и SYNC5`;
 - `Aerocool WING Racer Black`;
 - `контакти Aerocool Україна`.

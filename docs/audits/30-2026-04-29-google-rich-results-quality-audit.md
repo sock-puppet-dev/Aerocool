@@ -268,7 +268,7 @@ Google удалил визуальный элемент sitelinks search box с 
 | URL | Язык | Цена | Полнота ID | Видимые Коммерческие Поля | Риск |
 |---|---|---:|---|---|---|
 | `/products/sky/360/` | uk | 12400 | нет MPN, GTIN | нет | P1 |
-| `/products/sky/lite/` | uk | 8500 | нет MPN, GTIN | нет | P1 |
+| `/products/sky/light/` | uk | 8500 | нет MPN, GTIN | нет | P1 |
 | `/products/wing/loft-air-dark-grey/` | uk | 12000 | OK | нет | P1 |
 | `/products/wing/loft-air-light-grey/` | uk | 12000 | OK | нет | P1 |
 | `/products/wing/mesh-black/` | uk | 11000 | OK | нет | P1 |
@@ -280,7 +280,7 @@ Google удалил визуальный элемент sitelinks search box с 
 | `/products/xtal/racer-black/` | uk | 12000 | OK | нет | P1 |
 | `/products/xtal/racer-dark-grey/` | uk | 12000 | OK | нет | P1 |
 | `/ru/products/sky/360/` | ru | 12400 | нет MPN, GTIN | нет | P1 |
-| `/ru/products/sky/lite/` | ru | 8500 | нет MPN, GTIN | нет | P1 |
+| `/ru/products/sky/light/` | ru | 8500 | нет MPN, GTIN | нет | P1 |
 | `/ru/products/wing/loft-air-dark-grey/` | ru | 12000 | OK | нет | P1 |
 | `/ru/products/wing/loft-air-light-grey/` | ru | 12000 | OK | нет | P1 |
 | `/ru/products/wing/mesh-black/` | ru | 11000 | OK | нет | P1 |
@@ -389,13 +389,13 @@ Google удалил визуальный элемент sitelinks search box с 
 | `/articles/how-to-choose-aerocool-chair/` | Article | 1833 | 1536x1024 | 2026-04-14 | 2026-04-30 | P2 image/author |
 | `/articles/how-to-choose-chair-by-adjustability/` | Article | 1789 | 1536x1024 | 2026-04-12 | 2026-04-30 | P2 image/author |
 | `/articles/racer-vs-loft-air-vs-mesh/` | Article | 1715 | 1536x1024 | 2026-04-08 | 2026-04-30 | P2 image/author |
-| `/articles/sky-lite-vs-sky-360/` | Article | 1772 | 1536x1024 | 2026-04-04 | 2026-04-30 | P2 image/author |
+| `/articles/sky-light-vs-sky-360/` | Article | 1772 | 1536x1024 | 2026-04-04 | 2026-04-30 | P2 image/author |
 | `/articles/sync4-sync5-mechanism-guide/` | Article | 1997 | 1536x1024 | 2026-04-30 | 2026-04-30 | P2 image/author |
 | `/articles/what-is-synchronous-tilt/` | Article | 1722 | 1536x1024 | 2026-04-10 | 2026-04-30 | P2 image/author |
 | `/articles/wing-vs-xtal/` | Article | 1705 | 1536x1024 | 2026-04-06 | 2026-04-30 | P2 image/author |
 | `/news/loft-air-and-mesh-focus/` | NewsArticle | 805 | 1536x1024 | 2026-04-20 | 2026-04-30 | P2 image/author |
 | `/news/sky-360-launch/` | NewsArticle | 843 | 1536x1024 | 2026-04-18 | 2026-04-30 | P2 image/author |
-| `/news/sky-lite-launch/` | NewsArticle | 796 | 1536x1024 | 2026-04-19 | 2026-04-30 | P2 image/author |
+| `/news/sky-light-launch/` | NewsArticle | 796 | 1536x1024 | 2026-04-19 | 2026-04-30 | P2 image/author |
 | `/news/sky-series-launch/` | NewsArticle | 816 | 1536x1024 | 2026-04-15 | 2026-04-30 | P2 image/author |
 | `/news/sync4-sync5-mechanism-update/` | NewsArticle | 787 | 1536x1024 | 2026-04-30 | 2026-04-30 | P2 image/author |
 | `/news/wing-series-launch/` | NewsArticle | 811 | 1536x1024 | 2026-04-16 | 2026-04-30 | P2 image/author |
@@ -403,13 +403,13 @@ Google удалил визуальный элемент sitelinks search box с 
 | `/ru/articles/how-to-choose-aerocool-chair/` | Article | 1878 | 1536x1024 | 2026-04-14 | 2026-04-30 | P2 image/author |
 | `/ru/articles/how-to-choose-chair-by-adjustability/` | Article | 1787 | 1536x1024 | 2026-04-12 | 2026-04-30 | P2 image/author |
 | `/ru/articles/racer-vs-loft-air-vs-mesh/` | Article | 1745 | 1536x1024 | 2026-04-08 | 2026-04-30 | P2 image/author |
-| `/ru/articles/sky-lite-vs-sky-360/` | Article | 1786 | 1536x1024 | 2026-04-04 | 2026-04-30 | P2 image/author |
+| `/ru/articles/sky-light-vs-sky-360/` | Article | 1786 | 1536x1024 | 2026-04-04 | 2026-04-30 | P2 image/author |
 | `/ru/articles/sync4-sync5-mechanism-guide/` | Article | 2023 | 1536x1024 | 2026-04-30 | 2026-04-30 | P2 image/author |
 | `/ru/articles/what-is-synchronous-tilt/` | Article | 1726 | 1536x1024 | 2026-04-10 | 2026-04-30 | P2 image/author |
 | `/ru/articles/wing-vs-xtal/` | Article | 1716 | 1536x1024 | 2026-04-06 | 2026-04-30 | P2 image/author |
 | `/ru/news/loft-air-and-mesh-focus/` | NewsArticle | 809 | 1536x1024 | 2026-04-20 | 2026-04-30 | P2 image/author |
 | `/ru/news/sky-360-launch/` | NewsArticle | 816 | 1536x1024 | 2026-04-18 | 2026-04-30 | P2 image/author |
-| `/ru/news/sky-lite-launch/` | NewsArticle | 799 | 1536x1024 | 2026-04-19 | 2026-04-30 | P2 image/author |
+| `/ru/news/sky-light-launch/` | NewsArticle | 799 | 1536x1024 | 2026-04-19 | 2026-04-30 | P2 image/author |
 | `/ru/news/sky-series-launch/` | NewsArticle | 809 | 1536x1024 | 2026-04-15 | 2026-04-30 | P2 image/author |
 | `/ru/news/sync4-sync5-mechanism-update/` | NewsArticle | 792 | 1536x1024 | 2026-04-30 | 2026-04-30 | P2 image/author |
 | `/ru/news/wing-series-launch/` | NewsArticle | 835 | 1536x1024 | 2026-04-16 | 2026-04-30 | P2 image/author |
@@ -574,7 +574,7 @@ Google удалил визуальный элемент sitelinks search box с 
    - значение/количество рейтинга там, где присутствуют.
 2. Остается открытым: задокументировать источник рейтинга или убрать `aggregateRating`, если рейтинги не подтверждаются независимым источником.
 3. Выполнено `2026-05-06`: видимо подтвердить условия доставки/возврата/оплаты в `/faq/`.
-4. Добавить MPN/GTIN для SKY Lite и SKY 360, если официальные идентификаторы существуют; иначе оставить пустыми.
+4. Добавить MPN/GTIN для SKY Light и SKY 360, если официальные идентификаторы существуют; иначе оставить пустыми.
 
 ### Этап 2: Улучшить Качество Rich Results Для Article И News
 

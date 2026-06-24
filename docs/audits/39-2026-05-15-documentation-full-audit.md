@@ -83,19 +83,19 @@ Documentation layer: 9.6 / 10
 
 В `docs/seo/23-entity-registry-2026.md` часть строк в section 16/17 использовала folder names page bundle вместо публичных slugs:
 
-- `/articles/sky-lite-vs-sky-360-guide/`;
+- `/articles/sky-light-vs-sky-360-guide/`;
 - `/articles/wing-vs-xtal-comparison/`;
 - `/news/2026-04-15-aerocool-sky-series-launch/` и аналогичные dated folder paths.
 
 Фактические публичные URL задаются через `slug` в front matter и совпадают с `data/entities.yaml`:
 
-- `/articles/sky-lite-vs-sky-360/`;
+- `/articles/sky-light-vs-sky-360/`;
 - `/articles/wing-vs-xtal/`;
 - `/news/sky-series-launch/`;
 - `/news/wing-series-launch/`;
 - `/news/xtal-series-launch/`;
 - `/news/sky-360-launch/`;
-- `/news/sky-lite-launch/`;
+- `/news/sky-light-launch/`;
 - `/news/loft-air-and-mesh-focus/`;
 - `/news/sync4-sync5-mechanism-update/`.
 

@@ -194,7 +194,7 @@ sky-series:
   parent: "aerocool-catalog"
   status: "confirmed"
   products:
-    - "sky-lite"
+    - "sky-light"
     - "sky-360"
   related:
     - "mesh-material"
@@ -332,6 +332,8 @@ sky-360:
   parent: "sky-series"
   series: "sky-series"
   sku: "SKY-360-001"
+  mpn: "TEGC-3105101.11"
+  gtin13: "4711530967553"
   material: "mesh-material"
   color: "black"
   adjustability: "11d-adjustment"
@@ -345,18 +347,20 @@ sky-360:
     - "synchronous-tilt"
     - "home-office"
 
-sky-lite:
+sky-light:
   name:
-    en: "Aerocool SKY Lite"
-    uk: "Aerocool SKY Lite"
-    ru: "Aerocool SKY Lite"
+    en: "Aerocool SKY Light"
+    uk: "Aerocool SKY Light"
+    ru: "Aerocool SKY Light"
   entity_class: "Product"
   schema_candidate: "Product"
-  current_jsonld_id: "https://aerocool.ua/products/sky/lite/#product"
-  entity_home: "/products/sky/lite/"
+  current_jsonld_id: "https://aerocool.ua/products/sky/light/#product"
+  entity_home: "/products/sky/light/"
   parent: "sky-series"
   series: "sky-series"
-  sku: "SKY-LITE-001"
+  sku: "SKY-LIGHT-001"
+  mpn: "TEGC-3106101.11"
+  gtin13: "4711530967577"
   material: "mesh-material"
   color: "black"
   adjustability: "8d-adjustment"
@@ -626,7 +630,7 @@ xtal-racer-dark-grey:
   parent: "xtal-racer-product-group"
   series: "xtal-series"
   sku: "XTAL-RDG-001"
-  mpn: "TEGC-209910Z.Z1"
+  mpn: "TEGC-209910Z.Z"
   gtin13: "4711530966785"
   material: "racer-material"
   color: "dark-grey"
@@ -737,7 +741,7 @@ sync4-mechanism:
   status: "confirmed"
   related:
     - "synchronous-tilt"
-    - "sky-lite"
+    - "sky-light"
 
 sync5-mechanism:
   name:
@@ -779,7 +783,7 @@ sync5-mechanism:
   entity_home: "/articles/how-to-choose-chair-by-adjustability/"
   status: "confirmed"
   related:
-    - "sky-lite"
+    - "sky-light"
 
 11d-adjustment:
   name:

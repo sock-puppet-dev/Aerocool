@@ -88,8 +88,8 @@
 
 Карточки товара закрывают SKU-интент плюс тип кресла:
 
-- `купить aerocool sky lite`
-- `офисное кресло aerocool sky lite`
+- `купить aerocool sky light`
+- `офисное кресло aerocool sky light`
 - `игровое кресло aerocool wing racer black`
 - `компьютерное кресло aerocool xtal mesh black`
 
@@ -98,7 +98,7 @@
 Статьи закрывают информационный интент и интент сравнения:
 
 - `как выбрать кресло aerocool`
-- `sky lite или sky 360`
+- `sky light или sky 360`
 - `wing или xtal`
 - `какое кресло для работы`
 - `какое кресло для home office`
@@ -119,7 +119,7 @@
 - `aerocool sky launch`
 - `aerocool wing series`
 - `aerocool xtal`
-- `sky lite 8d`
+- `sky light 8d`
 - `sky 360 11d`
 - `aerocool sync5`
 - `sync4 sync5 aerocool`
@@ -186,9 +186,9 @@
 `SKY`
 
 - `aerocool sky`
-- `aerocool sky lite`
+- `aerocool sky light`
 - `aerocool sky 360`
-- `sky lite`
+- `sky light`
 - `sky 360`
 - `Synchronous Tilt`
 - `3d x 360 armrest`
@@ -280,8 +280,8 @@
 
 | URL / файл | Основной интент | Основные ключи | Дополнительные ключи |
 | --- | --- | --- | --- |
-| `content/products/sky/_index.md` | офисная линейка | `aerocool sky`, `офісне крісло aerocool sky`, `комп'ютерне крісло aerocool sky` | `sky lite`, `sky 360`, `Synchronous Tilt` |
-| `content/products/sky/_index.ru.md` | офисная линейка | `aerocool sky`, `офисное кресло aerocool sky`, `компьютерное кресло aerocool sky` | `sky lite`, `sky 360`, `Synchronous Tilt` |
+| `content/products/sky/_index.md` | офисная линейка | `aerocool sky`, `офісне крісло aerocool sky`, `комп'ютерне крісло aerocool sky` | `sky light`, `sky 360`, `Synchronous Tilt` |
+| `content/products/sky/_index.ru.md` | офисная линейка | `aerocool sky`, `офисное кресло aerocool sky`, `компьютерное кресло aerocool sky` | `sky light`, `sky 360`, `Synchronous Tilt` |
 | `content/products/wing/_index.md` | игровая и офисная линейка | `aerocool wing`, `ігрове крісло aerocool wing`, `офісне крісло aerocool wing` | `dual backrest`, `11d`, `racer`, `loft air`, `mesh` |
 | `content/products/wing/_index.ru.md` | игровая и офисная линейка | `aerocool wing`, `игровое кресло aerocool wing`, `офисное кресло aerocool wing` | `dual backrest`, `11d`, `racer`, `loft air`, `mesh` |
 | `content/products/xtal/_index.md` | игровая и компьютерная линейка | `aerocool xtal`, `ігрове крісло aerocool xtal`, `комп'ютерне крісло aerocool xtal` | `fully replaceable design`, `7d`, `racer`, `loft air`, `mesh` |
@@ -291,8 +291,8 @@
 
 | URL / файл | Основной интент | Основные ключи | Дополнительные ключи |
 | --- | --- | --- | --- |
-| `content/products/sky/lite/index.md` | офисный товар | `офісне крісло aerocool sky lite`, `комп'ютерне крісло sky lite` | `8d`, `Synchronous Tilt`, `home office`, `breathable mesh` |
-| `content/products/sky/lite/index.ru.md` | офисный товар | `офисное кресло aerocool sky lite`, `компьютерное кресло sky lite` | `8d`, `Synchronous Tilt`, `home office`, `breathable mesh` |
+| `content/products/sky/light/index.md` | офисный товар | `офісне крісло aerocool sky light`, `комп'ютерне крісло sky light` | `8d`, `Synchronous Tilt`, `home office`, `breathable mesh` |
+| `content/products/sky/light/index.ru.md` | офисный товар | `офисное кресло aerocool sky light`, `компьютерное кресло sky light` | `8d`, `Synchronous Tilt`, `home office`, `breathable mesh` |
 | `content/products/sky/360/index.md` | компьютерный товар | `комп'ютерне крісло aerocool sky 360`, `офісне крісло sky 360` | `11d`, `3d x 360 armrest`, `home office`, `breathable mesh` |
 | `content/products/sky/360/index.ru.md` | компьютерный товар | `компьютерное кресло aerocool sky 360`, `офисное кресло sky 360` | `11d`, `3d x 360 armrest`, `home office`, `breathable mesh` |
 
@@ -338,18 +338,18 @@
 | `content/articles/how-to-choose-chair-by-adjustability/index.ru.md` | гайд по регулировкам | `регулировки кресла`, `7D 8D 11D`, `как выбрать эргономичное кресло` | `подлокотники`, `сиденье`, `поясничная поддержка`, `Synchronous Tilt` |
 | `content/articles/racer-vs-loft-air-vs-mesh-materials/index.md` | сравнение материалов | `Racer Loft Air Mesh`, `матеріали крісла Aerocool`, `яку поверхню обрати` | `leatherette`, `вентильована тканина`, `сітка`, `догляд за leatherette`, `догляд за mesh`, `крісло з хорошою вентиляцією`, `wing mesh чи wing loft air`, `xtal racer чи xtal mesh` |
 | `content/articles/racer-vs-loft-air-vs-mesh-materials/index.ru.md` | сравнение материалов | `Racer Loft Air Mesh`, `материалы кресла Aerocool`, `какую поверхность выбрать` | `leatherette`, `вентилируемая ткань`, `сетка`, `уход за leatherette`, `уход за mesh`, `кресло с хорошей вентиляцией`, `wing mesh или wing loft air`, `xtal racer или xtal mesh` |
-| `content/articles/sky-lite-vs-sky-360-guide/index.md` | сравнение | `sky lite чи sky 360`, `яке крісло для роботи обрати` | `8d`, `11d`, `office`, `home office` |
-| `content/articles/sky-lite-vs-sky-360-guide/index.ru.md` | сравнение | `sky lite или sky 360`, `какое кресло для работы выбрать` | `8d`, `11d`, `office`, `home office` |
+| `content/articles/sky-light-vs-sky-360-guide/index.md` | сравнение | `sky light чи sky 360`, `яке крісло для роботи обрати` | `8d`, `11d`, `office`, `home office` |
+| `content/articles/sky-light-vs-sky-360-guide/index.ru.md` | сравнение | `sky light или sky 360`, `какое кресло для работы выбрать` | `8d`, `11d`, `office`, `home office` |
 | `content/articles/what-is-synchronous-tilt-guide/index.md` | объяснение механизма | `що таке Synchronous Tilt`, `синхронний нахил крісла`, `механізм крісла Aerocool` | `ергономіка`, `Multi-angle`, `Weight sensitive`, `SYNC5` |
 | `content/articles/what-is-synchronous-tilt-guide/index.ru.md` | объяснение механизма | `что такое Synchronous Tilt`, `синхронный наклон кресла`, `механизм кресла Aerocool` | `эргономика`, `Multi-angle`, `Weight sensitive`, `SYNC5` |
 | `content/articles/wing-vs-xtal-comparison/index.md` | сравнение | `wing чи xtal`, `яке ігрове крісло обрати` | `gaming`, `dual backrest`, `fully replaceable design` |
 | `content/articles/wing-vs-xtal-comparison/index.ru.md` | сравнение | `wing или xtal`, `какое игровое кресло выбрать` | `gaming`, `dual backrest`, `fully replaceable design` |
-| `content/articles/sync4-sync5-mechanism-guide/index.md` | информационный / коммерческий | `SYNC4`, `SYNC5`, `SYNC5 multi-adjustable`, `механізм крісла Aerocool` | `Synchronous Tilt`, `XTAL`, `WING`, `SKY 360`, `SKY Lite`, `регулювання сидіння` |
-| `content/articles/sync4-sync5-mechanism-guide/index.ru.md` | информационный / коммерческий | `SYNC4`, `SYNC5`, `SYNC5 multi-adjustable`, `механизм кресла Aerocool` | `Synchronous Tilt`, `XTAL`, `WING`, `SKY 360`, `SKY Lite`, `регулировка сиденья` |
+| `content/articles/sync4-sync5-mechanism-guide/index.md` | информационный / коммерческий | `SYNC4`, `SYNC5`, `SYNC5 multi-adjustable`, `механізм крісла Aerocool` | `Synchronous Tilt`, `XTAL`, `WING`, `SKY 360`, `SKY Light`, `регулювання сидіння` |
+| `content/articles/sync4-sync5-mechanism-guide/index.ru.md` | информационный / коммерческий | `SYNC4`, `SYNC5`, `SYNC5 multi-adjustable`, `механизм кресла Aerocool` | `Synchronous Tilt`, `XTAL`, `WING`, `SKY 360`, `SKY Light`, `регулировка сиденья` |
 | `content/articles/chair-for-computer-work/index.md` | рабочий сценарий | `крісло для роботи за комп'ютером`, `офісне крісло для повного дня` | `SKY`, `WING`, `XTAL`, `підлокітники`, `матеріал` |
 | `content/articles/chair-for-computer-work/index.ru.md` | рабочий сценарий | `кресло для работы за компьютером`, `офисное кресло для полного дня` | `SKY`, `WING`, `XTAL`, `подлокотники`, `материал` |
-| `content/articles/best-chair-for-home-office/index.md` | home office | `крісло для home office`, `найкраще крісло для home office` | `SKY Lite`, `SKY 360`, `WING`, `XTAL`, `відеодзвінки` |
-| `content/articles/best-chair-for-home-office/index.ru.md` | home office | `кресло для home office`, `лучшее кресло для home office` | `SKY Lite`, `SKY 360`, `WING`, `XTAL`, `видеозвонки` |
+| `content/articles/best-chair-for-home-office/index.md` | home office | `крісло для home office`, `найкраще крісло для home office` | `SKY Light`, `SKY 360`, `WING`, `XTAL`, `відеодзвінки` |
+| `content/articles/best-chair-for-home-office/index.ru.md` | home office | `кресло для home office`, `лучшее кресло для home office` | `SKY Light`, `SKY 360`, `WING`, `XTAL`, `видеозвонки` |
 | `content/articles/gaming-chair-long-sessions/index.md` | длительные игровые сессии | `ігрове крісло для тривалих сесій`, `крісло для геймінгу` | `WING`, `XTAL`, `Racer`, `Mesh`, `Synchronous Tilt` |
 | `content/articles/gaming-chair-long-sessions/index.ru.md` | длительные игровые сессии | `игровое кресло для длительных сессий`, `кресло для гейминга` | `WING`, `XTAL`, `Racer`, `Mesh`, `Synchronous Tilt` |
 | `content/articles/sky-vs-wing-vs-xtal/index.md` | сравнение всех серий | `SKY WING чи XTAL`, `яку серію Aerocool обрати` | `офісне крісло`, `ігрове крісло`, `home office`, `регулювання` |
@@ -371,20 +371,20 @@
 | --- | --- | --- | --- |
 | `content/news/_index.md` | хаб новостей | `новини aerocool`, `анонси aerocool`, `оновлення каталогу aerocool` | `SKY`, `WING`, `XTAL`, `Loft Air`, `Mesh`, `SYNC4`, `SYNC5` |
 | `content/news/_index.ru.md` | хаб новостей | `новости aerocool`, `анонсы aerocool`, `обновления каталога aerocool` | `SKY`, `WING`, `XTAL`, `Loft Air`, `Mesh`, `SYNC4`, `SYNC5` |
-| `content/news/2026-04-15-aerocool-sky-series-launch/index.md` | запуск серии | `Aerocool SKY`, `SKY Lite`, `SKY 360` | `офісне крісло`, `комп'ютерне крісло`, `Synchronous Tilt` |
-| `content/news/2026-04-15-aerocool-sky-series-launch/index.ru.md` | запуск серии | `Aerocool SKY`, `SKY Lite`, `SKY 360` | `офисное кресло`, `компьютерное кресло`, `Synchronous Tilt` |
+| `content/news/2026-04-15-aerocool-sky-series-launch/index.md` | запуск серии | `Aerocool SKY`, `SKY Light`, `SKY 360` | `офісне крісло`, `комп'ютерне крісло`, `Synchronous Tilt` |
+| `content/news/2026-04-15-aerocool-sky-series-launch/index.ru.md` | запуск серии | `Aerocool SKY`, `SKY Light`, `SKY 360` | `офисное кресло`, `компьютерное кресло`, `Synchronous Tilt` |
 | `content/news/2026-04-16-aerocool-wing-series-launch/index.md` | запуск серии | `Aerocool WING`, `WING Racer`, `WING Loft Air`, `WING Mesh` | `ігрове крісло`, `офісне крісло`, `11D`, `dual backrest` |
 | `content/news/2026-04-16-aerocool-wing-series-launch/index.ru.md` | запуск серии | `Aerocool WING`, `WING Racer`, `WING Loft Air`, `WING Mesh` | `игровое кресло`, `офисное кресло`, `11D`, `dual backrest` |
 | `content/news/2026-04-17-aerocool-xtal-series-launch/index.md` | запуск серии | `Aerocool XTAL`, `XTAL Racer`, `XTAL Loft Air`, `XTAL Mesh` | `7D`, `Synchronous Tilt`, `fully replaceable design` |
 | `content/news/2026-04-17-aerocool-xtal-series-launch/index.ru.md` | запуск серии | `Aerocool XTAL`, `XTAL Racer`, `XTAL Loft Air`, `XTAL Mesh` | `7D`, `Synchronous Tilt`, `fully replaceable design` |
 | `content/news/2026-04-18-aerocool-sky-360-launch/index.md` | запуск модели | `Aerocool SKY 360`, `SKY 360 11D`, `комп'ютерне крісло SKY 360` | `3D X 360`, `2D сидіння`, `SYNC5`, `home office` |
 | `content/news/2026-04-18-aerocool-sky-360-launch/index.ru.md` | запуск модели | `Aerocool SKY 360`, `SKY 360 11D`, `компьютерное кресло SKY 360` | `3D X 360`, `2D сиденье`, `SYNC5`, `home office` |
-| `content/news/2026-04-19-aerocool-sky-lite-launch/index.md` | запуск модели | `Aerocool SKY Lite`, `SKY Lite 8D`, `офісне крісло SKY Lite` | `SYNC4`, `Synchronous Tilt`, `вентильована сітка`, `home office` |
-| `content/news/2026-04-19-aerocool-sky-lite-launch/index.ru.md` | запуск модели | `Aerocool SKY Lite`, `SKY Lite 8D`, `офисное кресло SKY Lite` | `SYNC4`, `Synchronous Tilt`, `вентилируемая сетка`, `home office` |
+| `content/news/2026-04-19-aerocool-sky-light-launch/index.md` | запуск модели | `Aerocool SKY Light`, `SKY Light 8D`, `офісне крісло SKY Light` | `SYNC4`, `Synchronous Tilt`, `вентильована сітка`, `home office` |
+| `content/news/2026-04-19-aerocool-sky-light-launch/index.ru.md` | запуск модели | `Aerocool SKY Light`, `SKY Light 8D`, `офисное кресло SKY Light` | `SYNC4`, `Synchronous Tilt`, `вентилируемая сетка`, `home office` |
 | `content/news/2026-04-20-aerocool-loft-air-and-mesh-focus/index.md` | материал и выбор | `Aerocool Loft Air`, `Aerocool Mesh`, `вентильована поверхня` | `WING`, `XTAL`, `офісне крісло`, `комп'ютерне крісло` |
 | `content/news/2026-04-20-aerocool-loft-air-and-mesh-focus/index.ru.md` | материал и выбор | `Aerocool Loft Air`, `Aerocool Mesh`, `вентилируемая поверхность` | `WING`, `XTAL`, `офисное кресло`, `компьютерное кресло` |
-| `content/news/2026-04-30-aerocool-sync4-sync5-mechanism-update/index.md` | новостное уточнение спецификаций | `Aerocool SYNC5`, `SYNC4 і SYNC5`, `механізм крісла Aerocool` | `XTAL`, `WING`, `SKY 360`, `SKY Lite`, `Synchronous Tilt` |
-| `content/news/2026-04-30-aerocool-sync4-sync5-mechanism-update/index.ru.md` | новостное уточнение спецификаций | `Aerocool SYNC5`, `SYNC4 и SYNC5`, `механизм кресла Aerocool` | `XTAL`, `WING`, `SKY 360`, `SKY Lite`, `Synchronous Tilt` |
+| `content/news/2026-04-30-aerocool-sync4-sync5-mechanism-update/index.md` | новостное уточнение спецификаций | `Aerocool SYNC5`, `SYNC4 і SYNC5`, `механізм крісла Aerocool` | `XTAL`, `WING`, `SKY 360`, `SKY Light`, `Synchronous Tilt` |
+| `content/news/2026-04-30-aerocool-sync4-sync5-mechanism-update/index.ru.md` | новостное уточнение спецификаций | `Aerocool SYNC5`, `SYNC4 и SYNC5`, `механизм кресла Aerocool` | `XTAL`, `WING`, `SKY 360`, `SKY Light`, `Synchronous Tilt` |
 | `content/news/2026-05-21-aerocool-chair-selection-guides-update/index.md` | новость о гидах выбора | `Aerocool гіди з вибору крісел`, `робота`, `home office`, `геймінг` | `chair-for-computer-work`, `best-chair-for-home-office`, `gaming-chair-long-sessions`, `sky-vs-wing-vs-xtal` |
 | `content/news/2026-05-21-aerocool-chair-selection-guides-update/index.ru.md` | новость о гидах выбора | `Aerocool гиды по выбору кресел`, `работа`, `home office`, `гейминг` | `chair-for-computer-work`, `best-chair-for-home-office`, `gaming-chair-long-sessions`, `sky-vs-wing-vs-xtal` |
 | `content/news/2026-05-21-aerocool-practical-chair-guides-update/index.md` | новость о практических гайдах | `Aerocool практичні гіди про крісла`, `посадка`, `налаштування`, `офісна команда` | `chair-for-posture-and-long-work`, `chair-setup-after-purchase`, `chairs-for-office-team` |

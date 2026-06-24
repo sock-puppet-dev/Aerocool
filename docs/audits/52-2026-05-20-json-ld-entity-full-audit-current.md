@@ -211,7 +211,7 @@ git diff --check
 
 Product/Offer facts стабильны: цена, валюта, наличие, URL, seller, delivery, return, payment, warranty и `priceValidUntil` есть в rendered JSON-LD.
 
-Открытый product identifier gap остается прежним: `SKY 360` и `SKY Lite` в обеих языковых версиях не имеют `mpn` и `gtin13`. Нужно бизнесово подтвердить, что официальных идентификаторов нет, или добавить их во front matter.
+Открытый product identifier gap остается прежним: `SKY 360` и `SKY Light` в обеих языковых версиях не имеют `mpn` и `gtin13`. Нужно бизнесово подтвердить, что официальных идентификаторов нет, или добавить их во front matter.
 
 ## 11. Ratings И Reviews
 
@@ -293,7 +293,7 @@ Product/Offer facts стабильны: цена, валюта, наличие, 
 
 ### P1/P2. Product Identifiers Для SKY
 
-`SKY 360` и `SKY Lite` не имеют `mpn` и `gtin13`. Нужно подтвердить, это осознанное отсутствие или незаполненные данные.
+`SKY 360` и `SKY Light` не имеют `mpn` и `gtin13`. Нужно подтвердить, это осознанное отсутствие или незаполненные данные.
 
 ### P1/P2. `additionalProperty`
 
@@ -319,7 +319,7 @@ Product/Offer facts стабильны: цена, валюта, наличие, 
 
 1. Закрыть production gate.
 2. Закрыть ratings/reviews: approved reviews pipeline или удаление `aggregateRating`.
-3. Подтвердить MPN/GTIN для `SKY 360` и `SKY Lite`.
+3. Подтвердить MPN/GTIN для `SKY 360` и `SKY Light`.
 4. Добавить visible variant navigation.
 5. Перевести подтвержденные ProductGroup entities в `confirmed` и включить `ProductGroup` / `isVariantOf`.
 6. Спроектировать `additionalProperty` из видимых характеристик.

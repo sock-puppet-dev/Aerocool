@@ -26,10 +26,10 @@
 Сильнее всего проект уже покрывает:
 
 - брендовый спрос: `aerocool`, `aerocool украина`, `aerocool україна`, `официальный сайт aerocool`;
-- серии и модели: `SKY`, `SKY Lite`, `SKY 360`, `WING`, `XTAL`, `Racer`, `Loft Air`, `Mesh`;
+- серии и модели: `SKY`, `SKY Light`, `SKY 360`, `WING`, `XTAL`, `Racer`, `Loft Air`, `Mesh`;
 - технические сущности: `Synchronous Tilt`, `SYNC4`, `SYNC5`, `7D`, `8D`, `11D`, `4D X 360`, `3D X 360`;
 - материалы и поверхности: `Leatherette`, `Loft Air`, `Mesh`, `breathable mesh`, вентиляция;
-- сравнения: `SKY Lite или SKY 360`, `WING или XTAL`, `Racer / Loft Air / Mesh`;
+- сравнения: `SKY Light или SKY 360`, `WING или XTAL`, `Racer / Loft Air / Mesh`;
 - базовые коммерческие типы: игровое, офисное, компьютерное и эргономичное кресло;
 - новые сценарные кластеры: работа за компьютером, home office, долгая работа и посадка, настройка кресла после покупки, офисная команда, переговорная, команда разработчиков, сравнение всех серий.
 - расширенный слой материалов: уход за `Leatherette`, уход за `Mesh`, вентиляция, сравнение `WING Mesh / WING Loft Air` и `XTAL Racer / XTAL Mesh`;
@@ -106,7 +106,7 @@ CSV-файл содержит строки вида:
 | Регулировки `7D/8D/11D` | `/articles/how-to-choose-chair-by-adjustability/` и `/ru/articles/how-to-choose-chair-by-adjustability/` | Держать фокус на механике регулировок, а не на общем выборе серии. |
 | Настройка после покупки | `/articles/chair-setup-after-purchase/` и `/ru/articles/chair-setup-after-purchase/` | Не конкурировать с предкупочными гайдами; это post-purchase инструкция. |
 | Офисная команда | `/articles/chairs-for-office-team/` и `/ru/articles/chairs-for-office-team/` | Не смешивать с индивидуальным home office; держать B2B/командный сценарий. |
-| Все серии `SKY/WING/XTAL` | `/articles/sky-vs-wing-vs-xtal/` и `/ru/articles/sky-vs-wing-vs-xtal/` | Не дублировать парные сравнения `SKY Lite vs SKY 360` и `WING vs XTAL`. |
+| Все серии `SKY/WING/XTAL` | `/articles/sky-vs-wing-vs-xtal/` и `/ru/articles/sky-vs-wing-vs-xtal/` | Не дублировать парные сравнения `SKY Light vs SKY 360` и `WING vs XTAL`. |
 
 ## Ключевые Зоны Роста
 

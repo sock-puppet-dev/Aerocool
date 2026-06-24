@@ -9,7 +9,7 @@
 1. Автоматический npm-аудит изображений не используется.
 2. Автоочистка publishDir в `npm run build`, `npm run build:production` и Netlify build command не используется.
 3. Локальный `public/` при необходимости очищается вручную владельцем проекта.
-4. Файлы `content/products/sky/lite/lite.png` и `content/products/sky/360/360.png` остаются в проекте как тестовые product gallery assets и не удаляются автоматически.
+4. Файлы `content/products/sky/light/light.png` и `content/products/sky/360/360.png` остаются в проекте как тестовые product gallery assets и не удаляются автоматически.
 
 Эти решения важны для интерпретации аудита: тестовые product gallery assets считаются осознанным test fixture, а не случайно забытым файлом.
 
@@ -91,7 +91,7 @@
 | Section/root/series covers | **PASS** | Все приведены к **1536x1024**. |
 | Fallback images | **PASS** | `static/images/default-*.webp` **1536x1024**. |
 | Home hero | **PASS** | `assets/images/home-hero85.webp` **2102x1401**, без corner logo, с brand mark на кресле. |
-| Product gallery test fixtures | **ACCEPTED** | `lite.png` и `360.png` остаются намеренно как тестовые assets. |
+| Product gallery test fixtures | **ACCEPTED** | `light.png` и `360.png` остаются намеренно как тестовые assets. |
 | Product primary uniqueness | **WARN** | Все 12 товаров сейчас используют одинаковый `01-front.png`; нужны официальные разные product assets. |
 | Favicon/logo/service icons | **PASS** | Служебный слой оставлен без AI-стилизации. |
 | Build output hygiene | **MANUAL** | `public/` чистится вручную владельцем проекта при необходимости. |
@@ -116,7 +116,7 @@ npm run build
 | Processed images | 618 | 0 |
 | Aliases | 8 | 7 |
 
-`content/products/sky/lite/lite.png` и `content/products/sky/360/360.png` присутствуют в source и после сборки в `public/`, что соответствует принятому решению оставить их как тестовые product gallery assets.
+`content/products/sky/light/light.png` и `content/products/sky/360/360.png` присутствуют в source и после сборки в `public/`, что соответствует принятому решению оставить их как тестовые product gallery assets.
 
 ## 5. Оценка
 
@@ -125,7 +125,7 @@ npm run build
 Почему не **10/10**:
 
 - product primary images пока не подтверждают конкретную модель, цвет и материал: все 12 товарных страниц используют один и тот же `01-front.png`;
-- product gallery содержит осознанные test fixtures `lite.png` и `360.png`;
+- product gallery содержит осознанные test fixtures `light.png` и `360.png`;
 - product gallery пока не закрывает полный набор ракурсов: front, side, back, material close-up, mechanism close-up, in-scale context;
 - часть hub/section изображений визуально плотная по UI-like панелям;
 - проверка изображений остается ручной и требует внимательного QA после каждого изменения.
@@ -140,7 +140,7 @@ P1:
 P2:
 
 - добавить реальные gallery images для ключевых товаров: side, back, material, mechanism, in-scale;
-- решить, должны ли `lite.png` и `360.png` попадать в видимую PDP-галерею, или их нужно исключать шаблонно, не удаляя из проекта;
+- решить, должны ли `light.png` и `360.png` попадать в видимую PDP-галерею, или их нужно исключать шаблонно, не удаляя из проекта;
 - после deploy проверить опубликованные product/article/news URL через PageSpeed Insights и schema validators.
 
 P3:

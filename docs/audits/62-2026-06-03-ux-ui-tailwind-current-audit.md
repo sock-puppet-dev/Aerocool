@@ -22,7 +22,7 @@
 | CSS-система | `assets/css/main.css`: `@theme`, проектные токены, `.ui-section-title`, `.ui-page-title`, `.ui-body`, `.ui-card-title`, `.ui-badge`, `.ui-alert`, `.ui-button`, `.ui-footer-title`, `.ui-form-label`, `.ui-field`. |
 | Главная | `/`, `/ru/`: hero, series previews, choice benefits, article cards, отсутствие horizontal overflow. |
 | Каталог и серии | `/products/`, `/ru/products/`, `/products/sky/`, `/products/wing/`: product cards, series cards, product facts. |
-| Товарная страница | `/products/sky/lite/`, `/ru/products/sky/lite/`: gallery, tabs, price, availability, CTA, product facts, review form. |
+| Товарная страница | `/products/sky/light/`, `/ru/products/sky/light/`: gallery, tabs, price, availability, CTA, product facts, review form. |
 | FAQ | `/faq/`, `/ru/faq/`: grouped FAQ, side-by-side layout, recommended links. |
 | Contact | `/contact/`, `/ru/contact/`: side-by-side grid, quick links, schedule, Netlify form, native validation. |
 | Success state | `/contact/success/`, `/ru/contact/success/`: alert block, success text, action links. |
@@ -120,7 +120,7 @@
 2. Главную `/` и `/ru/`.
 3. Каталог `/products/` и `/ru/products/`.
 4. Одну страницу серии, например `/products/wing/`.
-5. Одну товарную страницу, например `/products/sky/lite/`.
+5. Одну товарную страницу, например `/products/sky/light/`.
 6. `/faq/` и `/ru/faq/`.
 7. `/contact/`, `/ru/contact/`, `/contact/success/`, `/ru/contact/success/`.
 8. Mobile viewport около `390x844` и desktop viewport около `1440x1000`.

@@ -19,7 +19,7 @@ theme: PaperMod
 disablePathToLower: false
 
 # false включает чистые URL без .html на конце.
-# Пример: /products/sky/lite/ вместо /products/sky/lite.html.
+# Пример: /products/sky/light/ вместо /products/sky/light.html.
 uglyURLs: false
 
 # false оставляет относительные ссылки относительными.
@@ -171,7 +171,7 @@ params:
     - aerocool sky
     - aerocool wing
     - aerocool xtal
-    - aerocool sky lite
+    - aerocool sky light
     - aerocool sky 360
     - кресло для home office
     - кресло для работы за компьютером
@@ -311,7 +311,7 @@ languages:
         - aerocool sky
         - aerocool wing
         - aerocool xtal
-        - aerocool sky lite
+        - aerocool sky light
         - aerocool sky 360
         - крісло для home office
         - крісло для роботи за комп'ютером
@@ -382,7 +382,7 @@ languages:
         - aerocool sky
         - aerocool wing
         - aerocool xtal
-        - aerocool sky lite
+        - aerocool sky light
         - aerocool sky 360
         - кресло для home office
         - кресло для работы за компьютером

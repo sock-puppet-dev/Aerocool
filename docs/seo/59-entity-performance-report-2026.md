@@ -1,6 +1,6 @@
 # Отчет По Эффективности Сущностей (Entity Performance Report) 2026
 
-Обновлено: 2026-06-21.
+Обновлено: 2026-06-24.
 
 Этот отчет связывает Entity Registry, front matter и rendered JSON-LD. Его задача — показать, какие сущности реально используются как главные темы страниц, какие упоминаются как связанные сущности и сколько раз их стабильные `@id` встречаются в готовом JSON-LD графе.
 
@@ -139,7 +139,7 @@ CSV-версия отчета: [59-entity-performance-report-2026.csv](59-entity
 | return-policy | confirmed | Policy | [/faq/](https://aerocool.ua/faq/) | 2 | 26 | 0 | 56 | 28 | pending-production | pending-production | pending-production | OK |
 | review-layer | do-not-markup | Review |  | 0 | 0 | 0 | 0 | 0 | pending-production | pending-production | pending-production | do-not-markup |
 | sky-360 | confirmed | Product | [/products/sky/360/](https://aerocool.ua/products/sky/360/) | 6 | 14 | 0 | 40 | 1 | pending-production | pending-production | pending-production | OK |
-| sky-lite | confirmed | Product | [/products/sky/lite/](https://aerocool.ua/products/sky/lite/) | 6 | 14 | 0 | 40 | 1 | pending-production | pending-production | pending-production | OK |
+| sky-light | confirmed | Product | [/products/sky/light/](https://aerocool.ua/products/sky/light/) | 6 | 14 | 0 | 40 | 1 | pending-production | pending-production | pending-production | OK |
 | sky-series | confirmed | ProductSeries | [/products/sky/](https://aerocool.ua/products/sky/) | 12 | 40 | 0 | 96 | 1 | pending-production | pending-production | pending-production | OK |
 | sync4-mechanism | confirmed | Mechanism | [/articles/sync4-sync5-mechanism-guide/](https://aerocool.ua/articles/sync4-sync5-mechanism-guide/) | 4 | 28 | 0 | 92 | 32 | pending-production | pending-production | pending-production | OK |
 | sync5-mechanism | confirmed | Mechanism | [/articles/sync4-sync5-mechanism-guide/](https://aerocool.ua/articles/sync4-sync5-mechanism-guide/) | 4 | 48 | 0 | 142 | 52 | pending-production | pending-production | pending-production | OK |

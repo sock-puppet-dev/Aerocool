@@ -93,7 +93,7 @@
 | `how-to-choose-aerocool-chair` | Центральный guide закрыт. | Cover + 2 inline есть. | Новые обязательные картинки не нужны. Future: обновлять только при изменении состава серий. |
 | `how-to-choose-chair-by-adjustability` | Регулировки раскрыты достаточно. | Cover + 2 inline есть. | Новые обязательные картинки не нужны. Future: factual close-up механизмов **7D/8D/11D**. |
 | `racer-vs-loft-air-vs-mesh-materials` | Материальный интент закрыт. | Cover + 2 inline есть. | Новые обязательные картинки не нужны. Future: заменить AI macro на официальные material macro при появлении. |
-| `sky-lite-vs-sky-360-guide` | Сравнение моделей закрыто. | Cover + 2 inline есть. | Новые обязательные картинки не нужны. Future: side/back official comparison. |
+| `sky-light-vs-sky-360-guide` | Сравнение моделей закрыто. | Cover + 2 inline есть. | Новые обязательные картинки не нужны. Future: side/back official comparison. |
 | `sky-vs-wing-vs-xtal` | Hub-сравнение закрыто. | Cover + 2 inline есть. | Новые обязательные картинки не нужны. Future: обновлять при изменении линейки. |
 | `sync4-sync5-mechanism-guide` | Механизм раскрыт хорошо. | Cover + 2 inline есть. | Новые обязательные картинки не нужны. Future: factual underside/mechanism photo. |
 | `what-is-dual-backrest` | Feature-интент закрыт. | Cover + 2 inline есть. | Новые обязательные картинки не нужны. Future: реальный close-up разделенной спинки. |
@@ -109,7 +109,7 @@
 | `2026-04-16-aerocool-wing-series-launch` | Инфоповод раскрыт через feature и материалы. | Cover + 2 inline есть. | Новые обязательные картинки не нужны. Future: official material variants. |
 | `2026-04-17-aerocool-xtal-series-launch` | Инфоповод раскрыт через replaceable design и варианты. | Cover + 2 inline есть. | Новые обязательные картинки не нужны. Future: official replaceable component detail. |
 | `2026-04-18-aerocool-sky-360-launch` | Модельный запуск закрыт. | Cover + 1 inline есть. | Новые обязательные картинки не нужны. Future: mechanism close-up. |
-| `2026-04-19-aerocool-sky-lite-launch` | Модельный запуск закрыт. | Cover + 1 inline есть. | Новые обязательные картинки не нужны. Future: compact workplace/in-scale photo. |
+| `2026-04-19-aerocool-sky-light-launch` | Модельный запуск закрыт. | Cover + 1 inline есть. | Новые обязательные картинки не нужны. Future: compact workplace/in-scale photo. |
 | `2026-04-20-aerocool-loft-air-and-mesh-focus` | Материальная новость закрыта. | Cover + 2 inline есть. | Новые обязательные картинки не нужны. P3: переэкспортировать cover легче, если можно сохранить качество. |
 | `2026-04-30-aerocool-sync4-sync5-mechanism-update` | Уточнение механизмов закрыто. | Cover + 1 inline есть. | Новые обязательные картинки не нужны. Future: official mechanism photo. |
 | `2026-05-21-aerocool-chair-selection-guides-update` | Content update закрыт через карту гайдов. | Cover + 1 inline есть. | Новые обязательные картинки не нужны. Future: обновлять при добавлении новых гайдов. |

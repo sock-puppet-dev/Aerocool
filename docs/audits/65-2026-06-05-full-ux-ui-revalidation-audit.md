@@ -8,7 +8,7 @@
 
 Исторический полный аудит [64-2026-06-04-full-ux-ui-tailwind-audit.md](64-2026-06-04-full-ux-ui-tailwind-audit.md) не переписывается задним числом. Этот документ является свежим revalidation-снимком на 2026-06-05.
 
-Статусное уточнение от 2026-06-13: файлы `content/products/sky/lite/lite.png` и `content/products/sky/360/360.png` оставлены в проекте как тестовые product gallery assets по решению владельца проекта. Исторические цифры сборки ниже не пересчитывались.
+Статусное уточнение от 2026-06-13: файлы `content/products/sky/light/light.png` и `content/products/sky/360/360.png` оставлены в проекте как тестовые product gallery assets по решению владельца проекта. Исторические цифры сборки ниже не пересчитывались.
 
 ## Короткий Вывод
 
@@ -70,7 +70,7 @@ mise exec -- hugo --environment development --gc --minify --cacheDir /Users/stad
 
 | ID | Статус | Что Проверено | Где Подтверждено | Почему Важно | Следующее Действие |
 |---|---|---|---|---|---|
-| UX-65-01 | Принято как test fixture | В PDP-галерею могут попадать тестовые image assets `lite.png` и `360.png`. | `content/products/sky/lite/lite.png`, `content/products/sky/360/360.png`; `layouts/_partials/products/gallery.html` автоматически добавляет все images из page bundle. | Для production-UX товарная галерея должна показывать только реальные фото товара, но эти файлы сознательно оставлены для локального тестирования. | Не удалять эти файлы без отдельного решения владельца проекта. Если нужно скрыть их с PDP, решать это шаблонно или вручную перед production-проверкой. |
+| UX-65-01 | Принято как test fixture | В PDP-галерею могут попадать тестовые image assets `light.png` и `360.png`. | `content/products/sky/light/light.png`, `content/products/sky/360/360.png`; `layouts/_partials/products/gallery.html` автоматически добавляет все images из page bundle. | Для production-UX товарная галерея должна показывать только реальные фото товара, но эти файлы сознательно оставлены для локального тестирования. | Не удалять эти файлы без отдельного решения владельца проекта. Если нужно скрыть их с PDP, решать это шаблонно или вручную перед production-проверкой. |
 | UX-65-02 | Открыто | Верхние карточки серий в root-каталоге используют слабые `cover.webp` preview. | `content/products/sky/_index.md`, `content/products/wing/_index.md`, `content/products/xtal/_index.md`. | Category preview должен помогать выбрать `SKY`, `WING`, `XTAL`, а не быть декоративным блоком. | Заменить cover серий на реальные product/series preview images или сделать отдельный category-preview partial. |
 | UX-65-03 | Закрыто | Root-каталог больше не показывает неоднозначные короткие titles. | `layouts/products/list.html` передает `showSeriesInTitle`; `layouts/_partials/products/card.html` выводит `WING Mesh Black`, `XTAL Mesh Black`, `WING Racer Black`, `XTAL Racer Black` только в root-каталоге. | Пользователь в `/products/` сразу видит серию и не воспринимает одинаковые материалы/цвета как дубликаты. | Поддерживать правило: в `/products/` title = серия + короткое название, на страницах серий можно оставлять короткий `linkTitle`. |
 | UX-65-04 | Открыто | Search page все еще не соответствует Application UI `Input Groups`. | `layouts/search.html` использует старый `page-header`, `#searchbox` и input без `.ui-field`. | Поиск должен помогать находить модели, серии, материалы, `11D`, `Mesh`, доставку, гарантию и статьи. Сейчас он выглядит как техническая страница. | Пересобрать `/search/` как Application UI search/input group: label, `.ui-field`, подсказки, quick links, empty state и result cards. |

@@ -115,7 +115,7 @@ Rendered graph сейчас содержит:
 - `isVariantOf` или `inProductGroupWithID`;
 - variant-specific `color`, `material`, `sku`, `url`, `image`, `offers`.
 
-Это поможет Google понять, что отдельные URL являются вариантами одной продуктовой группы, а не полностью независимыми товарами. Одиночные товары, такие как SKY Lite, SKY 360, WING Mesh Black и XTAL Mesh Black, должны оставаться самостоятельными `Product` внутри своей серии, без `isVariantOf`.
+Это поможет Google понять, что отдельные URL являются вариантами одной продуктовой группы, а не полностью независимыми товарами. Одиночные товары, такие как SKY Light, SKY 360, WING Mesh Black и XTAL Mesh Black, должны оставаться самостоятельными `Product` внутри своей серии, без `isVariantOf`.
 
 Важное условие остается для будущих групп: на странице должен быть видимый variant selector или хотя бы понятные ссылки на другие варианты. На `2026-05-28` этот UI-слой добавлен: `variant-swatches.html` выводит цветовые swatches как ссылки на соседние variant URL на основе `product_group_id` и `data/entities.yaml`. На `2026-05-31` singleton ProductGroup удалены из registry/front matter, а четыре реальные группы переведены в `confirmed` и активированы в JSON-LD.
 
@@ -213,7 +213,7 @@ Rendered graph сейчас содержит:
 ## 5. Приоритеты На Следующий Цикл
 
 1. Закрыть production gate: переключить окружение только после финальной проверки `index,follow`, sitemap, canonical, hreflang и published URL.
-2. Подтвердить MPN/GTIN для `SKY 360` и `SKY Lite`.
+2. Подтвердить MPN/GTIN для `SKY 360` и `SKY Light`.
 3. Поддерживать регулярный [отчет по эффективности сущностей (Entity Performance Report)](59-entity-performance-report-2026.md) через `npm run entity:report`; GSC/AI/business-поля заполнить после production.
 4. Исполнять регламент product facts при каждом изменении коммерческих и товарных данных.
 5. После production-перехода контролировать approved reviews snapshot, GSC product reports и rich-results eligibility на published URL.

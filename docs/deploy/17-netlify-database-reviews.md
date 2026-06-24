@@ -43,7 +43,7 @@
 - добавлен build-time export `scripts/export_reviews.mjs`, который пишет approved отзывы в `data/generated/reviews.json`;
 - товарный шаблон и карточки товаров умеют показывать approved отзывы и средний рейтинг из generated snapshot;
 - `Product.aggregateRating` строится из того же generated snapshot и не выводится, если у товара нет approved отзывов;
-- на `https://dev--hugo-aerocool.netlify.app/products/sky/lite/#reviews` проверен полный цикл: отправка отзыва, ручная модерация `pending -> approved`, новый deploy `dev`, появление видимого отзыва на странице.
+- на `https://dev--hugo-aerocool.netlify.app/products/sky/light/#reviews` проверен полный цикл: отправка отзыва, ручная модерация `pending -> approved`, новый deploy `dev`, появление видимого отзыва на странице.
 
 Управление базой в Netlify находится здесь:
 
@@ -67,7 +67,7 @@ https://app.netlify.com/projects/hugo-aerocool/database
 8. Установлен пакет `@netlify/database`.
 9. Создана SQL-миграция `reviews`.
 10. Миграция локально применена и проверена через `SELECT COUNT(*) AS review_count FROM reviews;`.
-11. В `SKY Lite` добавлены `review_target_id` и `reviews_enabled` в `uk` и `ru`; после проверки эти поля масштабированы на все текущие товары.
+11. В `SKY Light` добавлены `review_target_id` и `reviews_enabled` в `uk` и `ru`; после проверки эти поля масштабированы на все текущие товары.
 12. Вкладка и форма отзывов ограничены товарами с включенным `reviews_enabled`.
 13. Добавлен `POST /api/reviews`, который сохраняет только `pending` отзывы.
 14. Локально проверена отправка тестового отзыва: запись появилась в `reviews` со статусом `pending`.
@@ -84,7 +84,7 @@ approved review в Netlify Database
 -> Hugo renders visible review
 ```
 
-На ветке `dev` этот сценарий уже подтвержден на `SKY Lite`. `Product.aggregateRating` подключен к тому же generated snapshot и появляется только при наличии visible approved отзывов. После масштабирования на каталог legacy `rating.value` и `rating.count` удалены из товарного front matter; следующий операционный шаг — поддерживать модерацию, rebuild после approval и проверку branch/production rich-results reports.
+На ветке `dev` этот сценарий уже подтвержден на `SKY Light`. `Product.aggregateRating` подключен к тому же generated snapshot и появляется только при наличии visible approved отзывов. После масштабирования на каталог legacy `rating.value` и `rating.count` удалены из товарного front matter; следующий операционный шаг — поддерживать модерацию, rebuild после approval и проверку branch/production rich-results reports.
 
 ### Полный Алгоритм V1
 
@@ -108,13 +108,13 @@ approved review в Netlify Database
    netlify database status
    ```
 
-6. Добавить `review_target_id` и `reviews_enabled` сначала в один тестовый товар, например `SKY Lite`, в обе языковые версии. Готово.
+6. Добавить `review_target_id` и `reviews_enabled` сначала в один тестовый товар, например `SKY Light`, в обе языковые версии. Готово.
 7. Сделать `POST /api/reviews`, который создает только `pending` отзыв. Готово локально.
 8. Проверить `POST /api/reviews` на Netlify branch-сайте `dev`. Готово на `https://dev--hugo-aerocool.netlify.app/`.
 9. Сделать минимальный admin endpoint или временный SQL-flow для перевода отзыва в `approved`, `rejected` или `spam`. Временно проверяется ручным редактированием статуса в Netlify Dashboard.
 10. Сделать build-time export approved отзывов в `data/generated/reviews.json`. Готово через `scripts/export_reviews.mjs`.
 11. Подключить Hugo partial для вывода реальных approved отзывов сначала на тестовом товаре. Готово через `layouts/_partials/reviews/list.html`.
-12. Проверить после rebuild, что approved отзыв виден на `SKY Lite`. Готово на branch `dev`.
+12. Проверить после rebuild, что approved отзыв виден на `SKY Light`. Готово на branch `dev`.
 13. Переключить `Product.aggregateRating` на generated reviews snapshot. Готово.
 14. Проверить два состояния:
 
@@ -198,13 +198,13 @@ local netlify dev -> локальная база
 Практический порядок проверки после deploy:
 
 1. Открыть `https://dev--hugo-aerocool.netlify.app/`.
-2. Отправить отзыв на `SKY Lite`.
+2. Отправить отзыв на `SKY Light`.
 3. Проверить Netlify Function logs для `/api/reviews`.
 4. Проверить database branch `dev` в Netlify Dashboard.
 5. Убедиться, что отзыв попал в `reviews` со статусом `pending`.
 6. Изменить статус на `approved`.
 7. Запустить новый deploy `dev`.
-8. Проверить, что отзыв появился в HTML на `SKY Lite`.
+8. Проверить, что отзыв появился в HTML на `SKY Light`.
 
 ## 4. Базовые Команды
 
@@ -345,8 +345,8 @@ reviews_enabled: true
 На текущем этапе эти поля включены для всех текущих товарных страниц. Примеры:
 
 ```text
-content/products/sky/lite/index.md
-content/products/sky/lite/index.ru.md
+content/products/sky/light/index.md
+content/products/sky/light/index.ru.md
 content/products/wing/racer-black/index.md
 content/products/xtal/mesh-black/index.ru.md
 ```
@@ -415,7 +415,7 @@ node scripts/export_reviews.mjs
 ```json
 {
   "product": {
-    "sky-lite": {
+    "sky-light": {
       "uk": {
         "ratingValue": 4.8,
         "reviewCount": 12,
@@ -456,7 +456,7 @@ netlify/functions/reviews.mjs
 После успешной записи функция возвращает `303 See Other` на товарную страницу:
 
 ```text
-/products/sky/lite/?review=pending#reviews
+/products/sky/light/?review=pending#reviews
 ```
 
 Локальная проверка `2026-05-26`:
@@ -464,7 +464,7 @@ netlify/functions/reviews.mjs
 ```text
 POST /api/reviews -> 303 See Other
 SELECT id, target_id, language, rating, author_name, status FROM reviews
--> target_id = sky-lite, language = uk, rating = 5, status = pending
+-> target_id = sky-light, language = uk, rating = 5, status = pending
 ```
 
 Важно: этот тестовый отзыв был создан в локальной базе, поднятой через `netlify dev`. В Netlify Dashboard он не виден. Для remote-проверки использовать branch-сайт `dev` и database branch `dev` в Netlify Dashboard.

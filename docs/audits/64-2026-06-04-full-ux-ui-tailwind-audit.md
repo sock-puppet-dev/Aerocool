@@ -13,7 +13,7 @@ Audit `63` остается быстрым snapshot по карте `51`. Это
 - главная страница `/` и `/ru/`;
 - каталог `/products/` и `/ru/products/`;
 - страницы серий `/products/sky/`, `/products/wing/`, `/products/xtal/`;
-- товарная страница на примере `/products/sky/lite/`;
+- товарная страница на примере `/products/sky/light/`;
 - `/search/`;
 - `/faq/`;
 - `/contact/`;
@@ -73,7 +73,7 @@ Audit `63` остается быстрым snapshot по карте `51`. Это
 | Каталог | `/products/` использует `layouts/products/list.html`, `products/filters.html`, `products/sort.html`, `products/card.html`; это уже не blog archive. |
 | Фильтры | CDP-проверка подтвердила: старт **12** товаров, фильтр `SKY` оставляет **2**, `SKY + 11D` оставляет **SKY 360**, reset возвращает **12**. |
 | Сортировка | CDP-проверка подтвердила, что сортировка по цене меняет порядок карточек без изменения URL. |
-| PDP | `/products/sky/lite/` имеет сильный первый товарный экран: фото, availability, warranty, title, description, price, CTA, key facts и purchase incentives. |
+| PDP | `/products/sky/light/` имеет сильный первый товарный экран: фото, availability, warranty, title, description, price, CTA, key facts и purchase incentives. |
 | Tabs и gallery | `assets/js/site.js` поддерживает ArrowLeft, ArrowRight, Home, End для product tabs и gallery thumbs. Это лучше, чем click-only поведение. |
 | FAQ | `/faq/` визуально соответствует grouped side-by-side pattern; вопросы сгруппированы и читаются сканируемо. |
 | Contact | `/contact/` соответствует side-by-side grid: слева контекст и контакты, справа форма. Labels, required, pattern/title, honeypot и success URL есть. |
@@ -83,7 +83,7 @@ Audit `63` остается быстрым snapshot по карте `51`. Это
 
 | ID | Finding | Evidence | Почему Это Важно | Рекомендация |
 |---|---|---|---|---|
-| UX-64-01 | В товарную галерею попал тестовый image asset `TEST`. | Screenshot `03-product-desktop.png`; файл `content/products/sky/lite/lite.png`; `layouts/_partials/products/gallery.html` строки 17-23 автоматически добавляют все images из page bundle. | Это видимый production-дефект на PDP. Пользователь видит служебную картинку вместо product evidence. | Удалить или заменить `content/products/sky/lite/lite.png`. Дополнительно решить архитектурно: либо явный front matter список галереи, либо правило исключения служебных файлов. |
+| UX-64-01 | В товарную галерею попал тестовый image asset `TEST`. | Screenshot `03-product-desktop.png`; файл `content/products/sky/light/light.png`; `layouts/_partials/products/gallery.html` строки 17-23 автоматически добавляют все images из page bundle. | Это видимый production-дефект на PDP. Пользователь видит служебную картинку вместо product evidence. | Удалить или заменить `content/products/sky/light/light.png`. Дополнительно решить архитектурно: либо явный front matter список галереи, либо правило исключения служебных файлов. |
 | UX-64-02 | Верхние карточки серий в `/products/` используют огромные фрагменты логотипа вместо понятных preview кресел/серий. | Screenshot `02-products-desktop.png` и `08-products-mobile.png`; `content/products/*/_index.md` использует `cover.webp`; product card берет `cover.image`. | Первый каталоговый экран должен помогать выбрать `SKY`, `WING`, `XTAL`, а не показывать декоративный логотип. Это снижает product recognition. | Заменить `cover.webp` для серий на реальные series preview images или сделать отдельный category-preview partial, который берет 1-3 реальные товарные изображения серии. |
 | UX-64-03 | Root-каталог показывает неоднозначные короткие product titles. | CDP-проверка вернула `Mesh Black`, `Racer Black`, `Racer Dark Grey`; front matter WING/XTAL имеет одинаковые `linkTitle`. | В root `/products/` пользователь не понимает, это `WING Mesh Black` или `XTAL Mesh Black`, пока не читает hover-details. На mobile hover ненадежен. | Для root-каталога выводить title с серией: `WING Mesh Black`, `XTAL Racer Black`. На страницах конкретной серии короткий title можно оставить. |
 | UX-64-04 | Search page осталась слабым PaperMod-паттерном. | Screenshot `04-search-desktop.png`; `layouts/search.html` строки 3-22: старый header, отдельная иконка, `#searchbox`, input без `.ui-field`, без quick links и empty state. | Search является ключевым product finding каналом для запросов `SKY 360`, `Mesh`, `11D`, `гарантия`, `доставка`. Сейчас страница выглядит пустой и не помогает начать поиск. | Перевести `/search/` на Application UI `Input Groups / Input with label and help text`: `.ui-field`, видимые подсказки, быстрые ссылки на серии, empty state, result cards с типом страницы. |

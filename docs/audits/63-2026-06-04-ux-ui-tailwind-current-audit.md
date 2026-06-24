@@ -88,7 +88,7 @@
 2. `/`, `/ru/`.
 3. `/products/`, `/ru/products/`.
 4. `/products/sky/`, `/products/wing/`, `/products/xtal/`.
-5. Один PDP, например `/products/sky/lite/`.
+5. Один PDP, например `/products/sky/light/`.
 6. `/faq/`, `/contact/`, `/articles/`, `/news/`, `/about/` и русские версии.
 7. Mobile viewport около `390x844`.
 8. Desktop viewport около `1440x1000`.

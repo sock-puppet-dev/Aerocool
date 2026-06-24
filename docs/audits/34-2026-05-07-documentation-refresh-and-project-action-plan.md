@@ -210,7 +210,7 @@ rating_source: ""
 
 Что сделать:
 
-1. Определить группы: например `SKY Lite`, `SKY 360`, `WING Racer`, `WING Loft Air`, `WING Mesh`, `XTAL Racer`, `XTAL Loft Air`, `XTAL Mesh`.
+1. Определить группы: например `SKY Light`, `SKY 360`, `WING Racer`, `WING Loft Air`, `WING Mesh`, `XTAL Racer`, `XTAL Loft Air`, `XTAL Mesh`.
 2. Для каждого варианта определить `color`, `material`, `sku`, `gtin13`, `mpn`.
 3. Добавить видимую навигацию между вариантами на product pages.
 4. `product_group_id` уже подготовлен во front matter товарных страниц, но `isVariantOf` и `inProductGroupWithID` не выводятся, пока ProductGroup entity остается `planned`.

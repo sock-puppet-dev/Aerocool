@@ -334,13 +334,13 @@
 
 Зачем: материал невозможно убедительно объяснить только текстом; нужна фактура.
 
-### `sky-lite-vs-sky-360-guide`
+### `sky-light-vs-sky-360-guide`
 
 Статус: внедрено 2026-06-16.
 
 Внедрено:
 
-- `02-sky-lite-sky-360-side-by-side.webp` — SKY Lite и SKY 360 рядом в office-tech среде.
+- `02-sky-light-sky-360-side-by-side.webp` — SKY Light и SKY 360 рядом в office-tech среде.
 - `03-sky-adjustment-difference.webp` — визуальный акцент на различие глубины настройки SKY 360.
 
 Где стоит:
@@ -454,7 +454,7 @@
 
 Внедрено:
 
-- `02-sky-lite-360-lineup.webp` — SKY Lite и SKY 360 рядом, без текста внутри изображения.
+- `02-sky-light-360-lineup.webp` — SKY Light и SKY 360 рядом, без текста внутри изображения.
 
 Где ставить: после блока “Моделі серії / Модели серии”.
 
@@ -504,17 +504,17 @@
 
 Зачем: модельная новость нуждается в визуальном раскрытии регулировок.
 
-### `2026-04-19-aerocool-sky-lite-launch`
+### `2026-04-19-aerocool-sky-light-launch`
 
 Статус: внедрено 2026-06-16.
 
 Внедрено:
 
-- `02-sky-lite-daily-work.webp` — SKY Lite в спокойной ежедневной workstation-сцене.
+- `02-sky-light-daily-work.webp` — SKY Light в спокойной ежедневной workstation-сцене.
 
 Где ставить: после блока “Для кого создана эта модель”.
 
-Зачем: показать SKY Lite как понятную точку входа в каталог.
+Зачем: показать SKY Light как понятную точку входа в каталог.
 
 ### `2026-04-20-aerocool-loft-air-and-mesh-focus`
 
@@ -582,16 +582,16 @@
 8. `how-to-choose-chair-by-adjustability` — уровни **7D**, **8D** и **11D** получили визуальное объяснение через зоны регулировки и close-up важных узлов.
 9. `sky-vs-wing-vs-xtal` — центральное сравнение серий получило product-line map и routing visual по сценариям.
 10. `wing-vs-xtal-comparison` — сравнение WING и XTAL получило отдельную визуализацию платформ и практического выбора между **11D** и **7D**.
-11. `sky-lite-vs-sky-360-guide` — сравнение SKY Lite и SKY 360 получило office-tech side-by-side и отдельный visual explainer по глубине настройки SKY 360.
+11. `sky-light-vs-sky-360-guide` — сравнение SKY Light и SKY 360 получило office-tech side-by-side и отдельный visual explainer по глубине настройки SKY 360.
 12. `what-is-dual-backrest` — feature-статья получила крупный план разделенной спинки WING и сравнение dual/single support logic без текста внутри изображения.
 13. `what-is-fully-replaceable-design` — feature-статья получила модульную визуализацию сменных элементов XTAL и практический maintenance visual по долгому использованию.
 14. `chairs-for-office-team` — B2B/scenario-статья получила карту рабочих мест и fleet-распределение моделей Aerocool под роли команды.
 15. `gaming-chair-long-sessions` — gaming/scenario-статья получила visual support для долгой сессии и отдельный material surfaces visual для Racer, Loft Air и Mesh.
-16. `2026-04-15-aerocool-sky-series-launch` — новость получила lineup-визуал SKY Lite и SKY 360.
+16. `2026-04-15-aerocool-sky-series-launch` — новость получила lineup-визуал SKY Light и SKY 360.
 17. `2026-04-16-aerocool-wing-series-launch` — новость получила visual по dual backrest и отдельный visual по материалам WING.
 18. `2026-04-17-aerocool-xtal-series-launch` — новость получила visual по replaceable design и отдельный visual по материалам XTAL.
 19. `2026-04-18-aerocool-sky-360-launch` — новость получила visual по зонам настройки SKY 360.
-20. `2026-04-19-aerocool-sky-lite-launch` — новость получила daily-work visual для SKY Lite.
+20. `2026-04-19-aerocool-sky-light-launch` — новость получила daily-work visual для SKY Light.
 21. `2026-04-20-aerocool-loft-air-and-mesh-focus` — новость получила material macro и material-choice visual.
 22. `2026-04-30-aerocool-sync4-sync5-mechanism-update` — новость получила visual по механикам SYNC4/SYNC5.
 23. `2026-05-21-aerocool-chair-selection-guides-update` — новость получила guide-cluster map.

@@ -1,6 +1,6 @@
 # Реестр Сущностей Aerocool 2026
 
-Обновлено: 2026-06-14.
+Обновлено: 2026-06-24.
 
 Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](../audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md). PDF-аудит Schema App по connected graph, Content Knowledge Graphs, impact и Agentic Web зафиксирован в [44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md](../audits/44-2026-05-17-schemaapp-pdf-agentic-graph-impact-analysis.md). Актуальный полный audit registry и rendered graph зафиксирован в [57-2026-05-31-schema-entity-full-audit-current.md](../audits/57-2026-05-31-schema-entity-full-audit-current.md). Реестр остается governance-документом: `confirmed` сущности можно использовать в JSON-LD, а новые staged/planned сущности не должны становиться сильными связями без видимого подтверждения на странице.
 
@@ -136,7 +136,7 @@
 
 | entity_id | name_en | name_uk | name_ru | entity_class | current_schema | future_schema | current_jsonld_id | entity_home | status | Главные Связи |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `sky-series` | Aerocool SKY | Aerocool SKY | Aerocool SKY | ProductSeries | `CollectionPage` | Коллекция списка товаров/серии | `https://aerocool.ua/products/sky/#collection` | `/products/sky/` | `confirmed` | parent `aerocool-catalog`; товары `sky-lite`, `sky-360`; mentions `mesh-material`, `sync4-mechanism`, `sync5-mechanism` |
+| `sky-series` | Aerocool SKY | Aerocool SKY | Aerocool SKY | ProductSeries | `CollectionPage` | Коллекция списка товаров/серии | `https://aerocool.ua/products/sky/#collection` | `/products/sky/` | `confirmed` | parent `aerocool-catalog`; товары `sky-light`, `sky-360`; mentions `mesh-material`, `sync4-mechanism`, `sync5-mechanism` |
 | `wing-series` | Aerocool WING | Aerocool WING | Aerocool WING | ProductSeries | `CollectionPage` | Коллекция списка товаров/серии | `https://aerocool.ua/products/wing/#collection` | `/products/wing/` | `confirmed` | parent `aerocool-catalog`; товары WING; ProductGroup только для цветовых вариантов моделей; mentions `racer-material`, `loft-air-material`, `mesh-material`, `11d-adjustment`, `dual-backrest` |
 | `xtal-series` | Aerocool XTAL | Aerocool XTAL | Aerocool XTAL | ProductSeries | `CollectionPage` | Коллекция списка товаров/серии | `https://aerocool.ua/products/xtal/#collection` | `/products/xtal/` | `confirmed` | parent `aerocool-catalog`; товары XTAL; ProductGroup только для цветовых вариантов моделей; mentions `racer-material`, `loft-air-material`, `mesh-material`, `7d-adjustment`, `replaceable-elements` |
 
@@ -157,8 +157,8 @@ Validator-safe правило для `ProductGroup`: выводить `@type`, `
 
 | entity_id | entity_class | name_en | SKU | MPN | GTIN-13 | series | material | color | adjustability | mechanism | current_jsonld_id | entity_home | product_group |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `sky-360` | Product | Aerocool SKY 360 | `SKY-360-001` |  |  | `sky-series` | `mesh-material` | black | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/sky/360/#product` | `/products/sky/360/` |  |
-| `sky-lite` | Product | Aerocool SKY Lite | `SKY-LITE-001` |  |  | `sky-series` | `mesh-material` | black | `8d-adjustment` | `sync4-mechanism` | `https://aerocool.ua/products/sky/lite/#product` | `/products/sky/lite/` |  |
+| `sky-360` | Product | Aerocool SKY 360 | `SKY-360-001` | `TEGC-3105101.11` | `4711530967553` | `sky-series` | `mesh-material` | black | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/sky/360/#product` | `/products/sky/360/` |  |
+| `sky-light` | Product | Aerocool SKY Light | `SKY-LIGHT-001` | `TEGC-3106101.11` | `4711530967577` | `sky-series` | `mesh-material` | black | `8d-adjustment` | `sync4-mechanism` | `https://aerocool.ua/products/sky/light/#product` | `/products/sky/light/` |  |
 | `wing-loft-air-dark-grey` | ProductVariant | Aerocool WING Loft Air Dark Grey | `WING-LADG-001` | `TEGC-309700Z.Z1` | `4711530966501` | `wing-series` | `loft-air-material` | dark-grey | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/wing/loft-air-dark-grey/#product` | `/products/wing/loft-air-dark-grey/` | `wing-loft-air-product-group` |
 | `wing-loft-air-light-grey` | ProductVariant | Aerocool WING Loft Air Light Grey | `WING-LALG-001` | `TEGC-3097004.41` | `4711530966518` | `wing-series` | `loft-air-material` | light-grey | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/wing/loft-air-light-grey/#product` | `/products/wing/loft-air-light-grey/` | `wing-loft-air-product-group` |
 | `wing-mesh-black` | Product | Aerocool WING Mesh Black | `WING-MB-001` | `TEGC-3098001.11` | `4711530966525` | `wing-series` | `mesh-material` | black | `11d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/wing/mesh-black/#product` | `/products/wing/mesh-black/` |  |
@@ -168,7 +168,7 @@ Validator-safe правило для `ProductGroup`: выводить `@type`, `
 | `xtal-loft-air-light-grey` | ProductVariant | Aerocool XTAL Loft Air Light Grey | `XTAL-LALG-001` | `TEGC-2100104.41` | `4711530966808` | `xtal-series` | `loft-air-material` | light-grey | `7d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/xtal/loft-air-light-grey/#product` | `/products/xtal/loft-air-light-grey/` | `xtal-loft-air-product-group` |
 | `xtal-mesh-black` | Product | Aerocool XTAL Mesh Black | `XTAL-MB-001` | `TEGC-2101101.11` | `4711530966815` | `xtal-series` | `mesh-material` | black | `7d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/xtal/mesh-black/#product` | `/products/xtal/mesh-black/` |  |
 | `xtal-racer-black` | ProductVariant | Aerocool XTAL Racer Black | `XTAL-RB-001` | `TEGC-2099101.11` | `4711530966778` | `xtal-series` | `racer-material` | black | `7d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/xtal/racer-black/#product` | `/products/xtal/racer-black/` | `xtal-racer-product-group` |
-| `xtal-racer-dark-grey` | ProductVariant | Aerocool XTAL Racer Dark Grey | `XTAL-RDG-001` | `TEGC-209910Z.Z1` | `4711530966785` | `xtal-series` | `racer-material` | dark-grey | `7d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/xtal/racer-dark-grey/#product` | `/products/xtal/racer-dark-grey/` | `xtal-racer-product-group` |
+| `xtal-racer-dark-grey` | ProductVariant | Aerocool XTAL Racer Dark Grey | `XTAL-RDG-001` | `TEGC-209910Z.Z` | `4711530966785` | `xtal-series` | `racer-material` | dark-grey | `7d-adjustment` | `sync5-mechanism` | `https://aerocool.ua/products/xtal/racer-dark-grey/#product` | `/products/xtal/racer-dark-grey/` | `xtal-racer-product-group` |
 
 ## 12. Сущности Материалов И Поверхностей
 
@@ -185,10 +185,10 @@ Validator-safe правило для `ProductGroup`: выводить `@type`, `
 | entity_id | name_en | name_uk | name_ru | entity_class | schema_candidate | entity_home | status | Сильные Страницы | Примечания |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | `synchronous-tilt` | Synchronous Tilt | Synchronous Tilt | Synchronous Tilt | Mechanism | `DefinedTerm` или `Thing` | `/articles/what-is-synchronous-tilt/` | `confirmed` | гайд по sync tilt; товарные страницы | Главная сущность синхронного наклона. |
-| `sync4-mechanism` | SYNC4 | SYNC4 | SYNC4 | Mechanism | `DefinedTerm` или `Thing` | `/articles/sync4-sync5-mechanism-guide/` | `confirmed` | гайд SYNC4/SYNC5; SKY Lite | Использовать там, где в видимом товарном контенте указан SYNC4. |
+| `sync4-mechanism` | SYNC4 | SYNC4 | SYNC4 | Mechanism | `DefinedTerm` или `Thing` | `/articles/sync4-sync5-mechanism-guide/` | `confirmed` | гайд SYNC4/SYNC5; SKY Light | Использовать там, где в видимом товарном контенте указан SYNC4. |
 | `sync5-mechanism` | SYNC5 | SYNC5 | SYNC5 | Mechanism | `DefinedTerm` или `Thing` | `/articles/sync4-sync5-mechanism-guide/` | `confirmed` | гайд SYNC4/SYNC5; SKY 360, WING, XTAL | Использовать там, где в видимом товарном контенте указан SYNC5. |
 | `7d-adjustment` | 7D adjustment | 7D регулювання | 7D регулировка | Feature | `DefinedTerm` или `Thing` | `/articles/how-to-choose-chair-by-adjustability/` | `confirmed` | гайд по регулировкам; страницы XTAL | Раскрывается через видимые товарные `characteristics` / `additionalProperty`, если они есть. |
-| `8d-adjustment` | 8D adjustment | 8D регулювання | 8D регулировка | Feature | `DefinedTerm` или `Thing` | `/articles/how-to-choose-chair-by-adjustability/` | `confirmed` | гайд по регулировкам; SKY Lite | Раскрывается через видимые товарные `characteristics` / `additionalProperty`, если они есть. |
+| `8d-adjustment` | 8D adjustment | 8D регулювання | 8D регулировка | Feature | `DefinedTerm` или `Thing` | `/articles/how-to-choose-chair-by-adjustability/` | `confirmed` | гайд по регулировкам; SKY Light | Раскрывается через видимые товарные `characteristics` / `additionalProperty`, если они есть. |
 | `11d-adjustment` | 11D adjustment | 11D регулювання | 11D регулировка | Feature | `DefinedTerm` или `Thing` | `/articles/how-to-choose-chair-by-adjustability/` | `confirmed` | гайд по регулировкам; SKY 360, WING | Раскрывается через видимые товарные `characteristics` / `additionalProperty`, если они есть. |
 | `dual-backrest` | Dual backrest | подвійна спинка | двойная спинка | Feature | `DefinedTerm` или `Thing` | `/articles/what-is-dual-backrest/` | `confirmed` | страницы WING; отдельная статья про Dual backrest | Активировано `2026-05-26`; использовать только там, где видимо обсуждается двойная спинка WING. |
 | `replaceable-elements` | Replaceable elements | змінні елементи | сменные элементы | Feature | `DefinedTerm` или `Thing` | `/articles/what-is-fully-replaceable-design/` | `confirmed` | страницы XTAL; отдельная статья про replaceable design | Активировано `2026-05-26`; использовать только там, где видимо обсуждаются сменные элементы XTAL. |
@@ -229,10 +229,10 @@ Validator-safe правило для `ProductGroup`: выводить `@type`, `
 | Страница | Основные `about_entities` | Кандидаты `mentions_entities` | Статус |
 | --- | --- | --- | --- |
 | `/articles/how-to-choose-aerocool-chair/` | `chair-selection`, `aerocool-catalog` | `sky-series`, `wing-series`, `xtal-series`, `gaming-chair`, `office-chair`, `computer-chair`, `home-office`, `racer-material`, `loft-air-material`, `mesh-material` | `confirmed` |
-| `/articles/how-to-choose-chair-by-adjustability/` | `7d-adjustment`, `8d-adjustment`, `11d-adjustment` | `sky-series`, `wing-series`, `xtal-series`, `sky-lite`, `sky-360`, `synchronous-tilt` | `confirmed` |
+| `/articles/how-to-choose-chair-by-adjustability/` | `7d-adjustment`, `8d-adjustment`, `11d-adjustment` | `sky-series`, `wing-series`, `xtal-series`, `sky-light`, `sky-360`, `synchronous-tilt` | `confirmed` |
 | `/articles/racer-vs-loft-air-vs-mesh/` | `racer-material`, `loft-air-material`, `mesh-material` | `leatherette-material`, `fabric-material`, `hot-room`, `gaming-chair`, `office-chair`, `home-office` | `confirmed` |
-| `/articles/sky-lite-vs-sky-360/` | `sky-series` | `sky-lite`, `sky-360`, `8d-adjustment`, `11d-adjustment`, `sync4-mechanism`, `sync5-mechanism`, `home-office` | `confirmed` |
-| `/articles/sync4-sync5-mechanism-guide/` | `sync4-mechanism`, `sync5-mechanism` | `synchronous-tilt`, `sky-lite`, `sky-360`, `wing-series`, `xtal-series` | `confirmed` |
+| `/articles/sky-light-vs-sky-360/` | `sky-series` | `sky-light`, `sky-360`, `8d-adjustment`, `11d-adjustment`, `sync4-mechanism`, `sync5-mechanism`, `home-office` | `confirmed` |
+| `/articles/sync4-sync5-mechanism-guide/` | `sync4-mechanism`, `sync5-mechanism` | `synchronous-tilt`, `sky-light`, `sky-360`, `wing-series`, `xtal-series` | `confirmed` |
 | `/articles/what-is-synchronous-tilt/` | `synchronous-tilt` | `sync4-mechanism`, `sync5-mechanism`, `office-chair`, `home-office`, `long-sitting` | `confirmed` |
 | `/articles/wing-vs-xtal/` | `wing-series`, `xtal-series` | `11d-adjustment`, `7d-adjustment`, `dual-backrest`, `replaceable-elements`, `racer-material`, `loft-air-material`, `mesh-material`, `gaming-chair`, `computer-chair`, `home-office` | `confirmed` |
 | `/articles/what-is-dual-backrest/` | `dual-backrest`, `wing-series` | `long-sitting`, `gaming-chair`, `office-chair`, `home-office`, `sync5-mechanism`, `11d-adjustment`, товары и варианты WING | `confirmed` |
@@ -244,11 +244,11 @@ Validator-safe правило для `ProductGroup`: выводить `@type`, `
 
 | Страница | Основные `about_entities` | Кандидаты `mentions_entities` | Статус |
 | --- | --- | --- | --- |
-| `/news/sky-series-launch/` | `sky-series` | `sky-lite`, `sky-360`, `office-chair`, `computer-chair`, `home-office` | `confirmed` |
+| `/news/sky-series-launch/` | `sky-series` | `sky-light`, `sky-360`, `office-chair`, `computer-chair`, `home-office` | `confirmed` |
 | `/news/wing-series-launch/` | `wing-series` | `wing-racer-product-group`, `wing-loft-air-product-group`, `wing-mesh-black`, `11d-adjustment`, `dual-backrest` | `confirmed` |
 | `/news/xtal-series-launch/` | `xtal-series` | `xtal-racer-product-group`, `xtal-loft-air-product-group`, `xtal-mesh-black`, `7d-adjustment`, `replaceable-elements` | `confirmed` |
 | `/news/sky-360-launch/` | `sky-360` | `sky-series`, `11d-adjustment`, `sync5-mechanism`, `synchronous-tilt`, `home-office` | `confirmed` |
-| `/news/sky-lite-launch/` | `sky-lite` | `sky-series`, `8d-adjustment`, `sync4-mechanism`, `synchronous-tilt`, `office-chair` | `confirmed` |
+| `/news/sky-light-launch/` | `sky-light` | `sky-series`, `8d-adjustment`, `sync4-mechanism`, `synchronous-tilt`, `office-chair` | `confirmed` |
 | `/news/loft-air-and-mesh-focus/` | `loft-air-material`, `mesh-material` | `wing-loft-air-product-group`, `xtal-loft-air-product-group`, `wing-mesh-black`, `xtal-mesh-black`, `hot-room` | `confirmed` |
 | `/news/sync4-sync5-mechanism-update/` | `sync4-mechanism`, `sync5-mechanism` | `synchronous-tilt`, `sky-series`, `wing-series`, `xtal-series` | `confirmed` |
 
@@ -261,7 +261,7 @@ Validator-safe правило для `ProductGroup`: выводить `@type`, `
 | `aerocool-ukraine` | `brand` | `aerocool-brand` | schema локальной организации |
 | `aerocool-ukraine` | `parentOrganization` | `aerocool-global-organization` | schema локальной организации |
 | `aerocool-catalog` | `hasPart` | `sky-series`, `wing-series`, `xtal-series` | `/products/` |
-| `sky-series` | `hasProduct` | `sky-lite`, `sky-360` | `/products/sky/` |
+| `sky-series` | `hasProduct` | `sky-light`, `sky-360` | `/products/sky/` |
 | `wing-series` | `hasProduct` | товары и варианты WING | `/products/wing/` |
 | `xtal-series` | `hasProduct` | товары и варианты XTAL | `/products/xtal/` |
 | `wing-racer-product-group` | `hasVariant` | `wing-racer-black`, `wing-racer-dark-grey` | видимая навигация вариантов |
@@ -271,7 +271,7 @@ Validator-safe правило для `ProductGroup`: выводить `@type`, `
 | `racer-material` | `isMaterialOf` | варианты товаров Racer | товарные страницы |
 | `loft-air-material` | `isMaterialOf` | варианты товаров Loft Air | товарные страницы |
 | `mesh-material` | `isMaterialOf` | товары SKY и Mesh | товарные страницы |
-| `sync4-mechanism` | `usedIn` | `sky-lite` | товарная страница |
+| `sync4-mechanism` | `usedIn` | `sky-light` | товарная страница |
 | `sync5-mechanism` | `usedIn` | `sky-360`, товары/варианты WING, товары/варианты XTAL | товарные страницы |
 | `delivery-policy` | `appliesTo` | Product offers | product front matter и `/faq/` |
 | `return-policy` | `appliesTo` | Product offers | product front matter и `/faq/` |
