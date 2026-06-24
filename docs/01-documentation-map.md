@@ -1,6 +1,6 @@
 # Документация Aerocool
 
-Обновлено: 2026-06-21.
+Обновлено: 2026-06-24.
 
 Этот файл — главная карта всей документации проекта. Его задача простая: показать новичку, что читать сначала, что читать потом и какие документы нужны только для профильных задач.
 
@@ -9,7 +9,7 @@
 - [README.md](../README.md) — краткая карта проекта, стека, структуры и основных команд.
 - [AGENTS.md](../AGENTS.md) — правила безопасной работы для Codex/агентов.
 
-Основные документационные позиции внутри `docs/` пронумерованы глобально от `01` до `85`. Номер в начале имени показывает рекомендуемый порядок чтения. Три сопутствующих CSV-файла используют номера своих основных документов `53` и `59`, поэтому физически внутри `docs/` находится 88 файлов.
+Основные документационные позиции внутри `docs/` пронумерованы глобально от `01` до `86`. Номер в начале имени показывает рекомендуемый порядок чтения. Три сопутствующих CSV-файла используют номера своих основных документов `53` и `59`, поэтому физически внутри `docs/` находится 89 файлов.
 
 ## Как Пользоваться Новичку
 
@@ -162,7 +162,7 @@
 
 ### Текущие UX/UI Аудиты
 
-62. [audits/62-2026-06-03-ux-ui-tailwind-current-audit.md](audits/62-2026-06-03-ux-ui-tailwind-current-audit.md) — предыдущий исторический UX/UI-аудит после первых обновлений Tailwind 4.3 visual layer, FAQ, contact, success alert, articles/news recommended links, about-компонентов, product cards и product detail layout. Для текущего состояния использовать audit `65`.
+62. [audits/62-2026-06-03-ux-ui-tailwind-current-audit.md](audits/62-2026-06-03-ux-ui-tailwind-current-audit.md) — предыдущий исторический UX/UI-аудит после первых обновлений визуального слоя Tailwind 4.3, FAQ, контактов, success alert, recommended links для статей/новостей, about-компонентов, product cards и product detail layout. Для текущего состояния использовать audit `65`.
 
 63. [audits/63-2026-06-04-ux-ui-tailwind-current-audit.md](audits/63-2026-06-04-ux-ui-tailwind-current-audit.md) — быстрый UX/UI snapshot после каталоговых обновлений: 1440px site width, desktop/mobile catalog navigation, product filters, sort, product cards, PDP purchase-блоки и backlog по comparison table, applied filter chips и search UI. Для текущего полного аудита использовать audit `65`.
 
@@ -176,7 +176,7 @@
 
 ### Регламент Обложек И AI-Промптов
 
-67. [content/67-image-design-playbook-2026.md](content/67-image-design-playbook-2026.md) — общий регламент изображений проекта: визуальный ДНК, high-tech/tactile стиль, единый logo lockup для обложек, factual product layer, reusable AI prompts, negative prompt, дефект-чеклист, технические параметры WebP и сравнение с Google/web.dev/Baymard/Adobe/Canva практиками 2026.
+67. [content/67-image-design-playbook-2026.md](content/67-image-design-playbook-2026.md) — общий регламент изображений проекта: визуальная ДНК, high-tech/tactile стиль, единое расположение логотипа на обложках, товарный слой с приоритетом фактов, повторно используемые AI-промпты, negative prompt, дефект-чеклист, технические параметры WebP и сравнение с Google/web.dev/Baymard/Adobe/Canva практиками 2026.
 
 ### Текущие Tooling-Аудиты
 
@@ -206,7 +206,7 @@
 
 ### Текущий Глубокий Аудит Articles/News
 
-77. [audits/77-2026-06-18-articles-news-content-image-audit.md](audits/77-2026-06-18-articles-news-content-image-audit.md) — текущий полный аудит `content/articles` и `content/news`: тексты двух языков, выполненная реструктуризация шести статей, 146 WebP-файлов, visual diversity, factual evidence, технические правила и итоговая оценка **9.1/10**.
+77. [audits/77-2026-06-18-articles-news-content-image-audit.md](audits/77-2026-06-18-articles-news-content-image-audit.md) — текущий полный аудит `content/articles` и `content/news`: тексты двух языков, выполненная реструктуризация шести статей, 146 WebP-файлов, визуальное разнообразие, фактическая доказательность, технические правила и итоговая оценка **9.1/10**.
 
 ### Исторический Полный Аудит Документации
 
@@ -214,16 +214,16 @@
 
 ### Единый DNA Контента И Текущий Полный Content/Image Аудит
 
-79. [content/79-page-content-design-dna-2026.md](content/79-page-content-design-dna-2026.md) — постоянный контракт текстов и изображений всех типов страниц: voice, anti-AI правила, доказательность, visual DNA, размеры, форматы, product image gates и workflow.
+79. [content/79-page-content-design-dna-2026.md](content/79-page-content-design-dna-2026.md) — постоянный контракт текстов и изображений всех типов страниц: тональность, правила против AI-штампов, доказательность, визуальная ДНК, размеры, форматы, контрольные ограничения товарных изображений и рабочий процесс.
 80. [audits/80-2026-06-19-full-site-content-image-audit.md](audits/80-2026-06-19-full-site-content-image-audit.md) — текущий постраничный аудит всех **50** логических URL и **181** project image asset: рекомендации для каждой страницы, P1 по одинаковым product primary и SKY `TEST`-файлам, техническая матрица и итоговая оценка **7.8/10**.
 
 ### Текущий Контракт Перелинковки И Ссылок
 
 81. [seo/81-internal-linking-strategy-2026.md](seo/81-internal-linking-strategy-2026.md) — полный аудит и постоянный контракт внутренней перелинковки, анкоров, глубины, breadcrumbs, related-блоков, пагинации и внешних ссылок; структурная оценка **9.5/10**, ручной контроль ссылок после production-сборки, текущие метрики двух языков и P0-P3 roadmap.
 
-### Текущий Полный Аудит Документации
+### Исторический Полный Аудит Документации 2026-06-21
 
-82. [audits/82-2026-06-21-full-documentation-project-sync-audit.md](audits/82-2026-06-21-full-documentation-project-sync-audit.md) — последняя полная проверка документационного слоя на 2026-06-21: русский язык, порядок чтения, ссылки, стек, development/production-сборки, JSON-LD и официальные практики 2026 года. После добавления документов `84` и `85` использовать как базовый аудит документации, а текущие счетчики брать из этой карты.
+82. [audits/82-2026-06-21-full-documentation-project-sync-audit.md](audits/82-2026-06-21-full-documentation-project-sync-audit.md) — историческая полная проверка документационного слоя на 2026-06-21: русский язык, порядок чтения, ссылки, стек, development/production-сборки, JSON-LD и официальные практики 2026 года. После добавления документов `84-86` использовать как исторический baseline, а текущий полный аудит документации брать из `86`.
 
 ### Текущий Полевой CWV Аудит
 
@@ -235,14 +235,18 @@
 
 ### Постоянный SERP-Стандарт Контента И Ссылок
 
-85. [seo/85-content-linking-editorial-standard-2026.md](seo/85-content-linking-editorial-standard-2026.md) — постоянный контракт контентной архитектуры, литературной обработки, SERP-сниппетов, ссылок, объема, factual evidence и условий создания новых страниц.
+85. [seo/85-content-linking-editorial-standard-2026.md](seo/85-content-linking-editorial-standard-2026.md) — постоянный контракт контентной архитектуры, литературной обработки, SERP-сниппетов, ссылок, объема, фактической доказательности и условий создания новых страниц.
+
+### Текущий Полный Аудит Документации
+
+86. [audits/86-2026-06-24-full-documentation-project-sync-audit.md](audits/86-2026-06-24-full-documentation-project-sync-audit.md) — текущая полная проверка документации на 2026-06-24 после добавления документов `84` и `85`: русский язык, порядок чтения `01-86`, ссылки, стек, Hugo/Tailwind/Netlify, лучшие практики изображений, schema.org и CWV, синхронизация с проектом и итоговая оценка **9.8/10**.
 
 ## Маршруты По Задачам
 
 Для проверки или обновления всей документации читать:
 
 1. [architecture/02-documentation-style-guide.md](architecture/02-documentation-style-guide.md)
-2. [audits/82-2026-06-21-full-documentation-project-sync-audit.md](audits/82-2026-06-21-full-documentation-project-sync-audit.md)
+2. [audits/86-2026-06-24-full-documentation-project-sync-audit.md](audits/86-2026-06-24-full-documentation-project-sync-audit.md)
 3. текущий профильный гайд или аудит из разделов ниже
 
 Для контентной правки читать:
@@ -250,7 +254,7 @@
 1. [content/05-front-matter-reference.md](content/05-front-matter-reference.md)
 2. [content/07-content-seo-checklist-2026.md](content/07-content-seo-checklist-2026.md)
 3. нужный шаблон из `content/templates/`
-4. [content/79-page-content-design-dna-2026.md](content/79-page-content-design-dna-2026.md), если задача касается текста страницы, tone of voice, anti-AI правил, доказательности или совместной работы текста и изображения.
+4. [content/79-page-content-design-dna-2026.md](content/79-page-content-design-dna-2026.md), если задача касается текста страницы, тональности, правил против AI-штампов, доказательности или совместной работы текста и изображения.
 5. [seo/85-content-linking-editorial-standard-2026.md](seo/85-content-linking-editorial-standard-2026.md), если задача касается того, где какой контент должен быть, как делать литературную обработку, какие ссылки нужны странице и когда создавать новый URL.
 6. [audits/84-2026-06-24-full-link-content-seo-audit.md](audits/84-2026-06-24-full-link-content-seo-audit.md), если нужен текущий объединенный аудит ссылок, контента, сниппетов и P0-P3 проблем.
 7. [content/67-image-design-playbook-2026.md](content/67-image-design-playbook-2026.md), если задача касается обложек, AI-промптов, fallback-картинок, product gallery, inline-иллюстраций, технических схем или визуального стиля.
@@ -320,7 +324,7 @@
 3. [quality/14-production-quality-gate-2026.md](quality/14-production-quality-gate-2026.md)
 4. [audits/83-2026-06-21-netlify-rum-core-web-vitals-baseline.md](audits/83-2026-06-21-netlify-rum-core-web-vitals-baseline.md)
 5. [audits/54-2026-05-26-core-web-vitals-current-audit.md](audits/54-2026-05-26-core-web-vitals-current-audit.md), если нужен исторический lab baseline
-6. [audits/61-2026-06-02-pagespeed-insights-quality-simplification.md](audits/61-2026-06-02-pagespeed-insights-quality-simplification.md), если задача касается текущего PageSpeed-only quality workflow
+6. [audits/61-2026-06-02-pagespeed-insights-quality-simplification.md](audits/61-2026-06-02-pagespeed-insights-quality-simplification.md), если задача касается текущего процесса качества только через PageSpeed Insights
 
 Для `hugo.yaml`, production gate и технического SERP-фундамента читать:
 
@@ -350,7 +354,7 @@
 - поменял видимую meta-строку, `post_meta`, `translation-list`, `single`, `faq/single`, `list` или `search` — проверь [architecture/03-hugo-template-helpers.md](architecture/03-hugo-template-helpers.md), [content/05-front-matter-reference.md](content/05-front-matter-reference.md), [content/07-content-seo-checklist-2026.md](content/07-content-seo-checklist-2026.md) и [seo/19-schema-types-reference.md](seo/19-schema-types-reference.md);
 - поменял `seo-image` — проверь [content/06-seo-image-shortcode.md](content/06-seo-image-shortcode.md), [architecture/03-hugo-template-helpers.md](architecture/03-hugo-template-helpers.md), [quality/12-core-web-vitals-guide-2026.md](quality/12-core-web-vitals-guide-2026.md) и [content/05-front-matter-reference.md](content/05-front-matter-reference.md), если менялись `image`, `cover` или `seo_image_sizes`;
 - поменял product gallery, product primary image или LCP preload — проверь [content/05-front-matter-reference.md](content/05-front-matter-reference.md), [content/templates/10-product-template.md](content/templates/10-product-template.md), [architecture/03-hugo-template-helpers.md](architecture/03-hugo-template-helpers.md), [quality/12-core-web-vitals-guide-2026.md](quality/12-core-web-vitals-guide-2026.md) и [seo/21-ecommerce-structured-data-playbook-2026.md](seo/21-ecommerce-structured-data-playbook-2026.md);
-- поменял тексты, литературную обработку, сниппеты, контентную архитектуру, изображения, AI prompts, fallback-картинки, product gallery, inline-иллюстрации, технические схемы или visual DNA — проверь [content/79-page-content-design-dna-2026.md](content/79-page-content-design-dna-2026.md), [seo/85-content-linking-editorial-standard-2026.md](seo/85-content-linking-editorial-standard-2026.md), [content/67-image-design-playbook-2026.md](content/67-image-design-playbook-2026.md), [content/06-seo-image-shortcode.md](content/06-seo-image-shortcode.md), [content/07-content-seo-checklist-2026.md](content/07-content-seo-checklist-2026.md), [audits/84-2026-06-24-full-link-content-seo-audit.md](audits/84-2026-06-24-full-link-content-seo-audit.md) и [audits/80-2026-06-19-full-site-content-image-audit.md](audits/80-2026-06-19-full-site-content-image-audit.md);
+- поменял тексты, литературную обработку, сниппеты, контентную архитектуру, изображения, AI-промпты, fallback-картинки, product gallery, inline-иллюстрации, технические схемы или визуальную ДНК — проверь [content/79-page-content-design-dna-2026.md](content/79-page-content-design-dna-2026.md), [seo/85-content-linking-editorial-standard-2026.md](seo/85-content-linking-editorial-standard-2026.md), [content/67-image-design-playbook-2026.md](content/67-image-design-playbook-2026.md), [content/06-seo-image-shortcode.md](content/06-seo-image-shortcode.md), [content/07-content-seo-checklist-2026.md](content/07-content-seo-checklist-2026.md), [audits/84-2026-06-24-full-link-content-seo-audit.md](audits/84-2026-06-24-full-link-content-seo-audit.md) и [audits/80-2026-06-19-full-site-content-image-audit.md](audits/80-2026-06-19-full-site-content-image-audit.md);
 - поменял keyword-базу, карту интентов, новую посадочную страницу, slug, canonical URL или статус индексируемости страницы — проверь [seo/18-seo-keyword-map-2026.md](seo/18-seo-keyword-map-2026.md), [seo/53-keyword-database-2026.md](seo/53-keyword-database-2026.md), [seo/72-semantic-core-keyword-strategy-2026.md](seo/72-semantic-core-keyword-strategy-2026.md), [content/07-content-seo-checklist-2026.md](content/07-content-seo-checklist-2026.md) и убедись, что не появились битые `target_url`, дубликаты ключей или новая каннибализация;
 - поменял внутренние или внешние ссылки, анкоры, header/footer navigation, breadcrumbs, related-блок, пагинацию, product cards или variant swatches — проверь [seo/81-internal-linking-strategy-2026.md](seo/81-internal-linking-strategy-2026.md), [seo/85-content-linking-editorial-standard-2026.md](seo/85-content-linking-editorial-standard-2026.md), [audits/84-2026-06-24-full-link-content-seo-audit.md](audits/84-2026-06-24-full-link-content-seo-audit.md), [architecture/03-hugo-template-helpers.md](architecture/03-hugo-template-helpers.md) и [content/07-content-seo-checklist-2026.md](content/07-content-seo-checklist-2026.md); после production-сборки вручную проверь ключевые URL, sitemap, canonical, `hreflang`, локальные якоря и целевые страницы;
 - поменял schema.org partials — проверь [seo/19-schema-types-reference.md](seo/19-schema-types-reference.md), [seo/20-schema-markup-quality-checklist-2026.md](seo/20-schema-markup-quality-checklist-2026.md), [seo/26-json-ld-graph-audit-roadmap-2026.md](seo/26-json-ld-graph-audit-roadmap-2026.md) и после сборки обнови [seo/59-entity-performance-report-2026.md](seo/59-entity-performance-report-2026.md);
@@ -359,6 +363,6 @@
 - поменял entity strategy, `about`, `mentions`, `sameAs` или `@id` — проверь [seo/24-entities-knowledge-graph-playbook-2026.md](seo/24-entities-knowledge-graph-playbook-2026.md), [seo/25-ai-search-entity-map-2026.md](seo/25-ai-search-entity-map-2026.md) и после сборки обнови [seo/59-entity-performance-report-2026.md](seo/59-entity-performance-report-2026.md);
 - поменял entity registry, `about_entities`, `mentions_entities`, `product_group_id` или rendered JSON-LD graph — после `npm run build` запусти `npm run entity:report` и проверь [seo/59-entity-performance-report-2026.md](seo/59-entity-performance-report-2026.md);
 - поменял hero, изображения первого экрана, CSS, JS или performance-sensitive layout — проверь [quality/12-core-web-vitals-guide-2026.md](quality/12-core-web-vitals-guide-2026.md), [quality/13-pagespeed-insights-audit.md](quality/13-pagespeed-insights-audit.md) и [quality/14-production-quality-gate-2026.md](quality/14-production-quality-gate-2026.md);
-- поменял PageSpeed-only quality workflow — проверь [quality/13-pagespeed-insights-audit.md](quality/13-pagespeed-insights-audit.md), [deploy/16-netlify-routing.md](deploy/16-netlify-routing.md) и [audits/61-2026-06-02-pagespeed-insights-quality-simplification.md](audits/61-2026-06-02-pagespeed-insights-quality-simplification.md);
+- поменял процесс качества только через PageSpeed Insights — проверь [quality/13-pagespeed-insights-audit.md](quality/13-pagespeed-insights-audit.md), [deploy/16-netlify-routing.md](deploy/16-netlify-routing.md) и [audits/61-2026-06-02-pagespeed-insights-quality-simplification.md](audits/61-2026-06-02-pagespeed-insights-quality-simplification.md);
 - поменял версии Hugo/Node — проверь [deploy/15-local-tooling-mise.md](deploy/15-local-tooling-mise.md), [seo/76-hugo-yaml-serp-technical-contract-2026.md](seo/76-hugo-yaml-serp-technical-contract-2026.md), [README.md](../README.md) и `netlify.toml`;
 - поменял `static/_redirects`, `layouts/404.html` или routing/headers в `netlify.toml` — проверь [deploy/16-netlify-routing.md](deploy/16-netlify-routing.md), [README.md](../README.md) и [AGENTS.md](../AGENTS.md).

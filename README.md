@@ -21,9 +21,9 @@
 
 Для задач по внутренней перелинковке, анкорам, breadcrumbs, related-блокам, пагинации и внешним ссылкам использовать [docs/seo/81-internal-linking-strategy-2026.md](docs/seo/81-internal-linking-strategy-2026.md), [docs/seo/85-content-linking-editorial-standard-2026.md](docs/seo/85-content-linking-editorial-standard-2026.md) и текущий аудит [docs/audits/84-2026-06-24-full-link-content-seo-audit.md](docs/audits/84-2026-06-24-full-link-content-seo-audit.md). Проверка ссылок остается ручной после production-сборки; текущая структурная оценка ссылочного графа — **9.5/10**. Практический SEO-эффект основного домена остается заблокирован, пока Netlify собирает опубликованный сайт с `--environment development` и возвращает `noindex,nofollow`.
 
-Для текущих задач по UX/UI, Tailwind Plus секциям, Tailwind CSS 4.3 visual layer, компонентам, каталогу, фильтрам и визуальной структуре страниц читать [docs/architecture/51-tailwind-plus-ui-section-map-2026.md](docs/architecture/51-tailwind-plus-ui-section-map-2026.md) и актуальный повторный полный аудит [docs/audits/65-2026-06-05-full-ux-ui-revalidation-audit.md](docs/audits/65-2026-06-05-full-ux-ui-revalidation-audit.md). Для screenshot/evidence деталей использовать предыдущий полный visual audit [docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md](docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md).
+Для текущих задач по UX/UI, Tailwind Plus секциям, визуальному слою Tailwind CSS 4.3, компонентам, каталогу, фильтрам и визуальной структуре страниц читать [docs/architecture/51-tailwind-plus-ui-section-map-2026.md](docs/architecture/51-tailwind-plus-ui-section-map-2026.md) и актуальный повторный полный аудит [docs/audits/65-2026-06-05-full-ux-ui-revalidation-audit.md](docs/audits/65-2026-06-05-full-ux-ui-revalidation-audit.md). Для screenshot-доказательств использовать предыдущий полный визуальный аудит [docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md](docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md).
 
-Для работы с текстами и изображениями любой страницы сначала читать [docs/content/79-page-content-design-dna-2026.md](docs/content/79-page-content-design-dna-2026.md): это единый контракт tone of voice, anti-AI правил, доказательности, visual DNA, размеров и product image gates. Для вопроса “где какой контент должен быть, какие ссылки нужны и как делать литературную обработку” читать [docs/seo/85-content-linking-editorial-standard-2026.md](docs/seo/85-content-linking-editorial-standard-2026.md), а для текущего состояния content + links — [docs/audits/84-2026-06-24-full-link-content-seo-audit.md](docs/audits/84-2026-06-24-full-link-content-seo-audit.md). Подробные image prompts и технический playbook находятся в [docs/content/67-image-design-playbook-2026.md](docs/content/67-image-design-playbook-2026.md), а постраничное состояние image-слоя — в [docs/audits/80-2026-06-19-full-site-content-image-audit.md](docs/audits/80-2026-06-19-full-site-content-image-audit.md). Аудиты `69`, `70`, `71`, `74` и `77` остаются профильными или историческими детализациями.
+Для работы с текстами и изображениями любой страницы сначала читать [docs/content/79-page-content-design-dna-2026.md](docs/content/79-page-content-design-dna-2026.md): это единый контракт тональности, правил против AI-штампов, доказательности, визуальной ДНК, размеров и контрольных ограничений товарных изображений. Для вопроса “где какой контент должен быть, какие ссылки нужны и как делать литературную обработку” читать [docs/seo/85-content-linking-editorial-standard-2026.md](docs/seo/85-content-linking-editorial-standard-2026.md), а для текущего состояния контента и ссылок — [docs/audits/84-2026-06-24-full-link-content-seo-audit.md](docs/audits/84-2026-06-24-full-link-content-seo-audit.md). Подробные промпты для изображений и технический регламент находятся в [docs/content/67-image-design-playbook-2026.md](docs/content/67-image-design-playbook-2026.md), а постраничное состояние слоя изображений — в [docs/audits/80-2026-06-19-full-site-content-image-audit.md](docs/audits/80-2026-06-19-full-site-content-image-audit.md). Аудиты `69`, `70`, `71`, `74` и `77` остаются профильными или историческими детализациями.
 
 Для текущих задач по Hugo, Node, Tailwind и локальным инструментам читать [docs/deploy/15-local-tooling-mise.md](docs/deploy/15-local-tooling-mise.md), актуальный tooling-аудит [docs/audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md](docs/audits/68-2026-06-11-hugo-0-163-documentation-sync-audit.md) и SERP-контракт [docs/seo/76-hugo-yaml-serp-technical-contract-2026.md](docs/seo/76-hugo-yaml-serp-technical-contract-2026.md), если меняется `hugo.yaml`.
 
@@ -31,7 +31,7 @@
 
 Вся документация проекта должна быть русскоязычной, понятной новичку и структурированной. Единый стандарт стиля описан в [docs/architecture/02-documentation-style-guide.md](docs/architecture/02-documentation-style-guide.md).
 
-Текущий полный аудит документации, синхронизации с кодом и официальными практиками 2026 года находится в [docs/audits/82-2026-06-21-full-documentation-project-sync-audit.md](docs/audits/82-2026-06-21-full-documentation-project-sync-audit.md). Итоговая оценка после исправлений: **9.8/10**. Аудит `78` остается историческим снимком на 2026-06-19.
+Текущий полный аудит документации, синхронизации с кодом и официальными практиками 2026 года находится в [docs/audits/86-2026-06-24-full-documentation-project-sync-audit.md](docs/audits/86-2026-06-24-full-documentation-project-sync-audit.md). Итоговая оценка после исправлений: **9.8/10**. Аудиты `78` и `82` остаются историческими снимками.
 
 ## 1. Главная идея проекта
 
@@ -113,7 +113,7 @@ npm run build:production
 
 Для системы отзывов подключен `Netlify Database`. Целевая архитектура описана в [docs/deploy/17-netlify-database-reviews.md](docs/deploy/17-netlify-database-reviews.md): отзывы хранятся в PostgreSQL, проходят модерацию, выгружаются в `data/generated/reviews.json` на этапе build и только после этого попадают в видимый HTML и `Product` JSON-LD. На текущем этапе создана первая миграция `reviews`, добавлен `POST /api/reviews`, полный цикл проверен на ветке `dev`, а все текущие товарные страницы получили `review_target_id` и `reviews_enabled: true`. Рейтинг в HTML, карточках товаров и `Product.aggregateRating` строится только из approved отзывов, выгруженных в Hugo snapshot перед сборкой.
 
-Текущий правильный workflow такой:
+Текущий правильный рабочий процесс такой:
 
 1. Перейти в `dev` и подтянуть свежую ветку.
 2. Сделать изменения и закоммитить их в `dev`.
@@ -136,7 +136,7 @@ data/generated/                 build-time exports, например ignored app
 layouts/                        локальные Hugo-шаблоны и overrides
 layouts/_partials/              локальные partials
 layouts/_shortcodes/            локальные shortcodes
-assets/css/main.css             Tailwind CSS и локальный visual layer
+assets/css/main.css             Tailwind CSS и локальный визуальный слой
 assets/js/site.js               общий внешний JS сайта без inline-скриптов
 static/                         статические файлы
 static/_redirects               root rewrite и forced 404 для scanner/sensitive URL на Netlify
@@ -562,7 +562,7 @@ git checkout dev
 
 1. `README.md` — главный вход в проект.
 2. `AGENTS.md` — правила безопасной работы для Codex/агентов.
-3. [docs/01-documentation-map.md](docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-85`.
+3. [docs/01-documentation-map.md](docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-86`.
 4. [docs/architecture/02-documentation-style-guide.md](docs/architecture/02-documentation-style-guide.md) — стандарт русскоязычной, понятной и структурированной документации.
 5. [docs/architecture/03-hugo-template-helpers.md](docs/architecture/03-hugo-template-helpers.md) — локальные Hugo helpers и partials.
 6. [docs/content/05-front-matter-reference.md](docs/content/05-front-matter-reference.md) — поля front matter для страниц.

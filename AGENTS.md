@@ -17,7 +17,7 @@
 - Локальные версии инструментов зафиксированы в `mise.toml`.
 - Для стилизации используется `Tailwind CSS 4.3` через npm-пакеты `tailwindcss` и `@tailwindcss/cli` версии `4.3.0`.
 - Для будущей review-системы подключены `Netlify Functions` и `Netlify Database` / `PostgreSQL`.
-- Для проверки опубликованных URL используется ручной PageSpeed Insights workflow. Локальный браузерный audit plugin в Netlify не используется.
+- Для проверки опубликованных URL используется ручной процесс PageSpeed Insights. Локальный браузерный аудит-плагин в Netlify не используется.
 - Начиная с Hugo 0.161.0, `css.TailwindCSS` использует Tailwind CSS CLI из npm-зависимостей проекта; в текущем Hugo 0.163.0 Tailwind должен оставаться npm-зависимостью проекта, standalone Tailwind CLI не использовать.
 - Локальные SEO-шаблоны и шаблоны schema.org-разметки находятся в `layouts/_partials/_seo` и `layouts/_partials/_schema`.
 
@@ -145,10 +145,11 @@
 - `docs/audits/83-2026-06-21-netlify-rum-core-web-vitals-baseline.md`
 - `docs/audits/84-2026-06-24-full-link-content-seo-audit.md`
 - `docs/seo/85-content-linking-editorial-standard-2026.md`
+- `docs/audits/86-2026-06-24-full-documentation-project-sync-audit.md`
 
-Текущий полный аудит всей проектной документации: `docs/audits/82-2026-06-21-full-documentation-project-sync-audit.md`. Аудит `78` использовать как исторический снимок на 2026-06-19.
+Текущий полный аудит всей проектной документации: `docs/audits/86-2026-06-24-full-documentation-project-sync-audit.md`. Аудиты `78` и `82` использовать как исторические снимки.
 
-Текущий полный постраничный аудит текстов и изображений всего сайта: `docs/audits/80-2026-06-19-full-site-content-image-audit.md`. Постоянный контракт tone of voice, anti-AI правил, доказательности, visual DNA, размеров и product image gates: `docs/content/79-page-content-design-dna-2026.md`. Текущий объединенный аудит ссылок, сниппетов, keyword target URL и SEO-контента: `docs/audits/84-2026-06-24-full-link-content-seo-audit.md`.
+Текущий полный постраничный аудит текстов и изображений всего сайта: `docs/audits/80-2026-06-19-full-site-content-image-audit.md`. Постоянный контракт тональности, правил против AI-штампов, доказательности, визуальной ДНК, размеров и контрольных ограничений товарных изображений: `docs/content/79-page-content-design-dna-2026.md`. Текущий объединенный аудит ссылок, сниппетов, keyword target URL и SEO-контента: `docs/audits/84-2026-06-24-full-link-content-seo-audit.md`.
 
 Текущий полный аудит и постоянный контракт внутренней перелинковки, анкоров, глубины, breadcrumbs, related-блоков, пагинации и внешних ссылок: `docs/seo/81-internal-linking-strategy-2026.md`. Постоянный стандарт того, где какой контент должен быть, как делать литературную обработку и как связывать страницы: `docs/seo/85-content-linking-editorial-standard-2026.md`.
 
@@ -199,7 +200,7 @@
 - Параметр `jsonld` в shortcode `seo-image` больше не использовать: schema для primary image собирается централизованно из `image` во front matter.
 - `alt` и `cover.alt` должны быть описательными и соответствовать языку страницы. Для `cover.alt` лучше называть сущность или тему изображения, а не начинать с общей формулы вроде `Обложка` / `Обкладинка`.
 - В проекте уже есть шаблоны schema.org-разметки для `website`, `organization`, `brand`, `collection`, `article`, `news`, `product`, `faq` и `breadcrumbs`.
-- Для текстов и изображений использовать общий контракт `docs/content/79-page-content-design-dna-2026.md`, затем профильный регламент `docs/content/67-image-design-playbook-2026.md`: factual-first product standard, controlled high-tech editorial layer, composition diversity, размеры, форматы и QA.
+- Для текстов и изображений использовать общий контракт `docs/content/79-page-content-design-dna-2026.md`, затем профильный регламент `docs/content/67-image-design-playbook-2026.md`: товарный стандарт с приоритетом фактов, контролируемый high-tech редакционный слой, композиционное разнообразие, размеры, форматы и QA.
 - Для inline-изображений в `content/articles` и `content/news` использовать текущий аудит `docs/audits/77-2026-06-18-articles-news-content-image-audit.md`, playbook `docs/content/67-image-design-playbook-2026.md` и историческую матрицу `docs/audits/74-2026-06-15-articles-news-inline-image-serp-audit.md`: production-файлы обычно **1200x800** WebP с именами `02-<topic>.webp`, `03-<topic>.webp`, вывод через `seo-image`, `loading="lazy"`, `preload=false`, `fetchpriority=auto`, локализованный `alt`.
 - Для горизонтальных брендово-редакционных обложек **1536x1024** (`content/articles/**/01-front.webp`, `content/news/**/01-front.webp`, section covers и fallback) официальный логотип брать из `static/images/logo.svg` и держать единым lockup: **205x112 px**, позиция **x=34**, **y=34**. AI-сгенерированный логотип, другой размер/позиция и нижний дубль логотипа не допускаются.
 
@@ -219,7 +220,7 @@
 - Локальная разработка: `./scripts/script_start.sh` или `hugo server`.
 - Tailwind компилируется через `css.TailwindCSS` внутри Hugo; отдельный watch-процесс Tailwind не нужен.
 - `npm run dev` — это удобный алиас для `hugo server`.
-- `npm run build` — штатная development-сборка: сначала запускает `node scripts/export_reviews.mjs`, затем `hugo --environment development --gc --minify`. Использовать ее для полной локальной проверки, когда после правок нужна именно сборка проекта; review export является частью нормального dev workflow.
+- `npm run build` — штатная development-сборка: сначала запускает `node scripts/export_reviews.mjs`, затем `hugo --environment development --gc --minify`. Использовать ее для полной локальной проверки, когда после правок нужна именно сборка проекта; review export является частью нормального dev-процесса.
 - Build в `Netlify`: `git submodule update --init --recursive && node scripts/export_reviews.mjs && hugo --environment development --gc --minify`.
 - `scripts/script_clean.sh` — мягкая очистка Hugo-артефактов: удаляет `public`, `resources`, `.hugo_build.lock` и `hugo_stats.json`, но не трогает `node_modules`, `.cache` и `package-lock.json`.
 - `scripts/script_reset_full.sh` — тяжелый reset зависимостей: удаляет Hugo-артефакты, `node_modules` и `.cache`, затем запускает `npm install`; `package-lock.json` удаляется только при явном флаге `--with-lockfile`.
