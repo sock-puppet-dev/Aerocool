@@ -2,7 +2,7 @@
 
 Обновлено: 2026-06-24.
 
-Этот документ фиксирует рабочую базу ключевых слов проекта `Aerocool Ukraine` после анализа всего публичного контента сайта и текущей SEO-документации. Полная табличная база находится рядом в [53-keyword-database-2026.csv](53-keyword-database-2026.csv), стратегический порядок развития семантического ядра описан в [72-semantic-core-keyword-strategy-2026.md](72-semantic-core-keyword-strategy-2026.md), а контентный roadmap расширения — в [87-content-expansion-keyword-roadmap-2026.md](87-content-expansion-keyword-roadmap-2026.md).
+Этот документ фиксирует рабочую базу ключевых слов проекта `Aerocool Ukraine` после анализа всего публичного контента сайта и текущей SEO-документации. Полная табличная база находится рядом в [53-keyword-database-2026.csv](53-keyword-database-2026.csv), стратегический порядок развития семантического ядра описан в [72-semantic-core-keyword-strategy-2026.md](72-semantic-core-keyword-strategy-2026.md), контентный roadmap расширения — в [87-content-expansion-keyword-roadmap-2026.md](87-content-expansion-keyword-roadmap-2026.md), а операционная Top-1 growth system — в [88-semantic-core-top1-growth-system-2026.md](88-semantic-core-top1-growth-system-2026.md).
 
 Документ не обещает позиции в Google. Его задача — дать команде единый словарь для аналитики, развития контента, расширения семантики, проверки каннибализации и планирования новых страниц.
 
@@ -34,12 +34,12 @@
 - новые сценарные кластеры: работа за компьютером, home office, долгая работа и посадка, настройка кресла после покупки, офисная команда, переговорная, команда разработчиков, сравнение всех серий.
 - расширенный слой материалов: уход за `Leatherette`, уход за `Mesh`, вентиляция, сравнение `WING Mesh / WING Loft Air` и `XTAL Racer / XTAL Mesh`;
 - purchase-слой без непроверенных обещаний: `купити ігрове крісло aerocool`, `купить игровое кресло aerocool`, `купити офісне крісло aerocool`, `купить офисное кресло aerocool`;
-- product-level коммерческий слой: `ціна/цена + модель` и `модель + в наявності/в наличии` для всех товарных страниц, где front matter содержит `price` и `availability`.
+- product-level коммерческий слой: `ціна/цена + модель`, `модель + в наявності/в наличии` и `характеристики + модель` для всех товарных страниц, где front matter содержит `price`, `availability`, SKU, MPN и другие product facts.
 - growth-слой расширения контента: программисты/IT, видеозвонки, небольшой кабинет, теплая комната, сетчатая спинка, поясничная поддержка, open space, сборка, сервис, гарантийный ремонт, локальная покупка и price-range запросы.
 
 Главная зона роста теперь не в простом добавлении новых ключей, а в управлении уже опубликованной семантикой: защита от каннибализации между похожими гайдами, подключение данных Google Search Console, уточнение приоритетов по реальным показам и расширение коммерческих фактов только там, где они подтверждены командой Aerocool Украина.
 
-В этом проходе база подготовлена для дальнейшей аналитики: у строк больше нет обобщенной цели `product pages`, хабы `/articles/` и `/news/` получили собственные keyword-строки, страницы прав на изображения получили support-ключи, добавлены новые material/B2B/purchase long-tail строки, product-level price/availability строки, content-expansion growth строки, а CSV содержит пустые поля для будущей выгрузки Google Search Console.
+В этом проходе база подготовлена для дальнейшей аналитики: у строк больше нет обобщенной цели `product pages`, хабы `/articles/` и `/news/` получили собственные keyword-строки, страницы прав на изображения получили support-ключи, добавлены новые material/B2B/purchase long-tail строки, product-level price/availability/specs строки, content-expansion growth строки, а CSV содержит пустые поля для будущей выгрузки Google Search Console.
 
 ## Как Пользоваться Базой
 
@@ -88,6 +88,7 @@ CSV-файл содержит строки вида:
 | `series` | Средний коммерческий интент | `/products/sky/`, `/products/wing/`, `/products/xtal/` |
 | `product model` | Модельный спрос | конкретные товарные страницы |
 | `product transaction` | Купить + модель, цена модели, наличие модели | конкретные товарные страницы и `/contact/` |
+| `spec` | Характеристики конкретной модели | конкретные товарные страницы |
 | `material` | Материалы и поверхность | статья `Racer / Loft Air / Mesh`, товарные страницы |
 | `mechanic` | Механики и технические объяснения | статьи про `Synchronous Tilt`, `SYNC4/SYNC5`, WING/XTAL |
 | `adjustment` | Регулировки | статья про `7D/8D/11D`, товары и серии |
@@ -123,6 +124,7 @@ CSV-файл содержит строки вида:
 | Транзакционные фразы | Для каждой товарной страницы уже заведены `цена/ціна` и `в наличии/в наявності` long-tail строки. Поддерживать их только вместе с актуальными `price`, `availability`, `priceValidUntil` и `Offer` JSON-LD. |
 | Search Console | После production-индексации заполнить `gsc_*`, разделить сильные `any`-строки на `uk/ru` и пересчитать приоритеты. |
 | Контентное расширение | Использовать [87-content-expansion-keyword-roadmap-2026.md](87-content-expansion-keyword-roadmap-2026.md): сначала усиливать текущие URL, новые страницы создавать только после GSC/рекламного подтверждения спроса. |
+| Top-1 growth system | Использовать [88-semantic-core-top1-growth-system-2026.md](88-semantic-core-top1-growth-system-2026.md): выбирать достижимые кластеры, усиливать лучший URL, измерять GSC-сигналы и не обещать гарантированный `топ-1`. |
 
 ## Правила Расширения
 
@@ -139,31 +141,32 @@ CSV-файл содержит строки вида:
 - Стратегическая карта интентов: [18-seo-keyword-map-2026.md](18-seo-keyword-map-2026.md).
 - Стратегия развития семантического ядра: [72-semantic-core-keyword-strategy-2026.md](72-semantic-core-keyword-strategy-2026.md).
 - Roadmap расширения контента и ключей: [87-content-expansion-keyword-roadmap-2026.md](87-content-expansion-keyword-roadmap-2026.md).
+- Операционная система развития и Top-1 strategy: [88-semantic-core-top1-growth-system-2026.md](88-semantic-core-top1-growth-system-2026.md).
 - Контентные правила: [07-content-seo-checklist-2026.md](../content/07-content-seo-checklist-2026.md).
 - Front matter и SEO-поля: [05-front-matter-reference.md](../content/05-front-matter-reference.md).
 - Entity strategy: [24-entities-knowledge-graph-playbook-2026.md](24-entities-knowledge-graph-playbook-2026.md).
 
 ## Краткий Снимок Базы
 
-Всего в CSV: `365` ключевых строк.
+Всего в CSV: `389` ключевых строк.
 
 | Срез | Количество |
 | --- | ---: |
 | `P0` | 98 |
-| `P1` | 146 |
+| `P1` | 170 |
 | `P2` | 119 |
 | `P3` | 2 |
-| `current` | 313 |
+| `current` | 337 |
 | `supporting` | 7 |
 | `growth` | 45 |
-| `single_url` | 283 |
+| `single_url` | 307 |
 | `url_group` | 82 |
 
 Срез по этапам пути:
 
 | Этап | Количество |
 | --- | ---: |
-| `consideration` | 174 |
+| `consideration` | 198 |
 | `awareness` | 67 |
 | `purchase` | 90 |
 | `navigation` | 12 |
@@ -173,7 +176,7 @@ CSV-файл содержит строки вида:
 
 | Ценность | Количество |
 | --- | ---: |
-| `high` | 162 |
+| `high` | 186 |
 | `medium` | 166 |
 | `low` | 37 |
 
@@ -184,6 +187,7 @@ CSV-файл содержит строки вида:
 | `product transaction` | 72 |
 | `guide` | 55 |
 | `commercial category` | 34 |
+| `spec` | 25 |
 | `product type modifier` | 24 |
 | `material` | 22 |
 | `support` | 22 |
@@ -197,6 +201,5 @@ CSV-файл содержит строки вида:
 | `product model` | 12 |
 | `color` | 3 |
 | `brand trust` | 2 |
-| `spec` | 1 |
 
 Обновлять эту базу нужно после крупных контентных проходов, добавления новых серий, новых моделей, новых FAQ-блоков и после появления реальных данных из Google Search Console или рекламных кампаний.
