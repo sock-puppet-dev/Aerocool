@@ -1,6 +1,6 @@
 # Playbook Изображений И AI-Промптов Aerocool 2026
 
-Обновлено: 2026-06-19.
+Обновлено: 2026-06-24.
 
 Этот документ фиксирует повторяемый стандарт для всех изображений проекта `Aerocool Ukraine`: обложек статей и новостей, section covers, fallback-изображений, home hero, товарных фото, product gallery, контентных иллюстраций, технических схем, логотипов и служебных иконок.
 
@@ -87,7 +87,7 @@
 
 ### 2.2. Фактический Товарный Слой
 
-Этот слой использовать для `content/products/**/01-front.png`, дополнительных product gallery images и будущих in-scale изображений.
+Этот слой использовать для `content/products/**/01-front.*`, дополнительных product gallery images и будущих in-scale изображений. Для новых и заменяемых product assets целевой формат — WebP с единым порядком имен файлов из раздела 5.4.
 
 Обязательные признаки:
 
@@ -159,8 +159,8 @@
 | Root cover | `content/cover.webp` | **1536x1024**, WebP | Базовый brand/site image | Broad Aerocool showroom |
 | Default article/news/product | `static/images/default-*.webp` | **1536x1024**, WebP | Качественный fallback | Не заглушка, а полноценная сцена |
 | Home hero | `assets/images/home-hero85.webp` | **2102x1401**, WebP | Первый экран главной | Tailwind Plus split hero image |
-| Product primary | `content/products/**/01-front.*` | минимум **1600x1600**, целевой **2000x2000** | Точное фото конкретного варианта | Neutral factual |
-| Product gallery | рядом с товаром | WebP/JPEG/PNG по источнику | Ракурсы, детали, масштаб | Factual + optional context |
+| Product primary | `content/products/**/01-front.webp` | минимум **1600x1600**, целевой **2000x2000** | Точное фото конкретного варианта | Neutral factual |
+| Product gallery | рядом с товаром, `02-front-3q.webp` ... `09-in-scale.webp` | WebP, исходный PNG/JPEG допустим только при обосновании | Ракурсы, детали, масштаб | Factual + optional context |
 | Inline article/news image | page bundle | **1200x800**, WebP | Объяснить конкретный блок текста | High-tech или factual по смыслу |
 | Inline technical/detail image | page bundle | **1200x800** WebP или SVG | Механизм, регулировки, материал | Clean technical/factual |
 | Technical diagram | page bundle или `static/images` | SVG/WebP | Механизм, регулировки, размеры | Clean technical, без fake specs |
@@ -271,17 +271,33 @@ Fallback-файл не должен выглядеть как аварийная
 
 ### 5.4. Главное Изображение Товара И Product Gallery
 
-Текущие product primary images в проекте в основном `01-front.png`. Их не нужно автоматически превращать в темные high-tech обложки. Это товарные доказательства, а не рекламные постеры.
+Товарные изображения не нужно автоматически превращать в темные high-tech обложки. Это товарные доказательства, а не рекламные постеры. Для новых и заменяемых файлов использовать единый порядок имен во всех product page bundles: папка уже содержит серию, модель и цвет, поэтому в имя файла не добавлять SKU, модель или цвет.
+
+Целевой порядок имен:
+
+1. `01-front.webp` — главный кадр для карточки товара, SEO/OG/schema, LCP и первого кадра галереи;
+2. `02-front-3q.webp` — фронтальный ракурс три четверти;
+3. `03-side.webp` — боковой профиль;
+4. `04-back-3q.webp` — задний ракурс три четверти;
+5. `05-back.webp` — спинка и задняя конструкция;
+6. `06-material.webp` — реальный close-up материала;
+7. `07-controls.webp` — органы управления, подлокотники или поясничная поддержка;
+8. `08-mechanism.webp` — механизм наклона, основание или технический узел;
+9. `09-in-scale.webp` — кресло возле стола, монитора или другого понятного объекта масштаба;
+10. `10-dimensions.webp` или `10-dimensions.svg` — необязательная схема размеров только по подтвержденным данным.
+
+Правила именования: lowercase, латиница, kebab-case, двухзначная нумерация, без пробелов, кириллицы, больших букв, `final`, `new`, `v2`, `test` и `candidate`. Если один кадр существует одновременно как `01-front.png` и `01-front.webp`, оставить только production-версию, чтобы gallery не подтянула дубликат. `.png` или `.jpg` можно оставить только для официального исходника, если WebP-переэкспорт ухудшает доказательность; stem при этом остается тем же, например `01-front.png`.
 
 Целевой набор для сильной PDP:
 
-- front view - главное фото;
-- side view - профиль и глубина посадки;
-- back view - спинка, бренд, форма;
-- material close-up - ткань, mesh, Loft Air, Racer surface;
-- mechanism close-up - рычаги, наклон, подлокотники;
-- in-scale/context image - кресло рядом с рабочим столом или объектом понятного размера;
-- optional editorial image - high-tech сцена для эмоционального усиления, но не вместо factual photo.
+- front view — главное фото;
+- front three-quarter — объемная форма кресла;
+- side view — профиль и глубина посадки;
+- back view — спинка, бренд, форма;
+- material close-up — ткань, mesh, Loft Air, Racer surface;
+- mechanism close-up — рычаги, наклон, подлокотники;
+- in-scale/context image — кресло рядом с рабочим столом или объектом понятного размера;
+- optional editorial image — high-tech сцена для эмоционального усиления, но не вместо factual photo.
 
 ### 5.5. Оптимизация
 
