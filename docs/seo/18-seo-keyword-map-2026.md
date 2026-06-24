@@ -1,6 +1,6 @@
 # Карта Ключевых Слов 2026
 
-Обновлено: 2026-06-13.
+Обновлено: 2026-06-24.
 
 Базовая синхронизация документации с лучшими практиками 2026 зафиксирована в [37-2026-05-13-documentation-2026-best-practices-sync-audit.md](../audits/37-2026-05-13-documentation-2026-best-practices-sync-audit.md). Карта ключей остается редакционным инструментом: она помогает покрывать интенты, но не заменяет people-first content, Search Essentials, Core Web Vitals и production-мониторинг.
 
@@ -90,6 +90,8 @@
 
 - `купить aerocool sky light`
 - `офисное кресло aerocool sky light`
+- `цена aerocool sky light`
+- `aerocool sky light в наличии`
 - `игровое кресло aerocool wing racer black`
 - `компьютерное кресло aerocool xtal mesh black`
 
@@ -426,6 +428,7 @@
 - материаловый гайд получил дополнительные long-tail интенты по уходу, вентиляции и сравнению поверхностей внутри `WING` и `XTAL`
 - B2B-гайд по офисной команде получил long-tail интенты для переговорной и команды разработчиков
 - purchase-слой расширен запросами `купити/купить ігрове/офисное крісло Aerocool` без добавления неподтвержденных обещаний цены, наличия или доставки
+- все товарные страницы получили отдельные CSV-строки для `ціна/цена + модель` и `модель + в наявності/в наличии`, потому что эти интенты должны сверяться с `price`, `availability`, `priceValidUntil` и `Offer` JSON-LD
 
 Главная цель этого обновления: убрать перекос только в брендовые запросы и запросы по функциям, а также добавить системное покрытие широких коммерческих кластеров:
 
@@ -448,8 +451,6 @@
 
 Самые перспективные следующие кластеры для роста после текущего расширения:
 
-- `цена кресла Aerocool`
-- `наличие кресла Aerocool`
 - `доставка кресла Aerocool`
 - `гарантия на кресло Aerocool`
 - `оплата кресла Aerocool`
@@ -457,6 +458,8 @@
 - `гарантийный ремонт кресла Aerocool`
 - `где посмотреть кресла Aerocool в Украине`
 - `сравнение серий Aerocool по бюджету`
+- `доставка конкретной модели Aerocool`
+- `гарантия конкретной модели Aerocool`
 
 Под эти кластеры лучше всего делать:
 
@@ -472,5 +475,6 @@
 - [Google Creating Helpful, Reliable, People-First Content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content)
 - [Google Search Console start guide](https://developers.google.com/search/docs/monitor-debug/search-console-start)
 - [Google ecommerce SEO best practices](https://developers.google.com/search/docs/specialty/ecommerce)
+- [Google guide to optimizing for generative AI features on Search](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)
 
 Логика этого документа основана на лучших практиках SEO и на текущей архитектуре проекта `Aerocool`, а не на обещании автоматического `топ-1`.

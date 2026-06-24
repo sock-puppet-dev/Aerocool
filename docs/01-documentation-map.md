@@ -126,7 +126,7 @@
 
 ### SEO Базы После Аудитов
 
-53. [seo/53-keyword-database-2026.md](seo/53-keyword-database-2026.md) — рабочая база ключевых слов проекта: `277` строк, покрытие `100` markdown-страниц, support/legal URL `/image-license/`, CSV-поля для Google Search Console, аналитики, развития контента и проверки каннибализации.
+53. [seo/53-keyword-database-2026.md](seo/53-keyword-database-2026.md) — рабочая база ключевых слов проекта: `325` строк, покрытие `100` markdown-страниц, support/legal URL `/image-license/`, product-level `price` / `availability` интенты для всех товаров, CSV-поля для Google Search Console, аналитики, развития контента и проверки каннибализации.
 
 ### Актуальные CWV Аудиты
 
@@ -192,7 +192,7 @@
 
 ### Стратегия Семантического Ядра
 
-72. [seo/72-semantic-core-keyword-strategy-2026.md](seo/72-semantic-core-keyword-strategy-2026.md) — текущая стратегия семантического ядра и ключевых слов на 2026 год: оценка **9.1/10**, правила развития keyword-базы, GSC-план, anti-cannibalization matrix и roadmap расширения посадочных страниц.
+72. [seo/72-semantic-core-keyword-strategy-2026.md](seo/72-semantic-core-keyword-strategy-2026.md) — текущая стратегия семантического ядра и ключевых слов на 2026 год: оценка **9.3/10**, правила развития keyword-базы, product-level price/availability слой, GSC-план, anti-cannibalization matrix и roadmap расширения посадочных страниц.
 
 ### Inline-Изображения Статей И Новостей
 
