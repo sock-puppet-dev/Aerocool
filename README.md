@@ -17,7 +17,7 @@
 
 Для текущих задач по JSON-LD, schema.org, Entity Registry, `about_entities`, `mentions_entities`, `ProductGroup`, `sameAs` и graph-аудиту читать `docs/seo/23-entity-registry-2026.md`, `docs/seo/26-json-ld-graph-audit-roadmap-2026.md` и текущий generated report [docs/seo/59-entity-performance-report-2026.md](docs/seo/59-entity-performance-report-2026.md). Для ручной проверки через `validator.schema.org` использовать [docs/seo/60-schema-validator-url-checklist-2026.md](docs/seo/60-schema-validator-url-checklist-2026.md). Полный schema/entity-аудит `57` оставлен как исторический snapshot на 2026-05-31.
 
-Для текущих задач по ключевым словам, семантике, каннибализации и планированию посадочных страниц читать [docs/seo/18-seo-keyword-map-2026.md](docs/seo/18-seo-keyword-map-2026.md), [docs/seo/53-keyword-database-2026.md](docs/seo/53-keyword-database-2026.md) и [docs/seo/72-semantic-core-keyword-strategy-2026.md](docs/seo/72-semantic-core-keyword-strategy-2026.md). Для задач по `hugo.yaml`, индексации, sitemap, robots, canonical, hreflang, production gate и техническому SERP-фундаменту читать [docs/seo/76-hugo-yaml-serp-technical-contract-2026.md](docs/seo/76-hugo-yaml-serp-technical-contract-2026.md). Актуальная keyword-база содержит `325` строк, покрывает `100` markdown-страниц, включает support/legal URL `/image-license/` и `/ru/image-license/`, product-level `price` / `availability` интенты для всех товаров, а поля `gsc_*` заполняются только после импорта реальных данных Google Search Console.
+Для текущих задач по ключевым словам, семантике, каннибализации и планированию посадочных страниц читать [docs/seo/18-seo-keyword-map-2026.md](docs/seo/18-seo-keyword-map-2026.md), [docs/seo/53-keyword-database-2026.md](docs/seo/53-keyword-database-2026.md), [docs/seo/72-semantic-core-keyword-strategy-2026.md](docs/seo/72-semantic-core-keyword-strategy-2026.md) и [docs/seo/87-content-expansion-keyword-roadmap-2026.md](docs/seo/87-content-expansion-keyword-roadmap-2026.md). Для задач по `hugo.yaml`, индексации, sitemap, robots, canonical, hreflang, production gate и техническому SERP-фундаменту читать [docs/seo/76-hugo-yaml-serp-technical-contract-2026.md](docs/seo/76-hugo-yaml-serp-technical-contract-2026.md). Актуальная keyword-база содержит `365` строк, покрывает `100` markdown-страниц, включает support/legal URL `/image-license/` и `/ru/image-license/`, product-level `price` / `availability` интенты для всех товаров, growth-кластеры расширения контента, а поля `gsc_*` заполняются только после импорта реальных данных Google Search Console.
 
 Для задач по внутренней перелинковке, анкорам, breadcrumbs, related-блокам, пагинации и внешним ссылкам использовать [docs/seo/81-internal-linking-strategy-2026.md](docs/seo/81-internal-linking-strategy-2026.md), [docs/seo/85-content-linking-editorial-standard-2026.md](docs/seo/85-content-linking-editorial-standard-2026.md) и текущий аудит [docs/audits/84-2026-06-24-full-link-content-seo-audit.md](docs/audits/84-2026-06-24-full-link-content-seo-audit.md). Проверка ссылок остается ручной после production-сборки; текущая структурная оценка ссылочного графа — **9.5/10**. Практический SEO-эффект основного домена остается заблокирован, пока Netlify собирает опубликованный сайт с `--environment development` и возвращает `noindex,nofollow`.
 
@@ -31,7 +31,7 @@
 
 Вся документация проекта должна быть русскоязычной, понятной новичку и структурированной. Единый стандарт стиля описан в [docs/architecture/02-documentation-style-guide.md](docs/architecture/02-documentation-style-guide.md).
 
-Текущий полный аудит документации, синхронизации с кодом и официальными практиками 2026 года находится в [docs/audits/86-2026-06-24-full-documentation-project-sync-audit.md](docs/audits/86-2026-06-24-full-documentation-project-sync-audit.md). Итоговая оценка после исправлений: **9.8/10**. Аудиты `78` и `82` остаются историческими снимками.
+Последний полный аудит документации, синхронизации с кодом и официальными практиками 2026 года находится в [docs/audits/86-2026-06-24-full-documentation-project-sync-audit.md](docs/audits/86-2026-06-24-full-documentation-project-sync-audit.md). Итоговая оценка после исправлений: **9.8/10**. Документ `87` добавлен позже как профильный roadmap по расширению ключевых слов и контента. Аудиты `78` и `82` остаются историческими снимками.
 
 ## 1. Главная идея проекта
 
@@ -562,7 +562,7 @@ git checkout dev
 
 1. `README.md` — главный вход в проект.
 2. `AGENTS.md` — правила безопасной работы для Codex/агентов.
-3. [docs/01-documentation-map.md](docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-86`.
+3. [docs/01-documentation-map.md](docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-87`.
 4. [docs/architecture/02-documentation-style-guide.md](docs/architecture/02-documentation-style-guide.md) — стандарт русскоязычной, понятной и структурированной документации.
 5. [docs/architecture/03-hugo-template-helpers.md](docs/architecture/03-hugo-template-helpers.md) — локальные Hugo helpers и partials.
 6. [docs/content/05-front-matter-reference.md](docs/content/05-front-matter-reference.md) — поля front matter для страниц.

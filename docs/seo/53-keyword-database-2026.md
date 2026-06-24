@@ -2,7 +2,7 @@
 
 Обновлено: 2026-06-24.
 
-Этот документ фиксирует рабочую базу ключевых слов проекта `Aerocool Ukraine` после анализа всего публичного контента сайта и текущей SEO-документации. Полная табличная база находится рядом в [53-keyword-database-2026.csv](53-keyword-database-2026.csv), а стратегический порядок развития семантического ядра описан в [72-semantic-core-keyword-strategy-2026.md](72-semantic-core-keyword-strategy-2026.md).
+Этот документ фиксирует рабочую базу ключевых слов проекта `Aerocool Ukraine` после анализа всего публичного контента сайта и текущей SEO-документации. Полная табличная база находится рядом в [53-keyword-database-2026.csv](53-keyword-database-2026.csv), стратегический порядок развития семантического ядра описан в [72-semantic-core-keyword-strategy-2026.md](72-semantic-core-keyword-strategy-2026.md), а контентный roadmap расширения — в [87-content-expansion-keyword-roadmap-2026.md](87-content-expansion-keyword-roadmap-2026.md).
 
 Документ не обещает позиции в Google. Его задача — дать команде единый словарь для аналитики, развития контента, расширения семантики, проверки каннибализации и планирования новых страниц.
 
@@ -35,10 +35,11 @@
 - расширенный слой материалов: уход за `Leatherette`, уход за `Mesh`, вентиляция, сравнение `WING Mesh / WING Loft Air` и `XTAL Racer / XTAL Mesh`;
 - purchase-слой без непроверенных обещаний: `купити ігрове крісло aerocool`, `купить игровое кресло aerocool`, `купити офісне крісло aerocool`, `купить офисное кресло aerocool`;
 - product-level коммерческий слой: `ціна/цена + модель` и `модель + в наявності/в наличии` для всех товарных страниц, где front matter содержит `price` и `availability`.
+- growth-слой расширения контента: программисты/IT, видеозвонки, небольшой кабинет, теплая комната, сетчатая спинка, поясничная поддержка, open space, сборка, сервис, гарантийный ремонт, локальная покупка и price-range запросы.
 
 Главная зона роста теперь не в простом добавлении новых ключей, а в управлении уже опубликованной семантикой: защита от каннибализации между похожими гайдами, подключение данных Google Search Console, уточнение приоритетов по реальным показам и расширение коммерческих фактов только там, где они подтверждены командой Aerocool Украина.
 
-В этом проходе база подготовлена для дальнейшей аналитики: у строк больше нет обобщенной цели `product pages`, хабы `/articles/` и `/news/` получили собственные keyword-строки, страницы прав на изображения получили support-ключи, добавлены новые material/B2B/purchase long-tail строки, product-level price/availability строки, а CSV содержит пустые поля для будущей выгрузки Google Search Console.
+В этом проходе база подготовлена для дальнейшей аналитики: у строк больше нет обобщенной цели `product pages`, хабы `/articles/` и `/news/` получили собственные keyword-строки, страницы прав на изображения получили support-ключи, добавлены новые material/B2B/purchase long-tail строки, product-level price/availability строки, content-expansion growth строки, а CSV содержит пустые поля для будущей выгрузки Google Search Console.
 
 ## Как Пользоваться Базой
 
@@ -121,6 +122,7 @@ CSV-файл содержит строки вида:
 | B2B-сценарии | Развивать `кресла для переговорной` и `кресла для команды разработчиков` как подразделы статьи про офисную команду, пока нет подтвержденного спроса на отдельные посадочные страницы. |
 | Транзакционные фразы | Для каждой товарной страницы уже заведены `цена/ціна` и `в наличии/в наявності` long-tail строки. Поддерживать их только вместе с актуальными `price`, `availability`, `priceValidUntil` и `Offer` JSON-LD. |
 | Search Console | После production-индексации заполнить `gsc_*`, разделить сильные `any`-строки на `uk/ru` и пересчитать приоритеты. |
+| Контентное расширение | Использовать [87-content-expansion-keyword-roadmap-2026.md](87-content-expansion-keyword-roadmap-2026.md): сначала усиливать текущие URL, новые страницы создавать только после GSC/рекламного подтверждения спроса. |
 
 ## Правила Расширения
 
@@ -136,62 +138,63 @@ CSV-файл содержит строки вида:
 
 - Стратегическая карта интентов: [18-seo-keyword-map-2026.md](18-seo-keyword-map-2026.md).
 - Стратегия развития семантического ядра: [72-semantic-core-keyword-strategy-2026.md](72-semantic-core-keyword-strategy-2026.md).
+- Roadmap расширения контента и ключей: [87-content-expansion-keyword-roadmap-2026.md](87-content-expansion-keyword-roadmap-2026.md).
 - Контентные правила: [07-content-seo-checklist-2026.md](../content/07-content-seo-checklist-2026.md).
 - Front matter и SEO-поля: [05-front-matter-reference.md](../content/05-front-matter-reference.md).
 - Entity strategy: [24-entities-knowledge-graph-playbook-2026.md](24-entities-knowledge-graph-playbook-2026.md).
 
 ## Краткий Снимок Базы
 
-Всего в CSV: `325` ключевых строк.
+Всего в CSV: `365` ключевых строк.
 
 | Срез | Количество |
 | --- | ---: |
 | `P0` | 98 |
-| `P1` | 138 |
-| `P2` | 87 |
+| `P1` | 146 |
+| `P2` | 119 |
 | `P3` | 2 |
 | `current` | 313 |
 | `supporting` | 7 |
-| `growth` | 5 |
-| `single_url` | 265 |
-| `url_group` | 60 |
+| `growth` | 45 |
+| `single_url` | 283 |
+| `url_group` | 82 |
 
 Срез по этапам пути:
 
 | Этап | Количество |
 | --- | ---: |
-| `consideration` | 152 |
-| `awareness` | 65 |
-| `purchase` | 82 |
+| `consideration` | 174 |
+| `awareness` | 67 |
+| `purchase` | 90 |
 | `navigation` | 12 |
-| `support` | 14 |
+| `support` | 22 |
 
 Срез по бизнес-ценности:
 
 | Ценность | Количество |
 | --- | ---: |
-| `high` | 154 |
-| `medium` | 138 |
-| `low` | 33 |
+| `high` | 162 |
+| `medium` | 166 |
+| `low` | 37 |
 
 Срез по мастер-кластерам:
 
 | Кластер | Количество |
 | --- | ---: |
-| `guide` | 39 |
-| `commercial category` | 32 |
 | `product transaction` | 72 |
+| `guide` | 55 |
+| `commercial category` | 34 |
 | `product type modifier` | 24 |
+| `material` | 22 |
+| `support` | 22 |
 | `brand` | 20 |
 | `series` | 18 |
-| `material` | 18 |
-| `support` | 18 |
+| `transaction` | 18 |
 | `mechanic` | 17 |
+| `adjustment` | 17 |
 | `comparison` | 15 |
 | `news` | 13 |
 | `product model` | 12 |
-| `adjustment` | 11 |
-| `transaction` | 10 |
 | `color` | 3 |
 | `brand trust` | 2 |
 | `spec` | 1 |

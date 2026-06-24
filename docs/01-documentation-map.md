@@ -9,7 +9,7 @@
 - [README.md](../README.md) — краткая карта проекта, стека, структуры и основных команд.
 - [AGENTS.md](../AGENTS.md) — правила безопасной работы для Codex/агентов.
 
-Основные документационные позиции внутри `docs/` пронумерованы глобально от `01` до `86`. Номер в начале имени показывает рекомендуемый порядок чтения. Три сопутствующих CSV-файла используют номера своих основных документов `53` и `59`, поэтому физически внутри `docs/` находится 89 файлов.
+Основные документационные позиции внутри `docs/` пронумерованы глобально от `01` до `87`. Номер в начале имени показывает рекомендуемый порядок чтения. Три сопутствующих CSV-файла используют номера своих основных документов `53` и `59`, поэтому физически внутри `docs/` находится 90 файлов.
 
 ## Как Пользоваться Новичку
 
@@ -126,7 +126,7 @@
 
 ### SEO Базы После Аудитов
 
-53. [seo/53-keyword-database-2026.md](seo/53-keyword-database-2026.md) — рабочая база ключевых слов проекта: `325` строк, покрытие `100` markdown-страниц, support/legal URL `/image-license/`, product-level `price` / `availability` интенты для всех товаров, CSV-поля для Google Search Console, аналитики, развития контента и проверки каннибализации.
+53. [seo/53-keyword-database-2026.md](seo/53-keyword-database-2026.md) — рабочая база ключевых слов проекта: `365` строк, покрытие `100` markdown-страниц, support/legal URL `/image-license/`, product-level `price` / `availability` интенты для всех товаров, content-expansion growth-кластеры, CSV-поля для Google Search Console, аналитики, развития контента и проверки каннибализации.
 
 ### Актуальные CWV Аудиты
 
@@ -192,7 +192,7 @@
 
 ### Стратегия Семантического Ядра
 
-72. [seo/72-semantic-core-keyword-strategy-2026.md](seo/72-semantic-core-keyword-strategy-2026.md) — текущая стратегия семантического ядра и ключевых слов на 2026 год: оценка **9.3/10**, правила развития keyword-базы, product-level price/availability слой, GSC-план, anti-cannibalization matrix и roadmap расширения посадочных страниц.
+72. [seo/72-semantic-core-keyword-strategy-2026.md](seo/72-semantic-core-keyword-strategy-2026.md) — текущая стратегия семантического ядра и ключевых слов на 2026 год: оценка **9.4/10**, правила развития keyword-базы, product-level price/availability слой, GSC-план, anti-cannibalization matrix и roadmap расширения посадочных страниц.
 
 ### Inline-Изображения Статей И Новостей
 
@@ -239,7 +239,11 @@
 
 ### Текущий Полный Аудит Документации
 
-86. [audits/86-2026-06-24-full-documentation-project-sync-audit.md](audits/86-2026-06-24-full-documentation-project-sync-audit.md) — текущая полная проверка документации на 2026-06-24 после добавления документов `84` и `85`: русский язык, порядок чтения `01-86`, ссылки, стек, Hugo/Tailwind/Netlify, лучшие практики изображений, schema.org и CWV, синхронизация с проектом и итоговая оценка **9.8/10**.
+86. [audits/86-2026-06-24-full-documentation-project-sync-audit.md](audits/86-2026-06-24-full-documentation-project-sync-audit.md) — полный snapshot документации на 2026-06-24 после добавления документов `84` и `85`: русский язык, порядок чтения `01-86`, ссылки, стек, Hugo/Tailwind/Netlify, лучшие практики изображений, schema.org и CWV, синхронизация с проектом и итоговая оценка **9.8/10**. Документ `87` добавлен позже как профильный keyword-roadmap.
+
+### Расширение Контента И Ключевых Слов
+
+87. [seo/87-content-expansion-keyword-roadmap-2026.md](seo/87-content-expansion-keyword-roadmap-2026.md) — тактическая стратегия расширения контента под новые ключевые слова: growth-кластеры, правила использования ключей в `title`, `description`, `H1`, `H2`, FAQ и внутренних ссылках, roadmap усиления существующих страниц и условия создания новых URL.
 
 ## Маршруты По Задачам
 
@@ -303,8 +307,9 @@
 1. [seo/18-seo-keyword-map-2026.md](seo/18-seo-keyword-map-2026.md)
 2. [seo/53-keyword-database-2026.md](seo/53-keyword-database-2026.md)
 3. [seo/72-semantic-core-keyword-strategy-2026.md](seo/72-semantic-core-keyword-strategy-2026.md)
-4. [content/07-content-seo-checklist-2026.md](content/07-content-seo-checklist-2026.md)
-5. [seo/76-hugo-yaml-serp-technical-contract-2026.md](seo/76-hugo-yaml-serp-technical-contract-2026.md), если меняются URL, индексация, sitemap, canonical, hreflang или `hugo.yaml`
+4. [seo/87-content-expansion-keyword-roadmap-2026.md](seo/87-content-expansion-keyword-roadmap-2026.md)
+5. [content/07-content-seo-checklist-2026.md](content/07-content-seo-checklist-2026.md)
+6. [seo/76-hugo-yaml-serp-technical-contract-2026.md](seo/76-hugo-yaml-serp-technical-contract-2026.md), если меняются URL, индексация, sitemap, canonical, hreflang или `hugo.yaml`
 
 После добавления, удаления или переименования любой индексируемой страницы в `content/` нужно проверить, есть ли у нее строка в keyword-базе или явное объяснение, почему страница не является SEO-посадочной.
 
@@ -355,7 +360,7 @@
 - поменял `seo-image` — проверь [content/06-seo-image-shortcode.md](content/06-seo-image-shortcode.md), [architecture/03-hugo-template-helpers.md](architecture/03-hugo-template-helpers.md), [quality/12-core-web-vitals-guide-2026.md](quality/12-core-web-vitals-guide-2026.md) и [content/05-front-matter-reference.md](content/05-front-matter-reference.md), если менялись `image`, `cover` или `seo_image_sizes`;
 - поменял product gallery, product primary image или LCP preload — проверь [content/05-front-matter-reference.md](content/05-front-matter-reference.md), [content/templates/10-product-template.md](content/templates/10-product-template.md), [architecture/03-hugo-template-helpers.md](architecture/03-hugo-template-helpers.md), [quality/12-core-web-vitals-guide-2026.md](quality/12-core-web-vitals-guide-2026.md) и [seo/21-ecommerce-structured-data-playbook-2026.md](seo/21-ecommerce-structured-data-playbook-2026.md);
 - поменял тексты, литературную обработку, сниппеты, контентную архитектуру, изображения, AI-промпты, fallback-картинки, product gallery, inline-иллюстрации, технические схемы или визуальную ДНК — проверь [content/79-page-content-design-dna-2026.md](content/79-page-content-design-dna-2026.md), [seo/85-content-linking-editorial-standard-2026.md](seo/85-content-linking-editorial-standard-2026.md), [content/67-image-design-playbook-2026.md](content/67-image-design-playbook-2026.md), [content/06-seo-image-shortcode.md](content/06-seo-image-shortcode.md), [content/07-content-seo-checklist-2026.md](content/07-content-seo-checklist-2026.md), [audits/84-2026-06-24-full-link-content-seo-audit.md](audits/84-2026-06-24-full-link-content-seo-audit.md) и [audits/80-2026-06-19-full-site-content-image-audit.md](audits/80-2026-06-19-full-site-content-image-audit.md);
-- поменял keyword-базу, карту интентов, новую посадочную страницу, slug, canonical URL или статус индексируемости страницы — проверь [seo/18-seo-keyword-map-2026.md](seo/18-seo-keyword-map-2026.md), [seo/53-keyword-database-2026.md](seo/53-keyword-database-2026.md), [seo/72-semantic-core-keyword-strategy-2026.md](seo/72-semantic-core-keyword-strategy-2026.md), [content/07-content-seo-checklist-2026.md](content/07-content-seo-checklist-2026.md) и убедись, что не появились битые `target_url`, дубликаты ключей или новая каннибализация;
+- поменял keyword-базу, карту интентов, новую посадочную страницу, slug, canonical URL или статус индексируемости страницы — проверь [seo/18-seo-keyword-map-2026.md](seo/18-seo-keyword-map-2026.md), [seo/53-keyword-database-2026.md](seo/53-keyword-database-2026.md), [seo/72-semantic-core-keyword-strategy-2026.md](seo/72-semantic-core-keyword-strategy-2026.md), [seo/87-content-expansion-keyword-roadmap-2026.md](seo/87-content-expansion-keyword-roadmap-2026.md), [content/07-content-seo-checklist-2026.md](content/07-content-seo-checklist-2026.md) и убедись, что не появились битые `target_url`, дубликаты ключей или новая каннибализация;
 - поменял внутренние или внешние ссылки, анкоры, header/footer navigation, breadcrumbs, related-блок, пагинацию, product cards или variant swatches — проверь [seo/81-internal-linking-strategy-2026.md](seo/81-internal-linking-strategy-2026.md), [seo/85-content-linking-editorial-standard-2026.md](seo/85-content-linking-editorial-standard-2026.md), [audits/84-2026-06-24-full-link-content-seo-audit.md](audits/84-2026-06-24-full-link-content-seo-audit.md), [architecture/03-hugo-template-helpers.md](architecture/03-hugo-template-helpers.md) и [content/07-content-seo-checklist-2026.md](content/07-content-seo-checklist-2026.md); после production-сборки вручную проверь ключевые URL, sitemap, canonical, `hreflang`, локальные якоря и целевые страницы;
 - поменял schema.org partials — проверь [seo/19-schema-types-reference.md](seo/19-schema-types-reference.md), [seo/20-schema-markup-quality-checklist-2026.md](seo/20-schema-markup-quality-checklist-2026.md), [seo/26-json-ld-graph-audit-roadmap-2026.md](seo/26-json-ld-graph-audit-roadmap-2026.md) и после сборки обнови [seo/59-entity-performance-report-2026.md](seo/59-entity-performance-report-2026.md);
 - поменял product facts, товарный front matter, цвет, характеристики, гарантию, доставку, возврат, оплату или `priceValidUntil` — проверь [seo/58-product-facts-maintenance-process-2026.md](seo/58-product-facts-maintenance-process-2026.md), [content/05-front-matter-reference.md](content/05-front-matter-reference.md), [seo/21-ecommerce-structured-data-playbook-2026.md](seo/21-ecommerce-structured-data-playbook-2026.md) и после сборки обнови [seo/59-entity-performance-report-2026.md](seo/59-entity-performance-report-2026.md);
