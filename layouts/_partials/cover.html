@@ -68,7 +68,17 @@ Local PaperMod cover override.
             alt="{{ $alt }}"
             style="aspect-ratio: {{ $fallback.Width }} / {{ $fallback.Height }};">
     {{- else }}
-        <img loading="{{ $loading }}" decoding="async" fetchpriority="{{ $fetchpriority }}" src="{{ $imgdl }}" alt="{{ $alt }}">
+        {{- $fallbackStaticWidth := cond $.IsSingle 1080 720 }}
+        {{- $fallbackStaticHeight := cond $.IsSingle 720 480 }}
+        {{- with $cover }}
+            {{- with .Width }}
+                {{- $fallbackStaticWidth = . }}
+            {{- end }}
+            {{- with .Height }}
+                {{- $fallbackStaticHeight = . }}
+            {{- end }}
+        {{- end }}
+        <img loading="{{ $loading }}" decoding="async" fetchpriority="{{ $fetchpriority }}" src="{{ $imgdl }}" width="{{ $fallbackStaticWidth }}" height="{{ $fallbackStaticHeight }}" alt="{{ $alt }}" style="aspect-ratio: {{ $fallbackStaticWidth }} / {{ $fallbackStaticHeight }};">
     {{- end }}
 
     {{- if $addLink }}

@@ -42,6 +42,6 @@ Partial использует тот же поиск в page bundle, что и co
       height="{{ $fallback.Height }}"
       alt="{{ $alt }}">
   {{- else -}}
-    <img class="articles-list__image" loading="lazy" decoding="async" fetchpriority="auto" src="{{ . | relURL }}" alt="{{ $alt }}">
+    <img class="articles-list__image" loading="lazy" decoding="async" fetchpriority="auto" src="{{ . | relURL }}" width="720" height="480" alt="{{ $alt }}">
   {{- end -}}
 {{- end -}}

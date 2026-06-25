@@ -4,7 +4,7 @@ safe to infer that the front matter image is also the first content image.
 
 The matching seo-image shortcode skips its inline preload for these pages, so
 the browser discovers one responsive WebP preload from <head> instead of a
-late duplicate next to the <img>.
+late duplicate next to the visible image element.
 */ -}}
 {{- $schemaTypes := .Params.schema_types | default (slice) -}}
 {{- $isPrimaryContentPage := and .IsPage (or (in $schemaTypes "article") (in $schemaTypes "news") (in $schemaTypes "product")) -}}
