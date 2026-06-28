@@ -1,6 +1,6 @@
 # Документация Aerocool
 
-Обновлено: 2026-06-26.
+Обновлено: 2026-06-28.
 
 Этот файл — главная карта всей документации проекта. Его задача простая: показать новичку, что читать сначала, что читать потом и какие документы нужны только для профильных задач.
 
@@ -162,13 +162,13 @@
 
 ### Текущие UX/UI Аудиты
 
-62. [audits/62-2026-06-03-ux-ui-tailwind-current-audit.md](audits/62-2026-06-03-ux-ui-tailwind-current-audit.md) — предыдущий исторический UX/UI-аудит после первых обновлений визуального слоя Tailwind 4.3, FAQ, контактов, success alert, recommended links для статей/новостей, about-компонентов, product cards и product detail layout. Для текущего состояния использовать audit `65`.
+62. [audits/62-2026-06-03-ux-ui-tailwind-current-audit.md](audits/62-2026-06-03-ux-ui-tailwind-current-audit.md) — исторический UX/UI-аудит после первых обновлений визуального слоя Tailwind 4.3, FAQ, контактов, success alert, recommended links для статей/новостей, about-компонентов, product cards и product detail layout. Для текущего состояния использовать audit `92`.
 
-63. [audits/63-2026-06-04-ux-ui-tailwind-current-audit.md](audits/63-2026-06-04-ux-ui-tailwind-current-audit.md) — быстрый UX/UI snapshot после каталоговых обновлений: 1440px site width, desktop/mobile catalog navigation, product filters, sort, product cards, PDP purchase-блоки и backlog по comparison table, applied filter chips и search UI. Для текущего полного аудита использовать audit `65`.
+63. [audits/63-2026-06-04-ux-ui-tailwind-current-audit.md](audits/63-2026-06-04-ux-ui-tailwind-current-audit.md) — исторический быстрый UX/UI snapshot после каталоговых обновлений: 1440px site width, desktop/mobile catalog navigation, product filters, sort, product cards, PDP purchase-блоки и backlog по comparison table, applied filter chips и search UI. Для текущего полного аудита использовать audit `92`.
 
-64. [audits/64-2026-06-04-full-ux-ui-tailwind-audit.md](audits/64-2026-06-04-full-ux-ui-tailwind-audit.md) — полный глубокий UX/UI-аудит Tailwind 4.3: screenshots, rendered HTML, CDP-проверка filters/sort, PDP gallery, search UI, root catalog titles, series previews, contact placeholders, Tailwind token debt и практический порядок исправлений. Для текущего состояния использовать audit `65`.
+64. [audits/64-2026-06-04-full-ux-ui-tailwind-audit.md](audits/64-2026-06-04-full-ux-ui-tailwind-audit.md) — исторический полный UX/UI-аудит Tailwind 4.3: screenshots, rendered HTML, CDP-проверка filters/sort, PDP gallery, search UI, root catalog titles, series previews, contact placeholders, Tailwind token debt и практический порядок исправлений. Использовать как screenshot evidence; для текущего состояния читать audit `92`.
 
-65. [audits/65-2026-06-05-full-ux-ui-revalidation-audit.md](audits/65-2026-06-05-full-ux-ui-revalidation-audit.md) — текущий повторный полный UX/UI-аудит Tailwind 4.3 на 2026-06-05: фиксирует оценку **7.9/10** после исправления root catalog titles, успешную Hugo-сборку, открытые P1/P2 задачи и актуальный порядок работ по product finding, search UI, comparison table, applied filter chips и Tailwind token cleanup.
+65. [audits/65-2026-06-05-full-ux-ui-revalidation-audit.md](audits/65-2026-06-05-full-ux-ui-revalidation-audit.md) — исторический повторный UX/UI-аудит Tailwind 4.3 на 2026-06-05: фиксирует оценку **7.9/10** после исправления root catalog titles, успешную Hugo-сборку и открытые на ту дату P1/P2 задачи. Для текущего состояния и порядка работ использовать audit `92`.
 
 ### Исторические Tooling-Аудиты
 
@@ -257,6 +257,10 @@
 ### Текущий Полный Аудит Документации
 
 91. [audits/91-2026-06-26-full-documentation-project-sync-audit-current.md](audits/91-2026-06-26-full-documentation-project-sync-audit-current.md) — текущий полный аудит документации на 2026-06-26: порядок чтения `01-91`, русский язык, стек Hugo `0.163.0` / Node `24.16.0` / Tailwind CSS `4.3.0`, ссылки, image/cover-стандарт, SEO/schema/CWV, проверка production-сборки и итоговая оценка **9.8/10**.
+
+### Текущий UX/UI Аудит Tailwind Plus
+
+92. [audits/92-2026-06-28-tailwind-plus-ui-map-current-audit.md](audits/92-2026-06-28-tailwind-plus-ui-map-current-audit.md) — текущая проверка выполнения карты `51`: структура Tailwind Plus **8.1/10**, фактический e-commerce UX **7.6/10**, общая готовность **7.8/10**, закрытые UI-задачи, P0 по одинаковым и тестовым товарным изображениям и актуальный порядок работ по featured products, filters, comparison, search, series и PDP.
 
 ## Маршруты По Задачам
 
@@ -358,10 +362,11 @@
 Для UI-блоков, Tailwind Plus и визуальной структуры страниц читать:
 
 1. [architecture/51-tailwind-plus-ui-section-map-2026.md](architecture/51-tailwind-plus-ui-section-map-2026.md)
-2. [audits/65-2026-06-05-full-ux-ui-revalidation-audit.md](audits/65-2026-06-05-full-ux-ui-revalidation-audit.md)
-3. [audits/64-2026-06-04-full-ux-ui-tailwind-audit.md](audits/64-2026-06-04-full-ux-ui-tailwind-audit.md), если нужны скриншоты и подробные визуальные доказательства
-4. [architecture/03-hugo-template-helpers.md](architecture/03-hugo-template-helpers.md)
-5. [content/07-content-seo-checklist-2026.md](content/07-content-seo-checklist-2026.md)
+2. [audits/92-2026-06-28-tailwind-plus-ui-map-current-audit.md](audits/92-2026-06-28-tailwind-plus-ui-map-current-audit.md)
+3. [audits/65-2026-06-05-full-ux-ui-revalidation-audit.md](audits/65-2026-06-05-full-ux-ui-revalidation-audit.md), если нужен исторический code-level snapshot до последующих изменений
+4. [audits/64-2026-06-04-full-ux-ui-tailwind-audit.md](audits/64-2026-06-04-full-ux-ui-tailwind-audit.md), если нужны скриншоты и подробные визуальные доказательства
+5. [architecture/03-hugo-template-helpers.md](architecture/03-hugo-template-helpers.md)
+6. [content/07-content-seo-checklist-2026.md](content/07-content-seo-checklist-2026.md)
 
 ## Правило Поддержки
 

@@ -1,6 +1,6 @@
 # Aerocool Ukraine
 
-Обновлено: 2026-06-26.
+Обновлено: 2026-06-28.
 
 `Aerocool Ukraine` — двуязычный маркетинговый и каталоговый сайт на `Hugo` для кресел Aerocool в Украине. Основной язык — украинский (`uk`), второй язык — русский (`ru`). Сайт собирается статически, деплоится через `Netlify` и использует локальные Hugo overrides поверх темы `PaperMod`.
 
@@ -21,7 +21,7 @@
 
 Для задач по внутренней перелинковке, анкорам, breadcrumbs, related-блокам, пагинации и внешним ссылкам использовать [docs/seo/81-internal-linking-strategy-2026.md](docs/seo/81-internal-linking-strategy-2026.md), [docs/seo/85-content-linking-editorial-standard-2026.md](docs/seo/85-content-linking-editorial-standard-2026.md) и текущий аудит [docs/audits/84-2026-06-24-full-link-content-seo-audit.md](docs/audits/84-2026-06-24-full-link-content-seo-audit.md). Проверка ссылок остается ручной после production-сборки; текущая структурная оценка ссылочного графа — **9.5/10**. Практический SEO-эффект основного домена остается заблокирован, пока Netlify собирает опубликованный сайт с `--environment development` и возвращает `noindex,nofollow`.
 
-Для текущих задач по UX/UI, Tailwind Plus секциям, визуальному слою Tailwind CSS 4.3, компонентам, каталогу, фильтрам и визуальной структуре страниц читать [docs/architecture/51-tailwind-plus-ui-section-map-2026.md](docs/architecture/51-tailwind-plus-ui-section-map-2026.md) и актуальный повторный полный аудит [docs/audits/65-2026-06-05-full-ux-ui-revalidation-audit.md](docs/audits/65-2026-06-05-full-ux-ui-revalidation-audit.md). Для screenshot-доказательств использовать предыдущий полный визуальный аудит [docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md](docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md).
+Для текущих задач по UX/UI, Tailwind Plus секциям, визуальному слою Tailwind CSS 4.3, компонентам, каталогу, фильтрам и визуальной структуре страниц читать [docs/architecture/51-tailwind-plus-ui-section-map-2026.md](docs/architecture/51-tailwind-plus-ui-section-map-2026.md) и текущий аудит выполнения карты [docs/audits/92-2026-06-28-tailwind-plus-ui-map-current-audit.md](docs/audits/92-2026-06-28-tailwind-plus-ui-map-current-audit.md). Аудит [65](docs/audits/65-2026-06-05-full-ux-ui-revalidation-audit.md) использовать как исторический code-level snapshot, а для screenshot-доказательств — полный визуальный аудит [64](docs/audits/64-2026-06-04-full-ux-ui-tailwind-audit.md).
 
 Для работы с текстами и изображениями любой страницы сначала читать [docs/content/79-page-content-design-dna-2026.md](docs/content/79-page-content-design-dna-2026.md): это единый контракт тональности, правил против AI-штампов, доказательности, визуальной ДНК, размеров и контрольных ограничений товарных изображений. Для вопроса “где какой контент должен быть, какие ссылки нужны и как делать литературную обработку” читать [docs/seo/85-content-linking-editorial-standard-2026.md](docs/seo/85-content-linking-editorial-standard-2026.md), а для текущего состояния контента и ссылок — [docs/audits/84-2026-06-24-full-link-content-seo-audit.md](docs/audits/84-2026-06-24-full-link-content-seo-audit.md). Подробные промпты для изображений и технический регламент находятся в [docs/content/67-image-design-playbook-2026.md](docs/content/67-image-design-playbook-2026.md), текущая проверка `image` + служебного `cover`-блока — в [docs/audits/89-2026-06-24-cover-block-image-seo-audit.md](docs/audits/89-2026-06-24-cover-block-image-seo-audit.md), а постраничное состояние слоя изображений — в [docs/audits/80-2026-06-19-full-site-content-image-audit.md](docs/audits/80-2026-06-19-full-site-content-image-audit.md). Аудиты `69`, `70`, `71`, `74` и `77` остаются профильными или историческими детализациями.
 
@@ -31,7 +31,7 @@
 
 Вся документация проекта должна быть русскоязычной, понятной новичку и структурированной. Единый стандарт стиля описан в [docs/architecture/02-documentation-style-guide.md](docs/architecture/02-documentation-style-guide.md).
 
-Последний полный аудит документации, синхронизации с кодом и официальными практиками 2026 года находится в [docs/audits/91-2026-06-26-full-documentation-project-sync-audit-current.md](docs/audits/91-2026-06-26-full-documentation-project-sync-audit-current.md). Итоговая оценка после проверки: **9.8/10**. Документы `87` и `88` — профильные документы по расширению ключевых слов, контента и стратегии роста; аудит `89` — профильная проверка `image` + `cover`, размеров, форматов, crop-наборов и дублей главных товарных изображений. Аудиты `78`, `82`, `86` и `90` остаются историческими снимками.
+Последний полный аудит документации, синхронизации с кодом и официальными практиками 2026 года находится в [docs/audits/91-2026-06-26-full-documentation-project-sync-audit-current.md](docs/audits/91-2026-06-26-full-documentation-project-sync-audit-current.md). Итоговая оценка после проверки: **9.8/10**. Более новый документ `92` является профильным UX/UI-аудитом и не заменяет полный документационный аудит `91`. Документы `87` и `88` — профильные документы по расширению ключевых слов, контента и стратегии роста; аудит `89` — профильная проверка `image` + `cover`, размеров, форматов, crop-наборов и дублей главных товарных изображений. Аудиты `78`, `82`, `86` и `90` остаются историческими снимками.
 
 ## 1. Главная идея проекта
 
@@ -562,7 +562,7 @@ git checkout dev
 
 1. `README.md` — главный вход в проект.
 2. `AGENTS.md` — правила безопасной работы для Codex/агентов.
-3. [docs/01-documentation-map.md](docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-88`.
+3. [docs/01-documentation-map.md](docs/01-documentation-map.md) — полная карта документации и порядок чтения `01-92`.
 4. [docs/architecture/02-documentation-style-guide.md](docs/architecture/02-documentation-style-guide.md) — стандарт русскоязычной, понятной и структурированной документации.
 5. [docs/architecture/03-hugo-template-helpers.md](docs/architecture/03-hugo-template-helpers.md) — локальные Hugo helpers и partials.
 6. [docs/content/05-front-matter-reference.md](docs/content/05-front-matter-reference.md) — поля front matter для страниц.
